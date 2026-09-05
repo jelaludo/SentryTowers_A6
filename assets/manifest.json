@@ -1,0 +1,110 @@
+[
+  {
+    "family": "Needle",
+    "tier": 1,
+    "file": "assets/needle_t1.glb",
+    "stationary": false
+  },
+  {
+    "family": "Needle",
+    "tier": 2,
+    "file": "assets/needle_t2.glb",
+    "stationary": false
+  },
+  {
+    "family": "Needle",
+    "tier": 3,
+    "file": "assets/needle_t3.glb",
+    "stationary": false
+  },
+  {
+    "family": "Rotor",
+    "tier": 1,
+    "file": "assets/rotor_t1.glb",
+    "stationary": false
+  },
+  {
+    "family": "Rotor",
+    "tier": 2,
+    "file": "assets/rotor_t2.glb",
+    "stationary": false
+  },
+  {
+    "family": "Rotor",
+    "tier": 3,
+    "file": "assets/rotor_t3.glb",
+    "stationary": false
+  },
+  {
+    "family": "Kiln",
+    "tier": 1,
+    "file": "assets/kiln_t1.glb",
+    "stationary": false
+  },
+  {
+    "family": "Kiln",
+    "tier": 2,
+    "file": "assets/kiln_t2.glb",
+    "stationary": false
+  },
+  {
+    "family": "Kiln",
+    "tier": 3,
+    "file": "assets/kiln_t3.glb",
+    "stationary": false
+  },
+  {
+    "family": "Quiver",
+    "tier": 1,
+    "file": "assets/quiver_t1.glb",
+    "stationary": false
+  },
+  {
+    "family": "Quiver",
+    "tier": 2,
+    "file": "assets/quiver_t2.glb",
+    "stationary": false
+  },
+  {
+    "family": "Quiver",
+    "tier": 3,
+    "file": "assets/quiver_t3.glb",
+    "stationary": false
+  },
+  {
+    "family": "Lancer",
+    "tier": 1,
+    "file": "assets/lancer_t1.glb",
+    "stationary": false
+  },
+  {
+    "family": "Lancer",
+    "tier": 2,
+    "file": "assets/lancer_t2.glb",
+    "stationary": false
+  },
+  {
+    "family": "Lancer",
+    "tier": 3,
+    "file": "assets/lancer_t3.glb",
+    "stationary": false
+  },
+  {
+    "family": "Relay",
+    "tier": 1,
+    "file": "assets/relay_t1.glb",
+    "stationary": true
+  },
+  {
+    "family": "Relay",
+    "tier": 2,
+    "file": "assets/relay_t2.glb",
+    "stationary": true
+  },
+  {
+    "family": "Relay",
+    "tier": 3,
+    "file": "assets/relay_t3.glb",
+    "stationary": true
+  }
+]

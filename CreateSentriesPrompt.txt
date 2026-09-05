@@ -1,0 +1,42 @@
+**Build these as modular tower families: one recognizable design, three tiers, with upgrades expressed through functional geometry.** I’m reading “stronger longing elements” as longer, more powerful-looking weapon elements.
+
+I could inspect your page’s source, although I haven’t visually reviewed the rendered models.
+
+One concrete integration issue: your current [GLB tower builder](https://kai-denrei.github.io/spherical-stalberg-grid/src/towerlooks.js) merges the model by material and explicitly discards pivots. **Moving turrets will require preserving the articulated parts**, merging geometry only within each moving assembly.
+
+For an initial collection, I’d propose **four families × three tiers = twelve GLBs**:
+
+| Family                  | Tier 1 — base                                             | Tier 2 — upgrade                                                             | Tier 3 — upgrade                                                                              |
+| ----------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **Needle · sniper**     | Single long barrel, narrow angular receiver, offset scope | Longer barrel with exposed accelerator sections; enlarged rear counterweight | Exceptionally long reinforced barrel, paired longitudinal braces, substantial rear power pack |
+| **Rotor · suppression** | Compact rotary barrel cluster, small ammunition drum      | Longer cluster, larger drum, reinforced rotating cradle                      | Heavy barrel shroud, twin feed drums, prominent cooling system                                |
+| **Kiln · plasma**       | Two short, broad emitters around a central cooling block  | Deeper emitter housings, larger cooling fins, additional feed pipes          | Massive paired projector mouths, expanded heat exchangers, armored reservoirs                 |
+| **Quiver · missiles**   | Two narrow three-cell launch pods around a central sensor | Two larger six-cell pods; strengthened elevation mounts                      | Two deep nine-cell pods, armored backs, larger central tracking sensor                        |
+
+Keep the same base footprint, turret architecture, signature shapes, and accent placement within each family. Upgrades should remain recognizable in silhouette with materials switched off.
+
+For the **Needle sniper**, the identity would be:
+
+* One primary barrel at every tier.
+* Narrow wedge-shaped receiver and the same offset optical sensor.
+* A distinctive illuminated longitudinal channel.
+* Increasing barrel reach, rear counterweight, and structural support.
+
+Use roughly **1.0× / 1.3× / 1.6× barrel length** as a starting point. Keep the mounting center stable: a stronger version should feel like the original machine receiving heavier equipment.
+
+For articulation, I’d standardize this node contract across the collection:
+
+| Node        | Purpose                                   |
+| ----------- | ----------------------------------------- |
+| `ROOT`      | Placement and orientation on the planet   |
+| `BASE`      | Stationary structure                      |
+| `YAW`       | Turret rotation around local up           |
+| `PITCH`     | Weapon elevation; child of `YAW`          |
+| `RECOIL`    | Sliding weapon assembly; child of `PITCH` |
+| `MUZZLE_00` | Projectile/VFX origin; follows the weapon |
+
+Use local **+Y up**, with a documented common forward axis. This matters on your spherical board: aiming must use each tower’s local surface frame. Motors, barrels, and launch pods can use rigid transforms; these designs don’t need skeletal rigs.
+
+I’d package each tier as a separate GLB with identical node names and compatible pivots. Keep weapon statistics in your existing gameplay definitions. Materials can use your supported unlit/emissive options; any glow halo still depends on the game’s rendering effects.
+
+**Please export one representative tower using the unit viewer’s “export” button and attach the GLB, ideally with a screenshot of the look you want to preserve.** That will let me match the actual proportions, materials, and construction when creating the first three-tier sniper family.
