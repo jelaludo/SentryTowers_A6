@@ -1,6 +1,6 @@
 # Sentry Workshop
 
-30 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar and Heptapod A6, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
+33 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar, Heptapod A6 and Plasma, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
 
 Run `python3 tools/build_sentries.py` to regenerate. No Python packages are needed.
 
@@ -26,3 +26,7 @@ Railgun uses paired induction rails and a heavy capacitor bank. Howitzer has thr
 Heptapod A6 has exactly six legs (the supplied name is retained), each with HIP, KNEE and ANKLE joints plus a compensating FOOT transform. BODY hangs below the raised knees. The hull carries 6 / 8 / 10 vertical missile silos across the tiers. Its MUZZLE nodes orient local +Z upward, so projectile code can always use muzzle-local +Z. No turret aiming or recoil should be applied to this carrier.
 
 The A6 GLBs include a looping `Walk` animation and a one-shot `Anchor` animation that lowers the hull, spreads the feet and drives ground spikes down. The viewer offers Mobile stance, Walk cycle and Anchor to ground. The walk is an in-place gait for inspection; world movement, terrain adaptation, pathfinding and gameplay state transitions belong to the consuming game. Return to Mobile stance to release the anchored pose. BODY and leg transforms are separate from the legacy turret hierarchy; preserve them and animation tracks on import. Ground spikes intentionally penetrate the ground when deployed.
+
+## Plasma Sentry
+
+Three tiers share one broad flared flamethrower-style nozzle, twin pressure reservoirs, insulated feeds and a recessed green plasma throat. The sleeve has real circular through-holes (30 / 40 / 50), with modeled inner walls. Higher tiers increase nozzle length and diameter, reservoir capacity and cooling fins. Uses the standard YAW / PITCH / RECOIL hierarchy and forward MUZZLE_00; no external flame or plasma VFX is baked in.

@@ -190,5 +190,26 @@
     "file": "assets/heptapod_a6_t3.glb",
     "stationary": false,
     "mobile": true
+  },
+  {
+    "family": "Plasma",
+    "tier": 1,
+    "file": "assets/plasma_t1.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Plasma",
+    "tier": 2,
+    "file": "assets/plasma_t2.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Plasma",
+    "tier": 3,
+    "file": "assets/plasma_t3.glb",
+    "stationary": false,
+    "mobile": false
   }
 ]

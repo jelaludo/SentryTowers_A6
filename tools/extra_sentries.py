@@ -3,9 +3,43 @@ import math
 
 def quat_z(a): return [0, 0, math.sin(a/2), math.cos(a/2)]
 
+def perforated_nozzle(m,parent,length,radius,rows):
+    """Closed-thickness flared sleeve with actual circular through-holes."""
+    vertices=[];normals=[];columns=10;thickness=.045
+    def point(u,z,inside=False):
+        r=radius*(.82+.18*z/length)-(thickness if inside else 0)
+        return [r*math.cos(u/radius),r*math.sin(u/radius),.38+z]
+    def face(points):
+        for j in range(1,len(points)-1):
+            a,b,c=points[0],points[j],points[j+1]
+            u=[b[k]-a[k] for k in range(3)];v=[c[k]-a[k] for k in range(3)]
+            n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+            size=math.sqrt(sum(x*x for x in n));vertices.extend([a,b,c]);normals.extend([[x/size for x in n]]*3)
+    width=2*math.pi*radius/columns;height=length/rows;hole=min(width,height)*.29
+    for row in range(rows):
+        for col in range(columns):
+            boundary=[];rim=[]
+            for k in range(16):
+                angle=2*math.pi*k/16;cx,cz=math.cos(angle),math.sin(angle)
+                reach=min(width/(2*max(abs(cx),1e-9)),height/(2*max(abs(cz),1e-9)))
+                center=[(col+.5)*width,(row+.5)*height]
+                boundary.append([center[0]+cx*reach,center[1]+cz*reach])
+                rim.append([center[0]+cx*hole,center[1]+cz*hole])
+            for k in range(16):
+                j=(k+1)%16
+                face([point(*boundary[k]),point(*boundary[j]),point(*rim[j]),point(*rim[k])])
+                face([point(*rim[k],True),point(*rim[j],True),point(*boundary[j],True),point(*boundary[k],True)])
+                face([point(*rim[k]),point(*rim[j]),point(*rim[j],True),point(*rim[k],True)])
+                for z,end in [(0,-1),(length,1)]:
+                    if abs(boundary[k][1]-z)<1e-8 and abs(boundary[j][1]-z)<1e-8:
+                        face([point(*boundary[j]),point(*boundary[k]),point(*boundary[k],True),point(*boundary[j],True)])
+    mesh=len(m.doc['meshes'])
+    m.doc['meshes'].append(dict(name='Perforated nozzle',primitives=[dict(attributes={'POSITION':m.accessor(vertices,'VEC3',3),'NORMAL':m.accessor(normals,'VEC3',3)},material=1)]))
+    node=m.node('PERFORATED_NOZZLE',parent);m.doc['nodes'][node].update(mesh=mesh,extras={'throughHoles':rows*columns})
+
 def build_extra(Model, out, family, tier):
     t=tier
-    m=Model(family,t,{'Railgun':[.3,.55,1], 'Howitzer':[1,.55,.08], 'Mortar':[.6,1,.18], 'Heptapod A6':[.7,.25,1]}[family])
+    m=Model(family,t,{'Railgun':[.3,.55,1], 'Howitzer':[1,.55,.08], 'Mortar':[.6,1,.18], 'Heptapod A6':[.7,.25,1], 'Plasma':[.15,1,.65]}[family])
     def box(n,parent,p,s,mat=0):m.shape(n,parent,p,s,mat)
     def cyl(n,parent,p,s,mat=1,axis='y',sides=12):m.shape(n,parent,p,s,mat,sides,axis)
     def beam(n,parent,a,b,width,mat=1):
@@ -41,6 +75,22 @@ def build_extra(Model, out, family, tier):
             box('Targeting optic',r,[.48,.26,.14],[.2,.14,.4],0)
             box('Optic window',r,[.48,.26,.345],[.15,.09,.02],4)
             muzzle(r,[0,0,length+.32])
+        elif family=='Plasma':
+            length=.95+(t-1)*.30;radius=.38+(t-1)*.045
+            perforated_nozzle(m,r,length,radius,t+2)
+            for z,rr in [(.38,radius*.82),(.38+length,radius)]:
+                m.shape('Nozzle reinforcing lip',r,[0,0,z],[rr*2+.035,rr*2+.035,.095],0,20,'z',hollow=.88)
+            cyl('Recessed combustion core',r,[0,0,.52],[.38,.38,.025],2,'z')
+            cyl('Plasma throat',r,[0,0,.54],[.24,.24,.02],4,'z')
+            for side in [-1,1]:
+                cyl('Pressure reservoir',r,[side*.57,-.08,-.45],[.30+t*.035,.30+t*.035,.65+t*.10],0,'z')
+                cyl('Reservoir endcap',r,[side*.57,-.08,-.05],[.29,.29,.06],3,'z')
+                beam('Insulated feed pipe',r,[side*.57,-.08,-.03],[side*.29,-.18,.36],.09,3)
+                box('Tank charge window',r,[side*.57,.10,-.45],[.09,.025,.35],4)
+            for k in range(3+t*2):box('Heat exchanger fin',r,[0,-.30,-.65+k*.12],[.72,.18,.045],2)
+            box('Pilot housing',r,[0,-radius-.03,.28+length],[.16,.12,.3],0)
+            box('Pilot aperture',r,[0,-radius-.03,.435+length],[.09,.06,.015],4)
+            muzzle(r,[0,0,.45+length])
         elif family=='Howitzer':
             m.doc['nodes'][m.pitch]['rotation']=[-math.sin(math.radians(25)/2),0,0,math.cos(math.radians(25)/2)]
             length=1.25+t*.28

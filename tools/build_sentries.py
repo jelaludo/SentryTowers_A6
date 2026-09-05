@@ -178,6 +178,6 @@ if __name__=='__main__':
     OUT.mkdir(exist_ok=True)
     entries=[build(f,t) for f in ['Needle','Rotor','Kiln','Quiver','Lancer','Relay'] for t in [1,2,3]]
     from extra_sentries import build_extra
-    entries += [build_extra(Model,OUT,f,t) for f in ['Railgun','Howitzer','Mortar','Heptapod A6'] for t in [1,2,3]]
+    entries += [build_extra(Model,OUT,f,t) for f in ['Railgun','Howitzer','Mortar','Heptapod A6','Plasma'] for t in [1,2,3]]
     (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n')
     print('Exported',len(entries),'GLBs to',OUT)
