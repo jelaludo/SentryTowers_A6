@@ -1,6 +1,6 @@
 # Sentry Workshop
 
-18 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer and Relay, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
+30 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar and Heptapod A6, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
 
 Run `python3 tools/build_sentries.py` to regenerate. No Python packages are needed.
 
@@ -17,3 +17,12 @@ Relay keeps the common transform names for loader compatibility, but every visib
 Preserve these transforms when importing: merge only within the same moving assembly. MUZZLE nodes are empty transforms for runtime projectiles/VFX. Models contain no external firing effects or gameplay statistics. Standard metallic/roughness materials include emissive accents, but bloom must be supplied by the renderer. No baked animation clips or skeletal rigs are required.
 
 `assets/manifest.json` lists all exports. Source geometry is intentionally modular and unoptimized for individual-part editing; production use may benefit from merging meshes within each assembly. The preview uses a shared scale to make tier differences visible.
+
+
+## Artillery and Heptapod A6
+
+Railgun uses paired induction rails and a heavy capacitor bank. Howitzer has three fixed hydraulic stabilization legs and a default elevation of 25 degrees. Mortar has a short broad tube, drum autoloader, and default elevation of 68 degrees. Each family has three equipment tiers.
+
+Heptapod A6 has exactly six legs (the supplied name is retained), each with HIP, KNEE and ANKLE joints plus a compensating FOOT transform. BODY hangs below the raised knees. The hull carries 6 / 8 / 10 vertical missile silos across the tiers. Its MUZZLE nodes orient local +Z upward, so projectile code can always use muzzle-local +Z. No turret aiming or recoil should be applied to this carrier.
+
+The A6 GLBs include a looping `Walk` animation and a one-shot `Anchor` animation that lowers the hull, spreads the feet and drives ground spikes down. The viewer offers Mobile stance, Walk cycle and Anchor to ground. The walk is an in-place gait for inspection; world movement, terrain adaptation, pathfinding and gameplay state transitions belong to the consuming game. Return to Mobile stance to release the anchored pose. BODY and leg transforms are separate from the legacy turret hierarchy; preserve them and animation tracks on import. Ground spikes intentionally penetrate the ground when deployed.

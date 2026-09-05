@@ -32,7 +32,7 @@ class Model:
         a=dict(bufferView=vi,componentType=5126,count=len(values),type=kind)
         if width==3: a.update(min=[min(v[j] for v in values) for j in range(3)],max=[max(v[j] for v in values) for j in range(3)])
         ai=len(self.doc['accessors']);self.doc['accessors'].append(a);return ai
-    def shape(self,name,parent,pos,size,mat=0,sides=0,axis='y',taper=1):
+    def shape(self,name,parent,pos,size,mat=0,sides=0,axis='y',taper=1,hollow=0):
         verts=[]; norms=[]
         def face(points):
             a,b,c=points[:3]; u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
@@ -40,7 +40,15 @@ class Model:
             for k in range(1,len(points)-1):verts.extend([points[0],points[k],points[k+1]]);norms.extend([n]*3)
         if sides:
             rings=[[(math.cos(i*2*math.pi/sides)*(.5 if h==0 else taper*.5),h-.5,math.sin(i*2*math.pi/sides)*(.5 if h==0 else taper*.5)) for i in range(sides)] for h in range(2)]
-            face(rings[0]);face(list(reversed(rings[1])))
+            if hollow:
+                inner=[[(x*hollow,y,z*hollow) for x,y,z in ring] for ring in rings]
+                for i in range(sides):
+                    j=(i+1)%sides
+                    face([inner[0][i],inner[0][j],inner[1][j],inner[1][i]])
+                    face([rings[0][i],rings[0][j],inner[0][j],inner[0][i]])
+                    face([rings[1][j],rings[1][i],inner[1][i],inner[1][j]])
+            else:
+                face(rings[0]);face(list(reversed(rings[1])))
             for i in range(sides):j=(i+1)%sides;face([rings[0][i],rings[1][i],rings[1][j],rings[0][j]])
         else:
             p=[(-.5,-.5,-.5),(.5,-.5,-.5),(.5,.5,-.5),(-.5,.5,-.5),(-.5,-.5,.5),(.5,-.5,.5),(.5,.5,.5),(-.5,.5,.5)]
@@ -169,5 +177,7 @@ def build(f,t):
 if __name__=='__main__':
     OUT.mkdir(exist_ok=True)
     entries=[build(f,t) for f in ['Needle','Rotor','Kiln','Quiver','Lancer','Relay'] for t in [1,2,3]]
+    from extra_sentries import build_extra
+    entries += [build_extra(Model,OUT,f,t) for f in ['Railgun','Howitzer','Mortar','Heptapod A6'] for t in [1,2,3]]
     (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n')
     print('Exported',len(entries),'GLBs to',OUT)

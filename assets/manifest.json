@@ -106,5 +106,89 @@
     "tier": 3,
     "file": "assets/relay_t3.glb",
     "stationary": true
+  },
+  {
+    "family": "Railgun",
+    "tier": 1,
+    "file": "assets/railgun_t1.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Railgun",
+    "tier": 2,
+    "file": "assets/railgun_t2.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Railgun",
+    "tier": 3,
+    "file": "assets/railgun_t3.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Howitzer",
+    "tier": 1,
+    "file": "assets/howitzer_t1.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Howitzer",
+    "tier": 2,
+    "file": "assets/howitzer_t2.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Howitzer",
+    "tier": 3,
+    "file": "assets/howitzer_t3.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Mortar",
+    "tier": 1,
+    "file": "assets/mortar_t1.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Mortar",
+    "tier": 2,
+    "file": "assets/mortar_t2.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Mortar",
+    "tier": 3,
+    "file": "assets/mortar_t3.glb",
+    "stationary": false,
+    "mobile": false
+  },
+  {
+    "family": "Heptapod A6",
+    "tier": 1,
+    "file": "assets/heptapod_a6_t1.glb",
+    "stationary": false,
+    "mobile": true
+  },
+  {
+    "family": "Heptapod A6",
+    "tier": 2,
+    "file": "assets/heptapod_a6_t2.glb",
+    "stationary": false,
+    "mobile": true
+  },
+  {
+    "family": "Heptapod A6",
+    "tier": 3,
+    "file": "assets/heptapod_a6_t3.glb",
+    "stationary": false,
+    "mobile": true
   }
 ]
