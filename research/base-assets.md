@@ -175,3 +175,8 @@ All footprints below are **reserved plots in 4 m cells**, written X × Z. A 4 ×
 | `prop_antenna` | Small roof antenna | 1 × 1 | Roof socket only; data connection optional. |
 | `prop_banner` | Faction standard and mast | 1 × 1 | Faction identity with destructible mast and cloth sections. |
 
+
+
+## Alien research outpost expansion
+
+Batch 02 adds two research assets to the original 109-item catalog (111 total): **research_xenobiology**, a 16 × 12 m sealed containment laboratory, and **research_specimen_crate**, a cryogenic vault in a 4 × 4 m reserved plot. Together with ten existing catalog families, these have D0–D3 art prototypes in the [outpost preview](../research-outpost/). See the [asset manifest](../assets/research-outpost/manifest.json) for authored socket transforms and conservative collision helpers. Runtime navigation, services and LODs remain pending.

@@ -462,7 +462,7 @@
         "D2": "Broken shoulder and raised debris",
         "D3": "Crater or broken pavement; vehicle route may close"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "circulation",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -478,7 +478,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "road_corner",
@@ -2809,7 +2817,7 @@
         "D2": "Exposed interior and partial roof loss; function disabled",
         "D3": "Standing ruins and rubble; function lost"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "command",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -2825,7 +2833,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "command_comms",
@@ -2862,7 +2878,7 @@
         "D2": "Exposed mechanism; function disabled",
         "D3": "Broken chassis and bounded debris"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "command",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -2878,7 +2894,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "command_server",
@@ -3074,7 +3098,7 @@
         "D2": "Exposed interior and partial roof loss; function disabled",
         "D3": "Standing ruins and rubble; function lost"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "personnel",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -3090,7 +3114,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "personnel_infirmary",
@@ -3127,7 +3159,7 @@
         "D2": "Exposed interior and partial roof loss; function disabled",
         "D3": "Standing ruins and rubble; function lost"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "medical",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -3143,7 +3175,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "personnel_triage",
@@ -3690,7 +3730,7 @@
         "D2": "Split or broken form; disabled",
         "D3": "Small debris cluster or removed fragment"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "logistics",
       "placement_mode": "ground_or_rated_stack_socket",
       "art_requirements": [
@@ -3706,7 +3746,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "crate_general",
@@ -4040,7 +4088,7 @@
         "D2": "Exposed interior and partial roof loss; function disabled",
         "D3": "Standing ruins and rubble; function lost"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "maintenance",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -4056,7 +4104,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "industry_fabricator",
@@ -4392,7 +4448,7 @@
         "D2": "Exposed mechanism; function disabled",
         "D3": "Broken chassis and bounded debris"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "utilities",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -4408,7 +4464,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "utility_battery",
@@ -4621,7 +4685,7 @@
         "D2": "Exposed mechanism; function disabled",
         "D3": "Broken chassis and bounded debris"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "utilities",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -4637,7 +4701,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "utility_junction",
@@ -5007,7 +5079,7 @@
         "D2": "Exposed interior and partial roof loss; function disabled",
         "D3": "Standing ruins and rubble; function lost"
       },
-      "status": "planned",
+      "status": "art_prototype",
       "zone": "air_operations",
       "placement_mode": "ground_plot",
       "art_requirements": [
@@ -5023,7 +5095,15 @@
         "connector elevation and agent classes",
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
-      ]
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     },
     {
       "id": "air_pad_extension",
@@ -6077,6 +6157,90 @@
         "service/attachment socket transforms",
         "state-specific navigation and support behavior"
       ]
+    },
+    {
+      "id": "research_xenobiology",
+      "name": "Xenobiology containment lab",
+      "category": "Alien research",
+      "plot_cells": [
+        4,
+        3
+      ],
+      "placement_profile": "ground",
+      "purpose": "Sealed alien sample study with isolated pressure vessels and quarantine scrubber.",
+      "connectors": [],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Scored casing and fault light",
+        "D2": "Missing panels expose isolated internals",
+        "D3": "Inert cradle and bounded debris"
+      },
+      "status": "art_prototype",
+      "zone": "research",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Runtime service connections",
+        "LOD and draw-call optimization"
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
+    },
+    {
+      "id": "research_specimen_crate",
+      "name": "Cryogenic specimen vault",
+      "category": "Alien research",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Shock-protected transport and storage of expedition samples.",
+      "connectors": [],
+      "damage_profile": "crate",
+      "damage_states": {
+        "D1": "Scored casing and fault light",
+        "D2": "Missing panels expose isolated internals",
+        "D3": "Inert cradle and bounded debris"
+      },
+      "status": "art_prototype",
+      "zone": "research",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Runtime service connections",
+        "LOD and draw-call optimization"
+      ],
+      "art_manifest": "../assets/research-outpost/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
     }
   ],
   "references": {

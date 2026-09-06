@@ -1,5 +1,7 @@
 # Sentry Workshop
 
+The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).
+
 The [base construction lab](base-kit/) now contains the first Blender-authored wall kit: four straight-wall states, a corner, an animated vehicle gate and a foundation. [Integration notes](assets/base-kit/README.md) and [editable source](source/blender/a6-wall-kit.blend) are included.
 
 The [futuristic base design catalog](research/README.md) defines 109 planned modular assets, three damage levels plus intact state, and procedural assembly rules for future base construction.

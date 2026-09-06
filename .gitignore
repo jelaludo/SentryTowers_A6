@@ -6,3 +6,6 @@ node_modules/
 imports/
 *.blend1
 *.blend2
+
+# Also ignore a local dependency symlink used for validation.
+/tools/asset-pipeline/node_modules

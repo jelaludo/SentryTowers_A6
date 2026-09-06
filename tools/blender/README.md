@@ -23,3 +23,7 @@ Codex configuration can be checked with `codex mcp get blender`. A running Codex
 Validation completed: background CLI GLB export, MCP initialization and discovery of 28 tools, scene inspection, and creation/removal of a temporary mesh object through MCP. The Blender scene was left with its original default objects. No project asset was modified by the connection test.
 
 References: [Blender MCP installation and telemetry options](https://github.com/ahujasid/blender-mcp), [Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
+
+## Alien research outpost builder
+
+`build_research_outpost.py` authors 12 families in four structural states and writes a separate manifest and editable Blender gallery. It uses `asset_common.py` for the shared material and mesh helpers. Run with `blender --background --python-exit-code 1 --python tools/blender/build_research_outpost.py`. See `assets/research-outpost/README.md` for integration limits.
