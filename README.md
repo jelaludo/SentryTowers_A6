@@ -1,5 +1,9 @@
 # Sentry Workshop
 
+The [base construction lab](base-kit/) now contains the first Blender-authored wall kit: four straight-wall states, a corner, an animated vehicle gate and a foundation. [Integration notes](assets/base-kit/README.md) and [editable source](source/blender/a6-wall-kit.blend) are included.
+
+The [futuristic base design catalog](research/README.md) defines 109 planned modular assets, three damage levels plus intact state, and procedural assembly rules for future base construction.
+
 The research collection now includes a [character animation lab](animation-tests/) alongside the sentry families. Open it from the tower viewer to inspect Shelly's eight experimental clips and two optimized variants of the rigged Mercenary Astronaut. New characters can be registered in `animation-tests/catalog.json` without changing viewer code. See [astronaut optimization measurements and integration requirements](assets/characters/README.md).
 
 33 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar, Heptapod A6 and Plasma, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.

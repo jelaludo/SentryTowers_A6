@@ -1,0 +1,6086 @@
+{
+  "schema_version": "0.1",
+  "status": "design catalog; not a runtime-ready placement manifest",
+  "grid": {
+    "cell_m": 4,
+    "socket_subgrid_m": 2,
+    "up": "+Y",
+    "forward": "+Z",
+    "north": "+Z",
+    "rotation_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "pivot": "plot center at foundation top"
+  },
+  "destruction": {
+    "states": [
+      "D0_intact",
+      "D1_damaged",
+      "D2_critical",
+      "D3_destroyed"
+    ],
+    "note": "Three damage levels in addition to intact. Structural and functional states are separate."
+  },
+  "assets": [
+    {
+      "id": "foundation_flat",
+      "name": "Universal foundation",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Modular armored slab; foundation for larger plots.",
+      "connectors": [],
+      "damage_profile": "ground",
+      "damage_states": {
+        "D1": "Scored surface; cracked edge",
+        "D2": "Broken slab and exposed support",
+        "D3": "Low rubble or crater patch; surface class recalculated"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "foundation_edge",
+      "name": "Foundation retaining edge",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Exposed edge with structural ribs; cap platform boundaries.",
+      "connectors": [],
+      "damage_profile": "ground",
+      "damage_states": {
+        "D1": "Scored surface; cracked edge",
+        "D2": "Broken slab and exposed support",
+        "D3": "Low rubble or crater patch; surface class recalculated"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "foundation_corner",
+      "name": "Foundation retaining corner",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Connect two retaining edges at a right angle.",
+      "connectors": [],
+      "damage_profile": "ground",
+      "damage_states": {
+        "D1": "Scored surface; cracked edge",
+        "D2": "Broken slab and exposed support",
+        "D3": "Low rubble or crater patch; surface class recalculated"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "foundation_ramp",
+      "name": "Foundation access ramp",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "ramp",
+      "purpose": "Connect one supported platform elevation step to a vehicle road.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "foundation_pier",
+      "name": "Adjustable support pier",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "support",
+      "purpose": "Support elevated slabs; finite authored height variants.",
+      "connectors": [],
+      "damage_profile": "support",
+      "damage_states": {
+        "D1": "Visible cracks; support retained",
+        "D2": "Buckled support; capacity reduced",
+        "D3": "Failed support; attached dependencies re-evaluated"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "foundation_bridge",
+      "name": "Utility bridge deck",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "bridge",
+      "purpose": "Road-bearing deck with explicit support sockets.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "ground_hardstand",
+      "name": "Cargo hardstand",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "ground",
+      "purpose": "Flat logistics apron with cargo placement sockets.",
+      "connectors": [],
+      "damage_profile": "ground",
+      "damage_states": {
+        "D1": "Scored surface; cracked edge",
+        "D2": "Broken slab and exposed support",
+        "D3": "Low rubble or crater patch; surface class recalculated"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "ground_drain",
+      "name": "Drainage channel",
+      "category": "Ground and foundations",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_line",
+      "purpose": "Collect runoff along road and platform edges.",
+      "connectors": [
+        {
+          "id": "utility_N",
+          "kind": "utility",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "utility_S",
+          "kind": "utility",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "site",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_straight",
+      "name": "Vehicle road straight",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NS",
+      "purpose": "8 m road corridor; connect gates, loading bays and hangars.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_corner",
+      "name": "Vehicle road corner",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NE",
+      "purpose": "Right-angle bend; rotate for other orientations.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_E",
+          "kind": "road",
+          "edge": "E",
+          "position_m": [
+            4,
+            0,
+            0
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_t",
+      "name": "Vehicle road T-junction",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NEW",
+      "purpose": "Three-port junction; reserve its entire turning area.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_E",
+          "kind": "road",
+          "edge": "E",
+          "position_m": [
+            4,
+            0,
+            0
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "road_W",
+          "kind": "road",
+          "edge": "W",
+          "position_m": [
+            -4,
+            0,
+            0
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_cross",
+      "name": "Vehicle road crossroads",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NESW",
+      "purpose": "Four-port intersection; never use as a prop socket.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_E",
+          "kind": "road",
+          "edge": "E",
+          "position_m": [
+            4,
+            0,
+            0
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "road_W",
+          "kind": "road",
+          "edge": "W",
+          "position_m": [
+            -4,
+            0,
+            0
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_end",
+      "name": "Vehicle road terminal",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_S",
+      "purpose": "End-cap for a service bay; not a turning area.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_turnaround",
+      "name": "Vehicle turning court",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        4,
+        4
+      ],
+      "placement_profile": "road_S",
+      "purpose": "Dead-end turnaround for the declared vehicle class.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_checkpoint",
+      "name": "Road inspection strip",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NS",
+      "purpose": "Scanner and embedded status lights; a logical gate approach.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "road_crossing",
+      "name": "Marked pedestrian crossing",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "road_NS_walk_EW",
+      "purpose": "Road continuity plus a protected pedestrian crossing.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            4,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "walk_W",
+          "kind": "walk",
+          "edge": "W",
+          "position_m": [
+            -4,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "walk_straight",
+      "name": "Pedestrian corridor",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "walk_NS",
+      "purpose": "4 m reserved corridor containing a 2 m clear walking lane.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "walk_corner",
+      "name": "Pedestrian corner",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "walk_NE",
+      "purpose": "Join personnel-zone footpaths.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "walk_t",
+      "name": "Pedestrian T-junction",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "walk_NEW",
+      "purpose": "Connect building entrances to the walking network.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "walk_W",
+          "kind": "walk",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "walk_stairs",
+      "name": "Pedestrian stair module",
+      "category": "Roads and circulation",
+      "plot_cells": [
+        1,
+        2
+      ],
+      "placement_profile": "stairs",
+      "purpose": "One authored elevation step; accessibility requires an alternate ramp.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "circulation",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_standard",
+      "name": "Armored wall section",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_EW",
+      "purpose": "4 m segment with a readable central armor panel.",
+      "connectors": [
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_heavy",
+      "name": "Heavy blast wall section",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_EW",
+      "purpose": "Same endpoints as standard wall; thicker layered silhouette.",
+      "connectors": [
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Outer armor missing; reinforcing core remains blocking unless an explicit breach variant is selected",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_low",
+      "name": "Low cover barrier",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "cover",
+      "purpose": "Free-standing cover; cannot substitute for a sealed perimeter wall.",
+      "connectors": [],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_corner",
+      "name": "Armored wall corner",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_NE",
+      "purpose": "Right-angle perimeter corner.",
+      "connectors": [
+        {
+          "id": "wall_N",
+          "kind": "wall",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_t",
+      "name": "Internal partition T-wall",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_NEW",
+      "purpose": "Branch an internal courtyard from the perimeter.",
+      "connectors": [
+        {
+          "id": "wall_N",
+          "kind": "wall",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_end",
+      "name": "Wall termination cap",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_W",
+      "purpose": "Cap an intentional open end; invalid on a sealed perimeter.",
+      "connectors": [
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "wall_buttress",
+      "name": "Wall reinforcement buttress",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "wall_EW",
+      "purpose": "Periodic reinforcement that preserves wall connection positions.",
+      "connectors": [
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "gate_vehicle",
+      "name": "Armored vehicle gate",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "gate",
+      "purpose": "8 m vehicle crossing; gate leaves and frame damage independently.",
+      "connectors": [
+        {
+          "id": "road_N",
+          "kind": "road",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -6,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "One leaf jammed or torn off; saved variant defines the remaining passage",
+        "D3": "Collapsed frame and bounded debris; navigation clearance is re-evaluated"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "gate_personnel",
+      "name": "Personnel airlock gate",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "walk_gate",
+      "purpose": "Foot access with two doors and a compact vestibule.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "wall_E",
+          "kind": "wall",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "wall_W",
+          "kind": "wall",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "One leaf jammed or torn off; saved variant defines the remaining passage",
+        "D3": "Collapsed frame and bounded debris; navigation clearance is re-evaluated"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "gate_checkpoint_booth",
+      "name": "Gate control booth",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        2,
+        1
+      ],
+      "placement_profile": "building",
+      "purpose": "Connect to gate-control socket outside the road envelope.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "fence_sensor",
+      "name": "Sensor fence segment",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "fence_EW",
+      "purpose": "Lightweight monitored boundary for internal utility yards.",
+      "connectors": [
+        {
+          "id": "fence_E",
+          "kind": "fence",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.15,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "fence_W",
+          "kind": "fence",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.15,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "fence_corner",
+      "name": "Sensor fence corner",
+      "category": "Perimeter and access",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "fence_NE",
+      "purpose": "Turn a fenced utility boundary; no mixing with wall ports.",
+      "connectors": [
+        {
+          "id": "fence_N",
+          "kind": "fence",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.15,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "fence_E",
+          "kind": "fence",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.15,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "perimeter",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_sentry_socket",
+      "name": "Universal sentry emplacement",
+      "category": "Defense and observation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "emplacement",
+      "purpose": "Receives one existing turret family; separate turret and plinth health.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_artillery_socket",
+      "name": "Artillery stabilizer pad",
+      "category": "Defense and observation",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "emplacement",
+      "purpose": "Reserved envelope for Howitzer legs and recoil motion.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_a6_dock",
+      "name": "Heptapod A6 anchor berth",
+      "category": "Defense and observation",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Six anchor sockets plus a clear approach for the mobile missile unit.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_watchtower",
+      "name": "Observation watchtower",
+      "category": "Defense and observation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Elevated optics, searchlight and ladder; supported upper platform.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_bunker",
+      "name": "Armored defense bunker",
+      "category": "Defense and observation",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Protected room with separate firing aperture and rear entrance.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_shield_projector",
+      "name": "Shield projector pylon",
+      "category": "Defense and observation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Pairs with another pylon to produce a game-only barrier field.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_decoy",
+      "name": "Holographic decoy emitter",
+      "category": "Defense and observation",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Destructible physical projector with an independently removable hologram.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_searchlight",
+      "name": "Tracking searchlight mast",
+      "category": "Defense and observation",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Gimballed lamp assigned to a wall observation socket.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_radar",
+      "name": "Folding radar array",
+      "category": "Defense and observation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Rotating or folding dish; belongs to the sensor network.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "defense_interceptor",
+      "name": "Interceptor drone nest",
+      "category": "Defense and observation",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Small defensive drone garage; reserve its launch clearance.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "defense",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_hq",
+      "name": "Command nexus",
+      "category": "Command and communications",
+      "plot_cells": [
+        5,
+        4
+      ],
+      "placement_profile": "building",
+      "purpose": "Central command hub with roof sensor crown and protected entry.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_operations",
+      "name": "Tactical operations annex",
+      "category": "Command and communications",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Expandable operations wing connected by an enclosed walkway.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_comms",
+      "name": "Communications tower",
+      "category": "Command and communications",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Communications backbone with a visible antenna silhouette.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_server",
+      "name": "Armored server vault",
+      "category": "Command and communications",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Data storage with cooling and dual power-feed sockets.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_uplink",
+      "name": "Orbital uplink dish",
+      "category": "Command and communications",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Large sky-facing dish; reserve a clear overhead envelope.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "command_beacon",
+      "name": "Navigation and identity beacon",
+      "category": "Command and communications",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Base identity landmark; place at a road or landing-zone boundary.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "command",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_barracks",
+      "name": "Barracks module",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        4,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Repeatable sleeping wing with two footpath entrances.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_infirmary",
+      "name": "Infirmary",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        4,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Medical wing with a separate patient-transfer entrance.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "medical",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_triage",
+      "name": "Deployable triage shelter",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Expandable treatment canopy next to infirmary transfer route.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "medical",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_mess",
+      "name": "Mess hall and galley",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        4,
+        4
+      ],
+      "placement_profile": "building",
+      "purpose": "Personnel commons with a rear supply entrance.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_hygiene",
+      "name": "Hygiene and decontamination block",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Connect water and waste systems; border workshop and personnel zones.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_recreation",
+      "name": "Gravity-training and recreation room",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Distinctive rounded roof and an outdoor assembly socket.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_shelter",
+      "name": "Emergency shelter",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Protected fallback room with an independent exit.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "personnel_airlock",
+      "name": "Enclosed corridor and airlock",
+      "category": "Personnel and medical",
+      "plot_cells": [
+        1,
+        2
+      ],
+      "placement_profile": "walk_NS",
+      "purpose": "Join compatible building corridor sockets without blocking outside paths.",
+      "connectors": [
+        {
+          "id": "walk_N",
+          "kind": "walk",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "road",
+      "damage_states": {
+        "D1": "Scorched paving; damaged markings",
+        "D2": "Broken shoulder and raised debris",
+        "D3": "Crater or broken pavement; vehicle route may close"
+      },
+      "status": "planned",
+      "zone": "personnel",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "logistics_warehouse",
+      "name": "Modular warehouse",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        5,
+        4
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Storage hall with one loading dock and side personnel door.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            10,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "logistics_loading_dock",
+      "name": "Loading dock extension",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Snap to warehouse service face; keep forklift approach clear.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "logistics_crane",
+      "name": "Cargo handling crane",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "crane",
+      "purpose": "Base, mast and boom are separate damage components; reserve swept volume.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "logistics_container",
+      "name": "Sealed cargo container",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        3,
+        1
+      ],
+      "placement_profile": "cargo",
+      "purpose": "Stack only on rated container supports; front-door access required.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "ground_or_rated_stack_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "crate_general",
+      "name": "Stackable supply crate",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Small mesh inside one placement cell; stack-keyed top and bottom.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "crate_medical",
+      "name": "Medical supply crate",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "White/teal identity; spawn at infirmary or logistics sockets.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "medical",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "crate_energy",
+      "name": "Power-cell transport crate",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Insulated casing with charge indicator; abstract game resource.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "crate_parts",
+      "name": "Mechanical spare-parts crate",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Industrial identity; workshop and vehicle service sockets.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "crate_secure",
+      "name": "Armored equipment locker",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Heavy lock geometry; storage and barracks supply sockets.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "logistics_pallet",
+      "name": "Cargo pallet and restraint frame",
+      "category": "Logistics and storage",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Reusable carrier for crates; validates maximum supported stack.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "logistics",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_workshop",
+      "name": "Modular repair workshop",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        4,
+        3
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Main maintenance hall with service-door road connection.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            8,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_garage",
+      "name": "Vehicle repair garage",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        5,
+        4
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Drive-in repair bay; clearance depends on declared vehicle class.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            10,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_fabricator",
+      "name": "Field fabrication hall",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        4,
+        4
+      ],
+      "placement_profile": "building",
+      "purpose": "Enclosed printers and machinery; logistics and power adjacency.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_drone_bench",
+      "name": "Drone assembly shelter",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Compact robotics maintenance building with small drone service sockets.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_recycler",
+      "name": "Salvage recycling plant",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Receives wreckage resources from a clear cargo approach.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_service_lift",
+      "name": "Vehicle service lift",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        2,
+        3
+      ],
+      "placement_profile": "service_prop",
+      "purpose": "Lift platform and support arms; restrict vehicle class by envelope.",
+      "connectors": [],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_tool_rack",
+      "name": "Modular tool and manipulator rack",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Workshop interior or sheltered apron placement.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "industry_test_cell",
+      "name": "Shielded equipment test cell",
+      "category": "Industry and maintenance",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Enclosed game-equipment test room with independent service access.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "maintenance",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_reactor",
+      "name": "Compact fusion power module",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        4,
+        4
+      ],
+      "placement_profile": "power_source",
+      "purpose": "Fictional power source; authored disabled core, no physical reactor simulation.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_battery",
+      "name": "Battery reserve bank",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "power_storage",
+      "purpose": "Backup power store with separate rack damage zones.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_solar",
+      "name": "Deployable solar canopy",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "power_source",
+      "purpose": "Power supplement and shaded apron; articulated panel wings.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_substation",
+      "name": "Power distribution substation",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "power_router",
+      "purpose": "Routes power to zones; reserves maintenance access.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_conduit",
+      "name": "Protected utility conduit",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_line",
+      "purpose": "Power/data path module with visible accessible cover.",
+      "connectors": [
+        {
+          "id": "utility_N",
+          "kind": "utility",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "utility_S",
+          "kind": "utility",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_junction",
+      "name": "Utility junction box",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_router",
+      "purpose": "Branch point for power and data routes.",
+      "connectors": [
+        {
+          "id": "utility_N",
+          "kind": "utility",
+          "edge": "N",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "utility_E",
+          "kind": "utility",
+          "edge": "E",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "utility_S",
+          "kind": "utility",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "utility_W",
+          "kind": "utility",
+          "edge": "W",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "width_m": 0.4,
+          "direction": "bidirectional",
+          "outward_normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_water",
+      "name": "Water purification plant",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "water_source",
+      "purpose": "Water supply with intake and service sockets.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_tank",
+      "name": "Armored water tank",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "water_storage",
+      "purpose": "Water buffer; tank shell and support frame are separate components.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_cooling",
+      "name": "Cooling and heat-exchange tower",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Cooling network node for fabrication, servers and power modules.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "utility_waste",
+      "name": "Waste reclamation module",
+      "category": "Power, life support and utilities",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Waste service endpoint outside the personnel core.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "utilities",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_launchpad",
+      "name": "VTOL launch and landing pad",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        8,
+        8
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Marked landing surface with a clear approach and overhead volume.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -16
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            16,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_pad_extension",
+      "name": "Landing apron extension",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "ground",
+      "purpose": "Expand a pad service apron without expanding its landing clearance.",
+      "connectors": [],
+      "damage_profile": "ground",
+      "damage_states": {
+        "D1": "Scored surface; cracked edge",
+        "D2": "Broken slab and exposed support",
+        "D3": "Low rubble or crater patch; surface class recalculated"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_hangar",
+      "name": "Aircraft maintenance hangar",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        8,
+        6
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Large-door bay matched to a named aircraft envelope.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -12
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            16,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_control",
+      "name": "Flight-control tower",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "placement_profile": "building",
+      "purpose": "Pad-facing observation room and communications equipment.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -6
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_drone_pad",
+      "name": "Small drone landing pad",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "building",
+      "purpose": "Small landing surface with dock/charge sockets.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_supply_lift",
+      "name": "Orbital cargo transfer platform",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        4,
+        4
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Fictional cargo receiving lift with an animation-only overhead transfer path.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            8,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "air_fuel_service",
+      "name": "Sealed flight-service module",
+      "category": "Air, orbital and drone operations",
+      "plot_cells": [
+        3,
+        2
+      ],
+      "placement_profile": "vehicle_building",
+      "purpose": "Abstract service resource tanks and hoses; keep outside landing clearance.",
+      "connectors": [
+        {
+          "id": "road_S",
+          "kind": "road",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "width_m": 8,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "walk_E",
+          "kind": "walk",
+          "edge": "E",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "damage_profile": "building",
+      "damage_states": {
+        "D1": "Localized facade damage",
+        "D2": "Exposed interior and partial roof loss; function disabled",
+        "D3": "Standing ruins and rubble; function lost"
+      },
+      "status": "planned",
+      "zone": "air_operations",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_mine_kinetic",
+      "name": "Defensive proximity mine prop",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "field_device",
+      "purpose": "Fictional game hazard; closed housing, readable team indicator, no internal mechanism.",
+      "connectors": [],
+      "damage_profile": "field_device",
+      "damage_states": {
+        "D1": "Cracked housing; readable status",
+        "D2": "Broken and disabled housing",
+        "D3": "Small inert debris; no active hazard"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_mine_emp",
+      "name": "EMP pulse mine prop",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "field_device",
+      "purpose": "Game-only temporary electronic-disruption effect; distinct ring silhouette.",
+      "connectors": [],
+      "damage_profile": "field_device",
+      "damage_states": {
+        "D1": "Cracked housing; readable status",
+        "D2": "Broken and disabled housing",
+        "D3": "Small inert debris; no active hazard"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_mine_slow",
+      "name": "Gravitic snare mine prop",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "field_device",
+      "purpose": "Fictional movement-slowing field emitter; three-prong visual identity.",
+      "connectors": [],
+      "damage_profile": "field_device",
+      "damage_states": {
+        "D1": "Cracked housing; readable status",
+        "D2": "Broken and disabled housing",
+        "D3": "Small inert debris; no active hazard"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_sensor",
+      "name": "Perimeter sensor puck",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "field_device",
+      "purpose": "Non-damaging game sensor; shares team/status language with field devices.",
+      "connectors": [],
+      "damage_profile": "field_device",
+      "damage_states": {
+        "D1": "Cracked housing; readable status",
+        "D2": "Broken and disabled housing",
+        "D3": "Small inert debris; no active hazard"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_marker",
+      "name": "Field-device boundary marker",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Visible marker required by the generator around hazard-designated areas.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_barrier",
+      "name": "Deployable armored barricade",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "cover",
+      "purpose": "Temporary free-standing cover with a folded transport state.",
+      "connectors": [],
+      "damage_profile": "wall",
+      "damage_states": {
+        "D1": "Cracked face; intact silhouette",
+        "D2": "Authored breach or missing upper panel",
+        "D3": "Collapsed footing and bounded rubble"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_bollard",
+      "name": "Retractable vehicle bollard",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "bollard",
+      "purpose": "Checkpoint socket only; lowered state must preserve the road envelope.",
+      "connectors": [],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_repair",
+      "name": "Repair drone docking puck",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Local repair-system service socket, separate from weapon mounts.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_emergency_power",
+      "name": "Portable emergency power unit",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "power_source",
+      "purpose": "Small fictional backup supply for isolated modules.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "field_signal",
+      "name": "Deployable relay tripod",
+      "category": "Field devices and deployable protection",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Temporary data node; folded and deployed articulation states.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "field",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_lamp",
+      "name": "Area lighting pole",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "utility_consumer",
+      "purpose": "Road-edge or courtyard socket; never in a swept vehicle path.",
+      "connectors": [
+        {
+          "id": "walk_S",
+          "kind": "walk",
+          "edge": "S",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "width_m": 2,
+          "direction": "bidirectional",
+          "outward_normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "damage_profile": "machinery",
+      "damage_states": {
+        "D1": "Bent casing and intermittent indicators",
+        "D2": "Exposed mechanism; function disabled",
+        "D3": "Broken chassis and bounded debris"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "ground_plot",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_sign",
+      "name": "Directional holographic sign",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Destructible emitter plus runtime text or hologram.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_terminal",
+      "name": "Access and information terminal",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Wall or floor attachment at entrances.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_seating",
+      "name": "Crew bench and table module",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Personnel common areas only; preserve circulation clearance.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_planter",
+      "name": "Sealed bioculture planter",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Personnel-zone visual relief and life-support storytelling.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_vent",
+      "name": "Roof ventilation unit",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "roof_prop",
+      "purpose": "Roof socket only; inherits building support state.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "roof_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_antenna",
+      "name": "Small roof antenna",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "roof_prop",
+      "purpose": "Roof socket only; data connection optional.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "roof_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    },
+    {
+      "id": "prop_banner",
+      "name": "Faction standard and mast",
+      "category": "Identity, interiors and environmental props",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "prop",
+      "purpose": "Faction identity with destructible mast and cloth sections.",
+      "connectors": [],
+      "damage_profile": "prop",
+      "damage_states": {
+        "D1": "Dented or torn surface",
+        "D2": "Split or broken form; disabled",
+        "D3": "Small debris cluster or removed fragment"
+      },
+      "status": "planned",
+      "zone": "dressing",
+      "placement_mode": "cargo_socket",
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed",
+        "state_colliders",
+        "bounded_debris_envelope"
+      ],
+      "authoring_todo": [
+        "clearance volumes",
+        "connector elevation and agent classes",
+        "service/attachment socket transforms",
+        "state-specific navigation and support behavior"
+      ]
+    }
+  ],
+  "references": {
+    "catalog": "base-assets.md",
+    "assembly_rules": "base-assembly-rules.md"
+  }
+}

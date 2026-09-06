@@ -4,3 +4,5 @@ __pycache__/
 node_modules/
 # Keep imported originals out of the public asset collection.
 imports/
+*.blend1
+*.blend2
