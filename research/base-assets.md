@@ -180,3 +180,8 @@ All footprints below are **reserved plots in 4 m cells**, written X × Z. A 4 ×
 ## Alien research outpost expansion
 
 Batch 02 adds two research assets to the original 109-item catalog (111 total): **research_xenobiology**, a 16 × 12 m sealed containment laboratory, and **research_specimen_crate**, a cryogenic vault in a 4 × 4 m reserved plot. Together with ten existing catalog families, these have D0–D3 art prototypes in the [outpost preview](../research-outpost/). See the [asset manifest](../assets/research-outpost/manifest.json) for authored socket transforms and conservative collision helpers. Runtime navigation, services and LODs remain pending.
+
+
+## Robotic manufacturing expansion
+
+Batch 03 adds six families: a complete **robotic_assembly_line**, **robotic_arm**, **conveyor_module**, **control_platform**, **gantry_module** and **assembly_pallet**. Each has D0–D3 variants. The complete line contains eight opposed robots and a 24 m belt. [Preview](../assembly-line/) · [Integration notes](../assets/assembly-line/README.md). This expands the structured catalog to 117 entries.

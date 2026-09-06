@@ -6241,6 +6241,240 @@
         "D3"
       ],
       "integration_note": "Conservative collision blockouts; runtime placement/navigation integration pending."
+    },
+    {
+      "id": "robotic_assembly_line",
+      "name": "Robotic assembly line",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        5,
+        8
+      ],
+      "placement_profile": "ground",
+      "purpose": "24 m robotic line with eight opposed arms, conveyor, gantries and ramp-accessible operator control.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
+    },
+    {
+      "id": "robotic_arm",
+      "name": "Articulated service arm",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "placement_profile": "ground",
+      "purpose": "Reusable waist/shoulder/elbow/wrist robot with gripper tooling and animation.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
+    },
+    {
+      "id": "conveyor_module",
+      "name": "Conveyor belt module",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "4 m return-belt module with matched elevated conveyor connectors.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
+    },
+    {
+      "id": "control_platform",
+      "name": "Assembly control platform",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        2,
+        3
+      ],
+      "placement_profile": "ground",
+      "purpose": "Triple-monitor operator console with platform, handrails and continuous access ramp.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
+    },
+    {
+      "id": "gantry_module",
+      "name": "Assembly service gantry",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        2,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Overhead braced portal for lights, cable trays and inspection equipment.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
+    },
+    {
+      "id": "assembly_pallet",
+      "name": "Rover chassis fixture",
+      "category": "Robotic manufacturing",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "placement_profile": "ground",
+      "purpose": "Conveyor workpiece with mounting fixture and core housing.",
+      "connectors": [],
+      "damage_profile": "machine",
+      "damage_states": {
+        "D1": "Scars and retained operation",
+        "D2": "Severed mechanism, disabled operation",
+        "D3": "Inert base and wreckage"
+      },
+      "status": "art_prototype",
+      "zone": "industry",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/assembly-line/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "art_requirements": [
+        "D0_intact",
+        "D1_damaged",
+        "D2_critical",
+        "D3_destroyed"
+      ],
+      "authoring_todo": [
+        "Engine collision and motion envelopes",
+        "Workpiece indexing and task synchronization",
+        "Draw-call batching and LODs"
+      ]
     }
   ],
   "references": {

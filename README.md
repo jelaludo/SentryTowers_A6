@@ -1,5 +1,7 @@
 # Sentry Workshop
 
+The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line and five reusable modules each include four structural states. [Integration notes](assets/assembly-line/README.md).
+
 The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).
 
 The [base construction lab](base-kit/) now contains the first Blender-authored wall kit: four straight-wall states, a corner, an animated vehicle gate and a foundation. [Integration notes](assets/base-kit/README.md) and [editable source](source/blender/a6-wall-kit.blend) are included.
