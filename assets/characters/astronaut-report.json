@@ -1,0 +1,56 @@
+{
+  "source": {
+    "bytes": 111891488,
+    "triangles": 704714,
+    "vertices": 538589,
+    "materials": 22,
+    "textures": 67,
+    "animations": [
+      "Mixamo Walk",
+      "Mixamo Idle",
+      "Mixamo Running"
+    ],
+    "uniqueJoints": 72,
+    "skinBindings": 1
+  },
+  "variants": [
+    {
+      "id": "balanced",
+      "resolution": 512,
+      "ratio": 0.1,
+      "error": 0.003,
+      "file": "astronaut-balanced.glb",
+      "bytes": 9493016,
+      "triangles": 156953,
+      "vertices": 174200,
+      "materials": 22,
+      "textures": 62,
+      "animations": [
+        "Mixamo Walk",
+        "Mixamo Idle",
+        "Mixamo Running"
+      ],
+      "uniqueJoints": 72,
+      "skinBindings": 51
+    },
+    {
+      "id": "compact",
+      "resolution": 256,
+      "ratio": 0.035,
+      "error": 0.01,
+      "file": "astronaut-compact.glb",
+      "bytes": 4156676,
+      "triangles": 95679,
+      "vertices": 129028,
+      "materials": 22,
+      "textures": 62,
+      "animations": [
+        "Mixamo Walk",
+        "Mixamo Idle",
+        "Mixamo Running"
+      ],
+      "uniqueJoints": 72,
+      "skinBindings": 51
+    }
+  ]
+}

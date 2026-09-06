@@ -1,0 +1,9 @@
+# Character animation research lab
+
+Open http://localhost:8000/animation-tests/ while the project server is running, or use the Character research lab link on the public sentry workshop. The viewer needs internet access for Three.js. `catalog.json` registers Shelly plus the balanced and compact Mercenary Astronaut variants; add entries there for future characters. Each entry provides a download, attribution and its own animation list. The original astronaut rig and three clips are retained; see `assets/characters/README.md` for its optimization measurements and decoder requirements.
+
+`shelly-animated.glb` contains the original textured mesh with a new 17-bone humanoid skin and eight clips: Idle, Walk, Run, Crouch, Crouch_Walk, Hide, Look_Around and Jump. Crouch and Hide transition into held poses; locomotion cycles run in place. Hide is a protective crouch with raised arms, not invisibility or cover-seeking behavior. No pathfinding or root-motion travel is included.
+
+The supplied Shelly file has no rig. Skin weights and anatomical landmarks were generated procedurally; this is a prototype rig, with no individual finger or facial controls. Close-up or production use may need hand-painted weights and animation polish. The output uses meters, is normalized to 2 m tall, and faces +Z with +Y up. The original is preserved locally at `imports/shelly-original.glb` and excluded from Git. To regenerate elsewhere, place the source GLB at that path and run `python3 tools/animate_shelly.py`.
+
+Source: **Shelly**, by **simonemaccari**, https://sketchfab.com/3d-models/shelly-9c553f640b7c4920a1f034b8a77660b7 . Attribution and license are taken from the supplied GLB metadata: **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/ . Modifications: normalized scale, added skeleton, procedural skin weights and animations. Embedded source attribution and original texture data are retained.

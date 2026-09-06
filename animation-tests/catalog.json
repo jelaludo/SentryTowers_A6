@@ -1,0 +1,29 @@
+[
+  {
+    "id": "shelly",
+    "name": "Shelly — experimental rig",
+    "file": "shelly-animated.glb",
+    "note": "Provisional procedural skin weights. Deep bends need polish.",
+    "author": "simonemaccari",
+    "source": "https://sketchfab.com/3d-models/shelly-9c553f640b7c4920a1f034b8a77660b7",
+    "changes": "Normalized scale; added rig and eight animation clips."
+  },
+  {
+    "id": "astronaut-balanced",
+    "name": "Astronaut — 512px balanced",
+    "file": "../assets/characters/astronaut-balanced.glb",
+    "note": "Reduced geometry and WebP textures; original rig and animation clips.",
+    "author": "Peter_D",
+    "source": "https://sketchfab.com/3d-models/mercenary-astronaut-7fd399d488ae4576a0fc62715892956c",
+    "changes": "Simplified geometry, resized/compressed textures, resampled animation keys."
+  },
+  {
+    "id": "astronaut-compact",
+    "name": "Astronaut — 256px compact",
+    "file": "../assets/characters/astronaut-compact.glb",
+    "note": "Smaller textures and more aggressive geometry reduction for distant units.",
+    "author": "Peter_D",
+    "source": "https://sketchfab.com/3d-models/mercenary-astronaut-7fd399d488ae4576a0fc62715892956c",
+    "changes": "Simplified geometry, resized/compressed textures, resampled animation keys."
+  }
+]

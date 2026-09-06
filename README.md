@@ -1,5 +1,7 @@
 # Sentry Workshop
 
+The research collection now includes a [character animation lab](animation-tests/) alongside the sentry families. Open it from the tower viewer to inspect Shelly's eight experimental clips and two optimized variants of the rigged Mercenary Astronaut. New characters can be registered in `animation-tests/catalog.json` without changing viewer code. See [astronaut optimization measurements and integration requirements](assets/characters/README.md).
+
 33 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar, Heptapod A6 and Plasma, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
 
 Run `python3 tools/build_sentries.py` to regenerate. No Python packages are needed.
