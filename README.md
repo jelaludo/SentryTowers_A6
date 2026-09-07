@@ -1,4 +1,8 @@
-# Sentry Workshop
+# Model Workshop
+
+Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [original sentry viewer](sentries/).
+
+**Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. Imported character models retain their original creator credits and terms. See [reuse and attribution](ASSET-LICENSE.md).
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line and five reusable modules each include four structural states. [Integration notes](assets/assembly-line/README.md).
 
@@ -14,7 +18,7 @@ The research collection now includes a [character animation lab](animation-tests
 
 Run `python3 tools/build_sentries.py` to regenerate. No Python packages are needed.
 
-Run `python3 -m http.server 8000` from this directory and visit http://localhost:8000 for the interactive viewer. Its pinned Three.js modules require internet access. Select family/tier, orbit, adjust yaw/elevation, test recoil, switch to neutral materials, or download the selected GLB. Assets themselves have no external resources.
+Run `python3 -m http.server 8000` from this directory and visit http://localhost:8000 for the collection gallery, or http://localhost:8000/sentries/ for the original interactive sentry viewer. Its pinned Three.js modules require internet access. Select family/tier, orbit, adjust yaw/elevation, test recoil, switch to neutral materials, or download the selected GLB. Assets themselves have no external resources.
 
 ## Integration contract
 

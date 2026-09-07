@@ -1,8 +1,10 @@
 # A6 logistics warehouse props
 
-Six families, each with D0 intact, D1 bent, D2 crushed and D3 destroyed states: stackable cargo crate, reinforced secure case, hazard fuel barrel, armored expedition container, loaded cargo pallet, and a shelf warehouse scene.
+Six families, each with D0 intact, D1 bent, D2 crushed and D3 destroyed states: stackable cargo crate, reinforced secure case, hazard fuel barrel, armored expedition container, loaded cargo pallet, and a roofless loading-bay diorama.
 
-The warehouse has two braced shelf aisles, three shelf levels, stacked cargo, a loading dock and ramp, skylight, end-wall light strips, and a marked logistics bay. D3 keeps a collapsed shelf deck, original cargo pile, broken skylight, and fallen dock light.
+The 14 × 12 m diorama reuses all five standalone prop families: one expedition container, one loaded pallet, one parts crate, one secure case and two fuel barrels. A full-depth rack supports the parts crate, a packing bench holds the secure case, and a containment tray supports the barrels. Low rear/side walls frame the open loading aisle; there is no roof or skylight.
+
+Each instance records its source family and support height. The build positions its actual lowest geometry on that support, including damaged variants. The shared crates now have solid shells/lids, and pallet deck/load layers meet without hovering gaps. D1–D3 reuse the matching prop damage state, with bent dock edges and collapsed wall remnants.
 
 Prop ruins preserve original parts. Crates retain corner posts, lid slats, placards, tie bands, exposed contents and bent panels. Secure cases retain reinforced lids and locks. Barrels retain rims, hazard rings, bung, placard, shell and fuel spill. Containers retain ISO castings, corrugated ribs, door slabs, latches and ID plates. Pallets retain deck boards, runners, wrap and shifted crates.
 

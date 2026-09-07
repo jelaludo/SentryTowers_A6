@@ -20,7 +20,8 @@ def crate(e,state,secure=False):
     w=d=1.8; h=1.6 if not secure else 1.9
     root=empty('SECURE_CASE' if secure else 'CARGO_CRATE');root['component']='secure_case' if secure else 'crate';root['impact_states']=STATES
     if state<3:
-        z=h/2;b('Crate shell',(0,0,z),(w,d,.18),'cargo_blue' if not secure else 'cargo_green',root)
+        z=h/2;b('Crate shell',(0,0,z),(w-.14,d-.14,h-.12),'cargo_blue' if not secure else 'cargo_green',root)
+        b('Solid crate lid',(0,0,h+.025),(w,d,.10),'frame',root)
         for x in [-w/2+.12,w/2-.12]:
             for y in [-d/2+.12,d/2-.12]:b('Corner post',(x,y,z),(.18,.18,h),'frame',root)
         for y in [-d/2,d/2]:
@@ -82,12 +83,12 @@ def container(e,state):
     socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,5);collider(e,'container',[0,1.25 if state<3 else .4,0],[5.2,2.5 if state<3 else .8,2.5]);e['description']='5 m armored expedition container with ISO corners, corrugated ribs, doors, latches and identifiable impact deformation.'
 def pallet(e,state):
     root=empty('PALLET_STACK');root['component']='pallet';
-    for x in [-.8,0,.8]:b('Pallet deck board',(x,0,.15),(.62,1.8,.22),'frame',root)
+    for x in [-.8,0,.8]:b('Pallet deck board',(x,0,.41),(.76,2.1,.22),'frame',root)
     for x in [-.75,.75]:
-        for y in [-.65,.65]:b('Pallet block',(x,y,.02),(.35,.35,.3),'edge',root)
+        for y in [-.65,.65]:b('Pallet block',(x,y,.15),(.35,.35,.3),'edge',root)
     if state<3:
-        for x in [-.68,.68]:b('Pallet runner',(x,0,.03),(.28,2,.15),'frame',root)
-        for z in [0.8,1.55]:
+        for x in [-.68,.68]:b('Pallet runner',(x,0,.075),(.28,2,.15),'frame',root)
+        for z in [.845,1.495]:
             for x in [-.62,.62]:
                 for y in [-.55,.55]:
                     b('Stacked crate',(x,y,z),(1.1,.95,.65),'cargo_blue' if z<1 else 'cargo_green',root)
@@ -100,31 +101,59 @@ def pallet(e,state):
     socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,2);collider(e,'pallet',[0,1 if state<3 else .35,0],[2,2 if state<3 else .8,2]);e['description']='Stackable cargo pallet with deck boards, runners, load wrap and multiple crates that shift and collapse under impact.'
 def warehouse(e,state):
     root=empty('WAREHOUSE_SCENE');root['component']='warehouse_scene'
-    b('Warehouse floor',(0,0,-.16),(24,20,.3),'concrete',root)
-    # Two shelf aisles with cross braces and cargo props.
-    for x in [-7,-3,3,7]:
-        for y in [-6,0,6]:
-            for z in [.15,2.2,4.25]:b('Shelf deck',(x,y,z),(2.2,.42,.14),'frame',root)
-        for y in [-8,8]:b('Shelf upright',(x,y,2.2),(.18,.18,4.5),'frame',root)
-        for z in [1,3.5]:beam('Shelf diagonal',(x,-8,z),(x,8,z+(.3 if z<2 else -.3)),.035,'edge',root)
-    for x in [-7,-3,3,7]:
-        for y in [-6,0,6]:
-            # Explicit miniature cargo arrangement, retaining recognizable prop forms.
-            for z in [0.5,2.55,4.6]:b('Shelf cargo crate',(x,y,z),(.9,.75,.55),'cargo_blue' if (x+y)%2 else 'cargo_green',root)
-    for x in [-9,9]:
-        b('Warehouse end wall',(x,0,3),(0.25,19,6),'frame',root);b('Wall light strip',(x+(.2 if x<0 else -.2),0,5.2),(.05,14,.12),'signal',root)
-    for y in [-8,8]:b('Warehouse end wall',(0,y,3),(18,.25,6),'frame',root)
-    b('Skylight',(0,0,6.05),(14,2,.12),'glass',root);k.text('Warehouse stencil','A6 / LOGISTICS BAY 04',(0,-9.2,.04),.36,parent=root)
-    b('Loading dock',(0,9.1,.25),(8,1.3,.5),'edge',root);b('Dock ramp',(0,10.2,.12),(6,1.8,.24),'frame',root,rot=(.12,0,0))
-    if state>0:
-        b('Damaged shelf bay',(-3,0,2.2),(2.3,.5,.18),'frame',root,rot=(0,.1,.16));beam('Fallen shelf brace',(-3,-2,3.3),(-3,1,.35),.06,'edge',root)
+    b('Loading bay slab',(0,0,-.16),(14,12,.32),'concrete',root)
+    # Open front and right sides; low perimeter walls, no roof or skylight.
+    b('Rear cutaway wall',(0,5.8,.65),(14,.22,1.3),'frame',root)
+    b('Left cutaway wall',(-6.8,0,.65),(.22,11.6,1.3),'frame',root)
+    for x in [-6.4,6.4]:
+        b('Dock bollard',(x,-5.4,.45),(.22,.22,.9),'label',root)
+    for x in [-1.15,1.15]:
+        for y in [-4.5,-2.5,-.5,1.5]:b('Clear aisle marking',(x,y,.012),(.055,1.2,.015),'label',root)
+    b('Loading dock edge',(0,-5.8,.025),(11,.16,.05),'edge',root)
+    # One properly supported rack and one packing bench.
+    rack=empty('STORAGE_RACK',parent=root)
+    for x in [3.0,5.8]:
+        for y in [2.55,4.85]:b('Rack upright',(x,y,1.35),(.12,.12,2.7),'frame',rack)
+    for z in [.16,2.55]:b('Full depth shelf deck',(4.4,3.7,z),(2.95,2.4,.12),'frame',rack)
+    for x in [3.0,5.8]:beam('Rack cross brace',(x,2.55,.15),(x,4.85,2.55),.035,'edge',rack)
+    b('Packing bench top',(4.4,.35,.94),(2.9,2.4,.12),'frame',root)
+    for x in [3.15,5.65]:
+        for y in [-.65,1.35]:b('Packing bench leg',(x,y,.44),(.14,.14,.88),'edge',root)
+    b('Fuel containment tray',(4.1,-3.3,.06),(3.4,2.15,.12),'edge',root)
+    for x in [2.45,5.75]:b('Spill tray lip',(x,-3.3,.15),(.1,2.15,.18),'label',root)
+    for y in [-4.325,-2.275]:b('Spill tray lip',(4.1,y,.15),(3.4,.1,.18),'label',root)
+    e['placements']=[]
+    def place(ident,family,build,x,y,support=0,angle=0):
+        previous=k.active_root
+        instance=empty(ident,parent=root);instance['placement_id']=ident;instance['source_family']=family;instance['support_height_m']=support
+        k.active_root=instance
+        scratch=dict(sockets=[],colliders=[])
+        build(scratch,state)
+        # Scene instances use the original prop geometry, without duplicate sockets.
+        for child in list(instance.children):
+            if child.name.startswith('SOCKET_'):bpy.data.objects.remove(child,do_unlink=True)
+        k.active_root=previous
+        instance.location=(x,y,0);instance.rotation_euler.z=angle;bpy.context.view_layer.update()
+        meshes=[o for o in instance.children_recursive if o.type in ['MESH','FONT']]
+        lowest=min((o.matrix_world@(v.co if o.type=='MESH' else Vector(v))).z for o in meshes for v in (o.data.vertices if o.type=='MESH' else o.bound_box))
+        instance.location.z=support-lowest;bpy.context.view_layer.update()
+        e['placements'].append(dict(id=ident,family=family,support_height_m=support))
+    place('DISPLAY_CONTAINER','armored_container',container,-3.35,3.55,angle=math.pi)
+    place('DISPLAY_PALLET','pallet_stack',pallet,-3.7,-1.6,angle=-.07)
+    place('DISPLAY_CRATE','cargo_crate',crate,4.4,3.7,.22)
+    place('DISPLAY_SECURE_CASE','secure_case',lambda e,d:crate(e,d,True),4.4,.35,1.0)
+    place('DISPLAY_BARREL_A','fuel_barrel',barrel,3.3,-3.3,.12)
+    place('DISPLAY_BARREL_B','fuel_barrel',barrel,4.9,-3.3,.12)
+    if state:
+        b('Bent dock edge',(-2,-5.7,.13),(1.4,.12,.12),'frame',root,rot=(0,.12,.12))
     if state>1:
-        b('Collapsed shelf cargo',(-3,0,.6),(2.2,1.2,.7),'cargo_blue',root,rot=(0,.15,.2));b('Broken skylight',(0,0,5.95),(3,1.8,.1),'glass',root,rot=(0,.15,.08));
-    if state>2:
-        b('Collapsed warehouse shelf',(-3,0,.45),(2.3,1.1,.35),'frame',root,rot=(.1,.2,.2));b('Original shelf deck remnant',(-3,1.1,1.1),(2.1,.35,.12),'frame',root,rot=(0,.25,.12));b('Original cargo pile',(-3,.2,.75),(1.5,.9,.6),'cargo_green',root,rot=(.15,.12,.2));b('Fallen dock light',(5,7,.3),(1.5,.12,.12),'signal',root,rot=(0,.1,.3))
-    socket(e,'ROAD','road',[0,10,0],[0,0,1],state<3,8);socket(e,'CARGO','cargo',[0,9,0],[0,0,1],state<3,8);collider(e,'warehouse',[0,3,0],[18,6,18]);e['description']='Warehouse scene with two shelf aisles, braced racks, stacked cargo, loading dock, skylight and authored collapse remnants.'
+        b('Collapsed wall panel',(-5.6,4.8,.15),(1.8,.55,.15),'frame',root,rot=(.03,.05,.25))
+    socket(e,'ROAD','road',[0,0,6],[0,0,1],state<3,3)
+    socket(e,'CARGO','cargo',[0,0,5.5],[0,0,1],state<3,3)
+    collider(e,'loading_bay',[0,1.6,0],[14,3.2,12])
+    e['description']='Roofless loading-bay diorama: one expedition container, one loaded pallet, a parts crate on a full-depth rack, a secure case on a packing bench, and two fuel barrels in a spill tray. A clear central aisle connects the open dock to storage.'
 
-SPECS=[('warehouse_scene','Logistics warehouse scene',[24,24]),('cargo_crate','Stackable cargo crate',[2.4,2.4]),('secure_case','Reinforced secure case',[2.4,2.4]),('fuel_barrel','Hazard fuel barrel',[2,2]),('armored_container','Armored expedition container',[5.4,3.2]),('pallet_stack','Loaded cargo pallet',[2.4,2.4])]
+SPECS=[('warehouse_scene','Logistics loading-bay diorama',[14,12]),('cargo_crate','Stackable cargo crate',[2.4,2.4]),('secure_case','Reinforced secure case',[2.4,2.4]),('fuel_barrel','Hazard fuel barrel',[2,2]),('armored_container','Armored expedition container',[5.4,3.2]),('pallet_stack','Loaded cargo pallet',[2.4,2.4])]
 for family,title,plot in SPECS:
   for state in range(4):
     e=k.begin(f'{family}_d{state}',title,STATES[state],plot,'');e.update(family=family,damage_level=state,zone='logistics',functional=state<3,collision_quality='conservative blockout',damage_signature=['intact panels and fittings','specific dents and shifted parts','crushed original pieces','identifiable original components amid collapse'][state])
