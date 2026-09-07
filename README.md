@@ -67,3 +67,5 @@ The [game asset workshop](game-assets/) displays **HUGIN and Stålheart together
 The [MÖRK heavy hover tank](hover-tank/) adds a lean vehicle with streamlined nacelles, cyan lift fields, a long recoiling cannon, independent front plasma mounts and a rear-deck nine-lens ammunition display with four color states. Includes power-on lift, heavy shutdown, aiming and firing clips, four destruction states and an interactive magazine demonstration. [Integration notes](assets/hover-tank/README.md).
 
 The [missile motion lab](missile-lab/) adds three launcher-independent projectiles (188 / 456 / 1,340 triangles), each with three eject–coast–ignite–climb–hook–dive flight clips. Includes slow playback, timeline scrubbing, follow/inspection cameras and a reusable motion sampler. [Integration notes](assets/missile-kit/README.md).
+
+The [SKYWARD antenna array](antenna-array/) adds an original 18 m radio dish in three mesh-detail levels and four damage states, plus a seven-dish array with a slow synchronized 44-second slew loop. [Integration and reference notes](assets/antenna-array/README.md).

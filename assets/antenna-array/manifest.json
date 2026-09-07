@@ -1,0 +1,319 @@
+{
+  "assets": [
+    {
+      "id": "skyward_low_d0",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Intact",
+      "file": "skyward_low_d0.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "low",
+      "damage_level": 0,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 3504,
+      "draw_calls": 11,
+      "bytes": 244504
+    },
+    {
+      "id": "skyward_low_d1",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Damaged",
+      "file": "skyward_low_d1.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "low",
+      "damage_level": 1,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 3480,
+      "draw_calls": 12,
+      "bytes": 244344
+    },
+    {
+      "id": "skyward_low_d2",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Critical",
+      "file": "skyward_low_d2.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "low",
+      "damage_level": 2,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 3536,
+      "draw_calls": 13,
+      "bytes": 201972
+    },
+    {
+      "id": "skyward_low_d3",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Destroyed",
+      "file": "skyward_low_d3.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "low",
+      "damage_level": 3,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 3536,
+      "draw_calls": 13,
+      "bytes": 202012
+    },
+    {
+      "id": "skyward_medium_d0",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Intact",
+      "file": "skyward_medium_d0.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "medium",
+      "damage_level": 0,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 10160,
+      "draw_calls": 12,
+      "bytes": 580936
+    },
+    {
+      "id": "skyward_medium_d1",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Damaged",
+      "file": "skyward_medium_d1.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "medium",
+      "damage_level": 1,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 10136,
+      "draw_calls": 13,
+      "bytes": 580244
+    },
+    {
+      "id": "skyward_medium_d2",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Critical",
+      "file": "skyward_medium_d2.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "medium",
+      "damage_level": 2,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 9400,
+      "draw_calls": 13,
+      "bytes": 500108
+    },
+    {
+      "id": "skyward_medium_d3",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Destroyed",
+      "file": "skyward_medium_d3.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "medium",
+      "damage_level": 3,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 9400,
+      "draw_calls": 13,
+      "bytes": 500160
+    },
+    {
+      "id": "skyward_high_d0",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Intact",
+      "file": "skyward_high_d0.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "high",
+      "damage_level": 0,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 24656,
+      "draw_calls": 12,
+      "bytes": 1312864
+    },
+    {
+      "id": "skyward_high_d1",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Damaged",
+      "file": "skyward_high_d1.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "detail": "high",
+      "damage_level": 1,
+      "functional": true,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 24632,
+      "draw_calls": 13,
+      "bytes": 1311596
+    },
+    {
+      "id": "skyward_high_d2",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Critical",
+      "file": "skyward_high_d2.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "high",
+      "damage_level": 2,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 21688,
+      "draw_calls": 13,
+      "bytes": 1120196
+    },
+    {
+      "id": "skyward_high_d3",
+      "name": "SKYWARD / 18 m antenna",
+      "state": "Destroyed",
+      "file": "skyward_high_d3.glb",
+      "plot_m": [
+        36,
+        36
+      ],
+      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [],
+      "detail": "high",
+      "damage_level": 3,
+      "functional": false,
+      "diameter_m": 18,
+      "kind": "antenna",
+      "triangles": 21688,
+      "draw_calls": 13,
+      "bytes": 1120244
+    },
+    {
+      "id": "skyward_array",
+      "name": "SKYWARD / Seven-dish array",
+      "state": "Intact",
+      "file": "skyward_array.glb",
+      "plot_m": [
+        190,
+        190
+      ],
+      "description": "Seven synchronized low-detail dishes on a compact Y layout with service tracks and a control hut.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Array_Slew"
+      ],
+      "kind": "array",
+      "detail": "low",
+      "damage_level": 0,
+      "functional": true,
+      "antenna_count": 7,
+      "triangles": 25620,
+      "draw_calls": 81,
+      "bytes": 916584
+    }
+  ],
+  "diameter_m": 18,
+  "cycle_s": 44
+}

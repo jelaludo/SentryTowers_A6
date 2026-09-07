@@ -67,3 +67,7 @@ The message “cannot start server in background mode” is expected from the en
 ## Missile kit
 
 Run `node tools/asset-pipeline/sample-missile-flight.mjs`, then `blender --background --python-exit-code 1 --python tools/blender/build_missile_kit.py`, followed by `node tools/asset-pipeline/pack-missile-kit.mjs` and `node tools/asset-pipeline/validate-missile-kit.mjs`. The shared sampler in `missile-lab/flight.mjs` drives both baked Blender clips and the workshop.
+
+## SKYWARD antenna array
+
+`build_antenna_array.py` builds three mesh-detail levels × four destruction states and a seven-dish low-detail scene. Follow with `node tools/asset-pipeline/pack-antenna-array.mjs` and `node tools/asset-pipeline/validate-antenna-array.mjs`. Source: `source/blender/a6-antenna-array.blend`; viewer: `antenna-array/`.

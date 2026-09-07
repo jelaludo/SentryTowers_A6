@@ -1,4 +1,5 @@
 export const collections=[
+['antenna-array','SKYWARD / Antenna array','Infrastructure','Large steerable radio dishes with three mesh-detail levels, destruction states and a synchronized seven-dish scene.','3 detail levels · 4 states','Animated'],
 ['missile-lab','Missile motion lab','Combat','Three reusable projectiles. Soft launch, nose-up coast and accelerating flight arcs.','3 mesh budgets · 3 flight profiles','Animated'],
 ['hover-tank','MÖRK','Combat','Lean hover tank with heavy recoil, twin plasma mounts and a rear-deck ammunition display.','4 structural states','Animated'],
 ['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 equipment variants','Animated'],
