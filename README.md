@@ -53,3 +53,5 @@ The [station crew](station-crew/) adds three original low-poly suited characters
 The [Reckon-Guard drone](reckon-guard/) adds a sleek low-poly twin-fan scout with animated rotors and an articulated downward-firing cannon. The preview demonstrates hover, ground-target tracking, muzzle-spawned projectiles and impacts. [Integration notes](assets/reckon-guard/README.md).
 
 The [Capture-the-Flag kit](ctf-flags/) adds six faction banners—including stylized 火 and 力—three modular pole styles, and a capture socket. Each flag includes flutter, gust, raise and lower animations; the preview adds comparison and pick-up/capture/return controls. [Integration notes](assets/ctf-flags/README.md).
+
+The [Terraformer 3000 / Stålheart](terraformer/) adds a 36 m planetary printer with a rail-mounted gantry, traveling carriage, six-joint extrusion arm, twin material reservoirs and three side monitoring stations. Includes a 16-second operating loop and four destruction states through collapsed machinery. [Integration notes](assets/terraformer/README.md).

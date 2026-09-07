@@ -39,3 +39,15 @@ References: [Blender MCP installation and telemetry options](https://github.com/
 ## Open micro-reactor builder
 
 `build_micro_reactor.py` builds five exposed reactor families and four authored destruction states. Source: `source/blender/a6-micro-reactor.blend`; preview: `micro-reactor/`.
+
+## Terraformer 3000 / Stålheart
+
+`build_terraformer.py` authors a 36 m rail-mounted planetary printer with six articulated arm joints and D0–D3 destruction variants. Run `blender --background --python-exit-code 1 --python tools/blender/build_terraformer.py`. Outputs: `source/blender/a6-terraformer.blend`, four GLBs, manifest and hero render under `assets/terraformer/`. Preview: `terraformer/`.
+
+### MCP and background Blender diagnosis (2026-09-07)
+
+The restricted session failed in Metal GPU detection (`supports_barycentric_whitelist → strstr`) before executing Python. The same Blender binary started successfully in Terminal and after resuming with unrestricted execution. This isolates the failure to the restricted execution context; the precise underlying Metal/device-string failure is not established.
+
+MCP separately had no GUI server listening on port 9876. Opening Blender started the installed add-on automatically; `get_addon_status` reported matching protocol 5, and `execute_blender_code` returned the live scene successfully. No add-on reinstall was required. Telemetry remained disabled.
+
+The message “cannot start server in background mode” is expected from the enabled MCP add-on in CLI builds. It does not prevent a `--python` builder from running. Use background Blender for deterministic builds and the running GUI/MCP connection for live inspection. They are complementary workflows.
