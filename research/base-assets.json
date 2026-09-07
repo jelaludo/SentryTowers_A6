@@ -6475,6 +6475,192 @@
         "Workpiece indexing and task synchronization",
         "Draw-call batching and LODs"
       ]
+    },
+    {
+      "id": "warehouse_scene",
+      "name": "Logistics warehouse scene",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        6,
+        6
+      ],
+      "purpose": "Warehouse with two shelf aisles, loading dock and stacked cargo.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
+    },
+    {
+      "id": "cargo_crate",
+      "name": "Stackable cargo crate",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "purpose": "Impactable parts crate with lid, straps and contents.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
+    },
+    {
+      "id": "secure_case",
+      "name": "Reinforced secure case",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "purpose": "Lockable reinforced case for high-value cargo.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
+    },
+    {
+      "id": "fuel_barrel",
+      "name": "Hazard fuel barrel",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "purpose": "Fuel barrel with rims, bung, hazard bands and spill.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
+    },
+    {
+      "id": "armored_container",
+      "name": "Armored expedition container",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "purpose": "Long ISO-like cargo container with doors and ribs.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
+    },
+    {
+      "id": "pallet_stack",
+      "name": "Loaded cargo pallet",
+      "category": "Logistics warehouse",
+      "plot_cells": [
+        1,
+        1
+      ],
+      "purpose": "Wrapped pallet carrying stacked crates.",
+      "zone": "logistics",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/warehouse-props/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "cargo_impact",
+      "damage_states": {
+        "D1": "Bent or shifted original pieces",
+        "D2": "Crushed shell with exposed contents",
+        "D3": "Recognizable original parts in collapsed wreck"
+      },
+      "authoring_todo": [
+        "Engine collision refinement",
+        "Inventory and stack stability",
+        "Vehicle impact sweeps"
+      ]
     }
   ],
   "references": {

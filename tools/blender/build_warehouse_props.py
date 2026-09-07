@@ -1,0 +1,153 @@
+"""Warehouse cargo props: crates, secure cases, barrels, containers, pallets and a scene."""
+import sys, math, json, struct, random
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import asset_common as k
+from asset_common import bpy, bmesh, Vector, empty, box, cylinder, beam, socket, collider
+OUT=k.PROJECT/'assets/warehouse-props'; OUT.mkdir(parents=True,exist_ok=True)
+k.M.update({
+ 'cargo_blue':k.material('Cargo blue',(.045,.19,.28),.5,.42),
+ 'cargo_green':k.material('Cargo green',(.12,.28,.20),.4,.5),
+ 'cargo_red':k.material('Hazard red',(.48,.08,.035),.35,.48),
+ 'label':k.material('Cargo label',(.88,.66,.2),.1,.5),
+ 'liquid':k.material('Fuel liquid',(.17,.35,.19),.1,.25),
+ 'glass':k.material('Warehouse skylight glass',(.03,.16,.2),.2,.22),
+})
+STATES=['Intact','Bent','Crushed','Destroyed']
+def b(name,loc,size,mat='armor',parent=None,rot=(0,0,0)):return k.box(name,loc,size,mat,.018,parent,rot)
+def band(name,loc,size,mat='label',parent=None,rot=(0,0,0)):return b(name,loc,size,mat,parent,rot)
+def crate(e,state,secure=False):
+    w=d=1.8; h=1.6 if not secure else 1.9
+    root=empty('SECURE_CASE' if secure else 'CARGO_CRATE');root['component']='secure_case' if secure else 'crate';root['impact_states']=STATES
+    if state<3:
+        z=h/2;b('Crate shell',(0,0,z),(w,d,.18),'cargo_blue' if not secure else 'cargo_green',root)
+        for x in [-w/2+.12,w/2-.12]:
+            for y in [-d/2+.12,d/2-.12]:b('Corner post',(x,y,z),(.18,.18,h),'frame',root)
+        for y in [-d/2,d/2]:
+            for x in [-.52,0,.52]:b('Lid slat',(x,y,h+.06),(.47,.12,.12),'cargo_green' if secure else 'cargo_blue',root)
+        for x in [-w/2,w/2]:
+            for z2 in [.28,h-.2]:band('Vertical tie band',(x,0,z2),(.06,d+.06,.09),'label',root)
+        band('Identification placard',(0,-d/2-.03,.82),(.85,.03,.3),'label',root)
+        k.text('Cargo stencil','A6 / '+('SECURE' if secure else 'PARTS'),(0,-d/2-.06,.78),.11,parent=root)
+        if secure:
+            b('Reinforced lid',(0,0,h+.14),(w-.14,d-.14,.16),'frame',root);band('Lock bar',(0,-d/2-.09,h+.14),(.9,.08,.12),'cargo_red',root)
+        else:
+            for x in [-.42,.42]:b('Lid latch',(x,-d/2-.08,h+.1),(.18,.06,.15),'frame',root)
+        if state==1:
+            b('Runover dent',(w/2+.01,.15,.65),(.08,.7,.58),'dark',root,rot=(0,.28,.15));b('Peeled lid corner',(-.55,-.48,h+.22),(.65,.18,.06),'cargo_blue',root,rot=(0,.2,.12))
+        if state==2:
+            # The original shell remains as deformed panels and a visible contents mass.
+            b('Compressed front panel',(0,-.78,.65),(1.7,.12,1.2),'cargo_blue' if not secure else 'cargo_green',root,rot=(.18,0,.03))
+            b('Buckled lid',(0,.08,h-.08),(1.6,1.25,.12),'frame',root,rot=(0,.22,.1));b('Exposed contents',(0,-.05,.55),(.9,.7,.65),'raw',root,rot=(.15,.1,0))
+            beam('Torn corner strap',(-.8,-.7,.3),(-.55,-.45,1.3),.035,'rust',root)
+    else:
+        b('Crushed crate base',(0,.05,.18),(1.6,1.35,.35),'cargo_blue' if not secure else 'cargo_green',root,rot=(.04,.08,.06))
+        b('Collapsed lid',(0,-.22,.55),(1.55,.28,.12),'frame',root,rot=(.62,.1,.18));b('Bent side panel',(.64,.18,.55),(.16,1.2,.8),'cargo_blue' if not secure else 'cargo_green',root,rot=(.1,.5,.04))
+        for x in [-.55,.55]:beam('Bent original corner post',(x,-.3,.2),(x+.15,-.55,.85),.07,'frame',root)
+        b('Spilled contents',(0,.4,.32),(.8,.5,.3),'raw',root,rot=(.1,.3,.2));band('Detached cargo placard',(-.3,-.62,.28),(.6,.025,.22),'label',root,rot=(.25,0,.25))
+    socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,1.8);collider(e,'crate',[0,.7 if state<3 else .3,0],[1.9,1.5 if state<3 else .8,2])
+    e['description']=('Reinforced secure case' if secure else 'Stackable parts crate')+' with lid, corner posts, tie bands, placard and contents-specific impact deformation.'
+def barrel(e,state):
+    root=empty('FUEL_BARREL');root['component']='barrel';r=.65;h=1.5
+    if state<3:
+        cylinder('Barrel body',(0,0,h/2),r,h,'cargo_red',parent=root,vertices=16)
+        for z in [.18,h-.18]:
+            cylinder('Barrel rim',(0,0,z),r+.05,.13,'frame',parent=root,vertices=16)
+            band('Barrel hazard ring',(0,0,z+.1),(.04,.04,.04),'label',root)
+        for z in [.46,.83,1.2]:band('Circumferential hazard band',(0,0,z),(r+.035,.04,.09),'label',root)
+        cylinder('Barrel bung',(0,-.33,h-.12),.13,.12,'frame','Y',root)
+        cylinder('Bung cap',(0,-.40,h-.12),.08,.06,'label','Y',root)
+        band('Fuel placard',(0,-r-.03,.8),(.38,.03,.28),'label',root);k.text('Hazard stencil','FUEL / X-04',(0,-r-.06,.78),.10,parent=root)
+        if state==1:b('Runover side dent',(.61,.1,.77),(.12,.55,.62),'dark',root,rot=(0,.35,.18));cylinder('Loose bung',(0,-.47,.55),.1,.08,'frame','Y',root)
+        if state==2:
+            b('Crushed drum shell',(0,0,.6),(1.2,.9,.62),'cargo_red',root,rot=(0,.2,.1));cylinder('Flattened upper rim',(0,0,1.02),.57,.09,'frame',parent=root,vertices=16);b('Peeled hazard band',(.6,0,.65),(.08,.7,.10),'label',root,rot=(0,.25,.1));cylinder('Spilled fuel puddle',(0,-.18,.04),.65,.025,'liquid',parent=root,vertices=16)
+    else:
+        cylinder('Collapsed barrel footprint',(0,.12,.18),.68,.3,'cargo_red',parent=root,vertices=16);b('Rolled barrel shell',(0,-.25,.32),(1.2,.35,.3),'cargo_red',root,rot=(.1,.2,.34));cylinder('Detached original rim',(.28,.25,.48),.55,.09,'frame',parent=root,vertices=16);b('Bent hazard placard',(-.3,-.46,.28),(.45,.03,.2),'label',root,rot=(.4,.1,.35));cylinder('Fuel spill',(0,.1,.03),.8,.025,'liquid',parent=root,vertices=16)
+    socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,.65);collider(e,'barrel',[0,.75 if state<3 else .3,0],[1.4,1.5 if state<3 else .7,1.4]);e['description']='Hazard fuel barrel with rims, bands, bung, placard and liquid spill retained through crushing.'
+def container(e,state):
+    root=empty('ARMORED_CONTAINER');root['component']='container';w=5;d=2.3;h=2.5
+    if state<3:
+        b('Container body',(0,0,h/2),(w,d,h),'cargo_blue',root)
+        for x in [-w/2+.22,w/2-.22]:
+            for y in [-d/2+.1,d/2-.1]:b('ISO corner casting',(x,y,.3),(.3,.3,.6),'frame',root);b('Vertical corner rail',(x,y,h/2),(.14,.14,h),'frame',root)
+        for x in [-1.7,-.85,0,.85,1.7]:b('Corrugated side rib',(x,-d/2-.03,h/2),(.10,.08,h-.25),'frame',root)
+        for x in [-1.6,1.6]:
+            b('Container door',(x,d/2+.03,h/2),(1.3,.12,h-.25),'cargo_green',root);b('Door latch',(x-.45,d/2+.12,1.3),(.08,.07,.6),'label',root);b('Door latch',(x+.45,d/2+.12,1.3),(.08,.07,.6),'label',root)
+        band('Container ID',(0,d/2+.08,1.9),(1.6,.035,.28),'label',root);k.text('Container stencil','A6 / XENO CARGO',(0,d/2+.12,1.86),.16,parent=root)
+        if state==1:b('Impact dent',(-1.7,-d/2-.07,1.2),(.55,.08,.8),'dark',root,rot=(0,.35,.1));b('Bent corner',(2.45,.65,1.9),(.18,.8,.3),'frame',root,rot=(0,.25,.08))
+        if state==2:
+            b('Caved side',(0,-d/2-.02,1.2),(2.4,.13,1.5),'cargo_blue',root,rot=(0,.2,.04));b('Torn roof',(0,0,2.42),(2.2,1.8,.1),'frame',root,rot=(0,.2,.08));b('Exposed cargo',(0,-.1,1.1),(1.3,1.2,1.1),'raw',root);beam('Torn ID rail',(-.8,d/2+.1,1.7),(.3,d/2+.16,1.4),.045,'label',root)
+    else:
+        b('Container floor wreck',(0,0,.25),(4.5,1.8,.35),'cargo_blue',root,rot=(.04,.1,.03));b('Folded side wall',(0,-.75,.85),(4,.14,1.2),'cargo_blue',root,rot=(.35,.08,.03));b('Door slab',(1.25,1.0,.55),(1.2,.12,1.4),'cargo_green',root,rot=(.1,.3,.5));b('Surviving corner casting',(-2.2,.5,.55),(.35,.35,.65),'frame',root);b('Bent corrugated rib',(0,-.84,.7),(.1,.16,1.1),'frame',root,rot=(0,.35,.05));band('Detached ID plate',(-.5,-.85,.3),(.8,.03,.22),'label',root,rot=(.2,0,.25))
+    socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,5);collider(e,'container',[0,1.25 if state<3 else .4,0],[5.2,2.5 if state<3 else .8,2.5]);e['description']='5 m armored expedition container with ISO corners, corrugated ribs, doors, latches and identifiable impact deformation.'
+def pallet(e,state):
+    root=empty('PALLET_STACK');root['component']='pallet';
+    for x in [-.8,0,.8]:b('Pallet deck board',(x,0,.15),(.62,1.8,.22),'frame',root)
+    for x in [-.75,.75]:
+        for y in [-.65,.65]:b('Pallet block',(x,y,.02),(.35,.35,.3),'edge',root)
+    if state<3:
+        for x in [-.68,.68]:b('Pallet runner',(x,0,.03),(.28,2,.15),'frame',root)
+        for z in [0.8,1.55]:
+            for x in [-.62,.62]:
+                for y in [-.55,.55]:
+                    b('Stacked crate',(x,y,z),(1.1,.95,.65),'cargo_blue' if z<1 else 'cargo_green',root)
+        band('Load wrap',(0,0,1.2),(1.7,1.7,.06),'label',root);b('Pallet label',(0,-.94,1.2),(1.0,.03,.3),'label',root)
+        if state==1:b('Bent deck board',(.8,0,.18),(.6,1.8,.16),'frame',root,rot=(0,.18,.08));b('Shifted load',(-.5,.2,1.62),(1.1,.95,.55),'cargo_green',root,rot=(0,.1,.04))
+        if state==2:
+            b('Broken deck',(0,0,.12),(1.8,1.5,.16),'frame',root,rot=(0,.12,.08));b('Top crate fallen',(-.45,.25,.8),(1.0,.9,.62),'cargo_green',root,rot=(.25,.08,.2));b('Lower crate crushed',(.4,-.3,.48),(1.2,.8,.5),'cargo_blue',root,rot=(0,.18,.04));band('Torn wrap',(0,0,.9),(1.7,.06,.04),'label',root,rot=(.2,0,.25))
+    else:
+        b('Split pallet base',(0,0,.1),(1.7,1.3,.2),'frame',root,rot=(0,.18,.1));b('Fallen load',(-.45,.18,.35),(1.2,.9,.3),'cargo_blue',root,rot=(.35,.1,.25));b('Detached green crate',(.62,-.35,.3),(.9,.8,.42),'cargo_green',root,rot=(0,.2,.3));band('Torn load wrap',(-.2,-.65,.23),(1.1,.04,.07),'label',root,rot=(.25,0,.3))
+    socket(e,'CARGO','cargo',[0,0,0],[0,1,0],state<3,2);collider(e,'pallet',[0,1 if state<3 else .35,0],[2,2 if state<3 else .8,2]);e['description']='Stackable cargo pallet with deck boards, runners, load wrap and multiple crates that shift and collapse under impact.'
+def warehouse(e,state):
+    root=empty('WAREHOUSE_SCENE');root['component']='warehouse_scene'
+    b('Warehouse floor',(0,0,-.16),(24,20,.3),'concrete',root)
+    # Two shelf aisles with cross braces and cargo props.
+    for x in [-7,-3,3,7]:
+        for y in [-6,0,6]:
+            for z in [.15,2.2,4.25]:b('Shelf deck',(x,y,z),(2.2,.42,.14),'frame',root)
+        for y in [-8,8]:b('Shelf upright',(x,y,2.2),(.18,.18,4.5),'frame',root)
+        for z in [1,3.5]:beam('Shelf diagonal',(x,-8,z),(x,8,z+(.3 if z<2 else -.3)),.035,'edge',root)
+    for x in [-7,-3,3,7]:
+        for y in [-6,0,6]:
+            # Explicit miniature cargo arrangement, retaining recognizable prop forms.
+            for z in [0.5,2.55,4.6]:b('Shelf cargo crate',(x,y,z),(.9,.75,.55),'cargo_blue' if (x+y)%2 else 'cargo_green',root)
+    for x in [-9,9]:
+        b('Warehouse end wall',(x,0,3),(0.25,19,6),'frame',root);b('Wall light strip',(x+(.2 if x<0 else -.2),0,5.2),(.05,14,.12),'signal',root)
+    for y in [-8,8]:b('Warehouse end wall',(0,y,3),(18,.25,6),'frame',root)
+    b('Skylight',(0,0,6.05),(14,2,.12),'glass',root);k.text('Warehouse stencil','A6 / LOGISTICS BAY 04',(0,-9.2,.04),.36,parent=root)
+    b('Loading dock',(0,9.1,.25),(8,1.3,.5),'edge',root);b('Dock ramp',(0,10.2,.12),(6,1.8,.24),'frame',root,rot=(.12,0,0))
+    if state>0:
+        b('Damaged shelf bay',(-3,0,2.2),(2.3,.5,.18),'frame',root,rot=(0,.1,.16));beam('Fallen shelf brace',(-3,-2,3.3),(-3,1,.35),.06,'edge',root)
+    if state>1:
+        b('Collapsed shelf cargo',(-3,0,.6),(2.2,1.2,.7),'cargo_blue',root,rot=(0,.15,.2));b('Broken skylight',(0,0,5.95),(3,1.8,.1),'glass',root,rot=(0,.15,.08));
+    if state>2:
+        b('Collapsed warehouse shelf',(-3,0,.45),(2.3,1.1,.35),'frame',root,rot=(.1,.2,.2));b('Original shelf deck remnant',(-3,1.1,1.1),(2.1,.35,.12),'frame',root,rot=(0,.25,.12));b('Original cargo pile',(-3,.2,.75),(1.5,.9,.6),'cargo_green',root,rot=(.15,.12,.2));b('Fallen dock light',(5,7,.3),(1.5,.12,.12),'signal',root,rot=(0,.1,.3))
+    socket(e,'ROAD','road',[0,10,0],[0,0,1],state<3,8);socket(e,'CARGO','cargo',[0,9,0],[0,0,1],state<3,8);collider(e,'warehouse',[0,3,0],[18,6,18]);e['description']='Warehouse scene with two shelf aisles, braced racks, stacked cargo, loading dock, skylight and authored collapse remnants.'
+
+SPECS=[('warehouse_scene','Logistics warehouse scene',[24,24]),('cargo_crate','Stackable cargo crate',[2.4,2.4]),('secure_case','Reinforced secure case',[2.4,2.4]),('fuel_barrel','Hazard fuel barrel',[2,2]),('armored_container','Armored expedition container',[5.4,3.2]),('pallet_stack','Loaded cargo pallet',[2.4,2.4])]
+for family,title,plot in SPECS:
+  for state in range(4):
+    e=k.begin(f'{family}_d{state}',title,STATES[state],plot,'');e.update(family=family,damage_level=state,zone='logistics',functional=state<3,collision_quality='conservative blockout',damage_signature=['intact panels and fittings','specific dents and shifted parts','crushed original pieces','identifiable original components amid collapse'][state])
+    if family=='warehouse_scene':warehouse(e,state)
+    elif family=='cargo_crate':crate(e,state)
+    elif family=='secure_case':crate(e,state,True)
+    elif family=='fuel_barrel':barrel(e,state)
+    elif family=='armored_container':container(e,state)
+    else:pallet(e,state)
+    print(f'AUTHORED {len(k.manifest)}/24 {e["id"]}',flush=True)
+for index,(root,collection,e) in enumerate(k.roots):
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in list(collection.objects):
+        o.select_set(True)
+        if o.type=='FONT':bpy.context.view_layer.objects.active=o;bpy.ops.object.convert(target='MESH')
+        if o.type=='MESH':
+            bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
+    bpy.context.view_layer.objects.active=root;p=OUT/e['file'];bpy.ops.export_scene.gltf(filepath=str(p),export_format='GLB',use_selection=True,export_extras=True,export_yup=True,export_cameras=False,export_lights=False)
+    data=p.read_bytes();n=struct.unpack_from('<I',data,12)[0];doc=json.loads(data[20:20+n]);blob=data[28+n:]
+    for node in doc['nodes']:
+      if node.get('extras',{}).get('asset_id')==e['id']:node['name']='ROOT'
+      if node.get('name','').startswith('SOCKET_'):node['name']=node['name'].split('.')[0]
+    payload=json.dumps(doc,separators=(',',':')).encode();payload+=b' '*(-len(payload)%4);p.write_bytes(struct.pack('<III',0x46546c67,2,28+len(payload)+len(blob))+struct.pack('<II',len(payload),0x4e4f534a)+payload+struct.pack('<II',len(blob),0x004e4942)+blob);e['bytes']=p.stat().st_size;e['triangles']=sum(doc['accessors'][q['indices']]['count']//3 for m in doc.get('meshes',[]) for q in m['primitives']);print(f'EXPORTED {index+1}/24 {e["file"]}',flush=True)
+(OUT/'manifest.json').write_text(json.dumps(dict(version=1,units='meters',up='+Y',forward='+Z',assets=k.manifest),indent=2)+'\n')
+for i,(root,collection,e) in enumerate(k.roots):root.location=((i%4)*30,(i//4)*28,0)
+bpy.context.scene.name='A6 / Logistics warehouse props';bpy.ops.wm.save_as_mainfile(filepath=str(k.SOURCE/'a6-warehouse-props.blend'));print('WAREHOUSE_PROPS_COMPLETE 6 families / 24 exports',flush=True)

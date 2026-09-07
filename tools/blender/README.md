@@ -31,3 +31,7 @@ References: [Blender MCP installation and telemetry options](https://github.com/
 ## Robotic assembly line builder
 
 `build_assembly_line.py` builds six families / 24 variants, including the assembled eight-robot line. D0/D1 line, robot and conveyor models export an eight-second `Assembly_Cycle`. Source: `source/blender/a6-assembly-line.blend`; integration notes: `assets/assembly-line/README.md`.
+
+## Warehouse prop builder
+
+`build_warehouse_props.py` creates six cargo families and an authored shelf warehouse scene in four impact states. Source: `source/blender/a6-warehouse-props.blend`; preview: `warehouse-props/`.

@@ -185,3 +185,8 @@ Batch 02 adds two research assets to the original 109-item catalog (111 total): 
 ## Robotic manufacturing expansion
 
 Batch 03 adds six families: a complete **robotic_assembly_line**, **robotic_arm**, **conveyor_module**, **control_platform**, **gantry_module** and **assembly_pallet**. Each has D0–D3 variants. The complete line contains eight opposed robots and a 24 m belt. [Preview](../assembly-line/) · [Integration notes](../assets/assembly-line/README.md). This expands the structured catalog to 117 entries.
+
+
+## Logistics warehouse expansion
+
+Batch 05 adds six families: warehouse scene, stackable crate, secure case, fuel barrel, armored container and loaded pallet. Each has four impact states, with D3 preserving original hardware and contents. [Preview](../warehouse-props/) · [Integration notes](../assets/warehouse-props/README.md).
