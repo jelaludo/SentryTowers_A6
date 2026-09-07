@@ -57,3 +57,5 @@ The [Capture-the-Flag kit](ctf-flags/) adds six faction banners—including styl
 The [Terraformer 3000 / Stålheart](terraformer/) adds a 36 m planetary printer with a rail-mounted gantry, traveling carriage, six-joint extrusion arm, twin material reservoirs and three side monitoring stations. Includes a 16-second operating loop and four destruction states through collapsed machinery. [Integration notes](assets/terraformer/README.md).
 
 The [HUGIN launch and recovery complex](launchpad/) adds a reusable tripod-legged rocket, launch tower, cargo-catching arm and receiving apron. Includes an animated cargo transfer and four destruction states. [Integration notes](assets/launchpad/README.md).
+
+The [game asset workshop](game-assets/) displays **HUGIN and Stålheart together**, with game/original comparison and all four destruction states. Eight game variants target approximately **40,000 triangles each**, preserve animation, and reduce material batches. [Counts and integration notes](assets/game-ready/README.md).

@@ -55,3 +55,7 @@ The message “cannot start server in background mode” is expected from the en
 ## HUGIN launch and recovery builder
 
 `build_launchpad.py` builds a reusable entry vehicle with three flat landing feet, launcher, cargo-catching arm and D0–D3 destruction states. D0/D1 contain the 20-second `Cargo_Recovery_Cycle`. Source: `source/blender/a6-launchpad.blend`; preview: `launchpad/`; validation: `node tools/asset-pipeline/validate-launchpad.mjs`.
+
+## Game geometry for HUGIN and Stålheart
+
+`build_game_lods.py` derives eight ~40K-triangle assets from the detailed Blender scenes, preserving pivots and animation. Follow with `node tools/asset-pipeline/build-game-assets.mjs` to batch sibling geometry and `node tools/asset-pipeline/validate-game-assets.mjs` to compare motion with the originals. The reduced editable scenes end in `-game.blend`; exports are in `assets/game-ready/`; the combined comparison workshop is `game-assets/`.
