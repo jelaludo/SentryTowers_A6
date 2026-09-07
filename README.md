@@ -51,3 +51,5 @@ The [open micro-reactor](micro-reactor/) adds an exposed fuel lattice, control r
 The [station crew](station-crew/) adds three original low-poly suited characters—astronaut, scientist and worker—with a shared 20-joint rig and seven animations each: idle, walk, run, kneel, scared, point and lie. Includes downloadable GLBs, an editable Blender scene, and a preview with timeline and skeleton controls. [Integration notes](assets/characters-station/README.md).
 
 The [Reckon-Guard drone](reckon-guard/) adds a sleek low-poly twin-fan scout with animated rotors and an articulated downward-firing cannon. The preview demonstrates hover, ground-target tracking, muzzle-spawned projectiles and impacts. [Integration notes](assets/reckon-guard/README.md).
+
+The [Capture-the-Flag kit](ctf-flags/) adds six faction banners—including stylized 火 and 力—three modular pole styles, and a capture socket. Each flag includes flutter, gust, raise and lower animations; the preview adds comparison and pick-up/capture/return controls. [Integration notes](assets/ctf-flags/README.md).
