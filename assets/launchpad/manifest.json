@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "assets": [
+    {
+      "id": "hugin_launchpad_d0",
+      "name": "HUGIN / Reusable launch & recovery",
+      "state": "Intact",
+      "file": "hugin_launchpad_d0.glb",
+      "plot_m": [
+        40,
+        40
+      ],
+      "description": "Reusable booster with three broad flat landing feet, open engine bells, launch hold-downs and flame trench. The tower catcher grips the upper cargo capsule, lifts it clear, swings to the receiving deck, lowers it and returns it in a 20-second loop.",
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clearance": [],
+      "animations": [
+        "Cargo_Recovery_Cycle"
+      ],
+      "family": "hugin_launchpad",
+      "damage_level": 0,
+      "functional": true,
+      "landing_leg_count": 3,
+      "collision_quality": "blockout",
+      "bytes": 5598664,
+      "triangles": 91428
+    },
+    {
+      "id": "hugin_launchpad_d1",
+      "name": "HUGIN / Reusable launch & recovery",
+      "state": "Damaged",
+      "file": "hugin_launchpad_d1.glb",
+      "plot_m": [
+        40,
+        40
+      ],
+      "description": "Operational damage: heat-scarred booster, impact fragments and fault telemetry. The complete cargo-recovery sequence remains active.",
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clearance": [],
+      "animations": [
+        "Cargo_Recovery_Cycle"
+      ],
+      "family": "hugin_launchpad",
+      "damage_level": 1,
+      "functional": true,
+      "landing_leg_count": 3,
+      "collision_quality": "blockout",
+      "bytes": 5707856,
+      "triangles": 92940
+    },
+    {
+      "id": "hugin_launchpad_d2",
+      "name": "HUGIN / Reusable launch & recovery",
+      "state": "Critical",
+      "file": "hugin_launchpad_d2.glb",
+      "plot_m": [
+        40,
+        40
+      ],
+      "description": "Disabled recovery system: ruptured booster hull, stalled low catcher, damaged finger, tilted cargo capsule and torn service cable; booster and launcher remain recognizable.",
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "hugin_launchpad",
+      "damage_level": 2,
+      "functional": false,
+      "landing_leg_count": 3,
+      "collision_quality": "blockout",
+      "bytes": 5720076,
+      "triangles": 93948
+    },
+    {
+      "id": "hugin_launchpad_d3",
+      "name": "HUGIN / Reusable launch & recovery",
+      "state": "Destroyed",
+      "file": "hugin_launchpad_d3.glb",
+      "plot_m": [
+        40,
+        40
+      ],
+      "description": "Collapsed recovery complex: open broken booster shell, detached flat landing feet, fallen catcher boom, cargo capsule wreck and severed tower conduits.",
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "hugin_launchpad",
+      "damage_level": 3,
+      "functional": false,
+      "landing_leg_count": 3,
+      "collision_quality": "blockout",
+      "bytes": 2324880,
+      "triangles": 40064
+    }
+  ]
+}

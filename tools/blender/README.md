@@ -51,3 +51,7 @@ The restricted session failed in Metal GPU detection (`supports_barycentric_whit
 MCP separately had no GUI server listening on port 9876. Opening Blender started the installed add-on automatically; `get_addon_status` reported matching protocol 5, and `execute_blender_code` returned the live scene successfully. No add-on reinstall was required. Telemetry remained disabled.
 
 The message “cannot start server in background mode” is expected from the enabled MCP add-on in CLI builds. It does not prevent a `--python` builder from running. Use background Blender for deterministic builds and the running GUI/MCP connection for live inspection. They are complementary workflows.
+
+## HUGIN launch and recovery builder
+
+`build_launchpad.py` builds a reusable entry vehicle with three flat landing feet, launcher, cargo-catching arm and D0–D3 destruction states. D0/D1 contain the 20-second `Cargo_Recovery_Cycle`. Source: `source/blender/a6-launchpad.blend`; preview: `launchpad/`; validation: `node tools/asset-pipeline/validate-launchpad.mjs`.
