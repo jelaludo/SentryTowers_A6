@@ -1,0 +1,58 @@
+{
+  "assets": [
+    {
+      "id": "kestrel",
+      "name": "KESTREL / Frontier EVA",
+      "file": "kestrel_eva.glb",
+      "triangles": 248808,
+      "bytes": 14569380,
+      "joints": 20,
+      "author": "jelaludo",
+      "animations": [
+        {
+          "name": "Idle",
+          "duration_s": 3.0,
+          "loop": true,
+          "preview_speed_mps": 0
+        },
+        {
+          "name": "Walk",
+          "duration_s": 1.2,
+          "loop": true,
+          "preview_speed_mps": 1.15
+        },
+        {
+          "name": "Run",
+          "duration_s": 0.8,
+          "loop": true,
+          "preview_speed_mps": 3.0
+        },
+        {
+          "name": "Kneel",
+          "duration_s": 3.0,
+          "loop": true,
+          "preview_speed_mps": 0
+        },
+        {
+          "name": "Scared",
+          "duration_s": 2.0,
+          "loop": true,
+          "preview_speed_mps": 0
+        },
+        {
+          "name": "Point",
+          "duration_s": 3.0,
+          "loop": true,
+          "preview_speed_mps": 0
+        },
+        {
+          "name": "Lie",
+          "duration_s": 4.0,
+          "loop": true,
+          "preview_speed_mps": 0
+        }
+      ],
+      "description": "Original detailed EVA astronaut: lean layered suit, opaque visor, compact life support, utility fittings and authored surface wear."
+    }
+  ]
+}

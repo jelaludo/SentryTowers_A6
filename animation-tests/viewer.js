@@ -1,32 +1,23 @@
 import * as T from 'three';
+import {CircularTravel} from '../workshop/circular-travel.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-const $=id=>document.getElementById(id),scene=new T.Scene();scene.background=new T.Color('#17202b');
-const camera=new T.PerspectiveCamera(38,innerWidth/innerHeight,.01,100);camera.position.set(2.8,1.8,3.7);
-const renderer=new T.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2));document.body.append(renderer.domElement);
-const orbit=new OrbitControls(camera,renderer.domElement);orbit.target.set(0,1,0);orbit.enableDamping=true;
-scene.add(new T.HemisphereLight(0xffffff,0x536475,2.5));const key=new T.DirectionalLight(0xffffff,2.5);key.position.set(2,4,5);scene.add(key);scene.add(new T.GridHelper(8,40,0x607c84,0x2b414c));
-let mixer,action,helper,model,wrapper,clips=[],paused=false,serial=0,catalog=[];
-function select(){if(!mixer)return;mixer.stopAllAction();const clip=clips.find(c=>c.name===$('clip').value);if(!clip)return;action=mixer.clipAction(clip);action.reset();const loop=!['Hide','Crouch','Jump'].includes(clip.name);action.setLoop(loop?T.LoopRepeat:T.LoopOnce,loop?Infinity:1);action.clampWhenFinished=true;action.play();paused=false;$('pause').textContent='Pause';}
-function dispose(root){const geometry=new Set(),materials=new Set(),textures=new Set();root.traverse(o=>{if(o.isMesh){geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const value of Object.values(m))if(value?.isTexture)textures.add(value);}}});geometry.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>{t.source.data?.close?.();t.dispose();});}
-async function load(){const ticket=++serial,entry=catalog.find(c=>c.id===$('asset').value);const url=new URL(location.href);url.searchParams.set('asset',entry.id);history.replaceState(null,'',url);$('status').textContent='Loading…';try{
- const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(entry.file);if(ticket!==serial){dispose(gltf.scene);return;}
- if(model){mixer.stopAllAction();mixer.uncacheRoot(model);scene.remove(wrapper,helper);helper.dispose();dispose(model);}
- model=gltf.scene;clips=gltf.animations;wrapper=new T.Group();wrapper.add(model);scene.add(wrapper);
- model.traverse(o=>{if(o.isSkinnedMesh)o.frustumCulled=false;});
- const box=new T.Box3().setFromObject(model),size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3()),scale=2/size.y;
- wrapper.scale.setScalar(scale);wrapper.position.set(-center.x*scale,-box.min.y*scale,-center.z*scale);
- mixer=new T.AnimationMixer(model);mixer.timeScale=+$('speed').value;helper=new T.SkeletonHelper(model);helper.visible=$('rig').checked;scene.add(helper);
- $('clip').replaceChildren();for(const clip of clips)$('clip').add(new Option(clip.name,clip.name));$('clip').value=clips.find(c=>/idle/i.test(c.name))?.name||clips[0]?.name;select();
- const joints=new Set();let triangles=0;model.traverse(o=>{if(o.isSkinnedMesh)o.skeleton.bones.forEach(b=>joints.add(b));if(o.isMesh)triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;});
- $('status').textContent=`${clips.length} clips · ${joints.size} bones · ${Math.round(triangles).toLocaleString()} triangles`;
- $('download').href=entry.file;$('note').textContent=entry.note;$('author').textContent=entry.author;$('author').href=entry.source;$('changes').textContent=entry.changes;
- window.shelly={scene:model,mixer,clips,camera,orbit};window.characterLab={...window.shelly,id:entry.id};
- }catch(e){$('status').textContent='Load failed: '+e.message;console.error(e);}}
-$('asset').onchange=load;$('clip').onchange=select;$('rig').onchange=()=>{if(helper)helper.visible=$('rig').checked;};$('speed').oninput=()=>{if(mixer)mixer.timeScale=+$('speed').value;};
-$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'Play':'Pause';};$('replay').onclick=select;
-$('timeline').oninput=()=>{if(!action)return;paused=true;$('pause').textContent='Play';action.paused=false;action.time=+$('timeline').value*action.getClip().duration;mixer.update(0);};
-addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
-const clock=new T.Clock();renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.05);if(mixer&&!paused)mixer.update(dt);if(action)$('timeline').value=action.time/action.getClip().duration;orbit.update();renderer.render(scene,camera);});
-try{const response=await fetch('catalog.json');if(!response.ok)throw Error('Cannot load character catalog');catalog=await response.json();for(const entry of catalog)$('asset').add(new Option(entry.name,entry.id));const requested=new URLSearchParams(location.search).get('asset');if(catalog.some(entry=>entry.id===requested))$('asset').value=requested;await load();}catch(e){$('status').textContent=e.message;}
+const $=id=>document.getElementById(id),stage=$('stage'),scene=new T.Scene();scene.background=new T.Color('#101b24');
+const camera=new T.PerspectiveCamera(40,1,.05,100);camera.position.set(3,2.3,4.5);
+const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.outputColorSpace=T.SRGBColorSpace;stage.append(renderer.domElement);
+const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1,0);controls.enableDamping=true;
+scene.add(new T.HemisphereLight(0xc8e6ff,0x45515b,2.5));const light=new T.DirectionalLight(0xffeccb,3);light.position.set(3,6,4);light.castShadow=true;light.shadow.mapSize.set(2048,2048);Object.assign(light.shadow.camera,{left:-6,right:6,top:6,bottom:-6,near:.1,far:20});light.shadow.normalBias=.01;scene.add(light);const rim=new T.DirectionalLight(0x6bdcff,2);rim.position.set(-3,2,-4);scene.add(rim);
+const floor=new T.Mesh(new T.PlaneGeometry(30,30),new T.MeshStandardMaterial({color:0x1a2a30,roughness:.9}));floor.rotation.x=-Math.PI/2;floor.position.y=-.012;floor.receiveShadow=true;scene.add(floor);
+const grid=new T.GridHelper(20,20,0x517684,0x263c48);scene.add(grid);scene.add(new T.ArrowHelper(new T.Vector3(0,0,1),new T.Vector3(.85,.025,0),.9,0x68dbc4,.18,.1));
+const travel=new CircularTravel();
+let root,mixer,action,helper,entry,clips=[],playing=true,loadId=0;
+function travelView(){const moving=$('travel').checked&&['Walk','Run'].includes($('clip').value);travel.reset(root);controls.target.set(moving?travel.radius:0,1,0);camera.position.set(moving?travel.radius+6:3,moving?3.8:2.3,moving?8:4.5);controls.update();}
+const manifest=await fetch('../assets/kestrel/manifest.json').then(r=>r.json());
+for(const e of manifest.assets)$('role').add(new Option(e.name,e.id));
+function chooseClip(){mixer.stopAllAction();const clip=clips.find(c=>c.name===$('clip').value);action=mixer.clipAction(clip);action.reset().play();mixer.update(0);travelView();$('time').value=0;}
+async function load(){const id=++loadId;$('status').textContent='Loading KESTREL…';entry=manifest.assets.find(e=>e.id===$('role').value);const gltf=await new GLTFLoader().loadAsync('../assets/kestrel/'+entry.file);if(id!==loadId)return;if(root){scene.remove(root,helper);helper.dispose();root.traverse(o=>{if(o.isMesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});}root=gltf.scene;root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;}});scene.add(root);clips=gltf.animations;mixer=new T.AnimationMixer(root);helper=new T.SkeletonHelper(root);helper.visible=$('skeleton').checked;scene.add(helper);const old=$('clip').value;$('clip').replaceChildren(...clips.map(c=>new Option(c.name,c.name)));if(clips.some(c=>c.name===old))$('clip').value=old;chooseClip();$('description').textContent=entry.description;$('stats').textContent=`${entry.triangles.toLocaleString()} triangles · ${entry.joints} joints · ${(entry.bytes/1024).toFixed(0)} KB · ${clips.length} clips`;$('download').href='../assets/kestrel/'+entry.file;$('status').textContent=entry.name+' · +Z forward';window.characterLab={root,mixer,clips,entry,travel};}
+$('role').onchange=load;$('clip').onchange=chooseClip;$('skeleton').onchange=()=>helper.visible=$('skeleton').checked;$('travel').onchange=travelView;
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'Pause':'Play';};$('time').oninput=()=>{playing=false;$('play').textContent='Play';action.time=Number($('time').value)*action.getClip().duration;mixer.update(0);};
+new ResizeObserver(()=>{camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);}).observe(stage);
+const clock=new T.Clock();renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.05)*Number($('speed').value);if(mixer&&playing){mixer.update(dt);$('time').value=action.time/action.getClip().duration;if($('travel').checked){const speed=entry.animations.find(c=>c.name===$('clip').value).preview_speed_mps;if(speed>0)travel.update(root,dt,speed);}}controls.update();renderer.render(scene,camera);});
+await load();

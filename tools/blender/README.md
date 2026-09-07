@@ -71,3 +71,7 @@ Run `node tools/asset-pipeline/sample-missile-flight.mjs`, then `blender --backg
 ## SKYWARD antenna array
 
 `build_antenna_array.py` builds three mesh-detail levels × four destruction states and a seven-dish low-detail scene. Follow with `node tools/asset-pipeline/pack-antenna-array.mjs` and `node tools/asset-pipeline/validate-antenna-array.mjs`. Source: `source/blender/a6-antenna-array.blend`; viewer: `antenna-array/`.
+
+## KESTREL original astronaut
+
+`build_kestrel.py` authors the detailed original EVA character, wear textures and seven skinned clips. It uses the original humanoid helpers in `character_rig.py`. Validate with `node tools/asset-pipeline/validate-kestrel.mjs`. Source: `source/blender/a6-kestrel.blend`; viewer: `animation-tests/`.

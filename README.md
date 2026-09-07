@@ -2,7 +2,7 @@
 
 Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [original sentry viewer](sentries/).
 
-**Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. Imported character models retain their original creator credits and terms. See [reuse and attribution](ASSET-LICENSE.md).
+**Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md).
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line and five reusable modules each include four structural states. [Integration notes](assets/assembly-line/README.md).
 
@@ -12,7 +12,7 @@ The [base construction lab](base-kit/) now contains the first Blender-authored w
 
 The [futuristic base design catalog](research/README.md) defines 109 planned modular assets, three damage levels plus intact state, and procedural assembly rules for future base construction.
 
-The research collection now includes a [character animation lab](animation-tests/) alongside the sentry families. Open it from the tower viewer to inspect Shelly's eight experimental clips and two optimized variants of the rigged Mercenary Astronaut. New characters can be registered in `animation-tests/catalog.json` without changing viewer code. See [astronaut optimization measurements and integration requirements](assets/characters/README.md).
+The [KESTREL astronaut viewer](animation-tests/) presents an original detailed EVA suit with an opaque visor, compact life support and seven animation clips. Walk/run travel follows a continuous circle here and in the [station crew viewer](station-crew/).
 
 33 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar, Heptapod A6 and Plasma, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
 

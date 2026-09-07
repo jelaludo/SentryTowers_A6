@@ -61,3 +61,24 @@ Enable **Labels / callouts** in the tank workshop, choose an assembly, and searc
 The `*-callouts.json` files are generated from individual source objects before material batching. Rebuilds regenerate them automatically; to refresh just the labels, run `blender --background source/blender/a6-hover-tank.blend --python tools/blender/hover_tank_callouts.py`.
 
 The exposed nacelle saddles, hinges, cylinders, rods and hoses have been removed, along with the cannon recoil cylinders and rods. The turret pivot moved 0.8 m forward to open the rear deck for the magazine. Recoil remains animated.
+
+## Low-poly edition
+
+Select **Low poly / game asset** in the workshop (the default); **Original detail** remains available. Both editions include all four destruction states, named control sockets, piece callouts, the nine independent ammunition lenses, and six operating clips in D0/D1. The source and GLB downloads follow the selected edition.
+
+| State | Original triangles | Low-poly triangles |
+|---|---:|---:|
+| D0 | 24,196 | 6,802 |
+| D1 | 24,844 | 6,982 |
+| D2 | 26,256 | 7,370 |
+| D3 | 23,048 | 6,478 |
+
+The intact model uses 72% fewer triangles. Reduction retains the control hierarchy and materials; the packed intact model still has 70 material batches. Minimum nominal gun/plasma vertical clearance is 0.143 m for this edition. Assets use the `mork_hover_tank_low_d*.glb` filenames and `manifest-low.json`; editable source is [a6-hover-tank-low.blend](../../source/blender/a6-hover-tank-low.blend).
+
+Build the original source first, then:
+
+```sh
+blender --background --python-exit-code 1 --python tools/blender/build_hover_tank_low.py
+node tools/asset-pipeline/pack-hover-tank.mjs --low
+node tools/asset-pipeline/validate-hover-tank.mjs --low
+```

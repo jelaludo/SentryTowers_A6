@@ -18,3 +18,5 @@ node tools/asset-pipeline/validate-station-characters.mjs
 ```
 
 Validation checks glTF validity, normalized skin weights, matching skeletons, all seven clips, loop seams, sampled deformed ground contact, lowered kneeling/lying poses, and forward gait mechanics. The browser preview supports pause, scrubbing, speed, skeleton display, and movement testing.
+
+The viewer’s optional **Circle travel** mode now moves walk/run clips along a continuous 2.2 m radius path with tangent-facing orientation. The exported animations remain in place. This preview behavior is shared with the original KESTREL astronaut.
