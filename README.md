@@ -40,3 +40,6 @@ The A6 GLBs include a looping `Walk` animation and a one-shot `Anchor` animation
 ## Plasma Sentry
 
 Three tiers share one broad flared flamethrower-style nozzle, twin pressure reservoirs, insulated feeds and a recessed green plasma throat. The sleeve has real circular through-holes (30 / 40 / 50), with modeled inner walls. Higher tiers increase nozzle length and diameter, reservoir capacity and cooling fins. Uses the standard YAW / PITCH / RECOIL hierarchy and forward MUZZLE_00; no external flame or plasma VFX is baked in.
+
+
+The [solar power network](solar-power/) adds a six-rack photovoltaic array, inverter/battery station, authored equipment-specific ruins, and a live demonstration where destroying either power component disables nearby sentry towers. [Integration notes](assets/solar-power/README.md).
