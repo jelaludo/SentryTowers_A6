@@ -1,0 +1,1922 @@
+[
+  {
+    "id": "HULL_SUSPENSION/Low armored main hull/1",
+    "name": "Low armored main hull",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.0,
+      1.02967,
+      0.508
+    ],
+    "source": "Low armored main hull.003"
+  },
+  {
+    "id": "HULL_SUSPENSION/Lower blast keel/1",
+    "name": "Lower blast keel",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.0,
+      0.51,
+      0.60173
+    ],
+    "source": "Lower blast keel.003"
+  },
+  {
+    "id": "HULL_SUSPENSION/Swept glacis armor/1",
+    "name": "Swept glacis armor",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.79512,
+      1.41251,
+      3.3655
+    ],
+    "source": "Swept glacis armor.006"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis captive bolt/1",
+    "name": "Glacis captive bolt",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.656,
+      1.3783,
+      4.318
+    ],
+    "source": "Glacis captive bolt.012"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis captive bolt/2",
+    "name": "Glacis captive bolt",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.656,
+      1.53113,
+      3.175
+    ],
+    "source": "Glacis captive bolt.013"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis cyan seam/1",
+    "name": "Glacis cyan seam",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.0414,
+      1.35302,
+      4.4323
+    ],
+    "source": "Glacis cyan seam.012"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis cyan seam/2",
+    "name": "Glacis cyan seam",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.3448,
+      1.52962,
+      2.921
+    ],
+    "source": "Glacis cyan seam.013"
+  },
+  {
+    "id": "HULL_SUSPENSION/Swept glacis armor/2",
+    "name": "Swept glacis armor",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.79512,
+      1.41251,
+      3.3655
+    ],
+    "source": "Swept glacis armor.007"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis captive bolt/3",
+    "name": "Glacis captive bolt",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.656,
+      1.3783,
+      4.318
+    ],
+    "source": "Glacis captive bolt.014"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis captive bolt/4",
+    "name": "Glacis captive bolt",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.656,
+      1.53113,
+      3.175
+    ],
+    "source": "Glacis captive bolt.015"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis cyan seam/3",
+    "name": "Glacis cyan seam",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.0414,
+      1.35302,
+      4.4323
+    ],
+    "source": "Glacis cyan seam.014"
+  },
+  {
+    "id": "HULL_SUSPENSION/Glacis cyan seam/4",
+    "name": "Glacis cyan seam",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.3448,
+      1.52962,
+      2.921
+    ],
+    "source": "Glacis cyan seam.015"
+  },
+  {
+    "id": "HULL_SUSPENSION/Forward sensor brow/1",
+    "name": "Forward sensor brow",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.0,
+      0.9,
+      5.6515
+    ],
+    "source": "Forward sensor brow.003"
+  },
+  {
+    "id": "HULL_SUSPENSION/Forward ranging lens/1",
+    "name": "Forward ranging lens",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.246,
+      0.9,
+      5.8039
+    ],
+    "source": "Forward ranging lens.006"
+  },
+  {
+    "id": "HULL_SUSPENSION/Forward ranging lens/2",
+    "name": "Forward ranging lens",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.246,
+      0.9,
+      5.8039
+    ],
+    "source": "Forward ranging lens.007"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine heat exchanger/1",
+    "name": "Engine heat exchanger",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.53,
+      -3.048
+    ],
+    "source": "Engine heat exchanger.006"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/1",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -2.159
+    ],
+    "source": "Engine cooling louver.060"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/2",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -2.3495
+    ],
+    "source": "Engine cooling louver.061"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/3",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -2.54
+    ],
+    "source": "Engine cooling louver.062"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/4",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -2.7305
+    ],
+    "source": "Engine cooling louver.063"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/5",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -2.921
+    ],
+    "source": "Engine cooling louver.064"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/6",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -3.1115
+    ],
+    "source": "Engine cooling louver.065"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/7",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -3.302
+    ],
+    "source": "Engine cooling louver.066"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/8",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -3.4925
+    ],
+    "source": "Engine cooling louver.067"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/9",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -3.683
+    ],
+    "source": "Engine cooling louver.068"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/10",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.943,
+      1.61,
+      -3.8735
+    ],
+    "source": "Engine cooling louver.069"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine heat exchanger/2",
+    "name": "Engine heat exchanger",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.53,
+      -3.048
+    ],
+    "source": "Engine heat exchanger.007"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/11",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -2.159
+    ],
+    "source": "Engine cooling louver.070"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/12",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -2.3495
+    ],
+    "source": "Engine cooling louver.071"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/13",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -2.54
+    ],
+    "source": "Engine cooling louver.072"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/14",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -2.7305
+    ],
+    "source": "Engine cooling louver.073"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/15",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -2.921
+    ],
+    "source": "Engine cooling louver.074"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/16",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -3.1115
+    ],
+    "source": "Engine cooling louver.075"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/17",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -3.302
+    ],
+    "source": "Engine cooling louver.076"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/18",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -3.4925
+    ],
+    "source": "Engine cooling louver.077"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/19",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -3.683
+    ],
+    "source": "Engine cooling louver.078"
+  },
+  {
+    "id": "HULL_SUSPENSION/Engine cooling louver/20",
+    "name": "Engine cooling louver",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.943,
+      1.61,
+      -3.8735
+    ],
+    "source": "Engine cooling louver.079"
+  },
+  {
+    "id": "NACELLE_L/Armored hover nacelle/1",
+    "name": "Armored hover nacelle",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      0.0,
+      0.74998,
+      0.381
+    ],
+    "source": "Armored hover nacelle.006"
+  },
+  {
+    "id": "NACELLE_L/Ground contact skid/1",
+    "name": "Ground contact skid",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.6724,
+      0.105,
+      -0.0
+    ],
+    "source": "Ground contact skid.012"
+  },
+  {
+    "id": "NACELLE_L/Ground contact skid/2",
+    "name": "Ground contact skid",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      0.6724,
+      0.105,
+      -0.0
+    ],
+    "source": "Ground contact skid.013"
+  },
+  {
+    "id": "NACELLE_L/Recessed lift nozzle/1",
+    "name": "Recessed lift nozzle",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.1476,
+      0.285,
+      3.429
+    ],
+    "source": "Recessed lift nozzle.024"
+  },
+  {
+    "id": "LIFT_EMITTER_L_0/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_0",
+    "position": [
+      -0.00024,
+      2e-05,
+      0.00024
+    ],
+    "source": "Cyan lift field.024"
+  },
+  {
+    "id": "NACELLE_L/Lift vent recess/1",
+    "name": "Lift vent recess",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.69381,
+      0.58,
+      3.429
+    ],
+    "source": "Lift vent recess.024"
+  },
+  {
+    "id": "LIFT_EMITTER_L_0/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_0",
+    "position": [
+      -0.56885,
+      0.416,
+      0.00024
+    ],
+    "source": "Lift field edge window.024"
+  },
+  {
+    "id": "NACELLE_L/Tapered nacelle shield/1",
+    "name": "Tapered nacelle shield",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      0.0,
+      1.15297,
+      3.429
+    ],
+    "source": "Tapered nacelle shield.024"
+  },
+  {
+    "id": "NACELLE_L/Recessed lift nozzle/2",
+    "name": "Recessed lift nozzle",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.1476,
+      0.285,
+      1.143
+    ],
+    "source": "Recessed lift nozzle.025"
+  },
+  {
+    "id": "LIFT_EMITTER_L_1/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_1",
+    "position": [
+      -0.00024,
+      2e-05,
+      -0.00012
+    ],
+    "source": "Cyan lift field.025"
+  },
+  {
+    "id": "NACELLE_L/Lift vent recess/2",
+    "name": "Lift vent recess",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.74314,
+      0.58,
+      1.143
+    ],
+    "source": "Lift vent recess.025"
+  },
+  {
+    "id": "LIFT_EMITTER_L_1/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_1",
+    "position": [
+      -0.61816,
+      0.416,
+      -0.00012
+    ],
+    "source": "Lift field edge window.025"
+  },
+  {
+    "id": "NACELLE_L/Tapered nacelle shield/2",
+    "name": "Tapered nacelle shield",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.0,
+      1.2425,
+      1.143
+    ],
+    "source": "Tapered nacelle shield.025"
+  },
+  {
+    "id": "NACELLE_L/Recessed lift nozzle/3",
+    "name": "Recessed lift nozzle",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.1476,
+      0.285,
+      -1.143
+    ],
+    "source": "Recessed lift nozzle.026"
+  },
+  {
+    "id": "LIFT_EMITTER_L_2/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_2",
+    "position": [
+      -0.00024,
+      2e-05,
+      0.00012
+    ],
+    "source": "Cyan lift field.026"
+  },
+  {
+    "id": "NACELLE_L/Lift vent recess/3",
+    "name": "Lift vent recess",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.72982,
+      0.58,
+      -1.143
+    ],
+    "source": "Lift vent recess.026"
+  },
+  {
+    "id": "LIFT_EMITTER_L_2/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_2",
+    "position": [
+      -0.60474,
+      0.416,
+      0.00012
+    ],
+    "source": "Lift field edge window.026"
+  },
+  {
+    "id": "NACELLE_L/Tapered nacelle shield/3",
+    "name": "Tapered nacelle shield",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.0,
+      1.2425,
+      -1.143
+    ],
+    "source": "Tapered nacelle shield.026"
+  },
+  {
+    "id": "NACELLE_L/Recessed lift nozzle/4",
+    "name": "Recessed lift nozzle",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.1476,
+      0.285,
+      -3.429
+    ],
+    "source": "Recessed lift nozzle.027"
+  },
+  {
+    "id": "LIFT_EMITTER_L_3/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_3",
+    "position": [
+      -0.00024,
+      2e-05,
+      -0.00024
+    ],
+    "source": "Cyan lift field.027"
+  },
+  {
+    "id": "NACELLE_L/Lift vent recess/4",
+    "name": "Lift vent recess",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.57148,
+      0.58,
+      -3.429
+    ],
+    "source": "Lift vent recess.027"
+  },
+  {
+    "id": "LIFT_EMITTER_L_3/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Left nacelle",
+    "anchor": "LIFT_EMITTER_L_3",
+    "position": [
+      -0.44653,
+      0.416,
+      -0.00024
+    ],
+    "source": "Lift field edge window.027"
+  },
+  {
+    "id": "NACELLE_L/Tapered nacelle shield/4",
+    "name": "Tapered nacelle shield",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      0.0,
+      1.14315,
+      -3.429
+    ],
+    "source": "Tapered nacelle shield.027"
+  },
+  {
+    "id": "NACELLE_L/Nacelle hazard band/1",
+    "name": "Nacelle hazard band",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.58833,
+      0.97,
+      3.937
+    ],
+    "source": "Nacelle hazard band.012"
+  },
+  {
+    "id": "NACELLE_L/Nacelle hazard band/2",
+    "name": "Nacelle hazard band",
+    "group": "Left nacelle",
+    "anchor": "NACELLE_L",
+    "position": [
+      -0.38772,
+      0.97,
+      -3.937
+    ],
+    "source": "Nacelle hazard band.013"
+  },
+  {
+    "id": "NACELLE_R/Armored hover nacelle/1",
+    "name": "Armored hover nacelle",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      -0.02173,
+      0.74998,
+      0.36665
+    ],
+    "source": "Armored hover nacelle.007"
+  },
+  {
+    "id": "NACELLE_R/Ground contact skid/1",
+    "name": "Ground contact skid",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      -0.70463,
+      0.105,
+      0.10418
+    ],
+    "source": "Ground contact skid.014"
+  },
+  {
+    "id": "NACELLE_R/Ground contact skid/2",
+    "name": "Ground contact skid",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.70463,
+      0.105,
+      -0.10418
+    ],
+    "source": "Ground contact skid.015"
+  },
+  {
+    "id": "NACELLE_R/Recessed lift nozzle/1",
+    "name": "Recessed lift nozzle",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      -0.18835,
+      0.285,
+      3.30002
+    ],
+    "source": "Recessed lift nozzle.028"
+  },
+  {
+    "id": "LIFT_EMITTER_R_4/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_4",
+    "position": [
+      0.00061,
+      0.0,
+      0.00037
+    ],
+    "source": "Cyan lift field.028"
+  },
+  {
+    "id": "NACELLE_R/Lift vent recess/1",
+    "name": "Lift vent recess",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.38404,
+      0.58,
+      3.2154
+    ],
+    "source": "Lift vent recess.028"
+  },
+  {
+    "id": "LIFT_EMITTER_R_4/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_4",
+    "position": [
+      0.59607,
+      0.41599,
+      -0.08765
+    ],
+    "source": "Lift field edge window.028"
+  },
+  {
+    "id": "NACELLE_R/Tapered nacelle shield/1",
+    "name": "Tapered nacelle shield",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      -0.35401,
+      1.15297,
+      3.32203
+    ],
+    "source": "Tapered nacelle shield.028"
+  },
+  {
+    "id": "NACELLE_R/Recessed lift nozzle/2",
+    "name": "Recessed lift nozzle",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.04033,
+      0.285,
+      1.08476
+    ],
+    "source": "Recessed lift nozzle.029"
+  },
+  {
+    "id": "LIFT_EMITTER_R_5/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_5",
+    "position": [
+      0.00023,
+      0.0,
+      0.00011
+    ],
+    "source": "Cyan lift field.029"
+  },
+  {
+    "id": "NACELLE_R/Lift vent recess/2",
+    "name": "Lift vent recess",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.66441,
+      0.58,
+      0.99249
+    ],
+    "source": "Lift vent recess.029"
+  },
+  {
+    "id": "LIFT_EMITTER_R_5/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_5",
+    "position": [
+      0.64774,
+      0.41599,
+      -0.09554
+    ],
+    "source": "Lift field edge window.029"
+  },
+  {
+    "id": "NACELLE_R/Tapered nacelle shield/2",
+    "name": "Tapered nacelle shield",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      -0.13679,
+      1.2425,
+      1.11208
+    ],
+    "source": "Tapered nacelle shield.029"
+  },
+  {
+    "id": "NACELLE_R/Recessed lift nozzle/3",
+    "name": "Recessed lift nozzle",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.26901,
+      0.285,
+      -1.1305
+    ],
+    "source": "Recessed lift nozzle.030"
+  },
+  {
+    "id": "LIFT_EMITTER_R_6/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_6",
+    "position": [
+      -0.00012,
+      0.0,
+      -0.00024
+    ],
+    "source": "Cyan lift field.030"
+  },
+  {
+    "id": "NACELLE_R/Lift vent recess/3",
+    "name": "Lift vent recess",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.87914,
+      0.58,
+      -1.2207
+    ],
+    "source": "Lift vent recess.030"
+  },
+  {
+    "id": "LIFT_EMITTER_R_6/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_6",
+    "position": [
+      0.63336,
+      0.41599,
+      -0.09387
+    ],
+    "source": "Lift field edge window.030"
+  },
+  {
+    "id": "NACELLE_R/Tapered nacelle shield/3",
+    "name": "Tapered nacelle shield",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.09189,
+      1.2425,
+      -1.10318
+    ],
+    "source": "Tapered nacelle shield.030"
+  },
+  {
+    "id": "NACELLE_R/Recessed lift nozzle/4",
+    "name": "Recessed lift nozzle",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.49769,
+      0.285,
+      -3.34576
+    ],
+    "source": "Recessed lift nozzle.031"
+  },
+  {
+    "id": "LIFT_EMITTER_R_7/Cyan lift field/1",
+    "name": "Cyan lift field",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_7",
+    "position": [
+      0.00061,
+      0.0,
+      -0.00024
+    ],
+    "source": "Cyan lift field.031"
+  },
+  {
+    "id": "NACELLE_R/Lift vent recess/4",
+    "name": "Lift vent recess",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.94189,
+      0.58,
+      -3.41143
+    ],
+    "source": "Lift vent recess.031"
+  },
+  {
+    "id": "LIFT_EMITTER_R_7/Lift field edge window/1",
+    "name": "Lift field edge window",
+    "group": "Right nacelle",
+    "anchor": "LIFT_EMITTER_R_7",
+    "position": [
+      0.4679,
+      0.41599,
+      -0.0694
+    ],
+    "source": "Lift field edge window.031"
+  },
+  {
+    "id": "NACELLE_R/Tapered nacelle shield/4",
+    "name": "Tapered nacelle shield",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.30749,
+      1.14315,
+      -3.30707
+    ],
+    "source": "Tapered nacelle shield.031"
+  },
+  {
+    "id": "NACELLE_R/Nacelle hazard band/1",
+    "name": "Nacelle hazard band",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.22268,
+      0.97,
+      3.72402
+    ],
+    "source": "Nacelle hazard band.014"
+  },
+  {
+    "id": "NACELLE_R/Nacelle hazard band/2",
+    "name": "Nacelle hazard band",
+    "group": "Right nacelle",
+    "anchor": "NACELLE_R",
+    "position": [
+      0.80014,
+      0.97,
+      -3.87524
+    ],
+    "source": "Nacelle hazard band.015"
+  },
+  {
+    "id": "HULL_SUSPENSION/Rear deck magazine bezel/1",
+    "name": "Rear deck magazine bezel",
+    "group": "Rear magazine",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.0,
+      1.55,
+      -3.5306
+    ],
+    "source": "Rear deck magazine bezel.003"
+  },
+  {
+    "id": "AMMO_PORT_00/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_00",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.027"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_00/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_00",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.027"
+  },
+  {
+    "id": "AMMO_PORT_01/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_01",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.028"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_01/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_01",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.028"
+  },
+  {
+    "id": "AMMO_PORT_02/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_02",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.029"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_02/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_02",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.029"
+  },
+  {
+    "id": "AMMO_PORT_03/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_03",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.030"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_03/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_03",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.030"
+  },
+  {
+    "id": "AMMO_PORT_04/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_04",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.031"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_04/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_04",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.031"
+  },
+  {
+    "id": "AMMO_PORT_05/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_05",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.032"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_05/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_05",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.032"
+  },
+  {
+    "id": "AMMO_PORT_06/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_06",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.033"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_06/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_06",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.033"
+  },
+  {
+    "id": "AMMO_PORT_07/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_07",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.034"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_07/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_07",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.034"
+  },
+  {
+    "id": "AMMO_PORT_08/Magazine lens surround/1",
+    "name": "Magazine lens surround",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_08",
+    "position": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "source": "Magazine lens surround.035"
+  },
+  {
+    "id": "AMMO_PORT_LIGHT_08/Magazine status lens/1",
+    "name": "Magazine status lens",
+    "group": "Rear magazine",
+    "anchor": "AMMO_PORT_LIGHT_08",
+    "position": [
+      -0.0,
+      0.015,
+      -0.0
+    ],
+    "source": "Magazine status lens.035"
+  },
+  {
+    "id": "HULL_SUSPENSION/Rear towing eye/1",
+    "name": "Rear towing eye",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.0496,
+      0.65,
+      -4.5085
+    ],
+    "source": "Rear towing eye.006"
+  },
+  {
+    "id": "HULL_SUSPENSION/Rear running lamp/1",
+    "name": "Rear running lamp",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.0496,
+      1.26,
+      -4.318
+    ],
+    "source": "Rear running lamp.006"
+  },
+  {
+    "id": "HULL_SUSPENSION/Rear towing eye/2",
+    "name": "Rear towing eye",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.0496,
+      0.65,
+      -4.5085
+    ],
+    "source": "Rear towing eye.007"
+  },
+  {
+    "id": "HULL_SUSPENSION/Rear running lamp/2",
+    "name": "Rear running lamp",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.0496,
+      1.26,
+      -4.318
+    ],
+    "source": "Rear running lamp.007"
+  },
+  {
+    "id": "TURRET_YAW/Turret azimuth bearing/1",
+    "name": "Turret azimuth bearing",
+    "group": "Turret",
+    "anchor": "TURRET_YAW",
+    "position": [
+      -0.0,
+      0.0328,
+      -0.0
+    ],
+    "source": "Turret azimuth bearing.003"
+  },
+  {
+    "id": "FALLEN_TURRET/Detached turret armor/1",
+    "name": "Detached turret armor",
+    "group": "Turret",
+    "anchor": "FALLEN_TURRET",
+    "position": [
+      0.04397,
+      0.29075,
+      -0.19638
+    ],
+    "source": "Detached turret armor"
+  },
+  {
+    "id": "FALLEN_TURRET/Sheared cannon/1",
+    "name": "Sheared cannon",
+    "group": "Turret",
+    "anchor": "FALLEN_TURRET",
+    "position": [
+      -0.39398,
+      0.29215,
+      2.15906
+    ],
+    "source": "Sheared cannon"
+  },
+  {
+    "id": "TURRET_YAW/Broken turret race/1",
+    "name": "Broken turret race",
+    "group": "Turret",
+    "anchor": "TURRET_YAW",
+    "position": [
+      0.0,
+      0.1886,
+      -0.0
+    ],
+    "source": "Broken turret race"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma lateral bearing/1",
+    "name": "Plasma lateral bearing",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      0.0,
+      -0.03,
+      0.0
+    ],
+    "source": "Plasma lateral bearing.006"
+  },
+  {
+    "id": "PLASMA_YAW_L/Low plasma projector/1",
+    "name": "Low plasma projector",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      -0.0,
+      0.11,
+      0.45
+    ],
+    "source": "Low plasma projector.006"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma pressure cartridge/1",
+    "name": "Plasma pressure cartridge",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      -0.2,
+      0.13,
+      -0.1
+    ],
+    "source": "Plasma pressure cartridge.012"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma pressure cartridge/2",
+    "name": "Plasma pressure cartridge",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      0.2,
+      0.13,
+      -0.1
+    ],
+    "source": "Plasma pressure cartridge.013"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma open throat/1",
+    "name": "Plasma open throat",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      -0.0,
+      0.1,
+      1.03
+    ],
+    "source": "Plasma open throat.006"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma ignition core/1",
+    "name": "Plasma ignition core",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      -0.0,
+      0.1,
+      0.97
+    ],
+    "source": "Plasma ignition core.006"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma heat shield/1",
+    "name": "Plasma heat shield",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      -0.24,
+      0.1,
+      0.76
+    ],
+    "source": "Plasma heat shield.012"
+  },
+  {
+    "id": "PLASMA_YAW_L/Plasma heat shield/2",
+    "name": "Plasma heat shield",
+    "group": "Left plasma",
+    "anchor": "PLASMA_YAW_L",
+    "position": [
+      0.24,
+      0.1,
+      0.76
+    ],
+    "source": "Plasma heat shield.013"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma lateral bearing/1",
+    "name": "Plasma lateral bearing",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.0,
+      -0.03,
+      0.0
+    ],
+    "source": "Plasma lateral bearing.007"
+  },
+  {
+    "id": "PLASMA_YAW_R/Low plasma projector/1",
+    "name": "Low plasma projector",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.0,
+      0.11,
+      0.45
+    ],
+    "source": "Low plasma projector.007"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma pressure cartridge/1",
+    "name": "Plasma pressure cartridge",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      -0.2,
+      0.13,
+      -0.1
+    ],
+    "source": "Plasma pressure cartridge.014"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma pressure cartridge/2",
+    "name": "Plasma pressure cartridge",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.2,
+      0.13,
+      -0.1
+    ],
+    "source": "Plasma pressure cartridge.015"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma open throat/1",
+    "name": "Plasma open throat",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.0,
+      0.1,
+      1.03
+    ],
+    "source": "Plasma open throat.007"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma ignition core/1",
+    "name": "Plasma ignition core",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.0,
+      0.1,
+      0.97
+    ],
+    "source": "Plasma ignition core.007"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma heat shield/1",
+    "name": "Plasma heat shield",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      -0.24,
+      0.1,
+      0.76
+    ],
+    "source": "Plasma heat shield.014"
+  },
+  {
+    "id": "PLASMA_YAW_R/Plasma heat shield/2",
+    "name": "Plasma heat shield",
+    "group": "Right plasma",
+    "anchor": "PLASMA_YAW_R",
+    "position": [
+      0.24,
+      0.1,
+      0.76
+    ],
+    "source": "Plasma heat shield.015"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/1",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.27655,
+      1.56,
+      -1.00235
+    ],
+    "source": "Armor impact gouge.022"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/2",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.85401,
+      1.56,
+      0.85985
+    ],
+    "source": "Armor impact gouge.023"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/3",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.69059,
+      1.56,
+      -2.74709
+    ],
+    "source": "Armor impact gouge.024"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/4",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.66834,
+      1.56,
+      1.59466
+    ],
+    "source": "Armor impact gouge.025"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/5",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.99475,
+      1.56,
+      3.24408
+    ],
+    "source": "Armor impact gouge.026"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/6",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.40826,
+      1.56,
+      -2.70736
+    ],
+    "source": "Armor impact gouge.027"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/7",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.22569,
+      1.56,
+      -3.19779
+    ],
+    "source": "Armor impact gouge.028"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/8",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.15178,
+      1.56,
+      -1.70852
+    ],
+    "source": "Armor impact gouge.029"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/9",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.97095,
+      1.56,
+      -3.13002
+    ],
+    "source": "Armor impact gouge.030"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/10",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -0.52617,
+      1.56,
+      -1.08083
+    ],
+    "source": "Armor impact gouge.031"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/11",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.90111,
+      1.56,
+      3.51212
+    ],
+    "source": "Armor impact gouge.032"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/12",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      -1.32409,
+      1.56,
+      -0.19206
+    ],
+    "source": "Armor impact gouge.033"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/13",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.65967,
+      1.56,
+      -3.32979
+    ],
+    "source": "Armor impact gouge.034"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/14",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.35483,
+      1.56,
+      -1.69893
+    ],
+    "source": "Armor impact gouge.035"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/15",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      0.39065,
+      1.56,
+      -0.94614
+    ],
+    "source": "Armor impact gouge.036"
+  },
+  {
+    "id": "HULL_SUSPENSION/Armor impact gouge/16",
+    "name": "Armor impact gouge",
+    "group": "Hull",
+    "anchor": "HULL_SUSPENSION",
+    "position": [
+      1.21342,
+      1.56,
+      -2.44681
+    ],
+    "source": "Armor impact gouge.037"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/1",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      3.35178,
+      0.13,
+      -1.95424
+    ],
+    "source": "Detached armor fragment"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/2",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -3.45562,
+      0.13,
+      2.18149
+    ],
+    "source": "Detached armor fragment.001"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/3",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -2.78691,
+      0.13,
+      0.38801
+    ],
+    "source": "Detached armor fragment.002"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/4",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      2.30905,
+      0.13,
+      3.67682
+    ],
+    "source": "Detached armor fragment.003"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/5",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      1.12487,
+      0.13,
+      -3.16145
+    ],
+    "source": "Detached armor fragment.004"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/6",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -2.50454,
+      0.13,
+      -1.20021
+    ],
+    "source": "Detached armor fragment.005"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/7",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -0.7814,
+      0.13,
+      4.00544
+    ],
+    "source": "Detached armor fragment.006"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/8",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      1.81101,
+      0.13,
+      3.85921
+    ],
+    "source": "Detached armor fragment.007"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/9",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      0.44001,
+      0.13,
+      0.15999
+    ],
+    "source": "Detached armor fragment.008"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/10",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -2.15938,
+      0.13,
+      2.92946
+    ],
+    "source": "Detached armor fragment.009"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/11",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      0.29899,
+      0.13,
+      1.41929
+    ],
+    "source": "Detached armor fragment.010"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/12",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      2.07138,
+      0.13,
+      3.71155
+    ],
+    "source": "Detached armor fragment.011"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/13",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      0.98173,
+      0.13,
+      3.51527
+    ],
+    "source": "Detached armor fragment.012"
+  },
+  {
+    "id": "ROOT/Detached armor fragment/14",
+    "name": "Detached armor fragment",
+    "group": "Hull",
+    "anchor": "ROOT",
+    "position": [
+      -1.64785,
+      0.13,
+      2.14139
+    ],
+    "source": "Detached armor fragment.013"
+  }
+]

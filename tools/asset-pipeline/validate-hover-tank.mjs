@@ -1,0 +1,17 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import validator from 'gltf-validator';
+const dir=new URL('../../assets/hover-tank/',import.meta.url),{assets}=JSON.parse(fs.readFileSync(new URL('manifest.json',dir)));assert.equal(assets.length,4);
+for(const e of assets){const data=fs.readFileSync(new URL(e.file,dir));const v=await validator.validateBytes(data,{maxIssues:30});assert.equal(v.issues.numErrors,0,JSON.stringify(v.issues));const g=await new GLTFLoader().parseAsync(data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength),'');const node=n=>g.scene.getObjectByName(n),hover=node('HOVER_RIG'),body=node('HULL_SUSPENSION');assert(hover&&body);let count=0;g.scene.traverse(o=>{if(o.isMesh)count+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3});assert.equal(count,e.triangles);assert(count<41000);
+ for(let i=0;i<9;i++)assert(node('AMMO_PORT_'+String(i).padStart(2,'0')),'nine ammo ports');for(let i=0;i<9;i++){const lamp=node('AMMO_PORT_LIGHT_'+String(i).padStart(2,'0'));assert(lamp,'nine single status lenses');g.scene.updateMatrixWorld(true);assert(lamp.getWorldPosition(new T.Vector3()).y>1.6,'magazine on rear deck');}assert(!node('AMMO_ROUND_00'),'no subdivided shell lights');
+ if(e.functional){assert.equal(g.animations.length,6);const mixer=new T.AnimationMixer(g.scene);function sample(name,t){mixer.stopAllAction();const clip=g.animations.find(c=>c.name===name);assert(clip,name);const action=mixer.clipAction(clip);action.reset().setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();action.time=t;mixer.update(0);g.scene.updateMatrixWorld(true)}
+  sample('Power_On',0);assert(Math.abs(hover.position.y)<1e-5);sample('Power_On',2);assert(Math.abs(hover.position.y-.55)<1e-5);
+  sample('Power_Off',0);assert(Math.abs(hover.position.y-.55)<1e-5);sample('Power_Off',.7);assert(Math.abs(hover.position.y)<1e-5);assert(body.position.y<-.09);sample('Power_Off',1.2);assert(Math.abs(hover.position.y)<1e-5&&Math.abs(body.position.y)<1e-5);
+  for(let t=0;t<=1.2;t+=.025){sample('Power_Off',t);assert(hover.position.y>=-1e-5,'skids penetrate ground')}
+  sample('Fire_Heavy',.067);assert(node('GUN_RECOIL').position.z<-.80,'heavy recoil stroke');sample('Fire_Heavy',1.4);assert(node('GUN_RECOIL').position.length()<1e-5,'recoil recovery');
+  sample('Plasma_Sweep',1);for(const s of ['L','R'])assert(Math.abs(Math.abs(node('PLASMA_YAW_'+s).rotation.y)-T.MathUtils.degToRad(12))<1e-4);
+  mixer.stopAllAction();hover.position.set(0,0,0);body.position.set(0,0,0);body.rotation.set(0,0,0);node('GUN_RECOIL').position.set(0,0,0);node('GUN_PITCH').rotation.x=T.MathUtils.degToRad(5);
+  let clearance=Infinity;for(let yaw=-180;yaw<=180;yaw+=5){node('TURRET_YAW').rotation.y=T.MathUtils.degToRad(yaw);g.scene.updateMatrixWorld(true);const gun=new T.Box3().setFromObject(node('GUN_RECOIL'),true);for(const s of ['L','R']){const plasma=new T.Box3().setFromObject(node('PLASMA_YAW_'+s),true);clearance=Math.min(clearance,gun.min.y-plasma.max.y);assert(gun.min.y>plasma.max.y+.05,'gun/plasma sweep clearance')}}
+  console.log(' ',e.id,'minimum vertical gun/plasma clearance:',clearance.toFixed(3),'m');
+ }else assert.equal(g.animations.length,0);
+ console.log('PASS',e.id,e.triangles,'triangles;',v.issues.numWarnings,'warnings');
+}
+console.log('PASS: four states, 9×3 ammo display, six clips, recoil recovery, lift/impact timing, ground clearance and full turret/plasma separation.');

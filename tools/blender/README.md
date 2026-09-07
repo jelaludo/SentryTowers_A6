@@ -59,3 +59,7 @@ The message “cannot start server in background mode” is expected from the en
 ## Game geometry for HUGIN and Stålheart
 
 `build_game_lods.py` derives eight ~40K-triangle assets from the detailed Blender scenes, preserving pivots and animation. Follow with `node tools/asset-pipeline/build-game-assets.mjs` to batch sibling geometry and `node tools/asset-pipeline/validate-game-assets.mjs` to compare motion with the originals. The reduced editable scenes end in `-game.blend`; exports are in `assets/game-ready/`; the combined comparison workshop is `game-assets/`.
+
+## MÖRK heavy hover tank
+
+`build_hover_tank.py` authors the low-wide hover tank, nine three-shell ammo ports and D0–D3, with six operating NLA clips on D0/D1. Follow with `node tools/asset-pipeline/pack-hover-tank.mjs` and `node tools/asset-pipeline/validate-hover-tank.mjs`. Source: `source/blender/a6-hover-tank.blend`; preview: `hover-tank/`.

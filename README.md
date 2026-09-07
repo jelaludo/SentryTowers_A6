@@ -59,3 +59,5 @@ The [Terraformer 3000 / Stålheart](terraformer/) adds a 36 m planetary printer 
 The [HUGIN launch and recovery complex](launchpad/) adds a reusable tripod-legged rocket, launch tower, cargo-catching arm and receiving apron. Includes an animated cargo transfer and four destruction states. [Integration notes](assets/launchpad/README.md).
 
 The [game asset workshop](game-assets/) displays **HUGIN and Stålheart together**, with game/original comparison and all four destruction states. Eight game variants target approximately **40,000 triangles each**, preserve animation, and reduce material batches. [Counts and integration notes](assets/game-ready/README.md).
+
+The [MÖRK heavy hover tank](hover-tank/) adds a lean vehicle with streamlined nacelles, cyan lift fields, a long recoiling cannon, independent front plasma mounts and a rear-deck nine-lens ammunition display with four color states. Includes power-on lift, heavy shutdown, aiming and firing clips, four destruction states and an interactive magazine demonstration. [Integration notes](assets/hover-tank/README.md).
