@@ -1,0 +1,99 @@
+{
+  "assets": [
+    {
+      "id": "dart",
+      "name": "DART / swarm round",
+      "state": "Ready",
+      "file": "dart.glb",
+      "plot_m": [
+        1,
+        2
+      ],
+      "description": "Reusable projectile; launcher excluded. Local +Z forward, meters.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Flight_swift",
+        "Flight_hook",
+        "Flight_heavy"
+      ],
+      "length_m": 1.49,
+      "role": "Rapid-fire / distant",
+      "triangles": 188,
+      "draw_calls": 4,
+      "bytes": 44552
+    },
+    {
+      "id": "needle",
+      "name": "NEEDLE / sentry round",
+      "state": "Ready",
+      "file": "needle.glb",
+      "plot_m": [
+        1,
+        2
+      ],
+      "description": "Reusable projectile; launcher excluded. Local +Z forward, meters.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Flight_swift",
+        "Flight_hook",
+        "Flight_heavy"
+      ],
+      "length_m": 1.49,
+      "role": "General sentry",
+      "triangles": 456,
+      "draw_calls": 6,
+      "bytes": 66144
+    },
+    {
+      "id": "talon",
+      "name": "TALON / special round",
+      "state": "Ready",
+      "file": "talon.glb",
+      "plot_m": [
+        1,
+        2
+      ],
+      "description": "Reusable projectile; launcher excluded. Local +Z forward, meters.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Flight_swift",
+        "Flight_hook",
+        "Flight_heavy"
+      ],
+      "length_m": 1.49,
+      "role": "Special tank round",
+      "triangles": 1340,
+      "draw_calls": 7,
+      "bytes": 149136
+    }
+  ],
+  "profiles": [
+    {
+      "id": "swift",
+      "name": "Swift / rapid sentry",
+      "duration": 1.35,
+      "height": 0.58,
+      "range": 0.72
+    },
+    {
+      "id": "hook",
+      "name": "Hook / standard",
+      "duration": 2.7,
+      "height": 1,
+      "range": 1
+    },
+    {
+      "id": "heavy",
+      "name": "Deliberate / special round",
+      "duration": 4,
+      "height": 1.28,
+      "range": 1.2
+    }
+  ]
+}

@@ -63,3 +63,7 @@ The message “cannot start server in background mode” is expected from the en
 ## MÖRK heavy hover tank
 
 `build_hover_tank.py` authors the low-wide hover tank, nine three-shell ammo ports and D0–D3, with six operating NLA clips on D0/D1. Follow with `node tools/asset-pipeline/pack-hover-tank.mjs` and `node tools/asset-pipeline/validate-hover-tank.mjs`. Source: `source/blender/a6-hover-tank.blend`; preview: `hover-tank/`.
+
+## Missile kit
+
+Run `node tools/asset-pipeline/sample-missile-flight.mjs`, then `blender --background --python-exit-code 1 --python tools/blender/build_missile_kit.py`, followed by `node tools/asset-pipeline/pack-missile-kit.mjs` and `node tools/asset-pipeline/validate-missile-kit.mjs`. The shared sampler in `missile-lab/flight.mjs` drives both baked Blender clips and the workshop.
