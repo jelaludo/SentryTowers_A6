@@ -47,3 +47,5 @@ The [solar power network](solar-power/) adds a six-rack photovoltaic array, inve
 The [logistics warehouse](warehouse-props/) adds stackable crates, secure cases, fuel barrels, an armored container, loaded pallets, and a shelf warehouse scene. Every prop has four impact states, with recognizable component-specific D3 wreckage. [Integration notes](assets/warehouse-props/README.md).
 
 The [open micro-reactor](micro-reactor/) adds an exposed fuel lattice, control rods, coolant manifold, heat exchanger, control skid and authored reactor-specific destruction states. [Integration notes](assets/micro-reactor/README.md).
+
+The [station crew](station-crew/) adds three original low-poly suited characters—astronaut, scientist and worker—with a shared 20-joint rig and seven animations each: idle, walk, run, kneel, scared, point and lie. Includes downloadable GLBs, an editable Blender scene, and a preview with timeline and skeleton controls. [Integration notes](assets/characters-station/README.md).
