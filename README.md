@@ -45,3 +45,5 @@ Three tiers share one broad flared flamethrower-style nozzle, twin pressure rese
 The [solar power network](solar-power/) adds a six-rack photovoltaic array, inverter/battery station, authored equipment-specific ruins, and a live demonstration where destroying either power component disables nearby sentry towers. [Integration notes](assets/solar-power/README.md).
 
 The [logistics warehouse](warehouse-props/) adds stackable crates, secure cases, fuel barrels, an armored container, loaded pallets, and a shelf warehouse scene. Every prop has four impact states, with recognizable component-specific D3 wreckage. [Integration notes](assets/warehouse-props/README.md).
+
+The [open micro-reactor](micro-reactor/) adds an exposed fuel lattice, control rods, coolant manifold, heat exchanger, control skid and authored reactor-specific destruction states. [Integration notes](assets/micro-reactor/README.md).

@@ -1,0 +1,1088 @@
+{
+  "version": 1,
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "assets": [
+    {
+      "id": "micro_reactor_complex_d0",
+      "name": "Open micro reactor complex",
+      "state": "Intact",
+      "file": "micro_reactor_complex_d0.glb",
+      "plot_m": [
+        12,
+        12
+      ],
+      "description": "Open reactor installation: visible fuel lattice, control rods, coolant manifold, heat exchanger and instrument skid.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0,
+            5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 4
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reactor",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            8,
+            3,
+            8
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_complex",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "visible vessel/lattice/rod/pipe hardware",
+      "bytes": 1343596,
+      "triangles": 19900
+    },
+    {
+      "id": "micro_reactor_complex_d1",
+      "name": "Open micro reactor complex",
+      "state": "Damaged",
+      "file": "micro_reactor_complex_d1.glb",
+      "plot_m": [
+        12,
+        12
+      ],
+      "description": "Open reactor installation: visible fuel lattice, control rods, coolant manifold, heat exchanger and instrument skid.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0,
+            5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 4
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reactor",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            8,
+            3,
+            8
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_complex",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "scored open hardware",
+      "bytes": 1404268,
+      "triangles": 20780
+    },
+    {
+      "id": "micro_reactor_complex_d2",
+      "name": "Open micro reactor complex",
+      "state": "Critical",
+      "file": "micro_reactor_complex_d2.glb",
+      "plot_m": [
+        12,
+        12
+      ],
+      "description": "Open reactor installation: visible fuel lattice, control rods, coolant manifold, heat exchanger and instrument skid.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0,
+            5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 4
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reactor",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            8,
+            3,
+            8
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_complex",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "bent rods, cracked vessel, ruptured lines",
+      "bytes": 1501680,
+      "triangles": 22256
+    },
+    {
+      "id": "micro_reactor_complex_d3",
+      "name": "Open micro reactor complex",
+      "state": "Destroyed",
+      "file": "micro_reactor_complex_d3.glb",
+      "plot_m": [
+        12,
+        12
+      ],
+      "description": "Open reactor installation: visible fuel lattice, control rods, coolant manifold, heat exchanger and instrument skid. D3 preserves original reactor parts rather than replacing them with generic rubble.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0,
+            5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 4
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reactor",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            8,
+            3,
+            8
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_complex",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "damage_signature": "identifiable core, coils, control and gantry fragments",
+      "bytes": 909860,
+      "triangles": 13416
+    },
+    {
+      "id": "micro_reactor_core_d0",
+      "name": "Exposed reactor core",
+      "state": "Intact",
+      "file": "micro_reactor_core_d0.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Exposed hexagonal fuel lattice and six vertical control rods, with vessel rings and authored bent-rod wreckage.",
+      "sockets": [
+        {
+          "id": "CORE",
+          "kind": "support",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "core",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            5,
+            3,
+            5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_core",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "visible vessel/lattice/rod/pipe hardware",
+      "bytes": 745420,
+      "triangles": 11056
+    },
+    {
+      "id": "micro_reactor_core_d1",
+      "name": "Exposed reactor core",
+      "state": "Damaged",
+      "file": "micro_reactor_core_d1.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Exposed hexagonal fuel lattice and six vertical control rods, with vessel rings and authored bent-rod wreckage.",
+      "sockets": [
+        {
+          "id": "CORE",
+          "kind": "support",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "core",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            5,
+            3,
+            5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_core",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "scored open hardware",
+      "bytes": 745420,
+      "triangles": 11056
+    },
+    {
+      "id": "micro_reactor_core_d2",
+      "name": "Exposed reactor core",
+      "state": "Critical",
+      "file": "micro_reactor_core_d2.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Exposed hexagonal fuel lattice and six vertical control rods, with vessel rings and authored bent-rod wreckage.",
+      "sockets": [
+        {
+          "id": "CORE",
+          "kind": "support",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "core",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            5,
+            3,
+            5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_core",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "bent rods, cracked vessel, ruptured lines",
+      "bytes": 778312,
+      "triangles": 11536
+    },
+    {
+      "id": "micro_reactor_core_d3",
+      "name": "Exposed reactor core",
+      "state": "Destroyed",
+      "file": "micro_reactor_core_d3.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Exposed hexagonal fuel lattice and six vertical control rods, with vessel rings and authored bent-rod wreckage. D3 preserves original reactor parts rather than replacing them with generic rubble.",
+      "sockets": [
+        {
+          "id": "CORE",
+          "kind": "support",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": false,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "core",
+          "center_m": [
+            0,
+            1.5,
+            0
+          ],
+          "size_m": [
+            5,
+            3,
+            5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_core",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "damage_signature": "identifiable core, coils, control and gantry fragments",
+      "bytes": 218232,
+      "triangles": 3188
+    },
+    {
+      "id": "micro_reactor_manifold_d0",
+      "name": "Coolant manifold",
+      "state": "Intact",
+      "file": "micro_reactor_manifold_d0.glb",
+      "plot_m": [
+        9,
+        9
+      ],
+      "description": "Open copper coolant manifold with four risers, flanges and rupture strands.",
+      "sockets": [
+        {
+          "id": "COOLANT",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 5
+        }
+      ],
+      "colliders": [
+        {
+          "id": "manifold",
+          "center_m": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6,
+            2,
+            6
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_manifold",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "visible vessel/lattice/rod/pipe hardware",
+      "bytes": 190032,
+      "triangles": 2800
+    },
+    {
+      "id": "micro_reactor_manifold_d1",
+      "name": "Coolant manifold",
+      "state": "Damaged",
+      "file": "micro_reactor_manifold_d1.glb",
+      "plot_m": [
+        9,
+        9
+      ],
+      "description": "Open copper coolant manifold with four risers, flanges and rupture strands.",
+      "sockets": [
+        {
+          "id": "COOLANT",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 5
+        }
+      ],
+      "colliders": [
+        {
+          "id": "manifold",
+          "center_m": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6,
+            2,
+            6
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_manifold",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "scored open hardware",
+      "bytes": 250168,
+      "triangles": 3680
+    },
+    {
+      "id": "micro_reactor_manifold_d2",
+      "name": "Coolant manifold",
+      "state": "Critical",
+      "file": "micro_reactor_manifold_d2.glb",
+      "plot_m": [
+        9,
+        9
+      ],
+      "description": "Open copper coolant manifold with four risers, flanges and rupture strands.",
+      "sockets": [
+        {
+          "id": "COOLANT",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 5
+        }
+      ],
+      "colliders": [
+        {
+          "id": "manifold",
+          "center_m": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6,
+            2,
+            6
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_manifold",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "bent rods, cracked vessel, ruptured lines",
+      "bytes": 308748,
+      "triangles": 4560
+    },
+    {
+      "id": "micro_reactor_manifold_d3",
+      "name": "Coolant manifold",
+      "state": "Destroyed",
+      "file": "micro_reactor_manifold_d3.glb",
+      "plot_m": [
+        9,
+        9
+      ],
+      "description": "Open copper coolant manifold with four risers, flanges and rupture strands. D3 preserves original reactor parts rather than replacing them with generic rubble.",
+      "sockets": [
+        {
+          "id": "COOLANT",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": false,
+          "width_m": 5
+        }
+      ],
+      "colliders": [
+        {
+          "id": "manifold",
+          "center_m": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6,
+            2,
+            6
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_manifold",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "damage_signature": "identifiable core, coils, control and gantry fragments",
+      "bytes": 308752,
+      "triangles": 4560
+    },
+    {
+      "id": "micro_reactor_exchanger_d0",
+      "name": "Open heat exchanger",
+      "state": "Intact",
+      "file": "micro_reactor_exchanger_d0.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Exposed heat exchanger with copper tubes, collars, fins and caved D3 frame.",
+      "sockets": [
+        {
+          "id": "THERMAL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "exchanger",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_exchanger",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "visible vessel/lattice/rod/pipe hardware",
+      "bytes": 231796,
+      "triangles": 3376
+    },
+    {
+      "id": "micro_reactor_exchanger_d1",
+      "name": "Open heat exchanger",
+      "state": "Damaged",
+      "file": "micro_reactor_exchanger_d1.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Exposed heat exchanger with copper tubes, collars, fins and caved D3 frame.",
+      "sockets": [
+        {
+          "id": "THERMAL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "exchanger",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_exchanger",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "scored open hardware",
+      "bytes": 232004,
+      "triangles": 3376
+    },
+    {
+      "id": "micro_reactor_exchanger_d2",
+      "name": "Open heat exchanger",
+      "state": "Critical",
+      "file": "micro_reactor_exchanger_d2.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Exposed heat exchanger with copper tubes, collars, fins and caved D3 frame.",
+      "sockets": [
+        {
+          "id": "THERMAL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "exchanger",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_exchanger",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "bent rods, cracked vessel, ruptured lines",
+      "bytes": 217788,
+      "triangles": 3164
+    },
+    {
+      "id": "micro_reactor_exchanger_d3",
+      "name": "Open heat exchanger",
+      "state": "Destroyed",
+      "file": "micro_reactor_exchanger_d3.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Exposed heat exchanger with copper tubes, collars, fins and caved D3 frame. D3 preserves original reactor parts rather than replacing them with generic rubble.",
+      "sockets": [
+        {
+          "id": "THERMAL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": false,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "exchanger",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_exchanger",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "damage_signature": "identifiable core, coils, control and gantry fragments",
+      "bytes": 217812,
+      "triangles": 3164
+    },
+    {
+      "id": "micro_reactor_control_d0",
+      "name": "Reactor control skid",
+      "state": "Intact",
+      "file": "micro_reactor_control_d0.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Open instrument skid with three monitors, telemetry bars, emergency stops and exposed control cable.",
+      "sockets": [
+        {
+          "id": "DATA",
+          "kind": "data",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "control",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            3.6,
+            2,
+            3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_control",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "visible vessel/lattice/rod/pipe hardware",
+      "bytes": 106344,
+      "triangles": 1468
+    },
+    {
+      "id": "micro_reactor_control_d1",
+      "name": "Reactor control skid",
+      "state": "Damaged",
+      "file": "micro_reactor_control_d1.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Open instrument skid with three monitors, telemetry bars, emergency stops and exposed control cable.",
+      "sockets": [
+        {
+          "id": "DATA",
+          "kind": "data",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "control",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            3.6,
+            2,
+            3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_control",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "scored open hardware",
+      "bytes": 106324,
+      "triangles": 1468
+    },
+    {
+      "id": "micro_reactor_control_d2",
+      "name": "Reactor control skid",
+      "state": "Critical",
+      "file": "micro_reactor_control_d2.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Open instrument skid with three monitors, telemetry bars, emergency stops and exposed control cable.",
+      "sockets": [
+        {
+          "id": "DATA",
+          "kind": "data",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "control",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            3.6,
+            2,
+            3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_control",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "damage_signature": "bent rods, cracked vessel, ruptured lines",
+      "bytes": 130436,
+      "triangles": 1796
+    },
+    {
+      "id": "micro_reactor_control_d3",
+      "name": "Reactor control skid",
+      "state": "Destroyed",
+      "file": "micro_reactor_control_d3.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Open instrument skid with three monitors, telemetry bars, emergency stops and exposed control cable. D3 preserves original reactor parts rather than replacing them with generic rubble.",
+      "sockets": [
+        {
+          "id": "DATA",
+          "kind": "data",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": false,
+          "width_m": 3
+        }
+      ],
+      "colliders": [
+        {
+          "id": "control",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            3.6,
+            2,
+            3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "micro_reactor_control",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "damage_signature": "identifiable core, coils, control and gantry fragments",
+      "bytes": 130436,
+      "triangles": 1796
+    }
+  ]
+}

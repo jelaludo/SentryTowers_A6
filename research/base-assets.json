@@ -6661,6 +6661,161 @@
         "Inventory and stack stability",
         "Vehicle impact sweeps"
       ]
+    },
+    {
+      "id": "micro_reactor_complex",
+      "name": "Open micro reactor complex",
+      "category": "Power and utilities",
+      "plot_cells": [
+        6,
+        6
+      ],
+      "purpose": "Open reactor installation with fuel lattice, control rods, coolant and thermal systems.",
+      "zone": "utilities",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/micro-reactor/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "reactor_component",
+      "damage_states": {
+        "D1": "Scored exposed hardware",
+        "D2": "Bent rods, cracked vessels and ruptured lines",
+        "D3": "Original reactor component fragments remain identifiable"
+      },
+      "authoring_todo": [
+        "Engine heat and radiation simulation",
+        "Pressure/coolant logic",
+        "LOD and runtime fracture"
+      ]
+    },
+    {
+      "id": "micro_reactor_core",
+      "name": "Exposed reactor core",
+      "category": "Power and utilities",
+      "plot_cells": [
+        3,
+        3
+      ],
+      "purpose": "Visible fuel lattice, vessel rings and vertical control rods.",
+      "zone": "utilities",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/micro-reactor/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "reactor_component",
+      "damage_states": {
+        "D1": "Scored exposed hardware",
+        "D2": "Bent rods, cracked vessels and ruptured lines",
+        "D3": "Original reactor component fragments remain identifiable"
+      },
+      "authoring_todo": [
+        "Engine heat and radiation simulation",
+        "Pressure/coolant logic",
+        "LOD and runtime fracture"
+      ]
+    },
+    {
+      "id": "micro_reactor_manifold",
+      "name": "Coolant manifold",
+      "category": "Power and utilities",
+      "plot_cells": [
+        5,
+        5
+      ],
+      "purpose": "Open copper coolant manifold with four risers and rupture points.",
+      "zone": "utilities",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/micro-reactor/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "reactor_component",
+      "damage_states": {
+        "D1": "Scored exposed hardware",
+        "D2": "Bent rods, cracked vessels and ruptured lines",
+        "D3": "Original reactor component fragments remain identifiable"
+      },
+      "authoring_todo": [
+        "Engine heat and radiation simulation",
+        "Pressure/coolant logic",
+        "LOD and runtime fracture"
+      ]
+    },
+    {
+      "id": "micro_reactor_exchanger",
+      "name": "Open heat exchanger",
+      "category": "Power and utilities",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "purpose": "Exposed heat tubes, collars, fins and service frame.",
+      "zone": "utilities",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/micro-reactor/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "reactor_component",
+      "damage_states": {
+        "D1": "Scored exposed hardware",
+        "D2": "Bent rods, cracked vessels and ruptured lines",
+        "D3": "Original reactor component fragments remain identifiable"
+      },
+      "authoring_todo": [
+        "Engine heat and radiation simulation",
+        "Pressure/coolant logic",
+        "LOD and runtime fracture"
+      ]
+    },
+    {
+      "id": "micro_reactor_control",
+      "name": "Reactor control skid",
+      "category": "Power and utilities",
+      "plot_cells": [
+        2,
+        2
+      ],
+      "purpose": "Open monitor rack with telemetry and emergency stops.",
+      "zone": "utilities",
+      "status": "art_prototype",
+      "placement_mode": "ground_plot",
+      "art_manifest": "../assets/micro-reactor/manifest.json",
+      "authored_states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "damage_profile": "reactor_component",
+      "damage_states": {
+        "D1": "Scored exposed hardware",
+        "D2": "Bent rods, cracked vessels and ruptured lines",
+        "D3": "Original reactor component fragments remain identifiable"
+      },
+      "authoring_todo": [
+        "Engine heat and radiation simulation",
+        "Pressure/coolant logic",
+        "LOD and runtime fracture"
+      ]
     }
   ],
   "references": {

@@ -35,3 +35,7 @@ References: [Blender MCP installation and telemetry options](https://github.com/
 ## Warehouse prop builder
 
 `build_warehouse_props.py` creates six cargo families and an authored shelf warehouse scene in four impact states. Source: `source/blender/a6-warehouse-props.blend`; preview: `warehouse-props/`.
+
+## Open micro-reactor builder
+
+`build_micro_reactor.py` builds five exposed reactor families and four authored destruction states. Source: `source/blender/a6-micro-reactor.blend`; preview: `micro-reactor/`.
