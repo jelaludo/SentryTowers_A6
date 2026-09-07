@@ -49,3 +49,5 @@ The [logistics warehouse](warehouse-props/) adds stackable crates, secure cases,
 The [open micro-reactor](micro-reactor/) adds an exposed fuel lattice, control rods, coolant manifold, heat exchanger, control skid and authored reactor-specific destruction states. [Integration notes](assets/micro-reactor/README.md).
 
 The [station crew](station-crew/) adds three original low-poly suited characters—astronaut, scientist and worker—with a shared 20-joint rig and seven animations each: idle, walk, run, kneel, scared, point and lie. Includes downloadable GLBs, an editable Blender scene, and a preview with timeline and skeleton controls. [Integration notes](assets/characters-station/README.md).
+
+The [Reckon-Guard drone](reckon-guard/) adds a sleek low-poly twin-fan scout with animated rotors and an articulated downward-firing cannon. The preview demonstrates hover, ground-target tracking, muzzle-spawned projectiles and impacts. [Integration notes](assets/reckon-guard/README.md).
