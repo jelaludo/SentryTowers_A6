@@ -101,20 +101,37 @@ def build(f,t):
         for side in [-1,1]:
             box('Elevation fork',[side*.43,.23,0],[.16,.48,.35],1,y)
             cyl('Trunnion',[side*.44,0,0],[.20,.3,.3],1,r,12,'x')
-        box('Receiver',[0,0,-.12],[.65,.34,.72])
-        box('Rear equipment',[0,0,-.52-t*.065],[.5,.28+t*.08,.25+t*.12],1)
+        box('Receiver',[0,0,-.12],[.34,.25,.92] if f=='Needle' else [.65,.34,.72])
+        box('Rear equipment',[0,0,-.52-t*.065],([.29,.25,.4+t*.08] if f=='Needle' else [.5,.28+t*.08,.25+t*.12]),1)
         if f in ('Needle','Lancer'):
             length=1.5*(1+.3*(t-1));end=.25+length
             if f=='Needle':
-                cyl('Single accelerator',[0,0,.25+length/2],[.12,.12,length],1,r,8,'z')
-                box('Tapered receiver',[0,.03,.23],[.32,.27,.65])
-                for k in range(t*2-1):box('Axial charge channel',[.075,.07,.4+k*length/(t*2)],[.035,.035,length/(t*2.5)],4)
-                box('Offset optic',[.25,.25,.12],[.18,.14,.36],2)
-                box('Optic glass',[.25,.25,.305],[.13,.09,.015],4)
-                for k in range(t):
-                    cyl('Accelerator collar',[0,0,.65+k*.55],[.20,.20,.09],0,r,8,'z')
-                box('Slotted muzzle body',[0,0,end],[.23,.20,.22],0)
-                box('Muzzle bore',[0,0,end+.115],[.105,.07,.01],2)
+                # Long precision rifle profile; tier growth extends reach, not girth.
+                length=2.05+.38*(t-1)
+                suppressor_length=.62+.10*(t-1)
+                end=.25+length+suppressor_length
+                cyl('Precision barrel',[0,0,.25+length/2],[.085,.085,length],1,r,12,'z')
+                box('Slim receiver shroud',[0,.015,.3],[.24,.21,.76])
+                box('Floating handguard',[0,-.065,.67],[.17,.12,.62],2)
+                for k in range(4):
+                    for side in [-1,1]:box('Handguard vent',[side*.087,-.035,.46+k*.12],[.006,.035,.075],1)
+                box('Optic rail',[0,.155,-.06],[.12,.055,.74],2)
+                for z in [-.27,.15]:box('Scope mount',[0,.225,z],[.10,.12,.065],1)
+                cyl('Long range optic',[0,.31,-.035],[.135,.135,.65],2,r,12,'z')
+                cyl('Optic sunshade',[0,.31,.29],[.19,.19,.17],0,r,12,'z')
+                cyl('Optic glass',[0,.31,.38],[.135,.135,.012],4,r,12,'z')
+                cyl('Elevation dial',[0,.415,-.05],[.085,.075,.085],1,r,8)
+                box('Rangefinder',[.17,.15,.15],[.12,.10,.25],0)
+                box('Rangefinder glass',[.17,.15,.279],[.07,.05,.01],4)
+                cyl('Barrel lock',[0,0,.78],[.135,.135,.09],2,r,12,'z')
+                cyl('Suppressor rear taper',[0,0,.25+length],[.16,.16,.12],1,r,12,'z')
+                cyl('Signature suppressor',[0,0,end-suppressor_length/2],[.215,.215,suppressor_length],2,r,16,'z')
+                for z in [end-suppressor_length+.08,end-.07]:
+                    cyl('Suppressor band',[0,0,z],[.23,.23,.035],1,r,16,'z')
+                m.shape('Recessed suppressor crown',r,[0,0,end+.018],[.215,.215,.045],0,16,'z',hollow=.32)
+                cyl('Dark recessed bore',[0,0,end-.014],[.072,.072,.006],2,r,12,'z')
+                box('Receiver status',[.173,.04,-.13],[.007,.025,.18],4)
+                box('Compact magazine',[0,-.235,-.29],[.20,.25,.25],2)
             else:
                 for side in [-1,1]:box('Conductive rail',[side*.18,0,.25+length/2],[.11,.17,length],1)
                 box('Optical channel',[0,0,.25+length/2],[.08,.055,length],4)
@@ -125,7 +142,7 @@ def build(f,t):
                 box('Aperture',[0,0,end],[.6,.42,.15])
                 cyl('Focusing lens',[0,0,end+.08],[.28,.28,.015],4,r,16,'z')
                 box('Sight',[0,.28,.2],[.12,.12,.5],2)
-            if t==3:
+            if t==3 and f!='Needle':
                 for side in [-1,1]:box('Longitudinal brace',[side*.25,-.14,length*.48],[.07,.09,length*.94],1)
             m.node('MUZZLE_00',r,[0,0,end+.13])
         elif f=='Rotor':
@@ -170,7 +187,7 @@ def build(f,t):
                 if t==3:box('Reload magazine',[x,0,-.6],[width,.65,.3],1)
             cyl('Tracking sensor',[0,.13,.44],[.29+t*.02,.29+t*.02,.12],2,r,8,'z')
             cyl('Sensor glass',[0,.13,.505],[.19,.19,.018],4,r,12,'z')
-        for k in range(t*3):box('Rear radiator',[0,.18+k*.047,-.55],[.64,.022,.32],2)
+        for k in range(3 if f=='Needle' else t*3):box('Rear radiator',[0,.18+k*.047,-.55],[.30 if f=='Needle' else .64,.022,.32],2)
     path=OUT/(f.lower()+'_t'+str(t)+'.glb');m.save(path)
     return {'family':f,'tier':t,'file':'assets/'+path.name,'stationary':f=='Relay'}
 
