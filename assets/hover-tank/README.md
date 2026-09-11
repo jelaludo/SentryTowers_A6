@@ -82,3 +82,8 @@ blender --background --python-exit-code 1 --python tools/blender/build_hover_tan
 node tools/asset-pipeline/pack-hover-tank.mjs --low
 node tools/asset-pipeline/validate-hover-tank.mjs --low
 ```
+
+
+## Transport container add-ons
+
+The existing hover-tank viewer now includes a **Transport containers** tab with an empty carrier, a loaded carrier and a numbered three-container deployment diorama. See `containers/README.md`; the three self-contained GLBs, rollout/door animations and complete ZIP are in `containers/`.

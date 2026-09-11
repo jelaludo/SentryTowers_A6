@@ -1,0 +1,109 @@
+{
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "assets": [
+    {
+      "id": "mork_container_empty",
+      "name": "MORK / Empty armored container",
+      "state": "Intact",
+      "file": "mork_container_empty.glb",
+      "plot_m": [
+        8,
+        20
+      ],
+      "description": "Close-fitting armored carrier with twin blast doors, ramp, removable inspection roof and military stencils. Empty cargo bay.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Doors_Open",
+        "Doors_Close"
+      ],
+      "interior_m": [
+        6.6,
+        3.6,
+        14.2
+      ],
+      "floor_y_m": 0.26,
+      "tank_clearance_m": {
+        "side_each": 0.387,
+        "length_each": 0.46,
+        "roof": 0.58
+      },
+      "tank_pose": "neutral cannon forward; power off",
+      "credit": "Models by jelaludo",
+      "triangles": 5480,
+      "draw_calls": 21,
+      "bytes": 405824
+    },
+    {
+      "id": "mork_container_loaded",
+      "name": "MORK / Loaded armored container",
+      "state": "Intact",
+      "file": "mork_container_loaded.glb",
+      "plot_m": [
+        8,
+        20
+      ],
+      "description": "Close-fitting armored carrier with twin blast doors, ramp, removable inspection roof and military stencils. MORK is fully inside with its cannon facing the opening.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Doors_Open",
+        "Doors_Close"
+      ],
+      "interior_m": [
+        6.6,
+        3.6,
+        14.2
+      ],
+      "floor_y_m": 0.26,
+      "tank_clearance_m": {
+        "side_each": 0.387,
+        "length_each": 0.46,
+        "roof": 0.58
+      },
+      "tank_pose": "neutral cannon forward; power off",
+      "credit": "Models by jelaludo",
+      "triangles": 12312,
+      "draw_calls": 31,
+      "bytes": 1047744
+    },
+    {
+      "id": "mork_container_diorama",
+      "name": "MORK / Container deployment diorama",
+      "state": "Intact",
+      "file": "mork_container_diorama.glb",
+      "plot_m": [
+        36,
+        40
+      ],
+      "description": "01 sealed; 02 open with MORK parked inside; 03 open with MORK deploying down the ramp. Rollout animation is on vehicle 03 only.",
+      "sockets": [],
+      "colliders": [],
+      "clearance": [],
+      "animations": [
+        "Tank_Roll_Out"
+      ],
+      "preview_time_s": 3.36,
+      "interior_m": [
+        6.6,
+        3.6,
+        14.2
+      ],
+      "floor_y_m": 0.26,
+      "tank_clearance_m": {
+        "side_each": 0.387,
+        "length_each": 0.46,
+        "roof": 0.58
+      },
+      "tank_pose": "neutral cannon forward; power off",
+      "credit": "Models by jelaludo",
+      "triangles": 30260,
+      "draw_calls": 85,
+      "bytes": 2432392
+    }
+  ]
+}
