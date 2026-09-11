@@ -1,0 +1,5 @@
+const $=id=>document.getElementById(id),base='../assets/hugin-flight/';
+let atlas,serial=0;
+async function show(){const ticket=++serial,state=$('pose').value,s=atlas.sprites[state];$('status').textContent='Loading sprite…';const image=new Image();image.src=base+s.image;try{await image.decode();if(ticket!==serial)return;$('sprite').src=image.src;$('sprite').alt=`HUGIN ${state}, isolated side view`;$('png').href=base+s.image;$('glb').href=base+s.model;const b=s.sprite_bounds_px;$('metrics').textContent=`Visible bounds: ${b.width} × ${b.height} px. Shared pivot: ${s.pivot_px.join(', ')} px. Scale: ${atlas.pixels_per_metre.toFixed(2)} px/m.`;$('status').textContent=$('pose').selectedOptions[0].textContent;}catch{if(ticket===serial)$('status').textContent='Sprite unavailable. Reload to try again.';}}
+$('pose').onchange=show;$('background').onchange=()=>{$('frame').dataset.background=$('background').value;};$('showPivot').onchange=()=>{$('pivot').hidden=!$('showPivot').checked;};
+try{const r=await fetch(base+'atlas.json');if(!r.ok)throw Error('Atlas unavailable');atlas=await r.json();await show();}catch(e){$('status').textContent=e.message;}

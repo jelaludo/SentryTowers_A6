@@ -1,5 +1,5 @@
 export const collections=[
-['hugin-flight','HUGIN / Flight sprites','Industry','Isolated booster and cargo capsule for a landing game: stowed legs, deployed legs and wreck, with transparent sprites and matching 3D models.','3 sprites · 512 px · Atlas','2D + 3D'],
+['hugin-flight','HUGIN / SH02 · 3D rocket','Industry','Orbit the standalone rocket, inspect its tripod joints, play landing suspension and top-door animations, and change its marking.','Interactive 3D · 5 animations','Animated'],
 ['antenna-array','SKYWARD / Antenna array','Infrastructure','Large steerable radio dishes with three mesh-detail levels, destruction states and a synchronized seven-dish scene.','3 detail levels · 4 states','Animated'],
 ['missile-lab','Missile motion lab','Combat','Three reusable projectiles. Soft launch, nose-up coast and accelerating flight arcs.','3 mesh budgets · 3 flight profiles','Animated'],
 ['hover-tank','MÖRK','Combat','Lean hover tank with heavy recoil, twin plasma mounts and a rear-deck ammunition display.','2 detail levels · 4 states','Animated'],
