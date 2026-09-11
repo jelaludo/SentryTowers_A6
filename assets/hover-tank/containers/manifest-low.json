@@ -4,10 +4,10 @@
   "forward": "+Z",
   "assets": [
     {
-      "id": "mork_container_empty",
+      "id": "mork_container_low_empty",
       "name": "MORK / Empty armored container",
       "state": "Intact",
-      "file": "mork_container_empty.glb",
+      "file": "mork_container_low_empty.glb",
       "plot_m": [
         8,
         20
@@ -20,7 +20,7 @@
         "Doors_Open",
         "Doors_Close"
       ],
-      "detail": "standard",
+      "detail": "low",
       "scene_mode": "empty",
       "interior_m": [
         6.6,
@@ -35,15 +35,15 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 5480,
-      "draw_calls": 21,
-      "bytes": 405824
+      "triangles": 1264,
+      "draw_calls": 5,
+      "bytes": 128088
     },
     {
-      "id": "mork_container_loaded",
+      "id": "mork_container_low_loaded",
       "name": "MORK / Loaded armored container",
       "state": "Intact",
-      "file": "mork_container_loaded.glb",
+      "file": "mork_container_low_loaded.glb",
       "plot_m": [
         8,
         20
@@ -56,7 +56,7 @@
         "Doors_Open",
         "Doors_Close"
       ],
-      "detail": "standard",
+      "detail": "low",
       "scene_mode": "loaded",
       "interior_m": [
         6.6,
@@ -71,15 +71,15 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 12312,
-      "draw_calls": 31,
-      "bytes": 1047564
+      "triangles": 8096,
+      "draw_calls": 6,
+      "bytes": 983680
     },
     {
-      "id": "mork_container_diorama",
+      "id": "mork_container_low_diorama",
       "name": "MORK / Container deployment diorama",
       "state": "Intact",
-      "file": "mork_container_diorama.glb",
+      "file": "mork_container_low_diorama.glb",
       "plot_m": [
         36,
         40
@@ -91,7 +91,7 @@
       "animations": [
         "Tank_Roll_Out"
       ],
-      "detail": "standard",
+      "detail": "low",
       "scene_mode": "diorama",
       "preview_time_s": 3.36,
       "interior_m": [
@@ -107,9 +107,9 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 30260,
-      "draw_calls": 85,
-      "bytes": 2433488
+      "triangles": 17612,
+      "draw_calls": 18,
+      "bytes": 2090696
     }
   ]
 }

@@ -1,9 +1,11 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import validator from 'gltf-validator';
-const dir=new URL('../../assets/hover-tank/containers/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',dir)));
+const dir=new URL('../../assets/hover-tank/containers/',import.meta.url),manifest={assets:['manifest.json','manifest-low.json'].flatMap(file=>JSON.parse(fs.readFileSync(new URL(file,dir))).assets)};
 for(const e of manifest.assets){
  const bytes=fs.readFileSync(new URL(e.file,dir)),v=await validator.validateBytes(bytes,{maxIssues:30});assert.equal(v.issues.numErrors,0,JSON.stringify(v.issues));
  const g=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');g.scene.updateMatrixWorld(true);
+ const meshes=[];g.scene.traverse(o=>{if(o.isMesh)meshes.push(o);});if(e.detail==='low'){assert(meshes.every(o=>o.geometry.attributes.color&&o.material.vertexColors),'game palette missing');assert.equal(new Set(meshes.map(o=>o.material)).size,1,'game material budget');assert(e.triangles<=(e.id.endsWith('empty')?1400:e.id.endsWith('loaded')?8500:18000),'game triangle budget');}
  const containers=[],tanks=[];g.scene.traverse(o=>{if(o.userData.role==='tank_container')containers.push(o);if(o.userData.role==='mork_tank')tanks.push(o);});
+ for(const container of containers){const x=container.position.x;const shells=[];container.traverse(o=>{if(o.name.startsWith('SHELL_'))shells.push(o);});const hits=new T.Raycaster(new T.Vector3(x+.831,3,1.573),new T.Vector3(0,-1,0)).intersectObjects(shells,true);assert.equal(hits.filter(h=>Math.abs(h.point.y-.26)<1e-5).length,1,'duplicate exposed floor at Y=.26');}
  const diorama=e.id.endsWith('diorama');assert.equal(containers.length,diorama?3:1);assert.equal(tanks.length,e.id.endsWith('empty')?0:diorama?2:1);
  function fit(tank){const box=new T.Box3().setFromObject(tank,true),x=tank.position.x;assert(box.min.x>=x-3.3&&box.max.x<=x+3.3,'side clearance');assert(box.min.z>=-7.1&&box.max.z<=7.1,'cannon/rear clearance');assert(box.min.y>=.25&&box.max.y<3.55,'floor/roof clearance');}
  if(e.id.endsWith('loaded'))fit(tanks[0]);

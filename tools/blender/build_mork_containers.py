@@ -4,6 +4,8 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import asset_common as k
 from asset_common import bpy,Vector,empty
+GAME='--low' in sys.argv
+if GAME:k.finish=lambda obj,bevel:obj
 P=k.PROJECT;OUT=P/'assets/hover-tank/containers';OUT.mkdir(parents=True,exist_ok=True)
 k.M['shell']=k.material('Transport / armored olive',(.16,.205,.175),.45,.65)
 k.M['panel']=k.material('Transport / inset panels',(.095,.135,.12),.35,.76)
@@ -14,8 +16,9 @@ k.M['light']=k.material('Transport / cyan guide lights',(.04,.5,.65),.1,.35,2)
 W=6.6;D=14.2;FLOOR=.26;CENTER=2.00475
 
 def box(name,loc,size,mat='shell',parent=None,bevel=0):
+ if GAME and name in ['Cassette reinforcing spine','Lock dog','Door warning block','Ramp edge marker','Tie down recess','Latch handle']:return None
  o=k.box(name,loc,size,mat,0,parent)
- if bevel:
+ if bevel and not GAME:
   mod=o.modifiers.new('Armor edge','BEVEL');mod.width=bevel;mod.segments=1;bpy.context.view_layer.objects.active=o;bpy.ops.object.modifier_apply(modifier=mod.name)
  return o
 def mesh(name,verts,faces,mat,parent):
@@ -35,6 +38,7 @@ def stencil(number,loc,size,parent,angle=0):
  return group
 
 def label(value,loc,size,parent,angle=0):
+ if GAME:return
  o=k.text('Transport label',value,loc,size,'stencil',parent);o.rotation_euler.z=angle;o.data.extrude=0;o.data.resolution_u=2
  font=Path('/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf')
  if font.exists():o.data.font=bpy.data.fonts.load(str(font),check_existing=True)
@@ -43,19 +47,19 @@ def label(value,loc,size,parent,angle=0):
 def container(number,loc=(0,0,0),opened=True):
  r=empty('CONTAINER_'+number,loc);r['role']='tank_container';r['number']=number;r['interior_m']=[W,3.6,D];r['floor_y_m']=FLOOR
  shell=empty('SHELL_'+number,parent=r);roof=empty('ROOF_'+number,parent=r);roof['component']='removable_roof'
- box('Load bearing deck',(0,0,.13),(7.18,14.9,.26),'trim',shell)
+ box('Load bearing deck',(0,0,.115),(7.18,14.9,.23),'trim',shell)
  box('Interior deck',(0,0,.245),(6.6,14.25,.03),'panel',shell)
  for x in [-3.47,3.47]:
   box('Outer armored side',(x,0,2.05),(.34,14.7,3.7),'shell',shell)
-  for y in [-5.7,-2.85,0,2.85,5.7]:
-   box('Recessed side cassette',(x+math.copysign(.19,x),y,2.03),(.045,2.55,2.7),'panel',shell)
+  for y in ([-4.8,0,4.8] if GAME else [-5.7,-2.85,0,2.85,5.7]):
+   box('Recessed side cassette',(x+math.copysign(.19,x),y,2.03),(.045,4.5 if GAME else 2.55,2.7),'panel',shell)
    box('Cassette reinforcing spine',(x+math.copysign(.24,x),y,2.03),(.09,.13,2.55),'trim',shell)
-  for y in [-7.24,-4.35,-1.45,1.45,4.35,7.24]:
+  for y in ([-7.24,-2.4,2.4,7.24] if GAME else [-7.24,-4.35,-1.45,1.45,4.35,7.24]):
    box('Exoskeleton upright',(x,y,2.02),(.46,.16,3.96),'trim',shell)
    for z in [.35,3.65]:box('Locking shoe',(x,y,z),(.52,.32,.32),'orange',shell,.025)
   for z in [.46,3.63]:box('Continuous side rail',(x,0,z),(.46,14.75,.16),'trim',shell)
   # External grab rails, isolated from the clear cargo volume.
-  for y in [-5.7,5.7]:
+  for y in ([] if GAME else [-5.7,5.7]):
    k.beam('Lifting grab',(x+math.copysign(.32,x),y-.4,2.7),(x+math.copysign(.32,x),y+.4,2.7),.045,'trim',shell)
   side=1 if x>0 else -1
   stencil(number,(x+side*.255,3.8,1.1),.8,shell,side*math.pi/2)
@@ -126,7 +130,8 @@ def clip(name,objects,seconds,pose):
 def smooth(t):return t*t*(3-2*t)
 entries=[]
 for mode in ['empty','loaded','diorama']:
- e=k.begin('mork_container_'+mode,'MORK / '+{'empty':'Empty armored container','loaded':'Loaded armored container','diorama':'Container deployment diorama'}[mode],'Intact',[36,40] if mode=='diorama' else [8,20],'')
+ e=k.begin('mork_container_'+('low_' if GAME else '')+mode,'MORK / '+{'empty':'Empty armored container','loaded':'Loaded armored container','diorama':'Container deployment diorama'}[mode],'Intact',[36,40] if mode=='diorama' else [8,20],'')
+ e['detail']='low' if GAME else 'standard';e['scene_mode']=mode
  root=k.active_root;root['credit']='Models by jelaludo';scene_objects=[]
  if mode!='diorama':
   r,doors,ramp,door_pose=container('02' if mode=='loaded' else '01')
@@ -150,6 +155,20 @@ for mode in ['empty','loaded','diorama']:
  for o in list(k.active_collection.objects):
   if o.type=='FONT':
    bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o;bpy.ops.object.convert(target='MESH')
+ if GAME:
+  palette=k.M.get('game_palette')
+  if not palette:
+   palette=k.material('Container game / vertex palette',(1,1,1),.25,.78);k.M['game_palette']=palette
+   color=palette.node_tree.nodes.new('ShaderNodeVertexColor');color.layer_name='Color';palette.node_tree.links.new(color.outputs['Color'],palette.node_tree.nodes.get('Principled BSDF').inputs['Base Color'])
+  for o in list(k.active_collection.objects):
+   if o.type!='MESH':continue
+   o.data=o.data.copy();colors=o.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
+   for face in o.data.polygons:
+    mat=o.data.materials[face.material_index];bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+    rgba=bs.inputs['Base Color'].default_value if bs else mat.diffuse_color
+    for loop in face.loop_indices:colors.data[loop].color=rgba
+    face.material_index=0
+   o.data.materials.clear();o.data.materials.append(palette)
  groups={}
  for o in list(k.active_collection.objects):
   if o.type!='MESH':continue
@@ -196,8 +215,8 @@ for root,col,e in entries:
  b=struct.pack('<III',0x46546c67,2,20+len(payload)+len(chunks))+struct.pack('<II',len(payload),0x4e4f534a)+payload+chunks
  (OUT/e['file']).write_bytes(b)
  e['triangles']=sum(d['accessors'][p['indices']]['count']//3 for m in d.get('meshes',[]) for p in m['primitives']);e['draw_calls']=sum(len(m['primitives']) for m in d.get('meshes',[]));e['bytes']=len(b)
-(OUT/'manifest.json').write_text(json.dumps({'units':'meters','up':'+Y','forward':'+Z','assets':[e for r,c,e in entries]},indent=2)+'\n')
+(OUT/('manifest-low.json' if GAME else 'manifest.json')).write_text(json.dumps({'units':'meters','up':'+Y','forward':'+Z','assets':[e for r,c,e in entries]},indent=2)+'\n')
 # Editable gallery, separate collections for all three deliverables.
 for i,(root,col,e) in enumerate(entries):root.location.x=i*50
-bpy.ops.wm.save_as_mainfile(filepath=str(P/'source/blender/mork-containers.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(P/('source/blender/mork-containers-low.blend' if GAME else 'source/blender/mork-containers.blend')))
 print('CONTAINERS_COMPLETE',[(e['id'],e['triangles']) for r,c,e in entries])
