@@ -6,7 +6,6 @@ import asset_common as k
 from asset_common import bpy,Vector
 OUT=k.PROJECT/'assets/antenna-array';OUT.mkdir(exist_ok=True)
 k.M['dish']=k.material('Reflector / warm ceramic',(.68,.73,.69),.42,.38)
-k.M['panel']=k.material('Reflector / alternate panel',(.51,.61,.60),.55,.40)
 k.M['scar']=k.material('Impact / scorched ceramic',(.07,.075,.065),.2,.88)
 k.M['cyan']=k.material('Control / cyan',(.02,.6,.8),.25,.3,2)
 TAU=math.tau
@@ -23,7 +22,7 @@ def tube(name,a,b,r,mat,parent,n=8):
     return mesh(name,verts,faces,mat,parent)
 
 def bowl(r,a):return Vector((r*math.cos(a),r*math.sin(a),1.2+r*r/26))
-def box(name,loc,size,mat,parent):return k.box(name,loc,size,mat,.035,parent)
+def box(name,loc,size,mat,parent):return k.box(name,loc,size,mat,0 if game_geometry else .035,parent)
 def slew(yaw,pitch):
     # Two deliberate moves and a return, with time to settle at each bearing.
     keys=[(0,-28,38),(4,-28,38),(15,38,66),(20,38,66),(31,-16,26),(35,-16,26),(44,-28,38)]
@@ -36,7 +35,51 @@ def slew(yaw,pitch):
                 o.rotation_euler[axis]=a+(b-a)*smooth;o.keyframe_insert('rotation_euler',frame=frame)
         action=o.animation_data.action;o.animation_data.action=None;track=o.animation_data.nla_tracks.new();track.name='Array_Slew';strip=track.strips.new('Array_Slew',0,action);strip.extrapolation='NOTHING'
 
-for detail,n,rings,ribs in [('low',24,4,8),('medium',48,8,12),('high',96,14,24)]:
+def continuous_reflector(n,rings,damage,parent):
+    # Shared polar vertices: one central fan, concentric rings, no panel gaps.
+    verts=[tuple(bowl(0,0))]
+    for r in range(1,rings+1):
+        for j in range(n):
+            v=bowl(9*r/rings,j*TAU/n)
+            if damage>=2 and r==rings and j>n*.75:v.z-=.35*(1+math.sin(j*TAU/n*3))
+            verts.append(tuple(v))
+    def index(r,j):return 0 if r==0 else 1+(r-1)*n+j%n
+    front=[]
+    for r in range(rings):
+        for j in range(n):
+            # Same angular damage size at every detail level.
+            missing=(damage==1 and r==rings-1 and 2/24<=j/n<4/24) or (damage>=2 and j<n//4 and r>rings//3)
+            if missing:continue
+            front.append((0,index(1,j),index(1,j+1)) if r==0 else (index(r,j),index(r+1,j),index(r+1,j+1),index(r,j+1)))
+    count=len(verts);verts += [(x,y,z-.13) for x,y,z in verts]
+    back=[tuple(i+count for i in reversed(f)) for f in front]
+    edges={}
+    for f in front:
+        for a,b in zip(f,f[1:]+f[:1]):
+            key=tuple(sorted((a,b)))
+            if key in edges:edges[key]=None
+            else:edges[key]=(a,b)
+    sides=[(b,a,a+count,b+count) for edge in edges.values() if edge for a,b in [edge]]
+    obj=mesh('REFLECTOR_SURFACE',verts,front+back+sides,'dish',parent)
+    # Smooth front/back with analytic paraboloid normals; boundary walls stay crisp.
+    normals=[]
+    for p in obj.data.polygons:
+        surface=p.index<len(front)*2;p.use_smooth=surface
+        for i in p.vertices:
+            x,y,z=verts[i]
+            normal=Vector((-x/13,-y/13,1)).normalized() if surface else p.normal.copy()
+            if len(front)<=p.index<len(front)*2:normal=-normal
+            normals.append(tuple(normal))
+    obj.data.normals_split_custom_set(normals)
+    # Cull unused vertices from the genuine missing sectors.
+    import bmesh
+    bm=bmesh.new();bm.from_mesh(obj.data);bmesh.ops.delete(bm,geom=[v for v in bm.verts if not v.link_faces],context='VERTS');bm.to_mesh(obj.data);bm.free()
+    obj['component']='continuous_reflector';obj['profile']='z = 1.2 + r²/26';obj['radial_segments']=n;obj['radial_rings']=rings
+    obj['shell_thickness_m']=.13;obj['damage_level']=damage
+    return obj
+
+for detail,n,rings,ribs in [('low',24,6,6),('medium',48,8,12),('high',96,14,24)]:
+ game_geometry=detail=='low'
  for damage in range(4):
     e=k.begin(f'skyward_{detail}_d{damage}','SKYWARD / 18 m antenna',['Intact','Damaged','Critical','Destroyed'][damage],[36,36],'')
     e.update(detail=detail,damage_level=damage,functional=damage<2,diameter_m=18,kind='antenna',animations=['Array_Slew'] if damage<2 else [])
@@ -61,27 +104,23 @@ for detail,n,rings,ribs in [('low',24,4,8),('medium',48,8,12),('high',96,14,24)]
     else:pitch.rotation_euler.x=math.radians(52 if damage<2 else 68)
     tube('Receiver rear housing',(0,0,-.8),(0,0,1.1),1.1,'frame',pitch,12 if detail=='low' else 32)
     tube('Trunnion shaft',(-4.3,0,0),(4.3,0,0),.35,'edge',pitch)
-    # Individually bounded solid reflector panels; gaps read at medium/high detail.
-    for ring in range(rings):
-        r0=max(.12,9*ring/rings);r1=9*(ring+1)/rings
-        for j in range(n):
-            missing=(damage==1 and ring==rings-1 and j in [2,3]) or (damage>=2 and j<n//4 and ring>rings//3)
-            if missing:continue
-            gap=.001 if detail=='low' else .004
-            a=j*TAU/n+gap;b=(j+1)*TAU/n-gap
-            points=[bowl(r0,a),bowl(r1,a),bowl(r1,b),bowl(r0,b)]
-            if damage>=2 and j>n*.75 and ring==rings-1:
-                points=[v+Vector((0,0,-.6*(i%2))) for i,v in enumerate(points)]
-            verts=[tuple(v+Vector((0,0,d))) for d in [0,-.13] for v in points]
-            mat='scar' if damage and j in [4,5,6] and ring>rings//2 else ('dish' if (ring+j)%3 else 'panel')
-            mesh('Reflector panel',verts,[(0,1,2,3),(7,6,5,4),(0,4,5,1),(1,5,6,2),(2,6,7,3),(3,7,4,0)],mat,pitch)
+    reflector=continuous_reflector(n,rings,damage,pitch)
+    # One continuous tubular rim, with caps only at a genuine damaged opening.
+    rim_vertices=[];rim_faces=[];cross=4 if detail=='low' else 8
     for j in range(n):
-        if damage>=2 and j<n//4:continue
-        a=bowl(9,j*TAU/n);b=bowl(9,(j+1)*TAU/n);tube('Rim box beam',a,b,.11,'frame',pitch,6 if detail=='low' else 8)
+        a=j*TAU/n;radial=Vector((math.cos(a),math.sin(a),0));centre=bowl(9,a)
+        for q in range(cross):rim_vertices.append(tuple(centre+.11*(radial*math.cos(q*TAU/cross)+Vector((0,0,1))*math.sin(q*TAU/cross))))
+    sectors=[j for j in range(n) if not(damage>=2 and j<n//4)]
+    for j in sectors:
+        for q in range(cross):rim_faces.append((j*cross+q,((j+1)%n)*cross+q,((j+1)%n)*cross+(q+1)%cross,j*cross+(q+1)%cross))
+    if damage>=2:
+        rim_faces += [tuple(n//4*cross+q for q in reversed(range(cross))),tuple(q for q in range(cross))]
+    rim=mesh('Continuous perimeter rail',rim_vertices,rim_faces,'frame',pitch)
+    for p in rim.data.polygons:p.use_smooth=True
     for j in range(ribs):
         a=j*TAU/ribs
-        for r0,r1 in [(1,3),(3,6),(6,9)]:
-            tube('Rear radial rib',bowl(r0,a)-Vector((0,0,.45)),bowl(r1,a)-Vector((0,0,.45)),.13,'frame',pitch,6 if detail=='low' else 10)
+        for r0,r1 in ([(1,5),(5,9)] if detail=='low' else [(1,3),(3,6),(6,9)]):
+            tube('Rear radial rib',bowl(r0,a)-Vector((0,0,.45)),bowl(r1,a)-Vector((0,0,.45)),.13,'frame',pitch,4 if detail=='low' else 10)
         if detail!='low':tube('Rear truss diagonal',(0,0,-.5),bowl(7.5,a)-Vector((0,0,.35)),.07,'edge',pitch)
     for j in range(4):
         if damage>=2 and j==0:continue
@@ -100,10 +139,11 @@ for detail,n,rings,ribs in [('low',24,4,8),('medium',48,8,12),('high',96,14,24)]
         pitch.location.z+=.12-lowest
     if damage<2:slew(yaw,pitch)
     else:yaw.rotation_euler.z=-.2
-    e['description']=f'18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. {detail.capitalize()} detail; '+('44-second synchronized slew loop.' if damage<2 else 'Disabled damaged assembly.' )
+    e['description']=f'18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. {detail.capitalize()} detail; '+('44-second synchronized slew loop.' if damage<2 else 'Disabled damaged assembly.' )
     print('AUTHORED',e['id'],flush=True)
     if detail=='low' and damage==0:template=(root,k.active_collection)
 
+game_geometry=True
 # Seven copies share mesh data and the same phased motion, preserving each mount.
 e=k.begin('skyward_array','SKYWARD / Seven-dish array','Intact',[190,190],'Seven synchronized low-detail dishes on a compact Y layout with service tracks and a control hut.')
 e.update(kind='array',detail='low',damage_level=0,functional=True,animations=['Array_Slew'],antenna_count=7)
@@ -128,7 +168,7 @@ box('Operations status strip',(19,7.43,2.3),(1.5,.04,.3),'cyan',arrayroot)
 for root,col,entry in k.roots:
     groups={}
     for obj in list(col.objects):
-        if obj.type=='MESH':groups.setdefault((obj.parent,obj.active_material),[]).append(obj)
+        if obj.type=='MESH' and obj.get('component')!='continuous_reflector':groups.setdefault((obj.parent,obj.active_material),[]).append(obj)
     for (parent,material),objects in groups.items():
         if len(objects)<2:continue
         bpy.ops.object.select_all(action='DESELECT')

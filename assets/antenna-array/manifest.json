@@ -9,7 +9,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -21,9 +21,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 3504,
-      "draw_calls": 11,
-      "bytes": 244504
+      "triangles": 1632,
+      "draw_calls": 10,
+      "bytes": 115972,
+      "reflector_shells": 1,
+      "reflector_triangles": 576
     },
     {
       "id": "skyward_low_d1",
@@ -34,7 +36,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -46,9 +48,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 3480,
-      "draw_calls": 12,
-      "bytes": 244344
+      "triangles": 1628,
+      "draw_calls": 10,
+      "bytes": 116148,
+      "reflector_shells": 1,
+      "reflector_triangles": 572
     },
     {
       "id": "skyward_low_d2",
@@ -59,7 +63,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -69,9 +73,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 3536,
-      "draw_calls": 13,
-      "bytes": 201972
+      "triangles": 1536,
+      "draw_calls": 11,
+      "bytes": 66520,
+      "reflector_shells": 1,
+      "reflector_triangles": 516
     },
     {
       "id": "skyward_low_d3",
@@ -82,7 +88,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Low detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -92,9 +98,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 3536,
-      "draw_calls": 13,
-      "bytes": 202012
+      "triangles": 1536,
+      "draw_calls": 11,
+      "bytes": 66560,
+      "reflector_shells": 1,
+      "reflector_triangles": 516
     },
     {
       "id": "skyward_medium_d0",
@@ -105,7 +113,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -117,9 +125,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 10160,
-      "draw_calls": 12,
-      "bytes": 580936
+      "triangles": 6512,
+      "draw_calls": 11,
+      "bytes": 324796,
+      "reflector_shells": 1,
+      "reflector_triangles": 1536
     },
     {
       "id": "skyward_medium_d1",
@@ -130,7 +140,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -142,9 +152,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 10136,
-      "draw_calls": 13,
-      "bytes": 580244
+      "triangles": 6500,
+      "draw_calls": 11,
+      "bytes": 324776,
+      "reflector_shells": 1,
+      "reflector_triangles": 1524
     },
     {
       "id": "skyward_medium_d2",
@@ -155,7 +167,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -165,9 +177,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 9400,
-      "draw_calls": 13,
-      "bytes": 500108
+      "triangles": 6408,
+      "draw_calls": 12,
+      "bytes": 290388,
+      "reflector_shells": 1,
+      "reflector_triangles": 1316
     },
     {
       "id": "skyward_medium_d3",
@@ -178,7 +192,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. Medium detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -188,9 +202,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 9400,
-      "draw_calls": 13,
-      "bytes": 500160
+      "triangles": 6408,
+      "draw_calls": 12,
+      "bytes": 290440,
+      "reflector_shells": 1,
+      "reflector_triangles": 1316
     },
     {
       "id": "skyward_high_d0",
@@ -201,7 +217,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -213,9 +229,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 24656,
-      "draw_calls": 12,
-      "bytes": 1312864
+      "triangles": 12752,
+      "draw_calls": 11,
+      "bytes": 487812,
+      "reflector_shells": 1,
+      "reflector_triangles": 5376
     },
     {
       "id": "skyward_high_d1",
@@ -226,7 +244,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; 44-second synchronized slew loop.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -238,9 +256,11 @@
       "functional": true,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 24632,
-      "draw_calls": 13,
-      "bytes": 1311596
+      "triangles": 12724,
+      "draw_calls": 11,
+      "bytes": 487500,
+      "reflector_shells": 1,
+      "reflector_triangles": 5348
     },
     {
       "id": "skyward_high_d2",
@@ -251,7 +271,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -261,9 +281,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 21688,
-      "draw_calls": 13,
-      "bytes": 1120196
+      "triangles": 11848,
+      "draw_calls": 12,
+      "bytes": 439388,
+      "reflector_shells": 1,
+      "reflector_triangles": 4548
     },
     {
       "id": "skyward_high_d3",
@@ -274,7 +296,7 @@
         36,
         36
       ],
-      "description": "18 m segmented reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
+      "description": "18 m continuous paraboloid reflector with a heavy fork mount, rear radial bracing, feed supports and separate azimuth/elevation pivots. High detail; Disabled damaged assembly.",
       "sockets": [],
       "colliders": [],
       "clearance": [],
@@ -284,9 +306,11 @@
       "functional": false,
       "diameter_m": 18,
       "kind": "antenna",
-      "triangles": 21688,
-      "draw_calls": 13,
-      "bytes": 1120244
+      "triangles": 11848,
+      "draw_calls": 12,
+      "bytes": 439440,
+      "reflector_shells": 1,
+      "reflector_triangles": 4548
     },
     {
       "id": "skyward_array",
@@ -309,9 +333,11 @@
       "damage_level": 0,
       "functional": true,
       "antenna_count": 7,
-      "triangles": 25620,
-      "draw_calls": 81,
-      "bytes": 916584
+      "triangles": 11652,
+      "draw_calls": 74,
+      "bytes": 243804,
+      "reflector_shells": 7,
+      "reflector_triangles": 4032
     }
   ],
   "diameter_m": 18,

@@ -1,17 +1,31 @@
 # SKYWARD / Radio antenna array
 
-An original 18 m steerable reflector antenna with a segmented bowl, rear radial bracing, secondary reflector and feed supports, a heavy fork mount, an azimuth race, a control cabinet and an anchored concrete pad. The low, medium and high versions share the silhouette and articulation axes. Higher detail adds panel subdivisions, rear truss diagonals, ladder hardware and drive motors.
+An original 18 m steerable reflector antenna with a continuous paraboloid shell, rear radial bracing, secondary reflector and feed supports, a heavy fork mount, an azimuth race, a control cabinet and an anchored concrete pad. The low, medium and high versions share the silhouette and articulation axes. All tiers use one connected, smooth-shaded dish shell with a closed back and sealed boundary edges. Higher detail increases tessellation and adds rear truss diagonals, ladder hardware and drive motors; it does not add separate dish panels.
 
 | Intact mesh | Triangles | Material batches |
 |---|---:|---:|
-| Low / game | 3,504 | 11 |
-| Medium | 10,160 | 12 |
-| High | 24,656 | 12 |
-| Seven-dish scene | 25,620 | 81 |
+| Low / game | 1,632 | 10 |
+| Medium | 6,512 | 11 |
+| High | 12,752 | 11 |
+| Seven-dish scene | 11,652 | 74 |
 
-There are twelve standalone exports: three detail levels × four destruction states. D0 is intact; D1 has missing/scorched outer panels but remains operational; D2 has a torn reflector sector, a damaged feed structure and fixed disabled pointing; D3 has a grounded detached dish and shortened broken fork towers. Each GLB includes its own geometry; these are selectable detail tiers, not an engine-managed LOD chain. Exact triangle counts and file sizes are in `manifest.json`.
+There are twelve standalone exports: three detail levels × four destruction states. D0 is intact; D1 has a missing outer rim section but remains operational; D2 has a torn reflector sector, a damaged feed structure and fixed disabled pointing; D3 has a grounded detached dish and shortened broken fork towers. Each GLB includes its own geometry; these are selectable detail tiers, not an engine-managed LOD chain. Exact triangle counts and file sizes are in `manifest.json`. The seven-dish scene is 54.5% smaller in triangle count than the previous 25,620-triangle version; the high-detail antenna is down from 24,656 to 12,752 triangles.
 
 The separate `skyward_array.glb` contains seven low-detail antennas on a compact Y layout, a small operations shelter and service routes. Adjacent pads are at least 40 m apart. It is a deliberately compact game diorama; it does not reproduce an observatory's physical layout or operating parameters.
+
+## Continuous dish geometry
+
+Each `continuous_reflector` component is one connected mesh with one material. The surface follows `z = 1.2 + r² / 26` in the Blender authoring frame, with a 9 m radius and 0.13 m shell thickness. A shared central fan and concentric rings replace the individual solid panel blocks. Only the actual perimeter and damage openings have sidewalls; there are no internal tile sidewalls or panel gaps. Smooth surface normals preserve a curved appearance. The outer support rail is also a continuous mesh.
+
+| Shell tier | Radial segments | Rings | Front triangles | Complete shell triangles |
+| --- | ---: | ---: | ---: | ---: |
+| Low | 24 | 6 | 264 | 576 |
+| Medium | 48 | 8 | 720 | 1,536 |
+| High | 96 | 14 | 2,592 | 5,376 |
+
+Low-tier bases omit small bevels and use simpler rear ribs. Medium/high retain the detailed mounts and hardware. D1–D3 are cut from the shared shell topology, with sealed exposed boundaries; the damaged surface remains one connected shell. The `component: continuous_reflector` marker is preserved for inspection and the shell stays separate from other mount geometry. The viewer's **Show mesh edges** option exposes the tessellation.
+
+This reduces geometry rather than eliminating triangle rasterization or promising a frame rate. The previous exporter already batched panel draws; the main savings here are fewer vertices, faces and internal walls.
 
 ## Motion and integration
 
@@ -31,6 +45,7 @@ Visual references: [NRAO's VLA dish](https://public.nrao.edu/gallery/vla-dish-di
 blender --background --python-exit-code 1 --python tools/blender/build_antenna_array.py
 node tools/asset-pipeline/pack-antenna-array.mjs
 node tools/asset-pipeline/validate-antenna-array.mjs
+node tools/asset-pipeline/validate-reflector-shells.mjs
 ```
 
 Editable source: `source/blender/a6-antenna-array.blend`. The array sits at the origin; standalone detail/damage studies are spaced behind it in initially hidden collections. Enable their viewport visibility in the Outliner to inspect them. Static geometry is combined by material within each moving assembly for efficient export. The Blender timeline runs at 30 fps over frames 0–1320.
