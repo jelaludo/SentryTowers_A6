@@ -13,7 +13,7 @@ export const collections=[
 ['solar-power','Solar power network','Infrastructure','Solar arrays and tower grids for building a connected power site.','Power systems','Modular'],
 ['micro-reactor','Open micro-reactor','Infrastructure','An exposed reactor core and its surrounding machinery.','Power systems','Animated'],
 ['research-outpost','Alien research outpost','Infrastructure','Labs, habitats, utilities and service structures for an extraterrestrial settlement.','12 families · 48 models','Modular'],
-['base-kit','Base construction kit','Infrastructure','Walls, corners, foundations and an animated vehicle gate.','Walls + gate + foundations','Modular'],
+['base-kit','Foundations & walls / Game-ready','Infrastructure','Lightweight foundations, walls, corners and an animated gate. Compare original meshes and inspect up to 1,000 GPU-instanced modules.','8 modules · Original + game tiers','Game-ready'],
 ['ctf-flags','Capture the Flag','Props','Faction banners, pole styles and capture sockets with animated flag behavior.','6 banners · 3 pole styles','Animated'],
 ['station-crew','Station crew','Characters','Suited astronauts, scientists and workers with shared animation controls.','3 roles · 7 clips','Animated'],
 ['animation-tests','KESTREL / Frontier EVA','Characters','An original detailed astronaut with a lean weathered suit, opaque visor and circular walk/run previews.','Original EVA · 7 clips','Animated']

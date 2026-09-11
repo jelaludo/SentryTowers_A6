@@ -2,12 +2,13 @@
 Run: blender --background --python-exit-code 1 --python tools/blender/build_wall_kit.py
 Blender uses Z up; glTF exporter converts to +Y up, +Z forward (-Y in Blender).
 """
-import bpy, bmesh, math, json, random
+import bpy, bmesh, math, json, random, sys
+GAME = '--game' in sys.argv
 from pathlib import Path
 from mathutils import Vector
 
 PROJECT=Path(__file__).resolve().parents[2]
-OUT=PROJECT/'assets/base-kit';SOURCE=PROJECT/'source/blender'
+OUT=PROJECT/('assets/base-kit-game' if GAME else 'assets/base-kit');SOURCE=PROJECT/'source/blender'
 OUT.mkdir(parents=True,exist_ok=True);SOURCE.mkdir(parents=True,exist_ok=True)
 # Background build only: do not replace an artist's live scene.
 if not bpy.app.background:raise RuntimeError('Run this builder in background mode.')
@@ -45,7 +46,7 @@ def empty(name,loc=(0,0,0),parent=None):
     obj=bpy.data.objects.new(name,None);active_collection.objects.link(obj);obj.parent=parent or active_root;obj.location=loc;obj.empty_display_size=.18
     return obj
 def finish(obj,bevel):
-    if bevel:
+    if bevel and not GAME:
         mod=obj.modifiers.new('Manufactured edge bevel','BEVEL');mod.width=bevel;mod.segments=2
         bpy.context.view_layer.objects.active=obj;bpy.ops.object.modifier_apply(modifier=mod.name)
     return obj
@@ -54,7 +55,7 @@ def box(name,loc,size,mat='armor',bevel=.025,parent=None,rot=(0,0,0)):
     bpy.context.view_layer.objects.active=o;bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
     finish(o,min(bevel,min(size)*.2));o.rotation_euler=rot;return o
 def cylinder(name,loc,radius,depth,mat='frame',axis='Z',parent=None,vertices=12):
-    bpy.ops.mesh.primitive_cylinder_add(vertices=vertices,radius=radius,depth=depth,location=(0,0,0));o=register(bpy.context.object,name,mat,parent);o.location=loc
+    bpy.ops.mesh.primitive_cylinder_add(vertices=min(vertices,6) if GAME else vertices,radius=radius,depth=depth,location=(0,0,0));o=register(bpy.context.object,name,mat,parent);o.location=loc
     if axis=='Y':o.rotation_euler[0]=math.pi/2
     elif axis=='X':o.rotation_euler[1]=math.pi/2
     return finish(o,.009)
@@ -67,6 +68,7 @@ def prism(name,outline,y0,y1,mat='armor',parent=None,bevel=.015):
 def beam(name,a,b,radius=.025,mat='rust',parent=None):
     delta=Vector(b)-Vector(a);o=cylinder(name,(Vector(a)+Vector(b))/2,radius,delta.length,mat,parent=parent,vertices=8);o.rotation_euler=delta.to_track_quat('Z','Y').to_euler();return o
 def text(name,value,loc,size=.14,mat='white',parent=None):
+    if GAME:return None
     curve=bpy.data.curves.new(name,'FONT');curve.body=value;curve.size=size;curve.align_x='CENTER';curve.extrude=.001
     o=bpy.data.objects.new(name,curve);active_collection.objects.link(o);o.parent=parent or active_root;o.location=loc;o.rotation_euler=(math.pi/2,0,0);curve.materials.append(M[mat]);return o
 def begin(id,title,state,plot,description):
@@ -84,6 +86,7 @@ def socket(entry,id,kind,position,normal,available=True,width=None):
 def collider(entry,name,center,size,condition='always'):
     entry['colliders'].append(dict(id=name,center_m=center,size_m=size,condition=condition))
 def bolts(length=4,parent=None):
+    if GAME:return
     for x in [-length/2+.18,length/2-.18]:
         for z in [.55,1.6,2.65]:
             for y in [-.57,.57]:cylinder('Captive fastener',(x,y,z),.055,.035,'edge','Y',parent)
@@ -214,11 +217,44 @@ box('Foundation perimeter',(0,0,-.09),(3.98,3.98,.10),'frame',.02)
 for x in [-.985,.985]:
     for y in [-.985,.985]:
         box('Service deck panel',(x,y,-.019),(1.91,1.91,.038),'armor',.022)
-        for off in [-.68,.68]:cylinder('Deck captive bolt',(x+off,y+.70,.003),.045,.008,'edge')
+        for off in ([] if GAME else [-.68,.68]):cylinder('Deck captive bolt',(x+off,y+.70,.003),.045,.008,'edge')
 for x in [-1.82,1.82]:
     for y in [-1.82,1.82]:box('Corner locating socket',(x,y,.001),(.17,.17,.012),'dark',.008)
 for label,pos,normal in [('N',[0,0,2],[0,0,1]),('E',[2,0,0],[1,0,0]),('S',[0,0,-2],[0,0,-1]),('W',[-2,0,0],[-1,0,0])]:socket(entry,'FOUNDATION_'+label,'foundation',pos,normal,True,4)
 socket(entry,'SUPPORT','support',[0,0,0],[0,1,0],True,4);collider(entry,'slab',[0,-.19,0],[4,.38,4])
+
+# One vertex-color material and one mesh per rigid assembly in the game tier.
+# Keep root/socket empties and the four gate slat pivots intact.
+if GAME:
+    shared=material('BASE_KIT_GAME / vertex palette', (1,1,1), .15, .76)
+    nodes=shared.node_tree.nodes
+    color=nodes.new('ShaderNodeVertexColor');color.layer_name='Color'
+    shared.node_tree.links.new(color.outputs['Color'],nodes.get('Principled BSDF').inputs['Base Color'])
+    for root,collection,entry in roots:
+        groups={}
+        for o in list(collection.objects):
+            if o.type!='MESH':continue
+            colors=o.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
+            for face in o.data.polygons:
+                mat=o.data.materials[face.material_index]
+                rgba=mat.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value
+                for loop in face.loop_indices:colors.data[loop].color=rgba
+                face.material_index=0
+            o.data.materials.clear();o.data.materials.append(shared)
+            parent=o.parent
+            while parent and parent!=root and not parent.name.startswith('GATE_SLAT_'):parent=parent.parent
+            groups.setdefault(parent or root,[]).append(o)
+        for parent,objects in groups.items():
+            bpy.ops.object.select_all(action='DESELECT')
+            for o in objects:o.select_set(True)
+            active=objects[0];bpy.context.view_layer.objects.active=active
+            bpy.ops.object.join()
+            world=active.matrix_world.copy();active.parent=parent;active.matrix_world=world
+            active.name='GAME_MESH_'+('STATIC' if parent==root else parent.name.split('.')[0])
+        # Empty authoring groups are redundant after baking their transforms.
+        for o in list(collection.objects):
+            if o.type=='EMPTY' and o!=root and not o.children and not o.name.startswith(('SOCKET_','GATE_SLAT_')):
+                bpy.data.objects.remove(o,do_unlink=True)
 
 # Export at origin, while retaining one readable, editable gallery in the .blend.
 bpy.context.scene.render.fps=30;bpy.context.scene.frame_start=1;bpy.context.scene.frame_end=49
@@ -255,6 +291,17 @@ for entry in manifest:
     payload=json.dumps(doc,separators=(',',':')).encode();payload+=b' '*((-len(payload))%4)
     path.write_bytes(struct.pack('<III',0x46546c67,2,28+len(payload)+len(blob))+struct.pack('<II',len(payload),0x4e4f534a)+payload+struct.pack('<II',len(blob),0x004e4942)+blob)
     entry['bytes']=path.stat().st_size
+    entry['draw_calls']=sum(len(m['primitives']) for m in doc.get('meshes',[]))
+    entry['materials']=len(doc.get('materials',[]))
+    if GAME:
+        original=next(a for a in json.loads((PROJECT/'assets/base-kit/manifest.json').read_text())['assets'] if a['id']==entry['id'])
+        entry['source_triangles']=original['triangles']
+        source_data=(PROJECT/'assets/base-kit'/entry['file']).read_bytes()
+        source_doc=json.loads(source_data[20:20+struct.unpack_from('<I',source_data,12)[0]])
+        entry['source_draw_calls']=sum(len(m['primitives']) for m in source_doc.get('meshes',[]))
+        entry['source_bytes']=original['bytes']
+        entry['tier']='game'
+        entry['description']+=' Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.'
 (OUT/'manifest.json').write_text(json.dumps(dict(version=1,units='meters',up='+Y',forward='+Z',assets=manifest),indent=2)+'\n')
 
 gallery=[(-7,0,0),(-2,0,0),(3,0,0),(8,0,0),(-7,7,0),(3,9,0),(-7,-6,.38)]
@@ -273,5 +320,5 @@ for screen in bpy.data.screens:
 bpy.ops.object.select_all(action='DESELECT')
 for o in roots[0][1].objects:o.select_set(True)
 bpy.context.view_layer.objects.active=roots[0][0]
-bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/'a6-wall-kit.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/('a6-wall-kit-game.blend' if GAME else 'a6-wall-kit.blend')))
 print('WALL_KIT_COMPLETE',len(manifest),'exports',flush=True)

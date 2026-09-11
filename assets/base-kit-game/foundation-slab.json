@@ -1,0 +1,113 @@
+{
+  "id": "foundation_slab",
+  "name": "Scalable island slab",
+  "file": "foundation_slab.glb",
+  "state": "Intact",
+  "plot_m": [
+    40,
+    40
+  ],
+  "reference_size_m": [
+    40,
+    40
+  ],
+  "triangles": 28,
+  "bytes": 3592,
+  "draw_calls": 2,
+  "materials": 2,
+  "sockets": [],
+  "colliders": [
+    {
+      "id": "slab",
+      "center_m": [
+        0,
+        -0.6,
+        0
+      ],
+      "size_m": [
+        40,
+        1.2,
+        40
+      ],
+      "condition": "always"
+    }
+  ],
+  "clearance": [],
+  "animations": [],
+  "credit": "Models by jelaludo",
+  "description": "Unmarked 40 \u00d7 40 m reference slab, flat top at Y=0, inset 1.2 m skirt. Scale X/Z to the island; keep Y=1.",
+  "presets": [
+    {
+      "name": "Landing site",
+      "size_m": [
+        16,
+        16
+      ],
+      "scale": [
+        0.4,
+        1,
+        0.4
+      ]
+    },
+    {
+      "name": "Rotor socket",
+      "size_m": [
+        8,
+        8
+      ],
+      "scale": [
+        0.2,
+        1,
+        0.2
+      ]
+    },
+    {
+      "name": "Armored gate",
+      "size_m": [
+        12,
+        8
+      ],
+      "scale": [
+        0.3,
+        1,
+        0.2
+      ]
+    },
+    {
+      "name": "Solar complex",
+      "size_m": [
+        20,
+        20
+      ],
+      "scale": [
+        0.5,
+        1,
+        0.5
+      ]
+    },
+    {
+      "name": "HUGIN arm",
+      "size_m": [
+        40,
+        40
+      ],
+      "scale": [
+        1.0,
+        1,
+        1.0
+      ]
+    },
+    {
+      "name": "Stalheart",
+      "size_m": [
+        48,
+        56
+      ],
+      "scale": [
+        1.2,
+        1,
+        1.4
+      ]
+    }
+  ]
+}

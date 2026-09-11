@@ -1,0 +1,786 @@
+{
+  "version": 1,
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "assets": [
+    {
+      "id": "wall_standard_d0",
+      "name": "Armored wall",
+      "state": "Intact",
+      "file": "wall_standard_d0.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Layered armor with replaceable panels and service rail. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_W",
+          "kind": "wall",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "wall",
+          "center_m": [
+            0,
+            1.6,
+            0
+          ],
+          "size_m": [
+            4,
+            3.2,
+            1.2
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "triangles": 376,
+      "bytes": 35736,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 5856,
+      "source_draw_calls": 39,
+      "source_bytes": 362676,
+      "tier": "game"
+    },
+    {
+      "id": "wall_standard_d1",
+      "name": "Armored wall",
+      "state": "Damaged",
+      "file": "wall_standard_d1.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Scored armor, cracks and fault indicator; wall still blocks. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_W",
+          "kind": "wall",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "wall",
+          "center_m": [
+            0,
+            1.6,
+            0
+          ],
+          "size_m": [
+            4,
+            3.2,
+            1.2
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "triangles": 716,
+      "bytes": 64720,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 9680,
+      "source_draw_calls": 56,
+      "source_bytes": 638160,
+      "tier": "game"
+    },
+    {
+      "id": "wall_standard_d2",
+      "name": "Armored wall",
+      "state": "Breached",
+      "file": "wall_standard_d2.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Central breach with exposed core; 1.2 m pedestrian clearance. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_W",
+          "kind": "wall",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "remnant_-1",
+          "center_m": [
+            -1.4,
+            1.6,
+            0
+          ],
+          "size_m": [
+            1.2,
+            3.2,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "remnant_1",
+          "center_m": [
+            1.4,
+            1.6,
+            0
+          ],
+          "size_m": [
+            1.2,
+            3.2,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "lintel",
+          "center_m": [
+            0,
+            2.97,
+            0
+          ],
+          "size_m": [
+            1.6,
+            0.46,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rubble_-1",
+          "center_m": [
+            -1.4,
+            0.2,
+            0.85
+          ],
+          "size_m": [
+            1.1,
+            0.4,
+            1.3
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rubble_1",
+          "center_m": [
+            1.4,
+            0.2,
+            0.85
+          ],
+          "size_m": [
+            1.1,
+            0.4,
+            1.3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            1.2,
+            2.4,
+            4
+          ],
+          "condition": "always"
+        }
+      ],
+      "animations": [],
+      "triangles": 852,
+      "bytes": 83484,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 6446,
+      "source_draw_calls": 52,
+      "source_bytes": 446944,
+      "tier": "game"
+    },
+    {
+      "id": "wall_standard_d3",
+      "name": "Armored wall",
+      "state": "Destroyed",
+      "file": "wall_standard_d3.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Broken end footings and bounded rubble; central pedestrian passage. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_W",
+          "kind": "wall",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": 0.8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "remnant_-1",
+          "center_m": [
+            -1.4,
+            0.5,
+            0
+          ],
+          "size_m": [
+            1.2,
+            1.0,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "remnant_1",
+          "center_m": [
+            1.4,
+            0.5,
+            0
+          ],
+          "size_m": [
+            1.2,
+            1.0,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rubble_-1",
+          "center_m": [
+            -1.4,
+            0.2,
+            0.85
+          ],
+          "size_m": [
+            1.1,
+            0.4,
+            1.3
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rubble_1",
+          "center_m": [
+            1.4,
+            0.2,
+            0.85
+          ],
+          "size_m": [
+            1.1,
+            0.4,
+            1.3
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            1.2,
+            2.4,
+            4
+          ],
+          "condition": "always"
+        }
+      ],
+      "animations": [],
+      "triangles": 520,
+      "bytes": 65712,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 1832,
+      "source_draw_calls": 28,
+      "source_bytes": 151936,
+      "tier": "game"
+    },
+    {
+      "id": "wall_corner_d0",
+      "name": "Armored corner",
+      "state": "Intact",
+      "file": "wall_corner_d0.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "Two matching half sections turn the wall boundary by 90 degrees. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_N",
+          "kind": "wall",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 0.8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "east_leg",
+          "center_m": [
+            1,
+            1.6,
+            0
+          ],
+          "size_m": [
+            2,
+            3.2,
+            1.2
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "north_leg",
+          "center_m": [
+            0,
+            1.6,
+            1
+          ],
+          "size_m": [
+            1.2,
+            3.2,
+            2
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "triangles": 536,
+      "bytes": 50376,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 9212,
+      "source_draw_calls": 63,
+      "source_bytes": 577228,
+      "tier": "game"
+    },
+    {
+      "id": "gate_vehicle_d0",
+      "name": "Telescopic vehicle gate",
+      "state": "Intact",
+      "file": "gate_vehicle_d0.glb",
+      "plot_m": [
+        12,
+        8
+      ],
+      "description": "Four armored slats telescope into the header, leaving an 8 m-wide vehicle opening. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "WALL_W",
+          "kind": "wall",
+          "position_m": [
+            -6,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "WALL_E",
+          "kind": "wall",
+          "position_m": [
+            6,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 0.8
+        },
+        {
+          "id": "ROAD_S",
+          "kind": "road",
+          "position_m": [
+            0,
+            0,
+            -4
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 8
+        },
+        {
+          "id": "ROAD_N",
+          "kind": "road",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 8
+        }
+      ],
+      "colliders": [
+        {
+          "id": "tower_-1",
+          "center_m": [
+            -4.75,
+            2.75,
+            0
+          ],
+          "size_m": [
+            1.5,
+            5.5,
+            1.8
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower_1",
+          "center_m": [
+            4.75,
+            2.75,
+            0
+          ],
+          "size_m": [
+            1.5,
+            5.5,
+            1.8
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "header",
+          "center_m": [
+            0,
+            4.95,
+            -0.22
+          ],
+          "size_m": [
+            8.9,
+            1.15,
+            1.65
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "closed_slats",
+          "center_m": [
+            0,
+            2,
+            0
+          ],
+          "size_m": [
+            8,
+            4,
+            0.55
+          ],
+          "condition": "gate_closed"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "vehicle",
+          "center_m": [
+            0,
+            1.9,
+            0
+          ],
+          "size_m": [
+            8,
+            3.8,
+            8
+          ],
+          "condition": "gate_open"
+        }
+      ],
+      "animations": [
+        "Gate_Open"
+      ],
+      "triangles": 1224,
+      "bytes": 119496,
+      "draw_calls": 5,
+      "materials": 1,
+      "source_triangles": 17120,
+      "source_draw_calls": 115,
+      "source_bytes": 1089152,
+      "tier": "game"
+    },
+    {
+      "id": "foundation_flat_d0",
+      "name": "Armored foundation slab",
+      "state": "Intact",
+      "file": "foundation_flat_d0.glb",
+      "plot_m": [
+        4,
+        4
+      ],
+      "description": "4 m foundation tile; origin and support plane at the top surface. Game tier: flat bevel-free geometry, vertex palette, merged rigid assemblies.",
+      "sockets": [
+        {
+          "id": "FOUNDATION_N",
+          "kind": "foundation",
+          "position_m": [
+            0,
+            0,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 4
+        },
+        {
+          "id": "FOUNDATION_E",
+          "kind": "foundation",
+          "position_m": [
+            2,
+            0,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 4
+        },
+        {
+          "id": "FOUNDATION_S",
+          "kind": "foundation",
+          "position_m": [
+            0,
+            0,
+            -2
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 4
+        },
+        {
+          "id": "FOUNDATION_W",
+          "kind": "foundation",
+          "position_m": [
+            -2,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": 4
+        },
+        {
+          "id": "SUPPORT",
+          "kind": "support",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 4
+        }
+      ],
+      "colliders": [
+        {
+          "id": "slab",
+          "center_m": [
+            0,
+            -0.19,
+            0
+          ],
+          "size_m": [
+            4,
+            0.38,
+            4
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "triangles": 120,
+      "bytes": 13452,
+      "draw_calls": 1,
+      "materials": 1,
+      "source_triangles": 2200,
+      "source_draw_calls": 18,
+      "source_bytes": 149596,
+      "tier": "game"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Wall kit 01
 
+Lightweight, merged **game-ready versions** of all seven modules are available in `../base-kit-game/`. The 3D viewer now defaults to these and includes original/game comparisons and a 100–1,000-module instancing view.
+
 First Blender-authored construction kit for the base research. The [preview](../../base-kit/) shows each module, damage selection, gate opening, socket/collider helpers and a connected assembly. These are prototype assets; only the straight wall has damage variants in this delivery.
 
 | Export | Dimensions / state |
