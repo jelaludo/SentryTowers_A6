@@ -35,9 +35,9 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 1264,
+      "triangles": 1220,
       "draw_calls": 5,
-      "bytes": 128088
+      "bytes": 124656
     },
     {
       "id": "mork_container_low_loaded",
@@ -71,9 +71,9 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 8096,
+      "triangles": 8040,
       "draw_calls": 6,
-      "bytes": 983680
+      "bytes": 979948
     },
     {
       "id": "mork_container_low_diorama",
@@ -107,9 +107,9 @@
       },
       "tank_pose": "neutral cannon forward; power off",
       "credit": "Models by jelaludo",
-      "triangles": 17612,
+      "triangles": 17456,
       "draw_calls": 18,
-      "bytes": 2090696
+      "bytes": 2075380
     }
   ]
 }

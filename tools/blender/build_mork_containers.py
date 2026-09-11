@@ -72,9 +72,6 @@ def container(number,loc=(0,0,0),opened=True):
  for x in [-3.43,3.43]:box('Door jamb',(x,-7.3,2.05),(.28,.32,3.85),'trim',shell)
  box('Front header',(0,-7.3,3.72),(6.6,.32,.34),'trim',shell)
  label('MORK  /  ARMORED TRANSPORT',(0,-7.48,3.7),.25,shell)
- # A high-visibility number above each doorway stays readable with doors open.
- box('Unit number plate',(-2.43,-7.43,3.85),(1.32,.08,1.13),'trim',shell)
- stencil(number,(-2.43,-7.485,3.32),.62,shell)
  for x in [-3.12,3.12]:
   for y in [-5.5,-2,1.5,5]:box('Cargo alignment light',(x,y,.29),(.08,.55,.04),'light',shell)
   box('Floor clearance line',(x,0,.278),(.055,13.9,.01),'orange',shell)
