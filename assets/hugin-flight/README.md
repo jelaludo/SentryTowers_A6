@@ -1,5 +1,7 @@
 # HUGIN / landing PoC flight vehicle
 
+The new standalone **SH02 animated rocket** is in `../sh-rocket/`: five independent clips for leg deployment/retraction, landing suspension and the top door, plus configurable markings. See `../sh-rocket/README.md`.
+
 Original model by **jelaludo**. Retain `Model by jelaludo` in game credits or the asset attribution screen. Reuse terms: [ASSET-LICENSE.md](../../ASSET-LICENSE.md).
 
 This set isolates the reusable booster and cargo capsule from HUGIN D0. The capsule is now a child of the booster. No launcher, catcher, apron, fueling umbilical, ground or scenery is included.

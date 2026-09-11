@@ -1,0 +1,16 @@
+{
+  "asset": "sh_rocket.glb",
+  "designation": "SH02",
+  "markings_node": "MARKINGS",
+  "credit": "Model by jelaludo",
+  "clips": {
+    "Legs_Deploy": 2.4,
+    "Legs_Retract": 2.4,
+    "Landing_Shock": 2.0,
+    "Top_Door_Open": 1.8,
+    "Top_Door_Close": 1.8
+  },
+  "landing_compression_m": 1.1,
+  "units": "metres",
+  "up": "+Y"
+}
