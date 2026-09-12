@@ -18,7 +18,7 @@ The five cartridge families and two tank families have all three forms. Mortars,
 | --- | ---: | ---: |
 | Rotor light / heavy | 22 | 1 |
 | Needle .50-style / 20 / 30-class | 30 | 1 |
-| MÖRK arrowhead / long-rod dart | 62 / 94 | 1 |
+| MÖRK arrowhead / long-rod dart | 174 / 94 | 1 |
 | Mortars | 126 | 1 |
 | Heavy shells | 110 | 1 |
 | SCOUT / KESTREL / MONOLITH | 142 | 1 |
@@ -33,3 +33,5 @@ New exports are in meters, +Y up, +Z forward. The origin is the center of the re
 `manifest.json` lists family, suggested equipment associations, form, detail tier, relative file path, size, triangle/draw budgets and file size. Companion suggestions are metadata, not physical fit guarantees. Legacy entries retain their existing motion root and animation clips and reference `../missile-kit/`; their geometry and files are unchanged.
 
 The ZIP preserves `ammunition/` and `missile-kit/` sibling folders, including the referenced legacy files. Editable source: `source/blender/ammunition-library.blend` in the repository. The Blender source gallery is normalized for editing; individual GLBs keep their manifest dimensions. Rebuild with `tools/blender/build_ammunition.py`; validate with `node tools/asset-pipeline/validate-ammunition.mjs` after installing pipeline dependencies.
+
+MÖRK Arrowhead uses a reference-inspired narrow rod, dark waisted neck and flat flared collar. Its complete round is 206 game triangles; its separate flight mesh is 174.

@@ -19,7 +19,7 @@ specs=[
  ('mortar_81','Mortar / medium finned','Mortars',.44,.0405,'steel','blue',['mortar'],'mortar'),
  ('mortar_120','Mortar / heavy finned','Mortars',.68,.060,'green','yellow',['mortar','howitzer'],'mortar'),
  ('tank_dart','MÖRK / long-rod dart','Tank shells',.94,.070,'gold','dark',['mork','railgun'],'dart'),
- ('tank_arrow','MÖRK / arrowhead','Tank shells',1.05,.078,'steel','blue',['mork','railgun'],'arrow'),
+ ('tank_arrow','MÖRK / arrowhead','Tank shells',1.05,.078,'steel','dark',['mork','railgun'],'arrow'),
  ('howitzer_155','Howitzer / field shell','Heavy shells',.80,.0775,'steel','yellow',['howitzer'],'shell'),
  ('heavy_240','Heavy / bronze siege shell','Heavy shells',1.18,.12,'bronze','green',['howitzer'],'shell'),
  ('siege_400','Siege / 400-class reserve','Heavy shells',1.90,.20,'bronze','yellow',['future_heavy'],'shell'),
@@ -70,6 +70,15 @@ def profile_for(shape,form,L,R,metal,tip,detailed):
   p=[(0,R,metal),(L*.035,R,metal),(L*.05,R*.91,metal),(L*.51,R*.89,metal),(L*.61,R*.72,metal),(end,R*.72,metal)]
   if form=='case':return p+[(end,R*.58,'dark'),(end-L*.12,R*.58,'dark'),(end-L*.12,0,'dark')]
   return p+[(L*.78,R*.72,tip),(L*.94,R*.28,tip),(L,0,tip)]
+ if shape=='arrow':
+  # Reference-inspired external silhouette: steel case, dark waisted neck,
+  # broad flat collar and slender pointed rod, rather than a triangular head.
+  case=[(0,R*.94,'green'),(L*.035,R*.94,'dark'),(L*.065,R*.94,metal),(L*.54,R*.94,metal),(L*.60,R*.72,metal),(L*.63,R*.72,metal)]
+  if form=='case':return case+[(L*.63,R*.57,'dark'),(L*.55,R*.57,'dark'),(L*.55,0,'dark')]
+  head=[(L*.63,R*.62,'dark'),(L*.66,R*.35,'dark'),(L*.76,R*.35,'dark'),(L*.80,R*.72,metal),(L*.815,R*.72,metal),(L*.815,R*.09,'dark'),(L*.965,R*.045,'dark'),(L,0,'dark')]
+  if form=='round':return case+head
+  # Standalone flight mesh retains the same exposed neck/collar/point.
+  return [(0,R*.18,'dark'),(L*.26,R*.18,'dark')]+[(z-L*.32,r,m) for z,r,m in head]
  if shape in ['dart','arrow']:
   if form=='case':return [(0,R,metal),(L*.035,R,metal),(L*.05,R*.92,metal),(L*.56,R*.90,metal),(L*.61,R*.7,metal),(L*.65,R*.7,metal),(L*.65,R*.55,'dark'),(L*.55,R*.55,'dark'),(L*.55,0,'dark')]
   if form=='round':return [(0,R,metal),(L*.035,R,metal),(L*.06,R*.92,metal),(L*.58,R*.90,metal),(L*.65,R*.45,metal),(L*.67,R*.27,'dark'),(L*.9,R*.22,tip),(L,0,tip)]
@@ -87,7 +96,6 @@ for ident,title,category,L,R,metal,tip,companions,shape in specs:
   for form in forms:
    asset_id=f'{ident}_{form}_{tier}';k.begin(asset_id,title,'Ready',[1,1],'');root=k.active_root;root['credit']='Models by jelaludo';root['role']='ammunition';root['family']=ident;root['form']=form;root['forward']='+Z';root['origin']='center of rear/base face'
    n=(6 if ident.startswith('rotor') else 8) if tier=='game' else 32
-   if shape=='arrow' and form=='projectile':n=4 if tier=='game' else 8
    profile=profile_for(shape,form,L,R,metal,tip,tier=='display');length=max(z for z,r,m in profile)
    lathe('Ordnance body',profile,n,root)
    if shape=='mortar':fins(root,4,0,L*.26,R*.22,R*.82,'dark',R*.055)
