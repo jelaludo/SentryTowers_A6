@@ -8,9 +8,9 @@ Self-contained plain GLBs are the source of truth. No textures or external buffe
 
 | Tier | Triangles | Draw calls | Use |
 | --- | ---: | ---: | --- |
-| LOD0 | 6,428 | 50 | Detailed presentation, multiple metal/paint/emissive materials |
-| LOD1 | 2,424 | 16 | Game unit, one shared vertex-color material, separate moving assemblies |
-| LOD2 | 1,194 | 1 | Optional static parked/map/loading proxy |
+| LOD0 | 5,228 | 50 | Detailed presentation, multiple metal/paint/emissive materials |
+| LOD1 | 2,472 | 16 | Game unit, one shared vertex-color material, separate moving assemblies |
+| LOD2 | 1,218 | 1 | Optional static parked/map/loading proxy |
 
 LOD1 is below the developer's 25k unit target. Its 16 draws preserve independent mechanical assemblies; the landmark ten-draw target does not apply to this articulated unit. LOD2 retains named empty nodes for integration, but its mesh is fully merged: rotating an empty cannot articulate that tier. It represents a parked/rest configuration, not a match for an in-flight animated pose. Do not automatically swap an animated close-up into this proxy without accepting the pose change. The game may instead retain LOD1, as its unit policy recommends.
 
@@ -46,3 +46,5 @@ LOD0 and LOD1 have matching named clips and engine pivots. LOD2 has no clips. Cl
 Pin the published commit plus folder `assets/korp/`. `manifest.json` records bytes, triangles, draw calls, LOD, damage, plot, sockets, clip durations and credit. The ZIP contains all plain GLBs, manifest and this README. The game can apply its normal `gltfpack -cc -kn -km -ke` release compression.
 
 Editable source: `source/blender/korp-gunship.blend`. Authoring script: `tools/blender/build_korp.py`. In Blender MCP execute the script into an isolated namespace, call `build(0)`, `build(1)`, `build(2)`, then `export_all()`. It creates new scenes and restricts GLB export to the active scene. Do not repeatedly rebuild without disposing your previous generated KORP scenes. Validate using `node tools/asset-pipeline/validate-korp.mjs`.
+
+Roof-panel revision: front glazing and applique plates follow the hull slopes; rear hatches sit on the appropriate roof surface. Shallow spine chamfers are limited by section height to prevent folded faces.

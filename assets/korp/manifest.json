@@ -11,8 +11,8 @@
       "file": "korp_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "bytes": 354344,
-      "triangles": 6428,
+      "bytes": 289120,
+      "triangles": 5228,
       "draw_calls": 50,
       "plot_m": [
         30,
@@ -181,8 +181,8 @@
       "file": "korp_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "bytes": 195020,
-      "triangles": 2424,
+      "bytes": 198764,
+      "triangles": 2472,
       "draw_calls": 16,
       "plot_m": [
         30,
@@ -351,8 +351,8 @@
       "file": "korp_d0_lod2.glb",
       "lod": 2,
       "damage_level": 0,
-      "bytes": 94616,
-      "triangles": 1194,
+      "bytes": 96488,
+      "triangles": 1218,
       "draw_calls": 1,
       "plot_m": [
         30,

@@ -29,10 +29,29 @@ def prism(name,outline,z0,z1,mat='hull',parent=None):
 def loft(name,stations,mat='hull',parent=None,cap=True):
  v=[]
  for y,w,b,t in stations:
-  v.extend([(w*.72,y,b),(w,y,b+.3),(w,y,t-.35),(w*.7,y,t),(-w*.7,y,t),(-w,y,t-.35),(-w,y,b+.3),(-w*.72,y,b)])
+  lower=min(.3,(t-b)*.22);upper=min(.35,(t-b)*.22)
+  v.extend([(w*.72,y,b),(w,y,b+lower),(w,y,t-upper),(w*.7,y,t),(-w*.7,y,t),(-w,y,t-upper),(-w,y,b+lower),(-w*.72,y,b)])
  f=[tuple(reversed(range(8)))];f +=[(j*8+i,j*8+(i+1)%8,(j+1)*8+(i+1)%8,(j+1)*8+i) for j in range(len(stations)-1) for i in range(8)]
  if cap:f.append(tuple(range(len(v)-8,len(v))))
  return mesh(name,v,f,mat,parent)
+
+def hull_roof(y):
+ stations=[(-14,1.1,5.2),(-11,2.05,6.2),(-6,3.0,7.0),(5,2.8,7.0),(11,2.35,6.5)]
+ for (a,wa,ha),(b,wb,hb) in zip(stations,stations[1:]):
+  if a<=y<=b:
+   f=(y-a)/(b-a);return wa+(wb-wa)*f,ha+(hb-ha)*f
+ raise ValueError(y)
+
+def fitted_roof_panel(name,x0,x1,y0,y1,mat,parent,spine=False):
+ # Split at each roof slope change; constrain the outer edge to the flat roof.
+ ys=sorted({y0,y1,*[y for y in [-11,-6,5] if y0<y<y1]})
+ for j,(a,b) in enumerate(zip(ys,ys[1:])):
+  outline=[]
+  for x,y in [(x0,a),(x1,a),(x1,b),(x0,b)]:
+   width,height=hull_roof(y);x=max(-width*.7+.035,min(width*.7-.035,x))
+   outline.append((x,y,(7.25 if spine else height)+.012))
+  v=outline+[(x,y,z+.075) for x,y,z in outline]
+  mesh(name+'_'+str(j),v,[(3,2,1,0),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)],mat,parent)
 
 def cyl(name,loc,r,length,mat='edge',parent=None,n=None,axis='Y'):
  n=n or (16 if lod==0 else 8 if lod==1 else 6);v=[]
@@ -72,8 +91,8 @@ def build(level):
   box('Tail fin cap '+label,(x,9.7,10.05),(.3,.8,.16),'yellow',hull)
   for j,y in enumerate([-8,-4,0,4,8]):
    if lod<2:
-    w=1.15 if y==-8 else 1.4;box('Roof plate '+label+str(j),(side*1.65,y,6.65 if y==-8 else 7.03),(w,3.25,.10),'plate',hull,bevel=True)
-  box('Cockpit glazing '+label,(side*.68,-10.4,6.05),(1.0,1.25,.12),'glass',hull,rot=(.24,side*.08,0))
+    fitted_roof_panel('Roof plate '+label+str(j),min(side*1.15,side*2.35),max(side*1.15,side*2.35),y-1.625,y+1.625,'plate',hull)
+  fitted_roof_panel('Cockpit glazing '+label,min(side*.22,side*1.18),max(side*.22,side*1.18),-11.025,-9.775,'glass',hull)
   box('Cheek armor '+label,(side*2.5,-7,4.95),(.6,3.6,1.15),'plate',hull,bevel=True)
   for j in range(3 if lod<2 else 1):box('Nose sensor '+label+str(j),(side*(.5+j*.25),-13.7,4.8),(.14,.07,.16),'cyan',hull)
   box('Wing service stripe '+label,(side*9.2,2.0,5.78),(.2,1.2,.06),'yellow',hull)
@@ -132,7 +151,7 @@ def build(level):
   for side in [-1,1]:
    for y in range(-6,9,2):
     for dx in [1.05,2.15]:cyl('Armor fastener',(side*dx,y,7.13),.055,.07,'dark',hull,n=8,axis='Z')
-  for y in [0,4,8]:box('Spine access hatch',(0,y,7.22),(1.4,1.7,.10),'edge',hull,bevel=True)
+  for y in [0,4,8.7]:fitted_roof_panel('Spine access hatch',-.7,.7,y-.85,y+.85,'edge',hull,spine=y<7)
  empty('SOCKET_CARGO',(0,8.7,3.72));empty('SOCKET_CENTER_OF_MASS',(0,0,5.1));empty('SOCKET_NOSE',(0,-14.2,4.6))
  # Vertex palette and one mesh per independently moving assembly.
  palette=bpy.data.materials.new('KORP_PALETTE');palette.use_nodes=True;bs=palette.node_tree.nodes.get('Principled BSDF');bs.inputs['Metallic'].default_value=.45;bs.inputs['Roughness'].default_value=.42;vc=palette.node_tree.nodes.new('ShaderNodeVertexColor');vc.layer_name='Color';palette.node_tree.links.new(vc.outputs['Color'],bs.inputs['Base Color'])
