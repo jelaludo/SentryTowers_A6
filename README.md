@@ -69,3 +69,11 @@ The [MÖRK heavy hover tank](hover-tank/) adds a lean vehicle with streamlined n
 The [missile motion lab](missile-lab/) adds three launcher-independent projectiles (188 / 456 / 1,340 triangles), each with three eject–coast–ignite–climb–hook–dive flight clips. Includes slow playback, timeline scrubbing, follow/inspection cameras and a reusable motion sampler. [Integration notes](assets/missile-kit/README.md).
 
 The [SKYWARD antenna array](antenna-array/) adds an original 18 m radio dish in three mesh-detail levels and four damage states, plus a seven-dish array with a slow synchronized 44-second slew loop. [Integration and reference notes](assets/antenna-array/README.md).
+
+## Developer collaboration
+
+- [Best Practices](best-practices/) — game export contract and budgets.
+- [Devlog](devlog/) — completed work and pending module requests.
+- [Original game developer notes](docs/ASSET-COLLABORATION.md).
+
+Rebuild documentation and shared navigation with `python3 tools/build-workshop-docs.py`; check links and viewer control preservation with `python3 tools/validate-workshop-navigation.py`.
