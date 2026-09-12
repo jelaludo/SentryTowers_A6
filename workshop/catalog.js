@@ -1,4 +1,5 @@
 export const collections=[
+['ammunition','Ammunition / bullets, shells & missiles','Missile','Companion ammunition for Rotor, Needle, MÖRK and mortar sentries. Inspect flight projectiles, complete rounds, empty cases and missiles.','21 families · Game + display tiers','Game-ready'],
 ['hugin-flight','HUGIN / SH02 · 3D rocket','Industry','Orbit the standalone rocket, inspect its tripod joints, play landing suspension and top-door animations, and change its marking.','Interactive 3D · 5 animations','Animated'],
 ['antenna-array','SKYWARD / Antenna array','Infrastructure','Steerable radio dishes with continuous reflector shells, three detail levels, destruction states and a lightweight synchronized seven-dish scene.','3 detail levels · 4 states','Animated'],
 ['missile-lab','Missile motion lab','Combat','Three reusable projectiles. Soft launch, nose-up coast and accelerating flight arcs.','3 mesh budgets · 3 flight profiles','Animated'],

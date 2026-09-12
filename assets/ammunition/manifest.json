@@ -1,0 +1,1306 @@
+{
+  "version": 1,
+  "units": "meters",
+  "forward": "+Z",
+  "credit": "Models by jelaludo",
+  "dimensions": "Stylized visual sizes for game assets, not manufacturing specifications",
+  "families": [
+    {
+      "id": "rotor_light",
+      "name": "Rotor / light round",
+      "category": "Bullets",
+      "companions": [
+        "rotor"
+      ],
+      "shape": "cartridge",
+      "finish": "gold",
+      "tip_color": "green",
+      "variants": [
+        {
+          "id": "rotor_light_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "rotor_light_round_game.glb",
+          "length_m": 0.057,
+          "width_m": 0.009600000455975533,
+          "height_m": 0.008313843980431557,
+          "triangles": 94,
+          "draw_calls": 1,
+          "bytes": 4044,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_light_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "rotor_light_projectile_game.glb",
+          "length_m": 0.0228,
+          "width_m": 0.006719999946653843,
+          "height_m": 0.005819690879434347,
+          "triangles": 22,
+          "draw_calls": 1,
+          "bytes": 2344,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_light_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "rotor_light_case_game.glb",
+          "length_m": 0.04104,
+          "width_m": 0.009600000455975533,
+          "height_m": 0.008313843980431557,
+          "triangles": 94,
+          "draw_calls": 1,
+          "bytes": 4060,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_light_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "rotor_light_round_display.glb",
+          "length_m": 0.057,
+          "width_m": 0.009600000455975533,
+          "height_m": 0.009600000455975533,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12276,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_light_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "rotor_light_projectile_display.glb",
+          "length_m": 0.0228,
+          "width_m": 0.006912000011652708,
+          "height_m": 0.006912000011652708,
+          "triangles": 318,
+          "draw_calls": 2,
+          "bytes": 8828,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_light_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "rotor_light_case_display.glb",
+          "length_m": 0.04104,
+          "width_m": 0.009600000455975533,
+          "height_m": 0.009600000455975533,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12284,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "rotor_heavy",
+      "name": "Rotor / heavy round",
+      "category": "Bullets",
+      "companions": [
+        "rotor"
+      ],
+      "shape": "cartridge",
+      "finish": "bronze",
+      "tip_color": "blue",
+      "variants": [
+        {
+          "id": "rotor_heavy_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "rotor_heavy_round_game.glb",
+          "length_m": 0.071,
+          "width_m": 0.012000000104308128,
+          "height_m": 0.010392304509878159,
+          "triangles": 94,
+          "draw_calls": 1,
+          "bytes": 4060,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_heavy_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "rotor_heavy_projectile_game.glb",
+          "length_m": 0.028399999999999998,
+          "width_m": 0.00839999970048666,
+          "height_m": 0.0072746132500469685,
+          "triangles": 22,
+          "draw_calls": 1,
+          "bytes": 2336,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_heavy_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "rotor_heavy_case_game.glb",
+          "length_m": 0.05111999999999999,
+          "width_m": 0.012000000104308128,
+          "height_m": 0.010392304509878159,
+          "triangles": 94,
+          "draw_calls": 1,
+          "bytes": 4060,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_heavy_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "rotor_heavy_round_display.glb",
+          "length_m": 0.071,
+          "width_m": 0.012000000104308128,
+          "height_m": 0.012000000104308128,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12276,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_heavy_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "rotor_heavy_projectile_display.glb",
+          "length_m": 0.028399999999999998,
+          "width_m": 0.00863999966531992,
+          "height_m": 0.00863999966531992,
+          "triangles": 318,
+          "draw_calls": 2,
+          "bytes": 8824,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "rotor_heavy_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "rotor_heavy_case_display.glb",
+          "length_m": 0.05111999999999999,
+          "width_m": 0.012000000104308128,
+          "height_m": 0.012000000104308128,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12284,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "needle_50",
+      "name": "Needle / .50-cal style",
+      "category": "Bullets",
+      "companions": [
+        "needle"
+      ],
+      "shape": "cartridge",
+      "finish": "gold",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "needle_50_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "needle_50_round_game.glb",
+          "length_m": 0.138,
+          "width_m": 0.020400000736117363,
+          "height_m": 0.020400000736117363,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "needle_50_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "needle_50_projectile_game.glb",
+          "length_m": 0.055200000000000006,
+          "width_m": 0.014279999770224094,
+          "height_m": 0.014279999770224094,
+          "triangles": 30,
+          "draw_calls": 1,
+          "bytes": 2596,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "needle_50_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "needle_50_case_game.glb",
+          "length_m": 0.09936,
+          "width_m": 0.020400000736117363,
+          "height_m": 0.020400000736117363,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "needle_50_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "needle_50_round_display.glb",
+          "length_m": 0.138,
+          "width_m": 0.020400000736117363,
+          "height_m": 0.020400000736117363,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12272,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "needle_50_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "needle_50_projectile_display.glb",
+          "length_m": 0.055200000000000006,
+          "width_m": 0.014688000082969666,
+          "height_m": 0.014688000082969666,
+          "triangles": 318,
+          "draw_calls": 2,
+          "bytes": 8824,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "needle_50_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "needle_50_case_display.glb",
+          "length_m": 0.09936,
+          "width_m": 0.020400000736117363,
+          "height_m": 0.020400000736117363,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12272,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "cannon_20",
+      "name": "Autocannon / 20-class",
+      "category": "Bullets",
+      "companions": [
+        "rotor",
+        "lancer"
+      ],
+      "shape": "cartridge",
+      "finish": "steel",
+      "tip_color": "blue",
+      "variants": [
+        {
+          "id": "cannon_20_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "cannon_20_round_game.glb",
+          "length_m": 0.2,
+          "width_m": 0.02800000086426735,
+          "height_m": 0.02800000086426735,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_20_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "cannon_20_projectile_game.glb",
+          "length_m": 0.08000000000000002,
+          "width_m": 0.019600000232458115,
+          "height_m": 0.019600000232458115,
+          "triangles": 30,
+          "draw_calls": 1,
+          "bytes": 2600,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_20_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "cannon_20_case_game.glb",
+          "length_m": 0.144,
+          "width_m": 0.02800000086426735,
+          "height_m": 0.02800000086426735,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_20_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "cannon_20_round_display.glb",
+          "length_m": 0.2,
+          "width_m": 0.02800000086426735,
+          "height_m": 0.02800000086426735,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12272,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_20_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "cannon_20_projectile_display.glb",
+          "length_m": 0.08000000000000002,
+          "width_m": 0.020160000771284103,
+          "height_m": 0.020160000771284103,
+          "triangles": 318,
+          "draw_calls": 2,
+          "bytes": 8824,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_20_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "cannon_20_case_display.glb",
+          "length_m": 0.144,
+          "width_m": 0.02800000086426735,
+          "height_m": 0.02800000086426735,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12268,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "cannon_30",
+      "name": "Autocannon / 30-class",
+      "category": "Bullets",
+      "companions": [
+        "lancer"
+      ],
+      "shape": "cartridge",
+      "finish": "bronze",
+      "tip_color": "green",
+      "variants": [
+        {
+          "id": "cannon_30_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "cannon_30_round_game.glb",
+          "length_m": 0.285,
+          "width_m": 0.041999999433755875,
+          "height_m": 0.041999999433755875,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_30_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "cannon_30_projectile_game.glb",
+          "length_m": 0.11399999999999999,
+          "width_m": 0.029400000348687172,
+          "height_m": 0.029400000348687172,
+          "triangles": 30,
+          "draw_calls": 1,
+          "bytes": 2600,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_30_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "cannon_30_case_game.glb",
+          "length_m": 0.20519999999999997,
+          "width_m": 0.041999999433755875,
+          "height_m": 0.041999999433755875,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4896,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_30_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "cannon_30_round_display.glb",
+          "length_m": 0.285,
+          "width_m": 0.041999999433755875,
+          "height_m": 0.041999999433755875,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12272,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_30_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "cannon_30_projectile_display.glb",
+          "length_m": 0.11399999999999999,
+          "width_m": 0.030239999294281006,
+          "height_m": 0.030239999294281006,
+          "triangles": 318,
+          "draw_calls": 2,
+          "bytes": 8828,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "cannon_30_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "cannon_30_case_display.glb",
+          "length_m": 0.20519999999999997,
+          "width_m": 0.041999999433755875,
+          "height_m": 0.041999999433755875,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12276,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "mortar_60",
+      "name": "Mortar / compact finned",
+      "category": "Mortars",
+      "companions": [
+        "mortar"
+      ],
+      "shape": "mortar",
+      "finish": "green",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "mortar_60_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "mortar_60_projectile_game.glb",
+          "length_m": 0.31,
+          "width_m": 0.05999999865889549,
+          "height_m": 0.05999999865889549,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 5484,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "mortar_60_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "mortar_60_projectile_display.glb",
+          "length_m": 0.31,
+          "width_m": 0.05999999865889549,
+          "height_m": 0.05999999865889549,
+          "triangles": 414,
+          "draw_calls": 3,
+          "bytes": 12324,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "mortar_81",
+      "name": "Mortar / medium finned",
+      "category": "Mortars",
+      "companions": [
+        "mortar"
+      ],
+      "shape": "mortar",
+      "finish": "steel",
+      "tip_color": "blue",
+      "variants": [
+        {
+          "id": "mortar_81_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "mortar_81_projectile_game.glb",
+          "length_m": 0.44,
+          "width_m": 0.08100000023841858,
+          "height_m": 0.08100000023841858,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 5480,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "mortar_81_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "mortar_81_projectile_display.glb",
+          "length_m": 0.44,
+          "width_m": 0.08100000023841858,
+          "height_m": 0.08100000023841858,
+          "triangles": 414,
+          "draw_calls": 3,
+          "bytes": 12312,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "mortar_120",
+      "name": "Mortar / heavy finned",
+      "category": "Mortars",
+      "companions": [
+        "mortar",
+        "howitzer"
+      ],
+      "shape": "mortar",
+      "finish": "green",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "mortar_120_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "mortar_120_projectile_game.glb",
+          "length_m": 0.68,
+          "width_m": 0.11999999731779099,
+          "height_m": 0.11999999731779099,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 5484,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "mortar_120_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "mortar_120_projectile_display.glb",
+          "length_m": 0.68,
+          "width_m": 0.11999999731779099,
+          "height_m": 0.11999999731779099,
+          "triangles": 414,
+          "draw_calls": 3,
+          "bytes": 12320,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "tank_dart",
+      "name": "M\u00d6RK / long-rod dart",
+      "category": "Tank shells",
+      "companions": [
+        "mork",
+        "railgun"
+      ],
+      "shape": "dart",
+      "finish": "gold",
+      "tip_color": "dark",
+      "variants": [
+        {
+          "id": "tank_dart_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "tank_dart_round_game.glb",
+          "length_m": 0.94,
+          "width_m": 0.14000000059604645,
+          "height_m": 0.14000000059604645,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 4508,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_dart_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "tank_dart_projectile_game.glb",
+          "length_m": 0.6392,
+          "width_m": 0.08820000290870667,
+          "height_m": 0.08820000290870667,
+          "triangles": 94,
+          "draw_calls": 1,
+          "bytes": 4704,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_dart_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "tank_dart_case_game.glb",
+          "length_m": 0.611,
+          "width_m": 0.14000000059604645,
+          "height_m": 0.14000000059604645,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4888,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_dart_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "tank_dart_round_display.glb",
+          "length_m": 0.94,
+          "width_m": 0.14000000059604645,
+          "height_m": 0.14000000059604645,
+          "triangles": 446,
+          "draw_calls": 2,
+          "bytes": 11108,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_dart_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "tank_dart_projectile_display.glb",
+          "length_m": 0.6392,
+          "width_m": 0.08820000290870667,
+          "height_m": 0.08820000290870667,
+          "triangles": 286,
+          "draw_calls": 2,
+          "bytes": 9196,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_dart_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "tank_dart_case_display.glb",
+          "length_m": 0.611,
+          "width_m": 0.14000000059604645,
+          "height_m": 0.14000000059604645,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12260,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "tank_arrow",
+      "name": "M\u00d6RK / arrowhead",
+      "category": "Tank shells",
+      "companions": [
+        "mork",
+        "railgun"
+      ],
+      "shape": "arrow",
+      "finish": "steel",
+      "tip_color": "blue",
+      "variants": [
+        {
+          "id": "tank_arrow_round_game",
+          "tier": "game",
+          "form": "round",
+          "file": "tank_arrow_round_game.glb",
+          "length_m": 1.05,
+          "width_m": 0.15600000321865082,
+          "height_m": 0.15600000321865082,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 4796,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_arrow_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "tank_arrow_projectile_game.glb",
+          "length_m": 0.7140000000000001,
+          "width_m": 0.10608000308275223,
+          "height_m": 0.10608000308275223,
+          "triangles": 62,
+          "draw_calls": 1,
+          "bytes": 3660,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_arrow_case_game",
+          "tier": "game",
+          "form": "case",
+          "file": "tank_arrow_case_game.glb",
+          "length_m": 0.6825000000000001,
+          "width_m": 0.15600000321865082,
+          "height_m": 0.15600000321865082,
+          "triangles": 126,
+          "draw_calls": 1,
+          "bytes": 4892,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_arrow_round_display",
+          "tier": "display",
+          "form": "round",
+          "file": "tank_arrow_round_display.glb",
+          "length_m": 1.05,
+          "width_m": 0.15600000321865082,
+          "height_m": 0.15600000321865082,
+          "triangles": 446,
+          "draw_calls": 3,
+          "bytes": 12688,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_arrow_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "tank_arrow_projectile_display.glb",
+          "length_m": 0.7140000000000001,
+          "width_m": 0.10608000308275223,
+          "height_m": 0.10608000308275223,
+          "triangles": 94,
+          "draw_calls": 3,
+          "bytes": 5396,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "tank_arrow_case_display",
+          "tier": "display",
+          "form": "case",
+          "file": "tank_arrow_case_display.glb",
+          "length_m": 0.6825000000000001,
+          "width_m": 0.15600000321865082,
+          "height_m": 0.15600000321865082,
+          "triangles": 510,
+          "draw_calls": 2,
+          "bytes": 12264,
+          "flight_asset": false,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "howitzer_155",
+      "name": "Howitzer / field shell",
+      "category": "Heavy shells",
+      "companions": [
+        "howitzer"
+      ],
+      "shape": "shell",
+      "finish": "steel",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "howitzer_155_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "howitzer_155_projectile_game.glb",
+          "length_m": 0.8,
+          "width_m": 0.1550000011920929,
+          "height_m": 0.1550000011920929,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 5096,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "howitzer_155_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "howitzer_155_projectile_display.glb",
+          "length_m": 0.8,
+          "width_m": 0.1550000011920929,
+          "height_m": 0.1550000011920929,
+          "triangles": 446,
+          "draw_calls": 4,
+          "bytes": 14276,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "heavy_240",
+      "name": "Heavy / bronze siege shell",
+      "category": "Heavy shells",
+      "companions": [
+        "howitzer"
+      ],
+      "shape": "shell",
+      "finish": "bronze",
+      "tip_color": "green",
+      "variants": [
+        {
+          "id": "heavy_240_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "heavy_240_projectile_game.glb",
+          "length_m": 1.18,
+          "width_m": 0.23999999463558197,
+          "height_m": 0.23999999463558197,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 5092,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "heavy_240_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "heavy_240_projectile_display.glb",
+          "length_m": 1.18,
+          "width_m": 0.23999999463558197,
+          "height_m": 0.23999999463558197,
+          "triangles": 446,
+          "draw_calls": 4,
+          "bytes": 14280,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "siege_400",
+      "name": "Siege / 400-class reserve",
+      "category": "Heavy shells",
+      "companions": [
+        "future_heavy"
+      ],
+      "shape": "shell",
+      "finish": "bronze",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "siege_400_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "siege_400_projectile_game.glb",
+          "length_m": 1.9,
+          "width_m": 0.4000000059604645,
+          "height_m": 0.4000000059604645,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 5092,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "siege_400_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "siege_400_projectile_display.glb",
+          "length_m": 1.9,
+          "width_m": 0.4000000059604645,
+          "height_m": 0.4000000059604645,
+          "triangles": 446,
+          "draw_calls": 4,
+          "bytes": 14264,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "siege_800",
+      "name": "Siege / 800-class reserve",
+      "category": "Heavy shells",
+      "companions": [
+        "future_heavy"
+      ],
+      "shape": "shell",
+      "finish": "green",
+      "tip_color": "green",
+      "variants": [
+        {
+          "id": "siege_800_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "siege_800_projectile_game.glb",
+          "length_m": 3.1,
+          "width_m": 0.800000011920929,
+          "height_m": 0.800000011920929,
+          "triangles": 110,
+          "draw_calls": 1,
+          "bytes": 4800,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "siege_800_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "siege_800_projectile_display.glb",
+          "length_m": 3.1,
+          "width_m": 0.800000011920929,
+          "height_m": 0.800000011920929,
+          "triangles": 446,
+          "draw_calls": 3,
+          "bytes": 12684,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "missile_scout",
+      "name": "SCOUT / micro missile",
+      "category": "Missiles",
+      "companions": [
+        "quiver",
+        "lancer"
+      ],
+      "shape": "missile",
+      "finish": "steel",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "missile_scout_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "missile_scout_projectile_game.glb",
+          "length_m": 1.2,
+          "width_m": 0.39899998903274536,
+          "height_m": 0.39899998903274536,
+          "triangles": 142,
+          "draw_calls": 1,
+          "bytes": 5900,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "missile_scout_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "missile_scout_projectile_display.glb",
+          "length_m": 1.2,
+          "width_m": 0.39899998903274536,
+          "height_m": 0.39899998903274536,
+          "triangles": 510,
+          "draw_calls": 3,
+          "bytes": 14268,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "missile_interceptor",
+      "name": "KESTREL / interceptor",
+      "category": "Missiles",
+      "companions": [
+        "quiver",
+        "lancer"
+      ],
+      "shape": "missile",
+      "finish": "white",
+      "tip_color": "blue",
+      "variants": [
+        {
+          "id": "missile_interceptor_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "missile_interceptor_projectile_game.glb",
+          "length_m": 2.6,
+          "width_m": 0.671999990940094,
+          "height_m": 0.671999990940094,
+          "triangles": 142,
+          "draw_calls": 1,
+          "bytes": 5908,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "missile_interceptor_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "missile_interceptor_projectile_display.glb",
+          "length_m": 2.6,
+          "width_m": 0.671999990940094,
+          "height_m": 0.671999990940094,
+          "triangles": 510,
+          "draw_calls": 3,
+          "bytes": 14272,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "missile_cruise",
+      "name": "SKIMMER / winged cruise",
+      "category": "Missiles",
+      "companions": [
+        "quiver",
+        "future_heavy"
+      ],
+      "shape": "cruise",
+      "finish": "steel",
+      "tip_color": "green",
+      "variants": [
+        {
+          "id": "missile_cruise_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "missile_cruise_projectile_game.glb",
+          "length_m": 4.8,
+          "width_m": 2.3919999599456787,
+          "height_m": 1.0920000076293945,
+          "triangles": 158,
+          "draw_calls": 1,
+          "bytes": 6432,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "missile_cruise_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "missile_cruise_projectile_display.glb",
+          "length_m": 4.8,
+          "width_m": 2.3919999599456787,
+          "height_m": 1.0920000076293945,
+          "triangles": 494,
+          "draw_calls": 3,
+          "bytes": 13880,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "missile_heavy",
+      "name": "MONOLITH / heavy missile",
+      "category": "Missiles",
+      "companions": [
+        "future_heavy"
+      ],
+      "shape": "heavy_missile",
+      "finish": "white",
+      "tip_color": "yellow",
+      "variants": [
+        {
+          "id": "missile_heavy_projectile_game",
+          "tier": "game",
+          "form": "projectile",
+          "file": "missile_heavy_projectile_game.glb",
+          "length_m": 6.4,
+          "width_m": 1.805999994277954,
+          "height_m": 1.805999994277954,
+          "triangles": 142,
+          "draw_calls": 1,
+          "bytes": 5896,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        },
+        {
+          "id": "missile_heavy_projectile_display",
+          "tier": "display",
+          "form": "projectile",
+          "file": "missile_heavy_projectile_display.glb",
+          "length_m": 6.4,
+          "width_m": 1.805999994277954,
+          "height_m": 1.805999994277954,
+          "triangles": 510,
+          "draw_calls": 3,
+          "bytes": 14256,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "rear base"
+        }
+      ]
+    },
+    {
+      "id": "legacy_dart",
+      "name": "DART / swarm round",
+      "category": "Legacy missiles",
+      "companions": [
+        "quiver",
+        "lancer"
+      ],
+      "shape": "legacy",
+      "finish": "slate",
+      "tip_color": "cyan",
+      "variants": [
+        {
+          "id": "legacy_dart",
+          "tier": "legacy",
+          "form": "projectile",
+          "file": "../missile-kit/dart.glb",
+          "length_m": 1.49,
+          "triangles": 188,
+          "draw_calls": 4,
+          "bytes": 44552,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "existing motion root",
+          "animations": [
+            "Flight_swift",
+            "Flight_hook",
+            "Flight_heavy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legacy_needle",
+      "name": "NEEDLE / sentry round",
+      "category": "Legacy missiles",
+      "companions": [
+        "quiver",
+        "lancer"
+      ],
+      "shape": "legacy",
+      "finish": "slate",
+      "tip_color": "cyan",
+      "variants": [
+        {
+          "id": "legacy_needle",
+          "tier": "legacy",
+          "form": "projectile",
+          "file": "../missile-kit/needle.glb",
+          "length_m": 1.49,
+          "triangles": 456,
+          "draw_calls": 6,
+          "bytes": 66144,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "existing motion root",
+          "animations": [
+            "Flight_swift",
+            "Flight_hook",
+            "Flight_heavy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legacy_talon",
+      "name": "TALON / special round",
+      "category": "Legacy missiles",
+      "companions": [
+        "quiver",
+        "lancer"
+      ],
+      "shape": "legacy",
+      "finish": "slate",
+      "tip_color": "cyan",
+      "variants": [
+        {
+          "id": "legacy_talon",
+          "tier": "legacy",
+          "form": "projectile",
+          "file": "../missile-kit/talon.glb",
+          "length_m": 1.49,
+          "triangles": 1340,
+          "draw_calls": 7,
+          "bytes": 149136,
+          "flight_asset": true,
+          "axis": "+Z",
+          "pivot": "existing motion root",
+          "animations": [
+            "Flight_swift",
+            "Flight_hook",
+            "Flight_heavy"
+          ]
+        }
+      ]
+    }
+  ]
+}
