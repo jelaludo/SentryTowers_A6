@@ -1,0 +1,1684 @@
+{
+  "version": 1,
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "assets": [
+    {
+      "id": "solar_power_complex_d0",
+      "name": "Solar array and power station",
+      "state": "Intact",
+      "file": "solar_power_complex_d0.glb",
+      "plot_m": [
+        24,
+        24
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a connected inverter/battery power station.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            10
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_complex",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 180,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 339812,
+      "triangles": 3856
+    },
+    {
+      "id": "solar_power_complex_d1",
+      "name": "Solar array and power station",
+      "state": "Damaged",
+      "file": "solar_power_complex_d1.glb",
+      "plot_m": [
+        24,
+        24
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a connected inverter/battery power station.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            10
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_complex",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 120,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 341588,
+      "triangles": 3904
+    },
+    {
+      "id": "solar_power_complex_d2",
+      "name": "Solar array and power station",
+      "state": "Critical",
+      "file": "solar_power_complex_d2.glb",
+      "plot_m": [
+        24,
+        24
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a connected inverter/battery power station.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            10
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_complex",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 60,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 362328,
+      "triangles": 4212
+    },
+    {
+      "id": "solar_power_complex_d3",
+      "name": "Solar array and power station",
+      "state": "Destroyed",
+      "file": "solar_power_complex_d3.glb",
+      "plot_m": [
+        24,
+        24
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a connected inverter/battery power station. D3 retains identifiable equipment: fractured photovoltaic grids, tracking axle and tilt drive, bent support rails. No functioning power output.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            10
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_complex",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 0,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 348984,
+      "triangles": 4124
+    },
+    {
+      "id": "solar_array_d0",
+      "name": "Six-rack photovoltaic array",
+      "state": "Intact",
+      "file": "solar_array_d0.glb",
+      "plot_m": [
+        24,
+        16
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a central combiner.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_array",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 180,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 303608,
+      "triangles": 3464
+    },
+    {
+      "id": "solar_array_d1",
+      "name": "Six-rack photovoltaic array",
+      "state": "Damaged",
+      "file": "solar_array_d1.glb",
+      "plot_m": [
+        24,
+        16
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a central combiner.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_array",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 120,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 305344,
+      "triangles": 3512
+    },
+    {
+      "id": "solar_array_d2",
+      "name": "Six-rack photovoltaic array",
+      "state": "Critical",
+      "file": "solar_array_d2.glb",
+      "plot_m": [
+        24,
+        16
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a central combiner.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            1.2,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_array",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 60,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 7,
+      "bytes": 291836,
+      "triangles": 3392
+    },
+    {
+      "id": "solar_array_d3",
+      "name": "Six-rack photovoltaic array",
+      "state": "Destroyed",
+      "file": "solar_array_d3.glb",
+      "plot_m": [
+        24,
+        16
+      ],
+      "description": "Six tracking racks with 24 framed photovoltaic panels, grounded collection cables and a central combiner. D3 retains identifiable equipment: fractured photovoltaic grids, tracking axle and tilt drive, bent support rails. No functioning power output.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack_-6_0",
+          "center_m": [
+            -6,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_0",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_0",
+          "center_m": [
+            6,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_-6_-5",
+          "center_m": [
+            -6,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_0_-5",
+          "center_m": [
+            0,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rack_6_-5",
+          "center_m": [
+            6,
+            0.65,
+            -5
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_array",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "panel_racks": 6,
+      "output_capacity": 0,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 293200,
+      "triangles": 3468
+    },
+    {
+      "id": "solar_panel_rack_d0",
+      "name": "Articulated photovoltaic rack",
+      "state": "Intact",
+      "file": "solar_panel_rack_d0.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Four framed photovoltaic panels on an axle, tilt actuator, two anchored supports and junction box.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_panel_rack",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "output_capacity": 30,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 2,
+      "bytes": 49904,
+      "triangles": 540
+    },
+    {
+      "id": "solar_panel_rack_d1",
+      "name": "Articulated photovoltaic rack",
+      "state": "Damaged",
+      "file": "solar_panel_rack_d1.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Four framed photovoltaic panels on an axle, tilt actuator, two anchored supports and junction box.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_panel_rack",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "output_capacity": 20,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 2,
+      "bytes": 50232,
+      "triangles": 548
+    },
+    {
+      "id": "solar_panel_rack_d2",
+      "name": "Articulated photovoltaic rack",
+      "state": "Critical",
+      "file": "solar_panel_rack_d2.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Four framed photovoltaic panels on an axle, tilt actuator, two anchored supports and junction box.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack",
+          "center_m": [
+            0,
+            1.2,
+            0
+          ],
+          "size_m": [
+            5.1,
+            2.4,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_panel_rack",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "output_capacity": 10,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 2,
+      "bytes": 47884,
+      "triangles": 528
+    },
+    {
+      "id": "solar_panel_rack_d3",
+      "name": "Articulated photovoltaic rack",
+      "state": "Destroyed",
+      "file": "solar_panel_rack_d3.glb",
+      "plot_m": [
+        6,
+        6
+      ],
+      "description": "Four framed photovoltaic panels on an axle, tilt actuator, two anchored supports and junction box. D3 retains identifiable equipment: fractured photovoltaic grids, tracking axle and tilt drive, bent support rails. No functioning power output.",
+      "sockets": [
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "rack",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            5.1,
+            1.3,
+            3.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_panel_rack",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "fractured photovoltaic grids",
+        "tracking axle and tilt drive",
+        "bent support rails"
+      ],
+      "output_capacity": 0,
+      "power_radius_m": null,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 46640,
+      "triangles": 536
+    },
+    {
+      "id": "solar_power_station_d0",
+      "name": "Solar grid power station",
+      "state": "Intact",
+      "file": "solar_power_station_d0.glb",
+      "plot_m": [
+        8,
+        8
+      ],
+      "description": "Armored inverter cabinet, copper transformer windings, battery modules, cooling fins, telemetry and input/output cables.",
+      "sockets": [
+        {
+          "id": "ARRAY_IN",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            -2
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "station",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            5.4,
+            2.8,
+            4.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_station",
+      "damage_level": 0,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "copper transformer windings",
+        "battery modules",
+        "peeled cabinet door",
+        "cooling fin bank"
+      ],
+      "output_capacity": 180,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 37980,
+      "triangles": 392
+    },
+    {
+      "id": "solar_power_station_d1",
+      "name": "Solar grid power station",
+      "state": "Damaged",
+      "file": "solar_power_station_d1.glb",
+      "plot_m": [
+        8,
+        8
+      ],
+      "description": "Armored inverter cabinet, copper transformer windings, battery modules, cooling fins, telemetry and input/output cables.",
+      "sockets": [
+        {
+          "id": "ARRAY_IN",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            -2
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "station",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            5.4,
+            2.8,
+            4.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_station",
+      "damage_level": 1,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "copper transformer windings",
+        "battery modules",
+        "peeled cabinet door",
+        "cooling fin bank"
+      ],
+      "output_capacity": 140,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 37980,
+      "triangles": 392
+    },
+    {
+      "id": "solar_power_station_d2",
+      "name": "Solar grid power station",
+      "state": "Critical",
+      "file": "solar_power_station_d2.glb",
+      "plot_m": [
+        8,
+        8
+      ],
+      "description": "Armored inverter cabinet, copper transformer windings, battery modules, cooling fins, telemetry and input/output cables.",
+      "sockets": [
+        {
+          "id": "ARRAY_IN",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            -2
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "station",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            5.4,
+            2.8,
+            4.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_station",
+      "damage_level": 2,
+      "zone": "utilities",
+      "functional": true,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "copper transformer windings",
+        "battery modules",
+        "peeled cabinet door",
+        "cooling fin bank"
+      ],
+      "output_capacity": 80,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 72256,
+      "triangles": 820
+    },
+    {
+      "id": "solar_power_station_d3",
+      "name": "Solar grid power station",
+      "state": "Destroyed",
+      "file": "solar_power_station_d3.glb",
+      "plot_m": [
+        8,
+        8
+      ],
+      "description": "Armored inverter cabinet, copper transformer windings, battery modules, cooling fins, telemetry and input/output cables. D3 retains identifiable equipment: copper transformer windings, battery modules, peeled cabinet door, cooling fin bank. No functioning power output.",
+      "sockets": [
+        {
+          "id": "ARRAY_IN",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            -2
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        },
+        {
+          "id": "POWER_OUT",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.15,
+            2
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "station",
+          "center_m": [
+            0,
+            1.4,
+            0
+          ],
+          "size_m": [
+            5.4,
+            2.8,
+            4.5
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [],
+      "animations": [],
+      "family": "solar_power_station",
+      "damage_level": 3,
+      "zone": "utilities",
+      "functional": false,
+      "collision_quality": "conservative blockout",
+      "damage_ruin_signature": [
+        "copper transformer windings",
+        "battery modules",
+        "peeled cabinet door",
+        "cooling fin bank"
+      ],
+      "output_capacity": 0,
+      "power_radius_m": 28,
+      "lod": 1,
+      "detail": "game",
+      "tracking_pivots": true,
+      "draw_calls": 1,
+      "bytes": 57548,
+      "triangles": 656
+    }
+  ]
+}

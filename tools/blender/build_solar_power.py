@@ -6,7 +6,12 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import asset_common as k
 from asset_common import bpy,bmesh,Vector,empty,cylinder,beam,socket,collider
-OUT=k.PROJECT/'assets/solar-power';OUT.mkdir(parents=True,exist_ok=True)
+LOD=int(sys.argv[sys.argv.index('--lod')+1]) if '--lod' in sys.argv else 0
+if LOD not in [0,1,2]:raise ValueError('LOD must be 0, 1 or 2')
+if LOD:
+    k.finish=lambda obj,bevel:obj
+    k.text=lambda *args,**kwargs:None
+OUT=k.PROJECT/('assets/solar-power' if not LOD else f'assets/solar-power/lod{LOD}');OUT.mkdir(parents=True,exist_ok=True)
 k.M['pv']=k.material('Photovoltaic / cobalt silicon',(.018,.055,.20),.65,.26)
 k.M['pv_alt']=k.material('Photovoltaic / indigo silicon',(.045,.075,.29),.6,.25)
 k.M['copper']=k.material('Exposed copper windings',(.65,.25,.075),.8,.3)
@@ -14,8 +19,13 @@ k.M['cable']=k.material('Power insulation / orange',(.86,.24,.04),.2,.48)
 k.M['glass']=k.material('Telemetry screen',(.01,.1,.14),.5,.28)
 STATES=['Intact','Damaged','Critical','Destroyed']
 def box(name,loc,size,mat='armor',parent=None,rot=(0,0,0)):
-    return k.box(name,loc,size,mat,.012,parent,rot)
+    if LOD and any(v in name.lower() for v in ['anchor','conductor','telemetry bar','latch','identity','impact score','terminal']):return None
+    if LOD==2 and any(v in name.lower() for v in ['cooling fin','inset','screen','ground clamp','junction state','mounting rail']):return None
+    return k.box(name,loc,size,mat,.012 if not LOD else 0,parent,rot)
 def coil(name,loc,radius,mat='copper',parent=None,rot=(0,0,0)):
+    if LOD:
+        if LOD==2:return None
+        return cylinder(name,loc,radius,.10,mat,parent=parent,vertices=8)
     bpy.ops.mesh.primitive_torus_add(major_segments=16,minor_segments=6,major_radius=radius,minor_radius=.045,location=(0,0,0))
     o=k.register(bpy.context.object,name,mat,parent);o.location=loc;o.rotation_euler=rot;return o
 
@@ -28,6 +38,15 @@ def panel(parent,loc=(0,0,0),broken=False,pattern=0,rot=(0,0,0)):
         vertices=[(x,y,z) for z in [-.045,.045] for x,y in outline];n=len(outline)
         faces=[tuple(range(n-1,-1,-1)),tuple(range(n,n*2))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
         mesh=bpy.data.meshes.new('Jagged PV backing');mesh.from_pydata(vertices,[],faces);mesh.update();o=bpy.data.objects.new('Jagged PV backing',mesh);k.active_collection.objects.link(o);o.parent=root;mesh.materials.append(k.M['edge'])
+    if LOD:
+        if not broken:
+            box('Continuous photovoltaic surface',(0,0,.06),(2.28,1.38,.025),'pv',root)
+        else:
+            box('Surviving photovoltaic surface',(-.63,0,.06),(.92,1.34,.025),'pv',root)
+        if LOD==1:
+            for x in [-1.19,1.19]:
+                if not broken or x<0:box('Panel side frame',(x,0,.035),(.065,1.53,.12),'armor',root)
+        return root
     for ix in range(4):
         for iy in range(3):
             if broken and (ix>=2 or ix==1 and iy==(pattern%3)):continue
@@ -84,11 +103,11 @@ def station(state,loc=(0,0,0)):
     box('Power station foundation',(0,0,-.12),(5.4,3.6,.24),'frame',root)
     box('Inverter chassis',(0,0,.22),(3.7,2.6,.44),'edge',root)
     # Windings, battery modules and cooling hardware persist visibly in the ruin.
-    for x in [-.95,.95]:
+    for x in ([-.95,.95] if not LOD or state>=2 else []):
         h=1.6 if state<3 else .78
         cylinder('Transformer core',(x,.2,.4+h/2),.23,h,'edge',parent=root)
         for j in range(6 if state<3 else 4):coil('Exposed transformer winding',(x,.2,.55+j*.18),.36,parent=root,rot=(.05 if state==3 else 0,0,0))
-    for x in [-1.3,0,1.3]:
+    for x in ([-1.3,0,1.3] if not LOD or state>=2 else []):
         box('Battery module',(x,.82,.72),(.58,.6,.85),'frame',root,rot=(0,.18 if state==3 else 0,0))
         box('Battery terminal',(x,.82,1.18 if state<3 else 1.05),(.22,.32,.07),'copper',root)
     if state<3:
@@ -161,6 +180,33 @@ for number,(family,title,plot) in enumerate(SPECS):
         if state==3:e['description']+=' D3 retains identifiable equipment: '+', '.join(e['damage_ruin_signature'])+'. No functioning power output.'
         print(f'AUTHORED {number*4+state+1}/16 {e["id"]}',flush=True)
 
+if LOD:
+    palette=k.material('Solar game / vertex palette',(1,1,1),.25,.6)
+    color=palette.node_tree.nodes.new('ShaderNodeVertexColor');color.layer_name='Color'
+    palette.node_tree.links.new(color.outputs['Color'],palette.node_tree.nodes.get('Principled BSDF').inputs['Base Color'])
+    for root,collection,e in k.roots:
+        groups={}
+        for obj in list(collection.objects):
+            if obj.type!='MESH':continue
+            attr=obj.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
+            for face in obj.data.polygons:
+                rgba=obj.data.materials[face.material_index].diffuse_color
+                for loop in face.loop_indices:attr.data[loop].color=rgba
+                face.material_index=0
+            obj.data.materials.clear();obj.data.materials.append(palette)
+            target=root
+            if LOD==1:
+                a=obj.parent
+                while a and a!=root:
+                    if a.name.startswith('TRACKER_TILT'):target=a;break
+                    a=a.parent
+            groups.setdefault(target,[]).append(obj)
+        for target,objects in groups.items():
+            bpy.ops.object.select_all(action='DESELECT')
+            for obj in objects:obj.select_set(True)
+            bpy.context.view_layer.objects.active=objects[0];bpy.ops.object.join()
+            obj=objects[0];world=obj.matrix_world.copy();obj.parent=target;obj.matrix_world=world;obj.name='SOLAR_GAME_MESH'
+        e['lod']=LOD;e['detail']='game' if LOD==1 else 'distance';e['tracking_pivots']=LOD==1
 for index,(root,collection,e) in enumerate(k.roots):
     bpy.ops.object.select_all(action='DESELECT')
     for o in list(collection.objects):
@@ -176,6 +222,7 @@ for index,(root,collection,e) in enumerate(k.roots):
         if node.get('name','').startswith('SOCKET_'):node['name']=node['name'].split('.')[0]
     payload=json.dumps(doc,separators=(',',':')).encode();payload+=b' '*((-len(payload))%4)
     data=struct.pack('<III',0x46546c67,2,28+len(payload)+len(blob))+struct.pack('<II',len(payload),0x4e4f534a)+payload+struct.pack('<II',len(blob),0x004e4942)+blob;p.write_bytes(data)
+    e['draw_calls']=sum(len(m['primitives']) for m in doc.get('meshes',[]))
     e['bytes']=len(data);e['triangles']=sum(doc['accessors'][q['indices']]['count']//3 for m in doc.get('meshes',[]) for q in m['primitives'])
     print(f'EXPORTED {index+1}/16 {e["id"]}',flush=True)
 (OUT/'manifest.json').write_text(json.dumps(dict(version=1,units='meters',up='+Y',forward='+Z',assets=k.manifest),indent=2)+'\n')
@@ -184,5 +231,5 @@ scene=bpy.context.scene;scene.name='A6 / Solar power and authored ruins';scene.w
 for screen in bpy.data.screens:
     for area in screen.areas:
         if area.type=='VIEW_3D':area.spaces.active.shading.type='MATERIAL';area.spaces.active.region_3d.view_distance=28;area.spaces.active.region_3d.view_location=(0,0,1)
-bpy.ops.wm.save_as_mainfile(filepath=str(k.SOURCE/'a6-solar-power.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(k.SOURCE/('a6-solar-power.blend' if not LOD else f'a6-solar-power-lod{LOD}.blend')))
 print('SOLAR_POWER_COMPLETE 4 families / 16 exports',flush=True)

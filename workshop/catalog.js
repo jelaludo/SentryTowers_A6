@@ -11,7 +11,7 @@ export const collections=[
 ['terraformer','Stålheart / Terraformer 3000','Industry','An imposing rail-mounted printer with a six-joint arm and twin material reservoirs.','2 detail levels · 4 states','Animated'],
 ['assembly-line','Robotic assembly line','Industry','A long conveyor, articulated robots, gantries and reusable factory modules.','Complete line + modules','Animated'],
 ['warehouse-props','Logistics & cargo','Industry','A roofless loading-bay diorama with a container, loaded pallet, cases and fuel barrels.','Modular collection','Props'],
-['solar-power','Solar power network','Infrastructure','Solar arrays and tower grids for building a connected power site.','Power systems','Modular'],
+['solar-power','Solar power network','Infrastructure','Solar arrays and tower grids with detailed, game and distance models, Meshopt downloads and automatic LOD preview.','3 LODs · Meshopt · 4 damage states','Game-ready'],
 ['micro-reactor','Open micro-reactor','Infrastructure','An exposed reactor core and its surrounding machinery.','Power systems','Animated'],
 ['research-outpost','Alien research outpost','Infrastructure','Labs, habitats, utilities and service structures for an extraterrestrial settlement.','12 families · 48 models','Modular'],
 ['base-kit','Foundations & walls / Game-ready','Infrastructure','Lightweight foundations, walls, corners and an animated gate. Compare original meshes and inspect up to 1,000 GPU-instanced modules.','8 modules · Original + game tiers','Game-ready'],
