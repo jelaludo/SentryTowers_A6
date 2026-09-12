@@ -1,0 +1,434 @@
+{
+  "version": 1,
+  "units": "meters",
+  "up": "+Y",
+  "forward": "+Z",
+  "plain_glb_source_of_truth": true,
+  "family": "stalheart_mork_fabrication",
+  "lod_policy": {
+    "initial_load": "lod2",
+    "game_near_m": 150,
+    "hysteresis_m": 20,
+    "detailed": "manual cinematic selection",
+    "note": "Tune distances for the game camera and reference hardware."
+  },
+  "compression": {
+    "extension": "EXT_meshopt_compression",
+    "required": true,
+    "method": "filter",
+    "position_quantization": false,
+    "uncompressed_fallback": "file"
+  },
+  "lore": {
+    "material": "AFR-9 ferroceramic lattice alloy",
+    "explanation": "Stålheart lays a magnetically aligned AFR-9 load lattice, then floods it with a rapid-sinter metal ceramic skin. Cyan lines show energized structural paths; armor becomes opaque as the field cools and locks."
+  },
+  "assets": [
+    {
+      "id": "stalheart_mork_fabrication_lod0",
+      "name": "Stålheart / MÖRK fabrication",
+      "family": "stalheart_mork_fabrication",
+      "file": "stalheart_mork_fabrication_lod0.glb",
+      "meshopt_file": "stalheart_mork_fabrication_lod0.meshopt.glb",
+      "lod": 0,
+      "detail": "detailed",
+      "damage_level": 0,
+      "state": "Fabricating",
+      "plot_m": [
+        48,
+        56
+      ],
+      "triangles": 191462,
+      "draw_calls": 853,
+      "bytes": 12673640,
+      "meshopt_bytes": 1905684,
+      "credit": "Models by jelaludo",
+      "source_assets": [
+        "assets/terraformer/terraformer_3000_d0.glb",
+        "assets/hover-tank/mork_hover_tank_d0.glb"
+      ],
+      "derived": false,
+      "engine_nodes": [
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "HOVER_RIG",
+        "HULL_SUSPENSION",
+        "TURRET_YAW",
+        "GUN_PITCH",
+        "GUN_RECOIL",
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R"
+      ],
+      "animations": [
+        "MORK_Fabrication_Sequence"
+      ],
+      "clips": [
+        {
+          "name": "MORK_Fabrication_Sequence",
+          "duration_s": 16,
+          "loop": false
+        }
+      ],
+      "construction_stages": [
+        {
+          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "range": [
+            0,
+            0.46
+          ]
+        },
+        {
+          "node": "MORK_STAGE_02_TURRET_WEAPONS",
+          "range": [
+            0.5,
+            1
+          ]
+        }
+      ],
+      "lattice_node": "MORK_BUILD_LATTICE",
+      "fabrication_front_node": "FABRICATION_FRONT",
+      "static_progress": null,
+      "sockets": [
+        {
+          "id": "MATERIAL_INPUT",
+          "kind": "material",
+          "position_m": [
+            16,
+            1,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "FABRICATION_ORIGIN",
+          "kind": "fabrication",
+          "position_m": [
+            -1,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 6
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reserved_machine_envelope",
+          "center_m": [
+            0,
+            18,
+            0
+          ],
+          "size_m": [
+            44,
+            36,
+            22
+          ],
+          "condition": "coarse_only"
+        },
+        {
+          "id": "tank_build_bay",
+          "center_m": [
+            -1,
+            1.6,
+            2
+          ],
+          "size_m": [
+            6.2,
+            3.2,
+            13.5
+          ],
+          "condition": "fabrication_sequence"
+        }
+      ],
+      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+    },
+    {
+      "id": "stalheart_mork_fabrication_lod1",
+      "name": "Stålheart / MÖRK fabrication",
+      "family": "stalheart_mork_fabrication",
+      "file": "stalheart_mork_fabrication_lod1.glb",
+      "meshopt_file": "stalheart_mork_fabrication_lod1.meshopt.glb",
+      "lod": 1,
+      "detail": "game",
+      "damage_level": 0,
+      "state": "Fabricating",
+      "plot_m": [
+        48,
+        56
+      ],
+      "triangles": 7261,
+      "draw_calls": 10,
+      "bytes": 863160,
+      "meshopt_bytes": 238100,
+      "credit": "Models by jelaludo",
+      "source_assets": [
+        "assets/game-ready/terraformer_3000_d0_game.glb",
+        "assets/hover-tank/mork_hover_tank_low_d0.glb"
+      ],
+      "derived": true,
+      "engine_nodes": [
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "HOVER_RIG",
+        "HULL_SUSPENSION",
+        "TURRET_YAW",
+        "GUN_PITCH",
+        "GUN_RECOIL",
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R"
+      ],
+      "animations": [
+        "MORK_Fabrication_Sequence"
+      ],
+      "clips": [
+        {
+          "name": "MORK_Fabrication_Sequence",
+          "duration_s": 16,
+          "loop": false
+        }
+      ],
+      "construction_stages": [
+        {
+          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "range": [
+            0,
+            0.46
+          ]
+        },
+        {
+          "node": "MORK_STAGE_02_TURRET_WEAPONS",
+          "range": [
+            0.5,
+            1
+          ]
+        }
+      ],
+      "lattice_node": "MORK_BUILD_LATTICE",
+      "fabrication_front_node": "FABRICATION_FRONT",
+      "static_progress": null,
+      "sockets": [
+        {
+          "id": "MATERIAL_INPUT",
+          "kind": "material",
+          "position_m": [
+            16,
+            1,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "FABRICATION_ORIGIN",
+          "kind": "fabrication",
+          "position_m": [
+            -1,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 6
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reserved_machine_envelope",
+          "center_m": [
+            0,
+            18,
+            0
+          ],
+          "size_m": [
+            44,
+            36,
+            22
+          ],
+          "condition": "coarse_only"
+        },
+        {
+          "id": "tank_build_bay",
+          "center_m": [
+            -1,
+            1.6,
+            2
+          ],
+          "size_m": [
+            6.2,
+            3.2,
+            13.5
+          ],
+          "condition": "fabrication_sequence"
+        }
+      ],
+      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+    },
+    {
+      "id": "stalheart_mork_fabrication_lod2",
+      "name": "Stålheart / MÖRK fabrication",
+      "family": "stalheart_mork_fabrication",
+      "file": "stalheart_mork_fabrication_lod2.glb",
+      "meshopt_file": "stalheart_mork_fabrication_lod2.meshopt.glb",
+      "lod": 2,
+      "detail": "distance",
+      "damage_level": 0,
+      "state": "Half-built static proxy",
+      "plot_m": [
+        48,
+        56
+      ],
+      "triangles": 2336,
+      "draw_calls": 1,
+      "bytes": 178872,
+      "meshopt_bytes": 77052,
+      "credit": "Models by jelaludo",
+      "source_assets": [
+        "assets/game-ready/terraformer_3000_d0_game.glb",
+        "assets/hover-tank/mork_hover_tank_low_d0.glb"
+      ],
+      "derived": true,
+      "engine_nodes": [
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "HOVER_RIG",
+        "HULL_SUSPENSION",
+        "TURRET_YAW",
+        "GUN_PITCH",
+        "GUN_RECOIL",
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R"
+      ],
+      "animations": [],
+      "clips": [],
+      "construction_stages": [
+        {
+          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "range": [
+            0,
+            0.46
+          ]
+        },
+        {
+          "node": "MORK_STAGE_02_TURRET_WEAPONS",
+          "range": [
+            0.5,
+            1
+          ]
+        }
+      ],
+      "lattice_node": "MORK_BUILD_LATTICE",
+      "fabrication_front_node": "FABRICATION_FRONT",
+      "static_progress": 0.5,
+      "sockets": [
+        {
+          "id": "MATERIAL_INPUT",
+          "kind": "material",
+          "position_m": [
+            16,
+            1,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        },
+        {
+          "id": "FABRICATION_ORIGIN",
+          "kind": "fabrication",
+          "position_m": [
+            -1,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true,
+          "width_m": 6
+        }
+      ],
+      "colliders": [
+        {
+          "id": "reserved_machine_envelope",
+          "center_m": [
+            0,
+            18,
+            0
+          ],
+          "size_m": [
+            44,
+            36,
+            22
+          ],
+          "condition": "coarse_only"
+        },
+        {
+          "id": "tank_build_bay",
+          "center_m": [
+            -1,
+            1.6,
+            2
+          ],
+          "size_m": [
+            6.2,
+            3.2,
+            13.5
+          ],
+          "condition": "fabrication_sequence"
+        }
+      ],
+      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+    }
+  ]
+}

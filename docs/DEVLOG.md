@@ -10,13 +10,21 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
-## Next study / Stålheart printing a MÖRK tank
+## 12 September 2026 / Stålheart printing a MÖRK tank
 
-**Planned.** Create an animated scene showing the Terraformer 3000 / Stålheart halfway through fabricating a MÖRK tank from a futuristic structural alloy. Reuse the existing Terraformer and MÖRK assets rather than redesigning either machine.
+**Completed.** Reused the existing Terraformer 3000 / Stålheart and MÖRK tank in a dedicated fabrication scene. `MORK_Fabrication_Sequence` is a 16-second one-shot: the chassis and lower hull form during stage 01, then the turret and weapons solidify during stage 02. The viewer opens paused at eight seconds, where the chassis is complete and the unfinished upper structure reads as an energized cyan lattice. A moving rectangular fabrication boundary shows the current construction height.
 
-The tank should read as a real structure under construction: completed regions appear as solid armor and machinery, while the active build region and unfinished upper structure appear as a luminous wireframe or lattice. A moving fabrication boundary should convert the emerging structure from wireframe to solid as the printer works. Avoid overlapping coplanar solid and wireframe copies, which would shimmer or z-fight.
+The simplified AFR-9 lattice sits inside the armor instead of overlapping its surfaces, preventing coplanar wireframe shimmer. AFR-9 is described as a magnetically aligned ferroceramic load lattice that receives a rapid-sinter metal-ceramic skin. The MÖRK operational clips are omitted while the vehicle is under construction; Stålheart's existing moving gantry and arm pivots remain stable.
 
-The next design session should settle the print direction, how much of the tank is complete at the hero midpoint, whether the tank is fabricated as one assembly or in visible subassemblies, and whether the existing `Terraforming_Cycle` can drive the scene or needs a dedicated named one-shot clip. The export should preserve Stålheart's current engine-facing node names, keep the MÖRK identity recognizable, and provide a detailed recording version plus practical game representation under the collaboration contract. The in-game explanation for the printing alloy remains to be written with the animation.
+| Tier | Triangles | Draw calls | Plain bytes | Meshopt bytes |
+| --- | ---: | ---: | ---: | ---: |
+| Detailed / LOD0 | 191,462 | 853 | 12,673,640 | 1,905,684 |
+| Game / LOD1 | 7,261 | 10 | 863,160 | 238,100 |
+| Distance / LOD2 | 2,336 | 1 | 178,872 | 77,052 |
+
+LOD0 and LOD1 retain the named 16-second clip. LOD2 is one merged static mesh fixed at 50% construction and has no animation. The plain animated game file exceeds the 400 KB transfer target; its optional Meshopt derivative is 238,100 bytes. Filter-mode compression leaves positions unquantized so small features remain valid. Both plain and decoded compressed files passed glTF structure, bounds, unique-name, hierarchy, progression, triangle, draw-call, finite-position and degenerate-triangle validation. These are export measurements rather than FPS claims.
+
+[Open the fabrication viewer](../fabrication-lab/) · [Engine integration notes](../assets/fabrication-lab/README.md). Hand-off folder: `assets/fabrication-lab/` at the commit containing this entry.
 
 ## 12 September 2026 / MÖRK turret cleanup and wireframe
 
