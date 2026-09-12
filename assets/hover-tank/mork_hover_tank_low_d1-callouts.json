@@ -497,9 +497,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_0",
     "position": [
-      -0.00024,
-      2e-05,
-      0.00024
+      -0.0,
+      0.0,
+      -0.0
     ],
     "source": "Cyan lift field.008"
   },
@@ -521,9 +521,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_0",
     "position": [
-      -0.56885,
-      0.416,
-      0.00024
+      -0.56835,
+      0.41599,
+      -0.0
     ],
     "source": "Lift field edge window.008"
   },
@@ -557,9 +557,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_1",
     "position": [
-      -0.00024,
-      2e-05,
-      -0.00012
+      -0.0,
+      0.0,
+      -0.0
     ],
     "source": "Cyan lift field.009"
   },
@@ -581,9 +581,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_1",
     "position": [
-      -0.61816,
+      -0.61768,
       0.416,
-      -0.00012
+      -0.0
     ],
     "source": "Lift field edge window.009"
   },
@@ -617,9 +617,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_2",
     "position": [
-      -0.00024,
-      2e-05,
-      0.00012
+      -0.0,
+      0.0,
+      -0.0
     ],
     "source": "Cyan lift field.010"
   },
@@ -641,9 +641,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_2",
     "position": [
-      -0.60474,
+      -0.60436,
       0.416,
-      0.00012
+      -0.0
     ],
     "source": "Lift field edge window.010"
   },
@@ -677,9 +677,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_3",
     "position": [
-      -0.00024,
-      2e-05,
-      -0.00024
+      -0.0,
+      0.0,
+      -0.0
     ],
     "source": "Cyan lift field.011"
   },
@@ -701,9 +701,9 @@
     "group": "Left nacelle",
     "anchor": "LIFT_EMITTER_L_3",
     "position": [
-      -0.44653,
+      -0.44602,
       0.416,
-      -0.00024
+      -0.0
     ],
     "source": "Lift field edge window.011"
   },
@@ -917,9 +917,9 @@
     "group": "Right nacelle",
     "anchor": "LIFT_EMITTER_R_6",
     "position": [
-      0.00024,
-      2e-05,
-      0.00012
+      -0.0,
+      0.0,
+      -0.0
     ],
     "source": "Cyan lift field.014"
   },
@@ -941,9 +941,9 @@
     "group": "Right nacelle",
     "anchor": "LIFT_EMITTER_R_6",
     "position": [
-      0.60474,
+      0.60436,
       0.416,
-      0.00012
+      -0.0
     ],
     "source": "Lift field edge window.014"
   },
@@ -1342,30 +1342,6 @@
       0.00013
     ],
     "source": "Lean turret wedge.001"
-  },
-  {
-    "id": "TURRET_YAW/Turret cheek armor/1",
-    "name": "Turret cheek armor",
-    "group": "Turret",
-    "anchor": "TURRET_YAW",
-    "position": [
-      -0.756,
-      0.574,
-      0.13
-    ],
-    "source": "Turret cheek armor.002"
-  },
-  {
-    "id": "TURRET_YAW/Turret cheek armor/2",
-    "name": "Turret cheek armor",
-    "group": "Turret",
-    "anchor": "TURRET_YAW",
-    "position": [
-      0.756,
-      0.574,
-      0.13
-    ],
-    "source": "Turret cheek armor.003"
   },
   {
     "id": "TURRET_YAW/Commander flush hatch/1",

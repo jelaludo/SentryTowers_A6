@@ -110,8 +110,8 @@
         12
       ],
       "collision_quality": "blockout",
-      "bytes": 1022268,
-      "triangles": 24196,
+      "bytes": 1007676,
+      "triangles": 23980,
       "exported_clips": [
         "Power_On",
         "Power_Off",
@@ -120,7 +120,7 @@
         "Plasma_Sweep",
         "Turret_Aim"
       ],
-      "draw_calls": 70
+      "draw_calls": 69
     },
     {
       "id": "mork_hover_tank_d1",
@@ -228,8 +228,8 @@
         12
       ],
       "collision_quality": "blockout",
-      "bytes": 1068672,
-      "triangles": 24844,
+      "bytes": 1053744,
+      "triangles": 24628,
       "exported_clips": [
         "Power_On",
         "Power_Off",
@@ -238,7 +238,7 @@
         "Plasma_Sweep",
         "Turret_Aim"
       ],
-      "draw_calls": 71
+      "draw_calls": 70
     },
     {
       "id": "mork_hover_tank_d2",
@@ -308,10 +308,10 @@
         12
       ],
       "collision_quality": "blockout",
-      "bytes": 1071404,
-      "triangles": 26256,
+      "bytes": 1056812,
+      "triangles": 26040,
       "exported_clips": [],
-      "draw_calls": 80
+      "draw_calls": 79
     },
     {
       "id": "mork_hover_tank_d3",

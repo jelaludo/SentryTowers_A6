@@ -17,8 +17,8 @@ The viewer defaults to **Low poly / game-ready**; use **Original detail** for th
 | Scene | Original triangles / draws | Game triangles / draws |
 | --- | ---: | ---: |
 | Empty container | 5,436 / 21 | 1,220 / 5 |
-| Loaded container | 12,256 / 31 | 8,040 / 6 |
-| Three-bay diorama | 30,104 / 85 | 17,456 / 18 |
+| Loaded container | 12,196 / 31 | 7,980 / 6 |
+| Three-bay diorama | 29,984 / 85 | 17,336 / 18 |
 
 Game files are `mork_container_low_empty.glb`, `mork_container_low_loaded.glb`, and `mork_container_low_diorama.glb`, listed in `manifest-low.json`. Small bevels, handles and fine lettering are omitted; the large unit numbers remain. Colors are baked into vertex colors using one opaque palette material, with one mesh per rigid/moving assembly. Preserve vertex colors in the consuming engine. The bundled tanks retain the existing low-detail silhouette, and their materials are combined into that palette; emission/metalness differences are simplified. The empty game carrier is the reusable asset for placing independently controllable tanks.
 
@@ -45,3 +45,5 @@ node tools/asset-pipeline/validate-mork-containers.mjs
 ```
 
 The checks verify valid GLBs, scene inventory, the tank's complete neutral fit, open-door clearance, straight rollout, ground clearance and a stationary parked tank. All six files passed with zero glTF validator warnings. Use the viewer's cutaway to inspect the fit directly.
+
+Embedded MÖRK tanks include the turret-cheek clipping correction. Current scene budgets are recorded in `manifest.json` and `manifest-low.json`.

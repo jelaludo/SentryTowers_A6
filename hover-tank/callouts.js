@@ -11,7 +11,7 @@ export class PartCallouts {
   }
   async load(root,file){
     const ticket=++this.serial;this.parts=[];this.overlay.replaceChildren();$('partList').replaceChildren();
-    const response=await fetch('../assets/hover-tank/'+file.replace('.glb','-callouts.json'));
+    const response=await fetch('../assets/hover-tank/'+file.replace('.glb','-callouts.json'),{cache:'no-cache'});
     if(!response.ok)throw Error('Part labels unavailable');
     const data=await response.json();if(ticket!==this.serial)return;
     const prefixes={'Hull':'H','Turret':'T','Cannon':'C','Left nacelle':'NL','Right nacelle':'NR','Left plasma':'PL','Right plasma':'PR','Rear magazine':'M'},counts={};

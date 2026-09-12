@@ -132,7 +132,7 @@ for state in range(4):
     cylinder('Turret azimuth bearing',(0,0,.04),1.12,.22,'edge',parent=yaw,vertices=32)
     if state<3:
         hull('Lean turret wedge',[(-.52,-1.65),(.52,-1.65),(1.12,-.72),(1.32,.35),(.72,1.65),(-.72,1.65),(-1.32,.35),(-1.12,-.72)],.16,.83,'hull',yaw,.79)
-        for x in [-.9,.9]:box('Turret cheek armor',(x,-.1,.7),(.34,1.5,.22),'plate',parent=yaw,rot=(0,math.copysign(.18,x),0))
+        # The tapered turret is the outer shell; omit intersecting cheek overlays.
         cylinder('Commander flush hatch',(0,.6,.9),.5,.09,'frame',parent=yaw,vertices=16)
         box('Turret optical slit',(.5,-.66,.91),(.48,.35,.11),'glass',parent=yaw)
         box('Turret rangefinder',(.5,-.85,.91),(.35,.025,.07),'cyan' if state<2 else 'dark',parent=yaw)

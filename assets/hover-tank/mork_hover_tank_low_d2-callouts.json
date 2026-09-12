@@ -1344,30 +1344,6 @@
     "source": "Lean turret wedge.002"
   },
   {
-    "id": "TURRET_YAW/Turret cheek armor/1",
-    "name": "Turret cheek armor",
-    "group": "Turret",
-    "anchor": "TURRET_YAW",
-    "position": [
-      -0.756,
-      0.574,
-      0.13
-    ],
-    "source": "Turret cheek armor.004"
-  },
-  {
-    "id": "TURRET_YAW/Turret cheek armor/2",
-    "name": "Turret cheek armor",
-    "group": "Turret",
-    "anchor": "TURRET_YAW",
-    "position": [
-      0.756,
-      0.574,
-      0.13
-    ],
-    "source": "Turret cheek armor.005"
-  },
-  {
     "id": "TURRET_YAW/Commander flush hatch/1",
     "name": "Commander flush hatch",
     "group": "Turret",

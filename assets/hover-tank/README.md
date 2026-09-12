@@ -4,7 +4,7 @@ Long, narrow, low-profile armored hover tank with a long cannon and lean turret,
 
 The plasma mounts sit below the main gun's swept envelope. The full 360° yaw check at maximum gun depression leaves at least 0.150 m of vertical clearance between the main recoiling assembly and the plasma housings in the nominal suspension pose.
 
-[Interactive workshop](../../hover-tank/) includes power on/off, cannon fire, plasma flashes, independent aiming controls, ammo reload, a rear magazine inspection view, neutral materials and D0–D3 selection. [Editable Blender source](../../source/blender/a6-hover-tank.blend) contains the four states and named NLA animation tracks; the intact presentation uses `Hover_Idle`.
+[Interactive workshop](../../hover-tank/) includes power on/off, cannon fire, plasma flashes, independent aiming controls, ammo reload, a rear magazine inspection view, neutral materials, wireframe and D0–D3 selection. [Editable Blender source](../../source/blender/a6-hover-tank.blend) contains the four states and named NLA animation tracks; the intact presentation uses `Hover_Idle`.
 
 ## Operating clips
 
@@ -87,3 +87,5 @@ node tools/asset-pipeline/validate-hover-tank.mjs --low
 ## Transport container add-ons
 
 The existing hover-tank viewer now includes a **Transport containers** tab with an empty carrier, a loaded carrier and a numbered three-container deployment diorama. See `containers/README.md`; the three self-contained GLBs, rollout/door animations and complete ZIP are in `containers/`.
+
+Turret revision: removed the intersecting cheek overlays in D0–D2 in both detail tiers and in container-mounted copies. The turret shell, articulation and weapon clearances remain intact. Wireframe can be toggled independently of neutral shading and remains selected when changing state/detail.

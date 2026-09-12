@@ -10,6 +10,10 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## 12 September 2026 / MÖRK turret cleanup and wireframe
+
+**Completed.** Removed the intersecting turret cheek overlays from standard and low-poly tanks, including the copies in loaded containers and deployment dioramas. Added a wireframe toggle alongside neutral shading in the tank viewer. Rebuilt source files and container package; checks cover weapon clearance, animations, ammunition display, container fit and rollout.
+
 ## 12 September 2026 / KORP roof fit correction
 
 **Completed.** Front and rear armor panels now conform to the sloping roof, and rear access hatches sit on their supporting surfaces. The shallow dorsal spine had folded side faces; its chamfers now scale to the available section height. Updated all three exports, source and package. Current budgets: detailed 5,228 triangles, game 2,472, distance 1,218; draw calls remain 50 / 16 / 1.
