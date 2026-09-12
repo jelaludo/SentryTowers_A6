@@ -10,6 +10,14 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## Next study / Stålheart printing a MÖRK tank
+
+**Planned.** Create an animated scene showing the Terraformer 3000 / Stålheart halfway through fabricating a MÖRK tank from a futuristic structural alloy. Reuse the existing Terraformer and MÖRK assets rather than redesigning either machine.
+
+The tank should read as a real structure under construction: completed regions appear as solid armor and machinery, while the active build region and unfinished upper structure appear as a luminous wireframe or lattice. A moving fabrication boundary should convert the emerging structure from wireframe to solid as the printer works. Avoid overlapping coplanar solid and wireframe copies, which would shimmer or z-fight.
+
+The next design session should settle the print direction, how much of the tank is complete at the hero midpoint, whether the tank is fabricated as one assembly or in visible subassemblies, and whether the existing `Terraforming_Cycle` can drive the scene or needs a dedicated named one-shot clip. The export should preserve Stålheart's current engine-facing node names, keep the MÖRK identity recognizable, and provide a detailed recording version plus practical game representation under the collaboration contract. The in-game explanation for the printing alloy remains to be written with the animation.
+
 ## 12 September 2026 / MÖRK turret cleanup and wireframe
 
 **Completed.** Removed the intersecting turret cheek overlays from standard and low-poly tanks, including the copies in loaded containers and deployment dioramas. Added a wireframe toggle alongside neutral shading in the tank viewer. Rebuilt source files and container package; checks cover weapon clearance, animations, ammunition display, container fit and rollout.
