@@ -19,7 +19,8 @@ for p in viewers+[P/'index.html',P/'reuse.html',P/'devlog/index.html',P/'best-pr
  assert links==['/SentryTowers_A6/','/SentryTowers_A6/','/SentryTowers_A6/devlog/','/SentryTowers_A6/best-practices/'],(p,links)
  if p in viewers:
   assert any(t=='body' and a.get('class')=='workshop-viewer' for t,a in doc.tags),p
-  old=subprocess.check_output(['git','show','HEAD:'+str(p.relative_to(P))],cwd=P,text=True)
+  result=subprocess.run(['git','show','HEAD:'+str(p.relative_to(P))],cwd=P,text=True,capture_output=True)
+  old=result.stdout if result.returncode==0 else s
   oldids={a['id'] for t,a in Page(old).tags if 'id'in a};assert oldids<=set(ids),(p,oldids-set(ids))
  for t,a in doc.tags:
   ref=a.get('src') if t=='script' else a.get('href') if t=='link' or (p.parent.name in ['devlog','best-practices'] and t=='a') else None
