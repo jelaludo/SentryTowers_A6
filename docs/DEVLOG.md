@@ -10,17 +10,24 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
-## 13 September 2026 / ISAO-Birudorōn initial concept
+## 13 September 2026 / ISAO-Birudorōn production alpha
 
-**Concept imported; production remake pending.** Added the supplied ISAO construction-drone GLB unchanged as the initial visual concept, together with its six-expression concept sheet. In the fiction, the Japanese-built ビルドローン (“build drone”) is the airborne specialist that puts Stålheart together before the Terraformer prints the MÖRK.
+**Production-alpha character family delivered; art and gameplay review pending.** The supplied draft remains byte-for-byte intact as the initial concept. Beside it, a new detailed master and reduced game tier rebuild ISAO as the Japanese ビルドローン (“build drone”) that puts Stålheart together before the Terraformer fabricates MÖRK vehicles.
 
-The browser study pairs a procedural LED expression with hover posture and tool-head gestures for Neutral, Happy, Curious, Working and Alarm emotions. These motions are viewer demonstrations, not embedded animation clips. The concept contains useful rotor and tool pivots, but its visible limb geometry is merged outside the supplied leg transforms; a true limb-performance rig therefore belongs to the remake.
+The new silhouette retains the inset LED face, four construction limbs and central nozzle while adopting the MÖRK/KORP vocabulary: graphite armor, recessed cyan lift/tool hardware, protected rotor rings, amber service marks, sturdy chamfers and exposed mechanical joints. Both tiers use metres, +Y up, +Z forward and a ground-level `ISAO_ROOT`. Stable dot-free pivots articulate four rotors, four hip/knee/claw chains, body pitch and a yaw/pitch/extend fabrication nozzle; twelve named lift, claw, cargo, tool and Terraformer-interaction sockets match across tiers.
 
-Measured concept export: 4,174 triangles, 28 draw calls, 451,336 bytes, 66 nodes, 28 materials, no animations and no damage/LOD variants. glTF Validator reports zero errors and zero warnings. The source faces local -Z rather than the project +Z contract, and 26 mesh nodes are unnamed. Those mismatches are documented rather than silently changing the preserved concept.
+Eight embedded clips are delivered with explicit durations: `Rotor_Cycle` (1.0 s), `Hover_Idle` (4.0 s), five `Emotion_*` clips (1.2–4.0 s) and `Tool_Fabricate` (2.0 s). Every emotion controls all five LED glyph groups; Happy, Curious, Working and Alarm also animate limbs so the screen is never the complete performance. The preserved concept’s runtime face orientation was corrected in the viewer without altering its GLB.
 
-The remake brief retains the LED screen and expressive four-limb silhouette while translating the shell into the MÖRK/KORP vocabulary: faceted graphite armor, recessed cyan lift hardware, restrained amber service marks and purposeful chamfers. It requires a detailed master, game tier, stable functional limb/tool pivots, explicit sockets and named emotion clips. A static distance/loading tier is conditional because units are not normally distance-swapped.
+| Tier | Triangles | Draw calls | Plain bytes | Clips |
+| --- | ---: | ---: | ---: | ---: |
+| Detailed / LOD0 | 21,804 | 81 | 1,577,072 | 8 |
+| Game / LOD1 | 7,496 | 31 | 736,552 | 8 |
 
-[Open ISAO-Birudorōn](../isao-birudoron/) · [Concept audit and remake brief](../assets/isao-birudoron/README.md). Hand-off folder: `assets/isao-birudoron/` at the commit containing this entry.
+Both production exports have zero textures and stay below the unit triangle guideline. The 81/31 draw counts remain explicit alpha optimization targets, so neither tier is marked game-ready and no FPS claim is made. D1–D3 damage states, colliders, animation blending and final Stålheart assembly timing remain pending. A static LOD2 remains conditional on actual camera/loading tests.
+
+The validation suite reports zero glTF errors/warnings and checks hashes, exact byte/triangle/draw counts, zero degenerate triangles, neutral/rest bounds, ground placement, hierarchy and socket parity, unique dot-free node names, clip durations and expression/limb/tool/rotor bindings.
+
+[Open ISAO-Birudorōn](../isao-birudoron/) · [Production-alpha hand-off and concept audit](../assets/isao-birudoron/README.md). Hand-off folder: `assets/isao-birudoron/` at the commit containing this entry.
 
 ## 12 September 2026 / Stålheart printing a MÖRK tank
 

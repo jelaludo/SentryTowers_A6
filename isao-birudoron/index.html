@@ -3,23 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ISAO-Birudorōn / Initial concept</title>
+  <title>ISAO-Birudorōn / Production alpha</title>
   <link rel="stylesheet" href="../workshop/navigation.css">
   <style>
     :root{color-scheme:dark;--bg:#09151b;--panel:#10242c;--line:#31515c;--cyan:#72e7f5;--amber:#f3b548;--muted:#94adb5}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#e7f1f2;font:15px/1.5 system-ui,sans-serif}.asset-heading strong{color:var(--cyan)}
-    main{display:grid;grid-template-columns:330px 1fr}aside{padding:22px 24px;overflow:auto;background:#0e1d24;border-right:1px solid #29434c}aside p{color:var(--muted);margin:0 0 15px}.badge{display:inline-block;margin:0 0 18px;padding:5px 9px;border:1px solid #a87330;border-radius:999px;color:#ffd58d;background:#362816;font-size:11px;font-weight:750;letter-spacing:.09em}.label{display:block;margin:20px 0 8px;color:#cfe1e4;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.expressions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.expressions button{padding:9px 8px;border:1px solid #385964;border-radius:5px;background:#19323b;color:#dcebed;font:inherit;cursor:pointer}.expressions button:hover,.expressions button.active{border-color:var(--cyan);background:#214650;color:white}.toggle{display:flex;gap:8px;align-items:center;margin:15px 0;color:#c8dadd}.stats{padding:12px;background:#0a171d;border:1px solid #27434c;border-radius:5px;color:#adc2c8;font-size:13px}.download{display:block;margin:9px 0;padding:9px 11px;border:1px solid #3b5d66;border-radius:5px;color:#bdebf1;text-decoration:none}.download:hover{background:#17343d}.concept{display:block;width:100%;margin-top:10px;border:1px solid #35545d;border-radius:4px}.fine{font-size:12px}.warning{padding-left:11px;border-left:3px solid var(--amber)}
+    main{display:grid;grid-template-columns:330px 1fr}aside{padding:22px 24px;overflow:auto;background:#0e1d24;border-right:1px solid #29434c}aside p{color:var(--muted);margin:0 0 15px}.badge{display:inline-block;margin:0 0 18px;padding:5px 9px;border:1px solid #a87330;border-radius:999px;color:#ffd58d;background:#362816;font-size:11px;font-weight:750;letter-spacing:.09em}.label{display:block;margin:20px 0 8px;color:#cfe1e4;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}select,#fabricate{width:100%;padding:9px 10px;border:1px solid #385964;border-radius:5px;background:#19323b;color:#dcebed;font:inherit}.expressions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.expressions button,#fabricate{padding:9px 8px;border:1px solid #385964;border-radius:5px;background:#19323b;color:#dcebed;font:inherit;cursor:pointer}.expressions button:hover,.expressions button.active,#fabricate:hover{border-color:var(--cyan);background:#214650;color:white}#fabricate{margin-top:8px}.toggle{display:flex;gap:8px;align-items:center;margin:15px 0;color:#c8dadd}.stats{padding:12px;background:#0a171d;border:1px solid #27434c;border-radius:5px;color:#adc2c8;font-size:13px}.download{display:block;margin:9px 0;padding:9px 11px;border:1px solid #3b5d66;border-radius:5px;color:#bdebf1;text-decoration:none}.download:hover{background:#17343d}.concept{display:block;width:100%;margin-top:10px;border:1px solid #35545d;border-radius:4px}.fine{font-size:12px}.warning{padding-left:11px;border-left:3px solid var(--amber)}
     #stage{position:relative;min-width:0;min-height:440px;overflow:hidden}#stage canvas{display:block}.hud{position:absolute;left:18px;bottom:18px;max-width:min(520px,calc(100% - 36px));padding:10px 13px;border:1px solid #31525c;border-radius:5px;background:#09161de8;color:#b9ced3;font-size:13px;pointer-events:none}.hud strong{color:#e8f5f6}.legend{position:absolute;right:18px;top:18px;padding:7px 10px;border:1px solid #355864;border-radius:999px;background:#0a1920d9;color:#8eeaf3;font-size:11px;font-weight:700;letter-spacing:.09em}
     @media(max-width:740px){main{display:flex;flex-direction:column}#stage{order:-1;height:56vh;min-height:390px}aside{border-right:0;border-top:1px solid #29434c}.expressions{grid-template-columns:repeat(3,1fr)}}
   </style>
 </head>
 <body class="workshop-viewer">
   <header class="workshop-header"><a class="workshop-home" href="../">← Back to Workshop</a><nav class="workshop-tabs" aria-label="Workshop navigation"><a href="../" aria-current="page">Workshop</a><a href="../devlog/">Devlog</a><a href="../best-practices/">Best Practices</a></nav></header>
-  <section class="asset-heading" aria-label="Asset title"><h1>ISAO-Birudorōn <strong>/ ビルドローン</strong></h1><p>Japanese construction drone · Stålheart assembler · Initial concept</p></section>
+  <section class="asset-heading" aria-label="Asset title"><h1>ISAO-Birudorōn <strong>/ ビルドローン</strong></h1><p>Japanese construction drone · Stålheart assembler · Production alpha + preserved concept</p></section>
   <main>
     <aside>
-      <span class="badge">INITIAL CONCEPT / NOT GAME-READY</span>
-      <p>ISAO is the airborne building specialist that puts Stålheart together. This preserved draft establishes its friendly four-limb silhouette, central fabrication tool and expressive LED face.</p>
+      <span id="badge" class="badge">PRODUCTION ALPHA / REVIEW BUILD</span>
+      <p>ISAO is the airborne building specialist that puts Stålheart together. The new alpha translates the friendly construction-drone silhouette into MÖRK/KORP graphite armor, cyan lift hardware and restrained amber service marks.</p>
+      <label class="label" for="model">Model</label>
+      <select id="model"><option value="isao_birudoron_lod0">Production alpha / Detailed LOD0</option><option value="isao_birudoron_lod1">Production alpha / Game LOD1</option><option value="isao_birudoron_initial_concept">Preserved initial concept</option></select>
       <span class="label">Emotion study</span>
       <div class="expressions" role="group" aria-label="Emotion preview">
         <button class="active" data-emotion="neutral">Neutral</button>
@@ -28,16 +30,18 @@
         <button data-emotion="working">Working</button>
         <button data-emotion="alarm">Alarm</button>
       </div>
+      <button id="fabricate">Run fabrication tool</button>
       <label class="toggle"><input id="hover" type="checkbox" checked> Hover and rotor motion</label>
       <div id="stats" class="stats">Loading preserved GLB…</div>
-      <p class="fine warning">The LED, body lean and tool gestures are procedural viewer studies. This GLB has no animation clips, and its visible limbs are not attached to the supplied leg pivots. Full LED-plus-limb acting is a remake requirement.</p>
-      <a class="download" href="../assets/isao-birudoron/isao_birudoron_initial_concept.glb" download>Download preserved concept GLB</a>
+      <p id="note" class="fine warning">The production alpha has functional limb, rotor, LED and fabrication-tool animation. It is ready for art-direction and gameplay review, not final integration.</p>
+      <a id="download" class="download" href="../assets/isao-birudoron/isao_birudoron_lod0.glb" download>Download selected GLB</a>
+      <a class="download" href="../source/blender/isao-birudoron.blend" download>Download editable Blender source</a>
       <a class="download" href="../assets/isao-birudoron/isao_birudoron_concept_sheet.png" download>Download concept sheet</a>
       <a href="../assets/isao-birudoron/isao_birudoron_concept_sheet.png"><img class="concept" src="../assets/isao-birudoron/isao_birudoron_concept_sheet.png" alt="Six concept drawings showing ISAO with different LED expressions and limb poses"></a>
-      <p class="fine">Drag to orbit · Scroll to zoom · One grid square = 0.25 m<br>The draft visually faces local -Z; the production remake must normalize to +Z.</p>
+      <p class="fine">Drag to orbit · Scroll to zoom · One grid square = 0.25 m<br>Production tiers use metres, +Y up and +Z forward. The preserved draft faces -Z.</p>
     </aside>
     <div id="stage">
-      <div class="legend">PROCEDURAL PERFORMANCE STUDY</div>
+      <div class="legend">EMBEDDED CHARACTER PERFORMANCE</div>
       <div id="hud" class="hud"><strong>Loading ISAO…</strong></div>
     </div>
   </main>

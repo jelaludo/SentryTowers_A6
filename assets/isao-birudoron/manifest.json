@@ -2,7 +2,7 @@
   "version": 1,
   "family": "isao_birudoron",
   "display_name": "ISAO-Birudorōn / ビルドローン",
-  "status": "initial_concept",
+  "status": "production_alpha",
   "plain_glb_source_of_truth": true,
   "units": "meters",
   "up": "+Y",
@@ -14,7 +14,7 @@
     "name_note": "Birudorōn is a playful romanization of ビルドローン: build drone. Manufacturer identity is working fiction for the remake."
   },
   "design_direction": {
-    "status": "future_requirement",
+    "status": "production_alpha_implemented",
     "summary": "Retain the readable LED face and four-limb construction silhouette, rebuilt in the MÖRK/KORP design language.",
     "shared_language": [
       "faceted dark graphite armor",
@@ -47,9 +47,21 @@
       "embedded_texture_bytes": 6144,
       "animations": [],
       "sockets": [],
-      "dimensions_m": [0.8302263948, 0.5533197542, 0.6842431555],
-      "bounds_min_m": [-0.4217385374, -0.0033197542, -0.3431224388],
-      "bounds_max_m": [0.4084878574, 0.55, 0.3411207167],
+      "dimensions_m": [
+        0.8302263948,
+        0.5533197542,
+        0.6842431555
+      ],
+      "bounds_min_m": [
+        -0.4217385374,
+        -0.0033197542,
+        -0.3431224388
+      ],
+      "bounds_max_m": [
+        0.4084878574,
+        0.55,
+        0.3411207167
+      ],
       "visual_forward": "-Z (concept mismatch; production remake must normalize to +Z)",
       "root": "isao_Game_Root",
       "functional_pivots": [
@@ -69,6 +81,458 @@
         "Twenty-six unnamed mesh nodes and twenty-eight draw calls",
         "Faces local -Z instead of the project +Z contract"
       ]
+    },
+    {
+      "id": "isao_birudoron_lod0",
+      "family": "isao_birudoron",
+      "name": "ISAO-Birudorōn / Production alpha",
+      "file": "isao_birudoron_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "production_lod": true,
+      "production_status": "alpha",
+      "derived": false,
+      "game_ready": false,
+      "bytes": 1577072,
+      "sha256": "43e27fc9bce30c70376a7e15e077560fde1d8b1b4b002af10dc694c5f9d71ae4",
+      "triangles": 21804,
+      "draw_calls": 81,
+      "nodes": 126,
+      "materials": 9,
+      "embedded_textures": 0,
+      "bounds_min_m": [
+        -0.879,
+        0,
+        -0.639
+      ],
+      "bounds_max_m": [
+        0.879,
+        1.665,
+        0.642
+      ],
+      "dimensions_m": [
+        1.758,
+        1.665,
+        1.281
+      ],
+      "forward": "+Z",
+      "up": "+Y",
+      "root": "ISAO_ROOT",
+      "clips": [
+        {
+          "name": "Hover_Idle",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Neutral",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Happy",
+          "duration_s": 1.6,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Curious",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Working",
+          "duration_s": 2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Alarm",
+          "duration_s": 1.2,
+          "loop": false
+        },
+        {
+          "name": "Rotor_Cycle",
+          "duration_s": 1,
+          "loop": true
+        },
+        {
+          "name": "Tool_Fabricate",
+          "duration_s": 2,
+          "loop": true
+        }
+      ],
+      "sockets": [
+        {
+          "id": "CARGO_GRIP",
+          "position_m": [
+            0,
+            0.85,
+            -0.27
+          ]
+        },
+        {
+          "id": "SOCKET_CENTER_OF_MASS",
+          "position_m": [
+            0,
+            1.1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FL",
+          "position_m": [
+            -0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FR",
+          "position_m": [
+            0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RL",
+          "position_m": [
+            -0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RR",
+          "position_m": [
+            0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FL",
+          "position_m": [
+            -0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FR",
+          "position_m": [
+            0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RL",
+          "position_m": [
+            -0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RR",
+          "position_m": [
+            0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "TERRAFORMER_ASSEMBLY_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "TOOL_TIP",
+          "position_m": [
+            0,
+            -0.02,
+            0
+          ]
+        }
+      ],
+      "engine_nodes": [
+        "BODY_PITCH",
+        "CARGO_GRIP",
+        "FACE_ALARM",
+        "FACE_CURIOUS",
+        "FACE_HAPPY",
+        "FACE_NEUTRAL",
+        "FACE_WORKING",
+        "ISAO_ROOT",
+        "LED_PANEL",
+        "LEG_FL_CLAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FR_CLAW",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_RL_CLAW",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RR_CLAW",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "ROTOR_FL_MOUNT",
+        "ROTOR_FL_SPIN",
+        "ROTOR_FR_MOUNT",
+        "ROTOR_FR_SPIN",
+        "ROTOR_RL_MOUNT",
+        "ROTOR_RL_SPIN",
+        "ROTOR_RR_MOUNT",
+        "ROTOR_RR_SPIN",
+        "SENSOR_MAST",
+        "SOCKET_CENTER_OF_MASS",
+        "SOCKET_CLAW_FL",
+        "SOCKET_CLAW_FR",
+        "SOCKET_CLAW_RL",
+        "SOCKET_CLAW_RR",
+        "SOCKET_LIFT_FL",
+        "SOCKET_LIFT_FR",
+        "SOCKET_LIFT_RL",
+        "SOCKET_LIFT_RR",
+        "TERRAFORMER_ASSEMBLY_ORIGIN",
+        "TOOL_HEAD",
+        "TOOL_NOZZLE_EXTEND",
+        "TOOL_NOZZLE_PITCH",
+        "TOOL_NOZZLE_YAW",
+        "TOOL_TIP"
+      ],
+      "credit": "Models by jelaludo",
+      "notes": "Functional limb, rotor, LED-expression and fabrication-tool hierarchy; pending art-direction and gameplay review."
+    },
+    {
+      "id": "isao_birudoron_lod1",
+      "family": "isao_birudoron",
+      "name": "ISAO-Birudorōn / Production alpha",
+      "file": "isao_birudoron_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "production_lod": true,
+      "production_status": "alpha",
+      "derived": false,
+      "game_ready": false,
+      "bytes": 736552,
+      "sha256": "18b96ed41fe92935e26e1cb49de426b4a79155c01d4034955edb7729cd2bc534",
+      "triangles": 7496,
+      "draw_calls": 31,
+      "nodes": 76,
+      "materials": 5,
+      "embedded_textures": 0,
+      "bounds_min_m": [
+        -0.879,
+        0,
+        -0.632757
+      ],
+      "bounds_max_m": [
+        0.879,
+        1.665,
+        0.642
+      ],
+      "dimensions_m": [
+        1.758,
+        1.665,
+        1.274757
+      ],
+      "forward": "+Z",
+      "up": "+Y",
+      "root": "ISAO_ROOT",
+      "clips": [
+        {
+          "name": "Hover_Idle",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Neutral",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Happy",
+          "duration_s": 1.6,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Curious",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Working",
+          "duration_s": 2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Alarm",
+          "duration_s": 1.2,
+          "loop": false
+        },
+        {
+          "name": "Rotor_Cycle",
+          "duration_s": 1,
+          "loop": true
+        },
+        {
+          "name": "Tool_Fabricate",
+          "duration_s": 2,
+          "loop": true
+        }
+      ],
+      "sockets": [
+        {
+          "id": "CARGO_GRIP",
+          "position_m": [
+            0,
+            0.85,
+            -0.27
+          ]
+        },
+        {
+          "id": "SOCKET_CENTER_OF_MASS",
+          "position_m": [
+            0,
+            1.1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FL",
+          "position_m": [
+            -0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FR",
+          "position_m": [
+            0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RL",
+          "position_m": [
+            -0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RR",
+          "position_m": [
+            0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FL",
+          "position_m": [
+            -0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FR",
+          "position_m": [
+            0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RL",
+          "position_m": [
+            -0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RR",
+          "position_m": [
+            0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "TERRAFORMER_ASSEMBLY_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "TOOL_TIP",
+          "position_m": [
+            0,
+            -0.02,
+            0
+          ]
+        }
+      ],
+      "engine_nodes": [
+        "BODY_PITCH",
+        "CARGO_GRIP",
+        "FACE_ALARM",
+        "FACE_CURIOUS",
+        "FACE_HAPPY",
+        "FACE_NEUTRAL",
+        "FACE_WORKING",
+        "ISAO_ROOT",
+        "LED_PANEL",
+        "LEG_FL_CLAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FR_CLAW",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_RL_CLAW",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RR_CLAW",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "ROTOR_FL_MOUNT",
+        "ROTOR_FL_SPIN",
+        "ROTOR_FR_MOUNT",
+        "ROTOR_FR_SPIN",
+        "ROTOR_RL_MOUNT",
+        "ROTOR_RL_SPIN",
+        "ROTOR_RR_MOUNT",
+        "ROTOR_RR_SPIN",
+        "SENSOR_MAST",
+        "SOCKET_CENTER_OF_MASS",
+        "SOCKET_CLAW_FL",
+        "SOCKET_CLAW_FR",
+        "SOCKET_CLAW_RL",
+        "SOCKET_CLAW_RR",
+        "SOCKET_LIFT_FL",
+        "SOCKET_LIFT_FR",
+        "SOCKET_LIFT_RL",
+        "SOCKET_LIFT_RR",
+        "TERRAFORMER_ASSEMBLY_ORIGIN",
+        "TOOL_HEAD",
+        "TOOL_NOZZLE_EXTEND",
+        "TOOL_NOZZLE_PITCH",
+        "TOOL_NOZZLE_YAW",
+        "TOOL_TIP"
+      ],
+      "credit": "Models by jelaludo",
+      "notes": "Functional limb, rotor, LED-expression and fabrication-tool hierarchy; pending art-direction and gameplay review."
     }
   ],
   "reference_images": [
@@ -82,19 +546,19 @@
   "derived_previews": [
     {
       "file": "../workshop/isao-birudoron.jpg",
-      "derived_from": "isao_birudoron_concept_sheet.png",
-      "purpose": "800 px gallery preview; the preserved PNG remains the reference source"
+      "derived_from": "isao_birudoron_lod0.glb via tools/blender/render_isao_birudoron.py",
+      "purpose": "800 × 640 production-alpha gallery preview"
     }
   ],
   "future_tiers": [
     {
       "tier": "LOD0",
-      "status": "required_not_delivered",
+      "status": "production_alpha_delivered",
       "purpose": "Detailed master for close shots, animation and recordings"
     },
     {
       "tier": "LOD1",
-      "status": "required_not_delivered",
+      "status": "production_alpha_delivered",
       "purpose": "Game unit with functional emotion, rotor, limb and tool pivots; target at or below 25,000 triangles"
     },
     {
@@ -103,5 +567,12 @@
       "purpose": "Static distance/loading representation only if game camera and loading tests justify it"
     }
   ],
-  "viewer_controls": ["orbit", "emotion study", "hover", "rotor motion", "tool gesture"]
+  "viewer_controls": [
+    "orbit",
+    "LOD and preserved-concept selector",
+    "five embedded production emotion clips",
+    "hover and rotor motion",
+    "fabrication nozzle clip",
+    "download selected plain GLB and Blender source"
+  ]
 }
