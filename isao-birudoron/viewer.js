@@ -19,22 +19,27 @@ const padRing=new T.Mesh(new T.TorusGeometry(.65,.009,5,64),new T.MeshBasicMater
 const manifest=await fetch('../assets/isao-birudoron/manifest.json').then(r=>r.json());
 const entries=new Map(manifest.assets.map(entry=>[entry.id,entry]));
 const emotionData={
-  neutral:{label:'Neutral',color:'#55ddff',rows:['01100110','10011001','00000000','00011000','00011000','00000000'],lean:0,yaw:0,pitch:0,head:0,speed:1},
+  neutral:{label:'Neutral',color:'#f3b548',rows:['01100110','10011001','00000000','00011000','00011000','00000000'],lean:0,yaw:0,pitch:0,head:0,speed:1},
   happy:{label:'Happy',color:'#67ef7d',rows:['01000010','10100101','00000000','10000001','01000010','00111100'],lean:-.055,yaw:-.16,pitch:.18,head:-.15,speed:1.2},
-  curious:{label:'Curious',color:'#ffb443',rows:['01100000','10000110','00000000','00011000','00000000','00110000'],lean:.065,yaw:.32,pitch:-.12,head:.28,speed:.8},
+  curious:{label:'Curious',color:'#f3b548',fps:2,frames:[['01100110','00000000','10001000','00000000','01111110','00000000'],['01100110','00000000','01000010','00000000','01111110','00000000'],['01100110','00000000','00010001','00000000','01111110','00000000'],['01100110','00000000','01000010','00000000','01111110','00000000']],lean:.065,yaw:.32,pitch:-.12,head:.28,speed:.8},
   working:{label:'Working',color:'#42dbff',rows:['11100111','10100101','11100111','00011000','00111100','00011000'],lean:.02,yaw:0,pitch:.38,head:-.3,speed:1.8},
-  alarm:{label:'Alarm',color:'#ff4e43',rows:['10000001','01000010','00100100','00000000','00111100','01000010'],lean:.1,yaw:-.32,pitch:-.28,head:.18,speed:2.4}
+  alarm:{label:'Alarm',color:'#ff4e43',rows:['10000001','01000010','00100100','00000000','00111100','01000010'],lean:.1,yaw:-.32,pitch:-.28,head:.18,speed:2.4},
+  determined:{label:'Determined',color:'#f3b548',rows:['00000000','11100111','00100100','00000000','00011000','00000000'],lean:-.07,yaw:0,pitch:.12,head:-.08,speed:1.1},
+  sad:{label:'Sad',color:'#9d55ff',rows:['00100100','01000010','00100100','00000000','00111100','01000010'],lean:.1,yaw:0,pitch:.18,head:.28,speed:.55},
+  skeptical:{label:'Skeptical',color:'#f3b548',fps:1.25,frames:[['01000000','00000000','00000110','01000010','00000000','00011100'],['00100000','01000000','00000110','01000010','00000000','00011100']],lean:.075,yaw:.12,pitch:-.05,head:.12,speed:.7},
+  love:{label:'Love',color:'#ff4a9d',fps:2.85,frames:[['00000000','00100100','01111110','01111110','00111100','00011000'],['01000010','11100111','11111111','01111110','00111100','00011000'],['00000000','00100100','01111110','01111110','00111100','00011000'],['01000010','11100111','11111111','01111110','00111100','00011000']],lean:-.04,yaw:0,pitch:.08,head:-.08,speed:1.5}
 };
 const loader=new GLTFLoader();
-let wrapper=null,gltf=null,mixer=null,entry=null,production=false,emotion='neutral',time=0;
+let wrapper=null,gltf=null,mixer=null,entry=null,production=false,emotion='neutral',time=0,emotionEpoch=0;
 let rotorAction=null,hoverAction=null,emotionAction=null,toolAction=null,concept={};
 const faceCanvas=document.createElement('canvas');faceCanvas.width=256;faceCanvas.height=192;
 const faceTexture=new T.CanvasTexture(faceCanvas);faceTexture.colorSpace=T.SRGBColorSpace;faceTexture.minFilter=T.NearestFilter;faceTexture.magFilter=T.NearestFilter;faceTexture.flipY=true;
 
-function drawFace(config){
+function drawFace(config,frame=0){
   const ctx=faceCanvas.getContext('2d');ctx.fillStyle='#05080a';ctx.fillRect(0,0,256,192);
-  const cell=22,gap=5,w=config.rows[0].length*cell,h=config.rows.length*cell,x=(256-w)/2,y=(192-h)/2;ctx.shadowColor=config.color;ctx.shadowBlur=12;
-  config.rows.forEach((row,ry)=>[...row].forEach((bit,rx)=>{if(bit==='1'){ctx.fillStyle=config.color;ctx.fillRect(x+rx*cell+gap/2,y+ry*cell+gap/2,cell-gap,cell-gap);}}));ctx.shadowBlur=0;faceTexture.needsUpdate=true;
+  const frames=config.frames||[config.rows],rows=frames[frame%frames.length];
+  const cell=22,gap=5,w=rows[0].length*cell,h=rows.length*cell,x=(256-w)/2,y=(192-h)/2;ctx.shadowColor=config.color;ctx.shadowBlur=12;
+  rows.forEach((row,ry)=>[...row].forEach((bit,rx)=>{if(bit==='1'){ctx.fillStyle=config.color;ctx.fillRect(x+rx*cell+gap/2,y+ry*cell+gap/2,cell-gap,cell-gap);}}));ctx.shadowBlur=0;faceTexture.needsUpdate=true;
 }
 function clip(name){return gltf.animations.find(item=>item.name===name);}
 function play(name,loop=true){const source=clip(name);if(!source)return null;const action=mixer.clipAction(source);action.reset();action.enabled=true;action.clampWhenFinished=!loop;action.setLoop(loop?T.LoopRepeat:T.LoopOnce,loop?Infinity:1);action.play();return action;}
@@ -59,9 +64,9 @@ async function loadModel(id){
   setEmotion(emotion);frameModel();window.isaoViewer={gltf,wrapper,mixer,entry,setEmotion};window.isaoViewerReady=true;
 }
 function setEmotion(name){
-  emotion=name;document.querySelectorAll('[data-emotion]').forEach(button=>button.classList.toggle('active',button.dataset.emotion===name));
+  emotion=name;emotionEpoch=time;document.querySelectorAll('[data-emotion]').forEach(button=>button.classList.toggle('active',button.dataset.emotion===name));
   if(production&&mixer){stop(emotionAction);const clipName=`Emotion_${name[0].toUpperCase()+name.slice(1)}`,meta=entry.clips.find(item=>item.name===clipName);emotionAction=play(clipName,meta?.loop??true);}
-  else drawFace(emotionData[name]);
+  else drawFace(emotionData[name],0);
 }
 document.querySelectorAll('[data-emotion]').forEach(button=>button.addEventListener('click',()=>setEmotion(button.dataset.emotion)));
 $('fabricate').onclick=()=>{if(production&&mixer){stop(toolAction);toolAction=play('Tool_Fabricate');}else setEmotion('working');};
@@ -72,7 +77,7 @@ const clock=new T.Clock();
 renderer.setAnimationLoop(()=>{try{
   const dt=Math.min(clock.getDelta(),.04),cfg=emotionData[emotion],motion=$('hover').checked;time+=dt;
   if(production){mixer?.update(dt);wrapper.position.y=.12+(motion?.025*Math.sin(time*2.15):0);}
-  else if(wrapper){const pulse=motion?Math.sin(time*cfg.speed):0;wrapper.position.y=.54+(motion?.025*Math.sin(time*2.15):0);wrapper.rotation.z=T.MathUtils.lerp(wrapper.rotation.z,cfg.lean+(motion?.012*Math.sin(time*1.4):0),.08);wrapper.rotation.x=T.MathUtils.lerp(wrapper.rotation.x,emotion==='alarm'?.045*Math.sin(time*8):0,.12);if(concept.boomYaw)concept.boomYaw.rotation.y=T.MathUtils.lerp(concept.boomYaw.rotation.y,concept.bases.get(concept.boomYaw).y+cfg.yaw+.035*pulse,.08);if(concept.boomPitch)concept.boomPitch.rotation.x=T.MathUtils.lerp(concept.boomPitch.rotation.x,concept.bases.get(concept.boomPitch).x+cfg.pitch+.045*pulse,.08);if(concept.headPitch)concept.headPitch.rotation.x=T.MathUtils.lerp(concept.headPitch.rotation.x,concept.bases.get(concept.headPitch).x+cfg.head-.06*pulse,.08);if(motion)concept.rotors.forEach((rotor,index)=>rotor.rotation.y+=dt*(18+(index%2?1:-1)*2));}
+  else if(wrapper){const pulse=motion?Math.sin(time*cfg.speed):0;drawFace(cfg,Math.floor((time-emotionEpoch)*(cfg.fps||1)));wrapper.position.y=.54+(motion?.025*Math.sin(time*2.15):0);wrapper.rotation.z=T.MathUtils.lerp(wrapper.rotation.z,cfg.lean+(motion?.012*Math.sin(time*1.4):0),.08);wrapper.rotation.x=T.MathUtils.lerp(wrapper.rotation.x,emotion==='alarm'?.045*Math.sin(time*8):0,.12);if(concept.boomYaw)concept.boomYaw.rotation.y=T.MathUtils.lerp(concept.boomYaw.rotation.y,concept.bases.get(concept.boomYaw).y+cfg.yaw+.035*pulse,.08);if(concept.boomPitch)concept.boomPitch.rotation.x=T.MathUtils.lerp(concept.boomPitch.rotation.x,concept.bases.get(concept.boomPitch).x+cfg.pitch+.045*pulse,.08);if(concept.headPitch)concept.headPitch.rotation.x=T.MathUtils.lerp(concept.headPitch.rotation.x,concept.bases.get(concept.headPitch).x+cfg.head-.06*pulse,.08);if(motion)concept.rotors.forEach((rotor,index)=>rotor.rotation.y+=dt*(18+(index%2?1:-1)*2));}
   padRing.material.opacity=.45+.2*Math.sin(time*2.15);$('hud').innerHTML=`<strong>${cfg.label}</strong> · ${production?'embedded LED + articulated limb performance':'procedural LED + posture/tool study'}<br>${production?'Use Fabrication tool to preview the nozzle pass.':'Full articulated limb acting is available in the production alpha.'}`;controls.update();renderer.render(scene,camera);
   }catch(error){$('hud').textContent=`Viewer error: ${error.message}`;renderer.setAnimationLoop(null);console.error(error);}});
 await loadModel($('model').value);

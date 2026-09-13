@@ -16,14 +16,14 @@ The game currently uses its own derived far tiers for the first request. Those a
 
 The new silhouette retains the inset LED face, four construction limbs and central nozzle while adopting the MÖRK/KORP vocabulary: graphite armor, recessed cyan lift/tool hardware, protected rotor rings, amber service marks, sturdy chamfers and exposed mechanical joints. Both tiers use metres, +Y up, +Z forward and a ground-level `ISAO_ROOT`. Stable dot-free pivots articulate four rotors, four hip/knee/claw chains, body pitch and a yaw/pitch/extend fabrication nozzle; twelve named lift, claw, cargo, tool and Terraformer-interaction sockets match across tiers.
 
-Eight embedded clips are delivered with explicit durations: `Rotor_Cycle` (1.0 s), `Hover_Idle` (4.0 s), five `Emotion_*` clips (1.2–4.0 s) and `Tool_Fabricate` (2.0 s). Every emotion controls all five LED glyph groups; Happy, Curious, Working and Alarm also animate limbs so the screen is never the complete performance. The preserved concept’s runtime face orientation was corrected in the viewer without altering its GLB.
+Twelve embedded clips are delivered with explicit durations: `Rotor_Cycle` (1.0 s), `Hover_Idle` (4.0 s), nine `Emotion_*` clips (1.2–4.0 s) and `Tool_Fabricate` (2.0 s). The emotion system combines four channels: LED dot pattern, facial pattern animation, limb/body acting and semantic color. Curious now uses an amber left–center–right pupil scan while its mouth and eye framing stay fixed. Determined adds an amber four-limb brace; Sad adds a slow purple droop; Skeptical adds an animated amber brow, side lean and wrist tap; rare Love adds a pulsing pink heart and self-hug. Happy remains green, Alarm red and Working cyan. The preserved concept’s runtime face orientation remains corrected without altering its GLB.
 
 | Tier | Triangles | Draw calls | Plain bytes | Clips |
 | --- | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 21,804 | 81 | 1,577,072 | 8 |
-| Game / LOD1 | 7,496 | 31 | 736,552 | 8 |
+| Detailed / LOD0 | 34,116 | 89 | 2,485,808 | 12 |
+| Game / LOD1 | 12,512 | 39 | 1,171,336 | 12 |
 
-Both production exports have zero textures and stay below the unit triangle guideline. The 81/31 draw counts remain explicit alpha optimization targets, so neither tier is marked game-ready and no FPS claim is made. D1–D3 damage states, colliders, animation blending and final Stålheart assembly timing remain pending. A static LOD2 remains conditional on actual camera/loading tests.
+Both production exports have zero textures. The reduced game tier remains below the 25,000-triangle unit guideline; the richer LOD0 is reserved for recordings rather than runtime. The 89/39 draw counts remain explicit alpha optimization targets, so neither tier is marked game-ready and no FPS claim is made. D1–D3 damage states, colliders, animation blending and final Stålheart assembly timing remain pending. A static LOD2 remains conditional on actual camera/loading tests.
 
 The validation suite reports zero glTF errors/warnings and checks hashes, exact byte/triangle/draw counts, zero degenerate triangles, neutral/rest bounds, ground placement, hierarchy and socket parity, unique dot-free node names, clip durations and expression/limb/tool/rotor bindings.
 

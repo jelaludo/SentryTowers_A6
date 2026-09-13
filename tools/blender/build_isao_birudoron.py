@@ -31,17 +31,44 @@ COLORS = {
     "amber": (0.940, 0.480, 0.055, 1),
     "green": (0.100, 0.930, 0.320, 1),
     "red": (1.000, 0.075, 0.040, 1),
+    "purple": (0.620, 0.240, 1.000, 1),
+    "pink": (1.000, 0.180, 0.620, 1),
     "white": (0.180, 0.270, 0.290, 1),
 }
 
 FACE_PATTERNS = {
     "NEUTRAL": ["01100110", "10011001", "00000000", "00011000", "00011000", "00000000"],
     "HAPPY": ["01000010", "10100101", "00000000", "10000001", "01000010", "00111100"],
-    "CURIOUS": ["01100000", "10000110", "00000000", "00011000", "00000000", "00110000"],
+    "CURIOUS_LEFT": ["01100110", "00000000", "10001000", "00000000", "01111110", "00000000"],
+    "CURIOUS_CENTER": ["01100110", "00000000", "01000010", "00000000", "01111110", "00000000"],
+    "CURIOUS_RIGHT": ["01100110", "00000000", "00010001", "00000000", "01111110", "00000000"],
     "WORKING": ["11100111", "10100101", "11100111", "00011000", "00111100", "00011000"],
     "ALARM": ["10000001", "01000010", "00100100", "00000000", "00111100", "01000010"],
+    "DETERMINED": ["00000000", "11100111", "00100100", "00000000", "00011000", "00000000"],
+    "SAD": ["00100100", "01000010", "00100100", "00000000", "00111100", "01000010"],
+    "SKEPTICAL_A": ["01000000", "00000000", "00000110", "01000010", "00000000", "00011100"],
+    "SKEPTICAL_B": ["00100000", "01000000", "00000110", "01000010", "00000000", "00011100"],
+    "LOVE_SMALL": ["00000000", "00100100", "01111110", "01111110", "00111100", "00011000"],
+    "LOVE_LARGE": ["01000010", "11100111", "11111111", "01111110", "00111100", "00011000"],
 }
-FACE_MATERIAL = {"NEUTRAL": "cyan", "HAPPY": "green", "CURIOUS": "amber", "WORKING": "cyan", "ALARM": "red"}
+FACE_MATERIAL = {
+    "NEUTRAL": "amber", "HAPPY": "green", "CURIOUS_LEFT": "amber",
+    "CURIOUS_CENTER": "amber", "CURIOUS_RIGHT": "amber", "WORKING": "cyan",
+    "ALARM": "red", "DETERMINED": "amber", "SAD": "purple",
+    "SKEPTICAL_A": "amber", "SKEPTICAL_B": "amber",
+    "LOVE_SMALL": "pink", "LOVE_LARGE": "pink",
+}
+EMOTION_FACE_SEQUENCE = {
+    "NEUTRAL": [(0.0, "NEUTRAL"), (4.0, "NEUTRAL")],
+    "HAPPY": [(0.0, "HAPPY"), (1.6, "HAPPY")],
+    "CURIOUS": [(0.0, "CURIOUS_LEFT"), (0.6, "CURIOUS_CENTER"), (1.2, "CURIOUS_RIGHT"), (1.8, "CURIOUS_CENTER"), (2.4, "CURIOUS_LEFT")],
+    "WORKING": [(0.0, "WORKING"), (2.0, "WORKING")],
+    "ALARM": [(0.0, "ALARM"), (1.2, "ALARM")],
+    "DETERMINED": [(0.0, "DETERMINED"), (2.0, "DETERMINED")],
+    "SAD": [(0.0, "SAD"), (3.2, "SAD")],
+    "SKEPTICAL": [(0.0, "SKEPTICAL_A"), (0.8, "SKEPTICAL_B"), (1.6, "SKEPTICAL_A"), (2.4, "SKEPTICAL_A")],
+    "LOVE": [(0.0, "LOVE_SMALL"), (0.35, "LOVE_LARGE"), (0.7, "LOVE_SMALL"), (1.05, "LOVE_LARGE"), (1.4, "LOVE_SMALL"), (2.2, "LOVE_SMALL")],
+}
 CLIPS = {
     "Rotor_Cycle": (1.0, True),
     "Hover_Idle": (4.0, True),
@@ -50,6 +77,10 @@ CLIPS = {
     "Emotion_Curious": (2.4, True),
     "Emotion_Working": (2.0, True),
     "Emotion_Alarm": (1.2, False),
+    "Emotion_Determined": (2.0, True),
+    "Emotion_Sad": (3.2, True),
+    "Emotion_Skeptical": (2.4, True),
+    "Emotion_Love": (2.2, False),
     "Tool_Fabricate": (2.0, True),
 }
 
@@ -63,9 +94,9 @@ def material(key):
     mat.use_nodes = True
     bsdf = mat.node_tree.nodes.get("Principled BSDF")
     bsdf.inputs["Base Color"].default_value = color
-    bsdf.inputs["Metallic"].default_value = 0.62 if key not in {"dark", "green", "red", "cyan", "amber"} else 0.25
+    bsdf.inputs["Metallic"].default_value = 0.62 if key not in {"dark", "green", "red", "cyan", "amber", "purple", "pink"} else 0.25
     bsdf.inputs["Roughness"].default_value = 0.34 if key in {"armor", "edge"} else 0.44
-    if key in {"cyan", "amber", "green", "red"}:
+    if key in {"cyan", "amber", "green", "red", "purple", "pink"}:
         bsdf.inputs["Emission Color"].default_value = color
         bsdf.inputs["Emission Strength"].default_value = 3.5
     return mat
@@ -144,7 +175,7 @@ def beam(name, start, end, width, mat="armor", parent=None, bevel=0.0):
     return obj
 
 
-def clip(obj, name, prop, keys):
+def clip(obj, name, prop, keys, interpolation="BEZIER"):
     saved = getattr(obj, prop).copy()
     obj.animation_data_create()
     action = bpy.data.actions.new(f"{name}_{obj['export_name']}")
@@ -157,7 +188,7 @@ def clip(obj, name, prop, keys):
             for bag in strip.channelbags:
                 for curve in bag.fcurves:
                     for key in curve.keyframe_points:
-                        key.interpolation = "BEZIER"
+                        key.interpolation = interpolation
     obj.animation_data.action = None
     track = obj.animation_data.nla_tracks.new()
     track.name = name
@@ -214,11 +245,15 @@ def set_expression_clips(face_groups):
     for clip_name, (duration, _) in CLIPS.items():
         if not clip_name.startswith("Emotion_"):
             continue
-        target = clip_name.removeprefix("Emotion_").upper()
+        emotion = clip_name.removeprefix("Emotion_").upper()
+        sequence = EMOTION_FACE_SEQUENCE[emotion]
         for name, group in face_groups.items():
-            value = (1, 1, 1) if name == target else (0.001, 0.001, 0.001)
-            settle = (0.98, 0.98, 0.98) if name == target else (0.01, 0.01, 0.01)
-            clip(group, clip_name, "scale", [(0, value), (1 / FPS, settle), (2 / FPS, value), (duration, value)])
+            visible_at_start = name == sequence[0][1]
+            value = (1, 1, 1) if visible_at_start else (0.001, 0.001, 0.001)
+            settle = (0.98, 0.98, 0.98) if visible_at_start else (0.01, 0.01, 0.01)
+            keys = [(0, value), (1 / FPS, settle), (2 / FPS, value)]
+            keys.extend((time, (1, 1, 1) if name == state else (0.001, 0.001, 0.001)) for time, state in sequence[1:])
+            clip(group, clip_name, "scale", keys, interpolation="CONSTANT")
 
 
 def animate_character(body, legs, tool_yaw, tool_pitch, tool_extend, head):
@@ -253,6 +288,42 @@ def animate_character(body, legs, tool_yaw, tool_pitch, tool_extend, head):
         side = -1 if "L" in label else 1
         clip(hip, "Emotion_Alarm", "rotation_euler", [(0, (0, 0, 0)), (0.18, (0.34, -side * 0.22, -side * 0.10)), (0.72, (0.26, -side * 0.16, side * 0.08)), (1.2, (0, 0, 0))])
         clip(knee, "Emotion_Alarm", "rotation_euler", [(0, (0, 0, 0)), (0.18, (-0.48, 0, side * 0.12)), (0.72, (-0.38, 0, -side * 0.08)), (1.2, (0, 0, 0))])
+
+    # Determined: low forward posture, wide planted construction stance.
+    clip(body, "Emotion_Determined", "rotation_euler", [(0, (-0.07, 0, 0)), (1.0, (-0.09, 0, 0)), (2.0, (-0.07, 0, 0))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        front = label.startswith("F")
+        hip_pose = (-0.18 if front else 0.10, side * 0.14, -side * 0.04)
+        knee_pose = (0.20 if front else -0.12, 0, side * 0.04)
+        clip(hip, "Emotion_Determined", "rotation_euler", [(0, hip_pose), (1.0, (hip_pose[0] * 1.08, hip_pose[1], hip_pose[2])), (2.0, hip_pose)])
+        clip(knee, "Emotion_Determined", "rotation_euler", [(0, knee_pose), (1.0, (knee_pose[0] * 1.08, 0, knee_pose[2])), (2.0, knee_pose)])
+
+    # Sad: slow droop, tucked wrists and a lowered tool head in purple.
+    clip(body, "Emotion_Sad", "rotation_euler", [(0, (0.10, 0, 0.035)), (1.6, (0.15, 0, -0.035)), (3.2, (0.10, 0, 0.035))])
+    clip(head, "Emotion_Sad", "rotation_euler", [(0, (0.20, 0, 0)), (1.6, (0.30, 0, 0)), (3.2, (0.20, 0, 0))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        hip_pose = (0.24, -side * 0.12, side * 0.035)
+        knee_pose = (-0.32, 0, -side * 0.05)
+        clip(hip, "Emotion_Sad", "rotation_euler", [(0, hip_pose), (1.6, (0.30, -side * 0.15, -side * 0.025)), (3.2, hip_pose)])
+        clip(knee, "Emotion_Sad", "rotation_euler", [(0, knee_pose), (1.6, (-0.38, 0, side * 0.03)), (3.2, knee_pose)])
+
+    # Skeptical: one raised brow on the panel, side lean and a measured wrist tap.
+    clip(body, "Emotion_Skeptical", "rotation_euler", [(0, (0.01, 0, 0.075)), (0.8, (0.01, 0, 0.11)), (1.6, (0.01, 0, 0.075)), (2.4, (0.01, 0, 0.075))])
+    skeptic_hip, skeptic_knee, skeptic_claw = legs["FR"]
+    clip(skeptic_hip, "Emotion_Skeptical", "rotation_euler", [(0, (-0.18, 0.12, -0.06)), (0.8, (-0.27, 0.16, -0.10)), (1.6, (-0.18, 0.12, -0.06)), (2.4, (-0.18, 0.12, -0.06))])
+    clip(skeptic_knee, "Emotion_Skeptical", "rotation_euler", [(0, (0.28, 0, 0.08)), (0.8, (0.16, 0, -0.04)), (1.6, (0.28, 0, 0.08)), (2.4, (0.28, 0, 0.08))])
+    clip(skeptic_claw, "Emotion_Skeptical", "rotation_euler", [(0, (0, 0, -0.10)), (0.8, (0, 0, 0.14)), (1.6, (0, 0, -0.10)), (2.4, (0, 0, -0.10))])
+
+    # Love: a rare one-shot double heart pulse with a small self-hug gesture.
+    clip(body, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (-0.055, 0, -0.035)), (0.7, (0.01, 0, 0.03)), (1.05, (-0.055, 0, -0.03)), (1.4, (0.01, 0, 0.025)), (2.2, (0, 0, 0))])
+    for label in ("FL", "FR"):
+        hip, knee, claw = legs[label]
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (-0.34, -side * 0.28, side * 0.12)), (1.05, (-0.42, -side * 0.34, side * 0.15)), (1.4, (-0.30, -side * 0.24, side * 0.10)), (2.2, (0, 0, 0))])
+        clip(knee, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (0.55, 0, -side * 0.18)), (1.05, (0.64, 0, -side * 0.22)), (1.4, (0.48, 0, -side * 0.15)), (2.2, (0, 0, 0))])
+        clip(claw, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (0, 0, side * 0.20)), (1.05, (0, 0, -side * 0.18)), (1.4, (0, 0, side * 0.14)), (2.2, (0, 0, 0))])
 
     clip(tool_yaw, "Tool_Fabricate", "rotation_euler", [(0, (0, 0, -0.22)), (1, (0, 0, 0.22)), (2, (0, 0, -0.22))])
     clip(tool_pitch, "Tool_Fabricate", "rotation_euler", [(0, (0.10, 0, 0)), (0.5, (-0.12, 0, 0)), (1, (0.10, 0, 0)), (1.5, (-0.12, 0, 0)), (2, (0.10, 0, 0))])
@@ -537,6 +608,7 @@ def export_all():
             "name": "ISAO-Birudorōn / Production alpha", "file": filename,
             "lod": level, "damage_level": 0, "production_lod": True,
             "production_status": "alpha", "derived": False, "game_ready": False,
+            "plot_m": [3, 3],
             "bytes": path.stat().st_size, "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             "triangles": triangles, "draw_calls": draws,
             "nodes": len(doc.get("nodes", [])),

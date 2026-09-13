@@ -13,7 +13,7 @@ export const collections=[
 ['hover-tank','MÖRK','Combat','MÖRK hover tank plus fitted armored transport containers: empty, loaded and a numbered three-bay deployment diorama.','Tank + 3 transport add-ons','Animated'],
 ['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 equipment variants','Animated'],
 ['reckon-guard','Reckon-Guard','Combat','Inspect the autonomous guard drone and its moving assemblies.','Interactive model','Animated'],
-['isao-birudoron','ISAO-Birudorōn / ビルドローン','Characters','Production-alpha Japanese construction character with expressive LED, limb, rotor and fabrication-tool animation.','2 production tiers · 8 clips · Concept preserved','Production alpha'],
+['isao-birudoron','ISAO-Birudorōn / ビルドローン','Characters','Production-alpha Japanese construction character with animated LED emotions, limb acting, rotors and fabrication tool.','2 production tiers · 12 clips · Concept preserved','Production alpha'],
 ['game-assets','HUGIN + Stålheart / Game editions','Industry','Reduced-mesh editions of the launchpad and planetary printer, together for comparison.','Around 40K triangles each','Game-ready'],
 ['launchpad','HUGIN','Industry','Reusable entry vehicle, launch platform and articulated cargo-catching arm.','2 detail levels · 4 states','Animated'],
 ['terraformer','Stålheart / Terraformer 3000','Industry','An imposing rail-mounted printer with a six-joint arm and twin material reservoirs.','2 detail levels · 4 states','Animated'],

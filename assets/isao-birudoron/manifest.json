@@ -24,6 +24,24 @@
     ],
     "emotion_rule": "Every authored emotion combines an LED-panel expression with a body, limb or tool-head gesture; the screen alone is not the performance."
   },
+  "emotion_system": {
+    "reference_url": "https://kai-denrei.github.io/braille-lab/emotions/index.html",
+    "adaptation_note": "Original 8 × 6 LED glyphs inspired by the reference's emotional readability; no Braille cells or encoded characters are embedded. Curious adapts the scan principle by moving only the pupils left, center and right.",
+    "performance_channels": [
+      "LED dot pattern",
+      "LED pattern animation",
+      "limb and body animation",
+      "emotion-family color"
+    ],
+    "palette": {
+      "neutral_puzzled_determined": "amber",
+      "happy_positive": "green",
+      "alarm_angry_adjacent": "red",
+      "sad_negative": "purple",
+      "working_functional": "cyan",
+      "love_rare": "pink"
+    }
+  },
   "assets": [
     {
       "id": "isao_birudoron_initial_concept",
@@ -93,12 +111,16 @@
       "production_status": "alpha",
       "derived": false,
       "game_ready": false,
-      "bytes": 1577072,
-      "sha256": "43e27fc9bce30c70376a7e15e077560fde1d8b1b4b002af10dc694c5f9d71ae4",
-      "triangles": 21804,
-      "draw_calls": 81,
-      "nodes": 126,
-      "materials": 9,
+      "plot_m": [
+        3,
+        3
+      ],
+      "bytes": 2485808,
+      "sha256": "daefd51e032ba51f61c2153ba8e24287fafc0eaf537da30cf6af987818a7b488",
+      "triangles": 34116,
+      "draw_calls": 89,
+      "nodes": 142,
+      "materials": 11,
       "embedded_textures": 0,
       "bounds_min_m": [
         -0.879,
@@ -147,6 +169,26 @@
         {
           "name": "Emotion_Alarm",
           "duration_s": 1.2,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Determined",
+          "duration_s": 2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Sad",
+          "duration_s": 3.2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Skeptical",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Love",
+          "duration_s": 2.2,
           "loop": false
         },
         {
@@ -262,9 +304,17 @@
         "BODY_PITCH",
         "CARGO_GRIP",
         "FACE_ALARM",
-        "FACE_CURIOUS",
+        "FACE_CURIOUS_CENTER",
+        "FACE_CURIOUS_LEFT",
+        "FACE_CURIOUS_RIGHT",
+        "FACE_DETERMINED",
         "FACE_HAPPY",
+        "FACE_LOVE_LARGE",
+        "FACE_LOVE_SMALL",
         "FACE_NEUTRAL",
+        "FACE_SAD",
+        "FACE_SKEPTICAL_A",
+        "FACE_SKEPTICAL_B",
         "FACE_WORKING",
         "ISAO_ROOT",
         "LED_PANEL",
@@ -319,12 +369,16 @@
       "production_status": "alpha",
       "derived": false,
       "game_ready": false,
-      "bytes": 736552,
-      "sha256": "18b96ed41fe92935e26e1cb49de426b4a79155c01d4034955edb7729cd2bc534",
-      "triangles": 7496,
-      "draw_calls": 31,
-      "nodes": 76,
-      "materials": 5,
+      "plot_m": [
+        3,
+        3
+      ],
+      "bytes": 1171336,
+      "sha256": "cb0289d331da02da64673c05ce6483c8a26d80a8033e3d75e2c052f73f81d6b9",
+      "triangles": 12512,
+      "draw_calls": 39,
+      "nodes": 92,
+      "materials": 7,
       "embedded_textures": 0,
       "bounds_min_m": [
         -0.879,
@@ -373,6 +427,26 @@
         {
           "name": "Emotion_Alarm",
           "duration_s": 1.2,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Determined",
+          "duration_s": 2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Sad",
+          "duration_s": 3.2,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Skeptical",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Love",
+          "duration_s": 2.2,
           "loop": false
         },
         {
@@ -488,9 +562,17 @@
         "BODY_PITCH",
         "CARGO_GRIP",
         "FACE_ALARM",
-        "FACE_CURIOUS",
+        "FACE_CURIOUS_CENTER",
+        "FACE_CURIOUS_LEFT",
+        "FACE_CURIOUS_RIGHT",
+        "FACE_DETERMINED",
         "FACE_HAPPY",
+        "FACE_LOVE_LARGE",
+        "FACE_LOVE_SMALL",
         "FACE_NEUTRAL",
+        "FACE_SAD",
+        "FACE_SKEPTICAL_A",
+        "FACE_SKEPTICAL_B",
         "FACE_WORKING",
         "ISAO_ROOT",
         "LED_PANEL",
@@ -570,7 +652,7 @@
   "viewer_controls": [
     "orbit",
     "LOD and preserved-concept selector",
-    "five embedded production emotion clips",
+    "nine embedded production emotion clips",
     "hover and rotor motion",
     "fabrication nozzle clip",
     "download selected plain GLB and Blender source"
