@@ -56,9 +56,9 @@ The message “cannot start server in background mode” is expected from the en
 
 `build_launchpad.py` builds a reusable entry vehicle with three flat landing feet, launcher, cargo-catching arm and D0–D3 destruction states. D0/D1 contain the 20-second `Cargo_Recovery_Cycle`. Source: `source/blender/a6-launchpad.blend`; preview: `launchpad/`; validation: `node tools/asset-pipeline/validate-launchpad.mjs`.
 
-## Game geometry for HUGIN and Stålheart
+## Landmark LOD geometry for HUGIN and Stålheart
 
-`build_game_lods.py` derives eight ~40K-triangle assets from the detailed Blender scenes, preserving pivots and animation. Follow with `node tools/asset-pipeline/build-game-assets.mjs` to batch sibling geometry and `node tools/asset-pipeline/validate-game-assets.mjs` to compare motion with the originals. The reduced editable scenes end in `-game.blend`; exports are in `assets/game-ready/`; the combined comparison workshop is `game-assets/`.
+`node tools/asset-pipeline/build-landmark-lods.mjs` derives current-contract LOD1 and static LOD2 files from the preserved detailed plain GLBs, across D0–D3. `node tools/asset-pipeline/validate-landmark-lods.mjs` checks plain and decoded Meshopt copies, measured budgets, names, transforms, silhouette bounds and sampled primary motion. Outputs and manifests stay beside the detailed families in `assets/launchpad/` and `assets/terraformer/`; the combined comparison workshop is `game-assets/`. The older `build_game_lods.py` pipeline and `assets/game-ready/` outputs are retained as legacy 40k comparisons.
 
 ## MÖRK heavy hover tank
 

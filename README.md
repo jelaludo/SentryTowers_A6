@@ -64,7 +64,7 @@ The [Terraformer 3000 / Stålheart](terraformer/) adds a 36 m planetary printer 
 
 The [HUGIN launch and recovery complex](launchpad/) adds a reusable tripod-legged rocket, launch tower, cargo-catching arm and receiving apron. Includes an animated cargo transfer and four destruction states. [Integration notes](assets/launchpad/README.md).
 
-The [game asset workshop](game-assets/) displays **HUGIN and Stålheart together**, with game/original comparison and all four destruction states. Eight game variants target approximately **40,000 triangles each**, preserve animation, and reduce material batches. [Counts and integration notes](assets/game-ready/README.md).
+The [landmark LOD workshop](game-assets/) displays **HUGIN and Stålheart together**, with current LOD1/LOD2, preserved legacy 40k derivatives and detailed originals across all four destruction states. Current candidates meet the numeric landmark budgets and preserve the primary animation controls; game-camera and reference-phone review remain pending. [HUGIN LOD notes](assets/launchpad/README-LODS.md) · [Stålheart LOD notes](assets/terraformer/README-LODS.md).
 
 The [MÖRK heavy hover tank](hover-tank/) adds a lean vehicle with streamlined nacelles, cyan lift fields, a long recoiling cannon, independent front plasma mounts and a rear-deck nine-lens ammunition display with four color states. Includes power-on lift, heavy shutdown, aiming and firing clips, four destruction states and an interactive magazine demonstration. [Integration notes](assets/hover-tank/README.md).
 
@@ -74,8 +74,9 @@ The [SKYWARD antenna array](antenna-array/) adds an original 18 m radio dish in 
 
 ## Developer collaboration
 
-- [Best Practices](best-practices/) — game export contract and budgets.
 - [Devlog](devlog/) — completed work and pending module requests.
+- [Roadmap](roadmap/) — ordered, measurable work agreed with the game designer.
+- [Best Practices](best-practices/) — game export contract and budgets.
 - [Original game developer notes](docs/ASSET-COLLABORATION.md).
 
 Rebuild documentation and shared navigation with `python3 tools/build-workshop-docs.py`; check links and viewer control preservation with `python3 tools/validate-workshop-navigation.py`.

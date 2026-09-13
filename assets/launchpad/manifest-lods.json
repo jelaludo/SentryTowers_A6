@@ -1,0 +1,1094 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 2,
+  "family": "hugin_launchpad",
+  "label": "HUGIN launch and recovery complex",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "budgets": {
+    "lod1": {
+      "triangles_max": 8000,
+      "draw_calls_max": 10,
+      "plain_bytes_max": 400000
+    },
+    "lod2": {
+      "triangles_max": 3000,
+      "draw_calls_max": 1,
+      "plain_bytes_max": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": "lod2",
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "review": "Tune with the game camera and reference phone before release."
+  },
+  "derivation": {
+    "method": "topology-preserving Meshoptimizer simplification from preserved detailed plain GLBs; geometry is consolidated by animated control for LOD1 and to one static mesh for LOD2",
+    "flexible_feed_note": ""
+  },
+  "assets": [
+    {
+      "id": "hugin_launchpad_d0_lod1",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d0_lod1.glb",
+      "meshopt_file": "hugin_launchpad_d0_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 0,
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d0.glb",
+      "source_sha256": "dbc9cd294a036341a44753eed78581c29cd44a6c7389a028315ee9b46ddb2a6a",
+      "sha256": "496ece1602030184cf84102425549e4faa4bf993703f3c43cdbe99712d90e743",
+      "bytes": 286776,
+      "meshopt_bytes": 76288,
+      "meshopt_sha256": "c1175000ac68b6159cdac34eebd260dc42421c2c5b033d73b6f0ae3a6039e95e",
+      "triangles": 7190,
+      "draw_calls": 7,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [
+        {
+          "name": "Cargo_Recovery_Cycle",
+          "duration_s": 20,
+          "loop": true
+        }
+      ],
+      "animations": [
+        "Cargo_Recovery_Cycle"
+      ],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.387341499328613
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.430312156677246
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d0_lod2",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d0_lod2.glb",
+      "meshopt_file": "hugin_launchpad_d0_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 0,
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d0.glb",
+      "source_sha256": "dbc9cd294a036341a44753eed78581c29cd44a6c7389a028315ee9b46ddb2a6a",
+      "sha256": "dd7a2b860247c02a78988761cf375d0d1771e7a5303153ca749efc1427a7f8a0",
+      "bytes": 71532,
+      "meshopt_bytes": 25164,
+      "meshopt_sha256": "09977a3039eeaa6823b382463e192f1a2eecc16f5b22d0385173936300bb8a55",
+      "triangles": 2188,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.340068817138672
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.383039474487305
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d1_lod1",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d1_lod1.glb",
+      "meshopt_file": "hugin_launchpad_d1_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 1,
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d1.glb",
+      "source_sha256": "92469df6b61b9dc5b2ec5e5099227e48afb25438ce7547938e030d18bb05c2b9",
+      "sha256": "abb3b4a95b2d1fbfb701389a27d6d759262d2092015b35753debd9ab98bcf0d4",
+      "bytes": 287836,
+      "meshopt_bytes": 76848,
+      "meshopt_sha256": "29dbb6b61cad9fa62e6d2e03c2e8c1b92ed5b9e2f6f4f598fb1ad729cb3d2579",
+      "triangles": 7192,
+      "draw_calls": 7,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [
+        {
+          "name": "Cargo_Recovery_Cycle",
+          "duration_s": 20,
+          "loop": true
+        }
+      ],
+      "animations": [
+        "Cargo_Recovery_Cycle"
+      ],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.387341499328613
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.430312156677246
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d1_lod2",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d1_lod2.glb",
+      "meshopt_file": "hugin_launchpad_d1_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 1,
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d1.glb",
+      "source_sha256": "92469df6b61b9dc5b2ec5e5099227e48afb25438ce7547938e030d18bb05c2b9",
+      "sha256": "984ac061c5891e1b43fcf92799d42a7c3401d1b3b3d519993d135b2866fbe690",
+      "bytes": 71888,
+      "meshopt_bytes": 25336,
+      "meshopt_sha256": "38bbe7705d3a5af52f3962b519b1951e699a87691e8a7e5a9ba415dcdc297ad1",
+      "triangles": 2188,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.340068817138672
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.383039474487305
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d2_lod1",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d2_lod1.glb",
+      "meshopt_file": "hugin_launchpad_d2_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 2,
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d2.glb",
+      "source_sha256": "39d0bfe8cd5d2688e5b070ba6f02e3d23b6dd7591788b1d4bd19fa3166a5b704",
+      "sha256": "c999800e8bfe516841a66ff1e54a06389bc26e95aed0a3671c8614d507a50eb8",
+      "bytes": 213444,
+      "meshopt_bytes": 62612,
+      "meshopt_sha256": "f47a98fafbde9ee1d54ebd2685d407bf11650baaa6a814d25da881aaa22269ff",
+      "triangles": 7138,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.387341499328613
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.430312156677246
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d2_lod2",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d2_lod2.glb",
+      "meshopt_file": "hugin_launchpad_d2_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 2,
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d2.glb",
+      "source_sha256": "39d0bfe8cd5d2688e5b070ba6f02e3d23b6dd7591788b1d4bd19fa3166a5b704",
+      "sha256": "0e3afd76fd4fff618555dc2a2119118bcabeef78e9698e59e2348bb8e4b9c6e6",
+      "bytes": 72452,
+      "meshopt_bytes": 25700,
+      "meshopt_sha256": "2c4f4b7681295c9837623e9a73b68900898a8314c712a5a170c4bd66e7ad69dd",
+      "triangles": 2186,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0,
+          -12.340068817138672
+        ],
+        "max": [
+          14.390000343322754,
+          33.099998474121094,
+          12.042970657348633
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          33.099998474121094,
+          24.383039474487305
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          33.100000001490116,
+          12.049999952316284
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          33.100000001490116,
+          24.43999993801117
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d3_lod1",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d3_lod1.glb",
+      "meshopt_file": "hugin_launchpad_d3_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 3,
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d3.glb",
+      "source_sha256": "527dc6a5d966115726877bfbbd2a203bd7639527076cc2b280acd3e9d00e7dc1",
+      "sha256": "b2c4e059474537b65379ced94ebfc10eeeb1107bac4a0c86e061a5c77169c9e6",
+      "bytes": 203420,
+      "meshopt_bytes": 57204,
+      "meshopt_sha256": "2a7de5b444fb4ec14cf4294cd3480a318418d1b96c71aaaffd91b797653a2155",
+      "triangles": 7188,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.387341499328613
+        ],
+        "max": [
+          14.390000343322754,
+          8.125585556030273,
+          16.559999465942383
+        ],
+        "dimensions_m": [
+          28.140000343322754,
+          8.125585556030273,
+          28.947340965270996
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          8.129360014277076,
+          16.55999994277954
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          8.129360014277076,
+          28.949999928474426
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hugin_launchpad_d3_lod2",
+      "family": "hugin_launchpad",
+      "file": "hugin_launchpad_d3_lod2.glb",
+      "meshopt_file": "hugin_launchpad_d3_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 3,
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "hugin_launchpad_d3.glb",
+      "source_sha256": "527dc6a5d966115726877bfbbd2a203bd7639527076cc2b280acd3e9d00e7dc1",
+      "sha256": "af30083ed6c3425afe0c316850fd0d8585f948547b5e573963f6117e2157892d",
+      "bytes": 69300,
+      "meshopt_bytes": 24392,
+      "meshopt_sha256": "0bc50a582f693f843d5efc54435484e5e9004c0d541582e199d132cbbab54cc3",
+      "triangles": 2193,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        40,
+        40
+      ],
+      "sockets": [
+        {
+          "id": "FUEL",
+          "kind": "fuel",
+          "position_m": [
+            13,
+            0.8,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "launch_pad",
+          "center_m": [
+            -3,
+            1.3,
+            0
+          ],
+          "size_m": [
+            17.4,
+            2.6,
+            17.4
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "tower",
+          "center_m": [
+            9,
+            15,
+            -3
+          ],
+          "size_m": [
+            5.6,
+            30,
+            6
+          ],
+          "condition": "D0_D1_D2"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "CATCHER_LIFT",
+        "CATCHER_SHOULDER",
+        "CATCHER_ELBOW",
+        "CATCHER_WRIST",
+        "CAPTURE_JAW_L",
+        "CAPTURE_JAW_R",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "REUSABLE_BOOSTER",
+        "LANDING_LEG_01",
+        "LANDING_LEG_02",
+        "LANDING_LEG_03",
+        "FLAT_LANDING_FOOT_01",
+        "FLAT_LANDING_FOOT_02",
+        "FLAT_LANDING_FOOT_03",
+        "SOCKET_FUEL"
+      ],
+      "bounds": {
+        "min": [
+          -13.742677688598633,
+          0.0026360154151916504,
+          -12.387341499328613
+        ],
+        "max": [
+          14.390000343322754,
+          8.091358184814453,
+          16.559999465942383
+        ],
+        "dimensions_m": [
+          28.132678031921387,
+          8.088722169399261,
+          28.947340965270996
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -13.75,
+          0,
+          -12.389999985694885
+        ],
+        "max": [
+          14.389999985694885,
+          8.129360014277076,
+          16.55999994277954
+        ],
+        "dimensions_m": [
+          28.139999985694885,
+          8.129360014277076,
+          28.949999928474426
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

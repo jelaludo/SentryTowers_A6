@@ -4,11 +4,28 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 ## Open requests from the game developer
 
-1. **Terraformer 3000 and HUGIN launch pad — pending.** Create game tiers targeting 8,000 triangles, 10 draws and 400 KB plain GLB or less, plus distance tiers targeting 3,000 triangles, one draw and 250 KB. Preserve current node names so `Terraforming_Cycle` and `Cargo_Recovery_Cycle` continue to bind. The existing approximately 40k-triangle game versions exceed the new target.
+1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before marking them game-ready. The existing approximately 40k-triangle files remain labeled legacy comparisons.
 2. **Robotic assembly line — pending.** Apply the same landmark budgets. The developer reports the current asset at approximately 97k triangles / 7.2 MB.
 3. **SH02 rocket — pending.** Add a distance tier for the landing island as seen from the map.
 
-The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / HUGIN and Stålheart contract LOD candidates
+
+**Library candidate completed; game-camera/reference-phone review pending.** Added standalone LOD1 and static LOD2 exports for HUGIN and Stålheart across D0–D3. The preserved detailed plain GLBs remain the authoring source; the older approximately 40k derivatives remain available only for regression comparison.
+
+| Family | Tier | Triangle range | Draw range | Plain-byte range |
+| --- | --- | ---: | ---: | ---: |
+| HUGIN | LOD1 | 7,138–7,192 | 1–7 | 203,420–287,836 |
+| HUGIN | LOD2 | 2,186–2,193 | 1 | 69,300–72,452 |
+| Stålheart | LOD1 | 7,146–7,342 | 1–10 | 210,524–329,980 |
+| Stålheart | LOD2 | 2,167–2,196 | 1 | 73,052–76,780 |
+
+D0/D1 LOD1 retain `Cargo_Recovery_Cycle` at 20 seconds and `Terraforming_Cycle` at 16 seconds. HUGIN keeps six animated recovery controls; Stålheart keeps the gantry, carriage, tool lift and J1–J6 motion. The forty individually animated flexible-feed segments are omitted from Stålheart LOD1 because they do not read at its intended distance; primary feeds and machine silhouette remain. LOD2 files contain one static vertex-colour mesh and one material, while stable lookup controls remain as non-articulating nodes.
+
+Validation reports zero glTF errors/warnings and checks exact hashes, bytes, triangles, draws, material/texture counts, finite non-degenerate geometry, silhouette bounds, unique dot-free node names, required nodes, local transform parity, clip names/durations, sampled primary-control motion and decoded Meshopt copies. A separate rendered visual pass confirms recognizable intact silhouettes and meaningful reduction between tiers. No FPS improvement is claimed.
+
+The Landmark LOD Workshop now opens on the current LOD1 candidates and exposes LOD2, legacy and detailed comparison with truthful review labels and direct downloads. Hand-off folders: `assets/launchpad/` and `assets/terraformer/` at the commit containing this entry.
 
 ## 13 September 2026 / MÖRK and ISAO static distance tiers
 

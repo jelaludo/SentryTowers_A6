@@ -14,7 +14,7 @@ export const collections=[
 ['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 equipment variants','Animated'],
 ['reckon-guard','Reckon-Guard','Combat','Inspect the autonomous guard drone and its moving assemblies.','Interactive model','Animated'],
 ['isao-birudoron','ISAO-Birudorōn / ビルドローン','Characters','Production-alpha Japanese construction character with animated LED emotions, limb acting, rotors and fabrication tool.','3 production tiers · 17 clips · Concept preserved','Production alpha'],
-['game-assets','HUGIN + Stålheart / Game editions','Industry','Reduced-mesh editions of the launchpad and planetary printer, together for comparison.','Around 40K triangles each','Game-ready'],
+['game-assets','HUGIN + Stålheart / Landmark LODs','Industry','Current-contract LOD1/LOD2 candidates beside preserved legacy and detailed geometry.','D0–D3 · review pending','Contract candidate'],
 ['launchpad','HUGIN','Industry','Reusable entry vehicle, launch platform and articulated cargo-catching arm.','2 detail levels · 4 states','Animated'],
 ['terraformer','Stålheart / Terraformer 3000','Industry','An imposing rail-mounted printer with a six-joint arm and twin material reservoirs.','2 detail levels · 4 states','Animated'],
 ['assembly-line','Robotic assembly line','Industry','A long conveyor, articulated robots, gantries and reusable factory modules.','Complete line + modules','Animated'],

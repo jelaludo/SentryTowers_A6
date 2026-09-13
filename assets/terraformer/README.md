@@ -11,6 +11,8 @@ Four authored destruction states share a ground-centered origin:
 
 [Interactive preview](../../terraformer/) includes state selection, animation playback/scrubbing, neutral materials and collision/socket overlays. [Editable Blender scene](../../source/blender/a6-terraformer.blend) contains all four variants arranged side by side. The presentation collection includes a 1.8 m maintenance worker and printed regolith courses for scale; those are excluded from the machine GLBs. Only D0 is enabled for the hero render by default; enable the other state collections for rendering their gallery positions.
 
+[Runtime LOD candidate notes](README-LODS.md) document the separate LOD1/LOD2 damage matrix, measured budgets, selection guidance and validation. The detailed files described below remain the preserved masters.
+
 Rebuild from the project root:
 
 ```sh

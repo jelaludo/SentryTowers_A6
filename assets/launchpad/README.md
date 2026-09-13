@@ -11,6 +11,8 @@ The tower carries an elevator-mounted two-link mechanical arm with a counter-rot
 
 [Interactive preview](../../launchpad/) includes D0–D3 selection, timeline/speed controls, capture/lift/transfer/unload shortcuts, neutral materials and socket/collision overlays. A 1.8 m worker provides scale. [Editable Blender source](../../source/blender/a6-launchpad.blend) contains the four states in a comparison gallery; only D0 is enabled for the hero render by default.
 
+[Runtime LOD candidate notes](README-LODS.md) document the separate LOD1/LOD2 damage matrix, measured budgets, selection guidance and validation. The detailed files described below remain the preserved masters.
+
 ```sh
 blender --background --python-exit-code 1 --python tools/blender/build_launchpad.py
 node tools/asset-pipeline/validate-launchpad.mjs
