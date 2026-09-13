@@ -1,6 +1,6 @@
 # Arrival recycler / first ISAO build
 
-**Status:** game-design concept; no recycler, rocket-salvage states or composite exports have been authored yet.
+**Status:** first panel-to-barrel vertical slice delivered as a contract candidate; complete SH02 dismantling stages and game-side acceptance remain pending.
 
 ## Story purpose
 
@@ -86,10 +86,10 @@ The first review should show three game-camera moments: untouched rocket and emp
 
 ## Production order
 
-1. Approve the silhouette, placement and working name using a blockout composite.
-2. Add the cutter/tool socket to a derived arm module and author one removable SH02 panel.
-3. Build the Seed Foundry vertical slice through one filled barrel.
-4. Confirm the sequence reads without UI from the intended game camera.
-5. Extend the rocket section map, resource events, sound package and distance tier only after that slice is approved.
+1. **Delivered:** blockout silhouette, AFR-01 working name and SH02 viewer composition.
+2. **Delivered:** cutter/tool socket, reused detailed service arm, articulated game proxy and `SALVAGE_PANEL_00`.
+3. **Delivered:** sixteen-second Seed Foundry vertical slice through one filled barrel, plus a four-second processor loop and static distance tier.
+4. Confirm the sequence reads without UI from the intended game camera and measure it on the reference phone.
+5. Extend the rocket section map, gameplay resource events and sound package only after that slice is approved.
 
 This ordering tests the central fantasy—ISAO turns the vehicle that delivered him into the factory that enables everything after it—before investing in a complete rocket disassembly.

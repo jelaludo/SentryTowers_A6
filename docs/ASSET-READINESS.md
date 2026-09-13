@@ -17,6 +17,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | --- | --- | --- |
 | `korp/` | Contract candidate | D0 LOD0/1/2 naming and mechanics validate; game-camera and reference-phone acceptance are pending. |
 | `fabrication-lab/` | Contract candidate | Canonical Stålheart LOD0/1/2 composition and wireframe-only MÖRK one-shot validate; LOD1 byte/draw cost and final game-camera sequence remain under review. |
+| `arrival-foundry/` | Contract candidate | AFR-01 D0 LOD0/1/2 and the first panel-to-barrel sequence validate; complete SH02 salvage staging, gameplay resource events, game-camera and phone review remain pending. |
 | `ammunition/` | Original | Reusable game/display package, but its current naming migration and consuming-weapon review are pending. |
 | `hugin-flight/` | Contract candidate | Animated D0 source plus static landing-island LOD2; map threshold and phone review are pending. |
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |
@@ -28,7 +29,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | `game-assets/` | Contract candidate | HUGIN/Stålheart LOD1/2 across D0–D3; game-camera and reference-phone review are pending. |
 | `launchpad/` | Contract candidate | Detailed originals plus current HUGIN LOD1/2 candidates; older 40k reductions remain legacy. |
 | `terraformer/` | Contract candidate | Detailed originals plus current Stålheart LOD1/2 candidates; older 40k reductions remain legacy. |
-| `assembly-line/` | Contract candidate | D0–D3 LOD1/2 validate; belt treatment, game camera and phone review are pending. |
+| `assembly-line/` | Contract candidate | D0–D3 LOD1/2 validate with a continuous reduced-tier conveyor and omitted rover workpieces; game camera and phone review are pending. |
 | `warehouse-props/` | Original | Modular authored set awaiting current schema/naming/LOD review. |
 | `solar-power/` | Contract candidate | Reference three-tier D0–D3 export set; game-side camera/threshold/phone evidence is still required for Reviewed runtime. |
 | `micro-reactor/` | Original | Authored damage family awaiting current schema/naming/LOD review. |

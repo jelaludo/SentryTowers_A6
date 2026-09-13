@@ -5,17 +5,33 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 ## Open requests from the game developer
 
 1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Stålheart now uses the same canonical tier IDs in its standalone, landmark-comparison and MÖRK-fabrication appearances. Confirm appearance, swap distance and FPS in the game camera on the reference phone before assigning Reviewed runtime status. The existing approximately 40k-triangle files remain labeled legacy comparisons.
-2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Confirm silhouettes, belt treatment, swap distance and FPS in the game camera on the reference phone.
+2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Reduced tiers now omit the rover workpieces and carry a single continuous conveyor silhouette. Confirm the revised composition, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
-4. **AFR-01 Seed Foundry / arrival recycling sequence — concept captured; production not started.** ISAO's first build should reuse the articulated Assembly Line service arm to dismantle the SH02, process recovered structure with local mineral feed, and fill repurposed cargo-barrel geometry with ferroceramic precursor for Stålheart. Prove one panel-to-barrel diegetic cycle before extending the full rocket teardown. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
+4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle, detailed/game/distance tiers, sockets and event timings validate. Confirm the site composition and causal read in the game camera before extending the complete rocket teardown. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## 13 September 2026 / AFR-01 Seed Foundry vertical slice and Assembly conveyor
+
+**Contract candidates delivered; game-camera/reference-phone review pending.** AFR-01 now demonstrates ISAO's first build as a sixteen-second diegetic chain: the reused service arm aims at `SALVAGE_PANEL_00`, blue cutter sparks mark contact, the panel transfers into the processor, the induction signal and separator activate, and a relabeled construction-feed barrel fills for Stålheart. A separate four-second `Foundry_Process_Cycle` supports continuing operation.
+
+| AFR-01 tier | Triangles | Draw calls | Plain bytes | Meshopt bytes | Motion |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Detailed / LOD0 | 6,788 | 41 | 439,772 | 176,428 | Two clips; reused detailed arm and barrel structure |
+| Game / LOD1 | 1,660 | 8 | 92,728 | 42,504 | Two clips; rigid articulated arm proxy |
+| Distance / LOD2 | 1,228 | 1 | 52,224 | 19,336 | Static lookup-only tier |
+
+The SH02 remains a separate preserved asset and is composed as viewer context at `[-6.8, 0, 0]`; its cost is excluded from the AFR metrics. `rocket_salvage_stage` remains independent of D0–D3 and LOD selection. The detailed barrel reuses the source structure while omitting the misleading fuel placard and adding an AFR cyan collar. Runtime sparks should come from `SOCKET_CUTTER_TIP`, using the authored `CUTTER_ARC_ON` and `CUTTER_ARC_OFF` cues instead of shipping the preview mesh as a particle system. The complete rocket section map, resource-inventory wiring, audio and D1–D3 remain future work.
+
+The Assembly Line LOD generator now omits all four detailed rover workpieces and replaces six reduced conveyor modules with a single dark 2.05 × 0.22 × 23.9 m oblong. D0 LOD1 measures 5,186 triangles / 3 draws / 392,648 bytes; its eight-arm 36-track cycle remains intact. D0–D3 LOD1/LOD2, decoded Meshopt copies, names, sockets, damage distinction and the continuous belt bounds validate. A fresh Blender render confirms the conveyor reads clearly beneath the arms.
+
+Hand-off folders: `assets/arrival-foundry/` and `assets/assembly-line/` at the commit containing this entry. Editable AFR review scene: `source/blender/afr-01-seed-foundry.blend`.
+
 ## 13 September 2026 / Assembly viewer repair and arrival recycler concept
 
-**Viewer repair completed; asset production remains queued.** The Robotic Assembly Line viewer previously called `toLocaleString()` on absent `draw_calls` metadata for detailed reusable modules, so selecting the Articulated service arm could stop at `LOAD FAILED`. The viewer now measures loaded render primitives as a fallback and safely displays missing numeric or plot metadata. The module cache key was refreshed. The documentation builder now preserves the Roadmap's global item numbers across section breaks.
+**Viewer repair completed; concept captured at this checkpoint.** The Robotic Assembly Line viewer previously called `toLocaleString()` on absent `draw_calls` metadata for detailed reusable modules, so selecting the Articulated service arm could stop at `LOAD FAILED`. The viewer now measures loaded render primitives as a fallback and safely displays missing numeric or plot metadata. The module cache key was refreshed. The documentation builder now preserves the Roadmap's global item numbers across section breaks.
 
-Captured the game designer's first-build sequence in the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md). The proposed AFR-01 Seed Foundry reuses the 3,280-triangle articulated arm, the preserved animated SH02 arrival source and instanced barrel geometry. Salvage stages remain distinct from damage states and LOD tiers. Blue cutter sparks are specified as socket-driven runtime VFX; the new geometry is limited to the cutter and compact sort/refine/fill device. No recycler GLB, rocket dismantling state, performance result or Reviewed runtime claim exists yet.
+Captured the game designer's first-build sequence in the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md). At this checkpoint no recycler GLB existed; the later entry above records the delivered first vertical slice. Salvage stages remain distinct from damage states and LOD tiers, and blue cutter sparks remain specified as socket-driven runtime VFX.
 
 ## 13 September 2026 / Canonical Stålheart and wireframe-only MÖRK fabrication
 
@@ -64,8 +80,8 @@ The HUGIN/SH02 Workshop viewer now switches between the animated detailed rocket
 
 | Tier | Triangle range | Draw calls | Plain-byte range | Motion |
 | --- | ---: | ---: | ---: | --- |
-| LOD1 | 4,192–4,982 | 1 | 129,732–389,384 | D0/D1: `Assembly_Cycle`, 8.0 s, 36 tracks |
-| LOD2 | 2,190–2,938 | 1 | 67,624–81,316 | Static |
+| LOD1 | 4,196–5,188 | 1–3 | 125,800–393,336 | D0/D1: `Assembly_Cycle`, 8.0 s, 36 tracks |
+| LOD2 | 2,074–2,932 | 1 | 60,264–81,196 | Static |
 
 D0/D1 LOD1 converts the eight articulated robot assemblies to one rigid-weighted skinned mesh with a 45-joint skeleton. It retains all 36 useful arm-control tracks and matches sampled source transforms. The original 180 tread and 12 roller targets are omitted because hundreds of individually animated objects are not an appropriate runtime belt implementation; use a shader/material offset or one engine control if belt travel must read.
 
