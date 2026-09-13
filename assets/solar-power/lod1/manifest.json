@@ -273,7 +273,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 341588,
+      "bytes": 341548,
       "triangles": 3904
     },
     {
@@ -409,7 +409,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 362328,
+      "bytes": 362284,
       "triangles": 4212
     },
     {
@@ -545,7 +545,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 348984,
+      "bytes": 350048,
       "triangles": 4124
     },
     {
@@ -681,7 +681,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 303608,
+      "bytes": 303572,
       "triangles": 3464
     },
     {
@@ -817,7 +817,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 305344,
+      "bytes": 305304,
       "triangles": 3512
     },
     {
@@ -953,7 +953,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 291836,
+      "bytes": 291796,
       "triangles": 3392
     },
     {
@@ -1089,7 +1089,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 293200,
+      "bytes": 294268,
       "triangles": 3468
     },
     {
@@ -1154,7 +1154,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 49904,
+      "bytes": 49888,
       "triangles": 540
     },
     {
@@ -1219,7 +1219,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 50232,
+      "bytes": 50212,
       "triangles": 548
     },
     {
@@ -1284,7 +1284,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 47884,
+      "bytes": 47864,
       "triangles": 528
     },
     {
@@ -1349,7 +1349,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 46640,
+      "bytes": 46808,
       "triangles": 536
     },
     {
@@ -1431,7 +1431,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 37980,
+      "bytes": 37972,
       "triangles": 392
     },
     {
@@ -1513,7 +1513,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 37980,
+      "bytes": 37972,
       "triangles": 392
     },
     {
@@ -1595,7 +1595,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 72256,
+      "bytes": 72248,
       "triangles": 820
     },
     {
@@ -1677,7 +1677,7 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 57548,
+      "bytes": 57536,
       "triangles": 656
     }
   ]

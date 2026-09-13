@@ -1,8 +1,8 @@
-# Base kit — game-ready meshes
+# Base kit — legacy reduced meshes
 
 Also included: **foundation_slab.glb**, a scalable 40 × 40 m island slab with a 1.2 m skirt, only 28 triangles at every island size. See `FOUNDATION-SLAB.md`. The individual 4 × 4 tile is retained.
 
-Lightweight counterparts of all seven original foundation, wall, corner and gate exports. Original model by **jelaludo**; retain attribution under `../../ASSET-LICENSE.md`.
+Lightweight counterparts of all seven original foundation, wall, corner and gate exports. These files predate the current asset contract and are preserved as legacy derivatives; their folder name is historical, not a readiness claim. Original model by **jelaludo**; retain attribution under `../../ASSET-LICENSE.md`.
 
 The existing `base-kit/` 3D viewer defaults to this tier. Select **Original / detailed** to compare, or **Repeated modules / performance** to inspect 100, 400 or 1,000 modules with live frame interval, FPS, triangle and draw counts. GPU instancing is enabled by default. Shadows are opt-in. The uninstanced original tier is limited to 100 modules to keep the comparison usable.
 

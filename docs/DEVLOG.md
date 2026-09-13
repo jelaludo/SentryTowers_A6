@@ -4,11 +4,21 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 ## Open requests from the game developer
 
-1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before marking them game-ready. The existing approximately 40k-triangle files remain labeled legacy comparisons.
+1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before assigning Reviewed runtime status. The existing approximately 40k-triangle files remain labeled legacy comparisons.
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Confirm silhouettes, belt treatment, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / Readiness and naming audit
+
+**Library-wide evidence pass completed; legacy migrations remain ordered follow-up work.** Replaced Workshop capability badges and unsupported “game-ready” labels with four evidence states: Original, Legacy derivative, Contract candidate and Reviewed runtime. No collection claims Reviewed runtime because no checked-in hand-off yet contains representative game-camera captures, tuned selection thresholds and reference-phone measurements together.
+
+The reproducible audit reads every GLB JSON chunk and all asset manifests. It records SHA-256, bytes, triangles, draw calls, materials, textures, skins, clips and node-name findings per file. Across 453 GLBs and 34 manifests, all 159 files in current candidate scope pass; 283 original/legacy files retain reported naming debt and zero manifest references are missing. Current candidates fail the audit on noncanonical filenames, unnamed/duplicate/dotted nodes, invalid declared engine names, missing lookups or inconsistent declared name sets across a family. Preserved originals and legacy derivatives are still inventoried, but their findings are a migration backlog rather than a false compliance claim.
+
+Solar’s coordinated migration replaces 8,361 Blender-leaked or noncanonical identifiers across 48 plain GLBs, regenerates 48 Meshopt derivatives, and publishes the complete old-to-new map. Thirty-nine static `TRACKER_TILT` lookups were restored to D3 across LOD0/1/2 under the same rack parents and rest transforms as D0. The manifest now declares one engine-name set per Solar family, and validation checks name, parent and local-transform parity for every damage/LOD pair. Assembly’s signed finger controls are now `FINGER_P1` and `FINGER_N1` consistently in all eight plain and compressed candidates; its four-name migration is also published.
+
+Evidence: `docs/ASSET-AUDIT.md`, `docs/generated/asset-contract-audit.json`, `docs/ASSET-NAMING.md`, `assets/solar-power/name-migration-v1.json` and `assets/assembly-line/name-migration-v1.json`.
 
 ## 13 September 2026 / SH02 landing-island distance candidate
 
@@ -92,7 +102,7 @@ LED visibility channels now use glTF `STEP` interpolation while body and limb mo
 | Game / LOD1 | 17,264 | 49 | 1,570,944 | 17 |
 | Distance / LOD2 | 1,800 | 1 | 177,028 | 0 |
 
-All three production exports have zero textures. The reduced game tier remains below the 25,000-triangle unit guideline; the richer LOD0 is reserved for recordings rather than runtime. The 99/49 draw counts remain explicit alpha optimization targets, so those articulated tiers are not marked game-ready and no FPS claim is made. The static one-draw LOD2 is now delivered for distant staging, with its actual swap threshold pending game-camera measurement. D1–D3 damage states, colliders, animation blending and final Stålheart assembly timing remain pending.
+All three production exports have zero textures. The reduced game tier remains below the 25,000-triangle unit guideline; the richer LOD0 is reserved for recordings rather than runtime. The 99/49 draw counts remain explicit alpha optimization targets, so those articulated tiers are not marked Reviewed runtime and no FPS claim is made. The static one-draw LOD2 is now delivered for distant staging, with its actual swap threshold pending game-camera measurement. D1–D3 damage states, colliders, animation blending and final Stålheart assembly timing remain pending.
 
 The validation suite reports zero glTF errors/warnings and checks hashes, exact byte/triangle/draw counts, zero degenerate triangles, neutral/rest bounds, ground placement, hierarchy and socket parity, unique dot-free node names, clip durations, expression/limb/tool/rotor bindings, `STEP` facial switching, exact hidden scales and one full-size face per sampled emotion frame.
 

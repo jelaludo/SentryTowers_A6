@@ -265,7 +265,7 @@
       "panel_racks": 6,
       "output_capacity": 120,
       "power_radius_m": 28,
-      "bytes": 8380924,
+      "bytes": 8380672,
       "triangles": 119812
     },
     {
@@ -397,7 +397,7 @@
       "panel_racks": 6,
       "output_capacity": 60,
       "power_radius_m": 28,
-      "bytes": 6412832,
+      "bytes": 6412300,
       "triangles": 92300
     },
     {
@@ -529,7 +529,7 @@
       "panel_racks": 6,
       "output_capacity": 0,
       "power_radius_m": 28,
-      "bytes": 4539840,
+      "bytes": 4540636,
       "triangles": 66324
     },
     {
@@ -661,7 +661,7 @@
       "panel_racks": 6,
       "output_capacity": 180,
       "power_radius_m": null,
-      "bytes": 8537788,
+      "bytes": 8537104,
       "triangles": 120152
     },
     {
@@ -793,7 +793,7 @@
       "panel_racks": 6,
       "output_capacity": 120,
       "power_radius_m": null,
-      "bytes": 7713880,
+      "bytes": 7713100,
       "triangles": 108728
     },
     {
@@ -925,7 +925,7 @@
       "panel_racks": 6,
       "output_capacity": 60,
       "power_radius_m": null,
-      "bytes": 5862212,
+      "bytes": 5861584,
       "triangles": 82832
     },
     {
@@ -1057,7 +1057,7 @@
       "panel_racks": 6,
       "output_capacity": 0,
       "power_radius_m": null,
-      "bytes": 4079852,
+      "bytes": 4080664,
       "triangles": 58284
     },
     {
@@ -1118,7 +1118,7 @@
       ],
       "output_capacity": 30,
       "power_radius_m": null,
-      "bytes": 1406496,
+      "bytes": 1406284,
       "triangles": 19716
     },
     {
@@ -1179,7 +1179,7 @@
       ],
       "output_capacity": 20,
       "power_radius_m": null,
-      "bytes": 1272328,
+      "bytes": 1272112,
       "triangles": 17812
     },
     {
@@ -1240,7 +1240,7 @@
       ],
       "output_capacity": 10,
       "power_radius_m": null,
-      "bytes": 965424,
+      "bytes": 965248,
       "triangles": 13496
     },
     {
@@ -1301,7 +1301,7 @@
       ],
       "output_capacity": 0,
       "power_radius_m": null,
-      "bytes": 663952,
+      "bytes": 664028,
       "triangles": 9368
     },
     {
@@ -1379,7 +1379,7 @@
       ],
       "output_capacity": 180,
       "power_radius_m": 28,
-      "bytes": 670520,
+      "bytes": 670440,
       "triangles": 11084
     },
     {
@@ -1457,7 +1457,7 @@
       ],
       "output_capacity": 140,
       "power_radius_m": 28,
-      "bytes": 670536,
+      "bytes": 670460,
       "triangles": 11084
     },
     {
@@ -1535,7 +1535,7 @@
       ],
       "output_capacity": 80,
       "power_radius_m": 28,
-      "bytes": 554048,
+      "bytes": 553980,
       "triangles": 9468
     },
     {
@@ -1613,7 +1613,7 @@
       ],
       "output_capacity": 0,
       "power_radius_m": 28,
-      "bytes": 464432,
+      "bytes": 464360,
       "triangles": 8040
     }
   ]

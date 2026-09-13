@@ -78,7 +78,9 @@ The [SKYWARD antenna array](antenna-array/) adds an original 18 m radio dish in 
 
 - [Devlog](devlog/) — completed work and pending module requests.
 - [Roadmap](roadmap/) — ordered, measurable work agreed with the game designer.
+- [Readiness](readiness/) — controlled evidence states and collection-by-collection status.
 - [Best Practices](best-practices/) — game export contract and budgets.
+- [Naming contract](docs/ASSET-NAMING.md) and [generated asset audit](docs/ASSET-AUDIT.md) — versioned identifiers and per-file evidence.
 - [Original game developer notes](docs/ASSET-COLLABORATION.md).
 
 Rebuild documentation and shared navigation with `python3 tools/build-workshop-docs.py`; check links and viewer control preservation with `python3 tools/validate-workshop-navigation.py`.

@@ -32,16 +32,16 @@ def markdown(s):
   out.append('<p>'+inline(' '.join(para))+'</p>')
  return '\n'.join(out)
 def nav(prefix,active='workshop',viewer=False):
- links=''.join(f'<a href="{(prefix+route) or "./"}"'+(' aria-current="page"' if key==active else '')+f'>{label}</a>' for key,route,label in [('workshop','','Workshop'),('devlog','devlog/','Devlog'),('roadmap','roadmap/','Roadmap'),('best-practices','best-practices/','Best Practices')])
+ links=''.join(f'<a href="{(prefix+route) or "./"}"'+(' aria-current="page"' if key==active else '')+f'>{label}</a>' for key,route,label in [('workshop','','Workshop'),('devlog','devlog/','Devlog'),('roadmap','roadmap/','Roadmap'),('readiness','readiness/','Readiness'),('best-practices','best-practices/','Best Practices')])
  return f'<header class="workshop-header"><a class="workshop-home" href="{prefix or "./"}">{"← Back to Workshop" if viewer or active!="workshop" else "jelaludo / Workshop"}</a><nav class="workshop-tabs" aria-label="Workshop navigation">{links}</nav></header>'
-for route,source,title in [('devlog','DEVLOG.md','Devlog'),('roadmap','ROADMAP.md','Roadmap'),('best-practices','ASSET-COLLABORATION.md','Best Practices')]:
+for route,source,title in [('devlog','DEVLOG.md','Devlog'),('roadmap','ROADMAP.md','Roadmap'),('readiness','ASSET-READINESS.md','Readiness'),('best-practices','ASSET-COLLABORATION.md','Best Practices')]:
  text=(P/'docs'/source).read_text()
  if route=='best-practices':text=re.sub(r'^# .*','# Best Practices',text,count=1)
- intro='Game developer contract · received 12 September 2026. These are requirements and targets for ongoing work; older assets may still need changes. The developer identifies Solar as the reference example. Engine-facing node names and manifest fields must still be checked at each hand-off. Local application note: a recurring background, container, map or loading role also justifies a static LOD2 for a unit; the articulated LOD1 must take over before gameplay motion or character performance becomes readable.' if route=='best-practices' else 'Ordered, measurable work agreed with the game designer.' if route=='roadmap' else 'Changes and requests for the model library.'
+ intro='Game developer contract · received 12 September 2026. These are requirements and targets for ongoing work; older assets may still need changes. The developer identifies Solar as the reference example. Engine-facing node names and manifest fields must still be checked at each hand-off. Local application note: a recurring background, container, map or loading role also justifies a static LOD2 for a unit; the articulated LOD1 must take over before gameplay motion or character performance becomes readable.' if route=='best-practices' else 'Ordered, measurable work agreed with the game designer.' if route=='roadmap' else 'Evidence-backed collection status; capability labels are not readiness claims.' if route=='readiness' else 'Changes and requests for the model library.'
  page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title} / jelaludo Workshop</title><link rel="stylesheet" href="../workshop/documentation.css"><link rel="stylesheet" href="../workshop/navigation.css"></head><body>{nav('../',route)}<main class="documentation"><p class="eyebrow">Workshop / {title}</p><div class="doc-source">{intro}<br><a href="../docs/{source}">Read the source notes</a> · <a href="../docs/{source}" download>Download Markdown</a></div>{markdown(text)}<footer>Models by jelaludo · Documentation is versioned with the asset library.</footer></main></body></html>'''
  (P/route/'index.html').write_text(page)
 # All existing asset viewers retain their title, local tabs, and DOM control IDs.
-viewers=[p for p in P.glob('*/index.html') if p.parent.name not in ['devlog','roadmap','best-practices']]
+viewers=[p for p in P.glob('*/index.html') if p.parent.name not in ['devlog','roadmap','readiness','best-practices']]
 for p in viewers+[P/'index.html',P/'reuse.html']:
  s=p.read_text();viewer=p in viewers;prefix='' if p.parent==P or re.search(r'<base\b',s) else '../'
  if 'class="workshop-header"' in s:s=re.sub(r'<header class="workshop-header">.*?</header>',nav(prefix,viewer=viewer),s,count=1,flags=re.S)
@@ -69,4 +69,4 @@ for p in viewers+[P/'index.html',P/'reuse.html']:
   script=f'<script type="module" src="{prefix}workshop/navigation.js"></script>'
   s=s.replace('</html>',script+'</html>')
  p.write_text(s)
-print(f'Built 3 documentation pages and shared navigation for {len(viewers)} asset viewers, Workshop and reuse page.')
+print(f'Built 4 documentation pages and shared navigation for {len(viewers)} asset viewers, Workshop and reuse page.')

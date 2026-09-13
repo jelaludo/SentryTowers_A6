@@ -1,7 +1,7 @@
 """Solar power kit: 4 families × D0–D3. Authored equipment-specific ruins.
 blender --background --python-exit-code 1 --python tools/blender/build_solar_power.py
 """
-import sys,math,json,struct
+import sys,math,json,struct,re
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import asset_common as k
@@ -86,6 +86,7 @@ def rack(state,loc=(0,0,0),index=0):
         if state==1:box('Impact score',(-1.5,0,.9),(.205,.05,.14),'dark',root)
     else:
         # Destroyed layout retains the original panel topology and tracking hardware.
+        wing=empty('TRACKER_TILT',(0,0,1.55),root);wing.rotation_euler[0]=math.radians(25);wing['lookup_only']=True
         beam('Snapped tracking axle',(-1.9,0,.62),(.2,.1,.48),.10,'edge',root)
         cylinder('Detached tracking drive',(1.45,.2,.3),.25,.4,'frame','X',root)
         for j,(x,y,a) in enumerate([(-1.25,-.7,-.18),(1.15,.55,.22)]):
@@ -208,6 +209,16 @@ if LOD:
             obj=objects[0];world=obj.matrix_world.copy();obj.parent=target;obj.matrix_world=world;obj.name='SOLAR_GAME_MESH'
         e['lod']=LOD;e['detail']='game' if LOD==1 else 'distance';e['tracking_pivots']=LOD==1
 for index,(root,collection,e) in enumerate(k.roots):
+    # Blender keeps names globally unique and otherwise leaks counters such as
+    # `.054` into later exports. Runtime names are canonical per GLB instead.
+    used=set()
+    for o in list(collection.objects):
+        stem=re.sub(r'\.\d+$','',o.name).upper()
+        stem=re.sub(r'[^A-Z0-9]+','_',stem).strip('_') or 'NODE'
+        name=stem;suffix=1
+        while name in used:
+            name=f'{stem}_{suffix:03d}';suffix+=1
+        o.name=name;used.add(name)
     bpy.ops.object.select_all(action='DESELECT')
     for o in list(collection.objects):
         o.select_set(True)

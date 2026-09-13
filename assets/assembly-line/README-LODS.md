@@ -45,4 +45,4 @@ Validation checks exact hashes, bytes, triangles, draw/material/texture counts, 
 
 ## Review status
 
-Status: **contract candidate; game-camera and reference-phone review pending**. Confirm projected size, the 150 m swap, 20 m hysteresis and measured frame behavior in the consuming game before changing this label to game-ready.
+Status: **contract candidate; game-camera and reference-phone review pending**. Confirm projected size, the 150 m swap, 20 m hysteresis and measured frame behavior in the consuming game before changing this label to Reviewed runtime.

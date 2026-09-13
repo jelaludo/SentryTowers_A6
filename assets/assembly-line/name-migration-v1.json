@@ -1,0 +1,26 @@
+{
+  "schema": "sentry_node_name_migration",
+  "version": 1,
+  "date": "2026-09-13",
+  "family": "robotic_assembly_line",
+  "scope": "contract LOD1 and LOD2 exports for D0-D3",
+  "compatibility": "The detailed source identifiers remain unchanged. The candidate runtime exports use the canonical names below across every damage and LOD file.",
+  "names": [
+    {
+      "from": "ARM_00_FINGER_1",
+      "to": "ARM_00_FINGER_P1"
+    },
+    {
+      "from": "ARM_00_FINGER_-1",
+      "to": "ARM_00_FINGER_N1"
+    },
+    {
+      "from": "ARM_07_FINGER_1",
+      "to": "ARM_07_FINGER_P1"
+    },
+    {
+      "from": "ARM_07_FINGER_-1",
+      "to": "ARM_07_FINGER_N1"
+    }
+  ]
+}

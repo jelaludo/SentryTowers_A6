@@ -273,7 +273,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 245872,
+      "bytes": 245832,
       "triangles": 2872
     },
     {
@@ -409,7 +409,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 256704,
+      "bytes": 256660,
       "triangles": 3036
     },
     {
@@ -545,7 +545,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 294648,
+      "bytes": 295712,
       "triangles": 3516
     },
     {
@@ -681,7 +681,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 223448,
+      "bytes": 223412,
       "triangles": 2600
     },
     {
@@ -817,7 +817,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 232188,
+      "bytes": 232148,
       "triangles": 2720
     },
     {
@@ -953,7 +953,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 231620,
+      "bytes": 231580,
       "triangles": 2744
     },
     {
@@ -1089,7 +1089,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 266128,
+      "bytes": 267196,
       "triangles": 3180
     },
     {
@@ -1154,7 +1154,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 36516,
+      "bytes": 36500,
       "triangles": 408
     },
     {
@@ -1219,7 +1219,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 37976,
+      "bytes": 37956,
       "triangles": 428
     },
     {
@@ -1284,7 +1284,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 37880,
+      "bytes": 37860,
       "triangles": 432
     },
     {
@@ -1349,7 +1349,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 43256,
+      "bytes": 43424,
       "triangles": 500
     },
     {
@@ -1431,7 +1431,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 15416,
+      "bytes": 15404,
       "triangles": 152
     },
     {
@@ -1513,7 +1513,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 15416,
+      "bytes": 15408,
       "triangles": 152
     },
     {
@@ -1595,7 +1595,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 26836,
+      "bytes": 26828,
       "triangles": 292
     },
     {
@@ -1677,7 +1677,7 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 30272,
+      "bytes": 30264,
       "triangles": 336
     }
   ]

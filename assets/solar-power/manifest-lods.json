@@ -1,5 +1,8 @@
 {
-  "version": 1,
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 2,
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
   "units": "meters",
   "up": "+Y",
   "forward": "+Z",
@@ -10,7 +13,7 @@
     "hysteresis": 0.02,
     "detailed": "manual cinematic selection",
     "initial_load": "lod2",
-    "note": "Suggested thresholds; tune for your camera and game."
+    "note": "Suggested thresholds; tune for your camera and reference phone before assigning Reviewed runtime status."
   },
   "compression": {
     "extension": "EXT_meshopt_compression",
@@ -157,7 +160,18 @@
       "draw_calls": 1150,
       "meshopt_file": "meshopt/lod0/solar_power_complex_d0.glb",
       "meshopt_bytes": 466996,
-      "tracking_pivots": true
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d1_lod0",
@@ -288,15 +302,26 @@
       "panel_racks": 6,
       "output_capacity": 120,
       "power_radius_m": 28,
-      "bytes": 8380924,
+      "bytes": 8380672,
       "triangles": 119812,
       "source_id": "solar_power_complex_d1",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 1036,
       "meshopt_file": "meshopt/lod0/solar_power_complex_d1.glb",
-      "meshopt_bytes": 487516,
-      "tracking_pivots": true
+      "meshopt_bytes": 487264,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d2_lod0",
@@ -427,15 +452,26 @@
       "panel_racks": 6,
       "output_capacity": 60,
       "power_radius_m": 28,
-      "bytes": 6412832,
+      "bytes": 6412300,
       "triangles": 92300,
       "source_id": "solar_power_complex_d2",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 774,
       "meshopt_file": "meshopt/lod0/solar_power_complex_d2.glb",
-      "meshopt_bytes": 420584,
-      "tracking_pivots": true
+      "meshopt_bytes": 420052,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d3_lod0",
@@ -566,15 +602,26 @@
       "panel_racks": 6,
       "output_capacity": 0,
       "power_radius_m": 28,
-      "bytes": 4539840,
+      "bytes": 4540636,
       "triangles": 66324,
       "source_id": "solar_power_complex_d3",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 512,
       "meshopt_file": "meshopt/lod0/solar_power_complex_d3.glb",
-      "meshopt_bytes": 382588,
-      "tracking_pivots": true
+      "meshopt_bytes": 383384,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d0_lod0",
@@ -705,15 +752,26 @@
       "panel_racks": 6,
       "output_capacity": 180,
       "power_radius_m": null,
-      "bytes": 8537788,
+      "bytes": 8537104,
       "triangles": 120152,
       "source_id": "solar_array_d0",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 1086,
       "meshopt_file": "meshopt/lod0/solar_array_d0.glb",
-      "meshopt_bytes": 335992,
-      "tracking_pivots": true
+      "meshopt_bytes": 335308,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d1_lod0",
@@ -844,15 +902,26 @@
       "panel_racks": 6,
       "output_capacity": 120,
       "power_radius_m": null,
-      "bytes": 7713880,
+      "bytes": 7713100,
       "triangles": 108728,
       "source_id": "solar_array_d1",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 972,
       "meshopt_file": "meshopt/lod0/solar_array_d1.glb",
-      "meshopt_bytes": 357440,
-      "tracking_pivots": true
+      "meshopt_bytes": 356660,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d2_lod0",
@@ -983,15 +1052,26 @@
       "panel_racks": 6,
       "output_capacity": 60,
       "power_radius_m": null,
-      "bytes": 5862212,
+      "bytes": 5861584,
       "triangles": 82832,
       "source_id": "solar_array_d2",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 726,
       "meshopt_file": "meshopt/lod0/solar_array_d2.glb",
-      "meshopt_bytes": 316480,
-      "tracking_pivots": true
+      "meshopt_bytes": 315852,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d3_lod0",
@@ -1122,15 +1202,26 @@
       "panel_racks": 6,
       "output_capacity": 0,
       "power_radius_m": null,
-      "bytes": 4079852,
+      "bytes": 4080664,
       "triangles": 58284,
       "source_id": "solar_array_d3",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 475,
       "meshopt_file": "meshopt/lod0/solar_array_d3.glb",
-      "meshopt_bytes": 277432,
-      "tracking_pivots": true
+      "meshopt_bytes": 278244,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d0_lod0",
@@ -1190,15 +1281,21 @@
       ],
       "output_capacity": 30,
       "power_radius_m": null,
-      "bytes": 1406496,
+      "bytes": 1406284,
       "triangles": 19716,
       "source_id": "solar_panel_rack_d0",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 179,
       "meshopt_file": "meshopt/lod0/solar_panel_rack_d0.glb",
-      "meshopt_bytes": 103876,
-      "tracking_pivots": true
+      "meshopt_bytes": 103664,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d1_lod0",
@@ -1258,15 +1355,21 @@
       ],
       "output_capacity": 20,
       "power_radius_m": null,
-      "bytes": 1272328,
+      "bytes": 1272112,
       "triangles": 17812,
       "source_id": "solar_panel_rack_d1",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 160,
       "meshopt_file": "meshopt/lod0/solar_panel_rack_d1.glb",
-      "meshopt_bytes": 118100,
-      "tracking_pivots": true
+      "meshopt_bytes": 117888,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d2_lod0",
@@ -1326,15 +1429,21 @@
       ],
       "output_capacity": 10,
       "power_radius_m": null,
-      "bytes": 965424,
+      "bytes": 965248,
       "triangles": 13496,
       "source_id": "solar_panel_rack_d2",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 119,
       "meshopt_file": "meshopt/lod0/solar_panel_rack_d2.glb",
-      "meshopt_bytes": 112896,
-      "tracking_pivots": true
+      "meshopt_bytes": 112720,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d3_lod0",
@@ -1394,15 +1503,21 @@
       ],
       "output_capacity": 0,
       "power_radius_m": null,
-      "bytes": 663952,
+      "bytes": 664028,
       "triangles": 9368,
       "source_id": "solar_panel_rack_d3",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 77,
       "meshopt_file": "meshopt/lod0/solar_panel_rack_d3.glb",
-      "meshopt_bytes": 111184,
-      "tracking_pivots": true
+      "meshopt_bytes": 111264,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d0_lod0",
@@ -1479,15 +1594,21 @@
       ],
       "output_capacity": 180,
       "power_radius_m": 28,
-      "bytes": 670520,
+      "bytes": 670440,
       "triangles": 11084,
       "source_id": "solar_power_station_d0",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 64,
       "meshopt_file": "meshopt/lod0/solar_power_station_d0.glb",
-      "meshopt_bytes": 136900,
-      "tracking_pivots": true
+      "meshopt_bytes": 136824,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d1_lod0",
@@ -1564,15 +1685,21 @@
       ],
       "output_capacity": 140,
       "power_radius_m": 28,
-      "bytes": 670536,
+      "bytes": 670460,
       "triangles": 11084,
       "source_id": "solar_power_station_d1",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 64,
       "meshopt_file": "meshopt/lod0/solar_power_station_d1.glb",
-      "meshopt_bytes": 136916,
-      "tracking_pivots": true
+      "meshopt_bytes": 136840,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d2_lod0",
@@ -1649,15 +1776,21 @@
       ],
       "output_capacity": 80,
       "power_radius_m": 28,
-      "bytes": 554048,
+      "bytes": 553980,
       "triangles": 9468,
       "source_id": "solar_power_station_d2",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 48,
       "meshopt_file": "meshopt/lod0/solar_power_station_d2.glb",
-      "meshopt_bytes": 107328,
-      "tracking_pivots": true
+      "meshopt_bytes": 107264,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d3_lod0",
@@ -1734,15 +1867,21 @@
       ],
       "output_capacity": 0,
       "power_radius_m": 28,
-      "bytes": 464432,
+      "bytes": 464360,
       "triangles": 8040,
       "source_id": "solar_power_station_d3",
       "lod": 0,
       "detail": "detailed",
       "draw_calls": 37,
       "meshopt_file": "meshopt/lod0/solar_power_station_d3.glb",
-      "meshopt_bytes": 112872,
-      "tracking_pivots": true
+      "meshopt_bytes": 112800,
+      "tracking_pivots": true,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d0_lod1",
@@ -1881,7 +2020,18 @@
       "triangles": 3856,
       "source_id": "solar_power_complex_d0",
       "meshopt_file": "meshopt/lod1/solar_power_complex_d0.glb",
-      "meshopt_bytes": 51132
+      "meshopt_bytes": 51132,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d1_lod1",
@@ -2016,11 +2166,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 341588,
+      "bytes": 341548,
       "triangles": 3904,
       "source_id": "solar_power_complex_d1",
       "meshopt_file": "meshopt/lod1/solar_power_complex_d1.glb",
-      "meshopt_bytes": 51288
+      "meshopt_bytes": 51248,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d2_lod1",
@@ -2155,11 +2316,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 362328,
+      "bytes": 362284,
       "triangles": 4212,
       "source_id": "solar_power_complex_d2",
       "meshopt_file": "meshopt/lod1/solar_power_complex_d2.glb",
-      "meshopt_bytes": 56560
+      "meshopt_bytes": 56516,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d3_lod1",
@@ -2294,11 +2466,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 348984,
+      "bytes": 350048,
       "triangles": 4124,
       "source_id": "solar_power_complex_d3",
       "meshopt_file": "meshopt/lod1/solar_power_complex_d3.glb",
-      "meshopt_bytes": 71392
+      "meshopt_bytes": 72456,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d0_lod1",
@@ -2433,11 +2616,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 303608,
+      "bytes": 303572,
       "triangles": 3464,
       "source_id": "solar_array_d0",
       "meshopt_file": "meshopt/lod1/solar_array_d0.glb",
-      "meshopt_bytes": 44652
+      "meshopt_bytes": 44616,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d1_lod1",
@@ -2572,11 +2766,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 305344,
+      "bytes": 305304,
       "triangles": 3512,
       "source_id": "solar_array_d1",
       "meshopt_file": "meshopt/lod1/solar_array_d1.glb",
-      "meshopt_bytes": 44772
+      "meshopt_bytes": 44732,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d2_lod1",
@@ -2711,11 +2916,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 7,
-      "bytes": 291836,
+      "bytes": 291796,
       "triangles": 3392,
       "source_id": "solar_array_d2",
       "meshopt_file": "meshopt/lod1/solar_array_d2.glb",
-      "meshopt_bytes": 43684
+      "meshopt_bytes": 43644,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d3_lod1",
@@ -2850,11 +3066,22 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 293200,
+      "bytes": 294268,
       "triangles": 3468,
       "source_id": "solar_array_d3",
       "meshopt_file": "meshopt/lod1/solar_array_d3.glb",
-      "meshopt_bytes": 60780
+      "meshopt_bytes": 61848,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d0_lod1",
@@ -2918,11 +3145,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 49904,
+      "bytes": 49888,
       "triangles": 540,
       "source_id": "solar_panel_rack_d0",
       "meshopt_file": "meshopt/lod1/solar_panel_rack_d0.glb",
-      "meshopt_bytes": 13964
+      "meshopt_bytes": 13948,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d1_lod1",
@@ -2986,11 +3219,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 50232,
+      "bytes": 50212,
       "triangles": 548,
       "source_id": "solar_panel_rack_d1",
       "meshopt_file": "meshopt/lod1/solar_panel_rack_d1.glb",
-      "meshopt_bytes": 13996
+      "meshopt_bytes": 13976,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d2_lod1",
@@ -3054,11 +3293,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 2,
-      "bytes": 47884,
+      "bytes": 47864,
       "triangles": 528,
       "source_id": "solar_panel_rack_d2",
       "meshopt_file": "meshopt/lod1/solar_panel_rack_d2.glb",
-      "meshopt_bytes": 13552
+      "meshopt_bytes": 13532,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d3_lod1",
@@ -3122,11 +3367,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 46640,
+      "bytes": 46808,
       "triangles": 536,
       "source_id": "solar_panel_rack_d3",
       "meshopt_file": "meshopt/lod1/solar_panel_rack_d3.glb",
-      "meshopt_bytes": 12456
+      "meshopt_bytes": 12620,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d0_lod1",
@@ -3207,11 +3458,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 37980,
+      "bytes": 37972,
       "triangles": 392,
       "source_id": "solar_power_station_d0",
       "meshopt_file": "meshopt/lod1/solar_power_station_d0.glb",
-      "meshopt_bytes": 9608
+      "meshopt_bytes": 9600,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d1_lod1",
@@ -3292,11 +3549,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 37980,
+      "bytes": 37972,
       "triangles": 392,
       "source_id": "solar_power_station_d1",
       "meshopt_file": "meshopt/lod1/solar_power_station_d1.glb",
-      "meshopt_bytes": 9608
+      "meshopt_bytes": 9600,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d2_lod1",
@@ -3377,11 +3640,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 72256,
+      "bytes": 72248,
       "triangles": 820,
       "source_id": "solar_power_station_d2",
       "meshopt_file": "meshopt/lod1/solar_power_station_d2.glb",
-      "meshopt_bytes": 16148
+      "meshopt_bytes": 16140,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d3_lod1",
@@ -3462,11 +3731,17 @@
       "detail": "game",
       "tracking_pivots": true,
       "draw_calls": 1,
-      "bytes": 57548,
+      "bytes": 57536,
       "triangles": 656,
       "source_id": "solar_power_station_d3",
       "meshopt_file": "meshopt/lod1/solar_power_station_d3.glb",
-      "meshopt_bytes": 14096
+      "meshopt_bytes": 14088,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d0_lod2",
@@ -3605,7 +3880,18 @@
       "triangles": 2752,
       "source_id": "solar_power_complex_d0",
       "meshopt_file": "meshopt/lod2/solar_power_complex_d0.glb",
-      "meshopt_bytes": 49296
+      "meshopt_bytes": 49296,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d1_lod2",
@@ -3740,11 +4026,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 245872,
+      "bytes": 245832,
       "triangles": 2872,
       "source_id": "solar_power_complex_d1",
       "meshopt_file": "meshopt/lod2/solar_power_complex_d1.glb",
-      "meshopt_bytes": 50476
+      "meshopt_bytes": 50436,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d2_lod2",
@@ -3879,11 +4176,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 256704,
+      "bytes": 256660,
       "triangles": 3036,
       "source_id": "solar_power_complex_d2",
       "meshopt_file": "meshopt/lod2/solar_power_complex_d2.glb",
-      "meshopt_bytes": 51560
+      "meshopt_bytes": 51516,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_complex_d3_lod2",
@@ -4018,11 +4326,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 294648,
+      "bytes": 295712,
       "triangles": 3516,
       "source_id": "solar_power_complex_d3",
       "meshopt_file": "meshopt/lod2/solar_power_complex_d3.glb",
-      "meshopt_bytes": 60756
+      "meshopt_bytes": 61820,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d0_lod2",
@@ -4157,11 +4476,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 223448,
+      "bytes": 223412,
       "triangles": 2600,
       "source_id": "solar_array_d0",
       "meshopt_file": "meshopt/lod2/solar_array_d0.glb",
-      "meshopt_bytes": 46900
+      "meshopt_bytes": 46864,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d1_lod2",
@@ -4296,11 +4626,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 232188,
+      "bytes": 232148,
       "triangles": 2720,
       "source_id": "solar_array_d1",
       "meshopt_file": "meshopt/lod2/solar_array_d1.glb",
-      "meshopt_bytes": 48036
+      "meshopt_bytes": 47996,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d2_lod2",
@@ -4435,11 +4776,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 231620,
+      "bytes": 231580,
       "triangles": 2744,
       "source_id": "solar_array_d2",
       "meshopt_file": "meshopt/lod2/solar_array_d2.glb",
-      "meshopt_bytes": 46880
+      "meshopt_bytes": 46840,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_array_d3_lod2",
@@ -4574,11 +4926,22 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 266128,
+      "bytes": 267196,
       "triangles": 3180,
       "source_id": "solar_array_d3",
       "meshopt_file": "meshopt/lod2/solar_array_d3.glb",
-      "meshopt_bytes": 55200
+      "meshopt_bytes": 56268,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT",
+        "TRACKER_TILT_001",
+        "TRACKER_TILT_002",
+        "TRACKER_TILT_003",
+        "TRACKER_TILT_004",
+        "TRACKER_TILT_005"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d0_lod2",
@@ -4642,11 +5005,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 36516,
+      "bytes": 36500,
       "triangles": 408,
       "source_id": "solar_panel_rack_d0",
       "meshopt_file": "meshopt/lod2/solar_panel_rack_d0.glb",
-      "meshopt_bytes": 10184
+      "meshopt_bytes": 10168,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d1_lod2",
@@ -4710,11 +5079,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 37976,
+      "bytes": 37956,
       "triangles": 428,
       "source_id": "solar_panel_rack_d1",
       "meshopt_file": "meshopt/lod2/solar_panel_rack_d1.glb",
-      "meshopt_bytes": 10412
+      "meshopt_bytes": 10392,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d2_lod2",
@@ -4778,11 +5153,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 37880,
+      "bytes": 37860,
       "triangles": 432,
       "source_id": "solar_panel_rack_d2",
       "meshopt_file": "meshopt/lod2/solar_panel_rack_d2.glb",
-      "meshopt_bytes": 10284
+      "meshopt_bytes": 10264,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_panel_rack_d3_lod2",
@@ -4846,11 +5227,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 43256,
+      "bytes": 43424,
       "triangles": 500,
       "source_id": "solar_panel_rack_d3",
       "meshopt_file": "meshopt/lod2/solar_panel_rack_d3.glb",
-      "meshopt_bytes": 11696
+      "meshopt_bytes": 11864,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_POWER_OUT",
+        "TRACKER_TILT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d0_lod2",
@@ -4931,11 +5318,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 15416,
+      "bytes": 15404,
       "triangles": 152,
       "source_id": "solar_power_station_d0",
       "meshopt_file": "meshopt/lod2/solar_power_station_d0.glb",
-      "meshopt_bytes": 5596
+      "meshopt_bytes": 5588,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d1_lod2",
@@ -5016,11 +5409,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 15416,
+      "bytes": 15408,
       "triangles": 152,
       "source_id": "solar_power_station_d1",
       "meshopt_file": "meshopt/lod2/solar_power_station_d1.glb",
-      "meshopt_bytes": 5596
+      "meshopt_bytes": 5588,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d2_lod2",
@@ -5101,11 +5500,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 26836,
+      "bytes": 26828,
       "triangles": 292,
       "source_id": "solar_power_station_d2",
       "meshopt_file": "meshopt/lod2/solar_power_station_d2.glb",
-      "meshopt_bytes": 7860
+      "meshopt_bytes": 7852,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     },
     {
       "id": "solar_power_station_d3_lod2",
@@ -5186,11 +5591,17 @@
       "detail": "distance",
       "tracking_pivots": false,
       "draw_calls": 1,
-      "bytes": 30272,
+      "bytes": 30264,
       "triangles": 336,
       "source_id": "solar_power_station_d3",
       "meshopt_file": "meshopt/lod2/solar_power_station_d3.glb",
-      "meshopt_bytes": 8828
+      "meshopt_bytes": 8820,
+      "engine_nodes": [
+        "ROOT",
+        "SOCKET_ARRAY_IN",
+        "SOCKET_POWER_OUT"
+      ],
+      "review_status": "contract_candidate_pending_game_camera_reference_phone"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # HUGIN and Stålheart / Legacy 40k derivatives
 
-These eight reduced GLBs are preserved legacy comparisons: HUGIN and Stålheart, each in D0–D3, built to the former approximately 40,000-triangle target. They exceed the current landmark contract and must not be presented as game-ready. Current LOD1/LOD2 candidates are documented in `assets/launchpad/README-LODS.md` and `assets/terraformer/README-LODS.md`.
+These eight reduced GLBs are preserved legacy comparisons: HUGIN and Stålheart, each in D0–D3, built to the former approximately 40,000-triangle target. They exceed the current landmark contract and must not be presented as Reviewed runtime; the folder name is historical. Current LOD1/LOD2 candidates are documented in `assets/launchpad/README-LODS.md` and `assets/terraformer/README-LODS.md`.
 
 | Asset | State | Original triangles | Game triangles | Original → game material batches |
 |---|---|---:|---:|---:|
