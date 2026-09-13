@@ -1,0 +1,2006 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 2,
+  "family": "robotic_assembly_line",
+  "label": "A6 / Robotic assembly line",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "budgets": {
+    "lod1": {
+      "triangles_max": 8000,
+      "draw_calls_max": 10,
+      "plain_bytes_max": 400000
+    },
+    "lod2": {
+      "triangles_max": 3000,
+      "draw_calls_max": 1,
+      "plain_bytes_max": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": "lod2",
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "review": "Tune with the game camera and reference phone before release."
+  },
+  "derivation": {
+    "method": "topology-preserving Meshoptimizer simplification from preserved detailed plain GLBs; LOD1 uses one rigid-weighted skinned mesh for eight articulated robots; LOD2 is one static mesh",
+    "animation_note": "LOD1 retains 36 arm-control tracks. Per-tread and roller tracks are omitted; drive belt motion with a shader or engine-side offset if it must read."
+  },
+  "assets": [
+    {
+      "id": "robotic_assembly_line_d0_lod1",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Eight-second choreographed operating loop.",
+      "file": "robotic_assembly_line_d0_lod1.glb",
+      "meshopt_file": "robotic_assembly_line_d0_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 0,
+      "state": "Intact",
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d0.glb",
+      "source_sha256": "2003d59d484756ccdbc13022db18b885b6b2d04df98cd8e7d735e5908fede371",
+      "sha256": "596ea27ad4ee074d26551cd8ab68f11d14f1329662aac711a5c27757ddd0911c",
+      "bytes": 388676,
+      "meshopt_bytes": 72776,
+      "meshopt_sha256": "7db5c0fc6f3bfa71cd78f00ce0afa01d55d08c698027f6c7e1c642a6e2295b69",
+      "triangles": 4982,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [
+        {
+          "name": "Assembly_Cycle",
+          "duration_s": 8,
+          "loop": true
+        }
+      ],
+      "animations": [
+        "Assembly_Cycle"
+      ],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.994728088378906,
+          4.934727668762207,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.989456176757812,
+          5.209455609321594,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.939999908208847,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          5.21999990940094,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d0_lod2",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Eight-second choreographed operating loop.",
+      "file": "robotic_assembly_line_d0_lod2.glb",
+      "meshopt_file": "robotic_assembly_line_d0_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 0,
+      "state": "Intact",
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d0.glb",
+      "source_sha256": "2003d59d484756ccdbc13022db18b885b6b2d04df98cd8e7d735e5908fede371",
+      "sha256": "9c9dcb2470e93c0511aaf1f4984ffabcf17ec2d0cc7733692938b371b1d9401f",
+      "bytes": 81236,
+      "meshopt_bytes": 31196,
+      "meshopt_sha256": "60aeb3737518a9a4e79571f42ef89f0725573c7e2e6fbe803963f16ee64cee64",
+      "triangles": 2934,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.992392539978027,
+          4.940000057220459,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.987120628356934,
+          5.214727997779846,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.939999908208847,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          5.21999990940094,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d1_lod1",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Eight-second choreographed operating loop.",
+      "file": "robotic_assembly_line_d1_lod1.glb",
+      "meshopt_file": "robotic_assembly_line_d1_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 1,
+      "state": "Damaged",
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d1.glb",
+      "source_sha256": "31c14f8e9dcdddb3f61c631724a276ff82ce921efae2bf91b367469b505d0aaa",
+      "sha256": "4aaf2ee32f470b3796736dcc0719037315aa5bc6a9f0d8de45eec20bc9a133e8",
+      "bytes": 389384,
+      "meshopt_bytes": 72992,
+      "meshopt_sha256": "c8fbbc7182bb33f68ebdbb5a9cda848f55555411497402f41b47fb6c674d2bb0",
+      "triangles": 4978,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [
+        {
+          "name": "Assembly_Cycle",
+          "duration_s": 8,
+          "loop": true
+        }
+      ],
+      "animations": [
+        "Assembly_Cycle"
+      ],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.994728088378906,
+          4.934727668762207,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.989456176757812,
+          5.209455609321594,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.939999908208847,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          5.21999990940094,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d1_lod2",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Eight-second choreographed operating loop.",
+      "file": "robotic_assembly_line_d1_lod2.glb",
+      "meshopt_file": "robotic_assembly_line_d1_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 1,
+      "state": "Damaged",
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d1.glb",
+      "source_sha256": "31c14f8e9dcdddb3f61c631724a276ff82ce921efae2bf91b367469b505d0aaa",
+      "sha256": "c677512919448cdd00f2a0661f3f263ea56664d9e48281206f42f4700fe1bfea",
+      "bytes": 81316,
+      "meshopt_bytes": 31268,
+      "meshopt_sha256": "06b913abb9804176638abb9b92d98fc0fdf4af7a9b8ef3b16a9a53da3a279287",
+      "triangles": 2938,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.992392539978027,
+          4.940000057220459,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.987120628356934,
+          5.214727997779846,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.939999908208847,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          5.21999990940094,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d2_lod1",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Disabled machinery with structural losses; no operating animation.",
+      "file": "robotic_assembly_line_d2_lod1.glb",
+      "meshopt_file": "robotic_assembly_line_d2_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 2,
+      "state": "Critical",
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d2.glb",
+      "source_sha256": "914b4a27c4977b189e9c91e9453781dcd8d477f6faeeba3759adabfde908181b",
+      "sha256": "6564aafa58ddef80144eec95396b8ab5ceedc11f0c9212f87e1ff6b5b9e979b1",
+      "bytes": 129876,
+      "meshopt_bytes": 41344,
+      "meshopt_sha256": "62f0bdb5ae99206afdd3954a35fb9bae5fb38f1d08b8eaf12b013e2b111962b2",
+      "triangles": 4192,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.994728088378906,
+          4.694727897644043,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.989456176757812,
+          4.96945583820343,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.699999809265137,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          4.97999981045723,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d2_lod2",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Disabled machinery with structural losses; no operating animation.",
+      "file": "robotic_assembly_line_d2_lod2.glb",
+      "meshopt_file": "robotic_assembly_line_d2_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 2,
+      "state": "Critical",
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d2.glb",
+      "source_sha256": "914b4a27c4977b189e9c91e9453781dcd8d477f6faeeba3759adabfde908181b",
+      "sha256": "3e0df480bad3ea746ee3327a24d3fac1a8a7dae5b10ac38bc52e0cdd2ee9a827",
+      "bytes": 78728,
+      "meshopt_bytes": 30292,
+      "meshopt_sha256": "f757692451f7326d5e6434184b98454f4eaa547553741540785a2a6582ea71ed",
+      "triangles": 2890,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": true,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.992392539978027,
+          4.699999809265137,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.987120628356934,
+          4.974727749824524,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          4.699999809265137,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          4.97999981045723,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d3_lod1",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Disabled machinery with structural losses; no operating animation.",
+      "file": "robotic_assembly_line_d3_lod1.glb",
+      "meshopt_file": "robotic_assembly_line_d3_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 3,
+      "state": "Destroyed",
+      "role": "approach_and_game_camera",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d3.glb",
+      "source_sha256": "af977af6e1328a68d98e7dd5e6d0ded5b9b822dcd1184d68d566189be1afe9a7",
+      "sha256": "1bce156ebe1f858c6307add6de94d61e1d0cb894ee6625d317635363577d200e",
+      "bytes": 129732,
+      "meshopt_bytes": 42580,
+      "meshopt_sha256": "a56b1e448b2b73cc30f412ef86b18a1d70275de83ba615700aca9875d50812a0",
+      "triangles": 4198,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.994728088378906,
+          1.8379827737808228,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.989456176757812,
+          2.11271071434021,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          1.8379828211038396,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          2.1179828222959323,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "robotic_assembly_line_d3_lod2",
+      "family": "robotic_assembly_line",
+      "name": "A6 / Robotic assembly line",
+      "description": "24 m conveyor, eight articulated arms on opposing sides, four tool types, three service gantries, chassis fixtures, parts feeders, and a triple-monitor station with a 1.6 m-wide access ramp. Disabled machinery with structural losses; no operating animation.",
+      "file": "robotic_assembly_line_d3_lod2.glb",
+      "meshopt_file": "robotic_assembly_line_d3_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 3,
+      "state": "Destroyed",
+      "role": "map_loading_and_far_view",
+      "derived": true,
+      "derived_from": "robotic_assembly_line_d3.glb",
+      "source_sha256": "af977af6e1328a68d98e7dd5e6d0ded5b9b822dcd1184d68d566189be1afe9a7",
+      "sha256": "8f9db4ca5c4ac46bfe3af8a9a67ed2e763f708045a035ec31c98678e7f0c4237",
+      "bytes": 67624,
+      "meshopt_bytes": 27012,
+      "meshopt_sha256": "acc712556643a2eb6bb27f1fa8a3600d3b3f861b2bdec0a262e1bd9efaa9a779",
+      "triangles": 2190,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        32
+      ],
+      "sockets": [
+        {
+          "id": "CONVEYOR_OUT",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            -12
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "CONVEYOR_IN",
+          "kind": "conveyor",
+          "position_m": [
+            0,
+            1.18,
+            12
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 2.05
+        },
+        {
+          "id": "HUMAN_ACCESS",
+          "kind": "walk",
+          "position_m": [
+            6,
+            0,
+            0.5
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "available": false,
+          "width_m": 1.6
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            -9,
+            0,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "colliders": [
+        {
+          "id": "conveyor",
+          "center_m": [
+            0,
+            0.65,
+            0
+          ],
+          "size_m": [
+            3.3,
+            1.3,
+            24
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_-1",
+          "center_m": [
+            -2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "robot_sweep_1",
+          "center_m": [
+            2.5,
+            1.8,
+            0
+          ],
+          "size_m": [
+            3.5,
+            3.6,
+            22
+          ],
+          "condition": "always"
+        }
+      ],
+      "clearance": [
+        {
+          "kind": "walk",
+          "center_m": [
+            6,
+            1.4,
+            5.5
+          ],
+          "size_m": [
+            1.6,
+            2.4,
+            9
+          ],
+          "condition": "ramp_and_approach"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "ASSEMBLY_RIG_ROOT",
+        "ARM_00",
+        "ARM_00_WAIST",
+        "ARM_00_SHOULDER",
+        "ARM_00_ELBOW",
+        "ARM_00_WRIST",
+        "ARM_00_FINGER_1",
+        "ARM_00_FINGER_-1",
+        "ARM_01",
+        "ARM_01_WAIST",
+        "ARM_01_SHOULDER",
+        "ARM_01_ELBOW",
+        "ARM_01_WRIST",
+        "ARM_02",
+        "ARM_02_WAIST",
+        "ARM_02_SHOULDER",
+        "ARM_02_ELBOW",
+        "ARM_02_WRIST",
+        "ARM_03",
+        "ARM_03_WAIST",
+        "ARM_03_SHOULDER",
+        "ARM_03_ELBOW",
+        "ARM_03_WRIST",
+        "ARM_04",
+        "ARM_04_WAIST",
+        "ARM_04_SHOULDER",
+        "ARM_04_ELBOW",
+        "ARM_04_WRIST",
+        "ARM_05",
+        "ARM_05_WAIST",
+        "ARM_05_SHOULDER",
+        "ARM_05_ELBOW",
+        "ARM_05_WRIST",
+        "ARM_06",
+        "ARM_06_WAIST",
+        "ARM_06_SHOULDER",
+        "ARM_06_ELBOW",
+        "ARM_06_WRIST",
+        "ARM_07",
+        "ARM_07_WAIST",
+        "ARM_07_SHOULDER",
+        "ARM_07_ELBOW",
+        "ARM_07_WRIST",
+        "ARM_07_FINGER_1",
+        "ARM_07_FINGER_-1",
+        "SOCKET_CONVEYOR_OUT",
+        "SOCKET_CONVEYOR_IN",
+        "SOCKET_HUMAN_ACCESS",
+        "SOCKET_POWER"
+      ],
+      "bounds": {
+        "min": [
+          -8.994728088378906,
+          -0.2747279405593872,
+          -13.994728088378906
+        ],
+        "max": [
+          8.992392539978027,
+          1.8700000047683716,
+          14.021000862121582
+        ],
+        "dimensions_m": [
+          17.987120628356934,
+          2.144727945327759,
+          28.01572895050049
+        ]
+      },
+      "source_bounds": {
+        "min": [
+          -9,
+          -0.2800000011920929,
+          -14
+        ],
+        "max": [
+          9,
+          1.8379828211038396,
+          14.021000499724416
+        ],
+        "dimensions_m": [
+          18,
+          2.1179828222959323,
+          28.021000499724416
+        ]
+      },
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

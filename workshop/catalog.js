@@ -17,7 +17,7 @@ export const collections=[
 ['game-assets','HUGIN + Stålheart / Landmark LODs','Industry','Current-contract LOD1/LOD2 candidates beside preserved legacy and detailed geometry.','D0–D3 · review pending','Contract candidate'],
 ['launchpad','HUGIN','Industry','Reusable entry vehicle, launch platform and articulated cargo-catching arm.','2 detail levels · 4 states','Animated'],
 ['terraformer','Stålheart / Terraformer 3000','Industry','An imposing rail-mounted printer with a six-joint arm and twin material reservoirs.','2 detail levels · 4 states','Animated'],
-['assembly-line','Robotic assembly line','Industry','A long conveyor, articulated robots, gantries and reusable factory modules.','Complete line + modules','Animated'],
+['assembly-line','Robotic assembly line','Industry','A long conveyor, eight articulated robots, gantries and reusable factory modules.','D0–D3 · LOD1/LOD2 · review pending','Contract candidate'],
 ['warehouse-props','Logistics & cargo','Industry','A roofless loading-bay diorama with a container, loaded pallet, cases and fuel barrels.','Modular collection','Props'],
 ['solar-power','Solar power network','Infrastructure','Solar arrays and tower grids with detailed, game and distance models, Meshopt downloads and automatic LOD preview.','3 LODs · Meshopt · 4 damage states','Game-ready'],
 ['micro-reactor','Open micro-reactor','Infrastructure','An exposed reactor core and its surrounding machinery.','Power systems','Animated'],

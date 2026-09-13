@@ -5,10 +5,27 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 ## Open requests from the game developer
 
 1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before marking them game-ready. The existing approximately 40k-triangle files remain labeled legacy comparisons.
-2. **Robotic assembly line — pending.** Apply the same landmark budgets. The developer reports the current asset at approximately 97k triangles / 7.2 MB.
+2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Confirm silhouettes, belt treatment, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — pending.** Add a distance tier for the landing island as seen from the map.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / Robotic assembly-line contract LOD candidates
+
+**Library candidate completed; game-camera/reference-phone review pending.** Added LOD1 and static LOD2 exports for the complete robotic assembly line across D0–D3. The detailed plain GLBs and editable Blender scene remain preserved as authoring sources.
+
+| Tier | Triangle range | Draw calls | Plain-byte range | Motion |
+| --- | ---: | ---: | ---: | --- |
+| LOD1 | 4,192–4,982 | 1 | 129,732–389,384 | D0/D1: `Assembly_Cycle`, 8.0 s, 36 tracks |
+| LOD2 | 2,190–2,938 | 1 | 67,624–81,316 | Static |
+
+D0/D1 LOD1 converts the eight articulated robot assemblies to one rigid-weighted skinned mesh with a 45-joint skeleton. It retains all 36 useful arm-control tracks and matches sampled source transforms. The original 180 tread and 12 roller targets are omitted because hundreds of individually animated objects are not an appropriate runtime belt implementation; use a shader/material offset or one engine control if belt travel must read.
+
+LOD2 uses authored per-robot and structural proxies so the factory skyline survives reduction. D1 marks one warning arm, D2 removes destroyed gantry crossbeams while retaining columns, and D3 preserves broken conveyor rails and the tallest wreck remnant. Stable roots, all arm-control lookup nodes, four sockets, collider metadata, plot, coordinate system and damage identifiers remain consistent.
+
+Validation reports zero glTF errors/warnings and checks hashes, exact bytes/triangles/draws, one material, zero textures, finite non-degenerate geometry, unique dot-free names, required nodes, socket parity, rigid weights, exact clip duration/targets, sampled animation parity, source bounds, damage distinction, budgets and decoded Meshopt copies. A separate Blender render pass reviewed all eight silhouettes. No FPS improvement is claimed.
+
+The Workshop assembly-line viewer now defaults the complete line to LOD1, exposes LOD2 and the detailed source, reports draws and bytes, and offers plain plus optional Meshopt downloads. Reusable modules remain honestly labeled detailed originals. Hand-off folder: `assets/assembly-line/` at the commit containing this entry.
 
 ## 13 September 2026 / HUGIN and Stålheart contract LOD candidates
 

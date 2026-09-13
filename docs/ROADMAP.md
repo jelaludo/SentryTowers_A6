@@ -5,10 +5,10 @@ This is the ordered delivery plan for the model library and Workshop. It transla
 ## Active
 
 1. **HUGIN and Stålheart contract LODs — candidate delivered; review active.** Sixteen standalone LOD1/LOD2 files now cover all four damage states and meet the numeric triangle, draw and plain-byte budgets. Required names, transforms, silhouettes and primary animation motion are validated against the detailed sources; optional Meshopt copies are decoded during validation. The Workshop visual review is complete. Game-camera, swap-threshold and reference-phone review remain before the files can be labeled game-ready.
+2. **Robotic assembly-line LODs — candidate delivered; review active.** Eight standalone LOD1/LOD2 files cover D0–D3 and meet the landmark budgets. D0/D1 LOD1 retain all eight robot rigs through 36 source-matched tracks in one rigid-weighted draw; static LOD2 preserves readable robot, gantry, belt and wreck silhouettes. Plain and decoded Meshopt files, sockets, names, damage distinction and rendered views are validated. Game-camera, belt-treatment and reference-phone review remain before game-ready status.
 
 ## Next contract work
 
-2. **Robotic assembly-line LODs — queued.** Produce LOD1 and LOD2 for D0–D3 from the 97,064-triangle / 701-draw current family, retaining useful robot pivots and a readable manufacturing silhouette. Meet the landmark budgets or document measured exceptions.
 3. **SH02 landing-island distance tier — queued.** Add a static, one-material LOD2 for map and loading views, with the same plot origin, island footprint, rocket silhouette, gameplay sockets and damage identity as the approach tier.
 4. **Truthful readiness and documentation — queued.** Replace stale “game-ready” labels and tables, distinguish original, legacy derivative, contract candidate and reviewed runtime asset, and keep Workshop cards, READMEs, manifests and Devlog measurements synchronized.
 5. **Shared manifest and viewer specification — queued.** Adopt one versioned manifest schema for every family: files, tier, damage, role, derivation, hashes, bytes, triangles, draw calls, dimensions, plot, roots, sockets, colliders, clips, materials, textures, selection thresholds, review state and credit. Show the same essentials in every viewer.

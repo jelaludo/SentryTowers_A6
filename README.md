@@ -4,7 +4,7 @@ Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowe
 
 **Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md).
 
-The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line and five reusable modules each include four structural states. [Integration notes](assets/assembly-line/README.md).
+The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line has D0–D3 contract-candidate LOD1/LOD2 exports; LOD1 retains all eight useful robot rigs in one draw and LOD2 is static. Five reusable modules retain four detailed structural states. [Integration notes](assets/assembly-line/README.md) and [LOD hand-off](assets/assembly-line/README-LODS.md).
 
 The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).
 
