@@ -1,6 +1,6 @@
 # Arrival recycler / first ISAO build
 
-**Status:** first panel-to-barrel vertical slice delivered as a contract candidate; complete SH02 dismantling stages and game-side acceptance remain pending.
+**Status:** first panel-to-barrel vertical slice and four-piece SH02 salvage layout delivered as contract candidates; staged removals, sound and game-side acceptance remain pending.
 
 ## Story purpose
 
@@ -15,7 +15,7 @@ The process should remain materially plausible without becoming a chemistry simu
 | Role | Existing source of truth | Current measured cost | Treatment |
 | --- | --- | ---: | --- |
 | Dismantling arm | `assets/assembly-line/robotic_arm_d0.glb` | 3,280 triangles, 24 draws, 255,168 bytes, `Assembly_Cycle` 8.0 s | Reuse the articulated hierarchy. Author a derived cutter tool and tool-tip socket; do not duplicate the full assembly-line scene. Consolidate fixed materials for the composite game tier. |
-| Arrival rocket | `assets/sh-rocket/sh_rocket.glb` | 23,502 triangles, 107 draws, 1,587,456 bytes, five clips | Preserve the approach original. Author explicit removable salvage sections or a derived dismantling proxy; do not misuse LOD or damage identifiers as salvage progress. |
+| Arrival rocket | `assets/sh-rocket/sh_rocket.glb` | 23,502 triangles, 107 draws, 1,587,456 bytes, five clips | Preserved as the approach original. The derived `assets/sh02-salvage/` family now stages four explicit reusable assemblies without misusing LOD or damage identifiers. |
 | Output vessels | `assets/warehouse-props/fuel_barrel_d0.glb` | 2,412 triangles, 12 draws, 142,304 bytes | Reuse the barrel geometry by instance, but give the construction-feed version a removable collar, cap connector and unambiguous label/material. It is not fuel and should not inherit a false gameplay role. |
 
 The game designer referred to the Logistics Cargo barrels; the reusable barrel family currently lives under `warehouse-props`. That path discrepancy should be resolved through manifest role metadata, not by silently duplicating the files.
@@ -89,7 +89,8 @@ The first review should show three game-camera moments: untouched rocket and emp
 1. **Delivered:** blockout silhouette, AFR-01 working name and SH02 viewer composition.
 2. **Delivered:** cutter/tool socket, reused detailed service arm, articulated game proxy and `SALVAGE_PANEL_00`.
 3. **Delivered:** sixteen-second Seed Foundry vertical slice through one filled barrel, plus a four-second processor loop and static distance tier.
-4. Confirm the sequence reads without UI from the intended game camera and measure it on the reference phone.
-5. Extend the rocket section map, gameplay resource events and sound package only after that slice is approved.
+4. **Delivered:** four-piece post-landing staging: lower two-band landing/engine unit, upper tank, top cargo capsule and hatch-open ISAO emergence module, with detailed/game/distance tiers and cutter-target sockets.
+5. Confirm the sequence reads without UI from the intended game camera and measure it on the reference phone.
+6. Extend the four staged assemblies into successive removal states, gameplay resource events and a sound package only after that slice is approved.
 
 This ordering tests the central fantasy—ISAO turns the vehicle that delivered him into the factory that enables everything after it—before investing in a complete rocket disassembly.

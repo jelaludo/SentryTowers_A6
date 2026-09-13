@@ -4,7 +4,7 @@ from pathlib import Path
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
-ROCKET = ROOT / "assets/sh-rocket/sh_rocket.glb"
+ROCKET = ROOT / "assets/sh02-salvage/sh02_salvage_layout_stage1_lod0.glb"
 FOUNDRY = ROOT / "assets/arrival-foundry/afr_01_seed_foundry_d0_lod0.glb"
 BLEND = ROOT / "source/blender/afr-01-seed-foundry.blend"
 POSTER = ROOT / "assets/workshop/arrival-foundry.jpg"
@@ -16,13 +16,12 @@ bpy.ops.object.delete(use_global=False)
 before = set(bpy.data.objects)
 bpy.ops.import_scene.gltf(filepath=str(ROCKET))
 rocket_objects = set(bpy.data.objects) - before
-context = bpy.data.objects.new("SH02_CONTEXT", None)
+context = bpy.data.objects.new("SH02_SALVAGE_CONTEXT", None)
 bpy.context.scene.collection.objects.link(context)
 for obj in [item for item in rocket_objects if item.parent not in rocket_objects]:
     world = obj.matrix_world.copy()
     obj.parent = context
     obj.matrix_world = world
-context.location.x = -6.8
 
 bpy.ops.import_scene.gltf(filepath=str(FOUNDRY))
 sparks = bpy.data.objects.get("CUTTER_SPARKS")
@@ -44,12 +43,12 @@ ground.data.materials.append(ground_material)
 
 scene = bpy.context.scene
 scene.world.color = (0.006, 0.018, 0.025)
-target = Vector((-1.0, 0.0, 2.8))
-bpy.ops.object.camera_add(location=(16.5, -18.0, 9.5))
+target = Vector((-2.6, 0.0, 4.1))
+bpy.ops.object.camera_add(location=(25.5, -31.0, 17.5))
 camera = bpy.context.object
 camera.name = "AFR_REVIEW_CAMERA"
 camera.rotation_euler = (target - camera.location).to_track_quat("-Z", "Y").to_euler()
-camera.data.lens = 55
+camera.data.lens = 48
 scene.camera = camera
 
 for location, energy, size, color in [

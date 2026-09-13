@@ -7,9 +7,23 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Stålheart now uses the same canonical tier IDs in its standalone, landmark-comparison and MÖRK-fabrication appearances. Confirm appearance, swap distance and FPS in the game camera on the reference phone before assigning Reviewed runtime status. The existing approximately 40k-triangle files remain labeled legacy comparisons.
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Reduced tiers now omit the rover workpieces and carry a single continuous conveyor silhouette. Confirm the revised composition, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
-4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle, detailed/game/distance tiers, sockets and event timings validate. Confirm the site composition and causal read in the game camera before extending the complete rocket teardown. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
+4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle and a separate four-piece SH02 salvage family now provide detailed/game/distance tiers, sockets and event timings. Confirm the site composition and causal read in the game camera before animating successive section removal. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / SH02 four-piece salvage staging
+
+**Contract candidate delivered; game-camera/reference-phone review pending.** The AFR-01 viewer no longer composes an intact rocket beside a recycler that is supposedly dismantling it. A separate `sh02_salvage_layout` family stages four addressable D0 assemblies around the service arm: the deployed legs and engines remain joined to the lower two-band booster, the upper tank lies separately, the complete top cargo capsule lies on its side, and a newly authored hatch-open module identifies where ISAO emerges.
+
+| SH02 salvage tier | Triangles | Draw calls | Plain bytes | Meshopt bytes | Behavior |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Detailed / LOD0 | 20,418 | 4 | 1,721,028 | 565,172 | Four static movable section roots; source landing gear and cargo-capsule detail retained |
+| Game / LOD1 | 4,796 | 4 | 157,432 | 50,864 | Four static movable section roots and five sockets |
+| Distance / LOD2 | 2,398 | 1 | 69,996 | 22,560 | One merged draw with lookup-only section roots and sockets |
+
+The intact animated `assets/sh-rocket/sh_rocket.glb` remains preserved. `salvage_stage: 1` is explicitly independent of D0 damage and LOD selection. The game and distance tiers meet the small-landmark numeric targets; decoded Meshopt, GLB validity, hashes, names, bounds, socket parity and source preservation validate. The AFR-01 metrics continue to exclude SH02 context cost. Successive section-removal states, game-camera thresholds, reference-phone performance and sound remain pending.
+
+Hand-off folder: `assets/sh02-salvage/` at the commit containing this entry.
 
 ## 13 September 2026 / AFR-01 Seed Foundry vertical slice and Assembly conveyor
 
@@ -21,7 +35,7 @@ The game may continue using its own derived far tiers until the new candidates p
 | Game / LOD1 | 1,660 | 8 | 92,728 | 42,504 | Two clips; rigid articulated arm proxy |
 | Distance / LOD2 | 1,228 | 1 | 52,224 | 19,336 | Static lookup-only tier |
 
-The SH02 remains a separate preserved asset and is composed as viewer context at `[-6.8, 0, 0]`; its cost is excluded from the AFR metrics. `rocket_salvage_stage` remains independent of D0–D3 and LOD selection. The detailed barrel reuses the source structure while omitting the misleading fuel placard and adding an AFR cyan collar. Runtime sparks should come from `SOCKET_CUTTER_TIP`, using the authored `CUTTER_ARC_ON` and `CUTTER_ARC_OFF` cues instead of shipping the preview mesh as a particle system. The complete rocket section map, resource-inventory wiring, audio and D1–D3 remain future work.
+The SH02 remains a separate preserved asset; the newer entry above records its derived four-piece salvage context. Its cost is excluded from the AFR metrics. `rocket_salvage_stage` remains independent of D0–D3 and LOD selection. The detailed barrel reuses the source structure while omitting the misleading fuel placard and adding an AFR cyan collar. Runtime sparks should come from `SOCKET_CUTTER_TIP`, using the authored `CUTTER_ARC_ON` and `CUTTER_ARC_OFF` cues instead of shipping the preview mesh as a particle system. Resource-inventory wiring, audio and D1–D3 remain future work.
 
 The Assembly Line LOD generator now omits all four detailed rover workpieces and replaces six reduced conveyor modules with a single dark 2.05 × 0.22 × 23.9 m oblong. D0 LOD1 measures 5,186 triangles / 3 draws / 392,648 bytes; its eight-arm 36-track cycle remains intact. D0–D3 LOD1/LOD2, decoded Meshopt copies, names, sockets, damage distinction and the continuous belt bounds validate. A fresh Blender render confirms the conveyor reads clearly beneath the arms.
 

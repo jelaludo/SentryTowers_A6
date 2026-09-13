@@ -4,7 +4,7 @@ AFR-01 is ISAO-Birudorōn's first construction after the SH02 lands. It uses a r
 
 ## Delivered vertical slice
 
-The first authored sequence is intentionally one panel-to-barrel cycle. It proves the diegetic chain before a complete SH02 dismantling map is produced:
+The first authored sequence remains one panel-to-barrel cycle. It proves the diegetic chain while the viewer composes the approved four-piece SH02 staging around the service arm:
 
 1. `SALVAGE_ARM_*` aims the cutter at `SALVAGE_PANEL_00`.
 2. `CUTTER_SPARKS` previews the socket-driven blue cutting arc.
@@ -12,7 +12,7 @@ The first authored sequence is intentionally one panel-to-barrel cycle. It prove
 4. `INDUCTION_CHAMBER` pulses and `SEPARATOR_DRUM` rotates.
 5. `BARREL_FILL_INDICATOR` rises until the feedstock barrel is ready.
 
-`rocket_salvage_stage` is separate from damage level and LOD. SH02 remains a separate preserved asset and is not embedded in these files. The Workshop viewer composes it as context at the documented site transform.
+`rocket_salvage_stage` is separate from damage level and LOD. The intact SH02 remains preserved, and the four-piece `assets/sh02-salvage/` family is not embedded in the AFR files. The Workshop composes matching detailed, game or distance tiers at the shared arrival-site origin.
 
 ## Tiers
 
@@ -41,7 +41,7 @@ Runtime event cues are `CUTTER_ARC_ON` at 2.0 s, `CUTTER_ARC_OFF` at 5.1 s, `SCR
 - Move the complete root. Preserve `SALVAGE_ARM_WAIST`, `SALVAGE_ARM_SHOULDER`, `SALVAGE_ARM_ELBOW`, `SALVAGE_ARM_WRIST` and `SEPARATOR_DRUM` pivots in LOD0/LOD1.
 - LOD2 contains stable lookup nodes but its one merged geometry does not articulate.
 - Keep barrels instanced by gameplay rather than baking accumulated inventory into each salvage state.
-- The Workshop context places the SH02 root at `[-6.8, 0, 0]`. Confirm that transform in the actual landing composition before pinning it.
+- Compose `assets/sh02-salvage/` at the same root transform as AFR-01. Its four staged section roots already surround the service arm and share the site ground plane.
 - Only D0 is authored. Future damage states remain distinct from `rocket_salvage_stage`.
 - Plain GLB is source of truth. Meshopt files are optional decoded-validation derivatives.
 
@@ -52,4 +52,4 @@ node tools/asset-pipeline/build-arrival-foundry.mjs
 node tools/asset-pipeline/validate-arrival-foundry.mjs
 ```
 
-Production source: `tools/asset-pipeline/build-arrival-foundry.mjs`. Game-camera composition, reference-phone performance, sound the complete SH02 section map, sound package and D1–D3 remain pending.
+Production source: `tools/asset-pipeline/build-arrival-foundry.mjs`. Game-camera composition, reference-phone performance, staged section-removal animation, sound package and D1–D3 remain pending.

@@ -71,10 +71,15 @@
       "triangles": 2412,
       "role": "structural geometry reused in detailed master with the fuel placard omitted and an AFR collar/material treatment; reduced proxies derived for game and distance tiers"
     },
-    "sh02_context": {
+    "sh02_approach_source": {
       "file": "../sh-rocket/sh_rocket.glb",
       "sha256": "9c777de6f9f766539915fa1132bbc72e0a5383aae369b7e5f416545c74ce3c33",
-      "role": "external viewer/game context; preserved and not embedded in AFR exports"
+      "role": "preserved animated arrival source; not embedded in AFR exports"
+    },
+    "sh02_salvage_context": {
+      "file": "../sh02-salvage/manifest.json",
+      "sha256": "77726e6807152018535f774a1ee73bcef182c90b8cd94ddfc21bb8952b0d42a1",
+      "role": "external four-piece salvage layout composed tier-for-tier in the Workshop and game scene; not embedded in AFR exports"
     }
   },
   "assets": [
