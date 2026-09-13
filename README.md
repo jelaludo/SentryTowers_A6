@@ -64,6 +64,8 @@ The [Terraformer 3000 / Stålheart](terraformer/) adds a 36 m planetary printer 
 
 The [HUGIN launch and recovery complex](launchpad/) adds a reusable tripod-legged rocket, launch tower, cargo-catching arm and receiving apron. Includes an animated cargo transfer and four destruction states. [Integration notes](assets/launchpad/README.md).
 
+The [standalone HUGIN / SH02 rocket](hugin-flight/) includes five articulated landing, suspension and cargo-door clips. Its intact deployed state now also has a one-draw static distance composite on the documented 16 × 16 m landing island for map and loading views. [Rocket notes](assets/sh-rocket/README.md) and [distance-tier hand-off](assets/sh-rocket/README-LODS.md).
+
 The [landmark LOD workshop](game-assets/) displays **HUGIN and Stålheart together**, with current LOD1/LOD2, preserved legacy 40k derivatives and detailed originals across all four destruction states. Current candidates meet the numeric landmark budgets and preserve the primary animation controls; game-camera and reference-phone review remain pending. [HUGIN LOD notes](assets/launchpad/README-LODS.md) · [Stålheart LOD notes](assets/terraformer/README-LODS.md).
 
 The [MÖRK heavy hover tank](hover-tank/) adds a lean vehicle with streamlined nacelles, cyan lift fields, a long recoiling cannon, independent front plasma mounts and a rear-deck nine-lens ammunition display with four color states. Includes power-on lift, heavy shutdown, aiming and firing clips, four destruction states and an interactive magazine demonstration. [Integration notes](assets/hover-tank/README.md).

@@ -1,0 +1,198 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 2,
+  "family": "sh02_landing_island",
+  "label": "SH02 landing island",
+  "status": "contract_candidate_pending_map_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "landing-island top centre at Y=0"
+  },
+  "budgets": {
+    "lod2": {
+      "triangles_max": 3000,
+      "draw_calls_max": 1,
+      "plain_bytes_max": 250000
+    }
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "The current SH02 approach asset authors only intact D0. Older HUGIN flight wreck art is a separate legacy family and is not relabeled as SH02 damage.",
+  "lod_selection": {
+    "initial": "lod2",
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "approach_asset": "sh_rocket.glb",
+    "review": "Tune with the game map camera and reference phone before release."
+  },
+  "derivation": {
+    "method": "Per-assembly topology-preserving Meshoptimizer simplification of the deployed SH02 rest pose, merged with the documented 16 × 16 m scalable-island slab; markings omitted below readable size.",
+    "animation_note": "Static composite. Swap to sh_rocket.glb before landing gear, shock absorption, cargo door or marking changes must read."
+  },
+  "assets": [
+    {
+      "id": "sh02_landing_island_d0_lod2",
+      "family": "sh02_landing_island",
+      "name": "SH02 landing island",
+      "description": "Static intact SH02 on the documented 16 × 16 m landing-site slab for map, orbit and loading views.",
+      "file": "sh02_landing_island_d0_lod2.glb",
+      "meshopt_file": "sh02_landing_island_d0_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 0,
+      "state": "intact_deployed",
+      "role": "map_orbit_loading_and_far_view",
+      "derived": true,
+      "derived_from": [
+        "sh_rocket.glb",
+        "../base-kit-game/foundation_slab.glb"
+      ],
+      "source_sha256": "9c777de6f9f766539915fa1132bbc72e0a5383aae369b7e5f416545c74ce3c33",
+      "slab_source_sha256": "fa933dc763da4196beb5a24642de47cf315427e8e6730c2908a4711af394d5e1",
+      "sha256": "d72e6137b3e1ab599122c74a2fcf100e08ec72d315db86e6420e479142ad9ef6",
+      "bytes": 52424,
+      "meshopt_bytes": 22512,
+      "meshopt_sha256": "6e471e54d61ca7e31b99bdaebc3c9bae386323327d4753cee404f39bce84d300",
+      "triangles": 2154,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        16,
+        16
+      ],
+      "sockets": [
+        {
+          "id": "CARGO_CAPTURE_SOCKET",
+          "kind": "cargo_capture",
+          "position_m": [
+            0,
+            17.799999237060547,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "available": true
+        }
+      ],
+      "colliders": [
+        {
+          "id": "landing_island",
+          "center_m": [
+            0,
+            -0.6,
+            0
+          ],
+          "size_m": [
+            16,
+            1.2,
+            16
+          ],
+          "condition": "always"
+        },
+        {
+          "id": "rocket_body",
+          "center_m": [
+            0,
+            10.7,
+            0
+          ],
+          "size_m": [
+            6.5,
+            21.4,
+            6.5
+          ],
+          "condition": "D0"
+        }
+      ],
+      "clips": [],
+      "animations": [],
+      "required_nodes": [
+        "ROOT",
+        "SH_ROCKET",
+        "REUSABLE_BOOSTER",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "TOP_DOOR_HINGE",
+        "MARKINGS",
+        "LANDING_LEG_01",
+        "LANDING_LEG_01_HIP",
+        "LANDING_LEG_01_KNEE",
+        "LANDING_LEG_01_ANKLE",
+        "LANDING_LEG_02",
+        "LANDING_LEG_02_HIP",
+        "LANDING_LEG_02_KNEE",
+        "LANDING_LEG_02_ANKLE",
+        "LANDING_LEG_03",
+        "LANDING_LEG_03_HIP",
+        "LANDING_LEG_03_KNEE",
+        "LANDING_LEG_03_ANKLE",
+        "DISTANCE_GEOMETRY"
+      ],
+      "engine_nodes": [
+        "ROOT",
+        "SH_ROCKET",
+        "REUSABLE_BOOSTER",
+        "CARGO_CAPSULE",
+        "CARGO_CAPTURE_SOCKET",
+        "TOP_DOOR_HINGE",
+        "MARKINGS",
+        "LANDING_LEG_01",
+        "LANDING_LEG_01_HIP",
+        "LANDING_LEG_01_KNEE",
+        "LANDING_LEG_01_ANKLE",
+        "LANDING_LEG_02",
+        "LANDING_LEG_02_HIP",
+        "LANDING_LEG_02_KNEE",
+        "LANDING_LEG_02_ANKLE",
+        "LANDING_LEG_03",
+        "LANDING_LEG_03_HIP",
+        "LANDING_LEG_03_KNEE",
+        "LANDING_LEG_03_ANKLE"
+      ],
+      "bounds": {
+        "min": [
+          -8,
+          -1.2000000476837158,
+          -8
+        ],
+        "max": [
+          8,
+          21.399999618530273,
+          8
+        ],
+        "dimensions_m": [
+          16,
+          22.59999966621399,
+          16
+        ]
+      },
+      "source_rocket_bounds": {
+        "min": [
+          -5.4687461438164435,
+          -3.4536835122334075e-7,
+          -3.6294691513960666
+        ],
+        "max": [
+          5.4687462099080175,
+          21.400000005960464,
+          5.850000440524588
+        ],
+        "dimensions_m": [
+          10.937492353724462,
+          21.400000351328817,
+          9.479469591920655
+        ]
+      },
+      "review_status": "contract_candidate_pending_map_camera_reference_phone",
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

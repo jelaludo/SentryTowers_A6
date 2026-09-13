@@ -6,9 +6,24 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before marking them game-ready. The existing approximately 40k-triangle files remain labeled legacy comparisons.
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Confirm silhouettes, belt treatment, swap distance and FPS in the game camera on the reference phone.
-3. **SH02 rocket — pending.** Add a distance tier for the landing island as seen from the map.
+3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / SH02 landing-island distance candidate
+
+**Library candidate completed; map-camera/reference-phone review pending.** Added a static D0 map, orbit, loading and far-view composite of the deployed SH02 and the documented 16 × 16 m landing-site slab. The animated `sh_rocket.glb` and editable Blender source remain preserved as the approach/authoring assets.
+
+| Asset | Triangles | Draw calls | Plain bytes | Meshopt bytes | Clips |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Animated approach source | 23,502 | 107 | 1,587,456 | — | 5 |
+| Static landing-island LOD2 | 2,154 | 1 | 52,424 | 22,512 | 0 |
+
+The distance export preserves the 21.4 m deployed silhouette, three-leg stance, island top at Y=0, 1.2 m skirt and cargo-capture socket. Existing rocket, booster, capsule, door, marking and landing-chain names remain as non-articulating lookup nodes; move the complete root only. Markings and five clips are deliberately omitted because they cannot read or operate in the merged static tier. Swap to the approach asset before leg, suspension, cargo-door or marking behavior becomes visible.
+
+SH02 presently authors only intact D0. The older HUGIN wreck is a separate legacy family, so D1–D3 were not fabricated or mislabeled. Validation checks the original source plus exact hashes, bytes, triangle/draw/material/texture/skin/animation counts, finite non-degenerate geometry, unique dot-free names, hierarchy and socket parity, island corners/skirt, rocket-only elevated bounds, budgets and decoded Meshopt output. Perspective and map renders compare source composition with LOD2. No FPS improvement is claimed.
+
+The HUGIN/SH02 Workshop viewer now switches between the animated detailed rocket and the static landing-island tier, disables irrelevant animation/marking controls for LOD2, reports measured geometry and provides plain plus Meshopt downloads. Hand-off folder: `assets/sh-rocket/` at the commit containing this entry.
 
 ## 13 September 2026 / Robotic assembly-line contract LOD candidates
 

@@ -3,7 +3,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 const $=id=>document.getElementById(id),stage=$('stage');
-let renderer,root,mixer,action,clips=[],playing=false;
+let renderer,root,mixer,action,clips=[],playing=false,currentTier='detailed',loadSerial=0;
 const scene=new T.Scene();scene.background=new T.Color('#101b24');
 const camera=new T.PerspectiveCamera(38,1,.05,300);camera.position.set(29,21,38);
 try{renderer=new T.WebGLRenderer({antialias:true});}catch(e){$('status').textContent='3D needs WebGL. Enable hardware acceleration in your browser and reload.';throw e;}
@@ -56,10 +56,13 @@ function updateMarking(){
   }
   const asset=root.getObjectByName('SH_ROCKET');asset.userData.designation=label;asset.userData.designation_visible=group.visible;
 }
-$('designation').oninput=updateMarking;$('markings').onchange=()=>{root.getObjectByName('MARKINGS').visible=$('markings').checked;root.getObjectByName('SH_ROCKET').userData.designation_visible=$('markings').checked;};
+$('designation').oninput=updateMarking;$('markings').onchange=()=>{const markings=root?.getObjectByName('MARKINGS'),rocket=root?.getObjectByName('SH_ROCKET');if(markings)markings.visible=$('markings').checked;if(rocket)rocket.userData.designation_visible=$('markings').checked;};
 $('export').onclick=async()=>{
   const button=$('export');button.disabled=true;button.textContent='Preparing model…';
   try{
+    if(currentTier==='distance'){
+      const anchor=document.createElement('a');anchor.href='../assets/sh-rocket/sh02_landing_island_d0_lod2.glb';anchor.download='sh02_landing_island_d0_lod2.glb';anchor.click();$('status').textContent='Downloaded the plain static landing-island GLB.';return;
+    }
     // Export a clean deployed rest pose; all authored clips remain embedded.
     const selected=$('clip').value,t=action?.time||0,resume=playing;
     setPlaying(false);mixer.stopAllAction();mixer.update(0);
@@ -69,13 +72,16 @@ $('export').onclick=async()=>{
     const url=URL.createObjectURL(new Blob([data],{type:'model/gltf-binary'})),a=document.createElement('a');a.href=url;a.download=($('designation').value.trim().replace(/[^a-z0-9_-]/gi,'_')||'rocket')+'.glb';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);
     $('status').textContent='Downloaded 3D model with all five animations.';
   }catch(e){$('status').textContent='Could not export the model. Please reload and try again.';console.error(e);}
-  finally{button.disabled=false;button.textContent='Download current 3D model';}
+  finally{button.disabled=false;setTierControls(currentTier==='distance');}
 };
 new ResizeObserver(()=>{if(!stage.clientWidth||!stage.clientHeight)return;camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);}).observe(stage);
 renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.05);if(mixer&&playing){mixer.update(dt*Number($('speed').value));timeLabel();}controls.update();renderer.render(scene,camera);});
-try{
-  const gltf=await new GLTFLoader().loadAsync('../assets/sh-rocket/sh_rocket.glb');root=gltf.scene;clips=gltf.animations;
-  let triangles=0;root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;}});scene.add(root);
-  mixer=new T.AnimationMixer(root);mixer.addEventListener('finished',()=>setPlaying(false));$('controls').disabled=false;chooseClip(false);
-  $('stats').textContent=`${Math.round(triangles).toLocaleString()} triangles · 5 animations · 21.4 m tall`;$('status').textContent='';
-}catch(e){$('status').textContent='The 3D model could not load. Check your connection and reload.';console.error(e);}
+function disposeRoot(){if(!root)return;mixer?.stopAllAction();mixer?.uncacheRoot(root);scene.remove(root);const geometries=new Set(),materials=new Set();root.traverse(object=>{if(object.geometry)geometries.add(object.geometry);for(const material of (Array.isArray(object.material)?object.material:[object.material]))if(material)materials.add(material);});geometries.forEach(geometry=>geometry.dispose());materials.forEach(material=>{material.map?.dispose();material.dispose();});root=null;mixer=null;action=null;clips=[];}
+function setTierControls(distance){for(const id of ['clip','play','restart','time','speed','loop','designation','markings'])$(id).disabled=distance;$('export').textContent=distance?'Download LOD2 plain GLB':'Download current 3D model';$('poseName').textContent=distance?'Static landing island':'Deployed / resting pose';}
+async function loadTier(){const ticket=++loadSerial;currentTier=$('tier').value;const distance=currentTier==='distance',file=distance?'sh02_landing_island_d0_lod2.glb':'sh_rocket.glb';$('controls').disabled=true;$('status').textContent=distance?'Loading static landing island…':'Loading animated SH02…';setPlaying(false);
+  try{const gltf=await new GLTFLoader().loadAsync('../assets/sh-rocket/'+file);if(ticket!==loadSerial)return;disposeRoot();root=gltf.scene;clips=gltf.animations;let triangles=0,draws=0;root.traverse(object=>{if(object.isMesh){object.castShadow=true;object.receiveShadow=true;triangles+=(object.geometry.index?.count||object.geometry.attributes.position.count)/3;draws+=object.geometry.groups.length||1;}});scene.add(root);$('controls').disabled=false;setTierControls(distance);
+    if(distance){mixer=null;action=null;$('clip').value='rest';timeLabel();$('stats').textContent=`${Math.round(triangles).toLocaleString()} triangles · ${draws} draw · 16 × 16 m island · static D0`;$('status').textContent='Contract-candidate map/loading tier; game-camera review pending.';}
+    else{mixer=new T.AnimationMixer(root);mixer.addEventListener('finished',()=>setPlaying(false));chooseClip(false);updateMarking();$('stats').textContent=`${Math.round(triangles).toLocaleString()} triangles · ${draws} draws · 5 animations · 21.4 m tall`;$('status').textContent='';}
+  }catch(error){if(ticket===loadSerial){$('controls').disabled=false;setTierControls(distance);$('status').textContent='The selected 3D model could not load. Check your connection and reload.';}console.error(error);}}
+$('tier').onchange=loadTier;
+await loadTier();

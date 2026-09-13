@@ -2,7 +2,7 @@
 
 Model by **jelaludo**. Reuse terms: `../../ASSET-LICENSE.md`.
 
-`sh_rocket.glb` contains only the rocket, its tripod legs, cargo capsule and markings. No launch infrastructure or HUGIN lettering is included. Editable source: `../../source/blender/sh-rocket.blend`.
+`sh_rocket.glb` contains only the rocket, its tripod legs, cargo capsule and markings. No launch infrastructure or HUGIN lettering is included. Editable source: `../../source/blender/sh-rocket.blend`. A separate static D0 map/loading composite places the deployed rocket on the documented 16 × 16 m landing-island slab; see `README-LODS.md` and `manifest-lods.json`.
 
 | Independent clip | Duration | Motion |
 | --- | --- | --- |
