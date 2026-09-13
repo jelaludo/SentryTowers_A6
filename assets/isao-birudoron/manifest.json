@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "family": "isao_birudoron",
+  "display_name": "ISAO-Birudorōn / ビルドローン",
+  "status": "initial_concept",
+  "plain_glb_source_of_truth": true,
+  "units": "meters",
+  "up": "+Y",
+  "project_forward": "+Z",
+  "lore": {
+    "role": "Flying construction specialist that assembles the Stålheart Terraformer before it fabricates MÖRK vehicles.",
+    "manufacturer": "ISAO Robotics",
+    "manufacturer_country": "Japan",
+    "name_note": "Birudorōn is a playful romanization of ビルドローン: build drone. Manufacturer identity is working fiction for the remake."
+  },
+  "design_direction": {
+    "status": "future_requirement",
+    "summary": "Retain the readable LED face and four-limb construction silhouette, rebuilt in the MÖRK/KORP design language.",
+    "shared_language": [
+      "faceted dark graphite armor",
+      "recessed cyan lift and tool emitters",
+      "restrained amber service markings",
+      "purposeful chamfers and mechanical panel breaks"
+    ],
+    "emotion_rule": "Every authored emotion combines an LED-panel expression with a body, limb or tool-head gesture; the screen alone is not the performance."
+  },
+  "assets": [
+    {
+      "id": "isao_birudoron_initial_concept",
+      "name": "ISAO-Birudorōn / Initial concept",
+      "file": "isao_birudoron_initial_concept.glb",
+      "source_name": "isao_draft_01.glb",
+      "source_sha256": "7beda296d8dc630ca2ee4b5474125dfac145138bf6d7905e948b033e5f98cc71",
+      "state": "Initial concept / not game-ready",
+      "damage_level": 0,
+      "lod": 0,
+      "production_lod": false,
+      "derived": false,
+      "game_ready": false,
+      "bytes": 451336,
+      "triangles": 4174,
+      "draw_calls": 28,
+      "nodes": 66,
+      "unnamed_mesh_nodes": 26,
+      "materials": 28,
+      "embedded_textures": 1,
+      "embedded_texture_bytes": 6144,
+      "animations": [],
+      "sockets": [],
+      "dimensions_m": [0.8302263948, 0.5533197542, 0.6842431555],
+      "bounds_min_m": [-0.4217385374, -0.0033197542, -0.3431224388],
+      "bounds_max_m": [0.4084878574, 0.55, 0.3411207167],
+      "visual_forward": "-Z (concept mismatch; production remake must normalize to +Z)",
+      "root": "isao_Game_Root",
+      "functional_pivots": [
+        "Rotor_FL_Spin",
+        "Rotor_FR_Spin",
+        "Rotor_RL_Spin",
+        "Rotor_RR_Spin",
+        "Boom_Yaw",
+        "Boom_Pitch",
+        "Head_Pitch",
+        "Nozzle_Tip"
+      ],
+      "known_limitations": [
+        "No embedded animation clips",
+        "Visible limb meshes are not parented to the supplied leg pivots",
+        "No gameplay sockets, collision proxies or damage states",
+        "Twenty-six unnamed mesh nodes and twenty-eight draw calls",
+        "Faces local -Z instead of the project +Z contract"
+      ]
+    }
+  ],
+  "reference_images": [
+    {
+      "file": "isao_birudoron_concept_sheet.png",
+      "source_name": "merged_1789262803535.png",
+      "sha256": "e23b59b06d12985fa8f7c02c9877a517db5dd45ee07a1febdc6729f934fcf481",
+      "role": "Initial appearance and expression reference"
+    }
+  ],
+  "derived_previews": [
+    {
+      "file": "../workshop/isao-birudoron.jpg",
+      "derived_from": "isao_birudoron_concept_sheet.png",
+      "purpose": "800 px gallery preview; the preserved PNG remains the reference source"
+    }
+  ],
+  "future_tiers": [
+    {
+      "tier": "LOD0",
+      "status": "required_not_delivered",
+      "purpose": "Detailed master for close shots, animation and recordings"
+    },
+    {
+      "tier": "LOD1",
+      "status": "required_not_delivered",
+      "purpose": "Game unit with functional emotion, rotor, limb and tool pivots; target at or below 25,000 triangles"
+    },
+    {
+      "tier": "LOD2",
+      "status": "conditional_not_delivered",
+      "purpose": "Static distance/loading representation only if game camera and loading tests justify it"
+    }
+  ],
+  "viewer_controls": ["orbit", "emotion study", "hover", "rotor motion", "tool gesture"]
+}

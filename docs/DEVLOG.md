@@ -10,6 +10,18 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game currently uses its own derived far tiers for the first request. Those are game-side derivatives, not new authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## 13 September 2026 / ISAO-Birudorōn initial concept
+
+**Concept imported; production remake pending.** Added the supplied ISAO construction-drone GLB unchanged as the initial visual concept, together with its six-expression concept sheet. In the fiction, the Japanese-built ビルドローン (“build drone”) is the airborne specialist that puts Stålheart together before the Terraformer prints the MÖRK.
+
+The browser study pairs a procedural LED expression with hover posture and tool-head gestures for Neutral, Happy, Curious, Working and Alarm emotions. These motions are viewer demonstrations, not embedded animation clips. The concept contains useful rotor and tool pivots, but its visible limb geometry is merged outside the supplied leg transforms; a true limb-performance rig therefore belongs to the remake.
+
+Measured concept export: 4,174 triangles, 28 draw calls, 451,336 bytes, 66 nodes, 28 materials, no animations and no damage/LOD variants. glTF Validator reports zero errors and zero warnings. The source faces local -Z rather than the project +Z contract, and 26 mesh nodes are unnamed. Those mismatches are documented rather than silently changing the preserved concept.
+
+The remake brief retains the LED screen and expressive four-limb silhouette while translating the shell into the MÖRK/KORP vocabulary: faceted graphite armor, recessed cyan lift hardware, restrained amber service marks and purposeful chamfers. It requires a detailed master, game tier, stable functional limb/tool pivots, explicit sockets and named emotion clips. A static distance/loading tier is conditional because units are not normally distance-swapped.
+
+[Open ISAO-Birudorōn](../isao-birudoron/) · [Concept audit and remake brief](../assets/isao-birudoron/README.md). Hand-off folder: `assets/isao-birudoron/` at the commit containing this entry.
+
 ## 12 September 2026 / Stålheart printing a MÖRK tank
 
 **Completed.** Reused the existing Terraformer 3000 / Stålheart and MÖRK tank in a dedicated fabrication scene. `MORK_Fabrication_Sequence` is a 16-second one-shot: the chassis and lower hull form during stage 01, then the turret and weapons solidify during stage 02. The viewer opens paused at eight seconds, where the chassis is complete and the unfinished upper structure reads as an energized cyan lattice. A moving rectangular fabrication boundary shows the current construction height.

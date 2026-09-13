@@ -1,3 +1,8 @@
+const collectionImages={
+'fabrication-lab':'assets/workshop/terraformer.jpg',
+'isao-birudoron':'assets/workshop/isao-birudoron.jpg'
+};
+
 export const collections=[
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Animated'],
 ['fabrication-lab','Stålheart / MÖRK fabrication','Industry','Watch the existing Stålheart Terraformer form an existing MÖRK tank from an energized AFR-9 structural lattice.','3 LODs · 16-second one-shot · Meshopt','Animated'],
@@ -8,6 +13,7 @@ export const collections=[
 ['hover-tank','MÖRK','Combat','MÖRK hover tank plus fitted armored transport containers: empty, loaded and a numbered three-bay deployment diorama.','Tank + 3 transport add-ons','Animated'],
 ['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 equipment variants','Animated'],
 ['reckon-guard','Reckon-Guard','Combat','Inspect the autonomous guard drone and its moving assemblies.','Interactive model','Animated'],
+['isao-birudoron','ISAO-Birudorōn / ビルドローン','Characters','Initial concept for the Japanese-built flying construction specialist that assembles Stålheart.','Initial concept · LED emotion study · Remake planned','Concept'],
 ['game-assets','HUGIN + Stålheart / Game editions','Industry','Reduced-mesh editions of the launchpad and planetary printer, together for comparison.','Around 40K triangles each','Game-ready'],
 ['launchpad','HUGIN','Industry','Reusable entry vehicle, launch platform and articulated cargo-catching arm.','2 detail levels · 4 states','Animated'],
 ['terraformer','Stålheart / Terraformer 3000','Industry','An imposing rail-mounted printer with a six-joint arm and twin material reservoirs.','2 detail levels · 4 states','Animated'],
@@ -20,4 +26,4 @@ export const collections=[
 ['ctf-flags','Capture the Flag','Props','Faction banners, pole styles and capture sockets with animated flag behavior.','6 banners · 3 pole styles','Animated'],
 ['station-crew','Station crew','Characters','Suited astronauts, scientists and workers with shared animation controls.','3 roles · 7 clips','Animated'],
 ['animation-tests','KESTREL / Frontier EVA','Characters','An original detailed astronaut with a lean weathered suit, opaque visor and circular walk/run previews.','Original EVA · 7 clips','Animated']
-].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:id==='fabrication-lab'?'assets/workshop/terraformer.jpg':`assets/workshop/${id}.jpg`,url:`${id}/`}));
+].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:`${id}/`}));
