@@ -22,11 +22,13 @@ def markdown(s):
    out.append('<div class="table-scroll"><table><thead><tr>'+''.join('<th scope="col">'+c+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+c+'</td>' for c in r)+'</tr>' for r in rows[1:])+'</tbody></table></div>');continue
   if re.match(r'(- |\d+\. )',line):
    tag='ul' if line.startswith('- ') else 'ol';items=[]
+   marker=re.match(r'(\d+)\.',line)
+   start='' if tag=='ul' else f' start="{marker.group(1)}"'
    while i<len(lines) and re.match(r'(- |\d+\. )',lines[i]):
     value=re.sub(r'^(- |\d+\. )','',lines[i]);i+=1
     while i<len(lines) and lines[i].startswith('  '):value+=' '+lines[i].strip();i+=1
     items.append('<li>'+inline(value)+'</li>')
-   out.append(f'<{tag}>'+''.join(items)+f'</{tag}>');continue
+   out.append(f'<{tag}{start}>'+''.join(items)+f'</{tag}>');continue
   para=[line];i+=1
   while i<len(lines) and lines[i].strip() and not re.match(r'(#|\||- |\d+\. )',lines[i]):para.append(lines[i]);i+=1
   out.append('<p>'+inline(' '.join(para))+'</p>')
