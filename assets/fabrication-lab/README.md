@@ -1,37 +1,46 @@
-# Stålheart / MÖRK fabrication
+# Stålheart / MÖRK wireframe fabrication
 
-Models by jelaludo. This scene reuses the existing Terraformer 3000 / Stålheart and MÖRK tank assets. It does not redesign either asset. Plain GLB files are the hand-off source of truth; `.meshopt.glb` files are derived release previews and require `EXT_meshopt_compression` decoding.
+Models by jelaludo. This derived scene composes the canonical intact Terraformer 3000 / Stålheart tier with a wireframe generated from the corresponding MÖRK tier. It does not redesign either asset. Plain GLB files are the hand-off source of truth; `.meshopt.glb` files are optional release previews that require `EXT_meshopt_compression` decoding.
+
+## Canonical Stålheart family
+
+The scene does not maintain a second Terraformer reduction. Each tier imports the existing D0 member identified by the Stålheart manifests:
+
+| Scene tier | Canonical Stålheart ID | Source file |
+| --- | --- | --- |
+| LOD0 | `terraformer_3000_d0` | `assets/terraformer/terraformer_3000_d0.glb` |
+| LOD1 | `terraformer_3000_d0_lod1` | `assets/terraformer/terraformer_3000_d0_lod1.glb` |
+| LOD2 | `terraformer_3000_d0_lod2` | `assets/terraformer/terraformer_3000_d0_lod2.glb` |
+
+The manifest records each source ID, hash, triangle count and draw count. Validation requires exact Stålheart triangle/draw parity, stable control pivots in animated tiers and a complete machine envelope throughout the one-shot. The standalone Stålheart viewer and the HUGIN/Stålheart landmark comparison expose the same tier IDs.
 
 ## Construction behavior
 
-`MORK_Fabrication_Sequence` is a 16-second one-shot in LOD0 and LOD1. It retains the useful Stålheart motion from `Terraforming_Cycle` and adds two construction stages:
+`MORK_Fabrication_Sequence` is a 16-second one-shot in LOD0 and LOD1. Stålheart retains the useful motion from `Terraforming_Cycle`; only the tank construction linework changes.
 
-- `STALHEART_ROOT` remains a complete, intact machine throughout the clip. It is never parented to or scaled by a MÖRK construction stage.
-- `MORK_STAGE_01_CHASSIS_HULL` forms from 0.6 to 7 seconds.
-- `MORK_STAGE_02_TURRET_WEAPONS` forms from 8 to 16 seconds.
-- `MORK_BUILD_LATTICE` is a simplified internal structural lattice. It sits inside the armor instead of sharing coplanar surfaces, preventing wireframe z-fighting.
-- `FABRICATION_FRONT` carries the moving cyan construction boundary.
+- `STALHEART_ROOT` remains a complete, intact machine throughout the clip.
+- `MORK_BUILD_WIREFRAME` contains the full recognizable tank linework.
+- Twelve `MORK_WIREFRAME_BAND_00`–`11` nodes appear from bottom to top using discrete keys. At 16 seconds all bands are present.
+- `FABRICATION_FRONT` is the moving cyan print boundary.
+- The tank hierarchy contains no solid mesh primitive. No chassis, turret, weapon or armor stage becomes opaque.
+- `MORK_BUILD_LATTICE` remains as a deprecated lookup alias for `MORK_BUILD_WIREFRAME`. The former `MORK_STAGE_01_CHASSIS_HULL` and `MORK_STAGE_02_TURRET_WEAPONS` names remain empty compatibility lookups and have no animation tracks.
 
-The MÖRK operational clips are deliberately excluded while the tank is under construction. The source tank hierarchy remains under `MORK_ROOT`; the two construction-stage nodes are the additional clip targets. Engine code should clamp the one-shot at its end if the completed pose must persist.
+The MÖRK operational clips are deliberately excluded while it is under construction. Engine code should play the one-shot once and clamp at 16 seconds if the complete wireframe must persist.
 
 ## Export tiers
 
-| Tier | Triangles | Draw calls | Plain GLB | Meshopt GLB | Intended use |
+| Tier | Solid triangles | Draw calls | Plain GLB | Meshopt GLB | Intended use |
 | --- | ---: | ---: | ---: | ---: | --- |
-| LOD0 detailed | 191,462 | 853 | 12,673,748 bytes | 1,905,796 bytes | Close shots, animation review and recordings |
-| LOD1 game | 7,880 | 10 | 930,244 bytes | 277,240 bytes | Active gameplay fabrication sequence |
-| LOD2 distance | 2,043 | 1 | 231,764 bytes | 77,228 bytes | Static 50% state for distance and initial loading |
+| LOD0 detailed | 165,404 | 795 | 12,399,036 bytes | 1,867,220 bytes | Close shots, animation review and recordings |
+| LOD1 game | 7,342 | 23 | 595,400 bytes | 260,920 bytes | Active gameplay fabrication sequence |
+| LOD2 distance | 2,173 | 2 | 161,024 bytes | 86,448 bytes | Static full-wireframe endpoint for loading and distance |
 
-LOD1 meets the triangle and draw-call targets. Its plain animated GLB exceeds the 400 KB transfer target; the optional Meshopt copy is about 271 KB. Game and distance geometry use topology-preserving Meshoptimizer simplification after welding split normals. This retains connected, colored machine panels instead of creating the shredded open surfaces produced by triangle sampling. Meshopt compression uses filter mode without position quantization so tiny source features do not collapse into degenerate triangles. LOD2 meets the 3,000-triangle, one-draw and 250 KB plain targets. These are measured export properties, not FPS measurements.
+The triangle values are Stålheart’s solid triangles; MÖRK is exported as line primitives. LOD1 keeps Stålheart at its canonical 7,342 triangles / 10 draws and adds twelve independently keyed print bands plus one moving boundary, producing 23 draws. Its plain file is above the 400 KB landmark transfer target; the optional Meshopt copy is 260,920 bytes. LOD2 keeps canonical Stålheart at 2,173 triangles / one draw and adds one static MÖRK line draw. These are measured export properties, not FPS measurements.
 
-Only the intact D0 fabrication scene is authored. D1–D3 fabrication states are not supplied or implied; damage-state work remains separate from detail selection.
-
-LOD2 retains the named hierarchy and metadata but contains one merged static visual mesh and no animation. It must not be presented as an animating tier. Load it first if useful, then approach LOD1 at the game-specific threshold. The manifest proposes 150 m with 20 m hysteresis as a starting point; tune this against the actual camera and reference phone.
+Only intact D0 fabrication is authored. D1–D3 fabrication scenes are not supplied or implied; damage state remains separate from detail tier.
 
 ## Coordinates and integration
 
-All tiers use meters, +Y up and +Z forward. `ROOT` remains at the Stålheart plot origin. Stålheart and MÖRK engine-facing nodes remain dot-free and stable across tiers, including gantry and arm pivots. The tank build origin is exposed as `SOCKET_FABRICATION_ORIGIN`. Coarse reserved-machine and build-bay collider metadata is in `manifest.json`; it is not a detailed physical collision mesh.
+All tiers use meters, +Y up and +Z forward. `FABRICATION_SCENE_ROOT` is at the Stålheart plot origin. `STALHEART_ROOT` and `MORK_ROOT` namespace the two reused modules inside the composite while their engine controls remain dot-free and stable. The tank build origin is `SOCKET_FABRICATION_ORIGIN`. Coarse reserved-machine and build-bay collider metadata is in `manifest.json`; it is not a detailed physical collision mesh.
 
-AFR-9 is the fiction for the process: a magnetically aligned ferroceramic load lattice receives a rapid-sinter metal-ceramic skin. Cyan lines show energized structural paths; completed armor becomes opaque as the field cools.
-
-Rebuild with `node tools/asset-pipeline/build-stalheart-mork-fabrication.mjs`. Validate both plain and decoded Meshopt files with `node tools/asset-pipeline/validate-stalheart-mork-fabrication.mjs`.
+Rebuild with `node tools/asset-pipeline/build-stalheart-mork-fabrication.mjs`. Validate plain and decoded Meshopt files with `node tools/asset-pipeline/validate-stalheart-mork-fabrication.mjs`.

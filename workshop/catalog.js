@@ -5,7 +5,7 @@ const collectionImages={
 
 export const collections=[
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Contract candidate'],
-['fabrication-lab','Stålheart / MÖRK fabrication','Industry','Watch the existing Stålheart Terraformer form an existing MÖRK tank from an energized AFR-9 structural lattice.','3 LODs · 16-second one-shot · Meshopt','Contract candidate'],
+['fabrication-lab','Stålheart / MÖRK wireframe fabrication','Industry','The canonical complete Stålheart builds a recognizable MÖRK from bottom-to-top cyan linework; the one-shot deliberately ends at the full wireframe.','3 LODs · wireframe-only 16-second one-shot · Meshopt','Contract candidate'],
 ['ammunition','Ammunition / bullets, shells & missiles','Missile','Companion ammunition for Rotor, Needle, MÖRK and mortar sentries. Inspect flight projectiles, complete rounds, empty cases and missiles.','21 families · Game + display tiers · naming migration pending','Original'],
 ['hugin-flight','HUGIN / SH02 · 3D rocket','Industry','Orbit the standalone rocket, inspect its tripod joints, play landing animations, or review its static map-view landing island.','5 clips · D0 landing-island LOD2 · review pending','Contract candidate'],
 ['antenna-array','SKYWARD / Antenna array','Infrastructure','Steerable radio dishes with continuous reflector shells, three detail levels, destruction states and a lightweight synchronized seven-dish scene.','3 detail levels · 4 states · animated','Original'],

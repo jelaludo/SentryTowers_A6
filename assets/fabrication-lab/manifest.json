@@ -1,10 +1,11 @@
 {
-  "version": 1,
+  "version": 2,
   "units": "meters",
   "up": "+Y",
   "forward": "+Z",
   "plain_glb_source_of_truth": true,
   "family": "stalheart_mork_fabrication",
+  "terraformer_family_source": "assets/terraformer/manifest-lods.json",
   "lod_policy": {
     "initial_load": "lod2",
     "game_near_m": 150,
@@ -20,37 +21,70 @@
     "uncompressed_fallback": "file"
   },
   "lore": {
-    "material": "AFR-9 ferroceramic lattice alloy",
-    "explanation": "Stålheart lays a magnetically aligned AFR-9 load lattice, then floods it with a rapid-sinter metal ceramic skin. Cyan lines show energized structural paths; armor becomes opaque as the field cools and locks."
+    "material": "AFR-9 energized construction linework",
+    "explanation": "Stålheart prints the structural definition of a MÖRK as cyan linework. This authored one-shot intentionally stops at the complete wireframe; armor skinning is outside the current animation."
   },
   "assets": [
     {
       "id": "stalheart_mork_fabrication_lod0",
-      "name": "Stålheart / MÖRK fabrication",
+      "name": "Stålheart / MÖRK wireframe fabrication",
       "family": "stalheart_mork_fabrication",
       "file": "stalheart_mork_fabrication_lod0.glb",
       "meshopt_file": "stalheart_mork_fabrication_lod0.meshopt.glb",
       "lod": 0,
       "detail": "detailed",
       "damage_level": 0,
-      "state": "Fabricating",
+      "state": "Wireframe fabrication",
       "terraformer_state": "complete_intact_machine",
-      "tank_visual_state": "wireframe_to_solid",
-      "reduction_method": "authored_source",
+      "tank_visual_state": "wireframe_only",
+      "reduction_method": "canonical Stålheart tier plus MÖRK-derived line wireframe",
       "plot_m": [
         48,
         56
       ],
-      "triangles": 191462,
-      "draw_calls": 853,
-      "bytes": 12673748,
-      "meshopt_bytes": 1905796,
+      "root": "FABRICATION_SCENE_ROOT",
+      "triangles": 165404,
+      "draw_calls": 795,
+      "materials": 10,
+      "textures": 0,
+      "bytes": 12399036,
+      "sha256": "c9596a359867a3d974d754cc5949cf6790f14a90b48a319148fcf5271beeb265",
+      "meshopt_bytes": 1867220,
+      "meshopt_sha256": "2a17bed13cafbb26ee1970dad3259b528ed5239b7c5f8aad38306cf4ddd900c8",
+      "bounds": {
+        "min": [
+          -21.04298246651888,
+          0,
+          -25.30000001192093
+        ],
+        "max": [
+          21.04298276420907,
+          35.9600015245378,
+          25.30000001192093
+        ],
+        "dimensions_m": [
+          42.08596523072795,
+          35.9600015245378,
+          50.60000002384186
+        ]
+      },
       "credit": "Models by jelaludo",
       "source_assets": [
         "assets/terraformer/terraformer_3000_d0.glb",
         "assets/hover-tank/mork_hover_tank_d0.glb"
       ],
-      "derived": false,
+      "derived": true,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "canonical_terraformer": {
+        "family_manifest": "assets/terraformer/manifest-lods.json",
+        "asset_id": "terraformer_3000_d0",
+        "lod": 0,
+        "damage_level": 0,
+        "file": "assets/terraformer/terraformer_3000_d0.glb",
+        "sha256": "72ec3c06fcfdce3e6a4be87db0437de062158413eeb299da56a1abb36f42744e",
+        "triangles": 165404,
+        "draw_calls": 782
+      },
       "engine_nodes": [
         "GANTRY_TRAVEL_Y",
         "CARRIAGE_TRAVEL_X",
@@ -68,7 +102,17 @@
         "GUN_PITCH",
         "GUN_RECOIL",
         "PLASMA_YAW_L",
-        "PLASMA_YAW_R"
+        "PLASMA_YAW_R",
+        "FABRICATION_FRONT"
+      ],
+      "required_nodes": [
+        "FABRICATION_SCENE_ROOT",
+        "STALHEART_ROOT",
+        "MORK_ROOT",
+        "MORK_BUILD_WIREFRAME",
+        "MORK_WIREFRAME_GEOMETRY",
+        "SOCKET_FABRICATION_ORIGIN",
+        "FABRICATION_FRONT"
       ],
       "animations": [
         "MORK_Fabrication_Sequence"
@@ -82,23 +126,23 @@
       ],
       "construction_stages": [
         {
-          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "node": "MORK_BUILD_WIREFRAME",
           "range": [
             0,
-            0.46
-          ]
-        },
-        {
-          "node": "MORK_STAGE_02_TURRET_WEAPONS",
-          "range": [
-            0.5,
             1
-          ]
+          ],
+          "result": "complete recognizable MÖRK wireframe"
         }
       ],
+      "wireframe_node": "MORK_BUILD_WIREFRAME",
       "lattice_node": "MORK_BUILD_LATTICE",
       "fabrication_front_node": "FABRICATION_FRONT",
       "static_progress": null,
+      "compatibility_aliases": {
+        "MORK_BUILD_LATTICE": "MORK_BUILD_WIREFRAME",
+        "MORK_STAGE_01_CHASSIS_HULL": "deprecated empty lookup",
+        "MORK_STAGE_02_TURRET_WEAPONS": "deprecated empty lookup"
+      },
       "sockets": [
         {
           "id": "MATERIAL_INPUT",
@@ -163,35 +207,68 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
+      "description": "The canonical complete intact Stålheart builds a recognizable MÖRK as cyan linework. The one-shot ends at the complete wireframe and never reveals solid tank armor."
     },
     {
       "id": "stalheart_mork_fabrication_lod1",
-      "name": "Stålheart / MÖRK fabrication",
+      "name": "Stålheart / MÖRK wireframe fabrication",
       "family": "stalheart_mork_fabrication",
       "file": "stalheart_mork_fabrication_lod1.glb",
       "meshopt_file": "stalheart_mork_fabrication_lod1.meshopt.glb",
       "lod": 1,
       "detail": "game",
       "damage_level": 0,
-      "state": "Fabricating",
+      "state": "Wireframe fabrication",
       "terraformer_state": "complete_intact_machine",
-      "tank_visual_state": "wireframe_to_solid",
-      "reduction_method": "meshoptimizer_topology_preserving",
+      "tank_visual_state": "wireframe_only",
+      "reduction_method": "canonical Stålheart tier plus MÖRK-derived line wireframe",
       "plot_m": [
         48,
         56
       ],
-      "triangles": 7880,
-      "draw_calls": 10,
-      "bytes": 930244,
-      "meshopt_bytes": 277240,
+      "root": "FABRICATION_SCENE_ROOT",
+      "triangles": 7342,
+      "draw_calls": 23,
+      "materials": 2,
+      "textures": 0,
+      "bytes": 595400,
+      "sha256": "27d11f402ca27278a7231582df57f9226bd0f1e1ef8121aa9b2e582f1c1c5a69",
+      "meshopt_bytes": 260920,
+      "meshopt_sha256": "3414d7c2c8a6fc36758a76538551a67f3d71e24c5800aed4a00f47be6a757804",
+      "bounds": {
+        "min": [
+          -21,
+          0,
+          -25.29267692565918
+        ],
+        "max": [
+          21.041555404663086,
+          35.96000289916992,
+          25.299999237060547
+        ],
+        "dimensions_m": [
+          42.041555404663086,
+          35.96000289916992,
+          50.59267616271973
+        ]
+      },
       "credit": "Models by jelaludo",
       "source_assets": [
-        "assets/game-ready/terraformer_3000_d0_game.glb",
+        "assets/terraformer/terraformer_3000_d0_lod1.glb",
         "assets/hover-tank/mork_hover_tank_low_d0.glb"
       ],
       "derived": true,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "canonical_terraformer": {
+        "family_manifest": "assets/terraformer/manifest-lods.json",
+        "asset_id": "terraformer_3000_d0_lod1",
+        "lod": 1,
+        "damage_level": 0,
+        "file": "assets/terraformer/terraformer_3000_d0_lod1.glb",
+        "sha256": "4886dd497382b50c39cc7455906fcc92e5ef22e0d2fef5907a0372ff2e6410ee",
+        "triangles": 7342,
+        "draw_calls": 10
+      },
       "engine_nodes": [
         "GANTRY_TRAVEL_Y",
         "CARRIAGE_TRAVEL_X",
@@ -209,7 +286,17 @@
         "GUN_PITCH",
         "GUN_RECOIL",
         "PLASMA_YAW_L",
-        "PLASMA_YAW_R"
+        "PLASMA_YAW_R",
+        "FABRICATION_FRONT"
+      ],
+      "required_nodes": [
+        "FABRICATION_SCENE_ROOT",
+        "STALHEART_ROOT",
+        "MORK_ROOT",
+        "MORK_BUILD_WIREFRAME",
+        "MORK_WIREFRAME_GEOMETRY",
+        "SOCKET_FABRICATION_ORIGIN",
+        "FABRICATION_FRONT"
       ],
       "animations": [
         "MORK_Fabrication_Sequence"
@@ -223,23 +310,23 @@
       ],
       "construction_stages": [
         {
-          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "node": "MORK_BUILD_WIREFRAME",
           "range": [
             0,
-            0.46
-          ]
-        },
-        {
-          "node": "MORK_STAGE_02_TURRET_WEAPONS",
-          "range": [
-            0.5,
             1
-          ]
+          ],
+          "result": "complete recognizable MÖRK wireframe"
         }
       ],
+      "wireframe_node": "MORK_BUILD_WIREFRAME",
       "lattice_node": "MORK_BUILD_LATTICE",
       "fabrication_front_node": "FABRICATION_FRONT",
       "static_progress": null,
+      "compatibility_aliases": {
+        "MORK_BUILD_LATTICE": "MORK_BUILD_WIREFRAME",
+        "MORK_STAGE_01_CHASSIS_HULL": "deprecated empty lookup",
+        "MORK_STAGE_02_TURRET_WEAPONS": "deprecated empty lookup"
+      },
       "sockets": [
         {
           "id": "MATERIAL_INPUT",
@@ -304,35 +391,68 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
+      "description": "The canonical complete intact Stålheart builds a recognizable MÖRK as cyan linework. The one-shot ends at the complete wireframe and never reveals solid tank armor."
     },
     {
       "id": "stalheart_mork_fabrication_lod2",
-      "name": "Stålheart / MÖRK fabrication",
+      "name": "Stålheart / MÖRK wireframe fabrication",
       "family": "stalheart_mork_fabrication",
       "file": "stalheart_mork_fabrication_lod2.glb",
       "meshopt_file": "stalheart_mork_fabrication_lod2.meshopt.glb",
       "lod": 2,
       "detail": "distance",
       "damage_level": 0,
-      "state": "Half-built static proxy",
+      "state": "Complete wireframe static proxy",
       "terraformer_state": "complete_intact_machine",
-      "tank_visual_state": "half_built_static",
-      "reduction_method": "meshoptimizer_topology_preserving",
+      "tank_visual_state": "wireframe_only",
+      "reduction_method": "canonical Stålheart tier plus MÖRK-derived line wireframe",
       "plot_m": [
         48,
         56
       ],
-      "triangles": 2043,
-      "draw_calls": 1,
-      "bytes": 231764,
-      "meshopt_bytes": 77228,
+      "root": "FABRICATION_SCENE_ROOT",
+      "triangles": 2173,
+      "draw_calls": 2,
+      "materials": 2,
+      "textures": 0,
+      "bytes": 161024,
+      "sha256": "b21e16dee8439c64f4d621378a146874bc6cf90026af8c22a7b05238ce25c8c0",
+      "meshopt_bytes": 86448,
+      "meshopt_sha256": "90a0d285c485e412fd353b952abedb9f4850d06551fbd4f6bc079ef4876bbb3e",
+      "bounds": {
+        "min": [
+          -21,
+          0,
+          -25.29267692565918
+        ],
+        "max": [
+          21.04178237915039,
+          35.96000289916992,
+          25.29267692565918
+        ],
+        "dimensions_m": [
+          42.04178237915039,
+          35.96000289916992,
+          50.58535385131836
+        ]
+      },
       "credit": "Models by jelaludo",
       "source_assets": [
-        "assets/game-ready/terraformer_3000_d0_game.glb",
-        "assets/hover-tank/mork_hover_tank_low_d0.glb"
+        "assets/terraformer/terraformer_3000_d0_lod2.glb",
+        "assets/hover-tank/mork_hover_tank_d0_lod2.glb"
       ],
       "derived": true,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "canonical_terraformer": {
+        "family_manifest": "assets/terraformer/manifest-lods.json",
+        "asset_id": "terraformer_3000_d0_lod2",
+        "lod": 2,
+        "damage_level": 0,
+        "file": "assets/terraformer/terraformer_3000_d0_lod2.glb",
+        "sha256": "311820b3b58c53e920b8d6e6699a6fa088c2da279f10b23aa3376293e40f648c",
+        "triangles": 2173,
+        "draw_calls": 1
+      },
       "engine_nodes": [
         "GANTRY_TRAVEL_Y",
         "CARRIAGE_TRAVEL_X",
@@ -350,29 +470,38 @@
         "GUN_PITCH",
         "GUN_RECOIL",
         "PLASMA_YAW_L",
-        "PLASMA_YAW_R"
+        "PLASMA_YAW_R",
+        "FABRICATION_FRONT"
+      ],
+      "required_nodes": [
+        "FABRICATION_SCENE_ROOT",
+        "STALHEART_ROOT",
+        "MORK_ROOT",
+        "MORK_BUILD_WIREFRAME",
+        "MORK_WIREFRAME_GEOMETRY",
+        "SOCKET_FABRICATION_ORIGIN"
       ],
       "animations": [],
       "clips": [],
       "construction_stages": [
         {
-          "node": "MORK_STAGE_01_CHASSIS_HULL",
+          "node": "MORK_BUILD_WIREFRAME",
           "range": [
             0,
-            0.46
-          ]
-        },
-        {
-          "node": "MORK_STAGE_02_TURRET_WEAPONS",
-          "range": [
-            0.5,
             1
-          ]
+          ],
+          "result": "complete recognizable MÖRK wireframe"
         }
       ],
+      "wireframe_node": "MORK_BUILD_WIREFRAME",
       "lattice_node": "MORK_BUILD_LATTICE",
-      "fabrication_front_node": "FABRICATION_FRONT",
-      "static_progress": 0.5,
+      "fabrication_front_node": null,
+      "static_progress": 1,
+      "compatibility_aliases": {
+        "MORK_BUILD_LATTICE": "MORK_BUILD_WIREFRAME",
+        "MORK_STAGE_01_CHASSIS_HULL": "deprecated empty lookup",
+        "MORK_STAGE_02_TURRET_WEAPONS": "deprecated empty lookup"
+      },
       "sockets": [
         {
           "id": "MATERIAL_INPUT",
@@ -437,7 +566,7 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
+      "description": "The canonical complete intact Stålheart builds a recognizable MÖRK as cyan linework. The one-shot ends at the complete wireframe and never reveals solid tank armor."
     }
   ]
 }

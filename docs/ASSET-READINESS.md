@@ -16,7 +16,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | Route | Current state | Scope and remaining review |
 | --- | --- | --- |
 | `korp/` | Contract candidate | D0 LOD0/1/2 naming and mechanics validate; game-camera and reference-phone acceptance are pending. |
-| `fabrication-lab/` | Contract candidate | Three-tier one-shot validates; the LOD1 plain-byte target and final game sequence remain under review. |
+| `fabrication-lab/` | Contract candidate | Canonical Stålheart LOD0/1/2 composition and wireframe-only MÖRK one-shot validate; LOD1 byte/draw cost and final game-camera sequence remain under review. |
 | `ammunition/` | Original | Reusable game/display package, but its current naming migration and consuming-weapon review are pending. |
 | `hugin-flight/` | Contract candidate | Animated D0 source plus static landing-island LOD2; map threshold and phone review are pending. |
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |

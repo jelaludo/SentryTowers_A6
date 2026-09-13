@@ -4,11 +4,27 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 ## Open requests from the game developer
 
-1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Confirm appearance, swap distance and FPS in the game camera on the reference phone before assigning Reviewed runtime status. The existing approximately 40k-triangle files remain labeled legacy comparisons.
+1. **Terraformer 3000 and HUGIN launch pad — candidate delivered; game review pending.** Sixteen LOD1/LOD2 files meet the numeric budgets and preserve the primary clip bindings. Stålheart now uses the same canonical tier IDs in its standalone, landmark-comparison and MÖRK-fabrication appearances. Confirm appearance, swap distance and FPS in the game camera on the reference phone before assigning Reviewed runtime status. The existing approximately 40k-triangle files remain labeled legacy comparisons.
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Confirm silhouettes, belt treatment, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 13 September 2026 / Canonical Stålheart and wireframe-only MÖRK fabrication
+
+**Composite rebuilt; game-camera/reference-phone review pending.** Removed the separate legacy Stålheart reduction from the fabrication pipeline. LOD0, LOD1 and LOD2 now import the exact intact D0 members `terraformer_3000_d0`, `terraformer_3000_d0_lod1` and `terraformer_3000_d0_lod2`. The standalone Stålheart viewer now exposes those same tier IDs across D0–D3, matching the HUGIN/Stålheart comparison. The fabrication manifest records each canonical source ID, hash and measured triangle/draw count; validation requires exact parity and stable animated pivots.
+
+The MÖRK sequence no longer exports or reveals solid tank geometry. `MORK_Fabrication_Sequence` resolves twelve cyan line bands from bottom to top over 16 seconds and stops on a complete, recognizable MÖRK wireframe. The full cannon, turret, hover chassis and surface topology remain legible at the endpoint. `MORK_BUILD_WIREFRAME` is the primary node. `MORK_BUILD_LATTICE` and the former two solid-stage names remain empty deprecated lookup aliases so existing integration can migrate without accidentally rendering armor. The static LOD2 is now the 100% wireframe endpoint rather than a 50% build.
+
+| Tier | Solid triangles | Draw calls | Plain bytes | Meshopt bytes | MÖRK state |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Detailed / LOD0 | 165,404 | 795 | 12,399,036 | 1,867,220 | 12-band animated wireframe |
+| Game / LOD1 | 7,342 | 23 | 595,400 | 260,920 | 12-band animated wireframe |
+| Distance / LOD2 | 2,173 | 2 | 161,024 | 86,448 | Complete static wireframe |
+
+The reported triangles belong to the solid Stålheart geometry; MÖRK uses line primitives. LOD1’s canonical Stålheart remains 7,342 triangles / 10 draws; the additional draws are twelve independently keyed print bands and the moving boundary. The plain game file remains above the 400 KB landmark transfer target. Visual review in Safari covered the decoded Meshopt endpoint and 50% bottom-up print state. Validation also covers plain glTF errors, decoded Meshopt, hashes, finite full-tank bounds, zero MÖRK mesh primitives, discrete band keys, complete Stålheart visibility and exact canonical tier parity. No FPS improvement is claimed.
+
+Hand-off folder: `assets/fabrication-lab/` at the commit containing this entry.
 
 ## 13 September 2026 / Readiness and naming audit
 
@@ -110,19 +126,9 @@ The validation suite reports zero glTF errors/warnings and checks hashes, exact 
 
 ## 12 September 2026 / Stålheart printing a MÖRK tank
 
-**Completed.** Reused the existing Terraformer 3000 / Stålheart and MÖRK tank in a dedicated fabrication scene. `MORK_Fabrication_Sequence` is a 16-second one-shot: the chassis and lower hull form during stage 01, then the turret and weapons solidify during stage 02. The viewer opens paused at eight seconds, where the chassis is complete and the unfinished upper structure reads as an energized cyan lattice. A moving rectangular fabrication boundary shows the current construction height.
+**Historical implementation, superseded by the 13 September wireframe-only rebuild above.** This first pass reused the existing Terraformer 3000 / Stålheart and MÖRK tank in a dedicated fabrication scene. Its 16-second one-shot formed opaque chassis and weapon stages; those solid stages and its separate Terraformer reduction are no longer present in the current exports.
 
-The intact Terraformer remains fully formed throughout the sequence; only the MÖRK is subject to construction-stage visibility. The simplified AFR-9 lattice sits inside the armor instead of overlapping its surfaces, preventing coplanar wireframe shimmer. AFR-9 is described as a magnetically aligned ferroceramic load lattice that receives a rapid-sinter metal-ceramic skin. The MÖRK operational clips are omitted while the vehicle is under construction; Stålheart's existing moving gantry and arm pivots remain stable.
-
-| Tier | Triangles | Draw calls | Plain bytes | Meshopt bytes |
-| --- | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 191,462 | 853 | 12,673,748 | 1,905,796 |
-| Game / LOD1 | 7,880 | 10 | 930,244 | 277,240 |
-| Distance / LOD2 | 2,043 | 1 | 231,764 | 77,228 |
-
-LOD0 and LOD1 retain the named 16-second clip. LOD2 is one merged static mesh fixed at 50% construction and has no animation. The game and distance tiers now weld split normals and use topology-preserving Meshoptimizer simplification, keeping the completed Terraformer visually solid instead of sampling disconnected triangles. The plain animated game file exceeds the 400 KB transfer target; its optional Meshopt derivative is 277,240 bytes. Filter-mode compression leaves positions unquantized so small features remain valid. Both plain and decoded compressed files passed glTF structure, bounds, unique-name, hierarchy, complete-machine visibility, progression, triangle, draw-call, finite-position and degenerate-triangle validation. These are export measurements rather than FPS claims.
-
-[Open the fabrication viewer](../fabrication-lab/) · [Engine integration notes](../assets/fabrication-lab/README.md). Hand-off folder: `assets/fabrication-lab/` at the commit containing this entry.
+The historical metrics and behavior are intentionally not repeated as current guidance. Use the 13 September entry, current `assets/fabrication-lab/manifest.json` and integration README for the active wireframe-only hand-off.
 
 ## 12 September 2026 / MÖRK turret cleanup and wireframe
 

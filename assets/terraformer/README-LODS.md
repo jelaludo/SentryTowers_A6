@@ -13,6 +13,8 @@ LOD1 D0/D1 preserve the named 16-second `Terraforming_Cycle` on the nine primary
 
 Use LOD2 for initial map, loading and far views. The collaboration contract’s provisional landmark approach threshold is 150 m with 20 m hysteresis; confirm that in the game camera and on the reference phone before release. Use LOD1 before fabrication motion needs to read. LOD0 remains for recordings.
 
+These IDs and files are canonical wherever Stålheart appears. The standalone viewer, HUGIN/Stålheart landmark comparison and Stålheart/MÖRK fabrication composite all select the same D0–D3 tier members from `manifest.json` and `manifest-lods.json`; the fabrication family records the exact selected source ID and SHA-256 rather than maintaining another Terraformer reduction.
+
 `manifest-lods.json` records hashes, source hashes, dimensions, exact metrics, selection metadata, sockets, colliders, clips and review state. Plain GLB is the source of truth. The `.meshopt.glb` files are optional derived copies and have also been decoded during validation.
 
 Rebuild and validate from the project root:
