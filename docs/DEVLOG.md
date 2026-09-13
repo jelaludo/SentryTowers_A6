@@ -14,15 +14,15 @@ The game currently uses its own derived far tiers for the first request. Those a
 
 **Completed.** Reused the existing Terraformer 3000 / Stålheart and MÖRK tank in a dedicated fabrication scene. `MORK_Fabrication_Sequence` is a 16-second one-shot: the chassis and lower hull form during stage 01, then the turret and weapons solidify during stage 02. The viewer opens paused at eight seconds, where the chassis is complete and the unfinished upper structure reads as an energized cyan lattice. A moving rectangular fabrication boundary shows the current construction height.
 
-The simplified AFR-9 lattice sits inside the armor instead of overlapping its surfaces, preventing coplanar wireframe shimmer. AFR-9 is described as a magnetically aligned ferroceramic load lattice that receives a rapid-sinter metal-ceramic skin. The MÖRK operational clips are omitted while the vehicle is under construction; Stålheart's existing moving gantry and arm pivots remain stable.
+The intact Terraformer remains fully formed throughout the sequence; only the MÖRK is subject to construction-stage visibility. The simplified AFR-9 lattice sits inside the armor instead of overlapping its surfaces, preventing coplanar wireframe shimmer. AFR-9 is described as a magnetically aligned ferroceramic load lattice that receives a rapid-sinter metal-ceramic skin. The MÖRK operational clips are omitted while the vehicle is under construction; Stålheart's existing moving gantry and arm pivots remain stable.
 
 | Tier | Triangles | Draw calls | Plain bytes | Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 191,462 | 853 | 12,673,640 | 1,905,684 |
-| Game / LOD1 | 7,261 | 10 | 863,160 | 238,100 |
-| Distance / LOD2 | 2,336 | 1 | 178,872 | 77,052 |
+| Detailed / LOD0 | 191,462 | 853 | 12,673,748 | 1,905,796 |
+| Game / LOD1 | 7,880 | 10 | 930,244 | 277,240 |
+| Distance / LOD2 | 2,043 | 1 | 231,764 | 77,228 |
 
-LOD0 and LOD1 retain the named 16-second clip. LOD2 is one merged static mesh fixed at 50% construction and has no animation. The plain animated game file exceeds the 400 KB transfer target; its optional Meshopt derivative is 238,100 bytes. Filter-mode compression leaves positions unquantized so small features remain valid. Both plain and decoded compressed files passed glTF structure, bounds, unique-name, hierarchy, progression, triangle, draw-call, finite-position and degenerate-triangle validation. These are export measurements rather than FPS claims.
+LOD0 and LOD1 retain the named 16-second clip. LOD2 is one merged static mesh fixed at 50% construction and has no animation. The game and distance tiers now weld split normals and use topology-preserving Meshoptimizer simplification, keeping the completed Terraformer visually solid instead of sampling disconnected triangles. The plain animated game file exceeds the 400 KB transfer target; its optional Meshopt derivative is 277,240 bytes. Filter-mode compression leaves positions unquantized so small features remain valid. Both plain and decoded compressed files passed glTF structure, bounds, unique-name, hierarchy, complete-machine visibility, progression, triangle, draw-call, finite-position and degenerate-triangle validation. These are export measurements rather than FPS claims.
 
 [Open the fabrication viewer](../fabrication-lab/) · [Engine integration notes](../assets/fabrication-lab/README.md). Hand-off folder: `assets/fabrication-lab/` at the commit containing this entry.
 

@@ -34,14 +34,17 @@
       "detail": "detailed",
       "damage_level": 0,
       "state": "Fabricating",
+      "terraformer_state": "complete_intact_machine",
+      "tank_visual_state": "wireframe_to_solid",
+      "reduction_method": "authored_source",
       "plot_m": [
         48,
         56
       ],
       "triangles": 191462,
       "draw_calls": 853,
-      "bytes": 12673640,
-      "meshopt_bytes": 1905684,
+      "bytes": 12673748,
+      "meshopt_bytes": 1905796,
       "credit": "Models by jelaludo",
       "source_assets": [
         "assets/terraformer/terraformer_3000_d0.glb",
@@ -160,7 +163,7 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
     },
     {
       "id": "stalheart_mork_fabrication_lod1",
@@ -172,14 +175,17 @@
       "detail": "game",
       "damage_level": 0,
       "state": "Fabricating",
+      "terraformer_state": "complete_intact_machine",
+      "tank_visual_state": "wireframe_to_solid",
+      "reduction_method": "meshoptimizer_topology_preserving",
       "plot_m": [
         48,
         56
       ],
-      "triangles": 7261,
+      "triangles": 7880,
       "draw_calls": 10,
-      "bytes": 863160,
-      "meshopt_bytes": 238100,
+      "bytes": 930244,
+      "meshopt_bytes": 277240,
       "credit": "Models by jelaludo",
       "source_assets": [
         "assets/game-ready/terraformer_3000_d0_game.glb",
@@ -298,7 +304,7 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
     },
     {
       "id": "stalheart_mork_fabrication_lod2",
@@ -310,14 +316,17 @@
       "detail": "distance",
       "damage_level": 0,
       "state": "Half-built static proxy",
+      "terraformer_state": "complete_intact_machine",
+      "tank_visual_state": "half_built_static",
+      "reduction_method": "meshoptimizer_topology_preserving",
       "plot_m": [
         48,
         56
       ],
-      "triangles": 2336,
+      "triangles": 2043,
       "draw_calls": 1,
-      "bytes": 178872,
-      "meshopt_bytes": 77052,
+      "bytes": 231764,
+      "meshopt_bytes": 77228,
       "credit": "Models by jelaludo",
       "source_assets": [
         "assets/game-ready/terraformer_3000_d0_game.glb",
@@ -428,7 +437,7 @@
           "condition": "fabrication_sequence"
         }
       ],
-      "description": "Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half."
+      "description": "The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons."
     }
   ]
 }

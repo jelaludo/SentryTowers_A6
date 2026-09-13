@@ -4,11 +4,11 @@ import {fileURLToPath} from 'node:url';
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
-import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {NodeIO} from '@gltf-transform/core';
 import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {dedup,reorder} from '@gltf-transform/functions';
-import {MeshoptEncoder,MeshoptDecoder} from 'meshoptimizer';
+import {MeshoptEncoder,MeshoptDecoder,MeshoptSimplifier} from 'meshoptimizer';
 
 const ROOT=fileURLToPath(new URL('../..',import.meta.url));
 const OUT=path.join(ROOT,'assets/fabrication-lab');
@@ -25,7 +25,7 @@ globalThis.FileReader=class{
 };
 
 const loader=new GLTFLoader();
-await Promise.all([MeshoptEncoder.ready,MeshoptDecoder.ready]);
+await Promise.all([MeshoptEncoder.ready,MeshoptDecoder.ready,MeshoptSimplifier.ready]);
 const transformIO=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.encoder':MeshoptEncoder,'meshopt.decoder':MeshoptDecoder});
 async function load(file){const b=await fs.readFile(path.join(ROOT,file));return loader.parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');}
 function safe(name){return name.replaceAll('.','_').replace(/[^A-Za-z0-9_ -]/g,'_').replaceAll(' ','_');}
@@ -36,11 +36,10 @@ function triangleCount(geometry){return (geometry.index?geometry.index.count:geo
 function geometryFor(mesh,anchor,colorOverride){
   mesh.updateWorldMatrix(true,false);anchor.updateWorldMatrix(true,false);
   const g=mesh.geometry.index?mesh.geometry.toNonIndexed():mesh.geometry.clone();g.applyMatrix4(new T.Matrix4().copy(anchor.matrixWorld).invert().multiply(mesh.matrixWorld));
-  for(const a of Object.keys(g.attributes))if(!['position','normal'].includes(a))g.deleteAttribute(a);
+  for(const a of Object.keys(g.attributes))if(!['position','normal','color'].includes(a))g.deleteAttribute(a);
   if(!g.attributes.normal)g.computeVertexNormals();
-  const c=colorOverride||materialColor(mesh),count=g.attributes.position.count,colors=new Float32Array(count*3);
-  for(let i=0;i<count;i++){colors[i*3]=c.r;colors[i*3+1]=c.g;colors[i*3+2]=c.b;}
-  g.setAttribute('color',new T.BufferAttribute(colors,3));return g;
+  if(colorOverride||!g.attributes.color){const c=colorOverride||materialColor(mesh),count=g.attributes.position.count,colors=new Float32Array(count*3);for(let i=0;i<count;i++){colors[i*3]=c.r;colors[i*3+1]=c.g;colors[i*3+2]=c.b;}g.setAttribute('color',new T.BufferAttribute(colors,3));}
+  return g;
 }
 function combine(meshes,anchor,name,palette,colorOverride){
   if(!meshes.length)return null;const gs=meshes.map(m=>geometryFor(m,anchor,colorOverride));
@@ -49,17 +48,18 @@ function combine(meshes,anchor,name,palette,colorOverride){
 }
 function nearestAnchor(mesh,root){let p=mesh.parent;while(p&&p!==root){if(GAME_ANCHORS.has(p.name))return p;p=p.parent;}return root;}
 function stageOf(mesh){let text='',p=mesh;while(p){text+=' '+p.name.toUpperCase();p=p.parent;}return /(TURRET|GUN_|CANNON|BARREL|MUZZLE|PLASMA|COMMANDER|WHIP|AMMO_PORT|MAGAZINE|RANGEFINDER)/.test(text)?2:1;}
-function reduceGeometry(geometry,ratio){
-  // Existing game meshes are already silhouette-decimated. Uniform triangle sampling
-  // gives this derived scene a predictable budget while retaining each mesh's bounds.
-  let g=geometry.index?geometry.toNonIndexed():geometry.clone(),position=g.attributes.position,normal=g.attributes.normal;
-  const tris=Math.floor(position.count/3),keep=Math.max(1,Math.floor(tris*ratio)),indices=[];
-  for(let i=0;i<keep;i++)indices.push(Math.min(tris-1,Math.floor(i*tris/keep)));
-  const p=new Float32Array(keep*9),n=new Float32Array(keep*9);
-  for(let i=0;i<keep;i++)for(let v=0;v<3;v++)for(let c=0;c<3;c++){
-    p[i*9+v*3+c]=position.array[indices[i]*9+v*3+c];n[i*9+v*3+c]=normal?normal.array[indices[i]*9+v*3+c]:0;
-  }
-  g.dispose();g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));g.setAttribute('normal',new T.BufferAttribute(n,3));return g;
+function simplifyGeometry(geometry,ratio){
+  // Weld split normals before simplification so connected armor and machine panels
+  // remain closed surfaces. Sampling isolated triangles made the intact Terraformer
+  // look like a second wireframe build target.
+  const source=geometry.index?geometry.toNonIndexed():geometry.clone(),input=new T.BufferGeometry();
+  input.setAttribute('position',source.attributes.position.clone());if(source.attributes.color)input.setAttribute('color',source.attributes.color.clone());source.dispose();
+  const welded=mergeVertices(input,1e-5);input.dispose();const position=welded.attributes.position,index=Uint32Array.from(welded.index.array),target=Math.max(3,Math.floor(index.length*ratio/3)*3),colorAttribute=welded.attributes.color;
+  const colors=colorAttribute?Float32Array.from({length:colorAttribute.count*3},(_,i)=>colorAttribute.getComponent(Math.floor(i/3),i%3)):null;
+  const [simplified]=colors?MeshoptSimplifier.simplifyWithAttributes(index,position.array,3,colors,3,[.15,.15,.15],null,target,.05,['Permissive']):MeshoptSimplifier.simplify(index,position.array,3,target,.05,['Permissive']);
+  const remap=new Map(),positions=[],outColors=[],indices=new Uint32Array(simplified.length);let next=0;
+  for(let i=0;i<simplified.length;i++){const old=simplified[i];if(!remap.has(old)){remap.set(old,next++);positions.push(position.getX(old),position.getY(old),position.getZ(old));if(colors)outColors.push(colors[old*3],colors[old*3+1],colors[old*3+2]);}indices[i]=remap.get(old);}
+  welded.dispose();const out=new T.BufferGeometry();out.setAttribute('position',new T.Float32BufferAttribute(positions,3));if(colors)out.setAttribute('color',new T.Float32BufferAttribute(outColors,3));out.setIndex(new T.BufferAttribute(indices,1));out.computeVertexNormals();return out;
 }
 function cleanDegenerateMeshes(root){
   root.traverse(mesh=>{if(!mesh.isMesh)return;const source=mesh.geometry.index?mesh.geometry.toNonIndexed():mesh.geometry.clone(),position=source.attributes.position,keep=[];
@@ -67,7 +67,7 @@ function cleanDegenerateMeshes(root){
     if(keep.length===position.count){source.dispose();return;}const cleaned=new T.BufferGeometry();for(const [name,attribute] of Object.entries(source.attributes)){const array=new Float32Array(keep.length*attribute.itemSize);for(let i=0;i<keep.length;i++)for(let component=0;component<attribute.itemSize;component++)array[i*attribute.itemSize+component]=attribute.getComponent(keep[i],component);cleaned.setAttribute(name,new T.BufferAttribute(array,attribute.itemSize,attribute.normalized));}mesh.geometry=cleaned;source.dispose();
   });
 }
-function reduceMeshes(objects,target){const meshes=objects.filter(o=>o.isMesh),total=meshes.reduce((n,m)=>n+triangleCount(m.geometry),0),ratio=Math.min(1,target/total);for(const m of meshes){const g=reduceGeometry(m.geometry,ratio);m.geometry.dispose();m.geometry=g;}}
+function reduceMeshes(objects,target){const meshes=objects.filter(o=>o.isMesh),total=meshes.reduce((n,m)=>n+triangleCount(m.geometry),0),ratio=Math.min(1,target/total);for(const m of meshes){const g=simplifyGeometry(m.geometry,ratio);m.geometry.dispose();m.geometry=g;}}
 function latticeGeometry(detailed){
   const sections=[[-4.1,1.35,1.05],[-2.4,2.30,1.48],[0,2.55,1.62],[2.5,2.40,1.50],[3.7,1.70,1.18]],segments=[];
   for(const [z,w,top] of sections){const ring=[[-w,.38,z],[w,.38,z],[w*.82,top,z],[-w*.82,top,z]];for(let i=0;i<4;i++)segments.push([ring[i],ring[(i+1)%4]]);}
@@ -108,7 +108,7 @@ function makeClip(source,{stage1,stage2,front},scene){
 }
 function palette(){return new T.MeshStandardMaterial({name:'Fabrication game / vertex palette',vertexColors:true,metalness:.35,roughness:.48});}
 function prepareGame(stal,stalObjects,tank,tankObjects,shared){
-  reduceMeshes(stalObjects,4550);reduceMeshes(tankObjects,1700);
+  reduceMeshes(stalObjects,3600);reduceMeshes(tankObjects,1300);
   const groups=new Map();for(const m of stalObjects.filter(o=>o.isMesh)){const a=nearestAnchor(m,stal);if(!groups.has(a))groups.set(a,[]);groups.get(a).push(m);}for(const [a,meshes] of groups)combine(meshes,a,`STALHEART_GAME_${a.name}`,shared);
   const byStage=[[],[]];for(const m of tankObjects.filter(o=>o.isMesh))byStage[stageOf(m)-1].push(m);
   return byStage;
@@ -119,7 +119,7 @@ async function exportMeshopt(file){const document=await transformIO.read(file);a
 async function build(lod){
   const detailed=lod===0,stalSource=detailed?'assets/terraformer/terraformer_3000_d0.glb':'assets/game-ready/terraformer_3000_d0_game.glb',tankSource=detailed?'assets/hover-tank/mork_hover_tank_d0.glb':'assets/hover-tank/mork_hover_tank_low_d0.glb';
   const [sg,tg]=await Promise.all([load(stalSource),load(tankSource)]),scene=new T.Scene();scene.name='ROOT';scene.userData={asset_id:`stalheart_mork_fabrication_lod${lod}`,family:'stalheart_mork_fabrication',damage_level:0,lod,credit:'Models by jelaludo'};
-  const stal=sg.scene;stal.name='STALHEART_ROOT';const tank=tg.scene;tank.name='MORK_ROOT';cleanDegenerateMeshes(tank);tank.position.x=-1;scene.add(stal,tank);scene.updateMatrixWorld(true);
+  const stal=sg.scene;stal.name='STALHEART_ROOT';stal.userData.visual_state='complete_intact_machine';const tank=tg.scene;tank.name='MORK_ROOT';tank.userData.visual_state='fabricating_wireframe_to_solid';cleanDegenerateMeshes(tank);tank.position.x=-1;scene.add(stal,tank);scene.updateMatrixWorld(true);
   // Operational tank clips are deliberately excluded while it is under construction.
   let shared=null,stageMeshes=null;if(!detailed){shared=palette();stageMeshes=prepareGame(stal,descendants(stal),tank,descendants(tank),shared);}
   const fab=addFabricationNodes(scene,tank,detailed,shared);
@@ -132,10 +132,10 @@ async function build(lod){
     const allMeshes=[];scene.traverse(o=>{if(o.isMesh)allMeshes.push(o);});const meshes=allMeshes.filter(o=>o.getWorldScale(new T.Vector3()).length()>.01);
     const latticeMesh=scene.getObjectByName('MORK_BUILD_LATTICE'),latticeMarker=new T.Object3D();latticeMarker.name='MORK_BUILD_LATTICE';latticeMarker.userData={component:'lattice baked into static midpoint proxy',static:true};latticeMesh.parent.add(latticeMarker);
     const world=new T.Group();world.name='DISTANCE_GEOMETRY';scene.add(world);const gs=meshes.map(m=>geometryFor(m,world));let geometry=mergeGeometries(gs,false);for(const g of gs)g.dispose();for(const m of meshes)m.removeFromParent();
-    for(const m of allMeshes)m.removeFromParent();geometry=reduceGeometry(geometry,Math.min(1,2350/(geometry.attributes.position.count/3)));const proxy=new T.Mesh(geometry,shared);proxy.name='FABRICATION_DISTANCE_MESH';world.add(proxy);animations=[];
+    for(const m of allMeshes)m.removeFromParent();geometry=simplifyGeometry(geometry,Math.min(1,2050/(geometry.index?geometry.index.count/3:geometry.attributes.position.count/3)));const proxy=new T.Mesh(geometry,shared);proxy.name='FABRICATION_DISTANCE_MESH';world.add(proxy);animations=[];
   }
   cleanDegenerateMeshes(scene);scene.updateMatrixWorld(true);const preliminary=count(scene),file=path.join(OUT,`stalheart_mork_fabrication_lod${lod}.glb`);await exportGLB(scene,animations,file);const bytes=(await fs.stat(file)).size,compressed=await exportMeshopt(file);
-  return{id:`stalheart_mork_fabrication_lod${lod}`,name:'Stålheart / MÖRK fabrication',family:'stalheart_mork_fabrication',file:path.basename(file),meshopt_file:compressed.file,lod,detail:['detailed','game','distance'][lod],damage_level:0,state:lod<2?'Fabricating':'Half-built static proxy',plot_m:[48,56],triangles:preliminary.triangles,draw_calls:preliminary.draws,bytes,meshopt_bytes:compressed.bytes,credit:'Models by jelaludo',source_assets:[stalSource,tankSource],derived:lod>0,engine_nodes:ENGINE_NODES,animations:lod<2?[CLIP]:[],clips:lod<2?[{name:CLIP,duration_s:DURATION,loop:false}]:[],construction_stages:[{node:'MORK_STAGE_01_CHASSIS_HULL',range:[0,.46]},{node:'MORK_STAGE_02_TURRET_WEAPONS',range:[.5,1]}],lattice_node:'MORK_BUILD_LATTICE',fabrication_front_node:'FABRICATION_FRONT',static_progress:lod===2?.5:null,sockets:[{id:'MATERIAL_INPUT',kind:'material',position_m:[16,1,-24],normal:[0,0,-1],available:true,width_m:null},{id:'FABRICATION_ORIGIN',kind:'fabrication',position_m:[-1,0,0],normal:[0,1,0],available:true,width_m:6}],colliders:[{id:'reserved_machine_envelope',center_m:[0,18,0],size_m:[44,36,22],condition:'coarse_only'},{id:'tank_build_bay',center_m:[-1,1.6,2],size_m:[6.2,3.2,13.5],condition:'fabrication_sequence'}],description:'Existing Stålheart fabricates an existing MÖRK tank. Solid lower structure occludes an internal cyan lattice; turret and weapons complete during the second half.'};
+  return{id:`stalheart_mork_fabrication_lod${lod}`,name:'Stålheart / MÖRK fabrication',family:'stalheart_mork_fabrication',file:path.basename(file),meshopt_file:compressed.file,lod,detail:['detailed','game','distance'][lod],damage_level:0,state:lod<2?'Fabricating':'Half-built static proxy',terraformer_state:'complete_intact_machine',tank_visual_state:lod<2?'wireframe_to_solid':'half_built_static',reduction_method:lod===0?'authored_source':'meshoptimizer_topology_preserving',plot_m:[48,56],triangles:preliminary.triangles,draw_calls:preliminary.draws,bytes,meshopt_bytes:compressed.bytes,credit:'Models by jelaludo',source_assets:[stalSource,tankSource],derived:lod>0,engine_nodes:ENGINE_NODES,animations:lod<2?[CLIP]:[],clips:lod<2?[{name:CLIP,duration_s:DURATION,loop:false}]:[],construction_stages:[{node:'MORK_STAGE_01_CHASSIS_HULL',range:[0,.46]},{node:'MORK_STAGE_02_TURRET_WEAPONS',range:[.5,1]}],lattice_node:'MORK_BUILD_LATTICE',fabrication_front_node:'FABRICATION_FRONT',static_progress:lod===2?.5:null,sockets:[{id:'MATERIAL_INPUT',kind:'material',position_m:[16,1,-24],normal:[0,0,-1],available:true,width_m:null},{id:'FABRICATION_ORIGIN',kind:'fabrication',position_m:[-1,0,0],normal:[0,1,0],available:true,width_m:6}],colliders:[{id:'reserved_machine_envelope',center_m:[0,18,0],size_m:[44,36,22],condition:'coarse_only'},{id:'tank_build_bay',center_m:[-1,1.6,2],size_m:[6.2,3.2,13.5],condition:'fabrication_sequence'}],description:'The complete intact Stålheart fabricates a MÖRK tank. Only the tank transitions from energized wireframe lattice to solid armor: chassis first, then turret and weapons.'};
 }
 
 const assets=[];for(const lod of [0,1,2])assets.push(await build(lod));

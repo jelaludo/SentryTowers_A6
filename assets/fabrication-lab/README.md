@@ -6,6 +6,7 @@ Models by jelaludo. This scene reuses the existing Terraformer 3000 / Stålheart
 
 `MORK_Fabrication_Sequence` is a 16-second one-shot in LOD0 and LOD1. It retains the useful Stålheart motion from `Terraforming_Cycle` and adds two construction stages:
 
+- `STALHEART_ROOT` remains a complete, intact machine throughout the clip. It is never parented to or scaled by a MÖRK construction stage.
 - `MORK_STAGE_01_CHASSIS_HULL` forms from 0.6 to 7 seconds.
 - `MORK_STAGE_02_TURRET_WEAPONS` forms from 8 to 16 seconds.
 - `MORK_BUILD_LATTICE` is a simplified internal structural lattice. It sits inside the armor instead of sharing coplanar surfaces, preventing wireframe z-fighting.
@@ -17,11 +18,11 @@ The MÖRK operational clips are deliberately excluded while the tank is under co
 
 | Tier | Triangles | Draw calls | Plain GLB | Meshopt GLB | Intended use |
 | --- | ---: | ---: | ---: | ---: | --- |
-| LOD0 detailed | 191,462 | 853 | 12,673,640 bytes | 1,905,684 bytes | Close shots, animation review and recordings |
-| LOD1 game | 7,261 | 10 | 863,160 bytes | 238,100 bytes | Active gameplay fabrication sequence |
-| LOD2 distance | 2,336 | 1 | 178,872 bytes | 77,052 bytes | Static 50% state for distance and initial loading |
+| LOD0 detailed | 191,462 | 853 | 12,673,748 bytes | 1,905,796 bytes | Close shots, animation review and recordings |
+| LOD1 game | 7,880 | 10 | 930,244 bytes | 277,240 bytes | Active gameplay fabrication sequence |
+| LOD2 distance | 2,043 | 1 | 231,764 bytes | 77,228 bytes | Static 50% state for distance and initial loading |
 
-LOD1 meets the triangle and draw-call targets. Its plain animated GLB exceeds the 400 KB transfer target; the optional decoded Meshopt copy is about 233 KB. Meshopt uses filter mode without position quantization so tiny source features do not collapse into degenerate triangles. LOD2 meets the 3,000-triangle, one-draw and 250 KB plain targets. These are measured export properties, not FPS measurements.
+LOD1 meets the triangle and draw-call targets. Its plain animated GLB exceeds the 400 KB transfer target; the optional Meshopt copy is about 271 KB. Game and distance geometry use topology-preserving Meshoptimizer simplification after welding split normals. This retains connected, colored machine panels instead of creating the shredded open surfaces produced by triangle sampling. Meshopt compression uses filter mode without position quantization so tiny source features do not collapse into degenerate triangles. LOD2 meets the 3,000-triangle, one-draw and 250 KB plain targets. These are measured export properties, not FPS measurements.
 
 Only the intact D0 fabrication scene is authored. D1–D3 fabrication states are not supplied or implied; damage-state work remains separate from detail selection.
 
