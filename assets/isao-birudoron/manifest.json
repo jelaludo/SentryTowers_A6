@@ -115,11 +115,11 @@
         3,
         3
       ],
-      "bytes": 2485808,
-      "sha256": "daefd51e032ba51f61c2153ba8e24287fafc0eaf537da30cf6af987818a7b488",
-      "triangles": 34116,
-      "draw_calls": 89,
-      "nodes": 142,
+      "bytes": 3362660,
+      "sha256": "5d0c92c62745d4c956d0aea2a346cfa71cd33829579f3e9f4da299d84878e073",
+      "triangles": 45780,
+      "draw_calls": 99,
+      "nodes": 162,
       "materials": 11,
       "embedded_textures": 0,
       "bounds_min_m": [
@@ -192,6 +192,31 @@
           "loop": false
         },
         {
+          "name": "Emotion_Glee",
+          "duration_s": 1.8,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Worried",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Angry",
+          "duration_s": 1.6,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Surprised",
+          "duration_s": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Sleepy",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
           "name": "Rotor_Cycle",
           "duration_s": 1,
           "loop": true
@@ -304,10 +329,14 @@
         "BODY_PITCH",
         "CARGO_GRIP",
         "FACE_ALARM",
+        "FACE_ANGRY_A",
+        "FACE_ANGRY_B",
         "FACE_CURIOUS_CENTER",
         "FACE_CURIOUS_LEFT",
         "FACE_CURIOUS_RIGHT",
         "FACE_DETERMINED",
+        "FACE_GLEE_A",
+        "FACE_GLEE_B",
         "FACE_HAPPY",
         "FACE_LOVE_LARGE",
         "FACE_LOVE_SMALL",
@@ -315,7 +344,13 @@
         "FACE_SAD",
         "FACE_SKEPTICAL_A",
         "FACE_SKEPTICAL_B",
+        "FACE_SLEEPY_CLOSED",
+        "FACE_SLEEPY_OPEN",
+        "FACE_SURPRISED_BLINK",
+        "FACE_SURPRISED_OPEN",
         "FACE_WORKING",
+        "FACE_WORRIED_A",
+        "FACE_WORRIED_B",
         "ISAO_ROOT",
         "LED_PANEL",
         "LEG_FL_CLAW",
@@ -373,11 +408,11 @@
         3,
         3
       ],
-      "bytes": 1171336,
-      "sha256": "cb0289d331da02da64673c05ce6483c8a26d80a8033e3d75e2c052f73f81d6b9",
-      "triangles": 12512,
-      "draw_calls": 39,
-      "nodes": 92,
+      "bytes": 1570944,
+      "sha256": "2e9a389a4729f625fa9a7fd018bad8b78db86ac3254ebdcff9df230fba344088",
+      "triangles": 17264,
+      "draw_calls": 49,
+      "nodes": 112,
       "materials": 7,
       "embedded_textures": 0,
       "bounds_min_m": [
@@ -450,6 +485,31 @@
           "loop": false
         },
         {
+          "name": "Emotion_Glee",
+          "duration_s": 1.8,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Worried",
+          "duration_s": 2.4,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Angry",
+          "duration_s": 1.6,
+          "loop": true
+        },
+        {
+          "name": "Emotion_Surprised",
+          "duration_s": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Emotion_Sleepy",
+          "duration_s": 4,
+          "loop": true
+        },
+        {
           "name": "Rotor_Cycle",
           "duration_s": 1,
           "loop": true
@@ -562,10 +622,14 @@
         "BODY_PITCH",
         "CARGO_GRIP",
         "FACE_ALARM",
+        "FACE_ANGRY_A",
+        "FACE_ANGRY_B",
         "FACE_CURIOUS_CENTER",
         "FACE_CURIOUS_LEFT",
         "FACE_CURIOUS_RIGHT",
         "FACE_DETERMINED",
+        "FACE_GLEE_A",
+        "FACE_GLEE_B",
         "FACE_HAPPY",
         "FACE_LOVE_LARGE",
         "FACE_LOVE_SMALL",
@@ -573,7 +637,13 @@
         "FACE_SAD",
         "FACE_SKEPTICAL_A",
         "FACE_SKEPTICAL_B",
+        "FACE_SLEEPY_CLOSED",
+        "FACE_SLEEPY_OPEN",
+        "FACE_SURPRISED_BLINK",
+        "FACE_SURPRISED_OPEN",
         "FACE_WORKING",
+        "FACE_WORRIED_A",
+        "FACE_WORRIED_B",
         "ISAO_ROOT",
         "LED_PANEL",
         "LEG_FL_CLAW",
@@ -652,7 +722,7 @@
   "viewer_controls": [
     "orbit",
     "LOD and preserved-concept selector",
-    "nine embedded production emotion clips",
+    "fourteen embedded production emotion clips",
     "hover and rotor motion",
     "fabrication nozzle clip",
     "download selected plain GLB and Blender source"

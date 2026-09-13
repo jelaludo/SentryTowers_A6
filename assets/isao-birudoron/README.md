@@ -10,10 +10,10 @@ Both authored tiers use metres, +Y up, +Z forward and `ISAO_ROOT` at ground leve
 
 | Tier | Purpose | Triangles | Draw calls | Plain bytes | Materials | Textures | Animations |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| LOD0 | Detailed master / close shots and recording | 34,116 | 89 | 2,485,808 | 11 | 0 | 12 |
-| LOD1 | Reduced game and animation review tier | 12,512 | 39 | 1,171,336 | 7 | 0 | 12 |
+| LOD0 | Detailed master / close shots and recording | 45,780 | 99 | 3,362,660 | 11 | 0 | 17 |
+| LOD1 | Reduced game and animation review tier | 17,264 | 49 | 1,570,944 | 7 | 0 | 17 |
 
-LOD0 dimensions are 1.758 × 1.665 × 1.281 m; LOD1 is 1.758 × 1.665 × 1.275 m. The 12,512-triangle game tier remains below the 25,000-triangle unit guideline. LOD0 is the richer recording master and is not intended for runtime use. The game tier’s 39 draw calls and the detailed tier’s 89 are explicit optimization targets before final integration; no performance or FPS improvement is claimed.
+LOD0 dimensions are 1.758 × 1.665 × 1.281 m; LOD1 is 1.758 × 1.665 × 1.275 m. The 17,264-triangle game tier remains below the 25,000-triangle unit guideline. LOD0 is the richer recording master and is not intended for runtime use. The game tier’s 49 draw calls and the detailed tier’s 99 are explicit optimization targets before final integration; no performance or FPS improvement is claimed. The increase from the earlier alpha is the measured cost of five new performances and their alternate LED meshes.
 
 The remake retains the inset LED face, four-limb silhouette and central construction tool while translating the shell into the MÖRK/KORP family: faceted graphite armor, recessed cyan lift and tool hardware, protected rotor rings, amber maker/service marks, sturdy chamfers and exposed mechanical joints. This is a production alpha for art-direction and gameplay review, not a final or `game_ready` asset.
 
@@ -34,7 +34,9 @@ The Curious scan adapts the readability principle from Braille Lab: the mouth an
 
 https://kai-denrei.github.io/braille-lab/emotions/index.html
 
-Amber covers Neutral, Curious, Skeptical and Determined; green covers Happy and adjacent positive states; red covers Alarm and angry-adjacent states; purple covers Sad; cyan is reserved for functional Working feedback; pink is used only for the rare Love performance.
+Amber covers Neutral, Curious, Skeptical, Determined and Surprised; green covers Happy, Glee and adjacent positive states; red covers Alarm, Angry and adjacent states; purple covers Sad, Worried and Sleepy; cyan is reserved for functional Working feedback; pink is used only for the rare Love performance. Neutral is deliberately flat: two level eyes and a level four-dot mouth.
+
+LED state changes use glTF `STEP` interpolation. Hidden states are truly zero-scale and each sampled emotion frame has exactly one full-size visible face, preventing the former shrink-through-miniature glitch between glyphs. Body and limb channels retain smooth interpolation.
 
 | Clip | Duration | Playback | Main channels |
 | --- | ---: | --- | --- |
@@ -49,6 +51,11 @@ Amber covers Neutral, Curious, Skeptical and Determined; green covers Happy and 
 | `Emotion_Sad` | 3.2 s | Loop | Purple frown, body droop and tucked wrists |
 | `Emotion_Skeptical` | 2.4 s | Loop | Amber brow shift, side lean and wrist tap |
 | `Emotion_Love` | 2.2 s | One-shot | Rare pink heart pulse and self-hug |
+| `Emotion_Glee` | 1.8 s | Loop | Alternating green sparkle smile, buoyant body bounce and open limbs |
+| `Emotion_Worried` | 2.4 s | Loop | Purple quivering eyes, tremor and tucked limbs |
+| `Emotion_Angry` | 1.6 s | Loop | Red glare/teeth alternation, forward shake and clenched manipulators |
+| `Emotion_Surprised` | 1.4 s | One-shot | Amber blink-to-wide face, fast recoil and limbs thrown open |
+| `Emotion_Sleepy` | 4.0 s | Loop | Purple eyelid cycle, slow nod and hanging limbs |
 | `Tool_Fabricate` | 2.0 s | Loop | Nozzle yaw, pitch and extension |
 
 Do not bake engine-driven pivots. Combine `Rotor_Cycle` and `Hover_Idle` with one emotion clip; trigger `Tool_Fabricate` when ISAO is actively assembling Stålheart. Animation transitions, collision policy and the exact Terraformer assembly interaction still require gameplay review.
@@ -77,11 +84,11 @@ blender --background --factory-startup --python tools/blender/render_isao_birudo
 node tools/asset-pipeline/validate-isao-birudoron.mjs
 ```
 
-The validation checks hashes and measured geometry, glTF errors/warnings, degenerate triangles, bounds, ground/root placement, sockets, hierarchy parity, unique dot-free names, clip names and durations, expression/limb bindings, tool and rotor targets, texture counts and budget ceilings.
+The validation checks hashes and measured geometry, glTF errors/warnings, degenerate triangles, bounds, ground/root placement, sockets, hierarchy parity, unique dot-free names, clip names and durations, expression/limb bindings, tool and rotor targets, texture counts and budget ceilings. It also checks that every LED scale sampler is `STEP`, hidden rest states are exactly zero-scale and every sampled emotion frame resolves to one full-size face with no miniature intermediate.
 
 Production GLB SHA-256 values:
 
-- LOD0: `daefd51e032ba51f61c2153ba8e24287fafc0eaf537da30cf6af987818a7b488`
-- LOD1: `cb0289d331da02da64673c05ce6483c8a26d80a8033e3d75e2c052f73f81d6b9`
+- LOD0: `5d0c92c62745d4c956d0aea2a346cfa71cd33829579f3e9f4da299d84878e073`
+- LOD1: `2e9a389a4729f625fa9a7fd018bad8b78db86ac3254ebdcff9df230fba344088`
 - Preserved concept: `7beda296d8dc630ca2ee4b5474125dfac145138bf6d7905e948b033e5f98cc71`
 - Concept sheet: `e23b59b06d12985fa8f7c02c9877a517db5dd45ee07a1febdc6729f934fcf481`

@@ -37,8 +37,10 @@ COLORS = {
 }
 
 FACE_PATTERNS = {
-    "NEUTRAL": ["01100110", "10011001", "00000000", "00011000", "00011000", "00000000"],
+    "NEUTRAL": ["00000000", "01000010", "00000000", "00000000", "00111100", "00000000"],
     "HAPPY": ["01000010", "10100101", "00000000", "10000001", "01000010", "00111100"],
+    "GLEE_A": ["01000010", "10100101", "00000000", "10000001", "01100110", "00111100"],
+    "GLEE_B": ["10100101", "01000010", "00000000", "10000001", "01100110", "00111100"],
     "CURIOUS_LEFT": ["01100110", "00000000", "10001000", "00000000", "01111110", "00000000"],
     "CURIOUS_CENTER": ["01100110", "00000000", "01000010", "00000000", "01111110", "00000000"],
     "CURIOUS_RIGHT": ["01100110", "00000000", "00010001", "00000000", "01111110", "00000000"],
@@ -50,13 +52,24 @@ FACE_PATTERNS = {
     "SKEPTICAL_B": ["00100000", "01000000", "00000110", "01000010", "00000000", "00011100"],
     "LOVE_SMALL": ["00000000", "00100100", "01111110", "01111110", "00111100", "00011000"],
     "LOVE_LARGE": ["01000010", "11100111", "11111111", "01111110", "00111100", "00011000"],
+    "WORRIED_A": ["00100100", "01000010", "00000000", "00011000", "00100100", "01000010"],
+    "WORRIED_B": ["00100100", "10000001", "00000000", "00011000", "00100100", "01000010"],
+    "ANGRY_A": ["11100111", "00100100", "00000000", "00000000", "00111100", "00000000"],
+    "ANGRY_B": ["01000010", "00100100", "00000000", "01011010", "00111100", "00000000"],
+    "SURPRISED_OPEN": ["01100110", "01100110", "00000000", "00011000", "00100100", "00011000"],
+    "SURPRISED_BLINK": ["00000000", "01100110", "00000000", "00011000", "00100100", "00011000"],
+    "SLEEPY_OPEN": ["00000000", "01100110", "00000000", "00000000", "00111100", "00000000"],
+    "SLEEPY_CLOSED": ["00000000", "00100100", "00000000", "00000000", "00111100", "00000000"],
 }
 FACE_MATERIAL = {
-    "NEUTRAL": "amber", "HAPPY": "green", "CURIOUS_LEFT": "amber",
+    "NEUTRAL": "amber", "HAPPY": "green", "GLEE_A": "green", "GLEE_B": "green", "CURIOUS_LEFT": "amber",
     "CURIOUS_CENTER": "amber", "CURIOUS_RIGHT": "amber", "WORKING": "cyan",
     "ALARM": "red", "DETERMINED": "amber", "SAD": "purple",
     "SKEPTICAL_A": "amber", "SKEPTICAL_B": "amber",
-    "LOVE_SMALL": "pink", "LOVE_LARGE": "pink",
+    "LOVE_SMALL": "pink", "LOVE_LARGE": "pink", "WORRIED_A": "purple",
+    "WORRIED_B": "purple", "ANGRY_A": "red", "ANGRY_B": "red",
+    "SURPRISED_OPEN": "amber", "SURPRISED_BLINK": "amber",
+    "SLEEPY_OPEN": "purple", "SLEEPY_CLOSED": "purple",
 }
 EMOTION_FACE_SEQUENCE = {
     "NEUTRAL": [(0.0, "NEUTRAL"), (4.0, "NEUTRAL")],
@@ -68,6 +81,11 @@ EMOTION_FACE_SEQUENCE = {
     "SAD": [(0.0, "SAD"), (3.2, "SAD")],
     "SKEPTICAL": [(0.0, "SKEPTICAL_A"), (0.8, "SKEPTICAL_B"), (1.6, "SKEPTICAL_A"), (2.4, "SKEPTICAL_A")],
     "LOVE": [(0.0, "LOVE_SMALL"), (0.35, "LOVE_LARGE"), (0.7, "LOVE_SMALL"), (1.05, "LOVE_LARGE"), (1.4, "LOVE_SMALL"), (2.2, "LOVE_SMALL")],
+    "GLEE": [(0.0, "GLEE_A"), (0.3, "GLEE_B"), (0.6, "GLEE_A"), (0.9, "GLEE_B"), (1.2, "GLEE_A"), (1.8, "GLEE_A")],
+    "WORRIED": [(0.0, "WORRIED_A"), (0.4, "WORRIED_B"), (0.8, "WORRIED_A"), (1.2, "WORRIED_B"), (1.6, "WORRIED_A"), (2.4, "WORRIED_A")],
+    "ANGRY": [(0.0, "ANGRY_A"), (0.4, "ANGRY_B"), (0.8, "ANGRY_A"), (1.2, "ANGRY_B"), (1.6, "ANGRY_A")],
+    "SURPRISED": [(0.0, "SURPRISED_BLINK"), (0.12, "SURPRISED_OPEN"), (1.1, "SURPRISED_OPEN"), (1.4, "SURPRISED_BLINK")],
+    "SLEEPY": [(0.0, "SLEEPY_OPEN"), (1.4, "SLEEPY_CLOSED"), (2.2, "SLEEPY_CLOSED"), (2.5, "SLEEPY_OPEN"), (4.0, "SLEEPY_OPEN")],
 }
 CLIPS = {
     "Rotor_Cycle": (1.0, True),
@@ -81,6 +99,11 @@ CLIPS = {
     "Emotion_Sad": (3.2, True),
     "Emotion_Skeptical": (2.4, True),
     "Emotion_Love": (2.2, False),
+    "Emotion_Glee": (1.8, True),
+    "Emotion_Worried": (2.4, True),
+    "Emotion_Angry": (1.6, True),
+    "Emotion_Surprised": (1.4, False),
+    "Emotion_Sleepy": (4.0, True),
     "Tool_Fabricate": (2.0, True),
 }
 
@@ -247,12 +270,19 @@ def set_expression_clips(face_groups):
             continue
         emotion = clip_name.removeprefix("Emotion_").upper()
         sequence = EMOTION_FACE_SEQUENCE[emotion]
+        required_states = {state for _, state in sequence}
+        required_states.add("NEUTRAL")
         for name, group in face_groups.items():
+            if name not in required_states:
+                continue
             visible_at_start = name == sequence[0][1]
-            value = (1, 1, 1) if visible_at_start else (0.001, 0.001, 0.001)
-            settle = (0.98, 0.98, 0.98) if visible_at_start else (0.01, 0.01, 0.01)
+            value = (1, 1, 1) if visible_at_start else (0, 0, 0)
+            # Microscopic key variation keeps Blender from pruning constant
+            # scale channels without producing the visible miniature faces
+            # caused by the previous 0.01 hidden-state nudge.
+            settle = (0.999, 0.999, 0.999) if visible_at_start else (0.001, 0.001, 0.001)
             keys = [(0, value), (1 / FPS, settle), (2 / FPS, value)]
-            keys.extend((time, (1, 1, 1) if name == state else (0.001, 0.001, 0.001)) for time, state in sequence[1:])
+            keys.extend((time, (1, 1, 1) if name == state else (0, 0, 0)) for time, state in sequence[1:])
             clip(group, clip_name, "scale", keys, interpolation="CONSTANT")
 
 
@@ -324,6 +354,44 @@ def animate_character(body, legs, tool_yaw, tool_pitch, tool_extend, head):
         clip(hip, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (-0.34, -side * 0.28, side * 0.12)), (1.05, (-0.42, -side * 0.34, side * 0.15)), (1.4, (-0.30, -side * 0.24, side * 0.10)), (2.2, (0, 0, 0))])
         clip(knee, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (0.55, 0, -side * 0.18)), (1.05, (0.64, 0, -side * 0.22)), (1.4, (0.48, 0, -side * 0.15)), (2.2, (0, 0, 0))])
         clip(claw, "Emotion_Love", "rotation_euler", [(0, (0, 0, 0)), (0.35, (0, 0, side * 0.20)), (1.05, (0, 0, -side * 0.18)), (1.4, (0, 0, side * 0.14)), (2.2, (0, 0, 0))])
+
+    # Glee: quick full-body bounce with all four limbs opening outward.
+    clip(body, "Emotion_Glee", "rotation_euler", [(0, (0, 0, 0)), (0.3, (-0.08, 0, -0.05)), (0.6, (0.025, 0, 0.04)), (0.9, (-0.07, 0, -0.04)), (1.2, (0.02, 0, 0.03)), (1.8, (0, 0, 0))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Glee", "rotation_euler", [(0, (0, 0, 0)), (0.3, (-0.24, side * 0.24, side * 0.12)), (0.9, (-0.18, side * 0.18, -side * 0.08)), (1.8, (0, 0, 0))])
+        clip(knee, "Emotion_Glee", "rotation_euler", [(0, (0, 0, 0)), (0.3, (0.34, 0, -side * 0.14)), (0.9, (0.22, 0, side * 0.10)), (1.8, (0, 0, 0))])
+
+    # Worried: small repeated tremor with the limbs pulled protectively inward.
+    clip(body, "Emotion_Worried", "rotation_euler", [(0, (0.06, 0, 0.025)), (0.4, (0.07, 0, -0.025)), (0.8, (0.06, 0, 0.025)), (1.2, (0.07, 0, -0.025)), (1.6, (0.06, 0, 0.025)), (2.4, (0.06, 0, 0.025))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Worried", "rotation_euler", [(0, (0.20, -side * 0.16, side * 0.04)), (0.4, (0.24, -side * 0.20, -side * 0.04)), (0.8, (0.20, -side * 0.16, side * 0.04)), (1.2, (0.24, -side * 0.20, -side * 0.04)), (2.4, (0.20, -side * 0.16, side * 0.04))])
+        clip(knee, "Emotion_Worried", "rotation_euler", [(0, (-0.30, 0, -side * 0.06)), (0.4, (-0.36, 0, side * 0.06)), (0.8, (-0.30, 0, -side * 0.06)), (1.2, (-0.36, 0, side * 0.06)), (2.4, (-0.30, 0, -side * 0.06))])
+
+    # Angry: forward red glare, short body shake and clenched front manipulators.
+    clip(body, "Emotion_Angry", "rotation_euler", [(0, (-0.10, 0, 0.035)), (0.4, (-0.13, 0, -0.035)), (0.8, (-0.10, 0, 0.035)), (1.2, (-0.13, 0, -0.035)), (1.6, (-0.10, 0, 0.035))])
+    for label in ("FL", "FR"):
+        hip, knee, claw = legs[label]
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Angry", "rotation_euler", [(0, (-0.30, -side * 0.22, side * 0.08)), (0.4, (-0.38, -side * 0.26, -side * 0.08)), (0.8, (-0.30, -side * 0.22, side * 0.08)), (1.6, (-0.30, -side * 0.22, side * 0.08))])
+        clip(knee, "Emotion_Angry", "rotation_euler", [(0, (0.48, 0, -side * 0.12)), (0.4, (0.56, 0, side * 0.12)), (0.8, (0.48, 0, -side * 0.12)), (1.6, (0.48, 0, -side * 0.12))])
+        clip(claw, "Emotion_Angry", "rotation_euler", [(0, (0, 0, side * 0.18)), (0.4, (0, 0, -side * 0.18)), (0.8, (0, 0, side * 0.18)), (1.6, (0, 0, side * 0.18))])
+
+    # Surprised: fast recoil with every limb thrown open, then recover.
+    clip(body, "Emotion_Surprised", "rotation_euler", [(0, (0, 0, 0)), (0.12, (0.18, 0, 0)), (0.8, (0.14, 0, 0)), (1.4, (0, 0, 0))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Surprised", "rotation_euler", [(0, (0, 0, 0)), (0.12, (0.18, side * 0.32, side * 0.15)), (0.8, (0.12, side * 0.24, side * 0.10)), (1.4, (0, 0, 0))])
+        clip(knee, "Emotion_Surprised", "rotation_euler", [(0, (0, 0, 0)), (0.12, (-0.28, 0, -side * 0.18)), (0.8, (-0.20, 0, -side * 0.12)), (1.4, (0, 0, 0))])
+
+    # Sleepy: slow nod, long blink and relaxed hanging limbs.
+    clip(body, "Emotion_Sleepy", "rotation_euler", [(0, (0.08, 0, 0.025)), (1.4, (0.16, 0, -0.025)), (2.2, (0.18, 0, -0.025)), (2.5, (0.10, 0, 0.02)), (4.0, (0.08, 0, 0.025))])
+    clip(head, "Emotion_Sleepy", "rotation_euler", [(0, (0.16, 0, 0)), (1.4, (0.30, 0, 0)), (2.2, (0.32, 0, 0)), (2.5, (0.18, 0, 0)), (4.0, (0.16, 0, 0))])
+    for label, (hip, knee, claw) in legs.items():
+        side = -1 if "L" in label else 1
+        clip(hip, "Emotion_Sleepy", "rotation_euler", [(0, (0.18, -side * 0.08, side * 0.03)), (2.0, (0.24, -side * 0.10, -side * 0.03)), (4.0, (0.18, -side * 0.08, side * 0.03))])
+        clip(knee, "Emotion_Sleepy", "rotation_euler", [(0, (-0.24, 0, -side * 0.04)), (2.0, (-0.32, 0, side * 0.04)), (4.0, (-0.24, 0, -side * 0.04))])
 
     clip(tool_yaw, "Tool_Fabricate", "rotation_euler", [(0, (0, 0, -0.22)), (1, (0, 0, 0.22)), (2, (0, 0, -0.22))])
     clip(tool_pitch, "Tool_Fabricate", "rotation_euler", [(0, (0.10, 0, 0)), (0.5, (-0.12, 0, 0)), (1, (0.10, 0, 0)), (1.5, (-0.12, 0, 0)), (2, (0.10, 0, 0))])
@@ -424,7 +492,9 @@ def build(level):
     for name, rows in FACE_PATTERNS.items():
         group = empty(f"FACE_{name}", (0, 0, 0), led_panel)
         face_groups[name] = group
-        group.scale = (1, 1, 1) if name == "NEUTRAL" else (0.001, 0.001, 0.001)
+        # Build every state at full scale; hidden rest scales are applied only
+        # after geometry merging so no face mesh is baked into a collapsed pose.
+        group.scale = (1, 1, 1)
         cell = 0.050
         for row, bits in enumerate(rows):
             for column, bit in enumerate(bits):
@@ -484,8 +554,8 @@ def build(level):
     for leg in legs.values():
         for joint in leg:
             joint.rotation_euler = (0, 0, 0)
-    for name, group in face_groups.items():
-        group.scale = (1, 1, 1) if name == "NEUTRAL" else (0.001, 0.001, 0.001)
+    for group in face_groups.values():
+        group.scale = (1, 1, 1)
     for spin in rotors.values():
         spin.rotation_euler = (0, 0, 0)
 
@@ -496,6 +566,8 @@ def build(level):
         if obj.get("export_name", "").startswith("ROTOR_") and obj.get("export_name", "").endswith("_MOUNT"):
             owners.add(obj)
     merge_geometry(owners, face_groups)
+    for name, group in face_groups.items():
+        group.scale = (1, 1, 1) if name == "NEUTRAL" else (0, 0, 0)
     bpy.context.view_layer.update()
     minimum = Vector((float("inf"),) * 3)
     maximum = Vector((float("-inf"),) * 3)
@@ -542,6 +614,16 @@ def patch_glb_names(path, rest_transforms):
                     node.pop(key, None)
                 for key, value in rest.items():
                     node[key] = value
+    # Face states are discrete LED frames. Blender's forced animation sampling
+    # writes LINEAR samplers even for constant keys, which makes a glyph shrink
+    # through miniature intermediate versions. Preserve smooth body motion but
+    # switch FACE_* scale channels to exact STEP transitions.
+    for animation in doc.get("animations", []):
+        for channel in animation.get("channels", []):
+            target = channel.get("target", {})
+            node_index = target.get("node")
+            if target.get("path") == "scale" and node_index is not None and doc["nodes"][node_index].get("name", "").startswith("FACE_"):
+                animation["samplers"][channel["sampler"]]["interpolation"] = "STEP"
     packed = json.dumps(doc, separators=(",", ":")).encode()
     packed += b" " * (-len(packed) % 4)
     path.write_bytes(
@@ -562,6 +644,13 @@ def export_all():
     for level, current_scene, current_root, bounds, socket_positions in built:
         bpy.context.window.scene = current_scene
         bpy.ops.object.select_all(action="SELECT")
+        face_parents = [obj for obj in current_scene.objects if obj.type == "EMPTY" and obj.get("export_name", "").startswith("FACE_")]
+        # Capture nonsingular child-mesh rest transforms. Parent visibility is
+        # restored explicitly in rest_transforms below after this temporary
+        # full-scale export.
+        for obj in face_parents:
+            obj.scale = (1, 1, 1)
+        bpy.context.view_layer.update()
         rest_path = OUT / f".isao_rest_lod{level}.glb"
         bpy.ops.export_scene.gltf(
             filepath=str(rest_path), export_format="GLB", use_selection=True, use_active_scene=True,
@@ -575,7 +664,7 @@ def export_all():
                 rest_transforms[name] = {key: node[key] for key in ("matrix", "translation", "rotation", "scale") if key in node}
         for expression in FACE_PATTERNS:
             rest_transforms[f"FACE_{expression}"] = {
-                "scale": [1, 1, 1] if expression == "NEUTRAL" else [0.001, 0.001, 0.001]
+                "scale": [1, 1, 1] if expression == "NEUTRAL" else [0, 0, 0]
             }
         rest_path.unlink()
         for obj in current_scene.objects:
@@ -595,6 +684,8 @@ def export_all():
             if obj.animation_data:
                 for track in obj.animation_data.nla_tracks:
                     track.mute = True
+        for obj in face_parents:
+            obj.scale = (1, 1, 1) if obj.get("export_name") == "FACE_NEUTRAL" else (0, 0, 0)
         triangles = sum(doc["accessors"][primitive["indices"]]["count"] // 3 for mesh in doc["meshes"] for primitive in mesh["primitives"])
         draws = sum(len(mesh["primitives"]) for mesh in doc["meshes"])
         clips = []
@@ -623,6 +714,14 @@ def export_all():
         print("ISAO_EXPORT", level, triangles, "triangles", draws, "draws", path.stat().st_size, "bytes", len(clips), "clips")
     manifest["status"] = "production_alpha"
     manifest["assets"] = entries
+    manifest["viewer_controls"] = [
+        "orbit",
+        "LOD and preserved-concept selector",
+        "fourteen embedded production emotion clips",
+        "hover and rotor motion",
+        "fabrication nozzle clip",
+        "download selected plain GLB and Blender source",
+    ]
     for tier in manifest.get("future_tiers", []):
         if tier["tier"] in {"LOD0", "LOD1"}:
             tier["status"] = "production_alpha_delivered"

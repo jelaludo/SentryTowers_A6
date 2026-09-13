@@ -10,6 +10,19 @@ bpy.ops.object.delete(use_global=False)
 bpy.ops.import_scene.gltf(filepath=str(P / "assets/isao-birudoron/isao_birudoron_lod0.glb"))
 emotion = os.environ.get("ISAO_EMOTION")
 sample_seconds = float(os.environ.get("ISAO_SAMPLE_SECONDS", "0.8"))
+face_sequences = {
+    "Neutral": [(0.0, "NEUTRAL")], "Happy": [(0.0, "HAPPY")],
+    "Glee": [(0.0, "GLEE_A"), (0.3, "GLEE_B"), (0.6, "GLEE_A"), (0.9, "GLEE_B"), (1.2, "GLEE_A")],
+    "Curious": [(0.0, "CURIOUS_LEFT"), (0.6, "CURIOUS_CENTER"), (1.2, "CURIOUS_RIGHT"), (1.8, "CURIOUS_CENTER")],
+    "Working": [(0.0, "WORKING")], "Alarm": [(0.0, "ALARM")],
+    "Determined": [(0.0, "DETERMINED")], "Sad": [(0.0, "SAD")],
+    "Skeptical": [(0.0, "SKEPTICAL_A"), (0.8, "SKEPTICAL_B"), (1.6, "SKEPTICAL_A")],
+    "Love": [(0.0, "LOVE_SMALL"), (0.35, "LOVE_LARGE"), (0.7, "LOVE_SMALL"), (1.05, "LOVE_LARGE"), (1.4, "LOVE_SMALL")],
+    "Worried": [(0.0, "WORRIED_A"), (0.4, "WORRIED_B"), (0.8, "WORRIED_A"), (1.2, "WORRIED_B"), (1.6, "WORRIED_A")],
+    "Angry": [(0.0, "ANGRY_A"), (0.4, "ANGRY_B"), (0.8, "ANGRY_A"), (1.2, "ANGRY_B")],
+    "Surprised": [(0.0, "SURPRISED_BLINK"), (0.12, "SURPRISED_OPEN"), (1.1, "SURPRISED_OPEN")],
+    "Sleepy": [(0.0, "SLEEPY_OPEN"), (1.4, "SLEEPY_CLOSED"), (2.2, "SLEEPY_CLOSED"), (2.5, "SLEEPY_OPEN")],
+}
 for obj in bpy.context.scene.objects:
     if not obj.animation_data:
         continue
@@ -28,6 +41,24 @@ bpy.context.object.data.materials.append(ground)
 scene = bpy.context.scene
 if emotion:
     scene.frame_set(round(sample_seconds * scene.render.fps))
+    active_face = face_sequences[emotion][0][1]
+    for start, state in face_sequences[emotion]:
+        if sample_seconds >= start:
+            active_face = state
+    for obj in scene.objects:
+        if obj.name.startswith("FACE_"):
+            if obj.animation_data:
+                obj.animation_data_clear()
+            if obj.type == "MESH":
+                # Blender's imported NLA evaluation can leave child meshes at the
+                # parent's previous evaluated scale after their animation is cleared.
+                # Restore their authored local scale for deterministic still QA.
+                obj.scale = (1, 1, 1)
+            else:
+                obj.scale = (1, 1, 1) if obj.name == f"FACE_{active_face}" else (0, 0, 0)
+    bpy.context.view_layer.update()
+    active_parent = scene.objects.get(f"FACE_{active_face}")
+    print("ISAO_FACE_QA", active_face, tuple(active_parent.scale) if active_parent else None)
 scene.world.color = (0.012, 0.025, 0.032)
 for location, energy, size, color in [
     ((-3, -4, 5), 900, 4, (1.0, 0.82, 0.62)),
