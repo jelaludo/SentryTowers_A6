@@ -2,18 +2,21 @@
 
 ISAO is the Japanese-built airborne construction specialist that assembles Stålheart before the Terraformer fabricates MÖRK vehicles. The name is a joke on ビルドローン—“build drone.” This folder contains a new production-alpha character family and preserves the supplied draft unchanged as its initial concept.
 
-[Interactive production viewer](../../isao-birudoron/) · [Detailed LOD0](isao_birudoron_lod0.glb) · [Game LOD1](isao_birudoron_lod1.glb) · [Preserved concept](isao_birudoron_initial_concept.glb) · [Concept sheet](isao_birudoron_concept_sheet.png)
+[Interactive production viewer](../../isao-birudoron/) · [Detailed LOD0](isao_birudoron_lod0.glb) · [Game LOD1](isao_birudoron_lod1.glb) · [Static LOD2](isao_birudoron_lod2.glb) · [Preserved concept](isao_birudoron_initial_concept.glb) · [Concept sheet](isao_birudoron_concept_sheet.png)
 
 ## Production-alpha delivery
 
-Both authored tiers use metres, +Y up, +Z forward and `ISAO_ROOT` at ground level. Plain GLB is the source of truth; no compressed derivative is supplied at this alpha stage. The two tiers share the same functional engine hierarchy, socket identifiers, clip names and animation pivots.
+All three authored tiers use metres, +Y up, +Z forward and `ISAO_ROOT` at ground level. Plain GLB is the source of truth; no compressed derivative is supplied at this alpha stage. LOD0 and LOD1 share the functional hierarchy, socket identifiers, clip names and animation pivots. LOD2 retains the same named control/socket empties for lookup, but its single merged visible mesh is explicitly static.
 
 | Tier | Purpose | Triangles | Draw calls | Plain bytes | Materials | Textures | Animations |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | LOD0 | Detailed master / close shots and recording | 45,780 | 99 | 3,362,660 | 11 | 0 | 17 |
 | LOD1 | Reduced game and animation review tier | 17,264 | 49 | 1,570,944 | 7 | 0 | 17 |
+| LOD2 | Static distant-flight / background tier | 1,800 | 1 | 177,028 | 1 | 0 | 0 |
 
-LOD0 dimensions are 1.758 × 1.665 × 1.281 m; LOD1 is 1.758 × 1.665 × 1.275 m. The 17,264-triangle game tier remains below the 25,000-triangle unit guideline. LOD0 is the richer recording master and is not intended for runtime use. The game tier’s 49 draw calls and the detailed tier’s 99 are explicit optimization targets before final integration; no performance or FPS improvement is claimed. The increase from the earlier alpha is the measured cost of five new performances and their alternate LED meshes.
+LOD0 dimensions are 1.758 × 1.665 × 1.281 m; LOD1 is 1.758 × 1.665 × 1.275 m; LOD2 is 1.758 × 1.665 × 1.266 m. The 17,264-triangle game tier remains below the 25,000-triangle unit guideline. LOD0 is the richer recording master and is not intended for runtime use. The game tier’s 49 draw calls and the detailed tier’s 99 are explicit optimization targets before final integration; no performance or FPS improvement is claimed. The increase from the earlier alpha is the measured cost of five new performances and their alternate LED meshes.
+
+LOD2 exists because ISAO is normally seen beyond facial readability. It keeps the recognizable body, four protected rotors, hanging limbs, center nozzle, stable root/control/socket names and a single cyan functional panel signal. Its visible geometry is one static vertex-colour mesh: facial dots, limb acting, rotor clips and nozzle animation are intentionally omitted. The engine may translate and rotate `ISAO_ROOT`; swap to LOD1 before the face or limb performance becomes readable. Tune that swap by projected screen size on reference hardware, not the landmark 150 m threshold.
 
 The remake retains the inset LED face, four-limb silhouette and central construction tool while translating the shell into the MÖRK/KORP family: faceted graphite armor, recessed cyan lift and tool hardware, protected rotor rings, amber maker/service marks, sturdy chamfers and exposed mechanical joints. This is a production alpha for art-direction and gameplay review, not a final or `game_ready` asset.
 
@@ -71,17 +74,19 @@ The draft has 26 unnamed mesh nodes, no gameplay sockets or damage states, and i
 - Review silhouette, proportions, expression vocabulary and MÖRK/KORP family resemblance in game context.
 - Consolidate geometry/material primitives to reduce draw calls, especially on LOD0.
 - Define colliders and D1–D3 damage-state identifiers without treating damage as LOD.
-- Add a static LOD2 only if the actual camera or loading sequence demonstrates a need.
+- Tune and measure the LOD2→LOD1 projected-size threshold in the actual game camera and reference hardware.
 - Decide animation blending, foot/claw interaction and Stålheart assembly timing with the game developer.
 
 ## Rebuild and validation
 
-The editable master is `source/blender/isao-birudoron.blend`; `tools/blender/build_isao_birudoron.py` is the reproducible procedural authoring/export script. `tools/blender/render_isao_birudoron.py` creates the neutral-pose QA render used for the gallery preview.
+The editable animated master is `source/blender/isao-birudoron.blend`; the static reduction source is `source/blender/isao-birudoron-distance.blend`. `tools/blender/build_isao_birudoron.py` authors LOD0/1, while `tools/blender/build_unit_distance_lods.py` regenerates LOD2 from the game tier. `tools/blender/render_isao_birudoron.py` creates the neutral-pose QA render used for the gallery preview.
 
 ```sh
 blender --background --factory-startup --python tools/blender/build_isao_birudoron.py
 blender --background --factory-startup --python tools/blender/render_isao_birudoron.py
+blender --background --factory-startup --python tools/blender/build_unit_distance_lods.py
 node tools/asset-pipeline/validate-isao-birudoron.mjs
+node tools/asset-pipeline/validate-unit-distance-lods.mjs
 ```
 
 The validation checks hashes and measured geometry, glTF errors/warnings, degenerate triangles, bounds, ground/root placement, sockets, hierarchy parity, unique dot-free names, clip names and durations, expression/limb bindings, tool and rotor targets, texture counts and budget ceilings. It also checks that every LED scale sampler is `STEP`, hidden rest states are exactly zero-scale and every sampled emotion frame resolves to one full-size face with no miniature intermediate.
@@ -90,5 +95,6 @@ Production GLB SHA-256 values:
 
 - LOD0: `5d0c92c62745d4c956d0aea2a346cfa71cd33829579f3e9f4da299d84878e073`
 - LOD1: `2e9a389a4729f625fa9a7fd018bad8b78db86ac3254ebdcff9df230fba344088`
+- LOD2: `f486b8f3e267bb8a6c333cf629872178a3c70e2a8517aa3ebb8c6081376f9baf`
 - Preserved concept: `7beda296d8dc630ca2ee4b5474125dfac145138bf6d7905e948b033e5f98cc71`
 - Concept sheet: `e23b59b06d12985fa8f7c02c9877a517db5dd45ee07a1febdc6729f934fcf481`

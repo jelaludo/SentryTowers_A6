@@ -640,6 +640,7 @@ def export_all():
     manifest_path = OUT / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     concept = [entry for entry in manifest["assets"] if entry["id"] == "isao_birudoron_initial_concept"][0]
+    distance_entries = [entry for entry in manifest["assets"] if entry.get("lod") == 2]
     entries = [concept]
     for level, current_scene, current_root, bounds, socket_positions in built:
         bpy.context.window.scene = current_scene
@@ -713,11 +714,14 @@ def export_all():
         })
         print("ISAO_EXPORT", level, triangles, "triangles", draws, "draws", path.stat().st_size, "bytes", len(clips), "clips")
     manifest["status"] = "production_alpha"
-    manifest["assets"] = entries
+    # The dedicated static-unit builder owns LOD2; preserve it when the
+    # animated master and game tiers are regenerated independently.
+    manifest["assets"] = entries + distance_entries
     manifest["viewer_controls"] = [
         "orbit",
         "LOD and preserved-concept selector",
         "fourteen embedded production emotion clips",
+        "static one-draw distance tier",
         "hover and rotor motion",
         "fabrication nozzle clip",
         "download selected plain GLB and Blender source",

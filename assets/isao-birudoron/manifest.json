@@ -685,6 +685,227 @@
       ],
       "credit": "Models by jelaludo",
       "notes": "Functional limb, rotor, LED-expression and fabrication-tool hierarchy; pending art-direction and gameplay review."
+    },
+    {
+      "id": "isao_birudoron_lod2",
+      "family": "isao_birudoron",
+      "name": "ISAO-Birudorōn / Static distant-flight proxy",
+      "file": "isao_birudoron_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "state": "Static distant flight",
+      "detail": "distance",
+      "static": true,
+      "functional": false,
+      "derived": true,
+      "game_ready": false,
+      "source_file": "isao_birudoron_lod1.glb",
+      "source_sha256": "2e9a389a4729f625fa9a7fd018bad8b78db86ac3254ebdcff9df230fba344088",
+      "reduction_method": "authored Blender silhouette reduction with merged vertex-color palette",
+      "intended_uses": [
+        "distant flight",
+        "background",
+        "map or loading view"
+      ],
+      "excluded_uses": [
+        "readable emotion",
+        "limb acting",
+        "fabrication close-up"
+      ],
+      "plot_m": [
+        3,
+        3
+      ],
+      "bytes": 177028,
+      "sha256": "f486b8f3e267bb8a6c333cf629872178a3c70e2a8517aa3ebb8c6081376f9baf",
+      "triangles": 1800,
+      "draw_calls": 1,
+      "nodes": 64,
+      "materials": 1,
+      "embedded_textures": 0,
+      "bounds_min_m": [
+        -0.879,
+        0.0,
+        -0.632757
+      ],
+      "bounds_max_m": [
+        0.879,
+        1.665,
+        0.632757
+      ],
+      "dimensions_m": [
+        1.758,
+        1.665,
+        1.265514
+      ],
+      "root": "ISAO_ROOT",
+      "engine_nodes": [
+        "BODY_PITCH",
+        "CARGO_GRIP",
+        "FACE_ALARM",
+        "FACE_ANGRY_A",
+        "FACE_ANGRY_B",
+        "FACE_CURIOUS_CENTER",
+        "FACE_CURIOUS_LEFT",
+        "FACE_CURIOUS_RIGHT",
+        "FACE_DETERMINED",
+        "FACE_GLEE_A",
+        "FACE_GLEE_B",
+        "FACE_HAPPY",
+        "FACE_LOVE_LARGE",
+        "FACE_LOVE_SMALL",
+        "FACE_NEUTRAL",
+        "FACE_SAD",
+        "FACE_SKEPTICAL_A",
+        "FACE_SKEPTICAL_B",
+        "FACE_SLEEPY_CLOSED",
+        "FACE_SLEEPY_OPEN",
+        "FACE_SURPRISED_BLINK",
+        "FACE_SURPRISED_OPEN",
+        "FACE_WORKING",
+        "FACE_WORRIED_A",
+        "FACE_WORRIED_B",
+        "ISAO_ROOT",
+        "LED_PANEL",
+        "LEG_FL_CLAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FR_CLAW",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_RL_CLAW",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RR_CLAW",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "ROTOR_FL_MOUNT",
+        "ROTOR_FL_SPIN",
+        "ROTOR_FR_MOUNT",
+        "ROTOR_FR_SPIN",
+        "ROTOR_RL_MOUNT",
+        "ROTOR_RL_SPIN",
+        "ROTOR_RR_MOUNT",
+        "ROTOR_RR_SPIN",
+        "SENSOR_MAST",
+        "SOCKET_CENTER_OF_MASS",
+        "SOCKET_CLAW_FL",
+        "SOCKET_CLAW_FR",
+        "SOCKET_CLAW_RL",
+        "SOCKET_CLAW_RR",
+        "SOCKET_LIFT_FL",
+        "SOCKET_LIFT_FR",
+        "SOCKET_LIFT_RL",
+        "SOCKET_LIFT_RR",
+        "TERRAFORMER_ASSEMBLY_ORIGIN",
+        "TOOL_HEAD",
+        "TOOL_NOZZLE_EXTEND",
+        "TOOL_NOZZLE_PITCH",
+        "TOOL_NOZZLE_YAW",
+        "TOOL_TIP"
+      ],
+      "sockets": [
+        {
+          "id": "CARGO_GRIP",
+          "position_m": [
+            0,
+            0.85,
+            -0.27
+          ]
+        },
+        {
+          "id": "SOCKET_CENTER_OF_MASS",
+          "position_m": [
+            0,
+            1.1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FL",
+          "position_m": [
+            -0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_FR",
+          "position_m": [
+            0.735,
+            0.12,
+            0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RL",
+          "position_m": [
+            -0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_CLAW_RR",
+          "position_m": [
+            0.735,
+            0.12,
+            -0.235
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FL",
+          "position_m": [
+            -0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_FR",
+          "position_m": [
+            0.63,
+            1.29,
+            0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RL",
+          "position_m": [
+            -0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "SOCKET_LIFT_RR",
+          "position_m": [
+            0.63,
+            1.29,
+            -0.39
+          ]
+        },
+        {
+          "id": "TERRAFORMER_ASSEMBLY_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "TOOL_TIP",
+          "position_m": [
+            0,
+            -0.02,
+            0
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo",
+      "notes": "Static one-draw proxy. Engine may translate/rotate the root; child controls do not articulate this tier.",
+      "description": "Static distant-flight silhouette with one non-emotive cyan functional signal; use LOD1 before facial or limb acting becomes readable."
     }
   ],
   "reference_images": [
@@ -715,16 +936,23 @@
     },
     {
       "tier": "LOD2",
-      "status": "conditional_not_delivered",
-      "purpose": "Static distance/loading representation only if game camera and loading tests justify it"
+      "status": "delivered",
+      "purpose": "Static one-draw distant-flight, background and loading representation"
     }
   ],
   "viewer_controls": [
     "orbit",
     "LOD and preserved-concept selector",
     "fourteen embedded production emotion clips",
+    "static one-draw distance tier",
     "hover and rotor motion",
     "fabrication nozzle clip",
     "download selected plain GLB and Blender source"
-  ]
+  ],
+  "lod_policy": {
+    "distance": "Load static LOD2 while ISAO's face and limb acting are below the readable screen-size threshold.",
+    "game": "Swap to articulated LOD1 before the LED expression or limb performance becomes readable.",
+    "detailed": "LOD0 remains a manual cinematic and recording selection.",
+    "threshold": "Tune by projected screen size and reference hardware; do not assume the landmark 150 m threshold."
+  }
 }

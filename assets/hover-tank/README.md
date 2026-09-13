@@ -4,6 +4,16 @@ Long, narrow, low-profile armored hover tank with a long cannon and lean turret,
 
 The plasma mounts sit below the main gun's swept envelope. The full 360° yaw check at maximum gun depression leaves at least 0.150 m of vertical clearance between the main recoiling assembly and the plasma housings in the nominal suspension pose.
 
+## Static distance tier
+
+The intact MÖRK now includes `mork_hover_tank_d0_lod2.glb`, a static proxy for MÖRK 2, MÖRK 3 and other repeated tanks seen inside containers or in background, map and loading views.
+
+| Tier | Triangles | Draw calls | Plain bytes | Materials | Clips |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| D0 LOD2 | 1,706 | 1 | 222,796 | 1 | 0 |
+
+LOD2 retains `ROOT`, the control/socket empties and the full long-cannon silhouette, but all visible geometry is merged into one vertex-colour mesh. The controls do not articulate this tier. Move or rotate the complete tank through `ROOT`, instance the same D0 proxy for repeated intact displays, and swap to the low-poly game tier before combat, visible turret motion, ammunition changes or damage. D1–D3 distance states are not supplied because the stated background-container use is intact-only.
+
 [Interactive workshop](../../hover-tank/) includes power on/off, cannon fire, plasma flashes, independent aiming controls, ammo reload, a rear magazine inspection view, neutral materials, wireframe and D0–D3 selection. [Editable Blender source](../../source/blender/a6-hover-tank.blend) contains the four states and named NLA animation tracks; the intact presentation uses `Hover_Idle`.
 
 ## Operating clips
@@ -48,9 +58,11 @@ Rebuild and validate:
 blender --background --python-exit-code 1 --python tools/blender/build_hover_tank.py
 node tools/asset-pipeline/pack-hover-tank.mjs
 node tools/asset-pipeline/validate-hover-tank.mjs
+blender --background --factory-startup --python-exit-code 1 --python tools/blender/build_unit_distance_lods.py
+node tools/asset-pipeline/validate-unit-distance-lods.mjs
 ```
 
-Outputs: four GLBs and a manifest under `assets/hover-tank/`, `mork-preview.png`, and `source/blender/a6-hover-tank.blend`. Validation checks the triangle budget, nine four-state ammo lenses, six operating clips, recoil recovery, power timing, ground clearance and gun/plasma separation.
+Outputs: four detailed GLBs and a manifest under `assets/hover-tank/`, `mork-preview.png`, and `source/blender/a6-hover-tank.blend`. The separate distance build supplies `mork_hover_tank_d0_lod2.glb`, `manifest-distance.json` and `source/blender/mork-hover-tank-distance.blend`. Validation checks the triangle budget, nine four-state ammo lenses, six operating clips, recoil recovery, power timing, ground clearance and gun/plasma separation; distance validation additionally checks one-draw static geometry, hashes, bounds, naming and the 250 KB transfer target.
 
 The revised silhouette narrows the running body by 18% and stretches it lengthwise by 27%, with sloping glacis surfaces, pointed nacelles, fitted segmented shields, cyan panel seams and a swept, flattened turret. The barrel was lengthened to retain its reach beyond the longer hull. Geometry proportions are baked into meshes; the turret and weapon axes remain orthogonal.
 

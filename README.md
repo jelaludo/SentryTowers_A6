@@ -56,7 +56,7 @@ The [station crew](station-crew/) adds three original low-poly suited characters
 
 The [Reckon-Guard drone](reckon-guard/) adds a sleek low-poly twin-fan scout with animated rotors and an articulated downward-firing cannon. The preview demonstrates hover, ground-target tracking, muzzle-spawned projectiles and impacts. [Integration notes](assets/reckon-guard/README.md).
 
-The [ISAO-Birudorōn character family](isao-birudoron/) introduces the Japanese-built flying construction specialist that assembles Stålheart. A new detailed master and reduced game tier translate the concept into the MÖRK/KORP design language with functional four-limb, rotor, LED-expression and fabrication-nozzle animation. The supplied draft remains preserved unchanged for comparison. [Production-alpha hand-off and concept audit](assets/isao-birudoron/README.md).
+The [ISAO-Birudorōn character family](isao-birudoron/) introduces the Japanese-built flying construction specialist that assembles Stålheart. A detailed master and reduced game tier translate the concept into the MÖRK/KORP design language with functional four-limb, rotor, LED-expression and fabrication-nozzle animation; a static one-draw distance tier covers ISAO's usual far-view role. The supplied draft remains preserved unchanged for comparison. [Production-alpha hand-off and concept audit](assets/isao-birudoron/README.md).
 
 The [Capture-the-Flag kit](ctf-flags/) adds six faction banners—including stylized 火 and 力—three modular pole styles, and a capture socket. Each flag includes flutter, gust, raise and lower animations; the preview adds comparison and pick-up/capture/return controls. [Integration notes](assets/ctf-flags/README.md).
 

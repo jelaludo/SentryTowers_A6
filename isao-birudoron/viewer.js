@@ -35,7 +35,7 @@ const emotionData={
   sleepy:{label:'Sleepy',color:'#9d55ff',fps:.55,frames:[['00000000','01100110','00000000','00000000','00111100','00000000'],['00000000','00100100','00000000','00000000','00111100','00000000']],lean:.10,yaw:0,pitch:.15,head:.28,speed:.4}
 };
 const loader=new GLTFLoader();
-let wrapper=null,gltf=null,mixer=null,entry=null,production=false,emotion='neutral',time=0,emotionEpoch=0;
+let wrapper=null,gltf=null,mixer=null,entry=null,production=false,staticDistance=false,emotion='neutral',time=0,emotionEpoch=0;
 let rotorAction=null,hoverAction=null,emotionAction=null,toolAction=null,concept={};
 const faceCanvas=document.createElement('canvas');faceCanvas.width=256;faceCanvas.height=192;
 const faceTexture=new T.CanvasTexture(faceCanvas);faceTexture.colorSpace=T.SRGBColorSpace;faceTexture.minFilter=T.NearestFilter;faceTexture.magFilter=T.NearestFilter;faceTexture.flipY=true;
@@ -61,16 +61,16 @@ function prepareConcept(){
   concept.faceMesh=faceMesh;drawFace(emotionData[emotion]);
 }
 async function loadModel(id){
-  if(wrapper)scene.remove(wrapper);mixer=null;concept={};entry=entries.get(id);production=entry.production_lod===true;$('hud').innerHTML='<strong>Loading ISAO…</strong>';
+  if(wrapper)scene.remove(wrapper);mixer=null;concept={};entry=entries.get(id);staticDistance=entry.static===true;production=entry.production_lod===true||staticDistance;$('hud').innerHTML='<strong>Loading ISAO…</strong>';
   gltf=await loader.loadAsync(`../assets/isao-birudoron/${entry.file}`);wrapper=new T.Group();wrapper.add(gltf.scene);wrapper.position.y=production?.12:.54;scene.add(wrapper);
-  if(production){mixer=new T.AnimationMixer(gltf.scene);rotorAction=play('Rotor_Cycle');hoverAction=play('Hover_Idle');concept={};$('badge').textContent=`PRODUCTION ALPHA / ${entry.lod===0?'DETAILED LOD0':'GAME LOD1'}`;$('note').textContent='Functional LED, body, four-limb, rotor and fabrication-tool animation. Production alpha: pending art-direction, gameplay and damage-state review.';}
+  if(production){mixer=new T.AnimationMixer(gltf.scene);rotorAction=play('Rotor_Cycle');hoverAction=play('Hover_Idle');concept={};$('badge').textContent=staticDistance?'STATIC DISTANCE / BACKGROUND':`PRODUCTION ALPHA / ${entry.lod===0?'DETAILED LOD0':'GAME LOD1'}`;$('note').textContent=staticDistance?'One-draw distant-flight proxy with a non-emotive cyan panel signal. Swap to LOD1 before facial or limb acting becomes readable.':'Functional LED, body, four-limb, rotor and fabrication-tool animation. Production alpha: pending art-direction, gameplay and damage-state review.';}
   else{prepareConcept();$('badge').textContent='INITIAL CONCEPT / NOT GAME-READY';$('note').textContent='The draft has no embedded clips and its visible limbs are not attached to the supplied leg pivots. Its LED, body lean and tool gestures are procedural viewer studies.';}
-  $('stats').textContent=`${entry.triangles.toLocaleString()} triangles · ${entry.draw_calls} draws · ${(entry.bytes/1024).toFixed(0)} KB · ${(entry.clips||entry.animations).length} embedded clips`;$('download').href=`../assets/isao-birudoron/${entry.file}`;
+  document.querySelectorAll('[data-emotion]').forEach(button=>button.disabled=staticDistance);$('fabricate').disabled=staticDistance;if(staticDistance)emotion='neutral';$('stats').textContent=`${entry.triangles.toLocaleString()} triangles · ${entry.draw_calls} draws · ${(entry.bytes/1024).toFixed(0)} KB · ${(entry.clips||entry.animations).length} embedded clips`;$('download').href=`../assets/isao-birudoron/${entry.file}`;$('sourceDownload').href=staticDistance?'../source/blender/isao-birudoron-distance.blend':'../source/blender/isao-birudoron.blend';
   setEmotion(emotion);frameModel();window.isaoViewer={gltf,wrapper,mixer,entry,setEmotion};window.isaoViewerReady=true;
 }
 function setEmotion(name){
   emotion=name;emotionEpoch=time;document.querySelectorAll('[data-emotion]').forEach(button=>button.classList.toggle('active',button.dataset.emotion===name));
-  if(production&&mixer){stop(emotionAction);const clipName=`Emotion_${name[0].toUpperCase()+name.slice(1)}`,meta=entry.clips.find(item=>item.name===clipName);emotionAction=play(clipName,meta?.loop??true);}
+  if(production&&mixer&&!staticDistance){stop(emotionAction);const clipName=`Emotion_${name[0].toUpperCase()+name.slice(1)}`,meta=entry.clips.find(item=>item.name===clipName);emotionAction=play(clipName,meta?.loop??true);}
   else drawFace(emotionData[name],0);
 }
 document.querySelectorAll('[data-emotion]').forEach(button=>button.addEventListener('click',()=>setEmotion(button.dataset.emotion)));
@@ -83,6 +83,6 @@ renderer.setAnimationLoop(()=>{try{
   const dt=Math.min(clock.getDelta(),.04),cfg=emotionData[emotion],motion=$('hover').checked;time+=dt;
   if(production){mixer?.update(dt);wrapper.position.y=.12+(motion?.025*Math.sin(time*2.15):0);}
   else if(wrapper){const pulse=motion?Math.sin(time*cfg.speed):0;drawFace(cfg,Math.floor((time-emotionEpoch)*(cfg.fps||1)));wrapper.position.y=.54+(motion?.025*Math.sin(time*2.15):0);wrapper.rotation.z=T.MathUtils.lerp(wrapper.rotation.z,cfg.lean+(motion?.012*Math.sin(time*1.4):0),.08);wrapper.rotation.x=T.MathUtils.lerp(wrapper.rotation.x,emotion==='alarm'?.045*Math.sin(time*8):0,.12);if(concept.boomYaw)concept.boomYaw.rotation.y=T.MathUtils.lerp(concept.boomYaw.rotation.y,concept.bases.get(concept.boomYaw).y+cfg.yaw+.035*pulse,.08);if(concept.boomPitch)concept.boomPitch.rotation.x=T.MathUtils.lerp(concept.boomPitch.rotation.x,concept.bases.get(concept.boomPitch).x+cfg.pitch+.045*pulse,.08);if(concept.headPitch)concept.headPitch.rotation.x=T.MathUtils.lerp(concept.headPitch.rotation.x,concept.bases.get(concept.headPitch).x+cfg.head-.06*pulse,.08);if(motion)concept.rotors.forEach((rotor,index)=>rotor.rotation.y+=dt*(18+(index%2?1:-1)*2));}
-  padRing.material.opacity=.45+.2*Math.sin(time*2.15);$('hud').innerHTML=`<strong>${cfg.label}</strong> · ${production?'embedded LED + articulated limb performance':'procedural LED + posture/tool study'}<br>${production?'Use Fabrication tool to preview the nozzle pass.':'Full articulated limb acting is available in the production alpha.'}`;controls.update();renderer.render(scene,camera);
+  padRing.material.opacity=.45+.2*Math.sin(time*2.15);$('hud').innerHTML=staticDistance?'<strong>Distance signal</strong> · static one-draw flight silhouette<br>Root translation and rotation remain engine-driven; select LOD1 for character performance.':`<strong>${cfg.label}</strong> · ${production?'embedded LED + articulated limb performance':'procedural LED + posture/tool study'}<br>${production?'Use Fabrication tool to preview the nozzle pass.':'Full articulated limb acting is available in the production alpha.'}`;controls.update();renderer.render(scene,camera);
   }catch(error){$('hud').textContent=`Viewer error: ${error.message}`;renderer.setAnimationLoop(null);console.error(error);}});
 await loadModel($('model').value);
