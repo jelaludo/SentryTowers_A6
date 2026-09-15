@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## SOL-82 orbital laser brief
+
+- `SOL-82-BRIEF.md` was supplied by jelaludo on 15 September 2026 as the design and runtime contract for the newly authored SOL-82 family.
+- The delivered platform geometry, materials, animation and lore implementation are original project work by jelaludo. The supplied brief records the SOL-740/1982 name homage; no third-party geometry, images or textures are embedded.
+
 ## ISAO-Birudorōn initial concept
 
 - `assets/isao-birudoron/isao_birudoron_initial_concept.glb` was supplied to this project by jelaludo on 13 September 2026 as `isao_draft_01.glb`. It is preserved byte-for-byte as an initial concept, SHA-256 `7beda296d8dc630ca2ee4b5474125dfac145138bf6d7905e948b033e5f98cc71`.

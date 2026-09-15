@@ -6,6 +6,8 @@ Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowe
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line has D0–D3 contract-candidate LOD1/LOD2 exports; LOD1 retains all eight useful robot rigs in one draw and LOD2 is static. Five reusable modules retain four detailed structural states. [Integration notes](assets/assembly-line/README.md) and [LOD hand-off](assets/assembly-line/README-LODS.md).
 
+The [SOL-82 orbital laser platform](sol82/) is a 52.55 m stored-energy combat satellite with a shielded pulse spine, deployable solar wings and thermal radiators, a gimbaled ventral aperture and four mechanical clips. Its viewer defaults to the intended cyan wireframe telemetry while also exposing the full carbon/gunmetal close-up treatment. [Lore and integration notes](assets/sol82/README.md).
+
 The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).
 
 The [base construction lab](base-kit/) now contains the first Blender-authored wall kit: four straight-wall states, a corner, an animated vehicle gate and a foundation. [Integration notes](assets/base-kit/README.md) and [editable source](source/blender/a6-wall-kit.blend) are included.

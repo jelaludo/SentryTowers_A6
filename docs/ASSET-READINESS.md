@@ -17,7 +17,8 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | --- | --- | --- |
 | `korp/` | Contract candidate | D0 LOD0/1/2 naming and mechanics validate; game-camera and reference-phone acceptance are pending. |
 | `fabrication-lab/` | Contract candidate | Canonical Stålheart LOD0/1/2 composition and wireframe-only MÖRK one-shot validate; LOD1 byte/draw cost and final game-camera sequence remain under review. |
-| `arrival-foundry/` | Contract candidate | AFR-01 D0 LOD0/1/2 and the first panel-to-barrel sequence validate; complete SH02 salvage staging, gameplay resource events, game-camera and phone review remain pending. |
+| `arrival-foundry/` | Contract candidate | AFR-01 D0 LOD0/1/2, the first panel-to-barrel sequence and four-piece SH02 staging validate; successive removals, gameplay resource events, game-camera and phone review remain pending. |
+| `sol82/` | Contract candidate | D0 detailed/game/distance tiers, seven named materials, four clips and the aperture/optics contract validate; laser-lab cameras, thresholds and reference-phone review remain pending. |
 | `ammunition/` | Original | Reusable game/display package, but its current naming migration and consuming-weapon review are pending. |
 | `hugin-flight/` | Contract candidate | Animated D0 source plus static landing-island LOD2; map threshold and phone review are pending. |
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |

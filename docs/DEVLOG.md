@@ -8,8 +8,25 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Reduced tiers now omit the rover workpieces and carry a single continuous conveyor silhouette. Confirm the revised composition, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle and a separate four-piece SH02 salvage family now provide detailed/game/distance tiers, sockets and event timings. Confirm the site composition and causal read in the game camera before animating successive section removal. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
+5. **SOL-82 orbital laser platform — candidate delivered; laser-lab review pending.** Detailed, game and static distance tiers provide the aperture-at-origin contract, four named clips, engine-driven optics pivots and the required seven-material vocabulary. Confirm the deployed silhouette and glint from the ground camera, close-orbit firing/cooldown framing, LOD threshold and reference-phone performance.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 15 September 2026 / SOL-82 orbital laser platform
+
+**Contract candidate delivered; laser-lab ground-camera, close-orbit and reference-phone review pending.** Authored SOL-82 as a 52.55 m combat satellite with a shielded octagonal bus, guarded sensor prow, triple capacitor/reactor spine, separated thruster pods, broad tracking wings, paired deployable thermal radiators and a two-axis ventral optical assembly. The primary Workshop presentation is cyan wireframe telemetry; the same topology also carries the complete carbon, gunmetal, cyan, amber and engine-driven emissive treatment for rare cut-ins.
+
+| SOL-82 tier | Triangles | Draw calls | Plain bytes | Meshopt bytes | Motion |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Detailed / LOD0 | 9,436 | 7 | 447,372 | 100,504 | Four clips; close cinematic/recording master |
+| Game / LOD1 | 4,940 | 7 | 264,808 | 69,912 | Four clips; arrival, departure and close orbit |
+| Distance / LOD2 | 2,700 | 1 | 78,936 | 24,272 | Static deployed sky silhouette and glint |
+
+`ROOT` and `APERTURE` coincide at the beam exit; local and default world `-Y` is the fire direction, while +Z remains direction of flight. `OPTICS_YAW` and `OPTICS_PITCH` are deliberately absent from all clip tracks so the game can steer them continuously. `Arrays_Deploy` lasts 2.5 seconds, `Aperture_Open` and `Aperture_Close` last 0.6 seconds each, and `Idle_Cycle` lasts 8 seconds. LOD1 is 4,940 triangles / 7 draws / 264,808 plain bytes; LOD2 is 2,700 triangles / 1 draw / 78,936 bytes, so both meet the landmark targets.
+
+The energy lore treats 120 MW as stored optical output: a shielded continuous-power core charges a 1.2 GJ pulse store between passes, while the arrays operate the bus, cryocoolers and optical control. Phase-change sinks accept the ten-second burn and radiator vanes reject the heat afterward. The game still owns the beam, footprint, aim marker, scorch, smoke and HUD. Plain GLB and decoded Meshopt files pass glTF validity, self-containment, names, material, animation, aperture, bounds, hash and budget checks. D1–D3 remain intentionally absent because the platform cannot currently be damaged.
+
+Hand-off folder: `assets/sol82/` at the commit containing this entry. Production source: `tools/asset-pipeline/build-sol82.mjs`. Editable review scene: `source/blender/sol82-orbital-laser.blend`.
 
 ## 13 September 2026 / SH02 four-piece salvage staging
 
