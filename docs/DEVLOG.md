@@ -11,17 +11,41 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 5. **SOL-82 orbital laser — original satellite restored; laser-lab review pending.** Original detailed/game/distance tiers and four clips remain active. Confirm game-camera framing, thresholds and reference-phone performance.
 6. **SOL-88 Syzygy — independent model delivered; integration/review pending.** Three articulated cages, a mechanical lens engine and six clips have separate exports and a viewer. Integrate its bounded alignment controller explicitly; review cameras, thresholds and phone performance.
 
-7. **Yushi045 Bio-Pearl — first intact candidate delivered; integration/review pending.** Wire its live capacity and valve controller to ISAO inventory; check docking clearance, game release compression, LOD thresholds and reference-phone performance.
+7. **Yūshi045 Bio-Pearl — first intact candidate delivered; integration/review pending.** Wire its live capacity and valve controller to ISAO inventory; check docking clearance, game release compression, LOD thresholds and reference-phone performance.
+
+8. **Yūshi037 Bio-Dome — second design delivered; integration/review pending.** Compare the low half-sphere/skid alternative; complete live-browser rendering review, ISAO docking/inventory, release compression, game-camera and phone checks.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
-## 17 September 2026 / Yushi045 Bio-Pearl
+## 17 September 2026 / Yūshi037 Bio-Dome and long-vowel naming
 
-**First intact candidate delivered; ISAO/game integration and reference-phone review pending.** Authored Yushi045 (有機性資源コンテナ 第045型) as a squat spherical binder reservoir on three broad-footed legs. ISAO uses its concentrated organic feedstock with local regolith and mineral aggregate to construct buildings on remote planets. The pale upper shell, armored bowl, equatorial support belt, low extraction coupling and service cap explain its storage function.
+**Independent second biomass-container candidate delivered; integration/review pending.** The owner specified the long-vowel spelling Yūshi045 and named the next design Yūshi037. Display names and export metadata now use ū; existing ASCII paths, URLs, node names and family IDs remain stable. Yūshi045 retains its geometry, socket coordinates and tripod design.
+
+Yūshi037 explores the low half-sphere direction: a 3.30 m wide dome on a grounded octagonal skid, broad protective straps, low service hatch and pumped forward extraction cassette. It holds the same dense organic binder concentrate ISAO mixes with planetary regolith and mineral aggregate. Its compact base is intended for prepared yards, distinct from the rough-terrain tripod of Yūshi045. The model number does not imply a gameplay upgrade or replacement.
+
+| Yūshi037 tier | Triangles | Opaque draws | Optional glass draw | Plain bytes | Meshopt bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Detailed / LOD0 | 6,506 | 2 | 1 | 238,664 | 73,480 |
+| Game / LOD1 | 1,134 | 2 | 1 | 53,484 | 22,696 |
+| Static distance / LOD2 | 386 | 1 | 0 | 23,720 | 10,636 |
+
+All three tiers share 3.66 × 1.9425 × 3.9025 m overall bounds, ground-centred origin, dot-free lookup nodes and sockets within a 4.4 × 4.4 m plot (approach marker intentionally external). Engine-driven valve articulation is retained in the detailed/game tiers; the distance tier is one static opaque mesh. D0 only. Detailed Blender source and a rendered Workshop poster are included.
+
+The segmented shoulder gauge and recessed inspection well share a live capacity value. Its own runtime adapter inverts the half-ellipsoid volume relationship f = 1.5t − 0.5t³; 50% capacity lies at about 34.73% of internal height. Optional small glass and pumping shader motion require no refraction, textures or fluid simulation. Do not use the full-sphere Yūshi045 height mapping for this asset. The instanced yard shares fill; independent per-instance inventory still needs a game-side attribute.
+
+All plain and decoded Meshopt exports pass hashes, bytes, budgets, nondegenerate geometry, socket/name parity, bounds and volume/valve tests. The Blender master/poster is visually reviewed. Automated viewer regression tests use real scene graphs and controllers with mocked DOM/WebGL, covering delayed startup, full/empty, flow/pause, tier-switch fill preservation, stale downloads, failed-load recovery and batching structure for both families. They are not GPU or FPS measurements. The Safari live-render/control check was interrupted when its window became unavailable; live-browser review remains pending.
+
+The game still needs inventory wiring, ISAO docking/clearance, release gltfpack attribute preservation, Three.js r160 integration, final LOD thresholds and reference-phone measurements. No FPS improvement is claimed. Yūshi045 byte counts/hashes reflect the Unicode metadata spelling change; current values are in its manifest/README, while the earlier entry below records initial delivery sizes.
+
+Hand-off: this commit plus assets/yushi037/ (including runtime.js and manifest.json), or assets/yushi045/ for the renamed Bio-Pearl. Editable source: source/blender/yushi037-bio-dome.blend. Shared navigation, catalog and website documentation regenerated.
+
+## 17 September 2026 / Yūshi045 Bio-Pearl
+
+**First intact candidate delivered; ISAO/game integration and reference-phone review pending.** Authored Yūshi045 (有機性資源コンテナ 第045型) as a squat spherical binder reservoir on three broad-footed legs. ISAO uses its concentrated organic feedstock with local regolith and mineral aggregate to construct buildings on remote planets. The pale upper shell, armored bowl, equatorial support belt, low extraction coupling and service cap explain its storage function.
 
 Eight shoulder segments and a recessed sight chamber share an engine-driven capacity value. A small optional glass cover provides the close-up inspection effect. Pumping adds subtle shader movement; there is no fluid simulation, refraction, texture or particle system. The actual volume fraction maps nonlinearly to the vessel's liquid height. Capacity remains independent of detail and damage.
 
-| Yushi045 tier | Triangles | Opaque draws | Optional glass draw | Plain bytes | Meshopt bytes |
+| Yūshi045 tier | Triangles | Opaque draws | Optional glass draw | Plain bytes | Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Detailed / LOD0 | 7,560 | 2 | 1 | 284,176 | 84,324 |
 | Game / LOD1 | 1,208 | 2 | 1 | 62,920 | 25,288 |

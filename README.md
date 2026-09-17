@@ -8,7 +8,9 @@ The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight arti
 
 The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).
 
-The [Yushi045 Bio-Pearl](yushi045/) stores organic binder concentrate for ISAO construction. Its tripod vessel has live shoulder and sight-window capacity indicators, optional glass, three measured detail tiers and a 25-container instanced yard. [Lore and integration](assets/yushi045/README.md).
+The [Yūshi045 Bio-Pearl](yushi045/) stores organic binder concentrate for ISAO construction. Its tripod vessel has live shoulder and sight-window capacity indicators, optional glass, three measured detail tiers and a 25-container instanced yard. [Lore and integration](assets/yushi045/README.md).
+
+The separate [Yūshi037 Bio-Dome](yushi037/) explores the low half-sphere alternative on an octagonal skid, with a pumped extraction cassette. Its game tier is 1,134 triangles; the static distance tier is 386 triangles / one draw. Both Yūshi names use a long-vowel ū while ASCII asset paths stay stable. [Lore and integration](assets/yushi037/README.md).
 
 The separate [SOL-88 Syzygy orbital laser](sol88/) suspends a mechanical lens engine inside three rotating containment cages. Six clips show convergence, a ten-second continuous firing window and recovery. Detailed, articulated game and static distance tiers include full materials and cyan wireframe. [SOL-88 lore and integration notes](assets/sol88/README.md).
 

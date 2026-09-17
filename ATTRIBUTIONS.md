@@ -1,8 +1,13 @@
 # Asset attributions and provenance
 
-## Yushi045 Bio-Pearl
+## Yūshi037 Bio-Dome
 
-- On 17 September 2026, jelaludo named the tripod biomass container Yushi045, 有機性資源コンテナ 第045型, as ISAO construction-feedstock storage for remote planets.
+- On 17 September 2026, jelaludo named the separate second biomass-container design Yūshi037, 有機性資源コンテナ 第037型, and specified the long-vowel spelling for both Yūshi models.
+- Original procedural geometry, live-capacity adapter and editable detailed source in this repository. Model by jelaludo. No external textures or models.
+
+## Yūshi045 Bio-Pearl
+
+- On 17 September 2026, jelaludo named the tripod biomass container Yūshi045, 有機性資源コンテナ 第045型, as ISAO construction-feedstock storage for remote planets.
 - Geometry, materials, runtime capacity treatment and lore are newly authored project work credited to jelaludo. The exports embed no third-party geometry or textures.
 
 ## SOL-88 Syzygy

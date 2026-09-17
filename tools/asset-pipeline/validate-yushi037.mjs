@@ -5,12 +5,12 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'meshoptimizer';
 import validator from 'gltf-validator';
-import {fillHeight,createYushiController} from '../../assets/yushi045/runtime.js';
+import {fillHeight,createYushiController} from '../../assets/yushi037/runtime.js';
 
-const directory=new URL('../../assets/yushi045/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',directory)));
+const directory=new URL('../../assets/yushi037/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',directory)));
 await MeshoptDecoder.ready;const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 assert.deepEqual(manifest.supported_damage_levels,[0]);assert.equal(manifest.plain_glb_source_of_truth,true);
-let baseline=null;
+let baseline=null,baselineBounds=null;
 for(const entry of manifest.assets){
  let plainBounds;
  for(const compressed of [false,true]){
@@ -30,14 +30,15 @@ for(const entry of manifest.assets){
   assert.equal(triangles,entry.triangles);assert.equal(draws,entry.draw_calls);assert.equal(transparent,entry.lod===2?0:1);assert.deepEqual([...roles].sort(),[0,1,2]);
   for(const socket of entry.sockets){const node=root.getObjectByName(socket.node);assert(node.getWorldPosition(new T.Vector3()).distanceTo(new T.Vector3(...socket.position_m))<.003);assert(new T.Vector3(0,0,1).applyQuaternion(node.getWorldQuaternion(new T.Quaternion())).distanceTo(new T.Vector3(...socket.normal))<.003);}
   if(!baseline)baseline=lookup;else for(const name of entry.required_nodes)assert(new T.Vector3(...lookup[name]).distanceTo(new T.Vector3(...baseline[name]))<.003,name+' parity');
-  const bounds=new T.Box3().setFromObject(root);assert(Math.abs(bounds.min.y)<.002,'feet on ground');assert(bounds.max.y<3.2&&bounds.max.y>3.1);assert(bounds.min.x>=-2&&bounds.max.x<=2&&bounds.min.z>=-2&&bounds.max.z<=2);
-  if(!compressed)plainBounds=bounds;else{assert(bounds.min.distanceTo(plainBounds.min)<.006);assert(bounds.max.distanceTo(plainBounds.max)<.006);}
+  const bounds=new T.Box3().setFromObject(root);assert(Math.abs(bounds.min.y)<.002,'feet on ground');assert(bounds.max.y<1.95&&bounds.max.y>1.94);assert(bounds.min.x>=-2.2&&bounds.max.x<=2.2&&bounds.min.z>=-2.2&&bounds.max.z<=2.2);
+  if(!compressed){plainBounds=bounds;if(!baselineBounds)baselineBounds=bounds.clone();assert(bounds.min.distanceTo(baselineBounds.min)<.0001);assert(bounds.max.distanceTo(baselineBounds.max)<.0001);assert.equal(root.getObjectByName('ROOT').userData.designation,'Yūshi037');}
+  else{assert(bounds.min.distanceTo(plainBounds.min)<.006);assert(bounds.max.distanceTo(plainBounds.max)<.006);}
   const controller=createYushiController(T,root);
-  for(const f of [0,.01,.1,.25,.5,.75,.9,.99,1]){controller.setFill(f);const t=controller.height;assert(Math.abs(3*t*t-2*t*t*t-f)<1e-7);assert.equal(controller.fill,f);for(const state of manifest.operation_states){controller.setState(state);controller.update(4.5);const valve=root.getObjectByName('DISPENSE_VALVE');assert.equal(valve.rotation.z,entry.lod===2?0:state==='dispensing'?Math.PI/2:0);}}
+  for(const f of [0,.01,.1,.25,.5,.75,.9,.99,1]){controller.setFill(f);const t=controller.height;assert(Math.abs(1.5*t-.5*t*t*t-f)<1e-7);assert.equal(controller.fill,f);for(const state of manifest.operation_states){controller.setState(state);controller.update(4.5);const valve=root.getObjectByName('DISPENSE_VALVE');assert.equal(valve.rotation.z,entry.lod===2?0:state==='dispensing'?Math.PI/2:0);}}
   controller.setFill(-1);assert.equal(controller.fill,0);controller.setFill(2);assert.equal(controller.fill,1);assert.throws(()=>controller.setFill(NaN));controller.setGlass(false);assert(!root.getObjectByName('YUSHI_GLASS').isMesh||!root.getObjectByName('YUSHI_GLASS').visible);controller.dispose();
   console.log('PASS',file,triangles,'triangles',draws,'draws');
  }
  if(entry.lod>0){const budget=manifest.budgets['lod'+entry.lod];assert(entry.triangles<=budget.triangles_max);assert(entry.draw_calls<=budget.draw_calls_max);assert(entry.bytes<=budget.plain_bytes_max);}
 }
 assert.equal(fillHeight(0),0);assert.equal(fillHeight(1),1);
-console.log('PASS Yūshi045 names, geometry, sockets, decoded compression, capacity-volume mapping, LOD-independent fill, valve controls and budgets.');
+console.log('PASS Yūshi037 names, geometry, sockets, decoded compression, capacity-volume mapping, LOD-independent fill, valve controls and budgets.');

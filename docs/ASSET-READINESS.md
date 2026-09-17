@@ -21,6 +21,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | `sol82/` | Contract candidate | Original satellite restored; detailed/game/distance tiers and four clips validate. Laser-lab cameras, thresholds and reference-phone review remain pending. |
 | `sol88/` | Contract candidate | Independent Syzygy detailed/game/static-distance tiers, six clips, seven materials and sampled firing clearance validate. Game-controller integration, release compression, cameras, thresholds and phone review remain pending. |
 | `yushi045/` | Contract candidate | D0 detailed/game/static-distance tiers, capacity adapter, valve, sockets and decoded compression validate. ISAO docking/inventory, game release attribute preservation, camera thresholds and phone review remain pending. |
+| `yushi037/` | Contract candidate | Separate half-sphere D0 detailed/game/static-distance tiers, hemisphere-volume adapter, sockets and decoded compression validate. ISAO docking/inventory, release attribute preservation, game camera and phone review remain pending. |
 | `ammunition/` | Original | Reusable game/display package, but its current naming migration and consuming-weapon review are pending. |
 | `hugin-flight/` | Contract candidate | Animated D0 source plus static landing-island LOD2; map threshold and phone review are pending. |
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |

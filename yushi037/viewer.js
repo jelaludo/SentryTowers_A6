@@ -3,7 +3,10 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {createYushiController} from '../assets/yushi045/runtime.js';
+import {createYushiController} from '../assets/yushi037/runtime.js';
+
+window.addEventListener('error',event=>{document.getElementById('status').textContent='Preview error: '+event.message;});
+window.addEventListener('unhandledrejection',event=>{document.getElementById('status').textContent='Preview error: '+(event.reason?.message||event.reason);});
 
 const $=id=>document.getElementById(id),stage=$('stage'),scene=new T.Scene();scene.background=new T.Color(0x101c19);
 const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;stage.prepend(renderer.domElement);
@@ -15,13 +18,13 @@ const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);let manifest,ent
 let valveInstances=null,valveBase=null;const placements=[];
 const query=new URLSearchParams(location.search);for(const id of ['lod','encoding','sceneMode'])if(query.has(id))$(id).value=query.get(id);
 function frame(name='orbit'){
- const yard=$('sceneMode').value==='yard';const poses=yard?{orbit:[[20,18,26],[0,0,0]],front:[[0,9,32],[0,1,0]],top:[[.01,35,0],[0,0,0]],outlet:[[13,4,21],[0,1,0]]}:{orbit:[[4.5,3.4,6.2],[0,1.5,0]],front:[[0,2.1,5.3],[0,1.7,0]],top:[[.01,7,2.3],[0,1.4,0]],outlet:[[1.6,1.0,2.9],[0,.6,.4]]};camera.position.fromArray(poses[name][0]);orbit.target.fromArray(poses[name][1]);orbit.update();
+ const yard=$('sceneMode').value==='yard';const poses=yard?{orbit:[[20,18,26],[0,0,0]],front:[[0,9,32],[0,1,0]],top:[[.01,35,0],[0,0,0]],outlet:[[13,4,21],[0,1,0]]}:{orbit:[[4.5,3.3,6.4],[0,.8,0]],front:[[0,2.2,5.7],[0,.85,0]],top:[[.01,7,2.3],[0,.6,0]],outlet:[[1.5,1.1,3.8],[0,.55,1.8]]};camera.position.fromArray(poses[name][0]);orbit.target.fromArray(poses[name][1]);orbit.update();
 }
 function dispose(root){if(!root)return;const geometries=new Set(),materials=new Set();root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);[].concat(o.material||[]).forEach(m=>materials.add(m));});geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());}
 function clearDisplay(){controller?.dispose();controller=null;if(display)scene.remove(display);display=null;valveInstances=null;placements.length=0;}
 function compose(){
  if(!asset)return;clearDisplay();const yard=$('sceneMode').value==='yard';
- if(yard){display=new T.Group();asset.updateMatrixWorld(true);for(let z=0;z<5;z++)for(let x=0;x<5;x++)placements.push(new T.Matrix4().makeTranslation((x-2)*4.2,0,(z-2)*4.2));
+ if(yard){display=new T.Group();asset.updateMatrixWorld(true);for(let z=0;z<5;z++)for(let x=0;x<5;x++)placements.push(new T.Matrix4().makeTranslation((x-2)*4.6,0,(z-2)*4.6));
   asset.traverse(object=>{if(!object.isMesh||object.name==='YUSHI_GLASS')return;const instances=new T.InstancedMesh(object.geometry,object.material,25);instances.name=object.name;placements.forEach((m,i)=>instances.setMatrixAt(i,m.clone().multiply(object.matrixWorld)));display.add(instances);if(object.name==='VALVE_HANDLE'){valveInstances=instances;valveBase=object.matrixWorld.clone();}});
  }else display=asset.clone(true);
  scene.add(display);controller=createYushiController(T,display,{fill:+$('fill').value/100,state:$('state').value,glass:$('glass').checked&&!yard});$('glass').disabled=yard||entry.lod===2;
@@ -31,8 +34,8 @@ function applyControls(){if(!controller)return;controller.setFill(+$('fill').val
  display.traverse(o=>{if(o.isMesh)[].concat(o.material).forEach(m=>m.wireframe=$('wire').checked);});
  if(valveInstances){const angle=$('state').value==='dispensing'?Math.PI/2:0,rotation=new T.Matrix4().makeRotationZ(angle);placements.forEach((m,i)=>valveInstances.setMatrixAt(i,m.clone().multiply(valveBase).multiply(rotation)));valveInstances.instanceMatrix.needsUpdate=true;}
 }
-async function load(){const serial=++ticket;loading=true;loadError=null;lastStatus='';$('status').textContent='Loading Bio-Pearl…';const next=manifest.assets.find(e=>e.lod===+$('lod').value),file=$('encoding').value==='plain'?next.file:next.meshopt_file;
- try{const loaded=await loader.loadAsync('../assets/yushi045/'+file+'?v='+next.sha256.slice(0,10));if(serial!==ticket){dispose(loaded.scene);return;}clearDisplay();dispose(asset);asset=loaded.scene;entry=next;loading=false;compose();renderFrame();$('bytes').textContent=((($('encoding').value==='plain'?entry.bytes:entry.meshopt_bytes)/1024).toFixed(1))+' KiB';$('download').href='../assets/yushi045/'+file;window.yushi045={asset,manifest,entry,scene,renderer,camera,get controller(){return controller;}};
+async function load(){const serial=++ticket;loading=true;loadError=null;lastStatus='';$('status').textContent='Loading Bio-Dome…';const next=manifest.assets.find(e=>e.lod===+$('lod').value),file=$('encoding').value==='plain'?next.file:next.meshopt_file;
+ try{const loaded=await loader.loadAsync('../assets/yushi037/'+file+'?v='+next.sha256.slice(0,10));if(serial!==ticket){dispose(loaded.scene);return;}clearDisplay();dispose(asset);asset=loaded.scene;entry=next;loading=false;compose();renderFrame();$('bytes').textContent=((($('encoding').value==='plain'?entry.bytes:entry.meshopt_bytes)/1024).toFixed(1))+' KiB';$('download').href='../assets/yushi037/'+file;window.yushi037={asset,manifest,entry,scene,renderer,camera,get controller(){return controller;}};
  }catch(error){if(serial!==ticket)return;loading=false;loadError=error.message;$('status').textContent='Unable to load: '+error.message;console.error(error);}
 }
 $('lod').onchange=load;$('encoding').onchange=load;$('sceneMode').onchange=compose;
@@ -46,7 +49,7 @@ frame();const clock=new T.Clock();function renderFrame(){
  const dt=Math.min(clock.getDelta(),.05);if(running)elapsed+=dt;
  if(controller&&running&&!loading){const direction=$('state').value==='dispensing'?-1:1;const value=T.MathUtils.clamp(controller.fill+direction*dt*.065,0,1);$('fill').value=(value*100).toFixed(3);controller.setFill(value);if(value===0||value===1){running=false;$('state').value=value===0?'empty':'ready';controller.setState($('state').value);applyControls();}}
  controller?.update(elapsed);$('percent').textContent=Math.round(controller?controller.fill*100:+$('fill').value)+'%';orbit.update();renderer.render(scene,camera);$('draws').textContent=Math.max(0,renderer.info.render.calls-1);
- if(entry&&!loading&&!loadError){const state=controller?.fill===0&&$('state').value==='ready'?'empty':$('state').value,text=`Yūshi045 · ${state.toUpperCase()} · ${Math.round((controller?.fill||0)*100)}% · LOD${entry.lod} · ${$('sceneMode').value==='yard'?'25 shared-fill instances':'organic binder storage'}`;if(text!==lastStatus){$('status').textContent=text;lastStatus=text;}}
+ if(entry&&!loading&&!loadError){const state=controller?.fill===0&&$('state').value==='ready'?'empty':$('state').value,text=`Yūshi037 · ${state.toUpperCase()} · ${Math.round((controller?.fill||0)*100)}% · LOD${entry.lod} · ${$('sceneMode').value==='yard'?'25 shared-fill instances':'organic binder storage'}`;if(text!==lastStatus){$('status').textContent=text;lastStatus=text;}}
 }
 renderer.setAnimationLoop(renderFrame);
-try{const response=await fetch('../assets/yushi045/manifest.json',{cache:'no-cache'});if(!response.ok)throw new Error('Manifest unavailable');manifest=await response.json();await load();}catch(error){loadError=error.message;$('status').textContent=error.message;}
+try{const response=await fetch('../assets/yushi037/manifest.json',{cache:'no-cache'});if(!response.ok)throw new Error('Manifest unavailable');manifest=await response.json();await load();}catch(error){loadError=error.message;$('status').textContent=error.message;}

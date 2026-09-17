@@ -2,10 +2,10 @@
 // Capacity and flow are inputs from the game, never baked into an animation clip.
 export function fillHeight(fraction){
  const f=Math.max(0,Math.min(1,fraction));if(f===0||f===1)return f;
- let low=0,high=1;for(let i=0;i<28;i++){const t=(low+high)/2;if(3*t*t-2*t*t*t<f)low=t;else high=t;}return(low+high)/2;
+ let low=0,high=1;for(let i=0;i<28;i++){const t=(low+high)/2;if(1.5*t-.5*t*t*t<f)low=t;else high=t;}return(low+high)/2;
 }
 export function createYushiController(T,root,{fill=.5,state='ready',glass=true}={}){
- if(!root.getObjectByName('YUSHI_BODY')?.geometry?.getAttribute('_yushi'))throw new Error('Yūshi045 capacity attribute _YUSHI is missing; preserve it when packing the GLB.');
+ if(!root.getObjectByName('YUSHI_BODY')?.geometry?.getAttribute('_yushi'))throw new Error('Yūshi037 capacity attribute _YUSHI is missing; preserve it when packing the GLB.');
  const uniforms={yushiFill:{value:fill},yushiHeight:{value:fillHeight(fill)},yushiTime:{value:0},yushiFlow:{value:0},yushiCyan:{value:new T.Color(0x6cddd2)},yushiDim:{value:new T.Color(0x0b292d)},yushiOlive:{value:new T.Color(0x71863c)},yushiDark:{value:new T.Color(0x071f22)}};
  const owned=new Set(),materialMap=new Map(),glassNodes=[];
  root.traverse(object=>{
@@ -38,14 +38,14 @@ if (vYushi.x > 0.5 && vYushi.x < 1.5) {
 float pulse = 1.0 + yushiFlow * 0.22 * sin(yushiTime*2.4-vYushi.y*12.0);
 totalEmissiveRadiance += yushiCyan * yushiLit * 0.6 * pulse;`);
    };
-   material.customProgramCacheKey=()=> 'yushi045_capacity_v1';return material;
+   material.customProgramCacheKey=()=> 'yushi037_capacity_v1';return material;
   });
   if(object.material.length===1)object.material=object.material[0];
  });
  const valve=root.getObjectByName('DISPENSE_VALVE');let currentState='ready';
  const controller={
-  setFill(value){if(!Number.isFinite(value))throw new Error('Yūshi045 fill must be finite');uniforms.yushiFill.value=T.MathUtils.clamp(value,0,1);uniforms.yushiHeight.value=fillHeight(uniforms.yushiFill.value);},
-  setState(value){if(!['empty','filling','ready','dispensing'].includes(value))throw new Error('Unknown Yūshi045 state');currentState=value;uniforms.yushiFlow.value=['filling','dispensing'].includes(value)?1:0;if(valve&&!valve.userData.static_lookup_only&&!root.getObjectByName('VALVE_HANDLE')?.userData.static_lookup_only)valve.rotation.z=value==='dispensing'?Math.PI/2:0;},
+  setFill(value){if(!Number.isFinite(value))throw new Error('Yūshi037 fill must be finite');uniforms.yushiFill.value=T.MathUtils.clamp(value,0,1);uniforms.yushiHeight.value=fillHeight(uniforms.yushiFill.value);},
+  setState(value){if(!['empty','filling','ready','dispensing'].includes(value))throw new Error('Unknown Yūshi037 state');currentState=value;uniforms.yushiFlow.value=['filling','dispensing'].includes(value)?1:0;if(valve&&!valve.userData.static_lookup_only&&!root.getObjectByName('VALVE_HANDLE')?.userData.static_lookup_only)valve.rotation.z=value==='dispensing'?Math.PI/2:0;},
   setGlass(value){glassNodes.forEach(node=>node.visible=Boolean(value));},
   update(time){uniforms.yushiTime.value=time;},
   get fill(){return uniforms.yushiFill.value;},get height(){return uniforms.yushiHeight.value;},get state(){return currentState;},
