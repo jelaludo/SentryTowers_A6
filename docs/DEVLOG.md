@@ -8,11 +8,33 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Reduced tiers now omit the rover workpieces and carry a single continuous conveyor silhouette. Confirm the revised composition, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle and a separate four-piece SH02 salvage family now provide detailed/game/distance tiers, sockets and event timings. Confirm the site composition and causal read in the game camera before animating successive section removal. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
-5. **SOL-82 orbital laser platform — candidate delivered; laser-lab review pending.** Detailed, game and static distance tiers provide the aperture-at-origin contract, four named clips, engine-driven optics pivots and the required seven-material vocabulary. Confirm the deployed silhouette and glint from the ground camera, close-orbit firing/cooldown framing, LOD threshold and reference-phone performance.
+5. **SOL-82 Syzygy — redesign candidate delivered; game migration and review pending.** Three articulated cages, a mechanical lens engine, six clips and detailed/game/static-distance tiers are ready for integration. Update legacy array/deploy bindings and enforce the bounded firing window; review laser-lab cameras, LOD thresholds and reference-phone performance.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
-## 15 September 2026 / SOL-82 orbital laser platform
+## 17 September 2026 / SOL-82 Syzygy redesign
+
+**Authored candidate delivered; game-controller migration and laser-lab review pending.** Replaced the conventional satellite appearance with three independently rotating armillary cages around a suspended mechanical lens engine. The owner approved the supplied interwoven-ring reference and sustained firing-window concept before implementation. Original satellite assets and sources remain preserved under source/archive/sol82-satellite-v1/.
+
+The master adds armor clamps, fasteners, cooling ribs and optical collars. The game tier keeps three cages, eight retracting iris blades, lens-carriage translation, focus motion and unbaked engine-driven optical steering. A broad capture collar houses the open iris. Full materials are the Workshop default; cyan wireframe remains available.
+
+| Syzygy tier | Triangles | Draws | Plain bytes | Meshopt bytes |
+| --- | ---: | ---: | ---: | ---: |
+| Detailed / LOD0 | 65,664 | 7 | 2,303,400 | 459,796 |
+| Game / LOD1 | 7,928 | 7 | 386,400 | 106,468 |
+| Static distance / LOD2 | 2,650 | 1 | 81,924 | 27,636 |
+
+Six clips provide Idle_Cycle (24 s), Convergence (4 s), Firing_Cycle (10 s), Recovery (5 s), Aperture_Open and Aperture_Close (0.6 s each). The lore requires field coherence and a physical escape corridor; rings maintain alignment for the continuous burn, then separate to restore field stability and reject heat. The 120 MW fictional output and 1.2 GJ optical-energy budget remain.
+
+ROOT/APERTURE retain the beam-origin contract. A 40.2 m spherical motion envelope replaces the old array span. All tiers share named pivots and sockets. ARRAY_L/ARRAY_R and the old radiator hinges are deprecated lookup-only nodes; Arrays_Deploy is replaced by Convergence. The consuming game must implement the documented alignment/energy gate, moved auxiliary sockets and animation migration before adopting these files.
+
+All six exports pass family validation, including decoded Meshopt, animation parity, loop seams, sockets, names, materials, hashes and budgets. The firing corridor passes 3,321 rays per encoding over 41 phases and nine aiming combinations at a 0.75 m clearance radius. The detailed scene/poster were rendered in Blender; plain detailed and decoded game previews were inspected in Safari. Game release gltfpack output, laser-lab cameras, final thresholds and reference-phone performance remain pending. No FPS improvement is claimed.
+
+The viewer adds a complete convergence → firing → recovery demonstration, timeline scrubbing, a lens-engine camera, tracking and emissive controls, and an optional viewer-only clearance guide. Shared navigation and website documentation are regenerated.
+
+Hand-off: this commit plus assets/sol82/. Geometry/choreography: tools/asset-pipeline/sol82-syzygy.mjs; exporter: tools/asset-pipeline/build-sol82.mjs. Detailed Blender scene: source/blender/sol82-orbital-laser.blend. Design and migration: [SOL-82-SYZYGY.md](../docs/SOL-82-SYZYGY.md).
+
+## 15 September 2026 / SOL-82 orbital laser platform (preserved predecessor)
 
 **Contract candidate delivered; laser-lab ground-camera, close-orbit and reference-phone review pending.** Authored SOL-82 as a 52.55 m combat satellite with a shielded octagonal bus, guarded sensor prow, triple capacitor/reactor spine, separated thruster pods, broad tracking wings, paired deployable thermal radiators and a two-axis ventral optical assembly. The primary Workshop presentation is cyan wireframe telemetry; the same topology also carries the complete carbon, gunmetal, cyan, amber and engine-driven emissive treatment for rare cut-ins.
 

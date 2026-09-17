@@ -12,8 +12,6 @@ QA = Path("/tmp/sol82-orbital-laser.png")
 bpy.ops.object.select_all(action="SELECT")
 bpy.ops.object.delete(use_global=False)
 bpy.ops.import_scene.gltf(filepath=str(MODEL))
-for action in bpy.data.actions:
-    action.use_fake_user = True
 for obj in bpy.data.objects:
     obj.animation_data_clear()
     if obj.type == "ARMATURE":
@@ -25,18 +23,18 @@ for obj in bpy.data.objects:
 
 scene = bpy.context.scene
 scene.world.color = (0.005, 0.011, 0.018)
-target = Vector((0.0, 0.0, 5.0))
-bpy.ops.object.camera_add(location=(54.0, -85.0, 40.0))
+target = Vector((0.0, 0.0, 4.7))
+bpy.ops.object.camera_add(location=(34.0, -78.0, 34.0))
 camera = bpy.context.object
 camera.name = "SOL82_REVIEW_CAMERA"
 camera.rotation_euler = (target - camera.location).to_track_quat("-Z", "Y").to_euler()
-camera.data.lens = 42
+camera.data.lens = 50
 scene.camera = camera
 
 for name, location, energy, size, color in [
-    ("SOL82_KEY", (-18, -28, 34), 65000, 23, (0.68, 0.90, 1.0)),
-    ("SOL82_RIM", (28, 8, 18), 48000, 18, (0.22, 0.65, 1.0)),
-    ("SOL82_WARM", (-5, 24, 10), 35000, 16, (1.0, 0.74, 0.45)),
+    ("SOL82_KEY", (-18, -14, 34), 5200, 17, (0.68, 0.90, 1.0)),
+    ("SOL82_RIM", (28, 8, 18), 4000, 13, (0.22, 0.48, 1.0)),
+    ("SOL82_WARM", (-5, 24, 10), 2600, 11, (1.0, 0.54, 0.20)),
 ]:
     bpy.ops.object.light_add(type="AREA", location=location)
     light = bpy.context.object

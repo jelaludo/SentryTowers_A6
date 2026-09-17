@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## SOL-82 Syzygy redesign
+
+- On 17 September 2026, jelaludo supplied IMG_0506.JPG as a visual reference for interwoven metallic rings and approved a rotating-cage design with a central mechanical lens engine. The image's external author and license were not supplied; the image is not redistributed or embedded in the assets.
+- Syzygy geometry, rig, animations and lore are newly authored project work credited to jelaludo. The prior satellite family is preserved under source/archive/sol82-satellite-v1/.
+
 ## SOL-82 orbital laser brief
 
 - `SOL-82-BRIEF.md` was supplied by jelaludo on 15 September 2026 as the design and runtime contract for the newly authored SOL-82 family.
