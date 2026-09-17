@@ -13,6 +13,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## 17 September 2026 / ISAO viewer loading-race fix
+
+Fixed the website error “null is not an object (evaluating wrapper.position)”. The render loop could enter production animation before the initial GLB download created its wrapper, then permanently stop after the exception. Loading now keeps the render loop alive without accessing incomplete model state. Model selection publishes state only after its download finishes; stale responses are discarded and their resources released. Failed downloads keep a readable error and allow a subsequent selection to retry. Hover/tool controls are guarded during loading, and prior clip handles are reset when switching models.
+
+Regression coverage exercises delayed startup, controls before download completion, rapid out-of-order model changes, stale failures, failed downloads and retries across production, static-distance and preserved-concept modes. Safari verification confirms the detailed model renders and responds to emotion controls. A versioned script URL refreshes the fix on the website; shared navigation and this website Devlog are regenerated. Model exports are unchanged; existing game-side asset reviews remain pending.
+
 ## 17 September 2026 / SOL-88 separated from SOL-82
 
 **Independent model delivered; game integration/review pending.** At the owner's request, Syzygy is now SOL-88, a separate model family under assets/sol88/ with its own sol88/ viewer, SOL88-prefixed engine nodes, manifest IDs, generators, validator, Blender scene and Workshop poster. All three plain exports and decoded Meshopt previews retain the approved cage-and-lens design and six clips.
