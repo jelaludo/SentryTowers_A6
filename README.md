@@ -8,6 +8,8 @@ The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight arti
 
 The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).
 
+The [Yushi045 Bio-Pearl](yushi045/) stores organic binder concentrate for ISAO construction. Its tripod vessel has live shoulder and sight-window capacity indicators, optional glass, three measured detail tiers and a 25-container instanced yard. [Lore and integration](assets/yushi045/README.md).
+
 The separate [SOL-88 Syzygy orbital laser](sol88/) suspends a mechanical lens engine inside three rotating containment cages. Six clips show convergence, a ten-second continuous firing window and recovery. Detailed, articulated game and static distance tiers include full materials and cyan wireframe. [SOL-88 lore and integration notes](assets/sol88/README.md).
 
 The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).

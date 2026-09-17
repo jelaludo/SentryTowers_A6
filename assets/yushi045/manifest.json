@@ -1,0 +1,481 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 1,
+  "family": "yushi045_container",
+  "label": "Yushi045 / Bio-Pearl",
+  "japanese": "有機性資源コンテナ 第045型",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "First intact prototype; damage variants require a separate design request.",
+  "budgets": {
+    "lod1": {
+      "triangles_max": 1500,
+      "draw_calls_max": 3,
+      "plain_bytes_max": 150000
+    },
+    "lod2": {
+      "triangles_max": 450,
+      "draw_calls_max": 1,
+      "plain_bytes_max": 50000
+    }
+  },
+  "lod_selection": {
+    "initial": "lod2",
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "detailed": "manual close-up selection",
+    "review": "Provisional contract thresholds; tune with the actual game camera."
+  },
+  "capacity": {
+    "default_fraction": 0.5,
+    "range": [
+      0,
+      1
+    ],
+    "units": "normalized usable storage; absolute capacity is game-defined",
+    "vessel_center_m": [
+      0,
+      1.82,
+      0
+    ],
+    "vessel_radii_m": [
+      1.42,
+      1.08,
+      1.42
+    ],
+    "height_mapping": "fraction = 3*t*t - 2*t*t*t, inverse solved by runtime adapter",
+    "independent_of_lod_and_damage": true,
+    "shader_attribute": "_YUSHI / role, level coordinate, local window x",
+    "plain_fallback": "50% colored gauge and opaque sight well; runtime.js required for live capacity"
+  },
+  "operation_states": [
+    "empty",
+    "filling",
+    "ready",
+    "dispensing"
+  ],
+  "runtime": {
+    "adapter": "runtime.js",
+    "textures": 0,
+    "fluid_simulation": false,
+    "glass": "Optional small alpha-blended sight cover, no transmission/refraction; omitted in LOD2 and instanced yard.",
+    "distance": "Static geometry with shader-driven capacity. Valve remains a lookup only; never infer fill from a static pose.",
+    "instancing": "Body and fixed-pose valve can be instanced by material. Shared-fill instancing supported by the supplied adapter; distinct per-instance fill needs a game shader attribute."
+  },
+  "lore": {
+    "name": "Yushi045, organic-resource container version 045, named by jelaludo.",
+    "purpose": "Stores organic binder concentrate for ISAO to combine with local regolith and mineral aggregate when building on remote planets.",
+    "contents": "Dense olive-green industrial slurry; subtle movement only while pumping."
+  },
+  "compression": {
+    "source_of_truth": "plain_glb",
+    "meshopt": "Optional derived previews; consuming game compresses with gltfpack."
+  },
+  "assets": [
+    {
+      "id": "yushi045_container_d0_lod0",
+      "family": "yushi045_container",
+      "designation": "Yushi045",
+      "file": "lod0/yushi045_container_d0_lod0.glb",
+      "meshopt_file": "lod0/yushi045_container_d0_lod0.meshopt.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "state": "intact",
+      "static": false,
+      "derived": false,
+      "bytes": 284176,
+      "meshopt_bytes": 84324,
+      "sha256": "17ef6cbc16cd88c3631b1802e7c6416c3d7894678912ab1f6cbbec2ab93e60a3",
+      "meshopt_sha256": "8067429e1fedb26497f6ce9c425747d50648beb7057d8fb33465aeb900c4a7f4",
+      "triangles": 7560,
+      "draw_calls": 3,
+      "bounds": {
+        "min": [
+          -1.8683905601501465,
+          1.7881393032936899e-9,
+          -1.9900000095367432
+        ],
+        "max": [
+          1.8683905601501465,
+          3.1524999141693115,
+          1.4950000047683716
+        ],
+        "dimensions_m": [
+          3.736781120300293,
+          3.152499912381172,
+          3.4850000143051147
+        ]
+      },
+      "plot_m": [
+        4,
+        4
+      ],
+      "sockets": [
+        {
+          "id": "DISPENSE",
+          "node": "SOCKET_DISPENSE",
+          "position_m": [
+            0,
+            0.57,
+            0.93
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "kind": "binder_outlet"
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "position_m": [
+            -1.41,
+            1.9,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "kind": "binder_inlet"
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "position_m": [
+            0,
+            3.08,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "kind": "service_cap"
+        },
+        {
+          "id": "ISAO_APPROACH",
+          "node": "SOCKET_ISAO_APPROACH",
+          "position_m": [
+            0,
+            0.95,
+            2.4
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "kind": "external_docking_approach"
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "engine_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "fill_default": 0.5,
+      "fill_attribute": "_YUSHI",
+      "opaque_draw_calls": 2,
+      "optional_glass_draw_calls": 1,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Model by jelaludo"
+    },
+    {
+      "id": "yushi045_container_d0_lod1",
+      "family": "yushi045_container",
+      "designation": "Yushi045",
+      "file": "lod1/yushi045_container_d0_lod1.glb",
+      "meshopt_file": "lod1/yushi045_container_d0_lod1.meshopt.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "state": "intact",
+      "static": false,
+      "derived": false,
+      "bytes": 62920,
+      "meshopt_bytes": 25288,
+      "sha256": "0e81d7d472f900f61460ae9f152cf1aef41fa37bc39cf5b5861a26e4225a79eb",
+      "meshopt_sha256": "66e9b2bd3b750de7e2805f34262d754bac8544827cbe15072b310d2fdeaa7cc3",
+      "triangles": 1208,
+      "draw_calls": 3,
+      "bounds": {
+        "min": [
+          -1.8683905601501465,
+          1.7881393032936899e-9,
+          -1.9900000095367432
+        ],
+        "max": [
+          1.8683905601501465,
+          3.1524999141693115,
+          1.4950000047683716
+        ],
+        "dimensions_m": [
+          3.736781120300293,
+          3.152499912381172,
+          3.4850000143051147
+        ]
+      },
+      "plot_m": [
+        4,
+        4
+      ],
+      "sockets": [
+        {
+          "id": "DISPENSE",
+          "node": "SOCKET_DISPENSE",
+          "position_m": [
+            0,
+            0.57,
+            0.93
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "kind": "binder_outlet"
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "position_m": [
+            -1.41,
+            1.9,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "kind": "binder_inlet"
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "position_m": [
+            0,
+            3.08,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "kind": "service_cap"
+        },
+        {
+          "id": "ISAO_APPROACH",
+          "node": "SOCKET_ISAO_APPROACH",
+          "position_m": [
+            0,
+            0.95,
+            2.4
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "kind": "external_docking_approach"
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "engine_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "fill_default": 0.5,
+      "fill_attribute": "_YUSHI",
+      "opaque_draw_calls": 2,
+      "optional_glass_draw_calls": 1,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Model by jelaludo"
+    },
+    {
+      "id": "yushi045_container_d0_lod2",
+      "family": "yushi045_container",
+      "designation": "Yushi045",
+      "file": "lod2/yushi045_container_d0_lod2.glb",
+      "meshopt_file": "lod2/yushi045_container_d0_lod2.meshopt.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "state": "intact",
+      "static": true,
+      "derived": false,
+      "bytes": 27196,
+      "meshopt_bytes": 11440,
+      "sha256": "f5d33db787f1ddba16d978d580453945e59eb4465bcdaf45d4fc2c0731eaaa45",
+      "meshopt_sha256": "22d08da60f097f6f0a370a4db22f3bb914f7d632957fa5ba3b7c56b13a4ece3a",
+      "triangles": 400,
+      "draw_calls": 1,
+      "bounds": {
+        "min": [
+          -1.8683905601501465,
+          1.7881393032936899e-9,
+          -1.9900000095367432
+        ],
+        "max": [
+          1.8683905601501465,
+          3.1524999141693115,
+          1.4950000047683716
+        ],
+        "dimensions_m": [
+          3.736781120300293,
+          3.152499912381172,
+          3.4850000143051147
+        ]
+      },
+      "plot_m": [
+        4,
+        4
+      ],
+      "sockets": [
+        {
+          "id": "DISPENSE",
+          "node": "SOCKET_DISPENSE",
+          "position_m": [
+            0,
+            0.57,
+            0.93
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "kind": "binder_outlet"
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "position_m": [
+            -1.41,
+            1.9,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "kind": "binder_inlet"
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "position_m": [
+            0,
+            3.08,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "kind": "service_cap"
+        },
+        {
+          "id": "ISAO_APPROACH",
+          "node": "SOCKET_ISAO_APPROACH",
+          "position_m": [
+            0,
+            0.95,
+            2.4
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "kind": "external_docking_approach"
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "engine_nodes": [
+        "ROOT",
+        "YUSHI_BODY",
+        "YUSHI_GLASS",
+        "DISPENSE_VALVE",
+        "VALVE_HANDLE",
+        "SOCKET_DISPENSE",
+        "SOCKET_FILL",
+        "SOCKET_SERVICE",
+        "SOCKET_ISAO_APPROACH",
+        "LEVEL_READOUT"
+      ],
+      "fill_default": 0.5,
+      "fill_attribute": "_YUSHI",
+      "opaque_draw_calls": 1,
+      "optional_glass_draw_calls": 0,
+      "review_status": "contract_candidate_pending_game_camera_reference_phone",
+      "credit": "Model by jelaludo"
+    }
+  ]
+}

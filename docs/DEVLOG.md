@@ -11,7 +11,29 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 5. **SOL-82 orbital laser — original satellite restored; laser-lab review pending.** Original detailed/game/distance tiers and four clips remain active. Confirm game-camera framing, thresholds and reference-phone performance.
 6. **SOL-88 Syzygy — independent model delivered; integration/review pending.** Three articulated cages, a mechanical lens engine and six clips have separate exports and a viewer. Integrate its bounded alignment controller explicitly; review cameras, thresholds and phone performance.
 
+7. **Yushi045 Bio-Pearl — first intact candidate delivered; integration/review pending.** Wire its live capacity and valve controller to ISAO inventory; check docking clearance, game release compression, LOD thresholds and reference-phone performance.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 17 September 2026 / Yushi045 Bio-Pearl
+
+**First intact candidate delivered; ISAO/game integration and reference-phone review pending.** Authored Yushi045 (有機性資源コンテナ 第045型) as a squat spherical binder reservoir on three broad-footed legs. ISAO uses its concentrated organic feedstock with local regolith and mineral aggregate to construct buildings on remote planets. The pale upper shell, armored bowl, equatorial support belt, low extraction coupling and service cap explain its storage function.
+
+Eight shoulder segments and a recessed sight chamber share an engine-driven capacity value. A small optional glass cover provides the close-up inspection effect. Pumping adds subtle shader movement; there is no fluid simulation, refraction, texture or particle system. The actual volume fraction maps nonlinearly to the vessel's liquid height. Capacity remains independent of detail and damage.
+
+| Yushi045 tier | Triangles | Opaque draws | Optional glass draw | Plain bytes | Meshopt bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Detailed / LOD0 | 7,560 | 2 | 1 | 284,176 | 84,324 |
+| Game / LOD1 | 1,208 | 2 | 1 | 62,920 | 25,288 |
+| Static distance / LOD2 | 400 | 1 | 0 | 27,196 | 11,440 |
+
+All tiers share identical approximately 3.737 × 3.1525 × 3.485 m bounds, a 4 × 4 m reservation, ground-centred origin, meaningful dot-free nodes and inlet/outlet/service/approach sockets. The game and master keep DISPENSE_VALVE articulated; LOD2 retains a static lookup. There are no baked clips because inventory and flow belong to the game. Plain GLBs show a 50% reference state; assets/yushi045/runtime.js supplies live capacity from the preserved _YUSHI attribute.
+
+Validation covers all plain and decoded Meshopt files, hashes, geometry, nondegenerate triangles, names, socket normals/positions, budgets, valve state and capacity/height mapping. Blender provides the editable master and poster. Safari review covers full and empty indicators and a 25-container game-tier yard reporting two model draws, excluding its grid. That yard shares capacity across instances; independent inventories need a game-side instancing extension. Reference-phone FPS is not measured and no speed claim is made.
+
+The viewer provides capacity presets/slider, filling/dispensing demonstration, pause, optional glass, wireframe, detail/encoding selection, camera presets and the instanced yard. The consuming game still needs inventory wiring, actual ISAO docking/clearance review, final LOD thresholds and release gltfpack validation that preserves the capacity attribute. No earlier model is replaced.
+
+Hand-off: this commit plus assets/yushi045/. Source: tools/asset-pipeline/build-yushi045.mjs. Editable detailed scene: source/blender/yushi045-bio-pearl.blend. [Runtime and lore](../assets/yushi045/README.md).
 
 ## 17 September 2026 / ISAO viewer loading-race fix
 

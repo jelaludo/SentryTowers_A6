@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## Yushi045 Bio-Pearl
+
+- On 17 September 2026, jelaludo named the tripod biomass container Yushi045, 有機性資源コンテナ 第045型, as ISAO construction-feedstock storage for remote planets.
+- Geometry, materials, runtime capacity treatment and lore are newly authored project work credited to jelaludo. The exports embed no third-party geometry or textures.
+
 ## SOL-88 Syzygy
 
 - On 17 September 2026, jelaludo supplied IMG_0506.JPG as a visual reference for interwoven metallic rings and approved a rotating-cage design with a central mechanical lens engine. The image's external author and license were not supplied; the image is not redistributed or embedded in the assets.
