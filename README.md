@@ -6,7 +6,9 @@ Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowe
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line has D0–D3 contract-candidate LOD1/LOD2 exports; LOD1 retains all eight useful robot rigs in one draw and LOD2 is static. Five reusable modules retain four detailed structural states. [Integration notes](assets/assembly-line/README.md) and [LOD hand-off](assets/assembly-line/README-LODS.md).
 
-The [SOL-82 Syzygy orbital laser](sol82/) suspends a mechanical lens engine inside three rotating containment cages. Six clips reveal how the rings align for a ten-second continuous firing window and separate for recovery. Detailed, articulated game and static distance tiers include full materials and cyan wireframe; the earlier satellite family is preserved. [Lore and integration notes](assets/sol82/README.md).
+The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).
+
+The separate [SOL-88 Syzygy orbital laser](sol88/) suspends a mechanical lens engine inside three rotating containment cages. Six clips show convergence, a ten-second continuous firing window and recovery. Detailed, articulated game and static distance tiers include full materials and cyan wireframe. [SOL-88 lore and integration notes](assets/sol88/README.md).
 
 The [alien research outpost](research-outpost/) adds **12 asset families / 48 GLBs**, each with intact and three destruction states. Includes a xenobiology lab, command module, barracks, infirmary, reactor, relay, launch pad, rover garage, container, specimen vault, road and conduit. [Integration notes](assets/research-outpost/README.md).
 

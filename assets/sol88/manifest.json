@@ -1,8 +1,8 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
-  "version": 2,
-  "family": "sol82_platform",
-  "label": "SOL-82 orbital laser platform",
+  "version": 3,
+  "family": "sol88_platform",
+  "label": "SOL-88 Syzygy orbital laser",
   "status": "contract_candidate_pending_laser_lab_ground_camera_close_orbit_reference_phone",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -15,7 +15,7 @@
   "supported_damage_levels": [
     0
   ],
-  "missing_damage_states_reason": "SOL-82 cannot be damaged in the current game; D1-D3 require a future gameplay request.",
+  "missing_damage_states_reason": "SOL-88 cannot be damaged in the current game; D1-D3 require a future gameplay request.",
   "budgets": {
     "lod1": {
       "triangles_max": 8000,
@@ -28,6 +28,33 @@
       "plain_bytes_max": 250000
     }
   },
+  "motion": {
+    "cage_radii_m": [
+      19.2,
+      15.1,
+      11.1
+    ],
+    "cage_radial_half_envelope_m": 1.05,
+    "core_radial_envelope_m": 5.5,
+    "aim_yaw_deg": [
+      -35,
+      35
+    ],
+    "aim_pitch_deg": [
+      -22,
+      22
+    ],
+    "firing_clearance_radius_m": 0.75,
+    "firing_duration_max_s": 10,
+    "sequence": [
+      "Idle_Cycle",
+      "Convergence",
+      "Firing_Cycle",
+      "Recovery"
+    ],
+    "legacy_arrays": "ARRAY_L and ARRAY_R retained as deprecated lookup-only nodes; Arrays_Deploy replaced by Convergence",
+    "controller": "Convergence occupies the first 4 seconds of the 20-second overhead pass. First burn starts a maximum 10-second alignment window bounded by pass expiry; release does not restart it. Enforce the 10-second energy budget separately. Suppress the beam before Recovery."
+  },
   "lod_selection": {
     "initial": "lod2",
     "approach_distance_m": 150,
@@ -36,7 +63,8 @@
     "review": "Tune from the laser lab ground camera, close orbit cut-in and reference phone."
   },
   "presentation": {
-    "primary": "wireframe material override in game and Workshop",
+    "primary": "cyan wireframe in game",
+    "workshop_default": "full_material",
     "full_material_asset": true,
     "wireframe_geometry_duplicate": false,
     "note": "The same topology supports the primary cyan wireframe read and the full carbon/gunmetal close-up treatment without shipping duplicate geometry."
@@ -52,10 +80,10 @@
     "aim_range_m": 320
   },
   "lore": {
-    "energy": "A shielded continuous-power core charges a 1.2 GJ pulse store between passes; solar wings run the bus, cryocoolers and optical control.",
-    "thermal": "Phase-change heat sinks absorb a burn, then the paired radiator vanes unfold and reject heat before the next firing opportunity.",
-    "optics": "A two-axis ventral telescope steers a continuous 1.064 µm beam. The engine drives OPTICS_YAW and OPTICS_PITCH and creates all beam and ground effects.",
-    "name": "The owner named SOL-82 as an homage to SOL-740 and 1982."
+    "energy": "A central power core charges a 1.2 GJ optical-energy budget between passes. Rotating containment cages circulate the fictional storage fields; charging losses and waste heat are additional.",
+    "thermal": "Embedded radiator sectors reject heat during recovery. Sustained phase alignment depletes field stability, so the cages must return to their charging paths after at most ten seconds.",
+    "optics": "Three nested cages converge to maintain a clear polar corridor. A stabilized lens train sustains the continuous 1.064 µm beam for the ten-second energy window. The engine drives OPTICS_YAW and OPTICS_PITCH; beam effects remain external.",
+    "name": "SOL-88 is the standalone Syzygy orbital-laser model, separate from the original SOL-82 satellite."
   },
   "compression": {
     "extension": "EXT_meshopt_compression",
@@ -64,12 +92,12 @@
   },
   "assets": [
     {
-      "id": "sol82_platform_d0_lod0",
-      "family": "sol82_platform",
-      "designation": "SOL-82",
-      "name": "SOL-82 orbital laser platform",
-      "file": "lod0/sol82_platform_detailed.glb",
-      "meshopt_file": "lod0/sol82_platform_detailed.meshopt.glb",
+      "id": "sol88_platform_d0_lod0",
+      "family": "sol88_platform",
+      "designation": "SOL-88",
+      "name": "SOL-88 Syzygy orbital laser",
+      "file": "lod0/sol88_platform_detailed.glb",
+      "meshopt_file": "lod0/sol88_platform_detailed.meshopt.glb",
       "lod": 0,
       "quality": "detailed_master",
       "damage_level": 0,
@@ -78,11 +106,11 @@
       "static": false,
       "derived": false,
       "derived_from": null,
-      "sha256": "c64fe484698d6f58470cf47ac61ca70f9cc1520c681e37d035c5f1b98de559d9",
-      "meshopt_sha256": "205b8945f20d0cc91688f41ad80eb812ea55208e0dc942f9e40e82a19e5308ed",
-      "bytes": 447372,
-      "meshopt_bytes": 100504,
-      "triangles": 9436,
+      "sha256": "e5efe4ce776c69dd983be5aa3cfaec9e8d6827c0e67e951a8e2c9f83bacc0aed",
+      "meshopt_sha256": "577a52261492bd9101fe4127ba9430a73aaa93f93d39bcc3907ed281e2eb764b",
+      "bytes": 2303400,
+      "meshopt_bytes": 459796,
+      "triangles": 65664,
       "draw_calls": 7,
       "materials": [
         "M_Hull_Carbon",
@@ -97,30 +125,42 @@
       "skins": 1,
       "bounds": {
         "min": [
-          -26.274999618530273,
-          -0.12124359607696533,
-          -8.875
+          -15.105615764606295,
+          -14.536425403377539,
+          -19.52640724182129
         ],
         "max": [
-          26.274999618530273,
-          8.059999465942383,
-          9.600000381469727
+          15.105615764606293,
+          24.536425562754506,
+          19.52640724182129
         ],
         "dimensions_m": [
-          52.54999923706055,
-          8.181243062019348,
-          18.475000381469727
+          30.21123152921259,
+          39.072850966132044,
+          39.05281448364258
         ]
       },
-      "span_m": 52.55,
-      "main_bus_length_m": 17.95,
+      "span_m": 40.2,
+      "core_length_m": 9,
+      "motion_envelope_m": {
+        "min": [
+          -20.1,
+          -15.1,
+          -20.1
+        ],
+        "max": [
+          20.1,
+          25.1,
+          20.1
+        ]
+      },
       "origin": "centre of beam exit aperture",
       "fire_direction": "-Y",
       "forward": "+Z",
       "up": "+Y",
       "plot_m": [
-        60,
-        24
+        41,
+        41
       ],
       "sockets": [
         {
@@ -145,7 +185,7 @@
           "kind": "energy_core",
           "position_m": [
             0,
-            5.1,
+            8.1,
             0
           ],
           "normal": [
@@ -161,8 +201,8 @@
           "kind": "sensor",
           "position_m": [
             0,
-            4.8,
-            9
+            5,
+            3.5
           ],
           "normal": [
             0,
@@ -177,8 +217,8 @@
           "kind": "propulsion",
           "position_m": [
             0,
-            4.8,
-            -9
+            8.1,
+            -2.5
           ],
           "normal": [
             0,
@@ -190,38 +230,39 @@
       ],
       "colliders": [
         {
-          "id": "main_bus",
+          "id": "orbital_envelope",
           "center_m": [
             0,
-            4.8,
+            5,
             0
           ],
           "size_m": [
-            7.2,
-            6.2,
-            18
+            40.2,
+            40.2,
+            40.2
           ],
-          "condition": "D0"
-        },
-        {
-          "id": "array_envelope",
-          "center_m": [
-            0,
-            4.8,
-            0
-          ],
-          "size_m": [
-            52.55,
-            0.5,
-            8
-          ],
-          "condition": "arrays_deployed"
+          "condition": "D0_motion_envelope_not_gameplay_collision"
         }
       ],
       "clips": [
         {
-          "name": "Arrays_Deploy",
-          "duration_s": 2.5,
+          "name": "Idle_Cycle",
+          "duration_s": 24,
+          "loop": true
+        },
+        {
+          "name": "Convergence",
+          "duration_s": 4,
+          "loop": false
+        },
+        {
+          "name": "Firing_Cycle",
+          "duration_s": 10,
+          "loop": true
+        },
+        {
+          "name": "Recovery",
+          "duration_s": 5,
           "loop": false
         },
         {
@@ -233,22 +274,33 @@
           "name": "Aperture_Close",
           "duration_s": 0.6,
           "loop": false
-        },
-        {
-          "name": "Idle_Cycle",
-          "duration_s": 8,
-          "loop": true
         }
       ],
       "animations": [
-        "Arrays_Deploy",
+        "Idle_Cycle",
+        "Convergence",
+        "Firing_Cycle",
+        "Recovery",
         "Aperture_Open",
-        "Aperture_Close",
-        "Idle_Cycle"
+        "Aperture_Close"
       ],
       "required_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -260,21 +312,35 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"
       ],
       "engine_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -286,14 +352,14 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"
@@ -302,12 +368,12 @@
       "credit": "Model by jelaludo"
     },
     {
-      "id": "sol82_platform_d0_lod1",
-      "family": "sol82_platform",
-      "designation": "SOL-82",
-      "name": "SOL-82 orbital laser platform",
-      "file": "lod1/sol82_platform_game.glb",
-      "meshopt_file": "lod1/sol82_platform_game.meshopt.glb",
+      "id": "sol88_platform_d0_lod1",
+      "family": "sol88_platform",
+      "designation": "SOL-88",
+      "name": "SOL-88 Syzygy orbital laser",
+      "file": "lod1/sol88_platform_game.glb",
+      "meshopt_file": "lod1/sol88_platform_game.meshopt.glb",
       "lod": 1,
       "quality": "game",
       "damage_level": 0,
@@ -316,11 +382,11 @@
       "static": false,
       "derived": false,
       "derived_from": null,
-      "sha256": "25039485ec09da435d7811bb5a928b20f9eb47aa731c234533fbbfecc83370b6",
-      "meshopt_sha256": "781b2fcbbcbde0b27a1020bd0abafc43add494b5ff3db01fdd1ee22b75afb235",
-      "bytes": 264808,
-      "meshopt_bytes": 69912,
-      "triangles": 4940,
+      "sha256": "c7fc3b73bdad389e3731d7976c2537fc8e664beb6b7b1fa61acb817bf544f752",
+      "meshopt_sha256": "ea2268be70f32ad7dc591c316afe8399431d391ff57463c9a77fe86b3a387d49",
+      "bytes": 386400,
+      "meshopt_bytes": 106468,
+      "triangles": 7928,
       "draw_calls": 7,
       "materials": [
         "M_Hull_Carbon",
@@ -335,30 +401,42 @@
       "skins": 1,
       "bounds": {
         "min": [
-          -26.274999618530273,
-          -0.12124359607696533,
-          -8.875
+          -14.924444869069504,
+          -14.440241441448514,
+          -19.332935333251953
         ],
         "max": [
-          26.274999618530273,
-          8.059999465942383,
-          9.600000381469727
+          14.880182340352933,
+          24.12026906262252,
+          19.332935333251953
         ],
         "dimensions_m": [
-          52.54999923706055,
-          8.181243062019348,
-          18.475000381469727
+          29.804627209422435,
+          38.56051050407103,
+          38.665870666503906
         ]
       },
-      "span_m": 52.55,
-      "main_bus_length_m": 17.95,
+      "span_m": 40.2,
+      "core_length_m": 9,
+      "motion_envelope_m": {
+        "min": [
+          -20.1,
+          -15.1,
+          -20.1
+        ],
+        "max": [
+          20.1,
+          25.1,
+          20.1
+        ]
+      },
       "origin": "centre of beam exit aperture",
       "fire_direction": "-Y",
       "forward": "+Z",
       "up": "+Y",
       "plot_m": [
-        60,
-        24
+        41,
+        41
       ],
       "sockets": [
         {
@@ -383,7 +461,7 @@
           "kind": "energy_core",
           "position_m": [
             0,
-            5.1,
+            8.1,
             0
           ],
           "normal": [
@@ -399,8 +477,8 @@
           "kind": "sensor",
           "position_m": [
             0,
-            4.8,
-            9
+            5,
+            3.5
           ],
           "normal": [
             0,
@@ -415,8 +493,8 @@
           "kind": "propulsion",
           "position_m": [
             0,
-            4.8,
-            -9
+            8.1,
+            -2.5
           ],
           "normal": [
             0,
@@ -428,38 +506,39 @@
       ],
       "colliders": [
         {
-          "id": "main_bus",
+          "id": "orbital_envelope",
           "center_m": [
             0,
-            4.8,
+            5,
             0
           ],
           "size_m": [
-            7.2,
-            6.2,
-            18
+            40.2,
+            40.2,
+            40.2
           ],
-          "condition": "D0"
-        },
-        {
-          "id": "array_envelope",
-          "center_m": [
-            0,
-            4.8,
-            0
-          ],
-          "size_m": [
-            52.55,
-            0.5,
-            8
-          ],
-          "condition": "arrays_deployed"
+          "condition": "D0_motion_envelope_not_gameplay_collision"
         }
       ],
       "clips": [
         {
-          "name": "Arrays_Deploy",
-          "duration_s": 2.5,
+          "name": "Idle_Cycle",
+          "duration_s": 24,
+          "loop": true
+        },
+        {
+          "name": "Convergence",
+          "duration_s": 4,
+          "loop": false
+        },
+        {
+          "name": "Firing_Cycle",
+          "duration_s": 10,
+          "loop": true
+        },
+        {
+          "name": "Recovery",
+          "duration_s": 5,
           "loop": false
         },
         {
@@ -471,22 +550,33 @@
           "name": "Aperture_Close",
           "duration_s": 0.6,
           "loop": false
-        },
-        {
-          "name": "Idle_Cycle",
-          "duration_s": 8,
-          "loop": true
         }
       ],
       "animations": [
-        "Arrays_Deploy",
+        "Idle_Cycle",
+        "Convergence",
+        "Firing_Cycle",
+        "Recovery",
         "Aperture_Open",
-        "Aperture_Close",
-        "Idle_Cycle"
+        "Aperture_Close"
       ],
       "required_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -498,21 +588,35 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"
       ],
       "engine_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -524,14 +628,14 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"
@@ -540,12 +644,12 @@
       "credit": "Model by jelaludo"
     },
     {
-      "id": "sol82_platform_d0_lod2",
-      "family": "sol82_platform",
-      "designation": "SOL-82",
-      "name": "SOL-82 orbital laser platform",
-      "file": "lod2/sol82_platform_distance.glb",
-      "meshopt_file": "lod2/sol82_platform_distance.meshopt.glb",
+      "id": "sol88_platform_d0_lod2",
+      "family": "sol88_platform",
+      "designation": "SOL-88",
+      "name": "SOL-88 Syzygy orbital laser",
+      "file": "lod2/sol88_platform_distance.glb",
+      "meshopt_file": "lod2/sol88_platform_distance.meshopt.glb",
       "lod": 2,
       "quality": "distance",
       "damage_level": 0,
@@ -553,44 +657,56 @@
       "role": "sky_silhouette_glint_and_loading",
       "static": true,
       "derived": true,
-      "derived_from": "lod1/sol82_platform_game.glb",
-      "sha256": "523242901d2ee056bf6e31efa6f45a398adac1486327898267ab0a77a4de75ab",
-      "meshopt_sha256": "c57bed1195cd0d41d92c6567b9fdfe9e27fe7c93f83ee0d420369cd7bcd5ed82",
-      "bytes": 78936,
-      "meshopt_bytes": 24272,
-      "triangles": 2700,
+      "derived_from": "lod1/sol88_platform_game.glb",
+      "sha256": "531865bba38d21e8ac8c908287688e5049c61d29f873bbabf40f5bf510944fa9",
+      "meshopt_sha256": "d5dc3640f4f870ce2b5bf79fb2754e43c2761890e3f6647231a993bded22bb08",
+      "bytes": 81924,
+      "meshopt_bytes": 27636,
+      "triangles": 2650,
       "draw_calls": 1,
       "materials": [
-        "M_SOL82_DISTANCE_VERTEX_PALETTE"
+        "M_SOL88_DISTANCE_VERTEX_PALETTE"
       ],
       "textures": 0,
       "skins": 0,
       "bounds": {
         "min": [
-          -26.274999618530273,
-          -0.12124359607696533,
-          -8.875
+          -14.924445152282715,
+          -14.440241813659668,
+          -19.332935333251953
         ],
         "max": [
-          26.274999618530273,
-          8,
-          9.600000381469727
+          14.880182266235352,
+          24.120269775390625,
+          19.332935333251953
         ],
         "dimensions_m": [
-          52.54999923706055,
-          8.121243596076965,
-          18.475000381469727
+          29.804627418518066,
+          38.56051158905029,
+          38.665870666503906
         ]
       },
-      "span_m": 52.55,
-      "main_bus_length_m": 17.95,
+      "span_m": 40.2,
+      "core_length_m": 9,
+      "motion_envelope_m": {
+        "min": [
+          -20.1,
+          -15.1,
+          -20.1
+        ],
+        "max": [
+          20.1,
+          25.1,
+          20.1
+        ]
+      },
       "origin": "centre of beam exit aperture",
       "fire_direction": "-Y",
       "forward": "+Z",
       "up": "+Y",
       "plot_m": [
-        60,
-        24
+        41,
+        41
       ],
       "sockets": [
         {
@@ -615,7 +731,7 @@
           "kind": "energy_core",
           "position_m": [
             0,
-            5.1,
+            8.1,
             0
           ],
           "normal": [
@@ -631,8 +747,8 @@
           "kind": "sensor",
           "position_m": [
             0,
-            4.8,
-            9
+            5,
+            3.5
           ],
           "normal": [
             0,
@@ -647,8 +763,8 @@
           "kind": "propulsion",
           "position_m": [
             0,
-            4.8,
-            -9
+            8.1,
+            -2.5
           ],
           "normal": [
             0,
@@ -660,39 +776,39 @@
       ],
       "colliders": [
         {
-          "id": "main_bus",
+          "id": "orbital_envelope",
           "center_m": [
             0,
-            4.8,
+            5,
             0
           ],
           "size_m": [
-            7.2,
-            6.2,
-            18
+            40.2,
+            40.2,
+            40.2
           ],
-          "condition": "D0"
-        },
-        {
-          "id": "array_envelope",
-          "center_m": [
-            0,
-            4.8,
-            0
-          ],
-          "size_m": [
-            52.55,
-            0.5,
-            8
-          ],
-          "condition": "arrays_deployed"
+          "condition": "D0_motion_envelope_not_gameplay_collision"
         }
       ],
       "clips": [],
       "animations": [],
       "required_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -704,21 +820,35 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"
       ],
       "engine_nodes": [
+        "CAGE_OUTER",
+        "CAGE_MIDDLE",
+        "CAGE_INNER",
+        "LENS_CARRIAGE",
+        "FOCUS_COLLAR",
+        "IRIS_MASTER",
+        "IRIS_BLADE_01",
+        "IRIS_BLADE_02",
+        "IRIS_BLADE_03",
+        "IRIS_BLADE_04",
+        "IRIS_BLADE_05",
+        "IRIS_BLADE_06",
+        "IRIS_BLADE_07",
+        "IRIS_BLADE_08",
         "ROOT",
-        "SOL82_RIG_ROOT",
+        "SOL88_RIG_ROOT",
         "OPTICS_YAW",
         "OPTICS_PITCH",
         "APERTURE_IRIS",
@@ -730,14 +860,14 @@
         "NAV_LIGHT_L",
         "NAV_LIGHT_R",
         "ENERGY_SPINE",
-        "SOL82_ARTICULATED_HARDWARE",
-        "SOL82_CARBON_ARMOR",
-        "SOL82_CYAN_ACCENTS",
-        "SOL82_WARNING_MARKS",
-        "SOL82_RADIATOR_SURFACES",
-        "SOL82_APERTURE_GLOW",
+        "SOL88_ARTICULATED_HARDWARE",
+        "SOL88_CARBON_ARMOR",
+        "SOL88_CYAN_ACCENTS",
+        "SOL88_WARNING_MARKS",
+        "SOL88_RADIATOR_SURFACES",
+        "SOL88_APERTURE_GLOW",
         "NAV_LIGHTS_GEOMETRY",
-        "SOL82_DISTANCE_GEOMETRY",
+        "SOL88_DISTANCE_GEOMETRY",
         "SOCKET_ENERGY_CORE",
         "SOCKET_SENSOR_FORWARD",
         "SOCKET_THRUSTER_REAR"

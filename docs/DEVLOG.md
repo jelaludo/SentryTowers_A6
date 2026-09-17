@@ -8,11 +8,24 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 2. **Robotic assembly line — candidate delivered; game review pending.** Eight LOD1/LOD2 exports meet the landmark budgets and preserve the useful eight-arm motion in D0/D1. Reduced tiers now omit the rover workpieces and carry a single continuous conveyor silhouette. Confirm the revised composition, swap distance and FPS in the game camera on the reference phone.
 3. **SH02 rocket — candidate delivered; game review pending.** A static intact landing-island tier now meets the landmark distance budget. Confirm map silhouette, the approach swap and FPS on the reference phone. D1–D3 remain unauthored rather than inferred from legacy HUGIN wreck art.
 4. **AFR-01 Seed Foundry / arrival recycling sequence — candidate delivered; game review pending.** The first panel-to-barrel cycle and a separate four-piece SH02 salvage family now provide detailed/game/distance tiers, sockets and event timings. Confirm the site composition and causal read in the game camera before animating successive section removal. See the [arrival recycler concept brief](../docs/CONCEPT-ARRIVAL-RECYCLER.md).
-5. **SOL-82 Syzygy — redesign candidate delivered; game migration and review pending.** Three articulated cages, a mechanical lens engine, six clips and detailed/game/static-distance tiers are ready for integration. Update legacy array/deploy bindings and enforce the bounded firing window; review laser-lab cameras, LOD thresholds and reference-phone performance.
+5. **SOL-82 orbital laser — original satellite restored; laser-lab review pending.** Original detailed/game/distance tiers and four clips remain active. Confirm game-camera framing, thresholds and reference-phone performance.
+6. **SOL-88 Syzygy — independent model delivered; integration/review pending.** Three articulated cages, a mechanical lens engine and six clips have separate exports and a viewer. Integrate its bounded alignment controller explicitly; review cameras, thresholds and phone performance.
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
-## 17 September 2026 / SOL-82 Syzygy redesign
+## 17 September 2026 / SOL-88 separated from SOL-82
+
+**Independent model delivered; game integration/review pending.** At the owner's request, Syzygy is now SOL-88, a separate model family under assets/sol88/ with its own sol88/ viewer, SOL88-prefixed engine nodes, manifest IDs, generators, validator, Blender scene and Workshop poster. All three plain exports and decoded Meshopt previews retain the approved cage-and-lens design and six clips.
+
+The original SOL-82 satellite has been restored to assets/sol82/ and sol82/, including its original four clips, generator, validator, manifest, Blender source and poster. Restored files are checked against the original b3fe793 revision. Both models have independent Workshop entries; the historical satellite archive remains available.
+
+SOL-88 LOD0 is 65,664 triangles / 7 draws / 2,303,400 plain bytes; LOD1 is 7,928 / 7 / 386,400; LOD2 is 2,650 / 1 / 81,924. Both families pass their own plain/decoded validators. SOL-88 retains the sampled 3,321-ray firing-clearance check per encoding. These are asset candidates; the consuming game must explicitly choose SOL-88 and implement its alignment controller. SOL-82 requires no Syzygy controller migration.
+
+Hand-off: this commit plus assets/sol88/ for Syzygy, or assets/sol82/ for the original satellite. [SOL-88 design and integration](../docs/SOL-88-SYZYGY.md). Game-camera, final LOD thresholds, release gltfpack output and reference-phone review remain pending.
+
+## 17 September 2026 / Syzygy initial redesign (subsequently designated SOL-88)
+
+This historical entry records the initial SOL-82 redesign. The later separation above restores SOL-82 and moves Syzygy to SOL-88.
 
 **Authored candidate delivered; game-controller migration and laser-lab review pending.** Replaced the conventional satellite appearance with three independently rotating armillary cages around a suspended mechanical lens engine. The owner approved the supplied interwoven-ring reference and sustained firing-window concept before implementation. Original satellite assets and sources remain preserved under source/archive/sol82-satellite-v1/.
 
@@ -32,9 +45,9 @@ All six exports pass family validation, including decoded Meshopt, animation par
 
 The viewer adds a complete convergence → firing → recovery demonstration, timeline scrubbing, a lens-engine camera, tracking and emissive controls, and an optional viewer-only clearance guide. Shared navigation and website documentation are regenerated.
 
-Hand-off: this commit plus assets/sol82/. Geometry/choreography: tools/asset-pipeline/sol82-syzygy.mjs; exporter: tools/asset-pipeline/build-sol82.mjs. Detailed Blender scene: source/blender/sol82-orbital-laser.blend. Design and migration: [SOL-82-SYZYGY.md](../docs/SOL-82-SYZYGY.md).
+Hand-off: this commit plus assets/sol82/. Geometry/choreography: tools/asset-pipeline/sol82-syzygy.mjs; exporter: tools/asset-pipeline/build-sol82.mjs. Detailed Blender scene: source/blender/sol82-orbital-laser.blend. Design and migration: [current SOL-88 design](../docs/SOL-88-SYZYGY.md).
 
-## 15 September 2026 / SOL-82 orbital laser platform (preserved predecessor)
+## 15 September 2026 / SOL-82 orbital laser platform
 
 **Contract candidate delivered; laser-lab ground-camera, close-orbit and reference-phone review pending.** Authored SOL-82 as a 52.55 m combat satellite with a shielded octagonal bus, guarded sensor prow, triple capacitor/reactor spine, separated thruster pods, broad tracking wings, paired deployable thermal radiators and a two-axis ventral optical assembly. The primary Workshop presentation is cyan wireframe telemetry; the same topology also carries the complete carbon, gunmetal, cyan, amber and engine-driven emissive treatment for rare cut-ins.
 

@@ -1,17 +1,19 @@
-"""Create the editable SOL-82 review scene and render its Workshop poster."""
+"""Create the editable SOL-88 review scene and render its Workshop poster."""
 import bpy
 from pathlib import Path
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
-MODEL = ROOT / "assets/sol82/lod0/sol82_platform_detailed.glb"
-BLEND = ROOT / "source/blender/sol82-orbital-laser.blend"
-POSTER = ROOT / "assets/workshop/sol82.jpg"
-QA = Path("/tmp/sol82-orbital-laser.png")
+MODEL = ROOT / "assets/sol88/lod0/sol88_platform_detailed.glb"
+BLEND = ROOT / "source/blender/sol88-orbital-laser.blend"
+POSTER = ROOT / "assets/workshop/sol88.jpg"
+QA = Path("/tmp/sol88-orbital-laser.png")
 
 bpy.ops.object.select_all(action="SELECT")
 bpy.ops.object.delete(use_global=False)
 bpy.ops.import_scene.gltf(filepath=str(MODEL))
+for action in bpy.data.actions:
+    action.use_fake_user = True
 for obj in bpy.data.objects:
     obj.animation_data_clear()
     if obj.type == "ARMATURE":
@@ -23,18 +25,18 @@ for obj in bpy.data.objects:
 
 scene = bpy.context.scene
 scene.world.color = (0.005, 0.011, 0.018)
-target = Vector((0.0, 0.0, 4.7))
-bpy.ops.object.camera_add(location=(34.0, -78.0, 34.0))
+target = Vector((0.0, 0.0, 5.0))
+bpy.ops.object.camera_add(location=(54.0, -85.0, 40.0))
 camera = bpy.context.object
-camera.name = "SOL82_REVIEW_CAMERA"
+camera.name = "SOL88_REVIEW_CAMERA"
 camera.rotation_euler = (target - camera.location).to_track_quat("-Z", "Y").to_euler()
-camera.data.lens = 50
+camera.data.lens = 42
 scene.camera = camera
 
 for name, location, energy, size, color in [
-    ("SOL82_KEY", (-18, -14, 34), 5200, 17, (0.68, 0.90, 1.0)),
-    ("SOL82_RIM", (28, 8, 18), 4000, 13, (0.22, 0.48, 1.0)),
-    ("SOL82_WARM", (-5, 24, 10), 2600, 11, (1.0, 0.54, 0.20)),
+    ("SOL88_KEY", (-18, -28, 34), 65000, 23, (0.68, 0.90, 1.0)),
+    ("SOL88_RIM", (28, 8, 18), 48000, 18, (0.22, 0.65, 1.0)),
+    ("SOL88_WARM", (-5, 24, 10), 35000, 16, (1.0, 0.74, 0.45)),
 ]:
     bpy.ops.object.light_add(type="AREA", location=location)
     light = bpy.context.object
@@ -58,6 +60,6 @@ scene.render.image_settings.file_format = "JPEG"
 scene.render.image_settings.quality = 92
 scene.render.filepath = str(POSTER)
 bpy.ops.render.render(write_still=True)
-print("SOL82_BLEND", BLEND)
-print("SOL82_RENDER", QA)
-print("SOL82_POSTER", POSTER)
+print("SOL88_BLEND", BLEND)
+print("SOL88_RENDER", QA)
+print("SOL88_POSTER", POSTER)

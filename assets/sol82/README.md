@@ -1,55 +1,59 @@
-# SOL-82 Syzygy orbital laser
+# SOL-82 orbital laser platform
 
-A suspended mechanical lens engine inside three rotating containment cages. Carbon armor, silver edges, cyan field tracks and amber radiator sectors support full-material close-ups and cyan wireframe telemetry. See docs/SOL-82-SYZYGY.md for the approved design, lore and game-controller migration.
+SOL-82 is the gunship's higher-orbit laser platform. The owner named it as an homage to SOL-740 and 1982. It is primarily presented as cyan wireframe telemetry in the game, but the same topology also carries a complete carbon, gunmetal, cyan and warning-amber material treatment for arrival, firing and cooldown cut-ins.
 
-## Lore
+The received game-design requirements are preserved in `docs/SOL-82-BRIEF.md`.
 
-The cages circulate stored field energy between passes. Firing requires coherent phases and a clear escape corridor through every rotating layer. Convergence advances the lens train and retracts eight iris blades. The cages maintain the corridor during a continuous ten-second burn, then separate into thermal recovery. Holding alignment consumes field stability, explaining the long interval between attacks. The fictional 120 MW output yields a 1.2 GJ optical-energy budget; losses and waste heat are additional.
+## How it works
 
-## Measured exports
+SOL-82 is a stored-energy weapon, not a solar panel producing 120 MW directly. A shielded continuous-power core inside `ENERGY_SPINE` charges a 1.2 GJ pulse store between passes. The 52.55 m tracking wings support the spacecraft bus, cryocoolers and optical controls. During a firing opportunity, the pulse store drives a continuous 1.064 µm Nd:YAG optical train at the fictional 120 MW output specified by the game.
 
-| Tier | Triangles | Draws | Plain bytes | Meshopt bytes | Motion |
-| --- | ---: | ---: | ---: | ---: | --- |
-| LOD0 detailed master | 65,664 | 7 | 2,303,400 | 459,796 | Six clips; close-up and recording detail |
-| LOD1 game | 7,928 | 7 | 386,400 | 106,468 | Six clips; articulated cages, lens groups and iris |
-| LOD2 distance | 2,650 | 1 | 81,924 | 27,636 | Derived, merged static charging silhouette |
+Phase-change heat sinks absorb the ten-second burn. Paired radiator vanes unfold and reject the accumulated heat while the platform leaves the firing window. Unused charge is dumped when the pass ends because retaining a hot, partially charged pulse store would destabilize the next thermal cycle. The armored octagonal bus, capacitor drums, guarded sensor prow and separated thruster pods give the platform its deliberate combat silhouette.
 
-Game and distance tiers meet the landmark targets. D0 only; damage states are independent of LODs. Plain self-contained GLBs contain no textures or external buffers. Meshopt copies are optional derived release previews, validated after decoding. Actual game gltfpack release output and reference-phone FPS remain pending.
+The platform is not visible in its own downward-looking scope. The game renders the beam, footprint, aim marker, ground glow, scorch, embers, smoke and HUD; none are modeled here.
+
+## Delivered tiers
+
+| Tier | File | Triangles | Draws | Plain bytes | Meshopt bytes | Motion |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| Detailed master | `lod0/sol82_platform_detailed.glb` | 9,436 | 7 | 447,372 | 100,504 | Four clips; recording and close-up detail |
+| Game | `lod1/sol82_platform_game.glb` | 4,940 | 7 | 264,808 | 69,912 | Four clips; arrival, departure and close orbit |
+| Static distance | `lod2/sol82_platform_distance.glb` | 2,700 | 1 | 78,936 | 24,272 | No articulation; deployed sky silhouette |
+
+LOD1 and LOD2 meet the collaboration-contract landmark budgets. The distance tier is one merged vertex-colour material and retains stable lookup nodes, but those nodes do not articulate its merged geometry. Swap to LOD1 before arrays, radiators, iris motion, emissive response or optics tracking must read. No FPS improvement is claimed until the game measures the candidate on the reference phone.
 
 ## Runtime contract
 
-- Metres; +Y up; +Z flight; ROOT and APERTURE at [0,0,0]; the beam exits along -Y.
-- OPTICS_YAW and OPTICS_PITCH are engine-driven about the aperture. No clip keys either pivot. The tested aiming range is yaw ±35 degrees and pitch ±22 degrees.
-- CAGE_OUTER, CAGE_MIDDLE and CAGE_INNER rotate about [0,5,0] at radii 19.2, 15.1 and 11.1 m. Reserve a 40.2 m diameter motion envelope, not merely the current pose bounds.
-- LENS_CARRIAGE, FOCUS_COLLAR, APERTURE_IRIS, IRIS_MASTER and IRIS_BLADE_01 through IRIS_BLADE_08 name the optical mechanisms. Let the clips drive these parts unless replacing the entire optical controller.
-- ARRAY_L, ARRAY_R, RADIATOR_L and RADIATOR_R remain deprecated lookup-only nodes. Arrays_Deploy is removed. Replace its binding with Convergence.
-- The seven original material names remain. M_Radiator_Glow controls the cage radiator sectors; M_Aperture_Glow and M_Nav_Light remain engine-driven emissive surfaces. Bloom is external.
-- Auxiliary sockets moved with the new engine: SOCKET_ENERGY_CORE [0,8.1,0], SOCKET_SENSOR_FORWARD [0,5,3.5], SOCKET_THRUSTER_REAR [0,8.1,-2.5]. Read the manifest for positions and normals. All tiers agree.
-- LOD2 retains identical named lookup transforms but its geometry is static. Swap to LOD1 before visible animation, steering or emissive response. Provisional loading policy: LOD2 first; approach at 150 m with 20 m hysteresis. LOD0 is manual cinematic selection.
+- Metres, +Y up, +Z direction of flight.
+- `ROOT` is exactly at the centre of the beam exit aperture, not on an invented ground plane.
+- `APERTURE` is also at `[0, 0, 0]`; its local and default world `-Y` axis points toward the planet.
+- The engine may drive `OPTICS_YAW` and `OPTICS_PITCH`. No delivered clip keys either pivot.
+- `ARRAY_L` and `ARRAY_R` are sun-tracking hinges. `RADIATOR_L` and `RADIATOR_R` are thermal-deployment hinges.
+- Bloom intensity is engine-driven through `M_Radiator_Glow`, `M_Aperture_Glow` and `M_Nav_Light`.
+- The full-material and primary wireframe presentations share the same model; no duplicate wireframe GLB is shipped.
+- D0 only. Damage levels D1–D3 are intentionally absent because SOL-82 cannot currently be damaged.
 
-## Clips and controller
+## Clips
 
-| Clip | Duration | Type |
-| --- | ---: | --- |
-| Idle_Cycle | 24 s | Loop: charging motion |
-| Convergence | 4 s | One-shot: phase alignment and optical opening |
-| Firing_Cycle | 10 s | Loopable: continuous clear corridor; game must enforce a ten-second maximum |
-| Recovery | 5 s | One-shot: close iris first, then separate cages |
-| Aperture_Open | 0.6 s | One-shot: standalone optical opening |
-| Aperture_Close | 0.6 s | One-shot: standalone optical closing |
+| Clip | Duration | Loop | Purpose |
+| --- | ---: | --- | --- |
+| `Arrays_Deploy` | 2.5 s | no | Solar wings and thermal radiators unfold on arrival. |
+| `Aperture_Open` | 0.6 s | no | The ventral iris retracts before the first burn. |
+| `Aperture_Close` | 0.6 s | no | The iris closes after energy exhaustion or pass departure. |
+| `Idle_Cycle` | 8.0 s | yes | Slow tracking creep and a restrained navigation-light rhythm. |
 
-Play one-shots once and clamp their final frame. Completed sequence endpoints match. Blend into Convergence when interrupting arbitrary idle motion, keeping the beam inhibited. Never infer firing permission from an open iris alone. Suppress the beam before Recovery or pass expiry.
+Play one-shots once and clamp their last frame. The iris clips are inverse states. Runtime optics tracking can continue while array, aperture or idle motion plays because the clips never bind `OPTICS_YAW` or `OPTICS_PITCH`.
 
-The viewer's automatic demonstration lasts 4 + 10 + 5 seconds, then returns to idle. The consuming game must retain its 180-second pass interval, 20-second overhead period and ten-second energy budget while enforcing the new alignment gate. Start the bounded ten-second firing window on first burn after convergence; release suppresses the beam without restarting that window. Game-controller migration remains pending in the consuming repository.
+## Materials
 
-## Review and reproduction
+The articulated tiers contain exactly seven named material primitives: `M_Hull_Carbon`, `M_Hull_Gunmetal`, `M_Ours_Cyan`, `M_Warning_Amber`, `M_Radiator_Glow`, `M_Aperture_Glow` and `M_Nav_Light`. There are no textures or external files. LOD2 intentionally consolidates these into `M_SOL82_DISTANCE_VERTEX_PALETTE`.
 
-The sol82/ viewer offers all three tiers, plain/decoded Meshopt, full materials/wireframe, clip selection, timeline scrubbing, pass demonstration, tracking controls, emissive controls and orbit/aperture/flight/top/lens cameras. The optional clearance guide is viewer-only and is not an exported beam.
+Plain GLB is source of truth. Meshopt copies are optional derived release previews and are decoded during validation. Production source is `tools/asset-pipeline/build-sol82.mjs`; `source/blender/sol82-orbital-laser.blend` is the editable review/recording scene.
 
-Run node tools/asset-pipeline/build-sol82.mjs and node tools/asset-pipeline/validate-sol82.mjs from the repository root. Geometry and choreography are authored in tools/asset-pipeline/sol82-syzygy.mjs. Run blender -b --python-exit-code 1 --python tools/blender/render_sol82.py to refresh the editable detailed review scene and poster. The Blender file retains the rig and six actions for manual editing; plain GLBs remain the runtime source of truth.
+Rebuild and validate:
 
-Validation covers all plain and decoded Meshopt tiers, Khronos validation on plain files, names, hashes, bounds, material vocabulary, clip durations and loop seams. The game-tier firing corridor is sampled with 3,321 rays per encoding across 41 phases, nine aiming combinations and a 0.75 m radius beam-clearance disk. This is sampled geometric evidence, not a physics simulation or proof of arbitrary steering beyond the declared limits.
-
-The received SOL-82-BRIEF.md remains preserved. The previous satellite family is archived under source/archive/sol82-satellite-v1/. Hand off this commit plus assets/sol82/; the consuming game pins plain file hashes from manifest.json. Laser-lab cameras, final thresholds and reference-phone acceptance remain pending.
-
-Model by jelaludo.
+```sh
+node tools/asset-pipeline/build-sol82.mjs
+node tools/asset-pipeline/validate-sol82.mjs
+blender -b --python-exit-code 1 --python tools/blender/render_sol82.py
+```

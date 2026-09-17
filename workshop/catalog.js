@@ -6,7 +6,8 @@ const collectionImages={
 
 export const collections=[
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Contract candidate'],
-['sol82','SOL-82 / Syzygy orbital laser','Combat','Three rotating containment cages converge around a suspended mechanical lens engine to sustain a ten-second firing window.','3 LODs · 6 clips · Full materials + wireframe','Contract candidate'],
+['sol82','SOL-82 / Orbital laser','Combat','A 52.55 m stored-energy combat satellite with an armored pulse spine, deployable arrays, thermal radiators and a gimbaled ventral aperture.','3 LODs · 4 clips · Primary wireframe presentation','Contract candidate'],
+['sol88','SOL-88 / Syzygy orbital laser','Combat','Three rotating containment cages converge around a suspended mechanical lens engine to sustain a ten-second firing window.','3 LODs · 6 clips · Full materials + wireframe','Contract candidate'],
 ['fabrication-lab','Stålheart / MÖRK wireframe fabrication','Industry','The canonical complete Stålheart builds a recognizable MÖRK from bottom-to-top cyan linework; the one-shot deliberately ends at the full wireframe.','3 LODs · wireframe-only 16-second one-shot · Meshopt','Contract candidate'],
 ['arrival-foundry','AFR-01 / Seed Foundry','Industry','ISAO’s first build dismantles SH02 panels, processes recovered structure and local mineral feed, and fills ferroceramic barrels for Stålheart.','3 LODs · 2 clips · SH02 context · review pending','Contract candidate'],
 ['ammunition','Ammunition / bullets, shells & missiles','Missile','Companion ammunition for Rotor, Needle, MÖRK and mortar sentries. Inspect flight projectiles, complete rounds, empty cases and missiles.','21 families · Game + display tiers · naming migration pending','Original'],

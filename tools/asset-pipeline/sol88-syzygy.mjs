@@ -15,8 +15,8 @@ export const EXTRA_NODES=[...CAGE_NAMES,'LENS_CARRIAGE','FOCUS_COLLAR','IRIS_MAS
 
 export function buildSyzygy(lod,h){
   const {box,cyl,ring,sphere,merge,colored,matrix,mat,makeBone,skinnedGeometry}=h;
-  const master=lod===0,seg=master?96:24,root=new T.Group();root.name='SOL82_EXPORT_ASSEMBLY';
-  const rigRoot=makeBone('SOL82_RIG_ROOT',root,[0,0,0]);
+  const master=lod===0,seg=master?96:24,root=new T.Group();root.name='SOL88_EXPORT_ASSEMBLY';
+  const rigRoot=makeBone('SOL88_RIG_ROOT',root,[0,0,0]);
   const yaw=makeBone('OPTICS_YAW',rigRoot,[0,0,0]),pitch=makeBone('OPTICS_PITCH',yaw,[0,0,0]);
   const cages=CAGE_NAMES.map(name=>makeBone(name,rigRoot,[0,5,0]));
   const carriage=makeBone('LENS_CARRIAGE',pitch,[0,0,0]),focus=makeBone('FOCUS_COLLAR',pitch,[0,0,0]);
@@ -98,7 +98,7 @@ export function buildSyzygy(lod,h){
   const geometries=parts.map(items=>skinnedGeometry(items,bones));
   const combined=h.mergeGeometries(geometries,true);geometries.forEach(g=>g.dispose());
   const mesh=new T.SkinnedMesh(combined,materials);mesh.name='ROOT';for(const child of [...root.children])mesh.add(child);mesh.bind(new T.Skeleton(bones));
-  mesh.userData={designation:'SOL-82 Syzygy',family:'sol82_platform',lod,damage_level:0,units:'meters',up:'+Y',forward:'+Z',beam_direction:'-Y',static:false};
+  mesh.userData={designation:'SOL-88 Syzygy',family:'sol88_platform',lod,damage_level:0,units:'meters',up:'+Y',forward:'+Z',beam_direction:'-Y',static:false};
   const qTrack=(node,times,quaternions)=>new T.QuaternionKeyframeTrack(node.name+'.quaternion',times,quaternions.flatMap(q=>q.toArray()));
   const orientation=(yaw,tilt)=>new T.Quaternion().setFromEuler(new T.Euler(0,yaw,tilt,'YXZ'));
   const closedTilts=[1.23,-1.04,.82],fireTilts=[.12,-.22,.34],phaseOffsets=[0,1.2,2.4];

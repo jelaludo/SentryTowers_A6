@@ -1,6 +1,6 @@
-# SOL-82 Syzygy / approved redesign
+# SOL-88 Syzygy / approved redesign
 
-17 September 2026. The owner approved a radical armillary orbital-laser redesign inspired by a supplied image of interwoven metallic rings. This document supersedes the satellite appearance and deployment choreography in SOL-82-BRIEF.md. The received brief and ASSET-COLLABORATION.md remain preserved.
+17 September 2026. The owner approved a radical armillary orbital-laser redesign inspired by a supplied image of interwoven metallic rings. Initially developed as a SOL-82 redesign, Syzygy was then assigned the independent designation SOL-88 by the owner. SOL-82 retains its original satellite, viewer and deployment choreography. This document defines SOL-88; the received SOL-82-BRIEF.md and ASSET-COLLABORATION.md remain preserved.
 
 ## Design and lore
 
@@ -10,7 +10,7 @@ The suspended central engine contains concentric lens carriages, focusing collar
 
 In the fiction, circulating containment fields store energy while the cages follow different rotation paths. Firing requires both coherent field phases and a physical escape corridor. The cages converge, the lens train advances and the iris opens. Coordinated rotation keeps the corridor clear for a sustained ten-second burn. Holding this alignment depletes field stability and concentrates heat; the cages must separate and recharge afterward. This explains why the opening cannot simply remain ready indefinitely.
 
-The 120 MW fictional optical output represents 1.2 GJ over ten seconds. Conversion losses and stored thermal energy are additional, not included in that optical-energy number. The name SOL-82 remains the owner's homage to SOL-740 and 1982; Syzygy is the new design's subtitle.
+The 120 MW fictional optical output represents 1.2 GJ over ten seconds. Conversion losses and stored thermal energy are additional, not included in that optical-energy number. SOL-88 is the owner's designation for this separate model; Syzygy is its subtitle. The SOL-740/1982 name homage belongs to the original SOL-82.
 
 ## Motion and firing
 
@@ -37,12 +37,12 @@ For an idle cycle interrupted at an arbitrary phase, blend into Convergence over
 
 ROOT and APERTURE remain at the beam exit, [0,0,0], with local -Y firing and +Z flight direction. The optical steering pivots now also rotate about the aperture, so APERTURE remains fixed during tracking. The core and auxiliary sockets have new physical positions, explicitly listed in manifest.json. All tiers share those positions and node names. The motion envelope is a 40.2 m sphere centered at [0,5,0], reserved as a 41 × 41 m footprint; it replaces the old 52.55 m array span.
 
-ARRAY_L, ARRAY_R, RADIATOR_L and RADIATOR_R are deprecated lookup-only nodes. They no longer articulate hardware. Arrays_Deploy is replaced by Convergence. The seven material names are retained; M_Radiator_Glow now controls cage radiator sectors. Consumers must update their bindings rather than assume the old wing choreography remains active.
+ARRAY_L, ARRAY_R, RADIATOR_L and RADIATOR_R are deprecated lookup-only nodes. They no longer articulate hardware. Arrays_Deploy is replaced by Convergence. The seven material names are retained; M_Radiator_Glow now controls cage radiator sectors. Consumers selecting SOL-88 must use its own controller and folder; SOL-82 keeps its original wing choreography unchanged.
 
 ## Delivery and acceptance
 
 Plain GLB is the source of truth. The detailed master is for recordings, the articulated game tier targets 8,000 triangles / 10 draws / 400,000 bytes, and the derived static distance tier targets 3,000 triangles / one draw / 250,000 bytes. D0 only. Distance-tier control nodes are static lookups and cannot articulate its merged geometry. Select the game tier before motion, beam alignment or steering becomes visible; 150 m with 20 m hysteresis remains a provisional distance threshold.
 
-The prior satellite exports, manifest, notes, generator, validator, Blender source and poster are preserved in source/archive/sol82-satellite-v1/. The archived scripts record original provenance; restore them to their original project paths to reproduce that earlier family.
+The original SOL-82 satellite exports, viewer, generator, validator, Blender source and poster remain active in their original paths. A historical copy is also preserved in source/archive/sol82-satellite-v1/. The archived scripts record original provenance; restore them to their original project paths to reproduce that earlier family.
 
 Acceptance includes exported and decoded-Meshopt geometry, stable names, clip durations, optical socket positions, loop seams, radial envelopes, sampled firing clearance and budget checks. Laser-lab ground and orbit camera framing, game release gltfpack output, reference-phone performance and final LOD thresholds still require the consuming game's review. No FPS claim is made.
