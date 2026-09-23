@@ -25,6 +25,11 @@ for(const e of manifest.assets){
   const report=await validator.validateBytes(validationBytes);assert.equal(report.issues.numErrors,0,JSON.stringify(report.issues));assert.equal(report.issues.numWarnings,0,JSON.stringify(report.issues));
   const gltf=await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
   const root=gltf.scene;root.updateMatrixWorld(true);assert.equal(gltf.animations.length,0,'All engine-driven pivots remain unbaked');
+  if(e.family==='cassette')for(const side of [-1,1])for(const z of [-.721,.721]){
+   const ray=new T.Raycaster(new T.Vector3(side*2,.553,z),new T.Vector3(-side,0,0)),hits=ray.intersectObject(root,true);
+   assert(hits.length>=2,file+' corner strip and underlying wall are present');
+   assert(hits[1].distance-hits[0].distance>.015,file+' corner strip must stand clear of side wall after decoding');
+  }
   const json=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)));assert.equal(json.images?.length||0,0);assert(json.buffers.every(b=>!b.uri));
   let triangles=0,draws=0;const names=[],hierarchy={};
   root.traverse(o=>{
@@ -68,5 +73,5 @@ for(const lod of [0,1,2]){
  }
 }
 assert.equal(demoState(-5).time,0);assert.equal(demoState(99).time,32);assert.throws(()=>demoState(NaN));
-await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','measured hashes/bytes/triangles/draws','ground/bounds/node hierarchy/socket parity','no degenerate triangles or external resources','LOD budgets','32-second cargo continuity and docking','mirror reflection direction and ground clearance','static distance controls'],runtime_review_pending:['Three.js r160 game integration','release gltfpack','reference-phone FPS','physics and terrain'],reports},null,2)+'\n');
+await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','measured hashes/bytes/triangles/draws','ground/bounds/node hierarchy/socket parity','no degenerate triangles or external resources','LOD budgets','32-second cargo continuity and docking','mirror reflection direction and ground clearance','static distance controls','cassette corner strips clear side walls in plain and decoded tiers'],runtime_review_pending:['Three.js r160 game integration','release gltfpack','reference-phone FPS','physics and terrain'],reports},null,2)+'\n');
 console.log('PASS all exports, cargo sequence, optical alignment, stable identifiers and static-tier behavior.');

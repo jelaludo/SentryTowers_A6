@@ -29,7 +29,10 @@ function vents(parts,pos,count=7,axis='z'){for(let i=0;i<count;i++){const p=[...
 function bolts(parts,xs,y,zs,n){for(const x of xs)for(const z of zs)parts.push(cyl(.045,.025,n,[x,y,z],P.dark));}
 function buildCassette(lod,root,mat){
  const s=lod===0?16:8,parts=[armor([1.65,.18,2.2],[0,.09,0],P.dark,lod),armor([1.48,.96,1.98],[0,.66,0],P.armor,lod),armor([1.59,.12,2.1],[0,1.2,0],P.plate,lod),box([.68,.035,.9],[0,1.278,0],P.dark)];
- for(const x of [-.66,.66]){parts.push(box([.16,1.06,.2],[x,.7,.76],P.plate),box([.16,1.06,.2],[x,.7,-.76],P.plate),beam([x,1.32,-.45],[x,1.32,.45],.065,P.steel));}
+ // Side-wall faces lie at x=±0.74. Give the corner strips a real 20 mm
+ // stand-off so they cannot fight those faces, including after compression.
+ for(const x of [-.68,.68])parts.push(box([.16,1.06,.2],[x,.7,.76],P.plate),box([.16,1.06,.2],[x,.7,-.76],P.plate));
+ for(const x of [-.66,.66])parts.push(beam([x,1.32,-.45],[x,1.32,.45],.065,P.steel));
  parts.push(box([.07,.52,.6],[.751,.65,0],P.dark),box([.42,.12,.03],[0,.97,1.0],P.amber));
  const level=node(root,'CASSETTE_LEVEL',[.797,.41,0]);mesh(level,'CAPACITY_INDICATOR',[box([.02,.46,.44],[0,.23,0],P.cyan)],mat);level.scale.y=.05;
  if(lod===0){vents(parts,[0,1.29,-.72],5,'x');bolts(parts,[-.55,.55],1.273,[-.86,.86],s);}

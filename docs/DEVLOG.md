@@ -19,6 +19,14 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+## 23 September 2026 / Ore cassette side-panel z-fighting
+
+**Fixed the corner-strip shimmer reported in the Workshop screenshots.** The CAS-01 corner strips ended at the same x = ±0.74 m planes as the side wall in LOD1/LOD2. Moved the strips outward by 20 mm in all three authored tiers; their outer faces now stand clear of the wall, within the original base footprint. Names, sockets, bounds, capacity behavior, triangles and draws are unchanged.
+
+Rebuilt the three plain cassette GLBs and optional Meshopt derivatives, refreshed hashes/measurements, the editable Blender assembly and preview renders. A ray-intersection regression verifies more than 15 mm of face separation at all four strips in every plain and decoded compressed tier. The complete export validator and viewer-control regressions pass. Live browser confirmation of the reported artifact remains pending; reload the viewer to fetch the corrected assets.
+
+Hand-off: this fix commit plus assets/settlement-industry/. The screenshot report adds browser evidence of the original defect, not final game-camera or reference-phone acceptance.
+
 ## 23 September 2026 / Frontier industry: extraction to stellar construction
 
 **Owner-requested first industrial vertical slice delivered as a contract candidate.** New automated drilling, rugged six-wheel transport and minimalist hexagonal mirrors share the corporation's existing ISAO, MÖRK and KORP design language: petrol/slate chamfered shells, pale inset panels, black recesses, cyan functional readouts and amber service marks. BOR-01/TRK-01/HEL-01/CRU-01/CAS-01 are provisional development designations, not a new corporation name.

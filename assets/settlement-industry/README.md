@@ -30,9 +30,9 @@ Plain GLB files are the source of truth. The optional files under derived/meshop
 | furnace | LOD0 | 1,536 | 2 | 73,232 | 25,156 |
 | furnace | LOD1 | 800 | 2 | 42,100 | 15,884 |
 | furnace | LOD2 | 432 | 1 | 22,944 | 9,372 |
-| cassette | LOD0 | 616 | 2 | 34,032 | 12,868 |
-| cassette | LOD1 | 204 | 2 | 14,756 | 7,532 |
-| cassette | LOD2 | 204 | 1 | 13,944 | 6,204 |
+| cassette | LOD0 | 616 | 2 | 34,032 | 12,804 |
+| cassette | LOD1 | 204 | 2 | 14,756 | 7,488 |
+| cassette | LOD2 | 204 | 1 | 13,944 | 6,144 |
 
 Each module meets its declared game budget. Every distance export is one mesh/material/draw. The complete game-tier demonstration uses 9,740 triangles and 43 model draws (seven mirrors, one of each other module); floor, grid, shadows and optional optical guides are not included. Seven mirrors share loaded geometries/materials via clones; they are not yet GPU-instanced. These counts are not FPS measurements.
 
@@ -73,6 +73,10 @@ Select the complete scene or an individual module; switch master/game/distance o
 Procedural source: tools/asset-pipeline/settlement-industry-shape.mjs and build-settlement-industry.mjs. Editable detailed Blender assembly: source/blender/settlement-industry.blend. Preview renders live in previews/ and assets/workshop/settlement-industry.jpg. The Blender assembly is derived from the original procedural detailed exports and includes review lights/camera/ground; these review objects are not part of the module GLBs.
 
 Rebuild with node tools/asset-pipeline/build-settlement-industry.mjs. Validate with node tools/asset-pipeline/validate-settlement-industry.mjs and node tools/asset-pipeline/test-settlement-industry-viewer.mjs. Render with Blender --background --factory-startup --python tools/blender/render_settlement_industry.py. Run python3 tools/build-workshop-docs.py and python3 tools/validate-workshop-navigation.py after documentation/routes change.
+
+## Cassette geometry correction / 23 September 2026
+
+The four pale corner strips stand 20 mm proud of the nominal side-wall plane, fixing the coplanar shimmer reported in the Workshop. Overall bounds, sockets, names and geometry counts remain unchanged. The validator checks visible strip/wall separation on all three plain and decoded Meshopt tiers.
 
 ## Validation and remaining review
 

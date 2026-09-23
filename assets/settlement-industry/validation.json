@@ -8,7 +8,8 @@
     "LOD budgets",
     "32-second cargo continuity and docking",
     "mirror reflection direction and ground clearance",
-    "static distance controls"
+    "static distance controls",
+    "cassette corner strips clear side walls in plain and decoded tiers"
   ],
   "runtime_review_pending": [
     "Three.js r160 game integration",
@@ -247,7 +248,7 @@
       "decoded": true,
       "triangles": 616,
       "draw_calls": 2,
-      "bytes": 12868,
+      "bytes": 12804,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -265,7 +266,7 @@
       "decoded": true,
       "triangles": 204,
       "draw_calls": 2,
-      "bytes": 7532,
+      "bytes": 7488,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -283,7 +284,7 @@
       "decoded": true,
       "triangles": 204,
       "draw_calls": 1,
-      "bytes": 6204,
+      "bytes": 6144,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
