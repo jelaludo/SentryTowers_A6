@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-import {applyLaunch,DURATION} from '../assets/orbital-launcher/runtime.js?v=passage-hold-1';
+import {applyLaunch,DURATION} from '../assets/orbital-launcher/runtime.js?v=launch-fast-1';
 const $=id=>document.getElementById(id),stage=$('stage'),base='../assets/orbital-launcher/';
 const scene=new T.Scene();scene.background=new T.Color(0x22343f);scene.fog=new T.Fog(0x22343f,140,340);
 const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;stage.prepend(renderer.domElement);

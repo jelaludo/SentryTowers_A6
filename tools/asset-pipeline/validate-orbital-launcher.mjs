@@ -45,7 +45,7 @@ for(const e of manifest.assets){
    const gates=root.getObjectByName('PASSAGE_GATES');assert(gates?.isMesh);const uv=gates.geometry.attributes.uv;assert(uv,'Export retains passage texture coordinates');
    const stations=new Set(Array.from({length:uv.count},(_,i)=>Math.floor(uv.getX(i)*16)));assert.equal(stations.size,16);
    for(let i=0;i<16;i++){
-    const t=8+4*Math.sqrt(i/15);applyLaunch(T,root,null,t,e.lod);
+    const t=8+.4*Math.sqrt(i/15);applyLaunch(T,root,null,t,e.lod);
     const pixels=gates.material.emissiveMap.image.data;assert.equal(pixels[i*4],255,'Gate peaks as payload passes');
     for(let j=i+1;j<16;j++)assert.equal(pixels[j*4],0,'Later gate stays white');
     assert.equal(passagePulse(t+.5,i),1,'Gate stays lit after passage');
@@ -73,7 +73,7 @@ for(const lod of [0,1,2]){
  for(let t=0;t<=DURATION;t+=.1){
   const state=applyLaunch(T,launcher,satellite,t,lod);launcher.updateMatrixWorld(true);satellite.updateMatrixWorld(true);
   if(lod===2){assert(sled.position.equals(start));assert(Math.abs(satellite.getObjectByName('PETAL_1_HINGE').rotation.x-Math.PI/2)<1e-6);continue;}
-  if(t<12){const dock=launcher.getObjectByName('SOCKET_PAYLOAD').getWorldPosition(new T.Vector3());assert(dock.distanceTo(satellite.position)<1e-6,'Payload stays attached through acceleration');assert.equal(state.deploy,0);}
+  if(t<8.4){const dock=launcher.getObjectByName('SOCKET_PAYLOAD').getWorldPosition(new T.Vector3());assert(dock.distanceTo(satellite.position)<1e-6,'Payload stays attached through acceleration');assert.equal(state.deploy,0);}
   if(t<17)assert.equal(state.deploy,0,'Do not unfold inside rail');
   assert(sled.position.distanceTo(new T.Vector3(...state.sled.position))<1e-6);
   assert(state.charge>=0&&state.charge<=1);
@@ -83,7 +83,10 @@ for(const lod of [0,1,2]){
  applyLaunch(T,launcher,satellite,0,lod);assert(sled.position.distanceTo(start)<1e-6,'Reset returns sled to loading datum');
  const packed=new T.Box3().setFromObject(satellite,true);assert(packed.min.x> -1.19&&packed.max.x<1.19,'Packed payload clears closed clamps and rail channel');
 }
-for(const t of [4,8,12,14,16,18,26,29]){const a=launchState(t-1e-6),b=launchState(t+1e-6);assert(new T.Vector3(...a.sled.position).distanceTo(new T.Vector3(...b.sled.position))<.001,'Continuous sled motion at '+t);assert(new T.Vector3(...a.payload.position).distanceTo(new T.Vector3(...b.payload.position))<.001,'Continuous payload release');}
+for(const t of [4,8,8.4,8.4+6.4/210,8.4+1/3,10.4,16,18,26,29]){const a=launchState(t-1e-6),b=launchState(t+1e-6);assert(new T.Vector3(...a.sled.position).distanceTo(new T.Vector3(...b.sled.position))<.001,'Continuous sled motion at '+t);assert(new T.Vector3(...a.payload.position).distanceTo(new T.Vector3(...b.payload.position))<.001,'Continuous payload release');}
+assert(new T.Vector3(...launchState(8.2).sled.position).distanceTo(new T.Vector3(...railPose(.25).position))<1e-9,'Quarter rail reached halfway through 0.4-second accelerated launch');
+assert(new T.Vector3(...launchState(8.4).payload.position).distanceTo(new T.Vector3(...railPose(1).position))<1e-9,'Payload exits at 8.4 seconds');
+assert(launchState(6).sled.position[2]<-20,'Slow approach continues until first rung');
 assert.equal(launchState(-1).time,0);assert.equal(launchState(100).time,30);assert.throws(()=>launchState(NaN));assert.deepEqual(railPose(1),extensionPose(0));
 await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','hashes, bytes, triangles and draws','bounds, ground, names and socket parity','no degenerate triangles','game and distance budgets','payload docking and clamp clearance','continuous launch/recovery/reset choreography','deployment only after rail exit','static LOD2 behavior','single payload collar face','decoded passage UVs, sequential lighting, return clearance and reset'],pending:['sustained browser playback and mobile','game Three.js r160 and release gltfpack','game-camera thresholds and phone measurements','physical launch/orbit simulation is out of scope'],reports},null,2)+'\n');
 console.log('PASS orbital launcher exports, launch path, payload attachment, deployment and sled recovery.');

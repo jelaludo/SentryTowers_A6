@@ -1,5 +1,6 @@
 // Visual choreography, not a launch/orbit physics solver. +Y up, +Z launch direction.
 export const DURATION=30, RADIUS=40, SWEEP=1.05;
+export const LAUNCH_START=8, LAUNCH_SECONDS=.4, RELEASE=LAUNCH_START+LAUNCH_SECONDS;
 const clamp=v=>Math.min(1,Math.max(0,v));
 const ease=(t,a,b)=>{const u=clamp((t-a)/(b-a));return u*u*(3-2*u);};
 export function railPose(u){const a=SWEEP*u;return {position:[0,2.6+RADIUS*(1-Math.cos(a)),-20+RADIUS*Math.sin(a)],pitch:-a};}
@@ -7,21 +8,20 @@ export function extensionPose(distance){const p=railPose(1);p.position[1]+=Math.
 export function launchState(seconds){
  if(!Number.isFinite(seconds))throw new TypeError('seconds must be finite');const t=Math.min(DURATION,Math.max(0,seconds));
  let sled;
- if(t<4){sled=railPose(0);sled.position[2]-=4*(1-ease(t,0,4));}
- else if(t<8)sled=railPose(0);
- else if(t<12)sled=railPose(((t-8)/4)**2);
- else if(t<16)sled=extensionPose(3.2*(1-(1-clamp((t-12)/(6.4/21)))**2));
+ if(t<LAUNCH_START){sled=railPose(0);sled.position[2]-=4*(1-ease(t,0,LAUNCH_START));}
+ else if(t<RELEASE)sled=railPose(((t-LAUNCH_START)/LAUNCH_SECONDS)**2);
+ else if(t<16)sled=extensionPose(3.2*(1-(1-clamp((t-RELEASE)/(6.4/210)))**2));
  else if(t<18)sled=extensionPose(3.2*(1-ease(t,16,18)));
  else if(t<26)sled=railPose(1-ease(t,18,26));
  else {sled=railPose(0);sled.position[2]-=4*ease(t,26,29);}
- const payload=t<12?{position:[...sled.position],pitch:sled.pitch}:extensionPose(35*(1-(1-clamp((t-12)/(10/3)))**2));
- const phase=t<4?'Loading collector':t<8?'Charging accelerator':t<12?'Accelerating':t<17?'Payload released / sled recovery':t<21?'Unfolding collector':t<26?'Insertion-stage demonstration':'Collector deployed / launcher reset';
- return {time:t,sled,payload,charge:t<8?ease(t,4,8):t<12?1:1-ease(t,12,14),clamp:1-ease(t,11.6,12),deploy:ease(t,17,21),burn:t>=21&&t<26,phase};
+ const payload=t<RELEASE?{position:[...sled.position],pitch:sled.pitch}:extensionPose(35*(1-(1-clamp((t-RELEASE)/(1/3)))**2));
+ const phase=t<4?'Loading collector':t<8?'Loading / charging accelerator':t<RELEASE?'Accelerating':t<17?'Payload released / sled recovery':t<21?'Unfolding collector':t<26?'Insertion-stage demonstration':'Collector deployed / launcher reset';
+ return {time:t,sled,payload,charge:t<8?ease(t,4,8):t<RELEASE?1:1-ease(t,RELEASE,RELEASE+2),clamp:1-ease(t,RELEASE-.04,RELEASE),deploy:ease(t,17,21),burn:t>=21&&t<26,phase};
 }
 // One emissive strip texture addresses all 16 white accelerator crosspieces in one draw.
 const passageTextures=new WeakMap();
 export function passagePulse(seconds,index){
- const station=index/15,passage=8+4*Math.sqrt(station);
+ const station=index/15,passage=LAUNCH_START+LAUNCH_SECONDS*Math.sqrt(station);
  if(seconds<passage)return 0;
  // Latch on until the descending sled crosses this station again.
  return seconds>=18&&1-ease(seconds,18,26)<=station?0:1;

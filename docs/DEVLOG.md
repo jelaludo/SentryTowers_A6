@@ -22,6 +22,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 24 September 2026 / Faster launch after slow loading
+
+- The loading approach now continues slowly until the first rung lights at 8 seconds. Rail acceleration takes 0.4 seconds instead of 4 seconds: ten times faster.
+- Synchronized rung activation, clamp release, payload departure and sled braking to the faster launch. Lit rungs remain cyan until the returning platform passes; the later recovery/deployment schedule remains intact.
+- Updated runtime timing, manifest, viewer cache versions and integration notes. Regression checks cover the shortened rail traversal, release continuity, light timing and loading approach. Geometry and export budgets are unchanged.
+
 ## 24 September 2026 / Hold rail lights until platform return
 
 - Rail stations now stay cyan after outward payload passage, through release and recovery. Each switches back to white as the platform descends past it during 18–26 seconds.

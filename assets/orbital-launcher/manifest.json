@@ -61,7 +61,7 @@
           "event": "ACCELERATE"
         },
         {
-          "time_s": 12,
+          "time_s": 8.4,
           "event": "RELEASE"
         },
         {
@@ -102,7 +102,7 @@
     "passage_lights": {
       "node": "PASSAGE_GATES",
       "count": 16,
-      "trigger": "8 + 4 * sqrt(index / 15) seconds",
+      "trigger": "8 + 0.4 * sqrt(index / 15) seconds",
       "adapter": "runtime-generated 16-pixel emissive texture; white at rest, cyan on outward payload passage; static LOD2 has no pulse",
       "release": "Each station switches off as the returning sled crosses it during 18–26 seconds"
     },
