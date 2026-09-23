@@ -18,9 +18,32 @@ export function launchState(seconds){
  const phase=t<4?'Loading collector':t<8?'Charging accelerator':t<12?'Accelerating':t<17?'Payload released / sled recovery':t<21?'Unfolding collector':t<26?'Insertion-stage demonstration':'Collector deployed / launcher reset';
  return {time:t,sled,payload,charge:t<8?ease(t,4,8):t<12?1:1-ease(t,12,14),clamp:1-ease(t,11.6,12),deploy:ease(t,17,21),burn:t>=21&&t<26,phase};
 }
+// One emissive strip texture addresses all 16 white accelerator crosspieces in one draw.
+const passageTextures=new WeakMap();
+export function passagePulse(seconds,index){
+ const passage=8+4*Math.sqrt(index/15),age=seconds-passage;
+ return age<0||age>=.48?0:age<.12?1:(1-(age-.12)/.36)**2;
+}
+function lightPassage(T,launcher,seconds){
+ const gates=launcher.getObjectByName('PASSAGE_GATES');if(!gates?.isMesh)return;
+ let texture=passageTextures.get(gates);
+ if(!texture){
+  texture=new T.DataTexture(new Uint8Array(16*4),16,1,T.RGBAFormat);
+  texture.magFilter=texture.minFilter=T.NearestFilter;texture.generateMipmaps=false;
+  const tint=new T.DataTexture(new Uint8Array(16*4),16,1,T.RGBAFormat);
+  tint.magFilter=tint.minFilter=T.NearestFilter;tint.generateMipmaps=false;
+  gates.material.map=tint;
+  gates.material.emissive.set(0x00eaff);gates.material.emissiveIntensity=4;
+  gates.material.emissiveMap=texture;gates.material.needsUpdate=true;
+  gates.material.addEventListener('dispose',()=>{texture.dispose();tint.dispose();});passageTextures.set(gates,texture);
+ }
+ const pixels=texture.image.data;
+ for(let i=0;i<16;i++){const value=Math.round(255*passagePulse(seconds,i));pixels.set([value,value,value,255],i*4);gates.material.map.image.data.set([255-value,255,255,255],i*4);}
+ texture.needsUpdate=true;gates.material.map.needsUpdate=true;
+}
 export function applyLaunch(T,launcher,satellite,seconds,lod){
  const state=launchState(seconds);if(lod===2)return {...state,phase:'Static loading proxies / switch to game tier for motion'};
- if(launcher){const sled=launcher.getObjectByName('LAUNCH_SLED');sled.position.fromArray(state.sled.position);sled.rotation.x=state.sled.pitch;
+ if(launcher){lightPassage(T,launcher,state.time);const sled=launcher.getObjectByName('LAUNCH_SLED');sled.position.fromArray(state.sled.position);sled.rotation.x=state.sled.pitch;
   for(const [name,side] of [['CLAMP_L',-1],['CLAMP_R',1]])launcher.getObjectByName(name).position.x=side*(1.47-.15*state.clamp);
   const glow=launcher.getObjectByName('ACCELERATOR_LIGHTS');if(glow?.material)glow.material.emissiveIntensity=.25+state.charge*2;
  }

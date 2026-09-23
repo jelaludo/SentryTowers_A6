@@ -14,14 +14,14 @@ Plain self-contained GLB is the source of truth. The optional files in derived/m
 
 | Module | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: |
-| launcher | LOD0 | 11,784 | 6 | 678,100 | 204,236 |
-| launcher | LOD1 | 5,768 | 6 | 326,140 | 104,064 |
-| launcher | LOD2 | 2,952 | 1 | 165,380 | 51,944 |
+| launcher | LOD0 | 11,784 | 7 | 711,516 | 206,656 |
+| launcher | LOD1 | 5,768 | 7 | 342,756 | 106,172 |
+| launcher | LOD2 | 2,952 | 1 | 165,440 | 52,000 |
 | satellite | LOD0 | 1,824 | 8 | 82,368 | 23,108 |
 | satellite | LOD1 | 1,128 | 8 | 55,676 | 18,792 |
 | satellite | LOD2 | 840 | 1 | 39,548 | 17,444 |
 
-Launcher LOD1 meets the landmark 8k-triangle / 10-draw / 400 KB target. Both static distance modules meet 3k triangles, one draw and 250 KB. The complete game assembly is 6,896 triangles and fourteen mesh primitives, including the collapsed optional plume. Counts exclude viewer floor/grid, shadow passes and environment. No FPS claim.
+Launcher LOD1 meets the landmark 8k-triangle / 10-draw / 400 KB target. Both static distance modules meet 3k triangles, one draw and 250 KB. The complete game assembly is 6,896 triangles and fifteen mesh primitives, including the collapsed optional plume. Counts exclude viewer floor/grid, shadow passes and environment. No FPS claim.
 
 ## Coordinates, sockets and detail
 
@@ -30,6 +30,8 @@ Metres; +Y up; +Z along the initial launch direction. ARC_ROOT is the ground-lev
 SOCKET_LOADING marks the payload datum at (0, 3.03, -24). LAUNCH_SLED begins at (0, 2.6, -24). Its SOCKET_PAYLOAD at local (0, 0.43, 0) meets satellite SOCKET_LAUNCH_ATTACH without scale changes. SOCKET_RAIL_EXIT stores the exit tangent; SOCKET_POWER and SOCKET_SERVICE address external systems. The satellite supplies SOCKET_THRUSTER and SOCKET_OPTICAL_AXIS.
 
 LOD0 is the detailed close-shot/recording master; LOD1 preserves moving sled, clamps, six petal hinges and optional plume. LOD2 retains named lookup nodes while merging visible rest geometry to one mesh/material per module. It is docked/packed, cannot animate and is not a deployed-or-flight pose. Keep LOD1 throughout active launch and collector deployment. The provisional static loading/approach policy is 150 m with 20 m hysteresis; consuming-game camera review must set final thresholds.
+
+The payload bus ends behind the pale hexagonal collar, leaving a single visible cap instead of two coplanar end faces. This removes the reported moiré without extra surface details.
 
 ## Runtime demonstration
 
@@ -49,6 +51,8 @@ No baked GLB clips: engine-driven pivots remain unbaked. runtime.js provides **C
 | 29–30 s | Hold the deployed collector and recovered launcher |
 
 The display flight slows to a held inspection pose 35 m beyond the exit. It is not ballistic or orbital motion. railPose(u), extensionPose(distance) and launchState(seconds) expose the art-directed path and sequence. Clamps, sled, lights, launch VFX and satellite inventory need consuming-game integration. Replaying explicitly resets the same demonstration payload; it does not spawn or count real satellites.
+
+PASSAGE_GATES combines sixteen accelerator crosspieces and their paired rectangular side housings in one mesh/draw. Its UV strip addresses each station independently. The runtime creates two 16 × 1 RGBA textures for cyan tint/emission (128 bytes of raw pixel data total, excluding GPU overhead); plain exports remain texture-free. Each station peaks at `8 + 4 * sqrt(index / 15)` seconds when the outward payload reaches it, holds its peak for 0.12 seconds and finishes fading by 0.48 seconds. Scrubbing/reset is deterministic and return travel does not retrigger. The game must call the supplied runtime or reproduce this material update; there is no baked lighting clip or bloom dependency. LOD2 stays static and white.
 
 The six PETAL_n_HINGE nodes rotate around their local X axes from +π/2 packed to 0 deployed. LAUNCH_SLED follows rail tangent rotation around local X; CLAMP_L/R slide in local X. INSERTION_PLUME is zero-scale initially; omit or replace it with game-side VFX. Distance lookup transforms must not be used to animate the merged mesh.
 

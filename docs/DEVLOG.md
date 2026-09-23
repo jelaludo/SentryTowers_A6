@@ -21,6 +21,14 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+
+## 23 September 2026 / Payload collar cleanup and sequential rail lights
+
+- Shortened SEED-01's inner hexagonal body behind the pale collar, removing the coplanar cap responsible for the reported moiré across all three tiers.
+- ARC-01's sixteen accelerator crosspieces and paired rectangular side housings pulse cyan one by one as the payload passes, then fade to white over 0.48 seconds. Timeline scrubbing/reset reproduce the sequence; returning sleds do not retrigger it.
+- Crosspieces share one additional draw: launcher LOD1 remains 5,768 triangles, now seven draws and 342,756 plain bytes. The full assembly is 6,896 triangles / fifteen draws. LOD2 remains one draw per module.
+- Regenerated plain/derived exports, hashes, Blender source and previews. Plain and decoded checks cover the single collar face, all sixteen station UVs, pulse timing, decay and reset. Viewer regression checks pass. Safari scrub inspection shows the cyan passage lights and a clean collector collar. Game/mobile acceptance remains pending.
+
 ## 23 September 2026 / ARC-01 curved orbital launcher
 
 **Owner-requested orbital industry family delivered as a contract candidate.** ARC-01 launches small SEED-01 collector satellites manufactured on the planet as the first modular contributions to the future Dyson structure. The original design follows ISAO/MÖRK/KORP's slate armor, pale caps, cyan status lighting and amber service marks. Names are provisional development identifiers.

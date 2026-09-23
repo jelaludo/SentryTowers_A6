@@ -9,7 +9,7 @@ import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {dequantize} from '@gltf-transform/functions';
 import validator from 'gltf-validator';
 import {definitions} from './orbital-launcher-shape.mjs';
-import {launchState,applyLaunch,railPose,extensionPose,DURATION} from '../../assets/orbital-launcher/runtime.js';
+import {launchState,applyLaunch,railPose,extensionPose,DURATION,passagePulse} from '../../assets/orbital-launcher/runtime.js';
 const out=new URL('../../assets/orbital-launcher/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),reports=[],models={},baselines={};
 await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder}),loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
@@ -41,6 +41,22 @@ for(const e of manifest.assets){
   if(!compressed){plainBounds=bounds;models[e.id]=root;assert(bounds.min.distanceTo(new T.Vector3(...e.bounds.min))<.003);assert(bounds.max.distanceTo(new T.Vector3(...e.bounds.max))<.003);}
   else{assert(bounds.min.distanceTo(plainBounds.min)<.008);assert(bounds.max.distanceTo(plainBounds.max)<.008);}
   if(e.lod){const budget=manifest.budgets['lod'+e.lod];assert(triangles<=budget.triangles);if(budget.draw_calls)assert(draws<=budget.draw_calls);if(budget.bytes)assert(bytes.length<=(compressed?e.bytes:budget.bytes));}
+  if(e.lod<2&&e.family==='launcher'){
+   const gates=root.getObjectByName('PASSAGE_GATES');assert(gates?.isMesh);const uv=gates.geometry.attributes.uv;assert(uv,'Export retains passage texture coordinates');
+   const stations=new Set(Array.from({length:uv.count},(_,i)=>Math.floor(uv.getX(i)*16)));assert.equal(stations.size,16);
+   for(let i=0;i<16;i++){
+    const t=8+4*Math.sqrt(i/15);applyLaunch(T,root,null,t,e.lod);
+    const pixels=gates.material.emissiveMap.image.data;assert.equal(pixels[i*4],255,'Gate peaks as payload passes');
+    for(let j=i+1;j<16;j++)assert.equal(pixels[j*4],0,'Later gate stays white');
+    assert.equal(passagePulse(t+.5,i),0,'Gate fades after passage');
+   }
+   applyLaunch(T,root,null,0,e.lod);assert(gates.material.emissiveMap.image.data.every((v,i)=>i%4===3||v===0),'Reset clears pulses');
+  }
+  if(e.lod<2&&e.family==='satellite'){
+   const g=root.getObjectByName('SATELLITE_BUS').geometry,p=g.attributes.position,ix=g.index;let endFaces=0;
+   for(let j=0;j<(ix?.count||p.count);j+=3)if([0,1,2].every(k=>Math.abs(p.getZ(ix?ix.getX(j+k):j+k)-.975)<.001))endFaces++;
+   assert.equal(endFaces,6,'Single hexagonal collar face, no overlapping inner-body cap');
+  }
   reports.push({file,decoded:compressed,triangles,draw_calls:draws,bytes:bytes.length,gltf_errors:0,gltf_warnings:0});console.log('PASS',file,triangles,'triangles',draws,'draws');
  }
 }
@@ -66,5 +82,5 @@ for(const lod of [0,1,2]){
 }
 for(const t of [4,8,12,14,16,18,26,29]){const a=launchState(t-1e-6),b=launchState(t+1e-6);assert(new T.Vector3(...a.sled.position).distanceTo(new T.Vector3(...b.sled.position))<.001,'Continuous sled motion at '+t);assert(new T.Vector3(...a.payload.position).distanceTo(new T.Vector3(...b.payload.position))<.001,'Continuous payload release');}
 assert.equal(launchState(-1).time,0);assert.equal(launchState(100).time,30);assert.throws(()=>launchState(NaN));assert.deepEqual(railPose(1),extensionPose(0));
-await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','hashes, bytes, triangles and draws','bounds, ground, names and socket parity','no degenerate triangles','game and distance budgets','payload docking and clamp clearance','continuous launch/recovery/reset choreography','deployment only after rail exit','static LOD2 behavior'],pending:['sustained browser playback and mobile','game Three.js r160 and release gltfpack','game-camera thresholds and phone measurements','physical launch/orbit simulation is out of scope'],reports},null,2)+'\n');
+await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','hashes, bytes, triangles and draws','bounds, ground, names and socket parity','no degenerate triangles','game and distance budgets','payload docking and clamp clearance','continuous launch/recovery/reset choreography','deployment only after rail exit','static LOD2 behavior','single payload collar face','decoded passage UVs, sequential pulses, decay and reset'],pending:['sustained browser playback and mobile','game Three.js r160 and release gltfpack','game-camera thresholds and phone measurements','physical launch/orbit simulation is out of scope'],reports},null,2)+'\n');
 console.log('PASS orbital launcher exports, launch path, payload attachment, deployment and sled recovery.');

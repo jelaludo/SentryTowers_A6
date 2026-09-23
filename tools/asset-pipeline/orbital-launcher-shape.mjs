@@ -11,7 +11,7 @@ function sweep(x,y,w,h,lod,color){
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(verts,3));g.setIndex(indices);const flat=g.toNonIndexed();g.dispose();flat.computeVertexNormals();return prep(flat,color);
 }
 function launcher(lod,root,m){
- const n=[20,10,6][lod],body=[],rail=[],lights=[];
+ const n=[20,10,6][lod],body=[],rail=[],lights=[],gates=[];
  // Seven grounded cradles support a sweeping spine; open bays read at map scale.
  for(let i=0;i<7;i++){const u=i/6,p=railPose(u),z=p.position[2],top=p.position[1]-1.05;
   body.push(armor([7,.34,2.7],[0,.17,z],P.dark,lod),armor([5.9,.22,2.05],[0,.45,z],P.plate,lod));
@@ -23,8 +23,10 @@ function launcher(lod,root,m){
  body.push(sweep(0,-.99,.8,.55,lod,P.armor));
  // Discrete acceleration cassettes under the track leave the launch path open.
  const coilCount=lod===2?6:16;
- for(let i=0;i<coilCount;i++){const u=i/(coilCount-1),p=railPose(u),parts=[box([4.45,.22,.52],[0,-.56,0],P.plate)];
-  for(const side of [-1,1]){parts.push(armor([.58,.76,.74],[side*2.02,-.08,0],P.armor,lod));lights.push(poseGeometry(box([.055,.28,.44],[side*2.325,.03,0],P.cyan),p));if(lod===0){parts.push(box([.07,.10,.51],[side*2.33,-.29,0],P.amber));for(let j=0;j<3;j++)parts.push(box([.1,.34,.05],[side*2.33,.06,-.23+j*.23],P.dark));}}
+ for(let i=0;i<coilCount;i++){const u=i/(coilCount-1),p=railPose(u),parts=[];
+  const addGate=g=>{poseGeometry(g,p);if(lod<2)g.setAttribute('uv',new T.Float32BufferAttribute(Array.from({length:g.attributes.position.count},()=>[(i+.5)/coilCount,.5]).flat(),2));gates.push(g);};
+  addGate(box([4.45,.22,.52],[0,-.56,0],P.plate));
+  for(const side of [-1,1]){addGate(armor([.58,.76,.74],[side*2.02,-.08,0],P.armor,lod));lights.push(poseGeometry(box([.055,.28,.44],[side*2.325,.03,0],P.cyan),p));if(lod===0){parts.push(box([.07,.10,.51],[side*2.33,-.29,0],P.amber));for(let j=0;j<3;j++)parts.push(box([.1,.34,.05],[side*2.33,.06,-.23+j*.23],P.dark));}}
   for(const g of parts)body.push(poseGeometry(g,p));
  }
  // Elevated recovery fork, marked in amber, keeps the sled on rails after payload release.
@@ -43,6 +45,8 @@ function launcher(lod,root,m){
   for(let i=0;i<6;i++)body.push(box([.6,.035,.2],[-3.2+i*1.28,2.065,-27.72],P.amber));
  }
  if(lod===0){for(const side of [-1,1])for(let i=0;i<9;i++)body.push(cyl(.045,.035,8,[side*4.05,2.07,-27.5+i*.85],P.dark));}
+ const gateMaterial=m.body.clone();gateMaterial.name='PASSAGE_GATE_WHITE';
+ mesh(root,'PASSAGE_GATES',gates,gateMaterial);
  mesh(root,'LAUNCHER_STRUCTURE',body,m.body);mesh(root,'CONTINUOUS_RAILS',rail,m.metal);mesh(root,'ACCELERATOR_LIGHTS',lights,m.light);
  const sled=node(root,'LAUNCH_SLED',[0,2.6,-24]);mesh(sled,'SLED_BODY',[beam([-1.65,.31,-1.1],[1.65,.31,-1.1],.12,P.steel),beam([-1.65,.31,1.1],[1.65,.31,1.1],.12,P.steel),armor([2.65,.28,3.4],[0,.18,0],P.armor,lod),armor([2.3,.1,2.95],[0,.37,0],P.plate,lod),box([.12,.08,2.5],[-.95,.46,0],P.dark),box([.12,.08,2.5],[.95,.46,0],P.dark)],m.body);
  for(const side of [-1,1]){const clamp=node(sled,side<0?'CLAMP_L':'CLAMP_R',[side*1.32,0,0]);mesh(clamp,side<0?'CLAMP_L_MESH':'CLAMP_R_MESH',[armor([.25,.6,1.15],[0,.64,0],P.armor,lod),box([.27,.1,.82],[0,.99,0],P.amber)],m.body);}
@@ -52,7 +56,7 @@ function launcher(lod,root,m){
  root.userData.operating_envelope_m={min:[-7,0,-29],max:[7,60,37]};
 }
 function satellite(lod,root,m){
- const n=[24,12,6][lod],body=node(root,'COLLECTOR_BODY'),parts=[cyl(.49,1.75,6,[0,0,.1],P.armor,[Math.PI/2,0,0]),cyl(.55,.15,6,[0,0,.9],P.plate,[Math.PI/2,0,0]),cyl(.37,.75,6,[0,0,1.3],P.armor,[Math.PI/2,0,0]),cyl(.26,.2,n,[0,0,1.78],P.dark,[Math.PI/2,0,0]),cyl(.17,.035,n,[0,0,1.897],P.cyan,[Math.PI/2,0,0]),cyl(.35,.3,n,[0,0,-.84],P.dark,[Math.PI/2,0,0]),ring(.24,.045,n,[0,0,-1.01],P.amber,[0,0,0])];
+ const n=[24,12,6][lod],body=node(root,'COLLECTOR_BODY'),parts=[cyl(.49,1.58,6,[0,0,.015],P.armor,[Math.PI/2,0,0]),cyl(.55,.15,6,[0,0,.9],P.plate,[Math.PI/2,0,0]),cyl(.37,.75,6,[0,0,1.3],P.armor,[Math.PI/2,0,0]),cyl(.26,.2,n,[0,0,1.78],P.dark,[Math.PI/2,0,0]),cyl(.17,.035,n,[0,0,1.897],P.cyan,[Math.PI/2,0,0]),cyl(.35,.3,n,[0,0,-.84],P.dark,[Math.PI/2,0,0]),ring(.24,.045,n,[0,0,-1.01],P.amber,[0,0,0])];
  for(let i=0;i<6;i++){const a=i*Math.PI/3;parts.push(beam([Math.sin(a)*.42,Math.cos(a)*.42,0],[Math.sin(a)*.95,Math.cos(a)*.95,0],.1,P.steel),box([.14,.045,.85],[Math.sin(a)*.5,Math.cos(a)*.5,.12],P.plate,[0,0,-a]));}
  mesh(body,'SATELLITE_BUS',parts,m.body);
  for(let i=1;i<=6;i++){const a=(i-1)*Math.PI/3,base=node(body,'PETAL_'+i+'_MOUNT',[-Math.sin(a)*.95,Math.cos(a)*.95,0]);base.rotation.z=a;const hinge=node(base,'PETAL_'+i+'_HINGE');hinge.rotation.x=Math.PI/2;

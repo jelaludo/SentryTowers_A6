@@ -19,7 +19,7 @@ const startup=vm.runInNewContext('(async()=>{'+source.replace(/^import .*;\n/gm,
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
 function resolve(r){const file=r.file.split('orbital-launcher/')[1].split('?')[0].replace('derived/meshopt/','').replace('.meshopt.glb','.glb');r.resolve({scene:models.get(file).clone(true)});r.done=true;}
 async function drain(){await flush();for(const r of requests.filter(r=>!r.done))resolve(r);await flush();}
-await drain();await startup;assert(renderCount>0,'Initial scene paints without animation callbacks');assert.equal(sandbox.window.orbitalLauncher.lod,1);assert.equal(element('draws').textContent,14);
+await drain();await startup;assert(renderCount>0,'Initial scene paints without animation callbacks');assert.equal(sandbox.window.orbitalLauncher.lod,1);assert.equal(element('draws').textContent,15);
 element('time').value='10';element('time').oninput();assert.equal(element('phase').textContent,'Accelerating');assert.equal(element('charge').textContent,'100%');
 const get=()=>sandbox.window.orbitalLauncher.models;
 assert(get().launcher.getObjectByName('LAUNCH_SLED').position.y>2.6);
