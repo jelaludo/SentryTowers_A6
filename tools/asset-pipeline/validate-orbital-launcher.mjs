@@ -48,7 +48,10 @@ for(const e of manifest.assets){
     const t=8+4*Math.sqrt(i/15);applyLaunch(T,root,null,t,e.lod);
     const pixels=gates.material.emissiveMap.image.data;assert.equal(pixels[i*4],255,'Gate peaks as payload passes');
     for(let j=i+1;j<16;j++)assert.equal(pixels[j*4],0,'Later gate stays white');
-    assert.equal(passagePulse(t+.5,i),0,'Gate fades after passage');
+    assert.equal(passagePulse(t+.5,i),1,'Gate stays lit after passage');
+    assert.equal(passagePulse(17.9,i),1,'All gates remain lit during recovery hold');
+    assert.equal(passagePulse(22,i),i<8?1:0,'At halfway descent only lower eight gates remain lit');
+    assert.equal(passagePulse(26,i),0,'All gates clear when sled reaches the rail bottom');
    }
    applyLaunch(T,root,null,0,e.lod);assert(gates.material.emissiveMap.image.data.every((v,i)=>i%4===3||v===0),'Reset clears pulses');
   }
@@ -82,5 +85,5 @@ for(const lod of [0,1,2]){
 }
 for(const t of [4,8,12,14,16,18,26,29]){const a=launchState(t-1e-6),b=launchState(t+1e-6);assert(new T.Vector3(...a.sled.position).distanceTo(new T.Vector3(...b.sled.position))<.001,'Continuous sled motion at '+t);assert(new T.Vector3(...a.payload.position).distanceTo(new T.Vector3(...b.payload.position))<.001,'Continuous payload release');}
 assert.equal(launchState(-1).time,0);assert.equal(launchState(100).time,30);assert.throws(()=>launchState(NaN));assert.deepEqual(railPose(1),extensionPose(0));
-await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','hashes, bytes, triangles and draws','bounds, ground, names and socket parity','no degenerate triangles','game and distance budgets','payload docking and clamp clearance','continuous launch/recovery/reset choreography','deployment only after rail exit','static LOD2 behavior','single payload collar face','decoded passage UVs, sequential pulses, decay and reset'],pending:['sustained browser playback and mobile','game Three.js r160 and release gltfpack','game-camera thresholds and phone measurements','physical launch/orbit simulation is out of scope'],reports},null,2)+'\n');
+await fs.writeFile(new URL('validation.json',out),JSON.stringify({status:'passed',checks:['plain and decoded Meshopt glTF Validator','hashes, bytes, triangles and draws','bounds, ground, names and socket parity','no degenerate triangles','game and distance budgets','payload docking and clamp clearance','continuous launch/recovery/reset choreography','deployment only after rail exit','static LOD2 behavior','single payload collar face','decoded passage UVs, sequential lighting, return clearance and reset'],pending:['sustained browser playback and mobile','game Three.js r160 and release gltfpack','game-camera thresholds and phone measurements','physical launch/orbit simulation is out of scope'],reports},null,2)+'\n');
 console.log('PASS orbital launcher exports, launch path, payload attachment, deployment and sled recovery.');

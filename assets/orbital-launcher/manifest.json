@@ -103,8 +103,8 @@
       "node": "PASSAGE_GATES",
       "count": 16,
       "trigger": "8 + 4 * sqrt(index / 15) seconds",
-      "decay_s": 0.48,
-      "adapter": "runtime-generated 16-pixel emissive texture; white at rest, cyan on outward payload passage; static LOD2 has no pulse"
+      "adapter": "runtime-generated 16-pixel emissive texture; white at rest, cyan on outward payload passage; static LOD2 has no pulse",
+      "release": "Each station switches off as the returning sled crosses it during 18–26 seconds"
     },
     "scope": "Kinematic model demonstration, not electromagnetic, atmospheric or orbital physics. Rail dimensions and time are art-directed. Satellite insertion stage is visual only; no claim of reaching orbit.",
     "rail": {
@@ -144,7 +144,7 @@
       "bounds": {
         "min": [
           -6.550000190734863,
-          -1.1920929132713809e-8,
+          -1.1920929132713809e-08,
           -28.200000762939453
         ],
         "max": [
@@ -282,7 +282,7 @@
       "bounds": {
         "min": [
           -6.550000190734863,
-          -1.1920929132713809e-8,
+          -1.1920929132713809e-08,
           -28.200000762939453
         ],
         "max": [
@@ -420,7 +420,7 @@
       "bounds": {
         "min": [
           -6.550000190734863,
-          -1.1920929132713809e-8,
+          -1.1920929132713809e-08,
           -28.200000762939453
         ],
         "max": [

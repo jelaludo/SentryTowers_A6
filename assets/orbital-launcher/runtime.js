@@ -21,8 +21,10 @@ export function launchState(seconds){
 // One emissive strip texture addresses all 16 white accelerator crosspieces in one draw.
 const passageTextures=new WeakMap();
 export function passagePulse(seconds,index){
- const passage=8+4*Math.sqrt(index/15),age=seconds-passage;
- return age<0||age>=.48?0:age<.12?1:(1-(age-.12)/.36)**2;
+ const station=index/15,passage=8+4*Math.sqrt(station);
+ if(seconds<passage)return 0;
+ // Latch on until the descending sled crosses this station again.
+ return seconds>=18&&1-ease(seconds,18,26)<=station?0:1;
 }
 function lightPassage(T,launcher,seconds){
  const gates=launcher.getObjectByName('PASSAGE_GATES');if(!gates?.isMesh)return;

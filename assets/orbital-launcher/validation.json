@@ -11,7 +11,7 @@
     "deployment only after rail exit",
     "static LOD2 behavior",
     "single payload collar face",
-    "decoded passage UVs, sequential pulses, decay and reset"
+    "decoded passage UVs, sequential lighting, return clearance and reset"
   ],
   "pending": [
     "sustained browser playback and mobile",

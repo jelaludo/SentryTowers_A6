@@ -22,6 +22,11 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 24 September 2026 / Hold rail lights until platform return
+
+- Rail stations now stay cyan after outward payload passage, through release and recovery. Each switches back to white as the platform descends past it during 18–26 seconds.
+- Updated runtime, manifest and integration notes; export geometry and budgets are unchanged. Plain/decoded runtime checks cover the held lights, descending clearance and reset.
+
 ## 23 September 2026 / Payload collar cleanup and sequential rail lights
 
 - Shortened SEED-01's inner hexagonal body behind the pale collar, removing the coplanar cap responsible for the reported moiré across all three tiers.
