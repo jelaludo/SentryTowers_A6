@@ -1,0 +1,32 @@
+// Visual choreography, not a launch/orbit physics solver. +Y up, +Z launch direction.
+export const DURATION=30, RADIUS=40, SWEEP=1.05;
+const clamp=v=>Math.min(1,Math.max(0,v));
+const ease=(t,a,b)=>{const u=clamp((t-a)/(b-a));return u*u*(3-2*u);};
+export function railPose(u){const a=SWEEP*u;return {position:[0,2.6+RADIUS*(1-Math.cos(a)),-20+RADIUS*Math.sin(a)],pitch:-a};}
+export function extensionPose(distance){const p=railPose(1);p.position[1]+=Math.sin(SWEEP)*distance;p.position[2]+=Math.cos(SWEEP)*distance;return p;}
+export function launchState(seconds){
+ if(!Number.isFinite(seconds))throw new TypeError('seconds must be finite');const t=Math.min(DURATION,Math.max(0,seconds));
+ let sled;
+ if(t<4){sled=railPose(0);sled.position[2]-=4*(1-ease(t,0,4));}
+ else if(t<8)sled=railPose(0);
+ else if(t<12)sled=railPose(((t-8)/4)**2);
+ else if(t<16)sled=extensionPose(3.2*(1-(1-clamp((t-12)/(6.4/21)))**2));
+ else if(t<18)sled=extensionPose(3.2*(1-ease(t,16,18)));
+ else if(t<26)sled=railPose(1-ease(t,18,26));
+ else {sled=railPose(0);sled.position[2]-=4*ease(t,26,29);}
+ const payload=t<12?{position:[...sled.position],pitch:sled.pitch}:extensionPose(35*(1-(1-clamp((t-12)/(10/3)))**2));
+ const phase=t<4?'Loading collector':t<8?'Charging accelerator':t<12?'Accelerating':t<17?'Payload released / sled recovery':t<21?'Unfolding collector':t<26?'Insertion-stage demonstration':'Collector deployed / launcher reset';
+ return {time:t,sled,payload,charge:t<8?ease(t,4,8):t<12?1:1-ease(t,12,14),clamp:1-ease(t,11.6,12),deploy:ease(t,17,21),burn:t>=21&&t<26,phase};
+}
+export function applyLaunch(T,launcher,satellite,seconds,lod){
+ const state=launchState(seconds);if(lod===2)return {...state,phase:'Static loading proxies / switch to game tier for motion'};
+ if(launcher){const sled=launcher.getObjectByName('LAUNCH_SLED');sled.position.fromArray(state.sled.position);sled.rotation.x=state.sled.pitch;
+  for(const [name,side] of [['CLAMP_L',-1],['CLAMP_R',1]])launcher.getObjectByName(name).position.x=side*(1.47-.15*state.clamp);
+  const glow=launcher.getObjectByName('ACCELERATOR_LIGHTS');if(glow?.material)glow.material.emissiveIntensity=.25+state.charge*2;
+ }
+ if(satellite){satellite.position.fromArray(state.payload.position);satellite.rotation.x=state.payload.pitch;satellite.position.add(new T.Vector3(0,.43,0).applyEuler(satellite.rotation));
+  for(let i=1;i<=6;i++)satellite.getObjectByName('PETAL_'+i+'_HINGE').rotation.x=(1-state.deploy)*Math.PI/2;
+  satellite.getObjectByName('INSERTION_PLUME').scale.setScalar(state.burn?1:0);
+ }
+ return state;
+}

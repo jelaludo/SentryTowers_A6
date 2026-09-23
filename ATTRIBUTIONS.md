@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## ARC-01 orbital launcher and SEED-01 collector
+
+- On 23 September 2026, jelaludo requested a curved electromagnetic rail-gun-like orbital launcher for small satellites manufactured on the planet to build a Dyson sphere.
+- Original procedural geometry, manufacturer palette adaptation and visual launch/deployment controller authored for this project. Models by jelaludo. ARC-01 and SEED-01 are provisional development designations; no external geometry, textures or reference imagery is embedded.
+- Shared geometric primitives come from this repository's original settlement-industry source. Plain GLBs are authoritative; optional Meshopt files and the assembled Blender review scene are marked derivatives.
+
 ## Frontier industry / settlement machinery
 
 - On 23 September 2026, jelaludo requested automated drilling, minimalist hexagonal mirrors and rugged planetary transport, built by the same corporation as ISAO, MÖRK and the KORP gunship.

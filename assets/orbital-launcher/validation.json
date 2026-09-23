@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "checks": [
+    "plain and decoded Meshopt glTF Validator",
+    "hashes, bytes, triangles and draws",
+    "bounds, ground, names and socket parity",
+    "no degenerate triangles",
+    "game and distance budgets",
+    "payload docking and clamp clearance",
+    "continuous launch/recovery/reset choreography",
+    "deployment only after rail exit",
+    "static LOD2 behavior"
+  ],
+  "pending": [
+    "sustained browser playback and mobile",
+    "game Three.js r160 and release gltfpack",
+    "game-camera thresholds and phone measurements",
+    "physical launch/orbit simulation is out of scope"
+  ],
+  "reports": [
+    {
+      "file": "lod0/launcher_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 11784,
+      "draw_calls": 6,
+      "bytes": 678100,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/launcher_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 11784,
+      "draw_calls": 6,
+      "bytes": 204236,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/launcher_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 5768,
+      "draw_calls": 6,
+      "bytes": 326140,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/launcher_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 5768,
+      "draw_calls": 6,
+      "bytes": 104064,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/launcher_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2952,
+      "draw_calls": 1,
+      "bytes": 165380,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/launcher_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2952,
+      "draw_calls": 1,
+      "bytes": 51944,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod0/satellite_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 1824,
+      "draw_calls": 8,
+      "bytes": 82368,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/satellite_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 1824,
+      "draw_calls": 8,
+      "bytes": 23108,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/satellite_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 1128,
+      "draw_calls": 8,
+      "bytes": 55676,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/satellite_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 1128,
+      "draw_calls": 8,
+      "bytes": 18792,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/satellite_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 840,
+      "draw_calls": 1,
+      "bytes": 39548,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/satellite_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 840,
+      "draw_calls": 1,
+      "bytes": 17444,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 import * as T from 'three';
 import {mergeGeometries, mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 export const palette={armor:0x29464f,plate:0x819fa5,pale:0xc6d4d0,dark:0x101e25,steel:0x526a72,cyan:0x8ce8f0,amber:0xe8b75f,tire:0x18252b,mirror:0xc1d9df};
+export {box,cyl,ring,beam,armor,node,mesh,socket,prep,merged};
 const P=palette, Y=new T.Vector3(0,1,0);
 function prep(g,color,pos=[0,0,0],rot=[0,0,0]){
  const a=g.index?g.toNonIndexed():g.clone();g.dispose();for(const k of Object.keys(a.attributes))if(!['position','normal'].includes(k))a.deleteAttribute(k);

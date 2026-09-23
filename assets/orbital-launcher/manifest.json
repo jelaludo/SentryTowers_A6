@@ -1,0 +1,909 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 1,
+  "family": "orbital-launcher",
+  "label": "ARC-01 / Orbital collector launch complex",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground/packed docking datum at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "First intact asset family; D1–D3 not authored.",
+  "manufacturer_lineage": [
+    "ISAO",
+    "MORK",
+    "KORP"
+  ],
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Manual close shots and recording",
+    "distance": "Static docked launcher and packed satellite; no articulation or pose matching. Keep LOD1 throughout active launch and deployment."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Collector_Launch",
+      "duration_s": 30,
+      "loop": false,
+      "events": [
+        {
+          "time_s": 0,
+          "event": "LOAD"
+        },
+        {
+          "time_s": 4,
+          "event": "CHARGE"
+        },
+        {
+          "time_s": 8,
+          "event": "ACCELERATE"
+        },
+        {
+          "time_s": 12,
+          "event": "RELEASE"
+        },
+        {
+          "time_s": 16,
+          "event": "SLED_RETURN"
+        },
+        {
+          "time_s": 17,
+          "event": "DEPLOY_COLLECTOR"
+        },
+        {
+          "time_s": 21,
+          "event": "INSERTION_STAGE"
+        },
+        {
+          "time_s": 26,
+          "event": "COLLECTOR_READY"
+        },
+        {
+          "time_s": 30,
+          "event": "COMPLETE"
+        }
+      ]
+    },
+    "engine_driven": [
+      "LAUNCH_SLED",
+      "CLAMP_L",
+      "CLAMP_R",
+      "PETAL_1_HINGE",
+      "PETAL_2_HINGE",
+      "PETAL_3_HINGE",
+      "PETAL_4_HINGE",
+      "PETAL_5_HINGE",
+      "PETAL_6_HINGE",
+      "INSERTION_PLUME"
+    ],
+    "scope": "Kinematic model demonstration, not electromagnetic, atmospheric or orbital physics. Rail dimensions and time are art-directed. Satellite insertion stage is visual only; no claim of reaching orbit.",
+    "rail": {
+      "radius_m": 40,
+      "sweep_rad": 1.05,
+      "curved_length_m": 42,
+      "loading_tail_m": 6,
+      "recovery_extension_m": 4.5
+    },
+    "collector": "Six independently hinged reflective petals. Manufactured on the planet as a modular contribution to a future distributed Dyson collector structure, not a complete sphere.",
+    "optional_effect": "INSERTION_PLUME is a hidden-by-default preview mesh; replace or omit for game VFX."
+  },
+  "assets": [
+    {
+      "id": "launcher_d0_lod0",
+      "family": "launcher",
+      "label": "ARC-01 / Curved orbital mass driver",
+      "file": "lod0/launcher_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 678100,
+      "sha256": "aa5435d4df4a3cb1346557263194d4192c8ded5397b0960efa17a678328df676",
+      "triangles": 11784,
+      "draw_calls": 6,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/launcher_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 204236,
+      "meshopt_sha256": "e17412a46bce8642b10bfe70dd426ca9220934975d8a43073cf90dba3451b87e",
+      "meshopt_derived": true,
+      "plot_m": [
+        15,
+        58
+      ],
+      "bounds": {
+        "min": [
+          -6.550000190734863,
+          -1.1920929132713809e-8,
+          -28.200000762939453
+        ],
+        "max": [
+          6.550000190734863,
+          26.996252059936523,
+          18.033288955688477
+        ],
+        "dimensions_m": [
+          13.100000381469727,
+          26.99625207185745,
+          46.23328971862793
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "PAYLOAD",
+          "node": "SOCKET_PAYLOAD",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            3.0300000000000002,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LOADING",
+          "node": "SOCKET_LOADING",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            3.03,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RAIL_EXIT",
+          "node": "SOCKET_RAIL_EXIT",
+          "kind": "launch_tangent",
+          "position_m": [
+            0,
+            22.697158084330923,
+            14.696929023760681
+          ],
+          "normal": [
+            0,
+            0.8674232255940171,
+            0.4975710478917268
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -6.5,
+            0.5,
+            -15.6
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            4.7,
+            2.05,
+            -25
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R"
+      ],
+      "required_nodes": [
+        "ARC_ROOT",
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R",
+        "SOCKET_PAYLOAD",
+        "SOCKET_LOADING",
+        "SOCKET_RAIL_EXIT",
+        "SOCKET_POWER",
+        "SOCKET_SERVICE"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "launcher_d0_lod1",
+      "family": "launcher",
+      "label": "ARC-01 / Curved orbital mass driver",
+      "file": "lod1/launcher_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 326140,
+      "sha256": "b0adbba13cea129261afd1356d261ca4191f2f6b51a92f5d75a4256f6dd47497",
+      "triangles": 5768,
+      "draw_calls": 6,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/launcher_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 104064,
+      "meshopt_sha256": "0dbd245b4674879ec1b23d697a6f3c6f982d6d0436e1ba1eddc7b4c959d5bdf8",
+      "meshopt_derived": true,
+      "plot_m": [
+        15,
+        58
+      ],
+      "bounds": {
+        "min": [
+          -6.550000190734863,
+          -1.1920929132713809e-8,
+          -28.200000762939453
+        ],
+        "max": [
+          6.550000190734863,
+          27.01864242553711,
+          18.033288955688477
+        ],
+        "dimensions_m": [
+          13.100000381469727,
+          27.018642437458038,
+          46.23328971862793
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "PAYLOAD",
+          "node": "SOCKET_PAYLOAD",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            3.0300000000000002,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LOADING",
+          "node": "SOCKET_LOADING",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            3.03,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RAIL_EXIT",
+          "node": "SOCKET_RAIL_EXIT",
+          "kind": "launch_tangent",
+          "position_m": [
+            0,
+            22.697158084330923,
+            14.696929023760681
+          ],
+          "normal": [
+            0,
+            0.8674232255940171,
+            0.4975710478917268
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -6.5,
+            0.5,
+            -15.6
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            4.7,
+            2.05,
+            -25
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R"
+      ],
+      "required_nodes": [
+        "ARC_ROOT",
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R",
+        "SOCKET_PAYLOAD",
+        "SOCKET_LOADING",
+        "SOCKET_RAIL_EXIT",
+        "SOCKET_POWER",
+        "SOCKET_SERVICE"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "launcher_d0_lod2",
+      "family": "launcher",
+      "label": "ARC-01 / Curved orbital mass driver",
+      "file": "lod2/launcher_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 165380,
+      "sha256": "2a08e25ae0c0864d3e180cc9c47558dc119e252e7e15a8e6fd478cf1fbe4ba20",
+      "triangles": 2952,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/launcher_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 51944,
+      "meshopt_sha256": "318deb58535e26bf65b9895923afeeda548f37b04e9afb9cde14cb630909ac8e",
+      "meshopt_derived": true,
+      "plot_m": [
+        15,
+        58
+      ],
+      "bounds": {
+        "min": [
+          -6.550000190734863,
+          -1.1920929132713809e-8,
+          -28.200000762939453
+        ],
+        "max": [
+          6.550000190734863,
+          27.01864242553711,
+          18.033288955688477
+        ],
+        "dimensions_m": [
+          13.100000381469727,
+          27.018642437458038,
+          46.23328971862793
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "PAYLOAD",
+          "node": "SOCKET_PAYLOAD",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            3.0300000000000002,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LOADING",
+          "node": "SOCKET_LOADING",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            3.03,
+            -24
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RAIL_EXIT",
+          "node": "SOCKET_RAIL_EXIT",
+          "kind": "launch_tangent",
+          "position_m": [
+            0,
+            22.697158084330923,
+            14.696929023760681
+          ],
+          "normal": [
+            0,
+            0.8674232255940171,
+            0.4975710478917268
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -6.5,
+            0.5,
+            -15.6
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            4.7,
+            2.05,
+            -25
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R"
+      ],
+      "required_nodes": [
+        "ARC_ROOT",
+        "LAUNCH_SLED",
+        "CLAMP_L",
+        "CLAMP_R",
+        "SOCKET_PAYLOAD",
+        "SOCKET_LOADING",
+        "SOCKET_RAIL_EXIT",
+        "SOCKET_POWER",
+        "SOCKET_SERVICE"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "satellite_d0_lod0",
+      "family": "satellite",
+      "label": "SEED-01 / Stellar collector satellite",
+      "file": "lod0/satellite_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 82368,
+      "sha256": "6a7727708f39a09cfde71fdfbb35d3c4571d8a36fa72a030bb60c7fae30fc2a4",
+      "triangles": 1824,
+      "draw_calls": 8,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/satellite_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 23108,
+      "meshopt_sha256": "c9176c0ec59516453f07fa1a6b455e00bbf7913b0ab0125f84aa48032bc9f851",
+      "meshopt_derived": true,
+      "plot_m": [
+        5.4,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -1.1570099522062711,
+          -1.3877787807814457e-17,
+          -1.0549999475479126
+        ],
+        "max": [
+          1.1570099522062711,
+          2.139999994635582,
+          1.9144999980926514
+        ],
+        "dimensions_m": [
+          2.3140199044125422,
+          2.139999994635582,
+          2.969499945640564
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "THRUSTER",
+          "node": "SOCKET_THRUSTER",
+          "kind": "thruster",
+          "position_m": [
+            0,
+            1.069999997317791,
+            -1.02
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "OPTICAL_AXIS",
+          "node": "SOCKET_OPTICAL_AXIS",
+          "kind": "optical",
+          "position_m": [
+            0,
+            1.069999997317791,
+            1.92
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LAUNCH_ATTACH",
+          "node": "SOCKET_LAUNCH_ATTACH",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME"
+      ],
+      "required_nodes": [
+        "SEED_ROOT",
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME",
+        "SOCKET_THRUSTER",
+        "SOCKET_OPTICAL_AXIS",
+        "SOCKET_LAUNCH_ATTACH"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "satellite_d0_lod1",
+      "family": "satellite",
+      "label": "SEED-01 / Stellar collector satellite",
+      "file": "lod1/satellite_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 55676,
+      "sha256": "7b1c1a5eb919e6843a498d45912d0992ca37d585cd0db81a1a58f1f1ff60c3e4",
+      "triangles": 1128,
+      "draw_calls": 8,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/satellite_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 18792,
+      "meshopt_sha256": "fc49a21c614b28eeb7634c6a46a0c71f08347eb5541d40b5259eedffb7c43515",
+      "meshopt_derived": true,
+      "plot_m": [
+        5.4,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -1.1570099522062711,
+          -1.3877787807814457e-17,
+          -1.0549999475479126
+        ],
+        "max": [
+          1.1570099522062711,
+          2.139999994635582,
+          1.9144999980926514
+        ],
+        "dimensions_m": [
+          2.3140199044125422,
+          2.139999994635582,
+          2.969499945640564
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "THRUSTER",
+          "node": "SOCKET_THRUSTER",
+          "kind": "thruster",
+          "position_m": [
+            0,
+            1.069999997317791,
+            -1.02
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "OPTICAL_AXIS",
+          "node": "SOCKET_OPTICAL_AXIS",
+          "kind": "optical",
+          "position_m": [
+            0,
+            1.069999997317791,
+            1.92
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LAUNCH_ATTACH",
+          "node": "SOCKET_LAUNCH_ATTACH",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME"
+      ],
+      "required_nodes": [
+        "SEED_ROOT",
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME",
+        "SOCKET_THRUSTER",
+        "SOCKET_OPTICAL_AXIS",
+        "SOCKET_LAUNCH_ATTACH"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "satellite_d0_lod2",
+      "family": "satellite",
+      "label": "SEED-01 / Stellar collector satellite",
+      "file": "lod2/satellite_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 39548,
+      "sha256": "3f468ae4231f767eaed862cabea61b6a10ea3d63f92579bc0fac4ae72f4fb514",
+      "triangles": 840,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/satellite_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 17444,
+      "meshopt_sha256": "34fca446f50bab55361e718cf7f484e0844cc9deba2747732ffe45ea389cae52",
+      "meshopt_derived": true,
+      "plot_m": [
+        5.4,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -1.1570099592208862,
+          -1.3877787807814457e-17,
+          -1.0549999475479126
+        ],
+        "max": [
+          1.1570099592208862,
+          2.140000104904175,
+          1.9144999980926514
+        ],
+        "dimensions_m": [
+          2.3140199184417725,
+          2.140000104904175,
+          2.969499945640564
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "THRUSTER",
+          "node": "SOCKET_THRUSTER",
+          "kind": "thruster",
+          "position_m": [
+            0,
+            1.069999997317791,
+            -1.02
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "OPTICAL_AXIS",
+          "node": "SOCKET_OPTICAL_AXIS",
+          "kind": "optical",
+          "position_m": [
+            0,
+            1.069999997317791,
+            1.92
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LAUNCH_ATTACH",
+          "node": "SOCKET_LAUNCH_ATTACH",
+          "kind": "collector_attachment",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME"
+      ],
+      "required_nodes": [
+        "SEED_ROOT",
+        "COLLECTOR_BODY",
+        "PETAL_1_MOUNT",
+        "PETAL_1_HINGE",
+        "PETAL_2_MOUNT",
+        "PETAL_2_HINGE",
+        "PETAL_3_MOUNT",
+        "PETAL_3_HINGE",
+        "PETAL_4_MOUNT",
+        "PETAL_4_HINGE",
+        "PETAL_5_MOUNT",
+        "PETAL_5_HINGE",
+        "PETAL_6_MOUNT",
+        "PETAL_6_HINGE",
+        "INSERTION_PLUME",
+        "SOCKET_THRUSTER",
+        "SOCKET_OPTICAL_AXIS",
+        "SOCKET_LAUNCH_ATTACH"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

@@ -17,7 +17,32 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 9. **Frontier industry — first five-module candidate delivered; review pending.** Review the ISAO/MÖRK/KORP family resemblance, drilling and cassette pickup, seven-mirror solar receiver, live browser/mobile behavior and game integration. D1–D3, refinery unloading and orbital/stellar extensions remain future work.
 
+10. **ARC-01 orbital launcher / SEED-01 collector — first intact candidate delivered; review pending.** Integrate the curved rail, sled recovery and collector deployment with planetary satellite production. Confirm sustained browser/mobile playback, game cameras, release compression, inventory, thresholds and phone performance. The local sequence is visual choreography, not real orbital mechanics.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 23 September 2026 / ARC-01 curved orbital launcher
+
+**Owner-requested orbital industry family delivered as a contract candidate.** ARC-01 launches small SEED-01 collector satellites manufactured on the planet as the first modular contributions to the future Dyson structure. The original design follows ISAO/MÖRK/KORP's slate armor, pale caps, cyan status lighting and amber service marks. Names are provisional development identifiers.
+
+A continuous twin rail sweeps upward on seven braced supports, with a loading apron, paired four-unit capacitor banks, sixteen acceleration cassettes and a straight sled-recovery extension. The packed satellite has six independently hinged hexagonal reflective petals, a service bus and an optional insertion-stage preview plume. Separate plain GLBs cover both modules at detailed/game/static-distance tiers, plus six explicitly derived Meshopt exports. The editable Blender assembly and full/close/deployed renders accompany the procedural source.
+
+| Module / tier | Triangles | Mesh draws | Plain bytes |
+| --- | ---: | ---: | ---: |
+| Launcher / detailed | 11,784 | 6 | 678,100 |
+| Launcher / game | 5,768 | 6 | 326,140 |
+| Launcher / distance | 2,952 | 1 | 165,380 |
+| Satellite / detailed | 1,824 | 8 | 82,368 |
+| Satellite / game | 1,128 | 8 | 55,676 |
+| Satellite / distance | 840 | 1 | 39,548 |
+
+The 30-second unbaked engine demonstration loads and charges, accelerates along the curve, separates the payload, brakes/returns the sled, unfolds six petals and shows an insertion-stage effect. It finishes with a deployed collector and recovered launcher. The display flight slows to a held inspection position; the art-directed rail and timing are not claims of real orbit capability. D0 only. LOD2 is docked/packed and explicitly static.
+
+All twelve plain/decoded exports pass glTF validation, hashes/counts, budgets, nondegenerate geometry and node/socket checks. Sampled controls verify payload docking, packed rail/clamp clearance, continuous position at transitions, deployment after exit, recovery/reset and static tiers. Automated viewer tests cover loading/races, follow camera, collector shortcut, control/tier restoration, wireframe, retries and deferred-frame playback fallback. Shared primitive exports do not change the existing settlement geometry.
+
+Safari live review confirmed the assembled launcher, six deployed petals, plain/decoded loading and reset/inspection controls. Its deferred animation callbacks exposed a blank first-frame issue; direct painting on load/resize/control changes fixes that case, with a watchdog for intentional playback when animation frames are deferred. Sustained live playback review was interrupted when the Safari window became unavailable. Mobile, consuming-game Three.js r160/release gltfpack, gameplay inventory, physics, final LOD thresholds and reference-phone FPS remain pending. No FPS improvement is claimed.
+
+Hand-off: this commit plus assets/orbital-launcher/, including manifest.json and runtime.js. Source: tools/asset-pipeline/orbital-launcher-shape.mjs and source/blender/orbital-launcher.blend. Workshop catalog, readiness, roadmap, Devlog and generated navigation are current.
 
 ## 23 September 2026 / Ore cassette side-panel z-fighting
 

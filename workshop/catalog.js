@@ -5,6 +5,7 @@ const collectionImages={
 };
 
 export const collections=[
+['orbital-launcher','ARC-01 / Orbital collector launcher','Industry','A sweeping electromagnetic mass driver launches locally built SEED collector satellites; six hexagonal petals unfold toward the future Dyson structure.','2 modules · 3 LODs · 30-second launch + sled recovery','Contract candidate'],
 ['settlement-industry','Frontier industry / Drill, hauler & mirrors','Industry','Automated extraction, six-wheel cargo collection and a seven-mirror solar crucible, built in the ISAO, MÖRK and KORP manufacturer language.','5 modules · 3 LODs · 32-second mechanical demonstration','Contract candidate'],
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Contract candidate'],
 ['sol82','SOL-82 / Orbital laser','Combat','A 52.55 m stored-energy combat satellite with an armored pulse spine, deployable arrays, thermal radiators and a gimbaled ventral aperture.','3 LODs · 4 clips · Primary wireframe presentation','Contract candidate'],
