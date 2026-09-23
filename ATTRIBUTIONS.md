@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## Frontier industry / settlement machinery
+
+- On 23 September 2026, jelaludo requested automated drilling, minimalist hexagonal mirrors and rugged planetary transport, built by the same corporation as ISAO, MÖRK and the KORP gunship.
+- Original procedural geometry, palette, runtime demonstration and detailed Blender assembly authored for this project. Models by jelaludo. No external geometry, textures or reference images are redistributed.
+- BOR-01, TRK-01, HEL-01, CRU-01 and CAS-01 are provisional development designations. Optional Meshopt files and the assembled Blender review scene are marked derivatives of the plain procedural exports.
+
 ## Yūshi037 Bio-Dome
 
 - On 17 September 2026, jelaludo named the separate second biomass-container design Yūshi037, 有機性資源コンテナ 第037型, and specified the long-vowel spelling for both Yūshi models.

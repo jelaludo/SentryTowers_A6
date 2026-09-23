@@ -1,5 +1,7 @@
 # Model Workshop
 
+The new **Frontier industry** family adds an automated drill, six-wheel hauler, common ore cassette, minimalist hexagonal heliostat and solar crucible in the ISAO/MÖRK/KORP manufacturer language. Five D0 modules have detailed, articulated game and static distance tiers, decoded Meshopt previews and a 32-second extraction/collection demonstration. Local route: `settlement-industry/`. See `assets/settlement-industry/README.md` for measured exports, controls and pending game review.
+
 Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [original sentry viewer](sentries/).
 
 **Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md).

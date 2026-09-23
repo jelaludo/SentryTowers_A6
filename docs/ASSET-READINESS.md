@@ -15,6 +15,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 
 | Route | Current state | Scope and remaining review |
 | --- | --- | --- |
+| `settlement-industry/` | Contract candidate | Five D0 modules at LOD0/1/2, decoded compression, cargo docking and mirror alignment validate. Blender review complete; live browser/mobile, game integration, release gltfpack and phone review pending. |
 | `korp/` | Contract candidate | D0 LOD0/1/2 naming and mechanics validate; game-camera and reference-phone acceptance are pending. |
 | `fabrication-lab/` | Contract candidate | Canonical Stålheart LOD0/1/2 composition and wireframe-only MÖRK one-shot validate; LOD1 byte/draw cost and final game-camera sequence remain under review. |
 | `arrival-foundry/` | Contract candidate | AFR-01 D0 LOD0/1/2, the first panel-to-barrel sequence and four-piece SH02 staging validate; successive removals, gameplay resource events, game-camera and phone review remain pending. |

@@ -5,6 +5,7 @@ const collectionImages={
 };
 
 export const collections=[
+['settlement-industry','Frontier industry / Drill, hauler & mirrors','Industry','Automated extraction, six-wheel cargo collection and a seven-mirror solar crucible, built in the ISAO, MÖRK and KORP manufacturer language.','5 modules · 3 LODs · 32-second mechanical demonstration','Contract candidate'],
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Contract candidate'],
 ['sol82','SOL-82 / Orbital laser','Combat','A 52.55 m stored-energy combat satellite with an armored pulse spine, deployable arrays, thermal radiators and a gimbaled ventral aperture.','3 LODs · 4 clips · Primary wireframe presentation','Contract candidate'],
 ['sol88','SOL-88 / Syzygy orbital laser','Combat','Three rotating containment cages converge around a suspended mechanical lens engine to sustain a ten-second firing window.','3 LODs · 6 clips · Full materials + wireframe','Contract candidate'],

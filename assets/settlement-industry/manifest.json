@@ -1,0 +1,1816 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 1,
+  "family": "settlement-industry",
+  "label": "Frontier industry / ISAO–MÖRK–KORP lineage",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground plot centre; operating envelopes may extend beyond the chassis"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "First intact vertical slice; D1–D3 not authored.",
+  "manufacturer": {
+    "lineage": [
+      "ISAO-Birudoron",
+      "MORK",
+      "KORP GS01"
+    ],
+    "name": "Existing shared manufacturer; no new corporation name introduced",
+    "palette": {
+      "armor": "#29464f",
+      "plate": "#819fa5",
+      "pale": "#c6d4d0",
+      "dark": "#101e25",
+      "steel": "#526a72",
+      "cyan": "#8ce8f0",
+      "amber": "#e8b75f",
+      "tire": "#18252b",
+      "mirror": "#c1d9df"
+    },
+    "features": [
+      "chamfered petrol/slate shells",
+      "pale inset armor",
+      "black mechanical recesses",
+      "cyan functional readouts",
+      "amber service markers"
+    ]
+  },
+  "budgets": {
+    "landmark": {
+      "lod1": {
+        "triangles": 8000,
+        "draw_calls": 10,
+        "bytes": 400000
+      },
+      "lod2": {
+        "triangles": 3000,
+        "draw_calls": 1,
+        "bytes": 250000
+      }
+    },
+    "unit": {
+      "lod1": {
+        "triangles": 25000
+      },
+      "lod2": {
+        "triangles": 3000,
+        "draw_calls": 1,
+        "bytes": 250000
+      }
+    },
+    "base_kit": {
+      "lod1": {
+        "triangles": 1500,
+        "draw_calls": 5
+      },
+      "lod2": {
+        "triangles": 1500,
+        "draw_calls": 1,
+        "bytes": 250000
+      }
+    }
+  },
+  "lod_selection": {
+    "detailed": "Manual recording/close-shot use only",
+    "landmark": {
+      "initial": 2,
+      "approach_distance_m": 150,
+      "hysteresis_m": 20,
+      "provisional": true
+    },
+    "hauler": "Retain articulated LOD1 for active vehicles. LOD2 is an optional static parked/loading proxy; never swap during loading or travel.",
+    "cassette": "Use LOD1 for interaction; optional static LOD2 for large logistics yards.",
+    "distance": "All visible geometry merged to one static mesh/material. Retained controls are lookup nodes only. Mirror optics become a pale opaque surface.",
+    "review": "Tune thresholds with consuming-game camera; no FPS measurement or improvement claim."
+  },
+  "cargo_interface": {
+    "id": "INDUSTRY_CASSETTE_A",
+    "size_m": [
+      1.65,
+      1.3525,
+      2.2
+    ],
+    "origin": "cassette bottom centre",
+    "attachment": "Align CAS_ROOT / SOCKET_CARGO to carrier SOCKET_CARGO; do not scale",
+    "dock_clearance_review": "Geometric fit validated in the supplied demo; terrain/physics/game integration pending"
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "engine_driven": "Drill mast, anchors, feed/spin and ore chute, truck suspension/steering/wheels/sensor/lift/slide, mirror yaw/pitch and furnace hatch remain unbaked.",
+    "demonstration": {
+      "name": "Extraction_Collection",
+      "duration_s": 32,
+      "loop": false,
+      "events": [
+        {
+          "time_s": 0,
+          "event": "DRILL_START"
+        },
+        {
+          "time_s": 10,
+          "event": "CASSETTE_READY"
+        },
+        {
+          "time_s": 11,
+          "event": "CHUTE_CLEAR"
+        },
+        {
+          "time_s": 15,
+          "event": "LIFT_AT_BED"
+        },
+        {
+          "time_s": 19,
+          "event": "CARGO_STOWED"
+        },
+        {
+          "time_s": 21,
+          "event": "DEPART"
+        },
+        {
+          "time_s": 29,
+          "event": "DELIVERY_STOP"
+        },
+        {
+          "time_s": 32,
+          "event": "COMPLETE"
+        }
+      ]
+    },
+    "scope": "Kinematic presentation only; inventory, navigation, collision and resource processing require consuming-game integration.",
+    "solar": "Mirror normals bisect direction to sun and receiver. Optical rays are optional explanatory viewer guides, not visible laser beams or a thermal simulation."
+  },
+  "assets": [
+    {
+      "id": "drill_d0_lod0",
+      "family": "drill",
+      "label": "BOR-01 / Automated bore rig",
+      "file": "lod0/drill_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 187308,
+      "sha256": "105f18f0b5e7a33a909daac57be3097510c60a5b8fa0c00b4b7bf37efebbf89e",
+      "triangles": 4944,
+      "draw_calls": 8,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/drill_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 62108,
+      "meshopt_sha256": "49bdb48dbc23910664e2827d0ab5dbcdeaa0bc4e91c8ddddc32b8debb92d9128",
+      "meshopt_derived": true,
+      "plot_m": [
+        7,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -2.624999964237213,
+          -8.940696516468449e-10,
+          -2.271954614560265
+        ],
+        "max": [
+          3.000000066757202,
+          6.4099998283386235,
+          2.271954614560264
+        ],
+        "dimensions_m": [
+          5.625000030994415,
+          6.409999829232693,
+          4.543909229120529
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.9,
+          0,
+          -3
+        ],
+        "max": [
+          3.5,
+          6.5,
+          3
+        ]
+      },
+      "sockets": [
+        {
+          "id": "DRILL_TIP",
+          "node": "SOCKET_DRILL_TIP",
+          "kind": "tool",
+          "position_m": [
+            0.35,
+            1.12,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "CASSETTE",
+          "node": "SOCKET_CASSETTE",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            2.6,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -1.81,
+            1.05,
+            -0.5
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING"
+      ],
+      "required_nodes": [
+        "BOR_ROOT",
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING",
+        "SOCKET_DRILL_TIP",
+        "SOCKET_CASSETTE",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "drill_d0_lod1",
+      "family": "drill",
+      "label": "BOR-01 / Automated bore rig",
+      "file": "lod1/drill_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 95064,
+      "sha256": "bf90ee81ec77c12f9f4c11e01c1b08b10573e3ba90a60af5694567662dcce1a4",
+      "triangles": 2380,
+      "draw_calls": 8,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/drill_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 37304,
+      "meshopt_sha256": "ffeb886b9ee324c37506890aab5a8ef38f7375e78347eec063c5c90271793910",
+      "meshopt_derived": true,
+      "plot_m": [
+        7,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -2.6249999940395354,
+          -8.940696516468449e-10,
+          -2.271954614560265
+        ],
+        "max": [
+          3.000000066757202,
+          6.4099998283386235,
+          2.271954614560264
+        ],
+        "dimensions_m": [
+          5.625000060796737,
+          6.409999829232693,
+          4.543909229120529
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.9,
+          0,
+          -3
+        ],
+        "max": [
+          3.5,
+          6.5,
+          3
+        ]
+      },
+      "sockets": [
+        {
+          "id": "DRILL_TIP",
+          "node": "SOCKET_DRILL_TIP",
+          "kind": "tool",
+          "position_m": [
+            0.35,
+            1.12,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "CASSETTE",
+          "node": "SOCKET_CASSETTE",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            2.6,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -1.81,
+            1.05,
+            -0.5
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING"
+      ],
+      "required_nodes": [
+        "BOR_ROOT",
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING",
+        "SOCKET_DRILL_TIP",
+        "SOCKET_CASSETTE",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "drill_d0_lod2",
+      "family": "drill",
+      "label": "BOR-01 / Automated bore rig",
+      "file": "lod2/drill_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 58568,
+      "sha256": "9cd19eb320b9af8d1049957d162b5affdf6b1850df9a6bbca5aaea3bc4bb0b89",
+      "triangles": 1372,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/drill_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 21656,
+      "meshopt_sha256": "080995a0ceab617c1b7a6f1e066595eccbafb671c28f9eacf66e0c104946764a",
+      "meshopt_derived": true,
+      "plot_m": [
+        7,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -2.625,
+          -8.940696516468449e-10,
+          -2.2719545364379883
+        ],
+        "max": [
+          3,
+          6.409999847412109,
+          2.2719545364379883
+        ],
+        "dimensions_m": [
+          5.625,
+          6.409999848306179,
+          4.543909072875977
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.9,
+          0,
+          -3
+        ],
+        "max": [
+          3.5,
+          6.5,
+          3
+        ]
+      },
+      "sockets": [
+        {
+          "id": "DRILL_TIP",
+          "node": "SOCKET_DRILL_TIP",
+          "kind": "tool",
+          "position_m": [
+            0.35,
+            1.12,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "CASSETTE",
+          "node": "SOCKET_CASSETTE",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            2.6,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -1.81,
+            1.05,
+            -0.5
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING"
+      ],
+      "required_nodes": [
+        "BOR_ROOT",
+        "ANCHOR_1",
+        "ANCHOR_2",
+        "ANCHOR_3",
+        "MAST_FOLD",
+        "DRILL_FEED",
+        "DRILL_SPIN",
+        "ORE_CHUTE_SWING",
+        "SOCKET_DRILL_TIP",
+        "SOCKET_CASSETTE",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hauler_d0_lod0",
+      "family": "hauler",
+      "label": "TRK-01 / Planetary hauler",
+      "file": "lod0/hauler_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 363376,
+      "sha256": "d18d902a33b52637d64e340594b049efef96895d24363ed174d3ea23b8ccb5dd",
+      "triangles": 7728,
+      "draw_calls": 10,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/hauler_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 64672,
+      "meshopt_sha256": "520b189984e990ee75b0aa363052f4ba6ff1a062509783471e338d9f9ed54d78",
+      "meshopt_derived": true,
+      "plot_m": [
+        4.4,
+        12
+      ],
+      "bounds": {
+        "min": [
+          -1.965000033378601,
+          1.3411045607369942e-9,
+          -5.8250000953674315
+        ],
+        "max": [
+          1.965000033378601,
+          3.089999977350235,
+          3.9600000381469727
+        ],
+        "dimensions_m": [
+          3.930000066757202,
+          3.0899999760091306,
+          9.785000133514405
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.15,
+          0,
+          -5.9
+        ],
+        "max": [
+          2.15,
+          3.2,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0.12,
+            -4.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BED",
+          "node": "SOCKET_BED",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            1.84,
+            -1.05
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TOW",
+          "node": "SOCKET_TOW",
+          "kind": "tow",
+          "position_m": [
+            0,
+            1.15,
+            3.95
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE"
+      ],
+      "required_nodes": [
+        "TRK_ROOT",
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE",
+        "SOCKET_CARGO",
+        "SOCKET_BED",
+        "SOCKET_TOW"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hauler_d0_lod1",
+      "family": "hauler",
+      "label": "TRK-01 / Planetary hauler",
+      "file": "lod1/hauler_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 204012,
+      "sha256": "202b4e1936ab8e8471035b853950366c0bdd58ca7591cce3d414757b4414571d",
+      "triangles": 4284,
+      "draw_calls": 10,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/hauler_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 39928,
+      "meshopt_sha256": "08daf2ce077ccf4028dea51984effbcbc7f251d3bbd57fc3499abfbd2f94ba72",
+      "meshopt_derived": true,
+      "plot_m": [
+        4.4,
+        12
+      ],
+      "bounds": {
+        "min": [
+          -1.965000033378601,
+          1.3411045607369942e-9,
+          -5.8250000953674315
+        ],
+        "max": [
+          1.965000033378601,
+          3.0900000071525575,
+          3.9600000381469727
+        ],
+        "dimensions_m": [
+          3.930000066757202,
+          3.090000005811453,
+          9.785000133514405
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.15,
+          0,
+          -5.9
+        ],
+        "max": [
+          2.15,
+          3.2,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0.12,
+            -4.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BED",
+          "node": "SOCKET_BED",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            1.84,
+            -1.05
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TOW",
+          "node": "SOCKET_TOW",
+          "kind": "tow",
+          "position_m": [
+            0,
+            1.15,
+            3.95
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE"
+      ],
+      "required_nodes": [
+        "TRK_ROOT",
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE",
+        "SOCKET_CARGO",
+        "SOCKET_BED",
+        "SOCKET_TOW"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "hauler_d0_lod2",
+      "family": "hauler",
+      "label": "TRK-01 / Planetary hauler",
+      "file": "lod2/hauler_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 73960,
+      "sha256": "d46543fe7a9b3408accd77632b344ba391bca999dcb2c2755644f648295584ca",
+      "triangles": 1552,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/hauler_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 26768,
+      "meshopt_sha256": "142e9c908e0205aecc095ecb168ff7336964514a18d2ce064cae7b0f370aa662",
+      "meshopt_derived": true,
+      "plot_m": [
+        4.4,
+        12
+      ],
+      "bounds": {
+        "min": [
+          -1.965000033378601,
+          -1.907348590179936e-8,
+          -5.825000286102295
+        ],
+        "max": [
+          1.965000033378601,
+          3.0899999141693115,
+          3.9600000381469727
+        ],
+        "dimensions_m": [
+          3.930000066757202,
+          3.0899999332427974,
+          9.785000324249268
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -2.15,
+          0,
+          -5.9
+        ],
+        "max": [
+          2.15,
+          3.2,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0.12,
+            -4.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BED",
+          "node": "SOCKET_BED",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            1.84,
+            -1.05
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TOW",
+          "node": "SOCKET_TOW",
+          "kind": "tow",
+          "position_m": [
+            0,
+            1.15,
+            3.95
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE"
+      ],
+      "required_nodes": [
+        "TRK_ROOT",
+        "SUSPENSION_L_REAR",
+        "STEER_L_REAR",
+        "WHEEL_L_REAR",
+        "SUSPENSION_R_REAR",
+        "STEER_R_REAR",
+        "WHEEL_R_REAR",
+        "SUSPENSION_L_MID",
+        "STEER_L_MID",
+        "WHEEL_L_MID",
+        "SUSPENSION_R_MID",
+        "STEER_R_MID",
+        "WHEEL_R_MID",
+        "SUSPENSION_L_FRONT",
+        "STEER_L_FRONT",
+        "WHEEL_L_FRONT",
+        "SUSPENSION_R_FRONT",
+        "STEER_R_FRONT",
+        "WHEEL_R_FRONT",
+        "SENSOR_YAW",
+        "CARGO_SLIDE",
+        "CARGO_LIFT",
+        "LIFT_TELESCOPE",
+        "SOCKET_CARGO",
+        "SOCKET_BED",
+        "SOCKET_TOW"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "mirror_d0_lod0",
+      "family": "mirror",
+      "label": "HEL-01 / Hexagonal heliostat",
+      "file": "lod0/mirror_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 32140,
+      "sha256": "0e618bdfe67259b312b33661aa083be056170df540c28df5ddb262ebedb4e640",
+      "triangles": 648,
+      "draw_calls": 3,
+      "materials": 2,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/mirror_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 14680,
+      "meshopt_sha256": "db829664aff7896dabc8e9a7019a9433370d5c5e09da78a1b1abede1e3f05c7c",
+      "meshopt_derived": true,
+      "plot_m": [
+        3.4,
+        3.4
+      ],
+      "bounds": {
+        "min": [
+          -1.3423393964767456,
+          -2.98023217215615e-10,
+          -0.979833298152267
+        ],
+        "max": [
+          1.3423393964767456,
+          3.465702135099967,
+          0.983728434209404
+        ],
+        "dimensions_m": [
+          2.684678792953491,
+          3.4657021353979904,
+          1.9635617323616712
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "OPTICAL_CENTER",
+          "node": "SOCKET_OPTICAL_CENTER",
+          "kind": "optical_normal",
+          "position_m": [
+            0,
+            2.241152675590051,
+            0.054133698301335804
+          ],
+          "normal": [
+            0,
+            0.6051864057360395,
+            0.7960837985490559
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.21,
+            -0.6
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_YAW",
+        "MIRROR_PITCH"
+      ],
+      "required_nodes": [
+        "HEL_ROOT",
+        "MIRROR_YAW",
+        "MIRROR_PITCH",
+        "SOCKET_OPTICAL_CENTER",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "mirror_d0_lod1",
+      "family": "mirror",
+      "label": "HEL-01 / Hexagonal heliostat",
+      "file": "lod1/mirror_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 18036,
+      "sha256": "743f9b99dc4571bcb3b9f35f0ebb657bc1cb690bf853cc2d91355639acda1762",
+      "triangles": 296,
+      "draw_calls": 3,
+      "materials": 2,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/mirror_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 10488,
+      "meshopt_sha256": "6f921dfffe4cba01c98a2cc2015532dd7c9832b40c41ff5371270d104b7f7319",
+      "meshopt_derived": true,
+      "plot_m": [
+        3.4,
+        3.4
+      ],
+      "bounds": {
+        "min": [
+          -1.3423393964767456,
+          -2.98023217215615e-10,
+          -0.979833298152267
+        ],
+        "max": [
+          1.3423393964767456,
+          3.465702135099967,
+          0.979833298152267
+        ],
+        "dimensions_m": [
+          2.684678792953491,
+          3.4657021353979904,
+          1.959666596304534
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "OPTICAL_CENTER",
+          "node": "SOCKET_OPTICAL_CENTER",
+          "kind": "optical_normal",
+          "position_m": [
+            0,
+            2.241152675590051,
+            0.054133698301335804
+          ],
+          "normal": [
+            0,
+            0.6051864057360395,
+            0.7960837985490559
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.21,
+            -0.6
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_YAW",
+        "MIRROR_PITCH"
+      ],
+      "required_nodes": [
+        "HEL_ROOT",
+        "MIRROR_YAW",
+        "MIRROR_PITCH",
+        "SOCKET_OPTICAL_CENTER",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "mirror_d0_lod2",
+      "family": "mirror",
+      "label": "HEL-01 / Hexagonal heliostat",
+      "file": "lod2/mirror_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 10652,
+      "sha256": "45d2f0157cec02e8fa59d492d4ab8445b453120b304f3bdcbbe6adaf80fd024b",
+      "triangles": 192,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/mirror_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 5848,
+      "meshopt_sha256": "bc72f366f7cbec9956621359ef5d59e63a40f769978604e2ccac058b3c601018",
+      "meshopt_derived": true,
+      "plot_m": [
+        3.4,
+        3.4
+      ],
+      "bounds": {
+        "min": [
+          -1.3423393964767456,
+          -2.98023217215615e-10,
+          -0.9798333048820496
+        ],
+        "max": [
+          1.3423393964767456,
+          3.4657020568847656,
+          0.9798333048820496
+        ],
+        "dimensions_m": [
+          2.684678792953491,
+          3.465702057182789,
+          1.9596666097640991
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "OPTICAL_CENTER",
+          "node": "SOCKET_OPTICAL_CENTER",
+          "kind": "optical_normal",
+          "position_m": [
+            0,
+            2.241152675590051,
+            0.054133698301335804
+          ],
+          "normal": [
+            0,
+            0.6051864057360395,
+            0.7960837985490559
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.21,
+            -0.6
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_YAW",
+        "MIRROR_PITCH"
+      ],
+      "required_nodes": [
+        "HEL_ROOT",
+        "MIRROR_YAW",
+        "MIRROR_PITCH",
+        "SOCKET_OPTICAL_CENTER",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "furnace_d0_lod0",
+      "family": "furnace",
+      "label": "CRU-01 / Solar crucible",
+      "file": "lod0/furnace_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 73232,
+      "sha256": "2c1e1b69b277143dbdc239e833c6318072d2d92098273c49f4004203c81bed35",
+      "triangles": 1536,
+      "draw_calls": 2,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/furnace_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 25156,
+      "meshopt_sha256": "61312c0e96f5ae694f6d2ef2aa6433a77755bae71b149e7a2201795048165a30",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.7799999713897705,
+          -5.9604645663569045e-9,
+          -1.5
+        ],
+        "max": [
+          1.7799999713897705,
+          3.8533434867858887,
+          1.5
+        ],
+        "dimensions_m": [
+          3.559999942779541,
+          3.8533434927463532,
+          3
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "RECEIVER",
+          "node": "SOCKET_RECEIVER",
+          "kind": "solar_receiver",
+          "position_m": [
+            0,
+            3.24,
+            -1.2
+          ],
+          "normal": [
+            0,
+            0.39933952940627354,
+            -0.9168031087717672
+          ]
+        },
+        {
+          "id": "FEED",
+          "node": "SOCKET_FEED",
+          "kind": "material_input",
+          "position_m": [
+            -1.8,
+            0.25,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "PRODUCT",
+          "node": "SOCKET_PRODUCT",
+          "kind": "material_output",
+          "position_m": [
+            0,
+            0.3,
+            1.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CRUCIBLE_HATCH"
+      ],
+      "required_nodes": [
+        "CRU_ROOT",
+        "CRUCIBLE_HATCH",
+        "SOCKET_RECEIVER",
+        "SOCKET_FEED",
+        "SOCKET_PRODUCT"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "furnace_d0_lod1",
+      "family": "furnace",
+      "label": "CRU-01 / Solar crucible",
+      "file": "lod1/furnace_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 42100,
+      "sha256": "a55bc348113abaae552d3d6c68b856e132f79aa6920c8071dfd4fc67275cbed7",
+      "triangles": 800,
+      "draw_calls": 2,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/furnace_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 15884,
+      "meshopt_sha256": "664996e4d92d65e29cff3b2d7331e2a7901e35923d8f96cc3e994e4dbefebcf2",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.7799999713897705,
+          -5.9604645663569045e-9,
+          -1.5
+        ],
+        "max": [
+          1.7799999713897705,
+          3.8533434867858887,
+          1.5
+        ],
+        "dimensions_m": [
+          3.559999942779541,
+          3.8533434927463532,
+          3
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "RECEIVER",
+          "node": "SOCKET_RECEIVER",
+          "kind": "solar_receiver",
+          "position_m": [
+            0,
+            3.24,
+            -1.2
+          ],
+          "normal": [
+            0,
+            0.39933952940627354,
+            -0.9168031087717672
+          ]
+        },
+        {
+          "id": "FEED",
+          "node": "SOCKET_FEED",
+          "kind": "material_input",
+          "position_m": [
+            -1.8,
+            0.25,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "PRODUCT",
+          "node": "SOCKET_PRODUCT",
+          "kind": "material_output",
+          "position_m": [
+            0,
+            0.3,
+            1.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CRUCIBLE_HATCH"
+      ],
+      "required_nodes": [
+        "CRU_ROOT",
+        "CRUCIBLE_HATCH",
+        "SOCKET_RECEIVER",
+        "SOCKET_FEED",
+        "SOCKET_PRODUCT"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "furnace_d0_lod2",
+      "family": "furnace",
+      "label": "CRU-01 / Solar crucible",
+      "file": "lod2/furnace_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 22944,
+      "sha256": "ef3f62aa8340c7839fc4b6b0b0beb36dbc799b09f6f2259df6b93f981e11affa",
+      "triangles": 432,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/furnace_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 9372,
+      "meshopt_sha256": "3cd95370137a04359f0c3a89dfa1659f1f40ed141b0715bb9db50adecdcab8de",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.7799999713897705,
+          -5.9604645663569045e-9,
+          -1.5
+        ],
+        "max": [
+          1.7799999713897705,
+          3.8533434867858887,
+          1.5
+        ],
+        "dimensions_m": [
+          3.559999942779541,
+          3.8533434927463532,
+          3
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "RECEIVER",
+          "node": "SOCKET_RECEIVER",
+          "kind": "solar_receiver",
+          "position_m": [
+            0,
+            3.24,
+            -1.2
+          ],
+          "normal": [
+            0,
+            0.39933952940627354,
+            -0.9168031087717672
+          ]
+        },
+        {
+          "id": "FEED",
+          "node": "SOCKET_FEED",
+          "kind": "material_input",
+          "position_m": [
+            -1.8,
+            0.25,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "PRODUCT",
+          "node": "SOCKET_PRODUCT",
+          "kind": "material_output",
+          "position_m": [
+            0,
+            0.3,
+            1.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CRUCIBLE_HATCH"
+      ],
+      "required_nodes": [
+        "CRU_ROOT",
+        "CRUCIBLE_HATCH",
+        "SOCKET_RECEIVER",
+        "SOCKET_FEED",
+        "SOCKET_PRODUCT"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "cassette_d0_lod0",
+      "family": "cassette",
+      "label": "CAS-01 / Ore cassette",
+      "file": "lod0/cassette_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 34032,
+      "sha256": "b9c7c5a0cc67520ad49787cbb793d2702bc5b92bf724e9089dd45edd587bf19b",
+      "triangles": 616,
+      "draw_calls": 2,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/cassette_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 12868,
+      "meshopt_sha256": "f76fe88496ee88fb342f7653b29cda9c21c7dadc6454032ca316268023c8896c",
+      "meshopt_derived": true,
+      "plot_m": [
+        1.8,
+        2.4
+      ],
+      "bounds": {
+        "min": [
+          -0.824999988079071,
+          -3.5762786065873797e-9,
+          -1.100000023841858
+        ],
+        "max": [
+          0.824999988079071,
+          1.3524999618530273,
+          1.100000023841858
+        ],
+        "dimensions_m": [
+          1.649999976158142,
+          1.352499965429306,
+          2.200000047683716
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "kind": "ore_inlet",
+          "position_m": [
+            0,
+            1.28,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CASSETTE_LEVEL"
+      ],
+      "required_nodes": [
+        "CAS_ROOT",
+        "CASSETTE_LEVEL",
+        "SOCKET_CARGO",
+        "SOCKET_FILL"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "cassette_d0_lod1",
+      "family": "cassette",
+      "label": "CAS-01 / Ore cassette",
+      "file": "lod1/cassette_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 14756,
+      "sha256": "1d4008bf3d1059b415d45193aef9937c87f7623a14d0e4945918405cbfc3d290",
+      "triangles": 204,
+      "draw_calls": 2,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/cassette_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 7532,
+      "meshopt_sha256": "378a071412c79596340c9e9355a80613d5a6f6994707499c0b3fe979c3b9ef5f",
+      "meshopt_derived": true,
+      "plot_m": [
+        1.8,
+        2.4
+      ],
+      "bounds": {
+        "min": [
+          -0.824999988079071,
+          -3.5762786065873797e-9,
+          -1.100000023841858
+        ],
+        "max": [
+          0.824999988079071,
+          1.3524999618530273,
+          1.100000023841858
+        ],
+        "dimensions_m": [
+          1.649999976158142,
+          1.352499965429306,
+          2.200000047683716
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "kind": "ore_inlet",
+          "position_m": [
+            0,
+            1.28,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CASSETTE_LEVEL"
+      ],
+      "required_nodes": [
+        "CAS_ROOT",
+        "CASSETTE_LEVEL",
+        "SOCKET_CARGO",
+        "SOCKET_FILL"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "cassette_d0_lod2",
+      "family": "cassette",
+      "label": "CAS-01 / Ore cassette",
+      "file": "lod2/cassette_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 13944,
+      "sha256": "8370c6afb8c6baa5238e4fed0e6892c52b31f844885a1d5b8592dc3d68a4123b",
+      "triangles": 204,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/cassette_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 6204,
+      "meshopt_sha256": "ce9c2dbbf2157f7d222197daadfeb24579cbbd580bc518807d867a7487dbcb84",
+      "meshopt_derived": true,
+      "plot_m": [
+        1.8,
+        2.4
+      ],
+      "bounds": {
+        "min": [
+          -0.824999988079071,
+          -3.5762786065873797e-9,
+          -1.100000023841858
+        ],
+        "max": [
+          0.824999988079071,
+          1.3524999618530273,
+          1.100000023841858
+        ],
+        "dimensions_m": [
+          1.649999976158142,
+          1.352499965429306,
+          2.200000047683716
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "CARGO",
+          "node": "SOCKET_CARGO",
+          "kind": "cargo",
+          "interface": "INDUSTRY_CASSETTE_A",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "FILL",
+          "node": "SOCKET_FILL",
+          "kind": "ore_inlet",
+          "position_m": [
+            0,
+            1.28,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CASSETTE_LEVEL"
+      ],
+      "required_nodes": [
+        "CAS_ROOT",
+        "CASSETTE_LEVEL",
+        "SOCKET_CARGO",
+        "SOCKET_FILL"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

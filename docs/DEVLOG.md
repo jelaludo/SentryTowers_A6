@@ -15,7 +15,35 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 8. **Yūshi037 Bio-Dome — second design delivered; integration/review pending.** Compare the low half-sphere/skid alternative; complete live-browser rendering review, ISAO docking/inventory, release compression, game-camera and phone checks.
 
+9. **Frontier industry — first five-module candidate delivered; review pending.** Review the ISAO/MÖRK/KORP family resemblance, drilling and cassette pickup, seven-mirror solar receiver, live browser/mobile behavior and game integration. D1–D3, refinery unloading and orbital/stellar extensions remain future work.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
+
+## 23 September 2026 / Frontier industry: extraction to stellar construction
+
+**Owner-requested first industrial vertical slice delivered as a contract candidate.** New automated drilling, rugged six-wheel transport and minimalist hexagonal mirrors share the corporation's existing ISAO, MÖRK and KORP design language: petrol/slate chamfered shells, pale inset panels, black recesses, cyan functional readouts and amber service marks. BOR-01/TRK-01/HEL-01/CRU-01/CAS-01 are provisional development designations, not a new corporation name.
+
+Five original modules supply fifteen intact plain GLBs across detailed, game and static distance tiers, with fifteen optional derivatives under derived/meshopt/. The drill has bracing feet, a helical auger, spare rod magazine and swinging output chute. The hauler has treaded wheels, protected sensor head, telescoping forks and a slotted cargo bed. A common cassette physically fits the output/loading arrangement. Seven shared-geometry heliostats aim toward the crucible's elevated field-facing receiver; their clean reflective faces anticipate a later orbital collector family.
+
+| Game module | Triangles | Draws | Plain bytes |
+| --- | ---: | ---: | ---: |
+| BOR-01 | 2,380 | 8 | 95,064 |
+| TRK-01 | 4,284 | 10 | 204,012 |
+| HEL-01 | 296 | 3 | 18,036 |
+| CRU-01 | 800 | 2 | 42,100 |
+| CAS-01 | 204 | 2 | 14,756 |
+
+All module game budgets pass; each distance tier is one static mesh/material/draw. The complete game scene is 9,740 model triangles / 43 model draws, excluding ground, grid, shadow passes and optional alignment guides. No FPS measurement or improvement claim.
+
+The unbaked engine controller provides a deterministic 32-second one-shot: extraction/fill, chute clearance, lift, slide into bed, secure, eight-metre transport and delivery stop. Runtime inventory, physics, terrain adaptation and refinery unloading are not implemented by this visual demonstration. Distance controls are lookup-only; the viewer disables playback at LOD2. Master/game pivots and sockets retain stable names and transforms. D0 only: damage and LOD remain separate.
+
+The Workshop viewer offers the complete site and individual modules, tier/encoding selection, playback/pause/reset/scrub, wireframe, optical guides, perspective/map cameras, fullscreen and per-module downloads. A detailed editable Blender assembly, full-scene poster and close/stowed-cargo review renders accompany the procedural sources.
+
+Validation covers every plain and decoded Meshopt file with zero glTF errors/warnings, hashes, measured geometry, nondegenerate triangles, grounding/bounds, hierarchy/socket parity and budgets. Sampled runtime checks verify cargo continuity and bed docking, lift-before-slide, optical reflection and static proxy behavior. Viewer tests use real model graphs with mocked DOM/WebGL and cover controls, stale loading, tier/time preservation and failure/retry. Blender visual review is complete. Live-browser review could not run because no browser provider was available and Safari reported an unavailable window; GPU/mobile verification remains explicit follow-up work.
+
+Remaining: game-camera/Three.js r160 integration, release gltfpack, inventory/physics, refinery unloading, final thresholds and reference-phone performance. D1–D3, orbital deployment/station-keeping hardware, assembly tugs and Dyson construction modules are future work. Existing assets and the received collaboration contract are preserved.
+
+Hand-off: this delivery commit plus assets/settlement-industry/ (manifest.json, runtime.js and plain tier folders); optional Meshopt derivatives are clearly marked. Editable source: source/blender/settlement-industry.blend and tools/asset-pipeline/settlement-industry-shape.mjs. Catalog, readiness, roadmap and website Devlog/navigation updated.
 
 ## 17 September 2026 / Yūshi037 Bio-Dome and long-vowel naming
 
