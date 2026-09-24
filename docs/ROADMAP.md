@@ -56,3 +56,7 @@ HEX-06 intact candidate delivered: six articulated tall legs, ground-burning las
 ## 25 September 2026 / MÖRK personalization — workshop candidate delivered
 
 Three requested liveries and Factory now demonstrate paint, patterns, bounded decals, identity, portable recipes and local saved designs. Detailed/game damage states and static intact distance are supported. Next: integrate in-game garage/save/network ownership, reuse textures, verify Three r160 and release gltfpack paint-role preservation, and review mobile/game-camera performance. See [MÖRK customization plan](../docs/PLAN-MORK-CUSTOMIZATION.md).
+
+## 25 September 2026 / 33 sentries — three-tier candidate delivered
+
+All eleven families × three equipment tiers now have detailed, articulated game and static distance/loading exports with original lineage, stable interfaces, measured manifests, decoded validation and a LOD viewer. Next: game r160/release gltfpack, camera/mobile/phone review, rigid Heptapod draw-cost acceptance and optional static swap policy. Damage states, collision and terrain IK remain separate future work.

@@ -22,7 +22,7 @@ export const collections=[
 ['antenna-array','SKYWARD / Antenna array','Infrastructure','Steerable radio dishes with continuous reflector shells, three detail levels, destruction states and a lightweight synchronized seven-dish scene.','3 detail levels · 4 states · animated','Original'],
 ['missile-lab','Missile motion lab','Combat','Three reusable projectiles. Soft launch, nose-up coast and accelerating flight arcs.','3 mesh budgets · 3 flight profiles · animated','Original'],
 ['hover-tank','MÖRK','Combat','MÖRK hover tank, customizable rabbit/circuit/camouflage liveries, and fitted armored transport containers: empty, loaded and a three-bay deployment diorama.','Detailed + game + static distance · review pending','Contract candidate'],
-['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 equipment variants · animated prototypes','Original'],
+['sentries','Sentry families','Combat','Eleven articulated tower families, from Needle to the six-legged Heptapod A6.','33 variants · Detailed + game + static distance','Contract candidate'],
 ['reckon-guard','Reckon-Guard','Combat','Inspect the autonomous guard drone and its moving assemblies.','Interactive animated model','Original'],
 ['isao-birudoron','ISAO-Birudorōn / ビルドローン','Characters','Production-alpha Japanese construction character with animated LED emotions, limb acting, rotors and fabrication tool.','3 production tiers · 17 clips · review pending','Contract candidate'],
 ['game-assets','HUGIN + Stålheart / Landmark LODs','Industry','Current-contract LOD1/LOD2 candidates beside preserved legacy and detailed geometry.','D0–D3 · review pending','Contract candidate'],

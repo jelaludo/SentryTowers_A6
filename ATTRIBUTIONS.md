@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## Sentry LOD refresh / 25 September 2026
+
+All 33 variants retain the repository's original sentry geometry and equipment identity by jelaludo. New procedural beveling, assembly palette merging, reductions, canonical node mappings and distance nozzle geometry are original workshop work. Legacy files are preserved. Plain package exports are authoritative; optional Meshopt copies, game/distance reductions and rendered review images are identified as derivatives. No external geometry, textures or images are embedded.
+
+
 ## MÖRK customization / 25 September 2026
 
 Original rabbit, circuit, camouflage and stroke-lettering artwork by jelaludo, procedurally authored for the requested livery examples. Night Circuit is an original futuristic circuit design with no franchise logos. Reuses this repository's MÖRK geometry and animation; originals are preserved. Metadata-enriched plain models are authoritative for this package; baked example skins, Meshopt copies and rendered previews are marked derivatives. No external art or fonts embedded.

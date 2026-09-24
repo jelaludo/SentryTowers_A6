@@ -27,8 +27,20 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 14. **MÖRK customization — workshop candidate delivered; game integration pending.** Integrate appearance recipes, persistence/network state and texture reuse; verify r160, release gltfpack paint-role retention, game cameras, mobile and reference-phone performance.
 
+15. **All 33 sentries — three-tier candidate delivered; game review pending.** Review r160/release compression, game cameras/mobile, Heptapod rigid-assembly draw cost and phone performance. Static LOD2 is optional for loading/map previews, not active aiming.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+
+## 25 September 2026 / All 33 sentry variants — LOD refresh
+
+Revisited all eleven sentry families and three equipment tiers. Added 99 authoritative plain GLBs: beveled detailed masters, articulated game exports and static one-draw distance/loading tiers. Preserved original GLBs and generators. Equipment tiers remain separate from LOD and damage; only D0 is authored. Surface node labels now have unique dot-free names with migration mappings, while original control nodes, muzzle sockets, root datum, dimensions and Heptapod clips remain consistent.
+
+Game tiers measure 424–4,556 triangles, 2–50 draws and 36,536–471,992 bytes. Static tiers measure 412–2,000 triangles, one draw and 33,944–227,376 bytes. Heptapods retain 50 rigid-assembly draws; no phone/FPS improvement is claimed. Plasma distance nozzles replace fine perforations with hollow tapered sleeves. Detailed tiers add armor bevels for close views without changing equipment identity.
+
+All 99 plain and 99 decoded Meshopt copies pass glTF validation with zero errors/warnings, original hash checks, geometry/budget checks, zero degenerate triangles, required names, bounds, sockets and detailed/game animation parity. The viewer now exposes LOD/encoding, measured costs, wireframe and pose reset; real-model/mocked-renderer tests cover all 99 selections and races/errors. Reviewed rendered sheets across all three tiers and representative desktop Safari rendering, including Heptapod Walk.
+
+Hand-off: this commit plus `assets/sentries/`. Updated integration notes, attribution, catalog, readiness, roadmap and shared navigation. Consuming-game r160/release compression, mobile/game-camera review, optional swap policy, phone measurements and game feedback remain pending. Active units should retain LOD1 under the current contract; LOD2 is explicitly static. D1–D3, collision and terrain IK remain future work.
 
 ## 25 September 2026 / MÖRK livery workshop
 

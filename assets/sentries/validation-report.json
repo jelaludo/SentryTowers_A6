@@ -1,0 +1,2000 @@
+{
+  "status": "passed",
+  "variants": 33,
+  "plain_exports": 99,
+  "decoded_exports": 99,
+  "checks": [
+    "original hashes",
+    "glTF validation",
+    "budgets and metrics",
+    "unique names",
+    "all original lookup nodes",
+    "zero degenerate triangles",
+    "socket parity",
+    "bounds",
+    "clip durations",
+    "articulated transform and animation parity"
+  ],
+  "reports": [
+    {
+      "file": "lod0/needle_t1_d0.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 147420,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/needle_t1_d0.meshopt.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 46488,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/needle_t1_d0.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 83112,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/needle_t1_d0.meshopt.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 28672,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/needle_t1_d0.glb",
+      "triangles": 878,
+      "draw_calls": 1,
+      "bytes": 71044,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/needle_t1_d0.meshopt.glb",
+      "triangles": 878,
+      "draw_calls": 1,
+      "bytes": 22628,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/needle_t2_d0.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 147504,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/needle_t2_d0.meshopt.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 46552,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/needle_t2_d0.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 83196,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/needle_t2_d0.meshopt.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 28744,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/needle_t2_d0.glb",
+      "triangles": 880,
+      "draw_calls": 1,
+      "bytes": 71356,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/needle_t2_d0.meshopt.glb",
+      "triangles": 880,
+      "draw_calls": 1,
+      "bytes": 22756,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/needle_t3_d0.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 147488,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/needle_t3_d0.meshopt.glb",
+      "triangles": 3992,
+      "draw_calls": 4,
+      "bytes": 46532,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/needle_t3_d0.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 83184,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/needle_t3_d0.meshopt.glb",
+      "triangles": 1098,
+      "draw_calls": 4,
+      "bytes": 28712,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/needle_t3_d0.glb",
+      "triangles": 878,
+      "draw_calls": 1,
+      "bytes": 71040,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/needle_t3_d0.meshopt.glb",
+      "triangles": 878,
+      "draw_calls": 1,
+      "bytes": 22632,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/rotor_t1_d0.glb",
+      "triangles": 2244,
+      "draw_calls": 5,
+      "bytes": 95340,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/rotor_t1_d0.meshopt.glb",
+      "triangles": 2244,
+      "draw_calls": 5,
+      "bytes": 33996,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/rotor_t1_d0.glb",
+      "triangles": 804,
+      "draw_calls": 5,
+      "bytes": 63656,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/rotor_t1_d0.meshopt.glb",
+      "triangles": 804,
+      "draw_calls": 5,
+      "bytes": 24988,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/rotor_t1_d0.glb",
+      "triangles": 680,
+      "draw_calls": 1,
+      "bytes": 54804,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/rotor_t1_d0.meshopt.glb",
+      "triangles": 680,
+      "draw_calls": 1,
+      "bytes": 17920,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/rotor_t2_d0.glb",
+      "triangles": 2152,
+      "draw_calls": 5,
+      "bytes": 104608,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/rotor_t2_d0.meshopt.glb",
+      "triangles": 2152,
+      "draw_calls": 5,
+      "bytes": 36464,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/rotor_t2_d0.glb",
+      "triangles": 1000,
+      "draw_calls": 5,
+      "bytes": 79260,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/rotor_t2_d0.meshopt.glb",
+      "triangles": 1000,
+      "draw_calls": 5,
+      "bytes": 29220,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/rotor_t2_d0.glb",
+      "triangles": 864,
+      "draw_calls": 1,
+      "bytes": 69400,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/rotor_t2_d0.meshopt.glb",
+      "triangles": 864,
+      "draw_calls": 1,
+      "bytes": 21732,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/rotor_t3_d0.glb",
+      "triangles": 2820,
+      "draw_calls": 5,
+      "bytes": 140128,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/rotor_t3_d0.meshopt.glb",
+      "triangles": 2820,
+      "draw_calls": 5,
+      "bytes": 46468,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/rotor_t3_d0.glb",
+      "triangles": 1380,
+      "draw_calls": 5,
+      "bytes": 108436,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/rotor_t3_d0.meshopt.glb",
+      "triangles": 1380,
+      "draw_calls": 5,
+      "bytes": 37560,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/rotor_t3_d0.glb",
+      "triangles": 1232,
+      "draw_calls": 1,
+      "bytes": 97780,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/rotor_t3_d0.meshopt.glb",
+      "triangles": 1232,
+      "draw_calls": 1,
+      "bytes": 29556,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/kiln_t1_d0.glb",
+      "triangles": 1952,
+      "draw_calls": 4,
+      "bytes": 73952,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/kiln_t1_d0.meshopt.glb",
+      "triangles": 1952,
+      "draw_calls": 4,
+      "bytes": 26772,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/kiln_t1_d0.glb",
+      "triangles": 512,
+      "draw_calls": 4,
+      "bytes": 42264,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/kiln_t1_d0.meshopt.glb",
+      "triangles": 512,
+      "draw_calls": 4,
+      "bytes": 18084,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/kiln_t1_d0.glb",
+      "triangles": 468,
+      "draw_calls": 1,
+      "bytes": 38320,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/kiln_t1_d0.meshopt.glb",
+      "triangles": 468,
+      "draw_calls": 1,
+      "bytes": 13428,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/kiln_t2_d0.glb",
+      "triangles": 2420,
+      "draw_calls": 4,
+      "bytes": 93460,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/kiln_t2_d0.meshopt.glb",
+      "triangles": 2420,
+      "draw_calls": 4,
+      "bytes": 31684,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/kiln_t2_d0.glb",
+      "triangles": 692,
+      "draw_calls": 4,
+      "bytes": 55432,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/kiln_t2_d0.meshopt.glb",
+      "triangles": 692,
+      "draw_calls": 4,
+      "bytes": 21164,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/kiln_t2_d0.glb",
+      "triangles": 648,
+      "draw_calls": 1,
+      "bytes": 51496,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/kiln_t2_d0.meshopt.glb",
+      "triangles": 648,
+      "draw_calls": 1,
+      "bytes": 16564,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/kiln_t3_d0.glb",
+      "triangles": 2512,
+      "draw_calls": 4,
+      "bytes": 100652,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/kiln_t3_d0.meshopt.glb",
+      "triangles": 2512,
+      "draw_calls": 4,
+      "bytes": 33584,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/kiln_t3_d0.glb",
+      "triangles": 784,
+      "draw_calls": 4,
+      "bytes": 62628,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/kiln_t3_d0.meshopt.glb",
+      "triangles": 784,
+      "draw_calls": 4,
+      "bytes": 23064,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/kiln_t3_d0.glb",
+      "triangles": 740,
+      "draw_calls": 1,
+      "bytes": 58684,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/kiln_t3_d0.meshopt.glb",
+      "triangles": 740,
+      "draw_calls": 1,
+      "bytes": 18448,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/quiver_t1_d0.glb",
+      "triangles": 2368,
+      "draw_calls": 4,
+      "bytes": 90368,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/quiver_t1_d0.meshopt.glb",
+      "triangles": 2368,
+      "draw_calls": 4,
+      "bytes": 31776,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/quiver_t1_d0.glb",
+      "triangles": 640,
+      "draw_calls": 4,
+      "bytes": 52344,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/quiver_t1_d0.meshopt.glb",
+      "triangles": 640,
+      "draw_calls": 4,
+      "bytes": 21132,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/quiver_t1_d0.glb",
+      "triangles": 616,
+      "draw_calls": 1,
+      "bytes": 49384,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/quiver_t1_d0.meshopt.glb",
+      "triangles": 616,
+      "draw_calls": 1,
+      "bytes": 16784,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/quiver_t2_d0.glb",
+      "triangles": 1756,
+      "draw_calls": 4,
+      "bytes": 90136,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/quiver_t2_d0.meshopt.glb",
+      "triangles": 1756,
+      "draw_calls": 4,
+      "bytes": 31484,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/quiver_t2_d0.glb",
+      "triangles": 892,
+      "draw_calls": 4,
+      "bytes": 71120,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/quiver_t2_d0.meshopt.glb",
+      "triangles": 892,
+      "draw_calls": 4,
+      "bytes": 26084,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/quiver_t2_d0.glb",
+      "triangles": 868,
+      "draw_calls": 1,
+      "bytes": 68160,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/quiver_t2_d0.meshopt.glb",
+      "triangles": 868,
+      "draw_calls": 1,
+      "bytes": 21676,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/quiver_t3_d0.glb",
+      "triangles": 2032,
+      "draw_calls": 4,
+      "bytes": 111500,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/quiver_t3_d0.meshopt.glb",
+      "triangles": 2032,
+      "draw_calls": 4,
+      "bytes": 37816,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/quiver_t3_d0.glb",
+      "triangles": 1168,
+      "draw_calls": 4,
+      "bytes": 92484,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/quiver_t3_d0.meshopt.glb",
+      "triangles": 1168,
+      "draw_calls": 4,
+      "bytes": 32416,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/quiver_t3_d0.glb",
+      "triangles": 1144,
+      "draw_calls": 1,
+      "bytes": 89524,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/quiver_t3_d0.meshopt.glb",
+      "triangles": 1144,
+      "draw_calls": 1,
+      "bytes": 27824,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/lancer_t1_d0.glb",
+      "triangles": 3880,
+      "draw_calls": 4,
+      "bytes": 112580,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/lancer_t1_d0.meshopt.glb",
+      "triangles": 3880,
+      "draw_calls": 4,
+      "bytes": 36664,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/lancer_t1_d0.glb",
+      "triangles": 424,
+      "draw_calls": 4,
+      "bytes": 36536,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/lancer_t1_d0.meshopt.glb",
+      "triangles": 424,
+      "draw_calls": 4,
+      "bytes": 15992,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/lancer_t1_d0.glb",
+      "triangles": 412,
+      "draw_calls": 1,
+      "bytes": 33944,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/lancer_t1_d0.meshopt.glb",
+      "triangles": 412,
+      "draw_calls": 1,
+      "bytes": 11652,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/lancer_t2_d0.glb",
+      "triangles": 6316,
+      "draw_calls": 4,
+      "bytes": 175096,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/lancer_t2_d0.meshopt.glb",
+      "triangles": 6316,
+      "draw_calls": 4,
+      "bytes": 52832,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/lancer_t2_d0.glb",
+      "triangles": 556,
+      "draw_calls": 4,
+      "bytes": 48360,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/lancer_t2_d0.meshopt.glb",
+      "triangles": 556,
+      "draw_calls": 4,
+      "bytes": 19380,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/lancer_t2_d0.glb",
+      "triangles": 544,
+      "draw_calls": 1,
+      "bytes": 45760,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/lancer_t2_d0.meshopt.glb",
+      "triangles": 544,
+      "draw_calls": 1,
+      "bytes": 15168,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/lancer_t3_d0.glb",
+      "triangles": 9352,
+      "draw_calls": 4,
+      "bytes": 252428,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/lancer_t3_d0.meshopt.glb",
+      "triangles": 9352,
+      "draw_calls": 4,
+      "bytes": 73164,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/lancer_t3_d0.glb",
+      "triangles": 712,
+      "draw_calls": 4,
+      "bytes": 62336,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/lancer_t3_d0.meshopt.glb",
+      "triangles": 712,
+      "draw_calls": 4,
+      "bytes": 23536,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/lancer_t3_d0.glb",
+      "triangles": 700,
+      "draw_calls": 1,
+      "bytes": 59728,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/lancer_t3_d0.meshopt.glb",
+      "triangles": 700,
+      "draw_calls": 1,
+      "bytes": 19276,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/relay_t1_d0.glb",
+      "triangles": 7076,
+      "draw_calls": 2,
+      "bytes": 190784,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/relay_t1_d0.meshopt.glb",
+      "triangles": 7076,
+      "draw_calls": 2,
+      "bytes": 54168,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/relay_t1_d0.glb",
+      "triangles": 1316,
+      "draw_calls": 2,
+      "bytes": 91704,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/relay_t1_d0.meshopt.glb",
+      "triangles": 1316,
+      "draw_calls": 2,
+      "bytes": 27224,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/relay_t1_d0.glb",
+      "triangles": 1072,
+      "draw_calls": 1,
+      "bytes": 80892,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/relay_t1_d0.meshopt.glb",
+      "triangles": 1072,
+      "draw_calls": 1,
+      "bytes": 25820,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/relay_t2_d0.glb",
+      "triangles": 11888,
+      "draw_calls": 2,
+      "bytes": 329364,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/relay_t2_d0.meshopt.glb",
+      "triangles": 11888,
+      "draw_calls": 2,
+      "bytes": 90312,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/relay_t2_d0.glb",
+      "triangles": 2672,
+      "draw_calls": 2,
+      "bytes": 181908,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/relay_t2_d0.meshopt.glb",
+      "triangles": 2672,
+      "draw_calls": 2,
+      "bytes": 49712,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/relay_t2_d0.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 184664,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/relay_t2_d0.meshopt.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 55896,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/relay_t3_d0.glb",
+      "triangles": 17516,
+      "draw_calls": 2,
+      "bytes": 509916,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/relay_t3_d0.meshopt.glb",
+      "triangles": 17516,
+      "draw_calls": 2,
+      "bytes": 136152,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/relay_t3_d0.glb",
+      "triangles": 4556,
+      "draw_calls": 2,
+      "bytes": 307736,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/relay_t3_d0.meshopt.glb",
+      "triangles": 4556,
+      "draw_calls": 2,
+      "bytes": 80184,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/relay_t3_d0.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 202676,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/relay_t3_d0.meshopt.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 68368,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/railgun_t1_d0.glb",
+      "triangles": 5036,
+      "draw_calls": 4,
+      "bytes": 139808,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/railgun_t1_d0.meshopt.glb",
+      "triangles": 5036,
+      "draw_calls": 4,
+      "bytes": 43736,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/railgun_t1_d0.glb",
+      "triangles": 428,
+      "draw_calls": 4,
+      "bytes": 38420,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/railgun_t1_d0.meshopt.glb",
+      "triangles": 428,
+      "draw_calls": 4,
+      "bytes": 16936,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/railgun_t1_d0.glb",
+      "triangles": 416,
+      "draw_calls": 1,
+      "bytes": 35820,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/railgun_t1_d0.meshopt.glb",
+      "triangles": 416,
+      "draw_calls": 1,
+      "bytes": 12836,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/railgun_t2_d0.glb",
+      "triangles": 6548,
+      "draw_calls": 4,
+      "bytes": 177896,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/railgun_t2_d0.meshopt.glb",
+      "triangles": 6548,
+      "draw_calls": 4,
+      "bytes": 53604,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/railgun_t2_d0.glb",
+      "triangles": 500,
+      "draw_calls": 4,
+      "bytes": 44828,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/railgun_t2_d0.meshopt.glb",
+      "triangles": 500,
+      "draw_calls": 4,
+      "bytes": 18708,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/railgun_t2_d0.glb",
+      "triangles": 488,
+      "draw_calls": 1,
+      "bytes": 42228,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/railgun_t2_d0.meshopt.glb",
+      "triangles": 488,
+      "draw_calls": 1,
+      "bytes": 14636,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/railgun_t3_d0.glb",
+      "triangles": 8060,
+      "draw_calls": 4,
+      "bytes": 215872,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/railgun_t3_d0.meshopt.glb",
+      "triangles": 8060,
+      "draw_calls": 4,
+      "bytes": 63252,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/railgun_t3_d0.glb",
+      "triangles": 572,
+      "draw_calls": 4,
+      "bytes": 51120,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/railgun_t3_d0.meshopt.glb",
+      "triangles": 572,
+      "draw_calls": 4,
+      "bytes": 20336,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/railgun_t3_d0.glb",
+      "triangles": 560,
+      "draw_calls": 1,
+      "bytes": 48524,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/railgun_t3_d0.meshopt.glb",
+      "triangles": 560,
+      "draw_calls": 1,
+      "bytes": 16324,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/howitzer_t1_d0.glb",
+      "triangles": 4664,
+      "draw_calls": 3,
+      "bytes": 139896,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/howitzer_t1_d0.meshopt.glb",
+      "triangles": 4664,
+      "draw_calls": 3,
+      "bytes": 44788,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/howitzer_t1_d0.glb",
+      "triangles": 632,
+      "draw_calls": 3,
+      "bytes": 51176,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/howitzer_t1_d0.meshopt.glb",
+      "triangles": 632,
+      "draw_calls": 3,
+      "bytes": 20776,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/howitzer_t1_d0.glb",
+      "triangles": 540,
+      "draw_calls": 1,
+      "bytes": 45144,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/howitzer_t1_d0.meshopt.glb",
+      "triangles": 540,
+      "draw_calls": 1,
+      "bytes": 17936,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/howitzer_t2_d0.glb",
+      "triangles": 4964,
+      "draw_calls": 3,
+      "bytes": 147288,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/howitzer_t2_d0.meshopt.glb",
+      "triangles": 4964,
+      "draw_calls": 3,
+      "bytes": 46756,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/howitzer_t2_d0.glb",
+      "triangles": 644,
+      "draw_calls": 3,
+      "bytes": 52232,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/howitzer_t2_d0.meshopt.glb",
+      "triangles": 644,
+      "draw_calls": 3,
+      "bytes": 21092,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/howitzer_t2_d0.glb",
+      "triangles": 544,
+      "draw_calls": 1,
+      "bytes": 45868,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/howitzer_t2_d0.meshopt.glb",
+      "triangles": 544,
+      "draw_calls": 1,
+      "bytes": 18224,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/howitzer_t3_d0.glb",
+      "triangles": 4976,
+      "draw_calls": 3,
+      "bytes": 148332,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/howitzer_t3_d0.meshopt.glb",
+      "triangles": 4976,
+      "draw_calls": 3,
+      "bytes": 47048,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/howitzer_t3_d0.glb",
+      "triangles": 656,
+      "draw_calls": 3,
+      "bytes": 53276,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/howitzer_t3_d0.meshopt.glb",
+      "triangles": 656,
+      "draw_calls": 3,
+      "bytes": 21372,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/howitzer_t3_d0.glb",
+      "triangles": 556,
+      "draw_calls": 1,
+      "bytes": 46908,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/howitzer_t3_d0.meshopt.glb",
+      "triangles": 556,
+      "draw_calls": 1,
+      "bytes": 18580,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/mortar_t1_d0.glb",
+      "triangles": 2824,
+      "draw_calls": 4,
+      "bytes": 91156,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mortar_t1_d0.meshopt.glb",
+      "triangles": 2824,
+      "draw_calls": 4,
+      "bytes": 30912,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/mortar_t1_d0.glb",
+      "triangles": 520,
+      "draw_calls": 4,
+      "bytes": 40452,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mortar_t1_d0.meshopt.glb",
+      "triangles": 520,
+      "draw_calls": 4,
+      "bytes": 17016,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/mortar_t1_d0.glb",
+      "triangles": 452,
+      "draw_calls": 1,
+      "bytes": 36084,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/mortar_t1_d0.meshopt.glb",
+      "triangles": 452,
+      "draw_calls": 1,
+      "bytes": 13220,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/mortar_t2_d0.glb",
+      "triangles": 3168,
+      "draw_calls": 4,
+      "bytes": 101508,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mortar_t2_d0.meshopt.glb",
+      "triangles": 3168,
+      "draw_calls": 4,
+      "bytes": 33580,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/mortar_t2_d0.glb",
+      "triangles": 576,
+      "draw_calls": 4,
+      "bytes": 44468,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mortar_t2_d0.meshopt.glb",
+      "triangles": 576,
+      "draw_calls": 4,
+      "bytes": 18032,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/mortar_t2_d0.glb",
+      "triangles": 500,
+      "draw_calls": 1,
+      "bytes": 39904,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/mortar_t2_d0.meshopt.glb",
+      "triangles": 500,
+      "draw_calls": 1,
+      "bytes": 14464,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/mortar_t3_d0.glb",
+      "triangles": 3224,
+      "draw_calls": 4,
+      "bytes": 105532,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mortar_t3_d0.meshopt.glb",
+      "triangles": 3224,
+      "draw_calls": 4,
+      "bytes": 34620,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/mortar_t3_d0.glb",
+      "triangles": 632,
+      "draw_calls": 4,
+      "bytes": 48496,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mortar_t3_d0.meshopt.glb",
+      "triangles": 632,
+      "draw_calls": 4,
+      "bytes": 19056,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/mortar_t3_d0.glb",
+      "triangles": 546,
+      "draw_calls": 1,
+      "bytes": 43516,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/mortar_t3_d0.meshopt.glb",
+      "triangles": 546,
+      "draw_calls": 1,
+      "bytes": 15576,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/heptapod_a6_t1_d0.glb",
+      "triangles": 8948,
+      "draw_calls": 50,
+      "bytes": 257072,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/heptapod_a6_t1_d0.meshopt.glb",
+      "triangles": 8948,
+      "draw_calls": 50,
+      "bytes": 124876,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/heptapod_a6_t1_d0.glb",
+      "triangles": 2612,
+      "draw_calls": 50,
+      "bytes": 180484,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/heptapod_a6_t1_d0.meshopt.glb",
+      "triangles": 2612,
+      "draw_calls": 50,
+      "bytes": 93904,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/heptapod_a6_t1_d0.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 211612,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/heptapod_a6_t1_d0.meshopt.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 69816,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/heptapod_a6_t2_d0.glb",
+      "triangles": 14612,
+      "draw_calls": 50,
+      "bytes": 339576,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/heptapod_a6_t2_d0.meshopt.glb",
+      "triangles": 14612,
+      "draw_calls": 50,
+      "bytes": 156896,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/heptapod_a6_t2_d0.glb",
+      "triangles": 3092,
+      "draw_calls": 50,
+      "bytes": 210888,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/heptapod_a6_t2_d0.meshopt.glb",
+      "triangles": 3092,
+      "draw_calls": 50,
+      "bytes": 103760,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/heptapod_a6_t2_d0.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 224048,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/heptapod_a6_t2_d0.meshopt.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 78012,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/heptapod_a6_t3_d0.glb",
+      "triangles": 14876,
+      "draw_calls": 50,
+      "bytes": 357740,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/heptapod_a6_t3_d0.meshopt.glb",
+      "triangles": 14876,
+      "draw_calls": 50,
+      "bytes": 161604,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/heptapod_a6_t3_d0.glb",
+      "triangles": 3356,
+      "draw_calls": 50,
+      "bytes": 229052,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/heptapod_a6_t3_d0.meshopt.glb",
+      "triangles": 3356,
+      "draw_calls": 50,
+      "bytes": 108468,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/heptapod_a6_t3_d0.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 227376,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/heptapod_a6_t3_d0.meshopt.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 80508,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/plasma_t1_d0.glb",
+      "triangles": 7632,
+      "draw_calls": 4,
+      "bytes": 484568,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/plasma_t1_d0.meshopt.glb",
+      "triangles": 7632,
+      "draw_calls": 4,
+      "bytes": 141588,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/plasma_t1_d0.glb",
+      "triangles": 3058,
+      "draw_calls": 4,
+      "bytes": 307932,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/plasma_t1_d0.meshopt.glb",
+      "triangles": 3058,
+      "draw_calls": 4,
+      "bytes": 94260,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/plasma_t1_d0.glb",
+      "triangles": 828,
+      "draw_calls": 1,
+      "bytes": 64652,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/plasma_t1_d0.meshopt.glb",
+      "triangles": 828,
+      "draw_calls": 1,
+      "bytes": 20788,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/plasma_t2_d0.glb",
+      "triangles": 9492,
+      "draw_calls": 4,
+      "bytes": 616216,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/plasma_t2_d0.meshopt.glb",
+      "triangles": 9492,
+      "draw_calls": 4,
+      "bytes": 178784,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/plasma_t2_d0.glb",
+      "triangles": 3786,
+      "draw_calls": 4,
+      "bytes": 389376,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/plasma_t2_d0.meshopt.glb",
+      "triangles": 3786,
+      "draw_calls": 4,
+      "bytes": 117652,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/plasma_t2_d0.glb",
+      "triangles": 864,
+      "draw_calls": 1,
+      "bytes": 67276,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/plasma_t2_d0.meshopt.glb",
+      "triangles": 864,
+      "draw_calls": 1,
+      "bytes": 21492,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod0/plasma_t3_d0.glb",
+      "triangles": 11064,
+      "draw_calls": 4,
+      "bytes": 741560,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/plasma_t3_d0.meshopt.glb",
+      "triangles": 11064,
+      "draw_calls": 4,
+      "bytes": 214252,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod1/plasma_t3_d0.glb",
+      "triangles": 4512,
+      "draw_calls": 4,
+      "bytes": 471992,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/plasma_t3_d0.meshopt.glb",
+      "triangles": 4512,
+      "draw_calls": 4,
+      "bytes": 141248,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "lod2/plasma_t3_d0.glb",
+      "triangles": 844,
+      "draw_calls": 1,
+      "bytes": 67724,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/plasma_t3_d0.meshopt.glb",
+      "triangles": 844,
+      "draw_calls": 1,
+      "bytes": 21884,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    }
+  ]
+}

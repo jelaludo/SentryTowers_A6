@@ -4,7 +4,7 @@
 
 The new **Frontier industry** family adds an automated drill, six-wheel hauler, common ore cassette, minimalist hexagonal heliostat and solar crucible in the ISAO/MÖRK/KORP manufacturer language. Five D0 modules have detailed, articulated game and static distance tiers, decoded Meshopt previews and a 32-second extraction/collection demonstration. Local route: `settlement-industry/`. See `assets/settlement-industry/README.md` for measured exports, controls and pending game review.
 
-Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [original sentry viewer](sentries/).
+Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [sentry LOD viewer](sentries/).
 
 **Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md).
 
@@ -28,9 +28,9 @@ The [KESTREL astronaut viewer](animation-tests/) presents an original detailed E
 
 33 generated GLBs: Needle, Rotor, Kiln, Quiver, Lancer, Relay, Railgun, Howitzer, Mortar, Heptapod A6 and Plasma, each at three tiers. Based on both supplied text specifications. No reference GLB or screenshot was supplied; these are original procedural interpretations, not matched reproductions. The external tower builder could not be retrieved, so integration with that application is not verified.
 
-Run `python3 tools/build_sentries.py` to regenerate. No Python packages are needed.
+The legacy generator is `python3 tools/build_sentries.py` (no Python packages needed). The new 33-variant LOD package is built with `node tools/asset-pipeline/build-sentry-lods.mjs`; see `assets/sentries/README.md` for validation and hand-off details. Original GLBs are preserved by the LOD pipeline.
 
-Run `python3 -m http.server 8000` from this directory and visit http://localhost:8000 for the collection gallery, or http://localhost:8000/sentries/ for the original interactive sentry viewer. Its pinned Three.js modules require internet access. Select family/tier, orbit, adjust yaw/elevation, test recoil, switch to neutral materials, or download the selected GLB. Assets themselves have no external resources.
+Run `python3 -m http.server 8000` from this directory and visit http://localhost:8000 for the collection gallery, or http://localhost:8000/sentries/ for the interactive sentry LOD viewer. Its pinned Three.js modules require internet access. Select family/equipment tier and LOD0/LOD1/LOD2, choose plain or Meshopt, orbit, adjust supported yaw/elevation, test recoil, switch wireframe/neutral materials, or download the selected GLB. Assets themselves have no external resources.
 
 ## Integration contract
 
