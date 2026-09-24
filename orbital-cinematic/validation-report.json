@@ -1,6 +1,11 @@
 {
   "status": "passed",
   "duration_s": 100,
+  "planet_radius": 195,
+  "launch_speeds": {
+    "sol": 108,
+    "mirror": 470
+  },
   "mirror_count": 48,
   "mirror_instance_draws": 2,
   "beam_window_s": [
@@ -36,13 +41,18 @@
   "checks": [
     "source hashes",
     "finite transforms through all 100 seconds",
-    "continuous camera and payload at segment boundaries",
+    "continuous camera and visible launch motion; off-screen orbital insertion",
     "mirror paths clear planet",
     "48 deployments in increasing order",
     "ten-second beam gate",
     "beam terminates at planet surface",
     "repeatable reset and scrubbing",
-    "two instanced mirror draws"
+    "two instanced mirror draws",
+    "195-unit planet radius",
+    "straight vertical constant-speed launch paths",
+    "no SOL release deceleration",
+    "rotating planet and attached launch site",
+    "fixed distant procedural galaxy"
   ],
   "scope": "Staged browser cinematic; dimensions/scales are illustrative. Original models unchanged. Mobile/game performance unmeasured."
 }

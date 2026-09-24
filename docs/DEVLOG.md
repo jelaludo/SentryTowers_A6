@@ -32,6 +32,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / First Light scale and launch revision
+
+Enlarged the cinematic planet from radius 140 to 195 and adjusted wide framing. Removed eased, curved launch-to-orbit travel: SOL-88 and every HEL-01 now leave in straight vertical, constant-speed shots without slowing at release. Orbital arrivals follow off-screen transfer rather than bending the visible launch. The planet and polar launch site rotate beneath the released payloads; a fixed, original procedural spiral galaxy adds a distant perspective reference.
+
+Added regression checks for launch speed/straightness, planet/site rotation, fixed galaxy placement and visibility in wide shots, while retaining beam, deployment, reset and clearance checks. Updated the review poster and cache versions. Original GLBs are unchanged; dimensions/timing remain cinematic presentation choices. Mobile/device performance review remains pending.
+
 ## 25 September 2026 / First Light orbital cinematic
 
 Added a separate 100-second cinematic tab linked from ARC-01, SOL-88 and the Workshop catalog. Starts with the curved launcher, follows SOL-88 into a small-planet reveal, animates the original Syzygy cages/optics and performs a gated ten-second laser test. Repeated launches then deploy 48 HEL-01 reflector heads into three orbital rings before a final wide camera orbit.

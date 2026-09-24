@@ -2,7 +2,7 @@
 
 ## First Light cinematic / 25 September 2026
 
-Scene choreography, procedural planet/atmosphere/stars and presentation effects by jelaludo. Reuses the repository's original ARC-01, SOL-88 Syzygy and HEL-01 reflector geometry. The orbital HEL-01 head and rendered poster are presentation derivatives; original GLBs and their dimensions are preserved. No external art, textures or audio embedded.
+Scene choreography, procedural planet/atmosphere/stars/spiral galaxy and presentation effects by jelaludo. Reuses the repository's original ARC-01, SOL-88 Syzygy and HEL-01 reflector geometry. The orbital HEL-01 head and rendered poster are presentation derivatives; original GLBs and their dimensions are preserved. No external art, textures or audio embedded.
 
 
 ## Sentry LOD refresh / 25 September 2026
