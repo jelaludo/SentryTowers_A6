@@ -28,6 +28,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / MÖRK personalization plan
+
+Planned a cosmetic expansion covering paint roles, finishes, curated decals, vehicle identity, portable presets and an in-game garage. The proposal distinguishes the repo's authoring/runtime contract from game persistence, network and combat state. Existing exports are unchanged; customization is not implemented.
+
+Inspection found separate hull/edge materials, 43 primitives in game D0 (44 in D1), partial UV coverage and a one-material vertex-colored intact distance tier. The plan therefore includes explicit paint roles, authored decal zones, independent per-tank materials, damage/LOD behavior and compression checks. Initial scope: three paint roles, three decal zones, number/name and four saved presets; broader patterns, wear and uploads follow later. See [MÖRK customization plan](../docs/PLAN-MORK-CUSTOMIZATION.md).
+
 ## 24 September 2026 / HEX-06 tall resource walker
 
 Added a Heptapod A6-inspired six-legged mining robot with a suspended hexagonal hull, tall armored shins, grounded shoes, underside laser, mineral recovery effects and upper process reservoirs. It stands 12.7 m high and reserves an 8 m-wide × 6.5 m-high straight tank corridor. The actual MÖRK low D0 reference measures 5.819 × 3.011 × 13.267 m (width/height/length); a triangle-level check certifies the corridor in parked traffic mode across all plain/decoded tiers. Laser/recovery effects are inhibited while the tank passes.

@@ -52,3 +52,7 @@ VER-01 intact candidate delivered: glazed cultivation, 24 crop clusters, traveli
 ## 24 September 2026 / Tall Heptapod extractor
 
 HEX-06 intact candidate delivered: six articulated tall legs, ground-burning laser, extraction preview and measured MÖRK passage. Three tiers, mining/traffic/gait controls and scale viewer are available. Next: live WebGL/mobile, terrain IK/navigation, collision and laser occupancy interlock, resource transfer, release skinning/compression, final thresholds and phone acceptance.
+
+## 25 September 2026 / MÖRK personalization — planned
+
+Start with a workshop paint/decal prototype and portable appearance recipes; then validate moving parts, damage/LOD preservation and game garage integration. Colors, three marking zones and identity are the first slice. This is a proposal, not implemented functionality. See [MÖRK customization plan](../docs/PLAN-MORK-CUSTOMIZATION.md).
