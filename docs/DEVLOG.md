@@ -19,8 +19,21 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 10. **ARC-01 orbital launcher / SEED-01 collector — first intact candidate delivered; review pending.** Integrate the curved rail, sled recovery and collector deployment with planetary satellite production. Confirm sustained browser/mobile playback, game cameras, release compression, inventory, thresholds and phone performance. The local sequence is visual choreography, not real orbital mechanics.
 
+11. **LIT-01 chip manufacturing — intact candidate delivered; review pending.** Review the four-mirror optical bench, wafer writing and cassette interfaces in the game camera. Live browser/mobile, inventory hooks, release compression and phone performance remain pending. D1–D3 are future work.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+
+## 24 September 2026 / LIT-01 chip manufacturing unit
+
+Added a compact chip writer to the terraforming kit: four correctly angled folding mirrors, open focusing collar, patterned wafer, articulated XY stage, power cabinet and twin wafer/chip cassette ports. The detailed master includes fine die traces, fasteners and cooling fins; game and distance tiers reduce the geometry while preserving roots, sockets and meaningful lookup names. D0 only; damage states remain separate from LODs.
+
+- LOD0: 8,144 triangles / 8 mesh draws / 346,540 plain bytes.
+- LOD1: 3,712 triangles / 8 mesh draws / 163,124 plain bytes.
+- LOD2: 2,152 triangles / 1 mesh draw / 81,776 plain bytes; explicitly static.
+- Six plain/decoded exports pass validation, hashes, budgets, geometry, node/socket consistency and optical-reflection checks. A 12-second unbaked `Wafer_Write_Cycle` aligns, writes six rows with indexing blanking and returns to datum; sampled focus checks keep the beam on the wafer.
+- Added procedural source, derived editable Blender review scene, full/optical previews, integration README, manifest, validation report and a viewer with tier/encoding selection, timeline, beam visibility, wireframe, cameras and downloads. Blender render review completed. No browser was available for live viewer review; browser/mobile, game release compression, inventory integration and reference-phone acceptance remain pending. No FPS claim.
+- Workshop catalog, readiness, roadmap and generated Devlog/navigation updated. Hand-off is this commit plus `assets/chip-manufacturing/`.
 
 ## 24 September 2026 / Faster launch after slow loading
 

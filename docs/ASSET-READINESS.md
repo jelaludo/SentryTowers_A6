@@ -15,6 +15,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 
 | Route | Current state | Scope and remaining review |
 | --- | --- | --- |
+| `chip-manufacturing/` | Contract candidate | D0 LOD0/1/2, plain/decoded geometry, stable nodes/sockets, mirror reflection and wafer travel validate. Blender views reviewed; browser/mobile, game resource hooks, release compression and phone acceptance pending. |
 | `orbital-launcher/` | Contract candidate | ARC launcher and SEED collector D0 LOD0/1/2, decoded compression, docking, launch/recovery and six-petal deployment validate. Blender and Safari static/control views reviewed; sustained browser playback, mobile, game integration and phone acceptance remain pending. |
 | `settlement-industry/` | Contract candidate | Five D0 modules at LOD0/1/2, decoded compression, cargo docking and mirror alignment validate. Blender review complete; live browser/mobile, game integration, release gltfpack and phone review pending. |
 | `korp/` | Contract candidate | D0 LOD0/1/2 naming and mechanics validate; game-camera and reference-phone acceptance are pending. |

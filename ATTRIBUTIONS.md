@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## LIT-01 chip manufacturing unit
+
+- On 24 September 2026, jelaludo requested a chip-manufacturing unit with a series of mirrors guiding a laser to write on a wafer.
+- Original procedural geometry and engine-driven write demonstration, using this repository's original industry primitives and manufacturer palette. Models by jelaludo. No external geometry, textures or images are embedded. LIT-01 is provisional.
+- Plain GLBs are authoritative; optional Meshopt copies and the imported Blender review scene are derived.
+
 ## ARC-01 orbital launcher and SEED-01 collector
 
 - On 23 September 2026, jelaludo requested a curved electromagnetic rail-gun-like orbital launcher for small satellites manufactured on the planet to build a Dyson sphere.

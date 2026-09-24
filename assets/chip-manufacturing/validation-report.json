@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "reports": [
+    {
+      "file": "lod0/writer_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 8144,
+      "draw_calls": 8,
+      "bytes": 346540,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/writer_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 8144,
+      "draw_calls": 8,
+      "bytes": 102504,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/writer_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 3712,
+      "draw_calls": 8,
+      "bytes": 163124,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/writer_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 3712,
+      "draw_calls": 8,
+      "bytes": 54320,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/writer_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2152,
+      "draw_calls": 1,
+      "bytes": 81776,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/writer_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2152,
+      "draw_calls": 1,
+      "bytes": 29372,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ]
+}

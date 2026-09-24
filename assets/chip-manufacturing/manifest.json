@@ -1,0 +1,436 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "chip-manufacturing",
+  "label": "LIT-01 / Chip manufacturing unit",
+  "status": "contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 unauthored; damage is independent from detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Manual recording and close inspection",
+    "distance": "Static rest pose; retain LOD1 during writing."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Wafer_Write_Cycle",
+      "duration_s": 12,
+      "loop": true
+    },
+    "scope": "Art-directed laser direct-write process, not a semiconductor process simulation. Four fixed folding mirrors and a translating XY wafer stage; engine pivots are unbaked."
+  },
+  "assets": [
+    {
+      "id": "writer_d0_lod0",
+      "family": "writer",
+      "label": "LIT-01 / Chip manufacturing unit",
+      "file": "lod0/writer_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 346540,
+      "sha256": "92cfa8586d6528c5233dc9fab9c36acea91f06a0a4527615b26c0993fc373a57",
+      "triangles": 8144,
+      "draw_calls": 8,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/writer_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 102504,
+      "meshopt_sha256": "bdfe30c92cfb1ec218f6aa74887c52029ed3fa839f23c966ae3ec3d8a0ac8441",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        7
+      ],
+      "bounds": {
+        "min": [
+          -4,
+          -5.9604643443123e-10,
+          -3
+        ],
+        "max": [
+          4,
+          3.8600000143051147,
+          3
+        ],
+        "dimensions_m": [
+          8,
+          3.860000014901161,
+          6
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -4,
+            0.5,
+            -1.8
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WAFER_INPUT",
+          "node": "SOCKET_WAFER_INPUT",
+          "kind": "wafer_input",
+          "position_m": [
+            -0.65,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "CHIP_OUTPUT",
+          "node": "SOCKET_CHIP_OUTPUT",
+          "kind": "chip_output",
+          "position_m": [
+            0.45,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BEAM_FOCUS",
+          "node": "SOCKET_BEAM_FOCUS",
+          "kind": "optical_focus",
+          "position_m": [
+            1.5,
+            1.815,
+            -0.6
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH"
+      ],
+      "required_nodes": [
+        "LITHOGRAPHY_ROOT",
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH",
+        "SOCKET_POWER",
+        "SOCKET_WAFER_INPUT",
+        "SOCKET_CHIP_OUTPUT",
+        "SOCKET_BEAM_FOCUS"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "writer_d0_lod1",
+      "family": "writer",
+      "label": "LIT-01 / Chip manufacturing unit",
+      "file": "lod1/writer_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 163124,
+      "sha256": "cf746048c52e6cf1dc6476959362c1a8a0f363b68d1f55bae5adc428542f70cd",
+      "triangles": 3712,
+      "draw_calls": 8,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/writer_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 54320,
+      "meshopt_sha256": "ef111dec72c4276221615bd19ab13a2b6d3b2c18e359474a8c17137628eee315",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        7
+      ],
+      "bounds": {
+        "min": [
+          -4,
+          -5.9604643443123e-10,
+          -3
+        ],
+        "max": [
+          4,
+          3.8600000143051147,
+          3
+        ],
+        "dimensions_m": [
+          8,
+          3.860000014901161,
+          6
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -4,
+            0.5,
+            -1.8
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WAFER_INPUT",
+          "node": "SOCKET_WAFER_INPUT",
+          "kind": "wafer_input",
+          "position_m": [
+            -0.65,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "CHIP_OUTPUT",
+          "node": "SOCKET_CHIP_OUTPUT",
+          "kind": "chip_output",
+          "position_m": [
+            0.45,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BEAM_FOCUS",
+          "node": "SOCKET_BEAM_FOCUS",
+          "kind": "optical_focus",
+          "position_m": [
+            1.5,
+            1.815,
+            -0.6
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH"
+      ],
+      "required_nodes": [
+        "LITHOGRAPHY_ROOT",
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH",
+        "SOCKET_POWER",
+        "SOCKET_WAFER_INPUT",
+        "SOCKET_CHIP_OUTPUT",
+        "SOCKET_BEAM_FOCUS"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "writer_d0_lod2",
+      "family": "writer",
+      "label": "LIT-01 / Chip manufacturing unit",
+      "file": "lod2/writer_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 81776,
+      "sha256": "3c166d7bf200053220450cdd8c2da701de5082cba9949f0dade826e5ad71e523",
+      "triangles": 2152,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/writer_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 29372,
+      "meshopt_sha256": "b899f60514aab3f005f539b81000e1262ba1faf50d9894d8d14bf46c92d7b4f4",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        7
+      ],
+      "bounds": {
+        "min": [
+          -4,
+          -5.9604643443123e-10,
+          -3
+        ],
+        "max": [
+          4,
+          3.8600001335144043,
+          3
+        ],
+        "dimensions_m": [
+          8,
+          3.8600001341104506,
+          6
+        ]
+      },
+      "swept_envelope_m": null,
+      "sockets": [
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -4,
+            0.5,
+            -1.8
+          ],
+          "normal": [
+            -1,
+            0,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WAFER_INPUT",
+          "node": "SOCKET_WAFER_INPUT",
+          "kind": "wafer_input",
+          "position_m": [
+            -0.65,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "CHIP_OUTPUT",
+          "node": "SOCKET_CHIP_OUTPUT",
+          "kind": "chip_output",
+          "position_m": [
+            0.45,
+            1,
+            2.55
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "BEAM_FOCUS",
+          "node": "SOCKET_BEAM_FOCUS",
+          "kind": "optical_focus",
+          "position_m": [
+            1.5,
+            1.815,
+            -0.6
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH"
+      ],
+      "required_nodes": [
+        "LITHOGRAPHY_ROOT",
+        "MIRROR_1_PIVOT",
+        "MIRROR_2_PIVOT",
+        "MIRROR_3_PIVOT",
+        "MIRROR_4_PIVOT",
+        "WAFER_STAGE",
+        "WAFER_CHUCK",
+        "LASER_PATH",
+        "SOCKET_POWER",
+        "SOCKET_WAFER_INPUT",
+        "SOCKET_CHIP_OUTPUT",
+        "SOCKET_BEAM_FOCUS"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

@@ -40,3 +40,7 @@ This is the ordered delivery plan for the model library and Workshop. It transla
 ## Review sequence
 
 Work proceeds in numbered order unless the game developer changes priority. At each item: review the proposed visual and runtime behavior, build the smallest complete vertical slice, validate measured requirements, update the Devlog and Workshop, hand off a commit plus folder, then record game-side feedback before advancing.
+
+## 24 September 2026 / Chip manufacturing
+
+LIT-01 intact candidate delivered: four-mirror writer, patterned wafer and XY scanning stage, detailed/game/static-distance exports and 12-second unbaked demonstration. Next: browser/mobile review, game inventory and cassette interfaces, release gltfpack, game cameras, phone measurements and D1–D3 if requested.

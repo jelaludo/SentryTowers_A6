@@ -5,6 +5,7 @@ const collectionImages={
 };
 
 export const collections=[
+['chip-manufacturing','LIT-01 / Chip manufacturing','Industry','Four folding mirrors guide a laser onto a patterned wafer; a precision XY stage writes six die rows.','3 LODs · 12-second write cycle · Plain + Meshopt','Contract candidate'],
 ['orbital-launcher','ARC-01 / Orbital collector launcher','Industry','A sweeping electromagnetic mass driver launches locally built SEED collector satellites; six hexagonal petals unfold toward the future Dyson structure.','2 modules · 3 LODs · 30-second launch + sled recovery','Contract candidate'],
 ['settlement-industry','Frontier industry / Drill, hauler & mirrors','Industry','Automated extraction, six-wheel cargo collection and a seven-mirror solar crucible, built in the ISAO, MÖRK and KORP manufacturer language.','5 modules · 3 LODs · 32-second mechanical demonstration','Contract candidate'],
 ['korp','KORP / Heavy gunship','Combat','MÖRK-family assault aircraft with forward rotary cannons, a downward-aiming heavy gun, tilting engines and mechanical animations.','3 LODs · 7 clips · Engine-driven aiming','Contract candidate'],
