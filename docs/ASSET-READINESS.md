@@ -31,7 +31,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | `hugin-flight/` | Contract candidate | Animated D0 source plus static landing-island LOD2; map threshold and phone review are pending. |
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |
 | `missile-lab/` | Original | Reusable motion study, not a full weapon runtime acceptance claim. |
-| `hover-tank/` | Contract candidate | Detailed/game assets plus D0 static distance tier; canonical LOD filename migration and game thresholds remain pending. |
+| `hover-tank/` | Contract candidate | Detailed/game D0–D3 and static D0 distance; livery workshop adds three requested skins, recipes, protected paint roles and decoded validation. Original assets preserved. Game garage/r160/release compression, mobile and performance review remain pending. |
 | `sentries/` | Original | Procedural prototype families; current contract LOD, manifest and naming review is pending. |
 | `reckon-guard/` | Original | Interactive prototype without a formal current-contract LOD family. |
 | `isao-birudoron/` | Contract candidate | Production alpha with LOD0/1/2; art, damage, draw-call and game-performance review remain pending. |

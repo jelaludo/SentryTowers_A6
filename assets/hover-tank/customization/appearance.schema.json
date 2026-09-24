@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MORK appearance recipe v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset_family",
+    "preset_id",
+    "label",
+    "paint",
+    "pattern",
+    "finish",
+    "name",
+    "number",
+    "message",
+    "decals"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "asset_family": {
+      "const": "mork_hover_tank"
+    },
+    "preset_id": {
+      "type": "string",
+      "maxLength": 48
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "paint": {
+      "type": "object",
+      "required": [
+        "primary",
+        "secondary",
+        "accent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "secondary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      }
+    },
+    "pattern": {
+      "enum": [
+        "solid",
+        "rabbit-chaos",
+        "circuit",
+        "camouflage"
+      ]
+    },
+    "finish": {
+      "enum": [
+        "factory",
+        "satin",
+        "matte"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 18,
+      "pattern": "^[A-Z0-9 /!?-]*$"
+    },
+    "number": {
+      "type": "string",
+      "maxLength": 3,
+      "pattern": "^[A-Z0-9 /!?-]*$"
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 24,
+      "pattern": "^[A-Z0-9 /!?-]*$"
+    },
+    "decals": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "zone",
+          "symbol",
+          "scale",
+          "rotation"
+        ],
+        "properties": {
+          "zone": {
+            "enum": [
+              "turret",
+              "badge",
+              "message"
+            ]
+          },
+          "symbol": {
+            "enum": [
+              "none",
+              "rabbit",
+              "circuit",
+              "star"
+            ]
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.45,
+            "maximum": 1
+          },
+          "rotation": {
+            "type": "number",
+            "minimum": -20,
+            "maximum": 20
+          }
+        }
+      }
+    }
+  }
+}

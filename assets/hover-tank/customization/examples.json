@@ -1,0 +1,86 @@
+[
+  {
+    "preset": "bunny-overdrive",
+    "file": "derived/examples/bunny-overdrive.glb",
+    "derived": true,
+    "lod": 1,
+    "damage_level": 0,
+    "triangles": 6774,
+    "draw_calls": 71,
+    "bytes": 676888,
+    "decal_draws": 2,
+    "decal_triangles": 32,
+    "textures": 3,
+    "texture_sizes": [
+      [
+        512,
+        512
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "texture_memory_rgba8_mip_bytes": 8388608
+  },
+  {
+    "preset": "night-circuit",
+    "file": "derived/examples/night-circuit.glb",
+    "derived": true,
+    "lod": 1,
+    "damage_level": 0,
+    "triangles": 6774,
+    "draw_calls": 71,
+    "bytes": 593980,
+    "decal_draws": 2,
+    "decal_triangles": 32,
+    "textures": 3,
+    "texture_sizes": [
+      [
+        512,
+        512
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "texture_memory_rgba8_mip_bytes": 8388608
+  },
+  {
+    "preset": "field-notes",
+    "file": "derived/examples/field-notes.glb",
+    "derived": true,
+    "lod": 1,
+    "damage_level": 0,
+    "triangles": 6774,
+    "draw_calls": 71,
+    "bytes": 619660,
+    "decal_draws": 2,
+    "decal_triangles": 32,
+    "textures": 3,
+    "texture_sizes": [
+      [
+        512,
+        512
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "texture_memory_rgba8_mip_bytes": 8388608
+  }
+]

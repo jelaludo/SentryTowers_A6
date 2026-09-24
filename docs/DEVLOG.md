@@ -25,12 +25,25 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 13. **HEX-06 Heptapod resource walker — intact candidate delivered; review pending.** Integrate traffic exclusion, ground ablation/resource collection and locomotion/terrain IK. Live browser/mobile, game skinning/release compression, turret/terrain clearance, LOD thresholds and reference-phone review remain pending.
 
+14. **MÖRK customization — workshop candidate delivered; game integration pending.** Integrate appearance recipes, persistence/network state and texture reuse; verify r160, release gltfpack paint-role retention, game cameras, mobile and reference-phone performance.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / MÖRK livery workshop
+
+Implemented the requested Bunny Overdrive (pink cyberpunk rabbit), Night Circuit (dark cyan circuitry) and Field Notes (military camouflage and hand-painted messages), plus Factory. The workshop provides three paint roles, patterns/finishes, three bounded marking zones, vehicle name/number/message, local saved designs, Apply/Cancel/Undo, JSON import/export, image export and factory comparison. Gameplay lights and ammunition remain protected.
+
+Detailed and game tiers retain D0–D3, original animation pivots and clips. A new static D0 distance derivative preserves explicit paint roles in one draw; it omits decals and aiming. Plain originals are preserved. The optional livery textures implement the user's requested patterns/markings; the collaboration contract remains unchanged.
+
+- Game D0: 6,742 triangles / 69 rendered draws / 459,436 plain bytes. Each example adds 32 triangles and two draws: 6,774 / 71, with embedded examples at 593,980–676,888 bytes. The earlier 43-primitive count describes shared primitive definitions, not rendered mesh instances.
+- Static distance: 2,072 triangles / one draw / 81,340 bytes. Detailed D0: 23,980 triangles / 69 draws / 1,008,028 bytes. Full state metrics, hashes and clip durations are in the manifest. Texture memory is approximately 8 MiB per patterned appearance with mipmaps; game-side caching remains future work.
+- Plain/decoded validation covers all nine supported models, four recipes, protected materials, isolation, factory restoration, distance colors and asynchronous races. Three self-contained baked examples validate. Real-model/mocked-renderer tests cover editor persistence and controls. All three looks were reviewed in desktop Safari and rendered previews.
+- Hand-off: this commit plus `assets/hover-tank/customization/`; workshop at `hover-tank/customize/`. Game r160 integration, release gltfpack preservation of paint roles, save/network binding, mobile/game-camera review and measured phone performance remain pending. No FPS claim.
+
 ## 25 September 2026 / MÖRK personalization plan
 
-Planned a cosmetic expansion covering paint roles, finishes, curated decals, vehicle identity, portable presets and an in-game garage. The proposal distinguishes the repo's authoring/runtime contract from game persistence, network and combat state. Existing exports are unchanged; customization is not implemented.
+Planned a cosmetic expansion covering paint roles, finishes, curated decals, vehicle identity, portable presets and an in-game garage. The proposal distinguishes the repo's authoring/runtime contract from game persistence, network and combat state. At planning time, existing exports were unchanged and customization was not implemented. The workshop candidate is delivered in the entry above.
 
 Inspection found separate hull/edge materials, 43 primitives in game D0 (44 in D1), partial UV coverage and a one-material vertex-colored intact distance tier. The plan therefore includes explicit paint roles, authored decal zones, independent per-tank materials, damage/LOD behavior and compression checks. Initial scope: three paint roles, three decal zones, number/name and four saved presets; broader patterns, wear and uploads follow later. See [MÖRK customization plan](../docs/PLAN-MORK-CUSTOMIZATION.md).
 

@@ -1,6 +1,8 @@
 # MÖRK customization expansion
 
-Planning proposal · 25 September 2026 · Not implemented.
+Planning proposal · 25 September 2026 · Workshop candidate implemented; game integration pending.
+
+Implementation: `hover-tank/customize/` and `assets/hover-tank/customization/README.md`. Factory, Bunny Overdrive, Night Circuit and Field Notes are available with paints, patterns, markings, identity, local saves and portable recipes. The following describes the wider expansion; equipment, uploads, game persistence/networking and performance acceptance remain future work.
 
 Make each MÖRK recognizable as its owner's vehicle while preserving its manufacturer identity, combat readability, animation hierarchy and performance. Start with cosmetic customization; equipment upgrades and attachments are a separate expansion.
 
@@ -79,6 +81,6 @@ For multiplayer, replicate the validated recipe and identifiers; peers reuse loc
 4. **Game garage:** wire save/load, preview/apply/cancel, spawn/respawn, network appearance and game-owned team indicators. Review in garage, third-person and map cameras on the reference phone.
 5. **Later options:** patterns, wear masks, custom uploaded decals and cosmetic attachments. Attachments require socket/clearance/LOD work and must preserve the verified tank dimensions or explicitly revise them.
 
-Acceptance includes two different tanks without material cross-talk, correct marks on moving/broken parts, no decal z-fighting, preserved ammo/status colors, visual continuity through LOD/state changes, recipe-version fallback, decoded compression validation and measured game performance. No FPS improvement is assumed. The existing D0 game export's 43 primitives are a baseline, not a claim that MÖRK already has a low draw count.
+Acceptance includes two different tanks without material cross-talk, correct marks on moving/broken parts, no decal z-fighting, preserved ammo/status colors, visual continuity through LOD/state changes, recipe-version fallback, decoded compression validation and measured game performance. No FPS improvement is assumed. The existing D0 game export's 43 shared primitive definitions (69 rendered mesh draws) are a baseline, not a claim that MÖRK already has a low draw count.
 
 Recommended first slice: three paint roles, three decal zones, a vehicle number/name and four saved presets, demonstrated in the workshop before game UI integration.

@@ -44,8 +44,9 @@ for route,source,title in [('devlog','DEVLOG.md','Devlog'),('roadmap','ROADMAP.m
  (P/route/'index.html').write_text(page)
 # All existing asset viewers retain their title, local tabs, and DOM control IDs.
 viewers=[p for p in P.glob('*/index.html') if p.parent.name not in ['devlog','roadmap','readiness','best-practices']]
+viewers += [p for p in [P/'hover-tank/customize/index.html'] if p.exists()]
 for p in viewers+[P/'index.html',P/'reuse.html']:
- s=p.read_text();viewer=p in viewers;prefix='' if p.parent==P or re.search(r'<base\b',s) else '../'
+ s=p.read_text();viewer=p in viewers;prefix='' if p.parent==P or re.search(r'<base\b',s) else '../'*len(p.parent.relative_to(P).parts)
  if 'class="workshop-header"' in s:s=re.sub(r'<header class="workshop-header">.*?</header>',nav(prefix,viewer=viewer),s,count=1,flags=re.S)
  else:
   match=re.search(r'<header\b.*?</header>',s,re.S)

@@ -1,0 +1,203 @@
+{
+  "status": "passed",
+  "checks": [
+    "source hashes",
+    "plain/decoded glTF",
+    "all presets all supported states and tiers",
+    "protected indicators",
+    "local decal parenting",
+    "two-tank material isolation",
+    "factory restoration",
+    "distance region retention",
+    "schema rejection",
+    "stale asynchronous texture disposal"
+  ],
+  "reports": [
+    {
+      "file": "models/lod0/mork_d0.glb",
+      "triangles": 23980,
+      "draw_calls": 69,
+      "bytes": 1008028,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mork_d0.meshopt.glb",
+      "triangles": 23980,
+      "draw_calls": 69,
+      "bytes": 479912,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod0/mork_d1.glb",
+      "triangles": 24628,
+      "draw_calls": 70,
+      "bytes": 1054100,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mork_d1.meshopt.glb",
+      "triangles": 24628,
+      "draw_calls": 70,
+      "bytes": 501696,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod0/mork_d2.glb",
+      "triangles": 26040,
+      "draw_calls": 79,
+      "bytes": 1057200,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mork_d2.meshopt.glb",
+      "triangles": 26040,
+      "draw_calls": 79,
+      "bytes": 494020,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod0/mork_d3.glb",
+      "triangles": 23048,
+      "draw_calls": 72,
+      "bytes": 1065660,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/mork_d3.meshopt.glb",
+      "triangles": 23048,
+      "draw_calls": 72,
+      "bytes": 496464,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod1/mork_d0.glb",
+      "triangles": 6742,
+      "draw_calls": 69,
+      "bytes": 459436,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mork_d0.meshopt.glb",
+      "triangles": 6742,
+      "draw_calls": 69,
+      "bytes": 280812,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod1/mork_d1.glb",
+      "triangles": 6922,
+      "draw_calls": 70,
+      "bytes": 478784,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mork_d1.meshopt.glb",
+      "triangles": 6922,
+      "draw_calls": 70,
+      "bytes": 292564,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod1/mork_d2.glb",
+      "triangles": 7310,
+      "draw_calls": 79,
+      "bytes": 465240,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mork_d2.meshopt.glb",
+      "triangles": 7310,
+      "draw_calls": 79,
+      "bytes": 280820,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod1/mork_d3.glb",
+      "triangles": 6478,
+      "draw_calls": 72,
+      "bytes": 484816,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/mork_d3.meshopt.glb",
+      "triangles": 6478,
+      "draw_calls": 72,
+      "bytes": 292360,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/lod2/mork_d0.glb",
+      "triangles": 2072,
+      "draw_calls": 1,
+      "bytes": 81340,
+      "decoded": false,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/mork_d0.meshopt.glb",
+      "triangles": 2072,
+      "draw_calls": 1,
+      "bytes": 36936,
+      "decoded": true,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/examples/bunny-overdrive.glb",
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "triangles": 6774,
+      "draw_calls": 71,
+      "bytes": 676888
+    },
+    {
+      "file": "derived/examples/night-circuit.glb",
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "triangles": 6774,
+      "draw_calls": 71,
+      "bytes": 593980
+    },
+    {
+      "file": "derived/examples/field-notes.glb",
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "triangles": 6774,
+      "draw_calls": 71,
+      "bytes": 619660
+    }
+  ]
+}

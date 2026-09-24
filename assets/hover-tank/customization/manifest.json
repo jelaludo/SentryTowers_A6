@@ -1,0 +1,1015 @@
+{
+  "schema": "mork.customization/v1",
+  "status": "workshop_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "source_family": "mork_hover_tank",
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "original tank ground datum"
+  },
+  "presets": [
+    "factory",
+    "bunny-overdrive",
+    "night-circuit",
+    "field-notes"
+  ],
+  "paint_roles": {
+    "Mork armor / midnight petrol": "primary",
+    "Mork edge armor / slate": "secondary",
+    "Stencil / ivory": "accent"
+  },
+  "protected": "All other materials; ammo, lift/power, fault, caution, optics, recesses and structure remain game-owned",
+  "zones": [
+    {
+      "id": "turret",
+      "label": "Right turret cheek",
+      "parent": "TURRET_YAW",
+      "position": [
+        1.02,
+        0.425,
+        -0.6
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "size": [
+        1.35,
+        0.43,
+        0.5
+      ],
+      "roles": [
+        "primary"
+      ],
+      "states": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "badge",
+      "label": "Left glacis badge",
+      "parent": "HULL_SUSPENSION",
+      "position": [
+        -0.76,
+        1.47,
+        3.25
+      ],
+      "rotation": [
+        -1.5707963267948966,
+        0,
+        0
+      ],
+      "size": [
+        0.96,
+        1.45,
+        0.45
+      ],
+      "roles": [
+        "secondary"
+      ],
+      "states": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "message",
+      "label": "Right glacis message",
+      "parent": "HULL_SUSPENSION",
+      "position": [
+        0.76,
+        1.47,
+        3.25
+      ],
+      "rotation": [
+        -1.5707963267948966,
+        0,
+        0
+      ],
+      "size": [
+        0.96,
+        1.45,
+        0.45
+      ],
+      "roles": [
+        "secondary"
+      ],
+      "states": [
+        0,
+        1
+      ]
+    }
+  ],
+  "decals": {
+    "atlas_size": [
+      1024,
+      1024
+    ],
+    "pattern_sizes": [
+      512,
+      512
+    ],
+    "max_extra_draws": 2,
+    "art_source": "art.js",
+    "external_fonts": false
+  },
+  "lod_selection": {
+    "distance": "D0 only; colors and broad recognition patterns, no decals or articulation",
+    "active": "Use articulated LOD1 for combat and customization; LOD0 for close recording"
+  },
+  "supported_damage_levels": {
+    "lod0": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "lod1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "lod2": [
+      0
+    ]
+  },
+  "assets": [
+    {
+      "lod": 0,
+      "damage_level": 0,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_d0.glb",
+      "source_sha256": "8dd7d7736ad4d943e84c6be2dad3e0f700c3aace06369bea1578c500ea397391",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [
+        {
+          "name": "Power_On",
+          "duration_s": 2
+        },
+        {
+          "name": "Power_Off",
+          "duration_s": 1.2000000476837158
+        },
+        {
+          "name": "Hover_Idle",
+          "duration_s": 3
+        },
+        {
+          "name": "Fire_Heavy",
+          "duration_s": 1.399999976158142
+        },
+        {
+          "name": "Plasma_Sweep",
+          "duration_s": 4
+        },
+        {
+          "name": "Turret_Aim",
+          "duration_s": 8
+        }
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.800000011920929,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.9127391576766968,
+          0,
+          -4.635499954223633
+        ],
+        "max": [
+          2.9127391576766968,
+          3.0162529945373535,
+          8.644999157637358
+        ],
+        "dimensions_m": [
+          5.8254783153533936,
+          3.0162529945373535,
+          13.28049911186099
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod0/mork_d0.glb",
+      "bytes": 1008028,
+      "sha256": "5fccc288dd1f4456d69e3e64daba0ced472467513dcbdbc964a4c4433bea48e8",
+      "triangles": 23980,
+      "draw_calls": 69,
+      "meshopt_file": "derived/meshopt/lod0/mork_d0.meshopt.glb",
+      "meshopt_bytes": 479912,
+      "meshopt_sha256": "5d75764f9279c8310065bf85bdd1c6cb6cde8653918f81858fed6a80e72a5e3a",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 0,
+      "damage_level": 1,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_d1.glb",
+      "source_sha256": "faa8a07292408993755bd14aaec7bff80e84a4264de7a6b9cdfa152070947362",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [
+        {
+          "name": "Power_On",
+          "duration_s": 2
+        },
+        {
+          "name": "Power_Off",
+          "duration_s": 1.2000000476837158
+        },
+        {
+          "name": "Hover_Idle",
+          "duration_s": 3
+        },
+        {
+          "name": "Fire_Heavy",
+          "duration_s": 1.399999976158142
+        },
+        {
+          "name": "Plasma_Sweep",
+          "duration_s": 4
+        },
+        {
+          "name": "Turret_Aim",
+          "duration_s": 8
+        }
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.800000011920929,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.9127391576766968,
+          0,
+          -4.635499954223633
+        ],
+        "max": [
+          2.9127391576766968,
+          3.0162529945373535,
+          8.644999157637358
+        ],
+        "dimensions_m": [
+          5.8254783153533936,
+          3.0162529945373535,
+          13.28049911186099
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod0/mork_d1.glb",
+      "bytes": 1054100,
+      "sha256": "38e6b4dbe73fe94bc3ece58e4f406c7e8dfbdb030f938c45a3e57dfee2e15271",
+      "triangles": 24628,
+      "draw_calls": 70,
+      "meshopt_file": "derived/meshopt/lod0/mork_d1.meshopt.glb",
+      "meshopt_bytes": 501696,
+      "meshopt_sha256": "5f8729d1ebad798fd2567bf41a5b3f08f4c73c05f66a0d7d22ec36abaa855cbb",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 0,
+      "damage_level": 2,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_d2.glb",
+      "source_sha256": "0bca29942a9df7bfaaf956dedf20182d644e8656f4e8bca14e783881aa5bfef5",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.800000011920929,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.9127391576766968,
+          0,
+          -4.635499954223633
+        ],
+        "max": [
+          2.9127391576766968,
+          3.0162529945373535,
+          5.842000255919431
+        ],
+        "dimensions_m": [
+          5.8254783153533936,
+          3.0162529945373535,
+          10.477500210143063
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod0/mork_d2.glb",
+      "bytes": 1057200,
+      "sha256": "fd7af590e1ff3f0fad4d1a19adef84b18b6914a35f0e8c59fd303ea9038700a6",
+      "triangles": 26040,
+      "draw_calls": 79,
+      "meshopt_file": "derived/meshopt/lod0/mork_d2.meshopt.glb",
+      "meshopt_bytes": 494020,
+      "meshopt_sha256": "7b3a2a0298403742c074b49a6bce1db7f72e3b66aed5ad8c2c960503f0e44227",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 0,
+      "damage_level": 3,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_d3.glb",
+      "source_sha256": "dd4a643664f02decc8e0b8c61c0b3addfa26645dca5c360a1b07c136744b1689",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.800000011920929,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -3.6605177292285997,
+          0,
+          -5.297939107827721
+        ],
+        "max": [
+          5.134019271263083,
+          1.9791335511507344,
+          5.842000255919431
+        ],
+        "dimensions_m": [
+          8.794537000491683,
+          1.9791335511507344,
+          11.139939363747153
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod0/mork_d3.glb",
+      "bytes": 1065660,
+      "sha256": "26af5ccb3a4f746b165118037b61c384ec11cbee8bd5ffa1b057aaa7b28b6473",
+      "triangles": 23048,
+      "draw_calls": 72,
+      "meshopt_file": "derived/meshopt/lod0/mork_d3.meshopt.glb",
+      "meshopt_bytes": 496464,
+      "meshopt_sha256": "1e8ca98e3f85403011260bc3db0f8f728bc46cfb19f7334eb39ec06a892fbeb7",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_low_d0.glb",
+      "source_sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [
+        {
+          "name": "Power_On",
+          "duration_s": 2
+        },
+        {
+          "name": "Power_Off",
+          "duration_s": 1.2000000476837158
+        },
+        {
+          "name": "Hover_Idle",
+          "duration_s": 3
+        },
+        {
+          "name": "Fire_Heavy",
+          "duration_s": 1.399999976158142
+        },
+        {
+          "name": "Plasma_Sweep",
+          "duration_s": 4
+        },
+        {
+          "name": "Turret_Aim",
+          "duration_s": 8
+        }
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.7999996542930603,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.909192383289337,
+          0.00544419139623642,
+          -4.626236915588379
+        ],
+        "max": [
+          2.9099475741386414,
+          3.0159517526626587,
+          8.64112377539277
+        ],
+        "dimensions_m": [
+          5.8191399574279785,
+          3.0105075612664223,
+          13.26736069098115
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod1/mork_d0.glb",
+      "bytes": 459436,
+      "sha256": "ba6ea58d9dc90810a376e559755756a5c93c2b60b92508c4fb0c5453baf0bf37",
+      "triangles": 6742,
+      "draw_calls": 69,
+      "meshopt_file": "derived/meshopt/lod1/mork_d0.meshopt.glb",
+      "meshopt_bytes": 280812,
+      "meshopt_sha256": "2223fc39a7a15da2768f35fffea98f901f55af2a4290987be70615d36f3ad5b1",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 1,
+      "damage_level": 1,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_low_d1.glb",
+      "source_sha256": "26c79e541b9f2000859013e4761808f1f9851a7263f632a427634e0a8f6366d6",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [
+        {
+          "name": "Power_On",
+          "duration_s": 2
+        },
+        {
+          "name": "Power_Off",
+          "duration_s": 1.2000000476837158
+        },
+        {
+          "name": "Hover_Idle",
+          "duration_s": 3
+        },
+        {
+          "name": "Fire_Heavy",
+          "duration_s": 1.399999976158142
+        },
+        {
+          "name": "Plasma_Sweep",
+          "duration_s": 4
+        },
+        {
+          "name": "Turret_Aim",
+          "duration_s": 8
+        }
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.7999996542930603,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": true,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.909192383289337,
+          0.00544419139623642,
+          -4.626236915588379
+        ],
+        "max": [
+          2.9099475741386414,
+          3.0159517526626587,
+          8.64112377539277
+        ],
+        "dimensions_m": [
+          5.8191399574279785,
+          3.0105075612664223,
+          13.26736069098115
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod1/mork_d1.glb",
+      "bytes": 478784,
+      "sha256": "1a0aee72e0f22af836d491b5e9a47a928ff6c25aebfcb4736da02b5c1650fe19",
+      "triangles": 6922,
+      "draw_calls": 70,
+      "meshopt_file": "derived/meshopt/lod1/mork_d1.meshopt.glb",
+      "meshopt_bytes": 292564,
+      "meshopt_sha256": "98b87333175d6ac21360380c4e891287704bb1bd8166df5f2b8ce6e9a5e7d7e8",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 1,
+      "damage_level": 2,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_low_d2.glb",
+      "source_sha256": "df4fb19d25b280715720150bbae6841c6acfd329b67a45ec9b6d36f1cbc2e9a8",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.7999996542930603,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.909192383289337,
+          0.005444169044494629,
+          -4.626236915588379
+        ],
+        "max": [
+          2.9099475741386414,
+          3.0159515142440796,
+          5.840662944032979
+        ],
+        "dimensions_m": [
+          5.8191399574279785,
+          3.010507345199585,
+          10.466899859621357
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "GUN_RECOIL",
+        "GUN_PITCH",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod1/mork_d2.glb",
+      "bytes": 465240,
+      "sha256": "1b30d5b43b57e3c818c5bf5f27740835a0fc7cda5cfa2bbc760643699a8cbd82",
+      "triangles": 7310,
+      "draw_calls": 79,
+      "meshopt_file": "derived/meshopt/lod1/mork_d2.meshopt.glb",
+      "meshopt_bytes": 280820,
+      "meshopt_sha256": "d9809ac0cbb9822c332c1d6530ef54176737a2891306758624b3f911fce26407",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 1,
+      "damage_level": 3,
+      "derived": true,
+      "derivation": "Original geometry and clips, explicit paint-role metadata added",
+      "source_file": "../mork_hover_tank_low_d3.glb",
+      "source_sha256": "2c1b628c36ac36c4e7c119a07f4edd8f90f4723363c9a1d9cc95bc0068764f4e",
+      "static": false,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.7999996542930603,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [
+        {
+          "id": "SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.8,
+            -4.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "available": false,
+          "width_m": null
+        }
+      ],
+      "bounds": {
+        "min": [
+          -3.6578231031474076,
+          0.0035233274102211,
+          -5.299812906413653
+        ],
+        "max": [
+          5.133706159224686,
+          1.9791337245021399,
+          5.840662944032979
+        ],
+        "dimensions_m": [
+          8.791529262372094,
+          1.9756103970919188,
+          11.14047585044663
+        ]
+      },
+      "required_nodes": [
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "TURRET_YAW",
+        "HULL_SUSPENSION",
+        "NACELLE_L",
+        "NACELLE_R",
+        "HOVER_RIG",
+        "SOCKET_SERVICE",
+        "ROOT"
+      ],
+      "file": "models/lod1/mork_d3.glb",
+      "bytes": 484816,
+      "sha256": "ab8adfea882ddbb374cdec3a6a531c3d3fb5386ac16838b22dafed4d01867b40",
+      "triangles": 6478,
+      "draw_calls": 72,
+      "meshopt_file": "derived/meshopt/lod1/mork_d3.meshopt.glb",
+      "meshopt_bytes": 292360,
+      "meshopt_sha256": "d75b862eadbb0b106519c1a639467ee5543d7066a09576a0e8adc248ccd67ace",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    },
+    {
+      "lod": 2,
+      "damage_level": 0,
+      "derived": true,
+      "derivation": "Static reduction from game D0; per-vertex paint roles assigned from named source materials before merging",
+      "source_file": "../mork_hover_tank_low_d0.glb",
+      "source_sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+      "static": true,
+      "plot_m": [
+        18,
+        18
+      ],
+      "clips": [],
+      "sockets": [
+        {
+          "node": "SOCKET_SERVICE",
+          "kind": "service",
+          "position_m": [
+            0,
+            0.7999996542930603,
+            -4.699999809265137
+          ],
+          "normal": [
+            1.5099580252808492e-7,
+            0,
+            -0.9999999999999885
+          ]
+        }
+      ],
+      "source_interfaces": [],
+      "bounds": {
+        "min": [
+          -2.906057119369507,
+          0.00544419139623642,
+          -4.623202800750732
+        ],
+        "max": [
+          2.906381368637085,
+          3.0036489963531494,
+          8.640823364257812
+        ],
+        "dimensions_m": [
+          5.812438488006592,
+          2.998204804956913,
+          13.264026165008545
+        ]
+      },
+      "required_nodes": [
+        "ROOT",
+        "HOVER_RIG",
+        "HULL_SUSPENSION",
+        "PLASMA_YAW_L",
+        "PLASMA_YAW_R",
+        "TURRET_YAW",
+        "GUN_PITCH",
+        "GUN_RECOIL",
+        "NACELLE_L",
+        "NACELLE_R",
+        "SOCKET_SERVICE"
+      ],
+      "file": "models/lod2/mork_d0.glb",
+      "bytes": 81340,
+      "sha256": "c2488b74c04de74ae7da063666368073f30219e7702d57e9313e9b1c12c0ad75",
+      "triangles": 2072,
+      "draw_calls": 1,
+      "meshopt_file": "derived/meshopt/lod2/mork_d0.meshopt.glb",
+      "meshopt_bytes": 36936,
+      "meshopt_sha256": "112e6fa9bbbda2cff64f8d1446c2abfe56d2703ddf833f5ecae418ae0b7a4d0b",
+      "meshopt_derived": true,
+      "credit": "Models and original livery art by jelaludo"
+    }
+  ]
+}

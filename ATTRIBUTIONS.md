@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## MÖRK customization / 25 September 2026
+
+Original rabbit, circuit, camouflage and stroke-lettering artwork by jelaludo, procedurally authored for the requested livery examples. Night Circuit is an original futuristic circuit design with no franchise logos. Reuses this repository's MÖRK geometry and animation; originals are preserved. Metadata-enriched plain models are authoritative for this package; baked example skins, Meshopt copies and rendered previews are marked derivatives. No external art or fonts embedded.
+
+
 ## HEX-06 Heptapod resource walker
 
 - On 24 September 2026, jelaludo requested a large Heptapod-6-like robot with much taller legs, a ground-burning resource laser, and room for a tank to drive underneath.
