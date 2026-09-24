@@ -21,8 +21,21 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 11. **LIT-01 chip manufacturing — intact candidate delivered; review pending.** Review the four-mirror optical bench, wafer writing and cassette interfaces in the game camera. Live browser/mobile, inventory hooks, release compression and phone performance remain pending. D1–D3 are future work.
 
+12. **VER-01 greenhouse — intact candidate delivered; review pending.** Review crop visibility through the envelope, irrigation, harvest access and resource interfaces. Live browser/mobile transparency, game release compression, inventory/growth integration, thresholds and phone performance remain pending. D1–D3 are future work.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+
+## 24 September 2026 / VER-01 greenhouse operation
+
+Added a futuristic greenhouse to the terraforming kit: a faceted glazed envelope and roof collectors above two hydroponic beds with 24 leafy crop clusters. Rear recovery tanks and a climate fan support the operation. A traveling irrigation bridge services the beds, returns, then sliding front doors open for harvest access in a continuous 20-second unbaked demonstration.
+
+- LOD0: 8,494 triangles / 9 mesh draws / 326,728 plain bytes.
+- LOD1: 5,014 triangles / 9 mesh draws / 202,000 plain bytes.
+- LOD2: 1,250 triangles / 1 mesh draw / 62,968 plain bytes. Opaque static envelope; hidden internal geometry omitted. D0 only at all tiers.
+- All six plain/decoded exports pass glTF, geometry, hashes, budgets, stable node/socket, bounds and controller checks. Viewer tests with real models and a mocked renderer cover initial painting, canopy visibility, harvest doors, reset, loading races, tier controls, encoding, wireframe and playback.
+- Added procedural source, derived Blender review scene, full/interior previews (both visually reviewed), manifest, integration notes and viewer with irrigation/glazing controls. Workshop catalog and shared navigation updated. Live WebGL/mobile and game review, transparency sorting, inventory/growth hooks, release gltfpack and reference-phone acceptance remain pending; no FPS claim.
+- Hand-off: this commit plus `assets/greenhouse/`. Plain GLBs remain authoritative; Meshopt and Blender review copies are derived.
 
 ## 24 September 2026 / LIT-01 chip manufacturing unit
 

@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "reports": [
+    {
+      "file": "lod0/greenhouse_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 8494,
+      "draw_calls": 9,
+      "bytes": 326728,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/greenhouse_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 8494,
+      "draw_calls": 9,
+      "bytes": 110492,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/greenhouse_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 5014,
+      "draw_calls": 9,
+      "bytes": 202000,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/greenhouse_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 5014,
+      "draw_calls": 9,
+      "bytes": 75584,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/greenhouse_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 1250,
+      "draw_calls": 1,
+      "bytes": 62968,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/greenhouse_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 1250,
+      "draw_calls": 1,
+      "bytes": 22732,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ]
+}

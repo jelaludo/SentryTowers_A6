@@ -1,0 +1,505 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "greenhouse",
+  "label": "VER-01 / Greenhouse operation",
+  "status": "contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 unauthored; damage is independent from detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Manual recording and close inspection",
+    "distance": "Static rest pose; retain LOD1 during service motion."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Cultivation_Service_Cycle",
+      "duration_s": 20,
+      "loop": true
+    },
+    "scope": "Recirculating cultivation demonstration: irrigation gantry, climate fan and harvest access. Engine pivots are unbaked; plant growth and inventory are game-owned."
+  },
+  "assets": [
+    {
+      "id": "greenhouse_d0_lod0",
+      "family": "greenhouse",
+      "label": "VER-01 / Greenhouse operation",
+      "file": "lod0/greenhouse_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 326728,
+      "sha256": "1f1e2ecdfda91be42119855983ee979c804e3cc5b815f4adfd05f85da7ae2ffa",
+      "triangles": 8494,
+      "draw_calls": 9,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/greenhouse_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 110492,
+      "meshopt_sha256": "43e1eafc34c1d0e59b153a16f2b1f41576a50c2592f811f8f46cabbc698b2dec",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        14
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -5.9604643443123e-10,
+          -6
+        ],
+        "max": [
+          5,
+          5.349999904632568,
+          6
+        ],
+        "dimensions_m": [
+          10,
+          5.349999905228615,
+          12
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -5,
+          0,
+          -6
+        ],
+        "max": [
+          5,
+          5.4,
+          6
+        ]
+      },
+      "sockets": [
+        {
+          "id": "IRRIGATION",
+          "node": "SOCKET_IRRIGATION",
+          "kind": "irrigation",
+          "position_m": [
+            0,
+            2.72,
+            -2.9
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WATER",
+          "node": "SOCKET_WATER",
+          "kind": "water",
+          "position_m": [
+            -2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "NUTRIENT",
+          "node": "SOCKET_NUTRIENT",
+          "kind": "nutrient",
+          "position_m": [
+            2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.8,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "HARVEST",
+          "node": "SOCKET_HARVEST",
+          "kind": "produce",
+          "position_m": [
+            0,
+            0.76,
+            5.45
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R"
+      ],
+      "required_nodes": [
+        "GREENHOUSE_ROOT",
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R",
+        "SOCKET_IRRIGATION",
+        "SOCKET_WATER",
+        "SOCKET_NUTRIENT",
+        "SOCKET_POWER",
+        "SOCKET_HARVEST"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "greenhouse_d0_lod1",
+      "family": "greenhouse",
+      "label": "VER-01 / Greenhouse operation",
+      "file": "lod1/greenhouse_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 202000,
+      "sha256": "bde6772086a9e2cf4ec931ed07d84517614f2ae05dfbd5b4221422b58b2da142",
+      "triangles": 5014,
+      "draw_calls": 9,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/greenhouse_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 75584,
+      "meshopt_sha256": "465dd425291a156e4de32fb4c491f1868f9bac585bd5a639dee6d6ffa2588137",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        14
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -5.9604643443123e-10,
+          -6
+        ],
+        "max": [
+          5,
+          5.349999904632568,
+          6
+        ],
+        "dimensions_m": [
+          10,
+          5.349999905228615,
+          12
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -5,
+          0,
+          -6
+        ],
+        "max": [
+          5,
+          5.4,
+          6
+        ]
+      },
+      "sockets": [
+        {
+          "id": "IRRIGATION",
+          "node": "SOCKET_IRRIGATION",
+          "kind": "irrigation",
+          "position_m": [
+            0,
+            2.72,
+            -2.9
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WATER",
+          "node": "SOCKET_WATER",
+          "kind": "water",
+          "position_m": [
+            -2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "NUTRIENT",
+          "node": "SOCKET_NUTRIENT",
+          "kind": "nutrient",
+          "position_m": [
+            2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.8,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "HARVEST",
+          "node": "SOCKET_HARVEST",
+          "kind": "produce",
+          "position_m": [
+            0,
+            0.76,
+            5.45
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R"
+      ],
+      "required_nodes": [
+        "GREENHOUSE_ROOT",
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R",
+        "SOCKET_IRRIGATION",
+        "SOCKET_WATER",
+        "SOCKET_NUTRIENT",
+        "SOCKET_POWER",
+        "SOCKET_HARVEST"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "greenhouse_d0_lod2",
+      "family": "greenhouse",
+      "label": "VER-01 / Greenhouse operation",
+      "file": "lod2/greenhouse_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 62968,
+      "sha256": "ecd8f97b9eb5f889d5e08277c68348ae26455ec84933616b35b6001e35120faf",
+      "triangles": 1250,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/greenhouse_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 22732,
+      "meshopt_sha256": "0bd3b950f15d8f428d7490f915959bd222bcd9c954614ed3c138c42357e18443",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        14
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -5.9604643443123e-10,
+          -6
+        ],
+        "max": [
+          5,
+          5.349999904632568,
+          6
+        ],
+        "dimensions_m": [
+          10,
+          5.349999905228615,
+          12
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -5,
+          0,
+          -6
+        ],
+        "max": [
+          5,
+          5.4,
+          6
+        ]
+      },
+      "sockets": [
+        {
+          "id": "IRRIGATION",
+          "node": "SOCKET_IRRIGATION",
+          "kind": "irrigation",
+          "position_m": [
+            0,
+            2.72,
+            -2.9
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "WATER",
+          "node": "SOCKET_WATER",
+          "kind": "water",
+          "position_m": [
+            -2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "NUTRIENT",
+          "node": "SOCKET_NUTRIENT",
+          "kind": "nutrient",
+          "position_m": [
+            2.7,
+            0.9,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.8,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "HARVEST",
+          "node": "SOCKET_HARVEST",
+          "kind": "produce",
+          "position_m": [
+            0,
+            0.76,
+            5.45
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R"
+      ],
+      "required_nodes": [
+        "GREENHOUSE_ROOT",
+        "CLIMATE_FAN",
+        "IRRIGATION_GANTRY",
+        "IRRIGATION_MIST",
+        "DOOR_L",
+        "DOOR_R",
+        "SOCKET_IRRIGATION",
+        "SOCKET_WATER",
+        "SOCKET_NUTRIENT",
+        "SOCKET_POWER",
+        "SOCKET_HARVEST"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

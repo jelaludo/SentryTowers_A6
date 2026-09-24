@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## VER-01 greenhouse operation
+
+- On 24 September 2026, jelaludo requested a futuristic greenhouse operation for the terraforming kit.
+- Original procedural structure, crop geometry and service controller, using this repository's original industry primitives and palette. Models by jelaludo. VER-01 is provisional. No external models, images or textures are embedded.
+- Plain GLBs are authoritative; optional Meshopt exports and the imported Blender review scene are explicitly derived.
+
 ## LIT-01 chip manufacturing unit
 
 - On 24 September 2026, jelaludo requested a chip-manufacturing unit with a series of mirrors guiding a laser to write on a wafer.

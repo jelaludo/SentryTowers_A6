@@ -44,3 +44,7 @@ Work proceeds in numbered order unless the game developer changes priority. At e
 ## 24 September 2026 / Chip manufacturing
 
 LIT-01 intact candidate delivered: four-mirror writer, patterned wafer and XY scanning stage, detailed/game/static-distance exports and 12-second unbaked demonstration. Next: browser/mobile review, game inventory and cassette interfaces, release gltfpack, game cameras, phone measurements and D1–D3 if requested.
+
+## 24 September 2026 / Greenhouse operation
+
+VER-01 intact candidate delivered: glazed cultivation, 24 crop clusters, traveling irrigation, climate plant and harvest access. Detailed/game/static-distance tiers meet landmark budgets. Next: live browser/mobile transparency, game water/nutrient/harvest and growth hooks, release gltfpack, thresholds, phone measurements and requested damage variants.
