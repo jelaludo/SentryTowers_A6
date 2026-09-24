@@ -60,3 +60,7 @@ Three requested liveries and Factory now demonstrate paint, patterns, bounded de
 ## 25 September 2026 / 33 sentries — three-tier candidate delivered
 
 All eleven families × three equipment tiers now have detailed, articulated game and static distance/loading exports with original lineage, stable interfaces, measured manifests, decoded validation and a LOD viewer. Next: game r160/release gltfpack, camera/mobile/phone review, rigid Heptapod draw-cost acceptance and optional static swap policy. Damage states, collision and terrain IK remain separate future work.
+
+## 25 September 2026 / First Light — cinematic delivered
+
+Separate 100-second launcher → SOL-88 → laser → 48 HEL-01 constellation presentation is available with deterministic seeking, chapters and camera controls. Next: user direction on pacing/composition, mobile review and sustained device measurements. It is a scene composition using existing assets, not a game orbital-physics or resource simulation.

@@ -32,6 +32,14 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / First Light orbital cinematic
+
+Added a separate 100-second cinematic tab linked from ARC-01, SOL-88 and the Workshop catalog. Starts with the curved launcher, follows SOL-88 into a small-planet reveal, animates the original Syzygy cages/optics and performs a gated ten-second laser test. Repeated launches then deploy 48 HEL-01 reflector heads into three orbital rings before a final wide camera orbit.
+
+Reuses detailed ARC-01/SOL-88 and the HEL-01 game reflector geometry; originals and their canonical dimensions remain unchanged. Planet, atmosphere, stars, laser and launch trails are procedural presentation elements. Payload scaling, repeated launch timing and orbital paths are staged. The 48 mirror heads use two instanced draws; no FPS claim. The orbital adaptation excludes HEL-01's ground pedestal.
+
+Play/pause, scrub, restart, six chapters, speed, free camera and fullscreen are available. The scene starts paused and pauses when its tab is hidden. Timeline/scene tests cover all transforms, camera continuity, planet clearance, 48 deployments, bounded firing and reset; viewer tests cover chapters, scrub, end/replay and controls. Desktop Safari review checked launch, laser, constellation and final playback. Original source hashes are recorded; mobile/game and sustained device performance remain pending. Hand-off: this commit plus `orbital-cinematic/` and its referenced source folders.
+
 ## 25 September 2026 / MÖRK live marking controls and wear
 
 Fixed customization sliders that only committed on release and exposed a narrow size range. Marking size, full rotation and new horizontal/vertical placement now update during dragging, with numeric readouts, a live panel preview and a close-up camera. Turret numbers have separate sizing. Panel-specific selectors no longer imply that changing an emblem changes number/message artwork; unsupported damage/static panels explain why markings are unavailable.

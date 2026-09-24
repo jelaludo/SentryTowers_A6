@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "duration_s": 100,
+  "mirror_count": 48,
+  "mirror_instance_draws": 2,
+  "beam_window_s": [
+    34,
+    44
+  ],
+  "sources": [
+    {
+      "file": "assets/settlement-industry/lod1/mirror_d0_lod1.glb",
+      "sha256": "743f9b99dc4571bcb3b9f35f0ebb657bc1cb690bf853cc2d91355639acda1762",
+      "bytes": 18036,
+      "lod": 1,
+      "triangles": 296,
+      "draw_calls": 3
+    },
+    {
+      "file": "assets/orbital-launcher/lod0/launcher_d0_lod0.glb",
+      "sha256": "ea5ea9a5970a48d4b56f08b4033c059a78549aab7ef99ffc6246cb2df4ab6483",
+      "bytes": 711516,
+      "lod": 0,
+      "triangles": 11784,
+      "draw_calls": 7
+    },
+    {
+      "file": "assets/sol88/lod0/sol88_platform_detailed.glb",
+      "sha256": "e5efe4ce776c69dd983be5aa3cfaec9e8d6827c0e67e951a8e2c9f83bacc0aed",
+      "bytes": 2303400,
+      "lod": 0,
+      "triangles": 65664,
+      "draw_calls": 7
+    }
+  ],
+  "checks": [
+    "source hashes",
+    "finite transforms through all 100 seconds",
+    "continuous camera and payload at segment boundaries",
+    "mirror paths clear planet",
+    "48 deployments in increasing order",
+    "ten-second beam gate",
+    "beam terminates at planet surface",
+    "repeatable reset and scrubbing",
+    "two instanced mirror draws"
+  ],
+  "scope": "Staged browser cinematic; dimensions/scales are illustrative. Original models unchanged. Mobile/game performance unmeasured."
+}

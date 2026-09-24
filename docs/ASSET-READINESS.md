@@ -32,6 +32,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 | `antenna-array/` | Original | Multi-detail animated prototype; current naming/schema migration is pending. |
 | `missile-lab/` | Original | Reusable motion study, not a full weapon runtime acceptance claim. |
 | `hover-tank/` | Contract candidate | Detailed/game D0–D3 and static D0 distance; livery workshop adds three requested skins, recipes, protected paint roles and decoded validation. Original assets preserved. Game garage/r160/release compression, mobile and performance review remain pending. |
+| `orbital-cinematic/` | Presentation | Detailed ARC-01/SOL-88 and instanced HEL-01 heads in a validated 100-second scene; desktop Safari reviewed. Staged scales/timing; mobile/game/performance review pending. |
 | `sentries/` | Contract candidate | All 33 equipment variants have LOD0/LOD1/static LOD2; 99 plain + 99 decoded exports validate with bounds/socket/clip parity. Game r160/release, mobile/camera and phone acceptance remain pending. |
 | `reckon-guard/` | Original | Interactive prototype without a formal current-contract LOD family. |
 | `isao-birudoron/` | Contract candidate | Production alpha with LOD0/1/2; art, damage, draw-call and game-performance review remain pending. |

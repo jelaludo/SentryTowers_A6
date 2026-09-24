@@ -1,4 +1,4 @@
-import {collections} from './catalog.js';
+import {collections} from './catalog.js?v=first-light-1';
 const $=id=>document.getElementById(id),params=new URLSearchParams(location.search),categories=['All',...new Set(collections.map(c=>c.category))];let category=categories.includes(params.get('category'))?params.get('category'):'All';$('search').value=params.get('q')||'';$('collectionCount').textContent=collections.length;
 for(const name of categories){const b=document.createElement('button');b.textContent=name;b.onclick=()=>{category=name;render();};$('filters').append(b);}
 const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
