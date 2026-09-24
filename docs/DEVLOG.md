@@ -32,6 +32,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / Continuous SOL-88 launch tracking
+
+Replaced the first launch's hidden transfer/reappearance with a continuously visible SOL-88. The camera follows the packed laser throughout the pullback, then approaches the orbital reveal. Straight, constant-speed ascent continues through clearance at 9.8 seconds; a tangent-matched staged acquisition meets the existing orbit at 23 seconds. Presentation scale grows continuously, and the reveal camera leaves room for the full assembly. HEL-01 deployment, laser timing and original GLBs are unchanged.
+
+Added real-model projection checks at 20 Hz through launch and reveal for landscape and portrait: full animated bounds stay inside the frame, remain at least eight pixels tall at 720px viewport height, and are not occluded by the planet. Timeline/source validation and viewer-control regression checks pass. These are geometric framing checks, not a mobile performance claim.
+
 ## 25 September 2026 / First Light scale and launch revision
 
 Enlarged the cinematic planet from radius 140 to 195 and adjusted wide framing. Removed eased, curved launch-to-orbit travel: SOL-88 and every HEL-01 now leave in straight vertical, constant-speed shots without slowing at release. Orbital arrivals follow off-screen transfer rather than bending the visible launch. The planet and polar launch site rotate beneath the released payloads; a fixed, original procedural spiral galaxy adds a distant perspective reference.

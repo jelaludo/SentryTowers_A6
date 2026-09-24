@@ -1,6 +1,6 @@
-import {createGalaxy} from './galaxy.js?v=straight-launch-2';
+import {createGalaxy} from './galaxy.js?v=sol-tracking-3';
 import {applyLaunch,launchState} from '../assets/orbital-launcher/runtime.js';
-import {cinematicState,CENTER,PLANET_RADIUS,MIRROR_COUNT,mirrorOrbit} from './timeline.js?v=straight-launch-2';
+import {cinematicState,CENTER,PLANET_RADIUS,MIRROR_COUNT,mirrorOrbit} from './timeline.js?v=sol-tracking-3';
 export function createCinematic(T,{launcher,sol,solClips,mirror}){
  const scene=new T.Scene();scene.background=new T.Color(0x020610);const center=new T.Vector3(...CENTER),site=new T.Group();site.name='CINEMATIC_LAUNCH_SITE';scene.add(site);site.add(launcher);
  const sphere=new T.SphereGeometry(PLANET_RADIUS,96,64),positions=sphere.attributes.position,colors=new Float32Array(positions.count*3);for(let i=0;i<positions.count;i++){const n=new T.Vector3().fromBufferAttribute(positions,i).normalize(),v=Math.sin(n.x*6+Math.sin(n.z*5))*Math.cos(n.y*8-n.z*3)+Math.sin(n.y*15+n.x*4)*.5,land=v>.22,c=new T.Color(Math.abs(n.y)>.88?0xcbd9d8:land?v>.8?0x697354:0x366651:0x123d59);c.multiplyScalar(.9+Math.sin(n.x*31+n.z*47)*.035);colors.set(c.toArray(),i*3);}sphere.setAttribute('color',new T.BufferAttribute(colors,3));const planet=new T.Mesh(sphere,new T.MeshStandardMaterial({vertexColors:true,roughness:.82,metalness:.12}));planet.name='CINEMATIC_SMALL_PLANET';planet.position.copy(center);scene.add(planet);
