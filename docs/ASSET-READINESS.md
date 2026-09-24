@@ -15,6 +15,7 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 
 | Route | Current state | Scope and remaining review |
 | --- | --- | --- |
+| `heptapod-extractor/` | Contract candidate | D0 detailed/articulated game/static distance; six plain/decoded exports, foot placement, tank corridor and controller tests pass. Live WebGL/mobile, terrain/navigation, traffic enforcement, resource hooks, release compression and phone review pending. |
 | `greenhouse/` | Contract candidate | D0 detailed/game/static-distance; plain/decoded validation, stable interfaces and continuous service motion pass. Viewer control tests use a mocked renderer; live browser/mobile transparency, game resources, release compression and phone acceptance pending. |
 | `chip-manufacturing/` | Contract candidate | D0 LOD0/1/2, plain/decoded geometry, stable nodes/sockets, mirror reflection and wafer travel validate. Blender views reviewed; browser/mobile, game resource hooks, release compression and phone acceptance pending. |
 | `orbital-launcher/` | Contract candidate | ARC launcher and SEED collector D0 LOD0/1/2, decoded compression, docking, launch/recovery and six-petal deployment validate. Blender and Safari static/control views reviewed; sustained browser playback, mobile, game integration and phone acceptance remain pending. |

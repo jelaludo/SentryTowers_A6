@@ -1,0 +1,958 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "heptapod-extractor",
+  "category": "mobile_unit_with_optional_static_distance",
+  "label": "HEX-06 / Heptapod resource walker",
+  "status": "contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 unauthored; damage is independent from detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "tank_clearance": {
+    "width_m": 8,
+    "height_m": 6.5,
+    "axis": "+Z",
+    "mode": "traffic",
+    "reference": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+    "reference_size_m": [
+      5.81914,
+      3.01051,
+      13.26736
+    ],
+    "scope": "Normal tank rest pose, straight passage. Mining laser must be inhibited; turret sweeps and moving-walker passage are not certified.",
+    "reference_sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Manual recording and close inspection",
+    "distance": "Static parked pose; retain articulated LOD1 for all walking, mining and traffic interactions."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Extraction_Cycle",
+      "duration_s": 16,
+      "loop": true
+    },
+    "scope": "Six-legged mineral-ablation walker. Engine-driven IK legs, laser pivots and preview extraction. Traffic mode inhibits the laser. Walk mode is an in-place tripod demonstration, not navigation."
+  },
+  "assets": [
+    {
+      "id": "extractor_d0_lod0",
+      "family": "extractor",
+      "label": "HEX-06 / Heptapod resource walker",
+      "file": "lod0/extractor_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 790236,
+      "sha256": "9667806d7c0702988baf9271817f459db9b4d1568e969b2d2fda85754260c312",
+      "triangles": 14760,
+      "draw_calls": 6,
+      "materials": 2,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/extractor_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 181240,
+      "meshopt_sha256": "9e1120de5bdad7afdf56567b9e28567d1f9825aea1c12204eb885ad010272d64",
+      "meshopt_derived": true,
+      "plot_m": [
+        22,
+        22
+      ],
+      "bounds": {
+        "min": [
+          -9.297087669372559,
+          -2.220446049250313e-16,
+          -6.4085054397583034
+        ],
+        "max": [
+          9.29708766937256,
+          12.699999809265137,
+          6.4085054397583034
+        ],
+        "dimensions_m": [
+          18.594175338745117,
+          12.699999809265137,
+          12.817010879516607
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -10,
+          0,
+          -8
+        ],
+        "max": [
+          10,
+          13,
+          8
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            -5.200000000000002
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000003,
+            0,
+            6.123233995736769e-16
+          ],
+          "normal": [
+            -2.0816681711721685e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            5.200000000000002
+          ],
+          "normal": [
+            1.3877787807814457e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            -5.200000000000001
+          ],
+          "normal": [
+            -5.551115123125783e-17,
+            -1,
+            4.85722573273506e-16
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000003,
+            0,
+            0
+          ],
+          "normal": [
+            2.0816681711721685e-16,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            5.200000000000001
+          ],
+          "normal": [
+            -3.0531133177191805e-16,
+            -1,
+            4.2327252813834093e-16
+          ]
+        },
+        {
+          "id": "LASER",
+          "node": "SOCKET_LASER",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            7.64,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RESOURCE_OUTPUT",
+          "node": "SOCKET_RESOURCE_OUTPUT",
+          "kind": "mineral_output",
+          "position_m": [
+            0,
+            9.7,
+            -3.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            9.8,
+            -2.4
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TRAFFIC_ENTRY",
+          "node": "SOCKET_TRAFFIC_ENTRY",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TRAFFIC_EXIT",
+          "node": "SOCKET_TRAFFIC_EXIT",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM"
+      ],
+      "required_nodes": [
+        "EXTRACTOR_ROOT",
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM",
+        "LEG_01_CONTACT",
+        "LEG_02_CONTACT",
+        "LEG_03_CONTACT",
+        "LEG_04_CONTACT",
+        "LEG_05_CONTACT",
+        "LEG_06_CONTACT",
+        "SOCKET_LASER",
+        "SOCKET_RESOURCE_OUTPUT",
+        "SOCKET_POWER",
+        "SOCKET_TRAFFIC_ENTRY",
+        "SOCKET_TRAFFIC_EXIT"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "extractor_d0_lod1",
+      "family": "extractor",
+      "label": "HEX-06 / Heptapod resource walker",
+      "file": "lod1/extractor_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 390116,
+      "sha256": "b4c08f2c7da9dc97b8000a0ad57783f76d37bc8e6414cba83e8e3cfee20edc2c",
+      "triangles": 7256,
+      "draw_calls": 6,
+      "materials": 2,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/extractor_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 101300,
+      "meshopt_sha256": "8f7eb0a32d67bf6728004e796c1f839f3512759b7e770c8b4cbfa8daa29c2a96",
+      "meshopt_derived": true,
+      "plot_m": [
+        22,
+        22
+      ],
+      "bounds": {
+        "min": [
+          -9.297087669372559,
+          -2.220446049250313e-16,
+          -6.4085054397583034
+        ],
+        "max": [
+          9.29708766937256,
+          12.699999809265137,
+          6.4085054397583034
+        ],
+        "dimensions_m": [
+          18.594175338745117,
+          12.699999809265137,
+          12.817010879516607
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -10,
+          0,
+          -8
+        ],
+        "max": [
+          10,
+          13,
+          8
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            -5.200000000000002
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000003,
+            0,
+            6.123233995736769e-16
+          ],
+          "normal": [
+            -2.0816681711721685e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            5.200000000000002
+          ],
+          "normal": [
+            1.3877787807814457e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            -5.200000000000001
+          ],
+          "normal": [
+            -5.551115123125783e-17,
+            -1,
+            4.85722573273506e-16
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000003,
+            0,
+            0
+          ],
+          "normal": [
+            2.0816681711721685e-16,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            5.200000000000001
+          ],
+          "normal": [
+            -3.0531133177191805e-16,
+            -1,
+            4.2327252813834093e-16
+          ]
+        },
+        {
+          "id": "LASER",
+          "node": "SOCKET_LASER",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            7.64,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RESOURCE_OUTPUT",
+          "node": "SOCKET_RESOURCE_OUTPUT",
+          "kind": "mineral_output",
+          "position_m": [
+            0,
+            9.7,
+            -3.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            9.8,
+            -2.4
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TRAFFIC_ENTRY",
+          "node": "SOCKET_TRAFFIC_ENTRY",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TRAFFIC_EXIT",
+          "node": "SOCKET_TRAFFIC_EXIT",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM"
+      ],
+      "required_nodes": [
+        "EXTRACTOR_ROOT",
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM",
+        "LEG_01_CONTACT",
+        "LEG_02_CONTACT",
+        "LEG_03_CONTACT",
+        "LEG_04_CONTACT",
+        "LEG_05_CONTACT",
+        "LEG_06_CONTACT",
+        "SOCKET_LASER",
+        "SOCKET_RESOURCE_OUTPUT",
+        "SOCKET_POWER",
+        "SOCKET_TRAFFIC_ENTRY",
+        "SOCKET_TRAFFIC_EXIT"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "extractor_d0_lod2",
+      "family": "extractor",
+      "label": "HEX-06 / Heptapod resource walker",
+      "file": "lod2/extractor_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 132004,
+      "sha256": "692c53bb655bd78aab0b975821cd7d90fdea19af35c8999f85df6fd656a024df",
+      "triangles": 2860,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/extractor_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 50008,
+      "meshopt_sha256": "62035ea53cb8722dcd1fcc4101420007689c612f3b64a4408e47831a862790b3",
+      "meshopt_derived": true,
+      "plot_m": [
+        22,
+        22
+      ],
+      "bounds": {
+        "min": [
+          -9.297087669372559,
+          -1.6653345369377348e-16,
+          -6.408505439758301
+        ],
+        "max": [
+          9.297087669372559,
+          12.699999809265137,
+          6.408505439758301
+        ],
+        "dimensions_m": [
+          18.594175338745117,
+          12.699999809265137,
+          12.817010879516602
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -10,
+          0,
+          -8
+        ],
+        "max": [
+          10,
+          13,
+          8
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            -5.200000000000002
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000003,
+            0,
+            6.123233995736769e-16
+          ],
+          "normal": [
+            -2.0816681711721685e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -8.200000000000001,
+            0,
+            5.200000000000002
+          ],
+          "normal": [
+            1.3877787807814457e-16,
+            -1,
+            -1.1102230246251565e-16
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            -5.200000000000001
+          ],
+          "normal": [
+            -5.551115123125783e-17,
+            -1,
+            4.85722573273506e-16
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000003,
+            0,
+            0
+          ],
+          "normal": [
+            2.0816681711721685e-16,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            8.200000000000001,
+            0,
+            5.200000000000001
+          ],
+          "normal": [
+            -3.0531133177191805e-16,
+            -1,
+            4.2327252813834093e-16
+          ]
+        },
+        {
+          "id": "LASER",
+          "node": "SOCKET_LASER",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            7.64,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RESOURCE_OUTPUT",
+          "node": "SOCKET_RESOURCE_OUTPUT",
+          "kind": "mineral_output",
+          "position_m": [
+            0,
+            9.7,
+            -3.7
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            9.8,
+            -2.4
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TRAFFIC_ENTRY",
+          "node": "SOCKET_TRAFFIC_ENTRY",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TRAFFIC_EXIT",
+          "node": "SOCKET_TRAFFIC_EXIT",
+          "kind": "traffic",
+          "position_m": [
+            0,
+            0,
+            -8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM"
+      ],
+      "required_nodes": [
+        "EXTRACTOR_ROOT",
+        "LEG_RIG",
+        "LEG_01_MOUNT",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_ANKLE",
+        "LEG_02_MOUNT",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_ANKLE",
+        "LEG_03_MOUNT",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_ANKLE",
+        "LEG_04_MOUNT",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_ANKLE",
+        "LEG_05_MOUNT",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_ANKLE",
+        "LEG_06_MOUNT",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_ANKLE",
+        "LASER_YAW",
+        "LASER_PITCH",
+        "LASER_BEAM",
+        "GROUND_EFFECT",
+        "RESOURCE_STREAM",
+        "LEG_01_CONTACT",
+        "LEG_02_CONTACT",
+        "LEG_03_CONTACT",
+        "LEG_04_CONTACT",
+        "LEG_05_CONTACT",
+        "LEG_06_CONTACT",
+        "SOCKET_LASER",
+        "SOCKET_RESOURCE_OUTPUT",
+        "SOCKET_POWER",
+        "SOCKET_TRAFFIC_ENTRY",
+        "SOCKET_TRAFFIC_EXIT"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

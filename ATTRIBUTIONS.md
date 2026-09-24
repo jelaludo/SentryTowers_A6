@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## HEX-06 Heptapod resource walker
+
+- On 24 September 2026, jelaludo requested a large Heptapod-6-like robot with much taller legs, a ground-burning resource laser, and room for a tank to drive underneath.
+- Original newly authored geometry and articulated controller inspired by this repository's six-legged Heptapod A6 and industry palette. Models by jelaludo. HEX-06 is provisional. Existing Heptapod and MÖRK sources are preserved.
+- The viewer and Blender review scene reuse the repository's MÖRK low D0 tank as a separate scale reference; it is not merged into the walker exports. No external geometry, textures or images are embedded. Meshopt and Blender review copies are derived from authoritative plain GLBs.
+
 ## VER-01 greenhouse operation
 
 - On 24 September 2026, jelaludo requested a futuristic greenhouse operation for the terraforming kit.

@@ -23,8 +23,20 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 
 12. **VER-01 greenhouse — intact candidate delivered; review pending.** Review crop visibility through the envelope, irrigation, harvest access and resource interfaces. Live browser/mobile transparency, game release compression, inventory/growth integration, thresholds and phone performance remain pending. D1–D3 are future work.
 
+13. **HEX-06 Heptapod resource walker — intact candidate delivered; review pending.** Integrate traffic exclusion, ground ablation/resource collection and locomotion/terrain IK. Live browser/mobile, game skinning/release compression, turret/terrain clearance, LOD thresholds and reference-phone review remain pending.
+
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
+
+## 24 September 2026 / HEX-06 tall resource walker
+
+Added a Heptapod A6-inspired six-legged mining robot with a suspended hexagonal hull, tall armored shins, grounded shoes, underside laser, mineral recovery effects and upper process reservoirs. It stands 12.7 m high and reserves an 8 m-wide × 6.5 m-high straight tank corridor. The actual MÖRK low D0 reference measures 5.819 × 3.011 × 13.267 m (width/height/length); a triangle-level check certifies the corridor in parked traffic mode across all plain/decoded tiers. Laser/recovery effects are inhibited while the tank passes.
+
+- Detailed: 14,760 triangles / 6 draws / 790,236 plain bytes. Game: 7,256 / 6 / 390,116. Static distance: 2,860 / 1 / 132,004. D0 only. Game preserves the bone hierarchy in one leg-skin draw and meets both the unit triangle target and tighter landmark budgets.
+- Unbaked 16-second mining demonstration, in-place alternating tripod gait, and traffic mode. Stable named pivots/sockets; no terrain deformation, inventory transfer, terrain IK or navigation claimed. Static distance omits laser/recovery effects.
+- Six plain/decoded exports pass validation, budgets, geometry, names/hierarchy, bounds, socket, foot placement and corridor checks. Real-model/mocked-renderer viewer tests cover tank/laser interlock, walking, reset, load races, static controls, encoding, wireframe and playback.
+- Added procedural source, derived Blender review with actual tank for scale, visually reviewed full/mining renders, manifest, validation report, integration README and viewer. Catalog, readiness, roadmap, Devlog and shared navigation updated. Live WebGL/mobile, game collision/resource/locomotion integration, release gltfpack and reference-phone acceptance remain pending; no FPS claim.
+- Hand-off: this commit plus `assets/heptapod-extractor/`. Existing Heptapod and MÖRK assets remain unchanged.
 
 ## 24 September 2026 / VER-01 greenhouse operation
 
