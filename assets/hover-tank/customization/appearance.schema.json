@@ -115,16 +115,40 @@
           },
           "scale": {
             "type": "number",
-            "minimum": 0.45,
-            "maximum": 1
+            "minimum": 0.2,
+            "maximum": 1.5
           },
           "rotation": {
             "type": "number",
-            "minimum": -20,
-            "maximum": 20
+            "minimum": -180,
+            "maximum": 180
+          },
+          "offset_x": {
+            "type": "number",
+            "minimum": -0.4,
+            "maximum": 0.4,
+            "default": 0
+          },
+          "offset_y": {
+            "type": "number",
+            "minimum": -0.4,
+            "maximum": 0.4,
+            "default": 0
+          },
+          "number_scale": {
+            "type": "number",
+            "minimum": 0.4,
+            "maximum": 1.6,
+            "default": 1
           }
         }
       }
+    },
+    "wear": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0
     }
   }
 }

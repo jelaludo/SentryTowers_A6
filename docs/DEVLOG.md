@@ -32,6 +32,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / MÖRK live marking controls and wear
+
+Fixed customization sliders that only committed on release and exposed a narrow size range. Marking size, full rotation and new horizontal/vertical placement now update during dragging, with numeric readouts, a live panel preview and a close-up camera. Turret numbers have separate sizing. Panel-specific selectors no longer imply that changing an emblem changes number/message artwork; unsupported damage/static panels explain why markings are unavailable.
+
+Added deterministic scratches, grime, roughness and faded/chipped decal ink through a cosmetic wear slider. Placement and oversized art are clipped to their atlas cell, preventing leakage onto another marking. Old v1 recipes still load with clean wear and centered placement; the new values save/export/import normally. Raster tests prove visible size/placement/wear changes, and viewer regression checks cover live input, final slider values, one-step gesture undo and persistence. Existing geometry, functional indicators and source GLBs are unchanged. Game/phone integration remains pending.
+
 ## 25 September 2026 / All 33 sentry variants — LOD refresh
 
 Revisited all eleven sentry families and three equipment tiers. Added 99 authoritative plain GLBs: beveled detailed masters, articulated game exports and static one-draw distance/loading tiers. Preserved original GLBs and generators. Equipment tiers remain separate from LOD and damage; only D0 is authored. Surface node labels now have unique dot-free names with migration mappings, while original control nodes, muzzle sockets, root datum, dimensions and Heptapod clips remain consistent.
