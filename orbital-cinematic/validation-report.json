@@ -9,6 +9,14 @@
   "minimum_tracked_sol_height_px_at_720": 19.292119433990653,
   "mirror_count": 48,
   "mirror_instance_draws": 2,
+  "cinematic_mirror_head": {
+    "derived": true,
+    "source_head_triangles": 180,
+    "triangles": 36,
+    "geometry_attribute_bytes": 3888,
+    "instanced_triangles": 1728,
+    "selection": "All cinematic distances; no dynamic LOD swap; canonical source preserved"
+  },
   "beam_window_s": [
     34,
     44
@@ -40,6 +48,8 @@
     }
   ],
   "checks": [
+    "single optical surface with open rim; no overlapping front-facing caps",
+    "36-triangle cinematic distance head",
     "source hashes",
     "finite transforms through all 100 seconds",
     "continuous camera and SOL flight including orbital acquisition",

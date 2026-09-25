@@ -32,6 +32,12 @@ Authored asset changes, game integration feedback, and work still to do. Complet
 The game may continue using its own derived far tiers until the new candidates pass game-side review. Those game-side files are separate derivatives, not the authored exports in this library. The game developer's original notes are retained in [ASSET-COLLABORATION.md](../docs/ASSET-COLLABORATION.md).
 
 
+## 25 September 2026 / HEL-01 cinematic panel shimmer reduction
+
+Replaced the cinematic HEL-01 head with a derived 36-triangle distance representation. A single optical face inside an open hexagonal rim removes the closely stacked front surfaces; small rear braces are omitted and optical highlights softened. Launch and orbital instances share the same head, two draws for 48 satellites (1,728 triangles, 3,888 shared geometry-attribute bytes). Canonical GLBs, pivots, dimensions and deployment timing are preserved.
+
+Validated single front-surface intersections, geometry counts, source hashes, timeline and viewer controls. Updated the review poster. The geometry change addresses likely depth/specular shimmer; live-browser motion and device performance review remain pending, with no FPS claim.
+
 ## 25 September 2026 / Continuous SOL-88 launch tracking
 
 Replaced the first launch's hidden transfer/reappearance with a continuously visible SOL-88. The camera follows the packed laser throughout the pullback, then approaches the orbital reveal. Straight, constant-speed ascent continues through clearance at 9.8 seconds; a tangent-matched staged acquisition meets the existing orbit at 23 seconds. Presentation scale grows continuously, and the reveal camera leaves room for the full assembly. HEL-01 deployment, laser timing and original GLBs are unchanged.
