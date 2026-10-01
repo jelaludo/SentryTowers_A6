@@ -2,10 +2,12 @@ const collectionImages={
 'fabrication-lab':'assets/workshop/terraformer.jpg',
 'isao-birudoron':'assets/workshop/isao-birudoron.jpg',
 'arrival-foundry':'assets/workshop/arrival-foundry.jpg',
-'orbital-cinematic':'assets/workshop/orbital-cinematic.jpg'
+'orbital-cinematic':'assets/workshop/orbital-cinematic.jpg',
+'missile-factory':'assets/workshop/missile-factory.png'
 };
 
 export const collections=[
+['missile-factory','A6 / Missile Factory','Missile','A compact four-stage line assembles missile shells, motors, fins and guidance sections while open storage cases fill with finished rounds.','3 LODs · 2 arms · 3 cases · inventory preview','Contract candidate'],
 ['heptapod-extractor','HEX-06 / Heptapod resource walker','Industry','A towering six-legged mining robot burns mineral-bearing ground, with an 8 m-wide traffic corridor for MÖRK beneath its suspended hull.','3 LODs · Articulated tripod gait · Tank-scale comparison','Contract candidate'],
 ['greenhouse','VER-01 / Greenhouse operation','Industry','A glazed cultivation module with twin hydroponic beds, traveling irrigation, climate recovery and sliding harvest access.','3 LODs · 24 crop clusters · 20-second service cycle','Contract candidate'],
 ['chip-manufacturing','LIT-01 / Chip manufacturing','Industry','Four folding mirrors guide a laser onto a patterned wafer; a precision XY stage writes six die rows.','3 LODs · 12-second write cycle · Plain + Meshopt','Contract candidate'],

@@ -1,0 +1,360 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "missile_factory",
+  "label": "A6 / Missile Factory",
+  "status": "contract_candidate_pending_game_camera_reference_phone",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "budgets": {
+    "lod1": {
+      "triangles_max": 8000,
+      "draw_calls_max": 10,
+      "plain_bytes_max": 400000
+    },
+    "lod2": {
+      "triangles_max": 3000,
+      "draw_calls_max": 1,
+      "plain_bytes_max": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": "lod2",
+    "approach_distance_m": 150,
+    "hysteresis_m": 20
+  },
+  "construction_stages": [
+    "empty shell",
+    "motor and fins",
+    "guidance section",
+    "finished missile"
+  ],
+  "storage": {
+    "case_capacity": 4,
+    "case_count": 3,
+    "authored_inventory": 6,
+    "inventory_node_prefix": "CASE_",
+    "viewer_inventory_range": [
+      0,
+      12
+    ]
+  },
+  "sources": {
+    "robotic_arm": {
+      "file": "../assembly-line/robotic_arm_d0.glb",
+      "sha256": "70c2b0384775dfa92f15954e0164b2658fc74df339813805416d03f365355194",
+      "role": "exact detailed geometry; reduced articulated game proxy"
+    },
+    "missile": {
+      "file": "../missile-kit/needle.glb",
+      "sha256": "b85c0739fe4737b2260cab8132f8751461892a605a86e7258f2d424dd4f13386",
+      "role": "exact detailed geometry; reduced stage and storage proxies"
+    }
+  },
+  "assets": [
+    {
+      "id": "missile_factory_d0_lod0",
+      "family": "missile_factory",
+      "name": "A6 / Missile Factory",
+      "file": "missile_factory_d0_lod0.glb",
+      "meshopt_file": "missile_factory_d0_lod0.meshopt.glb",
+      "lod": 0,
+      "quality": "detailed_master",
+      "damage_level": 0,
+      "state": "intact",
+      "static": false,
+      "derived": false,
+      "derived_from": null,
+      "bytes": 399616,
+      "sha256": "8b4ddeadd2c7f6a457b19acce9f75b25aa98e4bfa5691c03cd2833022eef132b",
+      "meshopt_bytes": 173652,
+      "meshopt_sha256": "f053bbfc9c75fa53b767e060cd67ba58fd2decc8154f81a19f19d12ae2222fb6",
+      "triangles": 13800,
+      "draw_calls": 123,
+      "materials": 12,
+      "textures": 0,
+      "plot_m": [
+        20,
+        10
+      ],
+      "bounds": {
+        "min": [
+          -9.5,
+          -2.3841858265427618e-8,
+          -4
+        ],
+        "max": [
+          9.65,
+          3.740000009536743,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "PARTS_IN",
+          "kind": "material_input",
+          "position_m": [
+            -9,
+            0,
+            -2
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.4,
+            -3.8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "CASE_OUT",
+          "kind": "cargo_output",
+          "position_m": [
+            9,
+            0,
+            1.5
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "kind": "human_access",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "missile_factory_d0_lod1",
+      "family": "missile_factory",
+      "name": "A6 / Missile Factory",
+      "file": "missile_factory_d0_lod1.glb",
+      "meshopt_file": "missile_factory_d0_lod1.meshopt.glb",
+      "lod": 1,
+      "quality": "game",
+      "damage_level": 0,
+      "state": "intact",
+      "static": false,
+      "derived": true,
+      "derived_from": "missile_factory_d0_lod0.glb",
+      "bytes": 344328,
+      "sha256": "c2b380dcf9aa98ff5d0cd547c3c0314d88b1f35c88686279ec11dad10eefac68",
+      "meshopt_bytes": 62808,
+      "meshopt_sha256": "d69fd5bcd80e51012bcc322d7cf768592b2afc3c48fb99a1abb1b0819d8f5416",
+      "triangles": 4368,
+      "draw_calls": 30,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        10
+      ],
+      "bounds": {
+        "min": [
+          -9.5,
+          -2.3841858265427618e-8,
+          -4
+        ],
+        "max": [
+          9.65,
+          3.740000009536743,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "PARTS_IN",
+          "kind": "material_input",
+          "position_m": [
+            -9,
+            0,
+            -2
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.4,
+            -3.8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "CASE_OUT",
+          "kind": "cargo_output",
+          "position_m": [
+            9,
+            0,
+            1.5
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "kind": "human_access",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "name": "Missile_Assembly_Cycle",
+          "duration_s": 8,
+          "loop": true
+        }
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "missile_factory_d0_lod2",
+      "family": "missile_factory",
+      "name": "A6 / Missile Factory",
+      "file": "missile_factory_d0_lod2.glb",
+      "meshopt_file": "missile_factory_d0_lod2.meshopt.glb",
+      "lod": 2,
+      "quality": "distance",
+      "damage_level": 0,
+      "state": "intact",
+      "static": true,
+      "derived": true,
+      "derived_from": "missile_factory_d0_lod0.glb",
+      "bytes": 216408,
+      "sha256": "7badd7e7f00849078e5b5695e947be3a671cfcc3997b1e31e2c09a73e43f47cf",
+      "meshopt_bytes": 75732,
+      "meshopt_sha256": "e887444f807d65e3475a7afcf17cc4bb4e3362e89a01c1d602f23291c38f1aab",
+      "triangles": 2936,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        20,
+        10
+      ],
+      "bounds": {
+        "min": [
+          -9.5,
+          -2.3841858265427618e-8,
+          -4
+        ],
+        "max": [
+          9.649999618530273,
+          3.740000009536743,
+          4
+        ]
+      },
+      "sockets": [
+        {
+          "id": "PARTS_IN",
+          "kind": "material_input",
+          "position_m": [
+            -9,
+            0,
+            -2
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            0.4,
+            -3.8
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "CASE_OUT",
+          "kind": "cargo_output",
+          "position_m": [
+            9,
+            0,
+            1.5
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SERVICE",
+          "kind": "human_access",
+          "position_m": [
+            0,
+            0,
+            4
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

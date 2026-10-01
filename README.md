@@ -10,6 +10,8 @@ Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowe
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line has D0–D3 contract-candidate LOD1/LOD2 exports; LOD1 retains all eight useful robot rigs in one draw and LOD2 is static. Five reusable modules retain four detailed structural states. [Integration notes](assets/assembly-line/README.md) and [LOD hand-off](assets/assembly-line/README-LODS.md).
 
+The [Missile Factory](missile-factory/) reuses assembly arms and NEEDLE missile geometry in a compact line with four visible construction stages and three open storage cases. It includes a detailed master, an articulated game tier and a static distance tier. [Integration notes](assets/missile-factory/README.md).
+
 The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).
 
 The [Yūshi045 Bio-Pearl](yushi045/) stores organic binder concentrate for ISAO construction. Its tripod vessel has live shoulder and sight-window capacity indicators, optional glass, three measured detail tiers and a 25-container instanced yard. [Lore and integration](assets/yushi045/README.md).

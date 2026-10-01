@@ -1,5 +1,11 @@
 # Devlog
 
+## 1 October 2026 / A6 Missile Factory candidate
+
+Added a compact four-stage missile line showing shell, motor/fins, guidance and final inspection, with three open four-slot cases and an inventory preview from zero to twelve. The detailed master reuses original assembly-arm and NEEDLE missile geometry. The game tier retains two articulated arm chains and an eight-second `Missile_Assembly_Cycle`; the distance tier is static. Plain GLBs, optional decoded Meshopt derivatives, manifest, source hashes, sockets, viewer, render and validation are in `assets/missile-factory/` and `missile-factory/` at the delivery commit.
+
+Measured exports: LOD0 13,800 triangles/123 draws/399,616 bytes; LOD1 4,368 triangles/30 draws/344,328 bytes; LOD2 2,936 triangles/one draw/216,408 bytes. LOD1 exceeds the ten-draw target due to movable arms and individually addressable case contents. Only D0 is authored. Game-camera, inventory/production integration, release compression and reference-phone review remain pending; no FPS claim.
+
 Authored asset changes, game integration feedback, and work still to do. Completed entries describe exports in this repository; open requests are not completed features.
 
 ## Open requests from the game developer
