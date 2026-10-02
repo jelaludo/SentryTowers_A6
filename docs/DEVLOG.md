@@ -1,5 +1,9 @@
 # Devlog
 
+## 2 October 2026 / Clear fleet destination selection
+
+Dyson Command commit `d0c7eb2` changes fleet launching to a source → destination → confirmation flow. Select a player planet and choose “Launch from [world]”; the map then highlights eligible destinations and shows a cancellable prompt. Select another planet to see the exact From → To route, choose ship count and confirm “Send to [planet].” The Rules tab and game README describe the revised sequence. A local DOM interaction check covered direct target clicks outside launch mode, source selection, route display, cancellation, fleet launch, terraforming, collector aiming, Optics mode and tab switching. Five core tests passed. This change is in the separate game repository; the Workshop still links to it.
+
 ## 2 October 2026 / Dyson Command planet action wheel
 
 In the separate Dyson Command repository at `38d7199`, clicking a planet now opens a contextual radial action wheel. It offers only relevant orders: set a fleet source, choose fleet size and launch, terraform a foothold, pulse a rival with SOL, or aim a compatible collector directly at a live receiver. The old source/destination form is replaced by a compact current-source and Wait card; collector cycling and the turn log are retained in collapsible advanced panels. The Rules tab was updated for the new controls. Core tests cover direct aiming, reachability, receiver capacity and the existing win paths; a local DOM interaction check covered fleet launch, terraforming, source changes, optics aiming and tab switching. Live visual browser automation was unavailable on this machine.
