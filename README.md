@@ -12,6 +12,8 @@ The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight arti
 
 The [Missile Factory](missile-factory/) uses a compact dual gantry to fit explosive tips to empty shells, beside eight sorted crates holding DART, NEEDLE, TALON and CRUISE missiles. It includes a detailed master, an animated game tier and a static distance tier. [Integration notes](assets/missile-factory/README.md).
 
+The [Planet Scoreboards](planet-scoreboards/) offer three physical score displays—seven-segment, flip-dot and split-flap—with solid bases and live eight-digit scores up to 99,999,999. Each has detailed, game and static distance tiers. [Integration notes](assets/planet-scoreboards/README.md).
+
 The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).
 
 The [Yūshi045 Bio-Pearl](yushi045/) stores organic binder concentrate for ISAO construction. Its tripod vessel has live shoulder and sight-window capacity indicators, optional glass, three measured detail tiers and a 25-container instanced yard. [Lore and integration](assets/yushi045/README.md).

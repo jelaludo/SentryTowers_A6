@@ -1,5 +1,11 @@
 # Devlog
 
+## 2 October 2026 / Planet Scoreboards
+
+Added three grounded, literal scoreboards inspired by the display technologies in https://kai-denrei.github.io/dexipurei-galore/: a seven-segment Beacon, a reflective Flip-Dot wall and a mechanical Split-Flap stand. Geometry and runtime code are original. Each board has an eight-digit default score of 12,345,678 and an engine-driven runtime range of 0–99,999,999. The live digits use one instanced draw; the distance tier is a fixed snapshot.
+
+Nine plain GLBs and optional Meshopt derivatives are in `assets/planet-scoreboards/`, with a manifest, runtime adapter, viewer, builder and validator. Game-tier measurements are Beacon 1,572 triangles/2 GLB draws/125,800 bytes, Flip-Dot 3,558/2/220,992 and Split-Flap 2,880/2/227,828. Distance tiers are one draw each and all three meet the landmark distance targets. Validation covers the full score range, anchors, socket transforms, decoded compression and budgets. Game and distance three-board renders were visually reviewed. Live browser, game-camera, release gltfpack and reference-phone reviews remain pending; no FPS claim.
+
 ## 2 October 2026 / Missile Factory gantry and storage redesign
 
 Replaced the assembly-line-like long conveyor and robotic arms with a compact dual gantry that lowers explosive tips onto empty shells. A finished round sits on an output cradle. Eight open crates are arranged in four clearly marked family columns, two crates each for DART, NEEDLE, TALON and CRUISE. The detailed master reuses the exact missile kit and ammunition meshes; CRUISE is displayed at 0.27 scale. The source assets are unchanged.

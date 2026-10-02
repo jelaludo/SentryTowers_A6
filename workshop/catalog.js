@@ -3,10 +3,12 @@ const collectionImages={
 'isao-birudoron':'assets/workshop/isao-birudoron.jpg',
 'arrival-foundry':'assets/workshop/arrival-foundry.jpg',
 'orbital-cinematic':'assets/workshop/orbital-cinematic.jpg',
-'missile-factory':'assets/workshop/missile-factory.png'
+'missile-factory':'assets/workshop/missile-factory.png',
+'planet-scoreboards':'assets/workshop/planet-scoreboards.png'
 };
 
 export const collections=[
+['planet-scoreboards','A6 / Planet Scoreboards','Props','Three grounded scoreboards in seven-segment, flip-dot and split-flap styles, with live scores from zero to 99,999,999.','3 designs · 3 LODs each · 8-digit live score','Contract candidate'],
 ['missile-factory','A6 / Missile Factory','Missile','A compact dual gantry fits explosive tips to empty shells, beside eight sorted crates of DART, NEEDLE, TALON and CRUISE missiles.','3 LODs · 2 tip heads · 8 crates · 24 missiles','Contract candidate'],
 ['heptapod-extractor','HEX-06 / Heptapod resource walker','Industry','A towering six-legged mining robot burns mineral-bearing ground, with an 8 m-wide traffic corridor for MÖRK beneath its suspended hull.','3 LODs · Articulated tripod gait · Tank-scale comparison','Contract candidate'],
 ['greenhouse','VER-01 / Greenhouse operation','Industry','A glazed cultivation module with twin hydroponic beds, traveling irrigation, climate recovery and sliding harvest access.','3 LODs · 24 crop clusters · 20-second service cycle','Contract candidate'],
