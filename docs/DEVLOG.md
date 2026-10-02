@@ -1,5 +1,9 @@
 # Devlog
 
+## 2 October 2026 / Dyson Command becomes a separate project
+
+Moved the playable game and Rules tab to their own public repository, https://github.com/jelaludo/Dyson-Command, preserving the two game-specific commits through a subtree split. GitHub Pages serves https://jelaludo.github.io/Dyson-Command/ from the new repository root. The new page has its own header and local CSS; its related asset and terraforming-story links return to the A6 Workshop. The Workshop catalog and story now link to the new game. The old `dyson-command/` URL is a redirect that carries query parameters and fragments forward for existing Rules and Optics links. The game files now have one source of truth in the separate repository.
+
 ## 2 October 2026 / Dyson Command Rules tab
 
 Added a persistent Rules tab and a prominent “Rules & how to play” entry on Dyson Command. The rules now define planets, footholds, terraformed worlds, planet-side receivers, star-orbit collectors, active/offline/saturated beams, stellar output and stored power. They walk through Eos → Iona, source/target controls, fleet travel and combat, turn order, terraforming cost, orbital-laser cost/effect, each collector’s rotation targets and both victory conditions. A hidden-until-open example shows one complete 82-output alignment. Numeric costs and thresholds in the rules are populated from the game core, so displayed numbers follow the executable rules. The game run remains in memory when switching tabs. Safari review confirmed the direct Rules link, section navigation, collector table and readable desktop layout.

@@ -49,4 +49,4 @@ export const collections=[
 ['ctf-flags','Capture the Flag','Props','Faction banners, pole styles and capture sockets with animated flag behavior.','6 banners · 3 pole styles · animated','Original'],
 ['station-crew','Station crew','Characters','Suited astronauts, scientists and workers with shared animation controls.','3 roles · 7 clips · animated','Original'],
 ['animation-tests','KESTREL / Frontier EVA','Characters','An original detailed astronaut with a lean weathered suit, opaque visor and circular walk/run previews.','Original EVA · 7 clips · animated','Original']
-].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:`${id}/`}));
+].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:id==='dyson-command'?'https://jelaludo.github.io/Dyson-Command/':`${id}/`}));
