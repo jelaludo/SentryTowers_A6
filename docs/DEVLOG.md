@@ -1,5 +1,11 @@
 # Devlog
 
+## 2 October 2026 / PLAYER vs ISAO rivalry boards
+
+Added three extra scoreboard families from Part 3 of `A6-ASSET-FEEDBACK_DigitalBoards.md`: Beacon, Flip-Dot and Split-Flap rivalry boards. Each has an owner name field and KILLS, GATHERED and USED rows with six-digit scores from 0 to 999,999. Leading zeros are blank by default. The PLAYER and ISAO pair, rank/display colors, 0.25-second routine updates, two-second dramatic updates, first-kill demo and celebration controls are in the new rivalry viewer. `SOCKET_FX` is the hook for game-side confetti. LOD2 is a blank static face. The original nine single-score GLBs and their viewer remain available and match prior hashes.
+
+Nine new plain GLBs and optional Meshopt derivatives are in `assets/planet-scoreboards/`. LOD1 measures Beacon 204 triangles/1 draw/18,712 bytes, Flip-Dot 3,948/1/220,040 and Split-Flap 432/1/36,500. LOD2 has one draw in each family. Validation covers source preservation, names, anchors, sockets, bounds, score clamping, labels, transitions, celebration, budgets, glTF warnings and decoded compression. The local Safari viewer rendered both boards with their runtime owner names and scores. Game-camera, release gltfpack and reference-phone reviews remain pending; no FPS claim.
+
 ## 2 October 2026 / Planet Scoreboards
 
 Added three grounded, literal scoreboards inspired by the display technologies in https://kai-denrei.github.io/dexipurei-galore/: a seven-segment Beacon, a reflective Flip-Dot wall and a mechanical Split-Flap stand. Geometry and runtime code are original. Each board has an eight-digit default score of 12,345,678 and an engine-driven runtime range of 0–99,999,999. The live digits use one instanced draw; the distance tier is a fixed snapshot.

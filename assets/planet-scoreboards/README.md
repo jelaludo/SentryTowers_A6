@@ -48,3 +48,38 @@ The [Workshop viewer](../../planet-scoreboards/) can compare all three boards or
 Plain GLBs are the source of truth. Optional `.meshopt.glb` files are transport derivatives and are decoded in validation. Rebuild with `node tools/asset-pipeline/build-planet-scoreboards.mjs`; validate with `node tools/asset-pipeline/validate-planet-scoreboards.mjs`; render the selection with `blender --background --python tools/blender/render_planet_scoreboards.py`.
 
 Hand off the commit hash plus `assets/planet-scoreboards/`. Game-camera, live browser, release gltfpack and reference-phone performance reviews remain pending.
+
+## Additional PLAYER vs ISAO rivalry boards
+
+The [rivalry viewer](../../scoreboard-rivalry/) presents a new pair and all three new display technologies. These are **additional variants** in the same folder; the original nine single-score GLBs and their eight-digit API are unchanged. Each extra board reserves the same grounded 8 × 5 m plot, uses one material, and has three rows labeled KILLS, GATHERED and USED. The owner name field accepts 18 characters. Each score is an integer from 0 through 999,999, with leading zeros blank by default. The detailed master is LOD0, the live game tier is LOD1, and LOD2 is a one-mesh blank face for distance and loading views.
+
+| Rivalry board | Tier | Triangles | GLB draws | Plain GLB bytes | Optional Meshopt bytes |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Beacon | LOD0 | 380 | 1 | 30,712 | 12,940 |
+| Beacon | LOD1 | 204 | 1 | 18,712 | 8,952 |
+| Beacon | LOD2 | 204 | 1 | 18,720 | 8,960 |
+| Flip-Dot | LOD0 | 5,384 | 1 | 284,960 | 95,308 |
+| Flip-Dot | LOD1 | 3,948 | 1 | 220,040 | 61,572 |
+| Flip-Dot | LOD2 | 168 | 1 | 15,912 | 8,092 |
+| Split-Flap | LOD0 | 608 | 1 | 48,508 | 18,508 |
+| Split-Flap | LOD1 | 432 | 1 | 36,500 | 14,520 |
+| Split-Flap | LOD2 | 432 | 1 | 36,508 | 14,528 |
+
+The measurements count rendered triangles and mesh draws from each plain GLB before runtime lettering. Runtime adds one instanced digit draw and one instanced label draw. No FPS claim is made. The game-tier and distance-tier files meet the landmark budget targets in `docs/ASSET-COLLABORATION.md`.
+
+```js
+import {attachRivalryDisplay} from './runtime.js';
+const live = attachRivalryDisplay(THREE, gltf.scene, manifestEntry,
+  {kills: 0, gathered: 500, used: 0},
+  {label: 'ISAO', color: '#b8f5c6'});
+live.setScores({kills: 1}, {duration: 2});
+live.setLabel('ISAO');
+live.setColor('#ffd06e');
+// Once per frame: live.update(deltaSeconds);
+live.celebrate(2);
+// On unload: live.dispose();
+```
+
+`setScores` clamps each row, defaults to a 0.25-second transition, and accepts partial row updates. `setScore` is a convenience alias for KILLS. `setRowLabels` can replace the three labels, up to eight characters each. `blankLeading:false` on attachment displays six full digits instead. Beacon fades changed segments; Flip-Dot sweeps across disc columns; Split-Flap steps through digits from the units side. `celebrate(seconds)` animates the face only. The consuming game can emit confetti at `SOCKET_FX` at [0, 4.25, 0] m, with +Y normal. `SOCKET_POWER` and `SOCKET_SERVICE` are also preserved across the new tiers. There are no baked clips or score-award logic; game code supplies score events and calls `update`.
+
+Suggested LOD2→LOD1 selection is 150 m with 20 m hysteresis, subject to game-camera review. LOD0 is for recordings. Damage state is D0 intact only. Build with `node tools/asset-pipeline/build-planet-scoreboards.mjs`, validate with `node tools/asset-pipeline/validate-planet-scoreboards.mjs`. Plain GLB is the source of truth; Meshopt copies are optional derivatives. The local Safari viewer was checked with live PLAYER and ISAO values. Game-camera, release gltfpack and reference-phone reviews remain pending.

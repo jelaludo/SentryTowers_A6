@@ -12,6 +12,8 @@ The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight arti
 
 The [Missile Factory](missile-factory/) uses a compact dual gantry to fit explosive tips to empty shells, beside eight sorted crates holding DART, NEEDLE, TALON and CRUISE missiles. It includes a detailed master, an animated game tier and a static distance tier. [Integration notes](assets/missile-factory/README.md).
 
+The [Rivalry Scoreboards](scoreboard-rivalry/) add paired PLAYER and ISAO boards with three six-digit rows for kills, gathered and used. Beacon, Flip-Dot and Split-Flap versions have detailed, game and blank static distance tiers. The original boards remain available. [Integration notes](assets/planet-scoreboards/README.md).
+
 The [Planet Scoreboards](planet-scoreboards/) offer three physical score displays—seven-segment, flip-dot and split-flap—with solid bases and live eight-digit scores up to 99,999,999. Each has detailed, game and static distance tiers. [Integration notes](assets/planet-scoreboards/README.md).
 
 The [SOL-82 orbital laser](sol82/) remains the original 52.55 m combat satellite, with deployable wings, thermal radiators and four mechanical clips. [SOL-82 integration notes](assets/sol82/README.md).

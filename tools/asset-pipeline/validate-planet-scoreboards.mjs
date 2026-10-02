@@ -10,7 +10,7 @@ import {MeshoptDecoder} from 'meshoptimizer';
 import validator from 'gltf-validator';
 import {attachScoreDisplay,normalizeScore} from '../../assets/planet-scoreboards/runtime.js';
 
-const dir=new URL('../../assets/planet-scoreboards/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',dir)));assert.equal(manifest.assets.length,9);assert.equal(normalizeScore(100000000),99999999);assert.equal(normalizeScore(-1),0);await MeshoptDecoder.ready;
+const dir=new URL('../../assets/planet-scoreboards/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',dir)));assert.equal(manifest.assets.length,18);assert.equal(normalizeScore(100000000),99999999);assert.equal(normalizeScore(-1),0);await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
 for(const variant of ['beacon','flipdot','splitflap']){
  const entries=manifest.assets.filter(e=>e.variant===variant);assert.deepEqual(entries.map(e=>e.lod),[0,1,2]);let stable=null;
@@ -20,4 +20,5 @@ for(const variant of ['beacon','flipdot','splitflap']){
  if(e.lod<2){assert(e.triangles<=8000&&e.draw_calls<=10&&e.bytes<=400000,e.file+' game budget');const runtime=attachScoreDisplay(T,root,e,0);assert.equal(runtime.score,0);assert.equal(runtime.setScore(1000000),1000000);assert.equal(runtime.setScore(99999999),99999999);assert.equal(runtime.setScore(100000000),99999999);assert.equal(runtime.display.count>0,true);assert.equal(root.getObjectByName('SCORE_STATIC_DIGITS').visible,false);runtime.dispose();assert.equal(root.getObjectByName('SCORE_STATIC_DIGITS').visible,true);}else{assert(e.triangles<=3000&&e.draw_calls===1&&e.bytes<=250000,e.file+' distance budget');assert.throws(()=>attachScoreDisplay(T,root,e,0));}
  console.log('PASS',e.file,e.triangles,'triangles',e.draw_calls,'draws',e.bytes,'bytes; decoded Meshopt');}
 }
-console.log('PASS planet scoreboards: nine exports, eight-digit 0–99,999,999 runtime, sockets, names, budgets and compressed files.');
+console.log('PASS original planet scoreboards: nine unchanged-format exports.');
+await import('./validate-rivalry-scoreboards.mjs');
