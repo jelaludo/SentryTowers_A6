@@ -1,5 +1,11 @@
 # Devlog
 
+## 2 October 2026 / From Landing to Starlight progression
+
+Added an eleven-chapter interactive story page that composes existing Workshop assets into a causal sequence: SH02 touchdown; ISAO and AFR-01 salvage; the first solar grid; construction of Stålheart; extraction and transport; manufacturing; greenhouse life support; proposed planetary atmosphere/water works; ARC-01 planetary-orbit prototypes; a proposed star-orbit collector swarm; and proposed planet-side receivers. Each chapter links to the relevant asset viewers and distinguishes authored library models from unbuilt story proposals. The orbit diagram separates First Light’s planetary constellation from a Dyson swarm around the star. No existing GLB or asset runtime was changed.
+
+The page was checked for chapter navigation, asset links, responsive layout and the Sun/planet scale distinction. The final three infrastructure steps are narrative direction, not exported receivers, orbital transfer vehicles, star-side station-keeping hardware or a completed Dyson sphere.
+
 ## 2 October 2026 / PLAYER vs ISAO rivalry boards
 
 Added three extra scoreboard families from Part 3 of `A6-ASSET-FEEDBACK_DigitalBoards.md`: Beacon, Flip-Dot and Split-Flap rivalry boards. Each has an owner name field and KILLS, GATHERED and USED rows with six-digit scores from 0 to 999,999. Leading zeros are blank by default. The PLAYER and ISAO pair, rank/display colors, 0.25-second routine updates, two-second dramatic updates, first-kill demo and celebration controls are in the new rivalry viewer. `SOCKET_FX` is the hook for game-side confetti. LOD2 is a blank static face. The original nine single-score GLBs and their viewer remain available and match prior hashes.

@@ -5,10 +5,12 @@ const collectionImages={
 'orbital-cinematic':'assets/workshop/orbital-cinematic.jpg',
 'missile-factory':'assets/workshop/missile-factory.png',
 'planet-scoreboards':'assets/workshop/planet-scoreboards.png',
-'scoreboard-rivalry':'assets/workshop/scoreboard-rivalry.png'
+'scoreboard-rivalry':'assets/workshop/scoreboard-rivalry.png',
+ 'terraforming-story':'assets/workshop/orbital-cinematic.jpg'
 };
 
 export const collections=[
+['terraforming-story','From Landing to Starlight / A6 story','Presentation','An eleven-chapter progression from SH02 salvage and Stålheart through planetary industry to a proposed star-orbit Dyson swarm and planet-side receivers.','11 chapters · existing assets + clearly marked proposals','Story'],
 ['scoreboard-rivalry','A6 / Rivalry Scoreboards','Props','Paired PLAYER and ISAO boards track kills, gathered and used across three six-digit rows, with owner names, rank colors and celebrations.','3 new designs · 3 LODs each · 3 live score rows','Contract candidate'],
 ['planet-scoreboards','A6 / Planet Scoreboards','Props','Three grounded scoreboards in seven-segment, flip-dot and split-flap styles, with live scores from zero to 99,999,999.','3 designs · 3 LODs each · 8-digit live score','Contract candidate'],
 ['missile-factory','A6 / Missile Factory','Missile','A compact dual gantry fits explosive tips to empty shells, beside eight sorted crates of DART, NEEDLE, TALON and CRUISE missiles.','3 LODs · 2 tip heads · 8 crates · 24 missiles','Contract candidate'],

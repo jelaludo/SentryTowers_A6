@@ -1,5 +1,7 @@
 # Model Workshop
 
+The [terraforming story](terraforming-story/) follows eleven chapters from SH02 landing and rocket salvage through Stålheart, the first grid, extraction, manufacturing and life support. It separates the existing planet-orbit demonstrations from the proposed Dyson collector swarm around the star and planet-side energy receivers. [Story map](terraforming-story/README.md).
+
 **ARC-01 / Orbital collector launcher** adds a curved electromagnetic mass driver, recovery sled and folding six-petal SEED-01 satellite in the same ISAO/MÖRK/KORP lineage. Both modules have detailed/game/static-distance exports and a 30-second launch demonstration. Local route: `orbital-launcher/`; measured hand-off: `assets/orbital-launcher/README.md`.
 
 The new **Frontier industry** family adds an automated drill, six-wheel hauler, common ore cassette, minimalist hexagonal heliostat and solar crucible in the ISAO/MÖRK/KORP manufacturer language. Five D0 modules have detailed, articulated game and static distance tiers, decoded Meshopt previews and a 32-second extraction/collection demonstration. Local route: `settlement-industry/`. See `assets/settlement-industry/README.md` for measured exports, controls and pending game review.
