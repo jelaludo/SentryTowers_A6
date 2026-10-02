@@ -1,5 +1,9 @@
 # Devlog
 
+## 2 October 2026 / Beginner-first Dyson Command rules
+
+Dyson Command commit `0a7675c` replaces the Rules tab’s wall of mechanics with a plain-language opening: the green team’s goal, one complete Eos → Iona capture and terraform example, a tested first-win path through Talus and Kora, a simple collector/receiver and output/battery explanation, the short Optics solution, and three common sticking points. The exact previous rules remain in an expandable reference. The suggested frontier route was verified against the deterministic core and wins with four built worlds and 82 output. Six core tests and a local DOM check of the Rules tab, dynamic goals and return-to-map control passed.
+
 ## 2 October 2026 / Clear fleet destination selection
 
 Dyson Command commit `d0c7eb2` changes fleet launching to a source → destination → confirmation flow. Select a player planet and choose “Launch from [world]”; the map then highlights eligible destinations and shows a cancellable prompt. Select another planet to see the exact From → To route, choose ship count and confirm “Send to [planet].” The Rules tab and game README describe the revised sequence. A local DOM interaction check covered direct target clicks outside launch mode, source selection, route display, cancellation, fleet launch, terraforming, collector aiming, Optics mode and tab switching. Five core tests passed. This change is in the separate game repository; the Workshop still links to it.
