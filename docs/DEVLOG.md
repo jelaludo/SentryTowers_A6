@@ -1,5 +1,11 @@
 # Devlog
 
+## 2 October 2026 / Dyson Command strategy prototype
+
+Added a playable post-terraforming star-map prototype. Eos starts as the first terraformed world. The Frontier campaign lets the player send fleets between six simplified planets, secure footholds, spend power to terraform them, pulse a SOL-inspired orbital laser against rival garrisons, and aim four stellar collectors at distinct planet receivers. The objective is four terraformed worlds and at least 75 abstract power output. A separate Optics challenge starts with four receivers online and asks for 80 output through collector alignment alone. Turns, yields, defenses and travel times are deterministic game rules, not physical or asset-export claims.
+
+The page links back to the eleven-chapter terraforming story and to KORP, SOL-88 and ARC-01/SEED-01 viewers. A new Workshop catalog card and story transition expose the mode. Core tests cover both solvable victory paths, fleet capture, receiver saturation, laser cost and invalid orders. Local Safari loaded the live campaign map and the direct optics challenge; game-camera, multiplayer, opponent AI, save state, device performance and actual receiver/stellar-orbit assets remain future work. Existing GLBs and asset runtime code are unchanged.
+
 ## 2 October 2026 / From Landing to Starlight progression
 
 Added an eleven-chapter interactive story page that composes existing Workshop assets into a causal sequence: SH02 touchdown; ISAO and AFR-01 salvage; the first solar grid; construction of Stålheart; extraction and transport; manufacturing; greenhouse life support; proposed planetary atmosphere/water works; ARC-01 planetary-orbit prototypes; a proposed star-orbit collector swarm; and proposed planet-side receivers. Each chapter links to the relevant asset viewers and distinguishes authored library models from unbuilt story proposals. The orbit diagram separates First Light’s planetary constellation from a Dyson swarm around the star. No existing GLB or asset runtime was changed.

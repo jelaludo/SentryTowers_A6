@@ -1,5 +1,7 @@
 # Model Workshop
 
+The [Dyson Command prototype](dyson-command/) unlocks after the first terraformed world: a simplified star map with fleet captures, terraforming, orbital-laser pulses and a standalone optical-routing challenge. Its rules are a playable concept; the existing 3D assets remain in their viewers. [Game rules](dyson-command/README.md).
+
 The [terraforming story](terraforming-story/) follows eleven chapters from SH02 landing and rocket salvage through Stålheart, the first grid, extraction, manufacturing and life support. It separates the existing planet-orbit demonstrations from the proposed Dyson collector swarm around the star and planet-side energy receivers. [Story map](terraforming-story/README.md).
 
 **ARC-01 / Orbital collector launcher** adds a curved electromagnetic mass driver, recovery sled and folding six-petal SEED-01 satellite in the same ISAO/MÖRK/KORP lineage. Both modules have detailed/game/static-distance exports and a 30-second launch demonstration. Local route: `orbital-launcher/`; measured hand-off: `assets/orbital-launcher/README.md`.

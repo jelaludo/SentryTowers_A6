@@ -1,6 +1,6 @@
 # From Landing to Starlight
 
-An eleven-chapter interactive story at `terraforming-story/`, composed from existing A6 Workshop assets. It adds no GLB and does not change asset geometry, clips, sockets, score logic or gameplay inventories. The data source is `story-data.js`; `story.js` renders the selected chapter; `story.css` lays out the story and orbit diagram.
+An eleven-chapter interactive story at `terraforming-story/`, composed from existing A6 Workshop assets. Its post-first-planet handoff opens the separate [Dyson Command prototype](../dyson-command/). It adds no GLB and does not change asset geometry, clips, sockets, score logic or gameplay inventories. The data source is `story-data.js`; `story.js` renders the selected chapter; `story.css` lays out the story and orbit diagram.
 
 | Chapters | Causal handoff | Library status |
 | --- | --- | --- |
