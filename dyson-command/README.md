@@ -1,6 +1,6 @@
 # Dyson Command / post-terraforming strategy prototype
 
-A standalone, turn-based browser design sketch at `dyson-command/`. It begins after the first world, Eos, has been terraformed in the [landing-to-starlight story](../terraforming-story/). The star map deliberately simplifies six planets; it does not import or alter any 3D asset. Galcon's official description of fleets sent planet to planet is a mechanical reference, while the optical routing and terraforming sequence are original A6 rules:
+A standalone, turn-based browser design sketch at `dyson-command/`. The **Rules** tab at `dyson-command/?tab=rules` gives a worked opening, a glossary, all action rules and costs, collector rotation order, beam status meanings and both win conditions. Switching between the map and rules preserves the current run. It begins after the first world, Eos, has been terraformed in the [landing-to-starlight story](../terraforming-story/). The star map deliberately simplifies six planets; it does not import or alter any 3D asset. Galcon's official description of fleets sent planet to planet is a mechanical reference, while the optical routing and terraforming sequence are original A6 rules:
 
 https://www.galcon.com/classic/index.html
 
