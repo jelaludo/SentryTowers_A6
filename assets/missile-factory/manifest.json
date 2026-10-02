@@ -1,5 +1,6 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
+  "version": 3,
   "family": "missile_factory",
   "label": "A6 / Missile Factory",
   "status": "contract_candidate_pending_game_camera_reference_phone",
@@ -27,34 +28,65 @@
     "approach_distance_m": 150,
     "hysteresis_m": 20
   },
-  "construction_stages": [
-    "empty shell",
-    "motor and fins",
-    "guidance section",
-    "finished missile"
-  ],
-  "storage": {
-    "case_capacity": 4,
-    "case_count": 3,
-    "authored_inventory": 6,
-    "inventory_node_prefix": "CASE_",
-    "viewer_inventory_range": [
-      0,
-      12
+  "construction": {
+    "operation": "gantry installs explosive tip on an empty shell",
+    "fixtures": 2,
+    "clip": "Tip_Installation_Cycle",
+    "duration_s": 6,
+    "states": [
+      "empty shell in fixture",
+      "tip carried by gantry",
+      "tip seated on shell",
+      "finished round on output fixture"
     ]
   },
+  "storage": {
+    "crate_count": 8,
+    "missiles_per_crate": 3,
+    "total_missiles": 24,
+    "types": [
+      "DART",
+      "NEEDLE",
+      "TALON",
+      "CRUISE"
+    ],
+    "arrangement": "four labeled columns by type, two rows per type"
+  },
   "sources": {
-    "robotic_arm": {
-      "file": "../assembly-line/robotic_arm_d0.glb",
-      "sha256": "70c2b0384775dfa92f15954e0164b2658fc74df339813805416d03f365355194",
-      "role": "exact detailed geometry; reduced articulated game proxy"
+    "DART": {
+      "file": "../missile-kit/dart.glb",
+      "sha256": "eb7483c947577800d17ea6197cfa61e3dd776b8ef66ba64e01ab2acd2534b44a",
+      "scale_in_factory": 1,
+      "role": "exact geometry reused in detailed crate contents; static proxy in game and distance tiers"
     },
-    "missile": {
+    "NEEDLE": {
       "file": "../missile-kit/needle.glb",
       "sha256": "b85c0739fe4737b2260cab8132f8751461892a605a86e7258f2d424dd4f13386",
-      "role": "exact detailed geometry; reduced stage and storage proxies"
+      "scale_in_factory": 1,
+      "role": "exact geometry reused in detailed crate contents; static proxy in game and distance tiers"
+    },
+    "TALON": {
+      "file": "../missile-kit/talon.glb",
+      "sha256": "73e1c32df49ce30f3e1c2bac1c9eb2e5c33cee76ee1b1f88b44a3850b14d21db",
+      "scale_in_factory": 1,
+      "role": "exact geometry reused in detailed crate contents; static proxy in game and distance tiers"
+    },
+    "CRUISE": {
+      "file": "../ammunition/missile_cruise_projectile_display.glb",
+      "sha256": "d20570d7f44fc9a6644dbb011d8341d711b34f29015839f66f044c2a825fd229",
+      "scale_in_factory": 0.27,
+      "role": "exact geometry reused in detailed crate contents; static proxy in game and distance tiers"
     }
   },
+  "retired_from_v2": [
+    "ASSEMBLY_ARM_01",
+    "ASSEMBLY_ARM_02",
+    "STAGE_1_MISSILE",
+    "STAGE_2_MISSILE",
+    "STAGE_3_MISSILE",
+    "STAGE_4_MISSILE",
+    "CASE_01_MISSILE_01"
+  ],
   "assets": [
     {
       "id": "missile_factory_d0_lod0",
@@ -69,13 +101,13 @@
       "static": false,
       "derived": false,
       "derived_from": null,
-      "bytes": 399616,
-      "sha256": "8b4ddeadd2c7f6a457b19acce9f75b25aa98e4bfa5691c03cd2833022eef132b",
-      "meshopt_bytes": 173652,
-      "meshopt_sha256": "f053bbfc9c75fa53b767e060cd67ba58fd2decc8154f81a19f19d12ae2222fb6",
-      "triangles": 13800,
-      "draw_calls": 123,
-      "materials": 12,
+      "bytes": 421688,
+      "sha256": "616aa97f147f219d64b27b4a5b6ac79310baf4c0d75bbcc9c8701e832fa86195",
+      "meshopt_bytes": 176936,
+      "meshopt_sha256": "5d378847841489497e38b40369eb0b3b999fd3a808fae94f6e4acf9035c862a2",
+      "triangles": 16904,
+      "draw_calls": 117,
+      "materials": 18,
       "textures": 0,
       "plot_m": [
         20,
@@ -84,13 +116,13 @@
       "bounds": {
         "min": [
           -9.5,
-          -2.3841858265427618e-8,
-          -4
+          2.6822091214739885e-9,
+          -4.300000190734863
         ],
         "max": [
-          9.65,
-          3.740000009536743,
-          4
+          9.5,
+          3.9100000858306885,
+          4.300000190734863
         ]
       },
       "sockets": [
@@ -112,9 +144,9 @@
           "id": "POWER",
           "kind": "power",
           "position_m": [
-            0,
+            -5.4,
             0.4,
-            -3.8
+            -3.5
           ],
           "normal": [
             0,
@@ -140,7 +172,7 @@
           "id": "SERVICE",
           "kind": "human_access",
           "position_m": [
-            0,
+            -4.8,
             0,
             4
           ],
@@ -151,7 +183,13 @@
           ]
         }
       ],
-      "clips": [],
+      "clips": [
+        {
+          "name": "Tip_Installation_Cycle",
+          "duration_s": 6,
+          "loop": true
+        }
+      ],
       "credit": "Models by jelaludo"
     },
     {
@@ -167,12 +205,12 @@
       "static": false,
       "derived": true,
       "derived_from": "missile_factory_d0_lod0.glb",
-      "bytes": 344328,
-      "sha256": "c2b380dcf9aa98ff5d0cd547c3c0314d88b1f35c88686279ec11dad10eefac68",
-      "meshopt_bytes": 62808,
-      "meshopt_sha256": "d69fd5bcd80e51012bcc322d7cf768592b2afc3c48fb99a1abb1b0819d8f5416",
-      "triangles": 4368,
-      "draw_calls": 30,
+      "bytes": 385852,
+      "sha256": "fb284595a667bb53e744005e9f975d0c2810bf87807e80f7b316596630593bbd",
+      "meshopt_bytes": 141452,
+      "meshopt_sha256": "4d09cbbede54dbe1c59dfe043b0969b327f98e71384a0eb6f56df0953c3ce65c",
+      "triangles": 5092,
+      "draw_calls": 5,
       "materials": 1,
       "textures": 0,
       "plot_m": [
@@ -182,13 +220,13 @@
       "bounds": {
         "min": [
           -9.5,
-          -2.3841858265427618e-8,
-          -4
+          2.6822091214739885e-9,
+          -4.300000190734863
         ],
         "max": [
-          9.65,
-          3.740000009536743,
-          4
+          9.5,
+          3.9100000858306885,
+          4.300000190734863
         ]
       },
       "sockets": [
@@ -210,9 +248,9 @@
           "id": "POWER",
           "kind": "power",
           "position_m": [
-            0,
+            -5.4,
             0.4,
-            -3.8
+            -3.5
           ],
           "normal": [
             0,
@@ -238,7 +276,7 @@
           "id": "SERVICE",
           "kind": "human_access",
           "position_m": [
-            0,
+            -4.8,
             0,
             4
           ],
@@ -251,8 +289,8 @@
       ],
       "clips": [
         {
-          "name": "Missile_Assembly_Cycle",
-          "duration_s": 8,
+          "name": "Tip_Installation_Cycle",
+          "duration_s": 6,
           "loop": true
         }
       ],
@@ -271,11 +309,11 @@
       "static": true,
       "derived": true,
       "derived_from": "missile_factory_d0_lod0.glb",
-      "bytes": 216408,
-      "sha256": "7badd7e7f00849078e5b5695e947be3a671cfcc3997b1e31e2c09a73e43f47cf",
-      "meshopt_bytes": 75732,
-      "meshopt_sha256": "e887444f807d65e3475a7afcf17cc4bb4e3362e89a01c1d602f23291c38f1aab",
-      "triangles": 2936,
+      "bytes": 233224,
+      "sha256": "851888b90f2da101c8443f742dc39ece1d02753a13e154c095ff8343f7387d02",
+      "meshopt_bytes": 88460,
+      "meshopt_sha256": "9a7863265ce0d7c6394bcc1c3d6a783896b6a415c63f6a150cb273b073c5ace5",
+      "triangles": 2988,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
@@ -286,13 +324,13 @@
       "bounds": {
         "min": [
           -9.5,
-          -2.3841858265427618e-8,
-          -4
+          2.6822091214739885e-9,
+          -4.300000190734863
         ],
         "max": [
-          9.649999618530273,
-          3.740000009536743,
-          4
+          9.5,
+          3.9100000858306885,
+          4.300000190734863
         ]
       },
       "sockets": [
@@ -314,9 +352,9 @@
           "id": "POWER",
           "kind": "power",
           "position_m": [
-            0,
+            -5.4,
             0.4,
-            -3.8
+            -3.5
           ],
           "normal": [
             0,
@@ -342,7 +380,7 @@
           "id": "SERVICE",
           "kind": "human_access",
           "position_m": [
-            0,
+            -4.8,
             0,
             4
           ],

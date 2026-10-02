@@ -1,5 +1,11 @@
 # Devlog
 
+## 2 October 2026 / Missile Factory gantry and storage redesign
+
+Replaced the assembly-line-like long conveyor and robotic arms with a compact dual gantry that lowers explosive tips onto empty shells. A finished round sits on an output cradle. Eight open crates are arranged in four clearly marked family columns, two crates each for DART, NEEDLE, TALON and CRUISE. The detailed master reuses the exact missile kit and ammunition meshes; CRUISE is displayed at 0.27 scale. The source assets are unchanged.
+
+Rebuilt all three plain GLBs and optional Meshopt derivatives. LOD0 measures 16,904 triangles/117 draws/421,688 bytes; animated LOD1 measures 5,092 triangles/5 draws/385,852 bytes; static LOD2 measures 2,988 triangles/one draw/233,224 bytes. The game and distance tiers meet the landmark budget targets. Validation covers the gantry clip, crate families, stable sockets and decoded compressed exports; game-tier and detailed-master renders were visually reviewed. The Workshop viewer and catalog now describe the revised layout. Only D0 is authored; live WebGL, game-camera, release compression and reference-phone reviews remain pending. No FPS claim.
+
 ## 1 October 2026 / A6 Missile Factory candidate
 
 Added a compact four-stage missile line showing shell, motor/fins, guidance and final inspection, with three open four-slot cases and an inventory preview from zero to twelve. The detailed master reuses original assembly-arm and NEEDLE missile geometry. The game tier retains two articulated arm chains and an eight-second `Missile_Assembly_Cycle`; the distance tier is static. Plain GLBs, optional decoded Meshopt derivatives, manifest, source hashes, sockets, viewer, render and validation are in `assets/missile-factory/` and `missile-factory/` at the delivery commit.
