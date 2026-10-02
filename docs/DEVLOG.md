@@ -1,5 +1,9 @@
 # Devlog
 
+## 2 October 2026 / Dyson Command planet action wheel
+
+In the separate Dyson Command repository at `38d7199`, clicking a planet now opens a contextual radial action wheel. It offers only relevant orders: set a fleet source, choose fleet size and launch, terraform a foothold, pulse a rival with SOL, or aim a compatible collector directly at a live receiver. The old source/destination form is replaced by a compact current-source and Wait card; collector cycling and the turn log are retained in collapsible advanced panels. The Rules tab was updated for the new controls. Core tests cover direct aiming, reachability, receiver capacity and the existing win paths; a local DOM interaction check covered fleet launch, terraforming, source changes, optics aiming and tab switching. Live visual browser automation was unavailable on this machine.
+
 ## 2 October 2026 / Dyson Command becomes a separate project
 
 Moved the playable game and Rules tab to their own public repository, https://github.com/jelaludo/Dyson-Command, preserving the two game-specific commits through a subtree split. GitHub Pages serves https://jelaludo.github.io/Dyson-Command/ from the new repository root. The new page has its own header and local CSS; its related asset and terraforming-story links return to the A6 Workshop. The Workshop catalog and story now link to the new game. The old `dyson-command/` URL is a redirect that carries query parameters and fragments forward for existing Rules and Optics links. The game files now have one source of truth in the separate repository.
