@@ -1,5 +1,11 @@
 # Devlog
 
+## 3 October 2026 / Real-time Dyson Command controls
+
+Dyson Command commit `612c366` replaces turn-by-turn fleet orders and collector rotation with direct manipulation. Drag from a green world to another planet and release to launch the selected share of its ships immediately; a 50% slider controls the default share. Fleets travel over seconds. Drag a gold collector toward a reachable built receiver, then release when the planet glows to snap the beam in and raise output. Invalid drops leave the alignment alone. The Frontier economy updates itself every two seconds, adding ship production and current light output to stored power; rival garrisons grow every other cycle. Terraforming is a single click on a captured foothold. The optional laser remains available from a red planet. The Rules tab and repository README now explain the live controls and timing.
+
+Five deterministic core tests cover travel, the automatic economy, valid receiver locks, a full win path and laser timing. A local DOM pointer check passed. Headless WebKit confirmed a drag from Eos to Iona launched nine ships, the fleet arrived after four seconds, clicking Iona terraformed it, and dragging SEED C to Iona raised output to 38. WebKit also confirmed an Optics collector drag, and desktop and mobile screenshots were reviewed. No existing GLB or A6 asset viewer changed.
+
 ## 2 October 2026 / Beginner-first Dyson Command rules
 
 Dyson Command commit `0a7675c` replaces the Rules tab’s wall of mechanics with a plain-language opening: the green team’s goal, one complete Eos → Iona capture and terraform example, a tested first-win path through Talus and Kora, a simple collector/receiver and output/battery explanation, the short Optics solution, and three common sticking points. The exact previous rules remain in an expandable reference. The suggested frontier route was verified against the deterministic core and wins with four built worlds and 82 output. Six core tests and a local DOM check of the Rules tab, dynamic goals and return-to-map control passed.
