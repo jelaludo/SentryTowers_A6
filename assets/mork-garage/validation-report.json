@@ -1,0 +1,62 @@
+{
+  "assets": [
+    {
+      "lod": 0,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 226760,
+          "triangles": 2688,
+          "draw_calls": 7,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 77352,
+          "triangles": 2688,
+          "draw_calls": 7,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "lod": 1,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 150416,
+          "triangles": 1704,
+          "draw_calls": 7,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 54772,
+          "triangles": 1704,
+          "draw_calls": 7,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "lod": 2,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 129916,
+          "triangles": 1536,
+          "draw_calls": 1,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 41944,
+          "triangles": 1536,
+          "draw_calls": 1,
+          "degenerate": 0
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

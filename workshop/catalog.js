@@ -1,5 +1,6 @@
 const collectionImages={
 'fabrication-lab':'assets/workshop/terraformer.jpg',
+'mork-garage':'assets/hover-tank/mork-preview.png',
 'isao-birudoron':'assets/workshop/isao-birudoron.jpg',
 'arrival-foundry':'assets/workshop/arrival-foundry.jpg',
 'orbital-cinematic':'assets/workshop/orbital-cinematic.jpg',
@@ -11,6 +12,7 @@ const collectionImages={
 };
 
 export const collections=[
+['mork-garage','MÖRK / Open-roof customization garage','Industry','A crew paint bay with an articulated robotic spray arm, color-filled workbench and twin night-cycle tripod lights.','3 LODs · 12-second paint cycle · night lighting','Contract candidate'],
 ['dyson-command','Dyson Command / Post-terraforming strategy','Presentation','A playable star-map prototype: launch fleets, terraform captured worlds, pulse an orbital laser and align stellar collectors with planet receivers.','2 modes · 6 planets · 4 light paths','Playable prototype'],
 ['terraforming-story','From Landing to Starlight / A6 story','Presentation','An eleven-chapter progression from SH02 salvage and Stålheart through planetary industry to a proposed star-orbit Dyson swarm and planet-side receivers.','11 chapters · existing assets + clearly marked proposals','Story'],
 ['scoreboard-rivalry','A6 / Rivalry Scoreboards','Props','Paired PLAYER and ISAO boards track kills, gathered and used across three six-digit rows, with owner names, rank colors and celebrations.','3 new designs · 3 LODs each · 3 live score rows','Contract candidate'],

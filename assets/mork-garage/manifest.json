@@ -1,0 +1,503 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "mork_customization_garage",
+  "label": "MÖRK open-roof customization garage",
+  "status": "contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 are not authored; damage is independent of detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Close shots and recordings",
+    "distance": "Static rest pose, with lamps and arm fixed. Swap to LOD1 before painting."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Garage_Paint_Cycle",
+      "duration_s": 12,
+      "loop": true
+    },
+    "scope": "Arm motion and lamp emission are driven at runtime. The vehicle remains a separate MÖRK asset; actual livery application belongs to its customization system."
+  },
+  "assets": [
+    {
+      "id": "mork_garage_d0_lod0",
+      "file": "lod0/mork_garage_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 226760,
+      "sha256": "198b1f3205823a04b099045e5128feee0766a8848e6b818cc4495b098ca96e7e",
+      "triangles": 2688,
+      "draw_calls": 7,
+      "materials": 4,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/mork_garage_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 77352,
+      "meshopt_sha256": "3d2e2a97d543d824034a00b76cf55b21da19ac52889f0bbc3166430c1ab5670a",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        18
+      ],
+      "bounds": {
+        "min": [
+          -6.070000171661377,
+          -5.9604643443123e-10,
+          -9.005000114440918
+        ],
+        "max": [
+          6.070000171661377,
+          4.0699999994039535,
+          9
+        ],
+        "dimensions_m": [
+          12.140000343322754,
+          4.07,
+          18.005000114440918
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LIGHT_L",
+          "node": "SOCKET_LIGHT_L",
+          "kind": "night_cycle_light",
+          "position_m": [
+            -4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LIGHT_R",
+          "node": "SOCKET_LIGHT_R",
+          "kind": "night_cycle_light",
+          "position_m": [
+            4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SPRAY_NOZZLE",
+          "node": "SOCKET_SPRAY_NOZZLE",
+          "kind": "paint_spray",
+          "position_m": [
+            -3.0199999999999996,
+            3.96,
+            -1.6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "VEHICLE_ORIGIN",
+          "node": "SOCKET_VEHICLE_ORIGIN",
+          "kind": "vehicle_placement",
+          "position_m": [
+            0,
+            0.31,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -5.55,
+            0.5,
+            -7.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PAINT_SUPPLY",
+          "node": "SOCKET_PAINT_SUPPLY",
+          "kind": "paint_supply",
+          "position_m": [
+            4.1,
+            1.25,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "MORK_GARAGE_ROOT",
+        "LIGHT_LENS_L",
+        "SOCKET_LIGHT_L",
+        "LIGHT_LENS_R",
+        "SOCKET_LIGHT_R",
+        "ARM_BASE_YAW",
+        "ARM_SHOULDER",
+        "ARM_ELBOW",
+        "ARM_WRIST",
+        "SPRAY_HEAD",
+        "SPRAY_PLUME",
+        "SOCKET_SPRAY_NOZZLE",
+        "ARM_FORE_LINK",
+        "ARM_UPPER_LINK",
+        "SOCKET_VEHICLE_ORIGIN",
+        "SOCKET_POWER",
+        "SOCKET_PAINT_SUPPLY",
+        "GARAGE_STATIC_BODY"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "mork_garage_d0_lod1",
+      "file": "lod1/mork_garage_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 150416,
+      "sha256": "dde77c48d8d8b6ae0ff59279b685a3f2a2913617314a059910afa9193c568576",
+      "triangles": 1704,
+      "draw_calls": 7,
+      "materials": 4,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/mork_garage_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 54772,
+      "meshopt_sha256": "fa761f981eb946c8981c59ac9d943ca263c30f5f5410527239f9322078eddc8f",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        18
+      ],
+      "bounds": {
+        "min": [
+          -6.070000171661377,
+          -5.9604643443123e-10,
+          -9.005000114440918
+        ],
+        "max": [
+          6.070000171661377,
+          4.0699999994039535,
+          9
+        ],
+        "dimensions_m": [
+          12.140000343322754,
+          4.07,
+          18.005000114440918
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LIGHT_L",
+          "node": "SOCKET_LIGHT_L",
+          "kind": "night_cycle_light",
+          "position_m": [
+            -4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LIGHT_R",
+          "node": "SOCKET_LIGHT_R",
+          "kind": "night_cycle_light",
+          "position_m": [
+            4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SPRAY_NOZZLE",
+          "node": "SOCKET_SPRAY_NOZZLE",
+          "kind": "paint_spray",
+          "position_m": [
+            -3.0199999999999996,
+            3.96,
+            -1.6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "VEHICLE_ORIGIN",
+          "node": "SOCKET_VEHICLE_ORIGIN",
+          "kind": "vehicle_placement",
+          "position_m": [
+            0,
+            0.31,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -5.55,
+            0.5,
+            -7.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PAINT_SUPPLY",
+          "node": "SOCKET_PAINT_SUPPLY",
+          "kind": "paint_supply",
+          "position_m": [
+            4.1,
+            1.25,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "MORK_GARAGE_ROOT",
+        "LIGHT_LENS_L",
+        "SOCKET_LIGHT_L",
+        "LIGHT_LENS_R",
+        "SOCKET_LIGHT_R",
+        "ARM_BASE_YAW",
+        "ARM_SHOULDER",
+        "ARM_ELBOW",
+        "ARM_WRIST",
+        "SPRAY_HEAD",
+        "SPRAY_PLUME",
+        "SOCKET_SPRAY_NOZZLE",
+        "ARM_FORE_LINK",
+        "ARM_UPPER_LINK",
+        "SOCKET_VEHICLE_ORIGIN",
+        "SOCKET_POWER",
+        "SOCKET_PAINT_SUPPLY",
+        "GARAGE_STATIC_BODY"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "mork_garage_d0_lod2",
+      "file": "lod2/mork_garage_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 129916,
+      "sha256": "2508d4035a06b749b958bcef7afa4f2bd35c6bfdced12a9714698f241e2fa710",
+      "triangles": 1536,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/mork_garage_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 41944,
+      "meshopt_sha256": "38decff189e2b4a1fd498dbc3153bd08ce078894520b74c856e114122bb80eb6",
+      "meshopt_derived": true,
+      "plot_m": [
+        12,
+        18
+      ],
+      "bounds": {
+        "min": [
+          -6.070000171661377,
+          -5.9604643443123e-10,
+          -9.005000114440918
+        ],
+        "max": [
+          6.070000171661377,
+          4.0617265701293945,
+          9
+        ],
+        "dimensions_m": [
+          12.140000343322754,
+          4.061726570725441,
+          18.005000114440918
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LIGHT_L",
+          "node": "SOCKET_LIGHT_L",
+          "kind": "night_cycle_light",
+          "position_m": [
+            -4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LIGHT_R",
+          "node": "SOCKET_LIGHT_R",
+          "kind": "night_cycle_light",
+          "position_m": [
+            4.72,
+            2.49,
+            4.38
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SPRAY_NOZZLE",
+          "node": "SOCKET_SPRAY_NOZZLE",
+          "kind": "paint_spray",
+          "position_m": [
+            -3.0199999999999996,
+            3.96,
+            -1.6
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "VEHICLE_ORIGIN",
+          "node": "SOCKET_VEHICLE_ORIGIN",
+          "kind": "vehicle_placement",
+          "position_m": [
+            0,
+            0.31,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -5.55,
+            0.5,
+            -7.8
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PAINT_SUPPLY",
+          "node": "SOCKET_PAINT_SUPPLY",
+          "kind": "paint_supply",
+          "position_m": [
+            4.1,
+            1.25,
+            -5.75
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "MORK_GARAGE_ROOT",
+        "SOCKET_LIGHT_L",
+        "SOCKET_LIGHT_R",
+        "ARM_BASE_YAW",
+        "ARM_SHOULDER",
+        "ARM_ELBOW",
+        "ARM_WRIST",
+        "SPRAY_PLUME",
+        "SOCKET_SPRAY_NOZZLE",
+        "SOCKET_VEHICLE_ORIGIN",
+        "SOCKET_POWER",
+        "SOCKET_PAINT_SUPPLY",
+        "GARAGE_STATIC_BODY"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

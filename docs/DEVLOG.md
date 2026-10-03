@@ -1,5 +1,11 @@
 # Devlog
 
+## 3 October 2026 / MÖRK open-roof customization garage
+
+Added a separate 12 × 18 m crew paint bay for the MÖRK: open sky above the vehicle, a side robotic spray arm, workbench, small colored paint containers and two tripod lights. The viewer composes the existing canonical MÖRK as a scale reference and turns the tripod lights on with a night-cycle switch. The unbaked 12-second paint demonstration drives named arm pivots; the optional coral spray preview follows the wrist; actual paint particles and livery application remain game-owned.
+
+LOD0 measures 2,688 triangles / 7 draws / 226,760 plain bytes; LOD1 measures 1,704 / 7 / 150,416; static LOD2 measures 1,536 / one draw / 129,916. D0 only. All six plain and decoded Meshopt exports pass hashes, node and socket checks, geometry parity, zero degenerate triangles, lamp-emission behavior and the landmark budget targets. No FPS claim. The integration README includes optional crew swatches, livery votes, photos, jokes and other small lived-in touches for the new settlement. Game-camera, live browser/mobile, release packing and reference-phone review remain pending. Hand-off: this commit plus `assets/mork-garage/`.
+
 ## 3 October 2026 / Real-time Dyson Command controls
 
 Dyson Command commit `612c366` replaces turn-by-turn fleet orders and collector rotation with direct manipulation. Drag from a green world to another planet and release to launch the selected share of its ships immediately; a 50% slider controls the default share. Fleets travel over seconds. Drag a gold collector toward a reachable built receiver, then release when the planet glows to snap the beam in and raise output. Invalid drops leave the alignment alone. The Frontier economy updates itself every two seconds, adding ship production and current light output to stored power; rival garrisons grow every other cycle. Terraforming is a single click on a captured foothold. The optional laser remains available from a red planet. The Rules tab and repository README now explain the live controls and timing.
