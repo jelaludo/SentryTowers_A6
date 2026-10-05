@@ -1,4 +1,7 @@
 const collectionImages={
+'settlement-brochure':'settlement-brochure/landscape.svg',
+'settlement-terminal':'settlement-guide/wireframes/sol88.svg',
+'settlement-guide':'settlement-guide/wireframes/korp.svg',
 'fabrication-lab':'assets/workshop/terraformer.jpg',
 'mork-garage':'assets/hover-tank/mork-preview.png',
 'isao-birudoron':'assets/workshop/isao-birudoron.jpg',
@@ -7,13 +10,14 @@ const collectionImages={
 'missile-factory':'assets/workshop/missile-factory.png',
 'planet-scoreboards':'assets/workshop/planet-scoreboards.png',
 'scoreboard-rivalry':'assets/workshop/scoreboard-rivalry.png',
- 'terraforming-story':'assets/workshop/orbital-cinematic.jpg',
-'dyson-command':'assets/workshop/dyson-command.svg'
+ 'terraforming-story':'assets/workshop/orbital-cinematic.jpg'
 };
 
 export const collections=[
+['settlement-brochure','Wish you lived here? / Galactic Getaways','Presentation','A pastel holiday brochure for your next exoplanet, with a wireframe settlement panorama, four easy steps and a friendly alien neighbour.','Guide look 03 · illustrated panorama · pack your towel','Guide'],
+['settlement-terminal','New world setup / Mission control','Presentation','A friendly mint-and-amber settlement terminal with A6 wireframes, four mission confirmations and a towel packing switch.','Guide look 02 · readiness meter · mission console','Guide'],
+['settlement-guide','Your new planet / Pocket guide','Presentation','Four reassuringly easy steps to a new world, with A6 machine wireframes and a reminder to pack your towel.','4 steps · illustrated field guide · collectible stamps','Guide'],
 ['mork-garage','MÖRK / Open-roof customization garage','Industry','A crew paint bay with an articulated robotic spray arm, color-filled workbench and twin night-cycle tripod lights.','3 LODs · 12-second paint cycle · night lighting','Contract candidate'],
-['dyson-command','Dyson Command / Post-terraforming strategy','Presentation','A playable star-map prototype: launch fleets, terraform captured worlds, pulse an orbital laser and align stellar collectors with planet receivers.','2 modes · 6 planets · 4 light paths','Playable prototype'],
 ['terraforming-story','From Landing to Starlight / A6 story','Presentation','An eleven-chapter progression from SH02 salvage and Stålheart through planetary industry to a proposed star-orbit Dyson swarm and planet-side receivers.','11 chapters · existing assets + clearly marked proposals','Story'],
 ['scoreboard-rivalry','A6 / Rivalry Scoreboards','Props','Paired PLAYER and ISAO boards track kills, gathered and used across three six-digit rows, with owner names, rank colors and celebrations.','3 new designs · 3 LODs each · 3 live score rows','Contract candidate'],
 ['planet-scoreboards','A6 / Planet Scoreboards','Props','Three grounded scoreboards in seven-segment, flip-dot and split-flap styles, with live scores from zero to 99,999,999.','3 designs · 3 LODs each · 8-digit live score','Contract candidate'],
@@ -51,4 +55,4 @@ export const collections=[
 ['ctf-flags','Capture the Flag','Props','Faction banners, pole styles and capture sockets with animated flag behavior.','6 banners · 3 pole styles · animated','Original'],
 ['station-crew','Station crew','Characters','Suited astronauts, scientists and workers with shared animation controls.','3 roles · 7 clips · animated','Original'],
 ['animation-tests','KESTREL / Frontier EVA','Characters','An original detailed astronaut with a lean weathered suit, opaque visor and circular walk/run previews.','Original EVA · 7 clips · animated','Original']
-].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:id==='dyson-command'?'https://jelaludo.github.io/Dyson-Command/':`${id}/`}));
+].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:`${id}/`}));

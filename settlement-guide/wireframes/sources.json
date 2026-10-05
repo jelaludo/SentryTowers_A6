@@ -1,0 +1,23 @@
+{
+  "description": "Derived static SVG edge projections, not new 3D assets. Original GLBs preserved.",
+  "views": {
+    "korp": [
+      -1.4,
+      0.8,
+      1
+    ],
+    "mork": [
+      1.4,
+      1.1,
+      0.65
+    ]
+  },
+  "models": {
+    "sh02": "assets/sh-rocket/sh02_landing_island_d0_lod2.glb",
+    "stalheart": "assets/terraformer/terraformer_3000_d0_lod2.glb",
+    "mork": "assets/hover-tank/mork_hover_tank_d0_lod2.glb",
+    "korp": "assets/korp/korp_d0_lod2.glb",
+    "launcher": "assets/orbital-launcher/lod2/launcher_d0_lod2.glb",
+    "sol88": "assets/sol88/lod2/sol88_platform_distance.glb"
+  }
+}

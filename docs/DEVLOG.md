@@ -1,42 +1,26 @@
 # Devlog
 
+## 5 October 2026 / Guide look 03: galactic holiday brochure
+
+Added `settlement-brochure/`, the third separate guide candidate: a cream postcard with a pastel alien landscape, SH02/Stålheart/MÖRK/KORP/ARC-01/SOL wireframe panorama, four short relocation steps, a friendly alien greeting and a towel-packing souvenir button. Gunship and MÖRK retain their different camera angles and separate flight/ground positions. All three candidates now link to each other and appear in the Workshop; game selection remains open. Reuses the existing derived SVG wireframes; the new landscape and alien are presentation-only vector art, not new 3D exports. Script syntax, greeting/towel state checks, all three candidates’ local links/resources and HTTP serving, shared navigation and whitespace checks pass. The panorama artwork was rasterized and inspected. Full desktop/mobile browser review remains pending because Safari had no accessible window during this pass.
+
+## 5 October 2026 / Guide look 02: friendly mission control
+
+Separated the field card’s step 03 Gunship and MÖRK into non-overlapping flight/ground lanes and regenerated their SVG wireframes with different camera angles. Added `settlement-terminal/` as the second independent guide candidate: navy console, mint wireframes, amber confirmations, a four-step readiness meter, status responses and an independent towel packing switch. Both looks remain linked for comparison; no game selection or integration has been made. The galactic holiday brochure is the next requested candidate, to be created in a separate pass after this view. No source GLBs changed. Both candidates were visually reviewed in desktop Safari; terminal confirmation, undo, readiness meter, towel toggle and reset checks passed. Local links/resources, HTTP serving, script syntax and shared navigation validation pass. Phone layout review remains pending.
+
+## 5 October 2026 / Your new planet pocket guide
+
+Added `settlement-guide/`: a compact ivory, orange and teal instruction card distilling the terraforming story into landing, building, optional alien defence and a future Dyson connection. Static wireframe illustrations are derived from the existing SH02, Stålheart, MÖRK, KORP Gunship, ARC-01 and SOL-88 GLBs; source paths and a reproducible SVG builder are included. Four reversible completion stamps, a reset control, asset viewer links and a towel reminder complete the guide. Desktop uses one four-panel screen; tablet and phone reflow without shrinking the instructions. SOL remains an orbital defence reference; the star-collector/planet-receiver connection is a story concept. No model exports or gameplay systems changed. Navigation, local links, HTTP serving, script syntax and stamp/reset state checks pass; wireframe raster previews were inspected. Live desktop/mobile layout review remains pending because no browser surface was available.
+
+## 3 October 2026 / Asset-only Workshop scope
+
+Removed the standalone strategy prototype from the Workshop catalog, story handoff, legacy redirect and library documentation. The Workshop now presents the asset collection and its asset-focused story and viewers; the standalone project remains in its own repository.
+
 ## 3 October 2026 / MÖRK open-roof customization garage
 
 Added a separate 12 × 18 m crew paint bay for the MÖRK: open sky above the vehicle, a side robotic spray arm, workbench, small colored paint containers and two tripod lights. The viewer composes the existing canonical MÖRK as a scale reference and turns the tripod lights on with a night-cycle switch. The unbaked 12-second paint demonstration drives named arm pivots; the optional coral spray preview follows the wrist; actual paint particles and livery application remain game-owned.
 
 LOD0 measures 2,688 triangles / 7 draws / 226,760 plain bytes; LOD1 measures 1,704 / 7 / 150,416; static LOD2 measures 1,536 / one draw / 129,916. D0 only. All six plain and decoded Meshopt exports pass hashes, node and socket checks, geometry parity, zero degenerate triangles, lamp-emission behavior and the landmark budget targets. No FPS claim. The integration README includes optional crew swatches, livery votes, photos, jokes and other small lived-in touches for the new settlement. Game-camera, live browser/mobile, release packing and reference-phone review remain pending. Hand-off: this commit plus `assets/mork-garage/`.
-
-## 3 October 2026 / Real-time Dyson Command controls
-
-Dyson Command commit `612c366` replaces turn-by-turn fleet orders and collector rotation with direct manipulation. Drag from a green world to another planet and release to launch the selected share of its ships immediately; a 50% slider controls the default share. Fleets travel over seconds. Drag a gold collector toward a reachable built receiver, then release when the planet glows to snap the beam in and raise output. Invalid drops leave the alignment alone. The Frontier economy updates itself every two seconds, adding ship production and current light output to stored power; rival garrisons grow every other cycle. Terraforming is a single click on a captured foothold. The optional laser remains available from a red planet. The Rules tab and repository README now explain the live controls and timing.
-
-Five deterministic core tests cover travel, the automatic economy, valid receiver locks, a full win path and laser timing. A local DOM pointer check passed. Headless WebKit confirmed a drag from Eos to Iona launched nine ships, the fleet arrived after four seconds, clicking Iona terraformed it, and dragging SEED C to Iona raised output to 38. WebKit also confirmed an Optics collector drag, and desktop and mobile screenshots were reviewed. No existing GLB or A6 asset viewer changed.
-
-## 2 October 2026 / Beginner-first Dyson Command rules
-
-Dyson Command commit `0a7675c` replaces the Rules tab’s wall of mechanics with a plain-language opening: the green team’s goal, one complete Eos → Iona capture and terraform example, a tested first-win path through Talus and Kora, a simple collector/receiver and output/battery explanation, the short Optics solution, and three common sticking points. The exact previous rules remain in an expandable reference. The suggested frontier route was verified against the deterministic core and wins with four built worlds and 82 output. Six core tests and a local DOM check of the Rules tab, dynamic goals and return-to-map control passed.
-
-## 2 October 2026 / Clear fleet destination selection
-
-Dyson Command commit `d0c7eb2` changes fleet launching to a source → destination → confirmation flow. Select a player planet and choose “Launch from [world]”; the map then highlights eligible destinations and shows a cancellable prompt. Select another planet to see the exact From → To route, choose ship count and confirm “Send to [planet].” The Rules tab and game README describe the revised sequence. A local DOM interaction check covered direct target clicks outside launch mode, source selection, route display, cancellation, fleet launch, terraforming, collector aiming, Optics mode and tab switching. Five core tests passed. This change is in the separate game repository; the Workshop still links to it.
-
-## 2 October 2026 / Dyson Command planet action wheel
-
-In the separate Dyson Command repository at `38d7199`, clicking a planet now opens a contextual radial action wheel. It offers only relevant orders: set a fleet source, choose fleet size and launch, terraform a foothold, pulse a rival with SOL, or aim a compatible collector directly at a live receiver. The old source/destination form is replaced by a compact current-source and Wait card; collector cycling and the turn log are retained in collapsible advanced panels. The Rules tab was updated for the new controls. Core tests cover direct aiming, reachability, receiver capacity and the existing win paths; a local DOM interaction check covered fleet launch, terraforming, source changes, optics aiming and tab switching. Live visual browser automation was unavailable on this machine.
-
-## 2 October 2026 / Dyson Command becomes a separate project
-
-Moved the playable game and Rules tab to their own public repository, https://github.com/jelaludo/Dyson-Command, preserving the two game-specific commits through a subtree split. GitHub Pages serves https://jelaludo.github.io/Dyson-Command/ from the new repository root. The new page has its own header and local CSS; its related asset and terraforming-story links return to the A6 Workshop. The Workshop catalog and story now link to the new game. The old `dyson-command/` URL is a redirect that carries query parameters and fragments forward for existing Rules and Optics links. The game files now have one source of truth in the separate repository.
-
-## 2 October 2026 / Dyson Command Rules tab
-
-Added a persistent Rules tab and a prominent “Rules & how to play” entry on Dyson Command. The rules now define planets, footholds, terraformed worlds, planet-side receivers, star-orbit collectors, active/offline/saturated beams, stellar output and stored power. They walk through Eos → Iona, source/target controls, fleet travel and combat, turn order, terraforming cost, orbital-laser cost/effect, each collector’s rotation targets and both victory conditions. A hidden-until-open example shows one complete 82-output alignment. Numeric costs and thresholds in the rules are populated from the game core, so displayed numbers follow the executable rules. The game run remains in memory when switching tabs. Safari review confirmed the direct Rules link, section navigation, collector table and readable desktop layout.
-
-## 2 October 2026 / Dyson Command strategy prototype
-
-Added a playable post-terraforming star-map prototype. Eos starts as the first terraformed world. The Frontier campaign lets the player send fleets between six simplified planets, secure footholds, spend power to terraform them, pulse a SOL-inspired orbital laser against rival garrisons, and aim four stellar collectors at distinct planet receivers. The objective is four terraformed worlds and at least 75 abstract power output. A separate Optics challenge starts with four receivers online and asks for 80 output through collector alignment alone. Turns, yields, defenses and travel times are deterministic game rules, not physical or asset-export claims.
-
-The page links back to the eleven-chapter terraforming story and to KORP, SOL-88 and ARC-01/SEED-01 viewers. A new Workshop catalog card and story transition expose the mode. Core tests cover both solvable victory paths, fleet capture, receiver saturation, laser cost and invalid orders. Local Safari loaded the live campaign map and the direct optics challenge; game-camera, multiplayer, opponent AI, save state, device performance and actual receiver/stellar-orbit assets remain future work. Existing GLBs and asset runtime code are unchanged.
 
 ## 2 October 2026 / From Landing to Starlight progression
 

@@ -1,7 +1,5 @@
 # Model Workshop
 
-The [Dyson Command prototype](https://jelaludo.github.io/Dyson-Command/) unlocks after the first terraformed world: a live star map where dragging from a green planet launches ships and dragging a stellar collector onto a built receiver connects light; terraforming, an orbital laser and a standalone optics challenge complete the prototype. Its rules are a playable concept; the existing 3D assets remain in their viewers. [Game rules](https://jelaludo.github.io/Dyson-Command/?tab=rules).
-
 The [terraforming story](terraforming-story/) follows eleven chapters from SH02 landing and rocket salvage through Stålheart, the first grid, extraction, manufacturing and life support. It separates the existing planet-orbit demonstrations from the proposed Dyson collector swarm around the star and planet-side energy receivers. [Story map](terraforming-story/README.md).
 
 **MÖRK open-roof customization garage** adds a crew-built paint bay with an articulated spray arm, workbench, colored paint containers and two night-cycle tripod lights. Its three separate GLB tiers are previewed with the canonical MÖRK at `mork-garage/`; integration and optional crew-life ideas are in `assets/mork-garage/README.md`.
