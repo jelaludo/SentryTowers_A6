@@ -1,0 +1,54 @@
+{
+  "status": "visual exploration; no production models or integration delivered",
+  "date": "2026-10-12",
+  "image": "concept-01.png",
+  "generator": "built-in image_gen",
+  "reference": "User-supplied lunar dome colony image and existing MORK preview",
+  "game_reference": "https://github.com/kai-denrei/stalheart",
+  "modules": [
+    {"id": "habitat", "role": "crew quarters, medical and communal space", "default_shell": "clear"},
+    {"id": "biosphere", "role": "food, oxygen and water recycling", "default_shell": "clear"},
+    {"id": "research", "role": "planet surveying, samples and upgrades", "default_shell": "clear"},
+    {"id": "fabrication", "role": "construction parts, repairs and sentry production", "default_shell": "opaque"},
+    {"id": "power", "role": "generation, storage and distribution", "default_shell": "opaque"},
+    {"id": "logistics", "role": "cargo, resource sorting and deployment", "default_shell": "clear or opaque"}
+  ],
+  "shared_design": {
+    "shells": "Interchangeable transparent or opaque panels; preserve role silhouette and interfaces",
+    "foundation": "Ground-supported circular ring, local origin at plot centre",
+    "sentry": "Empty reinforced apex platform carried by central service core to foundation; candidate SOCKET_SENTRY_00, local +Y mount normal; reserve power/data and maintenance access",
+    "connections": "Elevated mezzanine ports, capped when unused; telescoping links with articulated end collars; supports outside vehicle crossing lanes",
+    "access": "Internal stairs/lift between ground floor and mezzanine",
+    "proposed_dome_diameter_m": [28, 36],
+    "proposed_bridge_min_underside_clearance_m": 6,
+    "proposed_bridge_clear_support_opening_m": 12,
+    "clearance_status": "Targets only; concept art is not dimensionally authoritative",
+    "mork_reference": {
+      "source": "assets/hover-tank/manifest-distance.json",
+      "static_dimensions_xyz_m": [5.81914, 2.818604, 13.267361],
+      "nominal_hover_lift_m": 0.55,
+      "limitations": "Static dimensions do not certify gun elevation, turret sweep, power-on overshoot or terrain pitch"
+    }
+  },
+  "planet_placement_proposal": {
+    "orientation": "Module local +Y follows radial up; tangent heading independent per plot",
+    "layout": "Connected clusters following available terrain and game grid adjacency; retain broad ground routes and open terrain",
+    "links": "Resolve actual endpoint socket transforms; use segmented or articulated spans; reject links that violate slope, length or terrain-clearance limits",
+    "curvature": "Check complete bridge underside against curved terrain and vehicle swept envelope, not only endpoint heights",
+    "progression": "Seed habitat/power/logistics, add biosphere/research/fabrication, expand into districts and new planetary clusters; proposed gameplay only"
+  },
+  "next_blockout": [
+    "One clear biosphere and one opaque fabrication dome, one elevated bridge, canonical moving MORK and one representative sentry",
+    "Measure bridge clearance over terrain including tank hover, aiming envelope and approach/turn space",
+    "Size roof pad against selected sentry sweep/recoil and check sightlines against neighboring domes",
+    "Verify planet plot scale and socket articulation in Stalheart before freezing dimensions"
+  ],
+  "future_export_requirements": {
+    "contract": "docs/ASSET-COLLABORATION.md remains authoritative and unchanged",
+    "tiers": "Detailed LOD0 master, articulated game LOD1, static merged one-material LOD2; damage d0-d3 independent of LOD",
+    "budgets": "Target per dome LOD1 <=8000 triangles, <=10 draws, <=400 KB plain; LOD2 <=3000 triangles, one draw, <=250 KB",
+    "transparency": "Game glass adds material/overdraw cost; distant opaque proxy with baked interior color; measure before choosing fade thresholds",
+    "handoff": "Plain GLB source of truth, stable dot-free nodes/sockets and origins across tiers/states, required manifest fields and measured metrics, decoded validation for any compressed derivatives, viewer controls and commit-plus-folder handoff",
+    "compliance": "Requirements only; no compliance or performance claim for concept image"
+  }
+}

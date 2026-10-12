@@ -1,0 +1,111 @@
+{
+  "assets": [
+    {
+      "file": "biosphere_d0_lod0.glb",
+      "triangles": 11576,
+      "draw_calls": 6,
+      "bytes": 625220,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "biosphere_d0_lod1.glb",
+      "triangles": 5992,
+      "draw_calls": 6,
+      "bytes": 337108,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "biosphere_d0_lod2.glb",
+      "triangles": 1936,
+      "draw_calls": 1,
+      "bytes": 93812,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "fabrication_d0_lod0.glb",
+      "triangles": 10296,
+      "draw_calls": 6,
+      "bytes": 479080,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "fabrication_d0_lod1.glb",
+      "triangles": 5352,
+      "draw_calls": 6,
+      "bytes": 263932,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "fabrication_d0_lod2.glb",
+      "triangles": 1936,
+      "draw_calls": 1,
+      "bytes": 93812,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_d0_lod0.glb",
+      "triangles": 1428,
+      "draw_calls": 2,
+      "bytes": 68632,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_d0_lod1.glb",
+      "triangles": 756,
+      "draw_calls": 2,
+      "bytes": 39240,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_d0_lod2.glb",
+      "triangles": 740,
+      "draw_calls": 1,
+      "bytes": 36800,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    }
+  ],
+  "errors": [],
+  "clearance": {
+    "scope": "Conservative transformed mesh AABBs; flat ground, nominal 0.55 m hover, gun yaw sampled every 5 degrees, pitch -5 to +25 every 5 degrees; no slope or suspension overshoot certification",
+    "underside_m": 7.5,
+    "support_opening_m": 19,
+    "transport": {
+      "top_m": 3.5659517526626585,
+      "width_m": 5.8191399574279785,
+      "headroom_m": 3.9340482473373415,
+      "side_margin_m": 6.590052425861359
+    },
+    "aim_sweep": {
+      "max_top_m": 6.59476950019932,
+      "max_half_width_m": 8.691123902797699,
+      "headroom_m": 0.9052304998006804,
+      "side_margin_m": 0.808876097202301
+    }
+  },
+  "sentry": {
+    "reference": "Railgun T3 LOD1",
+    "yaw_sample_step_deg": 5,
+    "level_gun_swept_radius_m": 3.1196954025272428,
+    "pad_radius_m": 4.5,
+    "edge_margin_m": 1.3803045974727572,
+    "scope": "Level gun at rest recoil only; other sentries, elevation and neighboring sightlines pending"
+  }
+}
