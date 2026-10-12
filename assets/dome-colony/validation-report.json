@@ -2,54 +2,54 @@
   "assets": [
     {
       "file": "biosphere_d0_lod0.glb",
-      "triangles": 11576,
-      "draw_calls": 6,
-      "bytes": 625220,
+      "triangles": 12184,
+      "draw_calls": 8,
+      "bytes": 665996,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
     },
     {
       "file": "biosphere_d0_lod1.glb",
-      "triangles": 5992,
-      "draw_calls": 6,
-      "bytes": 337108,
+      "triangles": 6344,
+      "draw_calls": 8,
+      "bytes": 362524,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
     },
     {
       "file": "biosphere_d0_lod2.glb",
-      "triangles": 1936,
+      "triangles": 2192,
       "draw_calls": 1,
-      "bytes": 93812,
+      "bytes": 110316,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
     },
     {
       "file": "fabrication_d0_lod0.glb",
-      "triangles": 10296,
-      "draw_calls": 6,
-      "bytes": 479080,
+      "triangles": 10904,
+      "draw_calls": 8,
+      "bytes": 519864,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
     },
     {
       "file": "fabrication_d0_lod1.glb",
-      "triangles": 5352,
-      "draw_calls": 6,
-      "bytes": 263932,
+      "triangles": 5704,
+      "draw_calls": 8,
+      "bytes": 289352,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
     },
     {
       "file": "fabrication_d0_lod2.glb",
-      "triangles": 1936,
+      "triangles": 2192,
       "draw_calls": 1,
-      "bytes": 93812,
+      "bytes": 110316,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0
@@ -101,11 +101,38 @@
     }
   },
   "sentry": {
-    "reference": "Railgun T3 LOD1",
-    "yaw_sample_step_deg": 5,
-    "level_gun_swept_radius_m": 3.1196954025272428,
-    "pad_radius_m": 4.5,
-    "edge_margin_m": 1.3803045974727572,
-    "scope": "Level gun at rest recoil only; other sentries, elevation and neighboring sightlines pending"
+    "platform": {
+      "centres": [
+        -24,
+        24
+      ],
+      "bridgeLength": 20,
+      "bridgeUnderside": 7.5,
+      "bridgeFloor": 7.9,
+      "portHeight": 9.7,
+      "sentryHeight": 35.6,
+      "platformHeight": 32,
+      "platformThickness": 0.18,
+      "padRadius": 2.2,
+      "cradleHeight": 3.6,
+      "defenseDepressionMax": 70,
+      "supportOpening": 19
+    },
+    "defense_report": "defense-report.json",
+    "summary": {
+      "fully_obstructed_sampled_bearings": [
+        270
+      ],
+      "best_near_base_gap_m": 0.8942244246894706,
+      "worst_near_base_gap_m": 19.128244982919995,
+      "minimum_max_clear_depression_deg": 47.75,
+      "maximum_max_clear_depression_deg": 68
+    },
+    "mechanical": {
+      "min_moving_geometry_y_m": 32.99135089253574,
+      "deck_highest_marking_m": 32.041,
+      "minimum_vertical_clearance_m": 0.9503508925357451,
+      "scope": "Bearing collars intentionally contact the cradle at its pivot. Exact transformed vertex heights at sampled depressions; gun and cradle versus deck. Fork inner faces x=±1.24 m, cradle max |x|=1.20 m and gun max |x|=0.80 m, leaving 0.04 m cradle-side clearance at rest and yaw."
+    }
   }
 }

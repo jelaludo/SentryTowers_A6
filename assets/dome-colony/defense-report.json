@@ -1,0 +1,1347 @@
+{
+  "schema": "dome-colony/defense-clearance-v1",
+  "scope": "Straight projectile paths against actual detailed triangle meshes, including transparent shells, caps, both domes, platform/cradle and bridge; level ground, rest recoil, Railgun T3 on a new tilting mounting cradle. Not a ballistic, terrain or structural-strength certification.",
+  "sampling": {
+    "yaw_step_deg": 5,
+    "depression_step_deg": 0.25,
+    "projectile_radius_m": 0.1,
+    "rays_per_shot": 9
+  },
+  "platform": {
+    "top_m": 32,
+    "thickness_m": 0.18,
+    "radius_m": 2.2,
+    "cradle_pivot_m": 35.6,
+    "depression_limit_deg": 70
+  },
+  "angles": [
+    {
+      "yaw_deg": 0,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 5,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.9110569216281,
+        "base_gap_m": 6.311056921628099
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 10,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.493787655433763,
+        "base_gap_m": 4.893787655433764
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 15,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689474,
+        "base_gap_m": 0.8942244246894742
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 20,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689499,
+        "base_gap_m": 0.894224424689499
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 25,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689477,
+        "base_gap_m": 0.8942244246894777
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 30,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689476,
+        "base_gap_m": 0.8942244246894759
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 35,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689495,
+        "base_gap_m": 0.8942244246894955
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 40,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 45,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689472,
+        "base_gap_m": 0.8942244246894724
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 50,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689477,
+        "base_gap_m": 0.8942244246894777
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 55,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 60,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 65,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 70,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 75,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689477,
+        "base_gap_m": 0.8942244246894777
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 80,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.493787655433756,
+        "base_gap_m": 4.893787655433757
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 85,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 90,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 95,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 100,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.493787655433774,
+        "base_gap_m": 4.8937876554337745
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 105,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 110,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 115,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689481,
+        "base_gap_m": 0.8942244246894813
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 120,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689474,
+        "base_gap_m": 0.8942244246894742
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 125,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689493,
+        "base_gap_m": 0.8942244246894937
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 130,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 135,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.49422442468948,
+        "base_gap_m": 0.8942244246894795
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 140,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 145,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.4942244246895,
+        "base_gap_m": 0.8942244246895008
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 150,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 155,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 160,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689495,
+        "base_gap_m": 0.8942244246894955
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 165,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 170,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.49378765543377,
+        "base_gap_m": 4.893787655433771
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 175,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628106,
+        "base_gap_m": 6.311056921628106
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 180,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 185,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.911056921628102,
+        "base_gap_m": 6.3110569216281025
+      },
+      "blocked_depression_min_deg": 61.25
+    },
+    {
+      "yaw_deg": 190,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.49378765543377,
+        "base_gap_m": 4.893787655433771
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 195,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 200,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 205,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 210,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689493,
+        "base_gap_m": 0.8942244246894937
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 215,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689492,
+        "base_gap_m": 0.8942244246894919
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 220,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 225,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689481,
+        "base_gap_m": 0.8942244246894813
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 230,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.49422442468949,
+        "base_gap_m": 0.8942244246894901
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 235,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 240,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.49422442468949,
+        "base_gap_m": 0.8942244246894901
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 245,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 250,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 255,
+      "clear_depression_bands_deg": [
+        [
+          44,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 260,
+      "clear_depression_bands_deg": [
+        [
+          46.5,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.49378765543377,
+        "base_gap_m": 4.893787655433771
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 265,
+      "clear_depression_bands_deg": [
+        [
+          47.75,
+          47.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 47.75,
+        "ground_radius_m": 33.728244982919996,
+        "base_gap_m": 19.128244982919995
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 270,
+      "clear_depression_bands_deg": [],
+      "nearest_clear": null,
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 275,
+      "clear_depression_bands_deg": [
+        [
+          47.75,
+          47.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 47.75,
+        "ground_radius_m": 33.728244982919996,
+        "base_gap_m": 19.128244982919995
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 280,
+      "clear_depression_bands_deg": [
+        [
+          46.5,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.493787655433767,
+        "base_gap_m": 4.893787655433767
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 285,
+      "clear_depression_bands_deg": [
+        [
+          44,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.49422442468949,
+        "base_gap_m": 0.8942244246894901
+      },
+      "blocked_depression_min_deg": 35
+    },
+    {
+      "yaw_deg": 290,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 295,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689484,
+        "base_gap_m": 0.8942244246894848
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 300,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689483,
+        "base_gap_m": 0.894224424689483
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 305,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689488,
+        "base_gap_m": 0.8942244246894884
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 310,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 315,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689472,
+        "base_gap_m": 0.8942244246894724
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 320,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689497,
+        "base_gap_m": 0.8942244246894973
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 325,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689477,
+        "base_gap_m": 0.8942244246894777
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 330,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.49422442468947,
+        "base_gap_m": 0.8942244246894706
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 335,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689474,
+        "base_gap_m": 0.8942244246894742
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 340,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689486,
+        "base_gap_m": 0.8942244246894866
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 345,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          68
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 68,
+        "ground_radius_m": 15.494224424689474,
+        "base_gap_m": 0.8942244246894742
+      },
+      "blocked_depression_min_deg": 68.25
+    },
+    {
+      "yaw_deg": 350,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          62.75
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 62.75,
+        "ground_radius_m": 19.493787655433746,
+        "base_gap_m": 4.893787655433746
+      },
+      "blocked_depression_min_deg": 63
+    },
+    {
+      "yaw_deg": 355,
+      "clear_depression_bands_deg": [
+        [
+          35,
+          61
+        ]
+      ],
+      "nearest_clear": {
+        "depression_deg": 61,
+        "ground_radius_m": 20.9110569216281,
+        "base_gap_m": 6.311056921628099
+      },
+      "blocked_depression_min_deg": 61.25
+    }
+  ],
+  "target_rings": [
+    {
+      "radius_m": 15,
+      "distance_from_foundation_m": 0.40000000000000036,
+      "depression_deg": 68.6797853441426,
+      "clear_bearings": 0,
+      "tested_bearings": 72,
+      "clear_percent": 0,
+      "blocked_yaw_deg": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85,
+        90,
+        95,
+        100,
+        105,
+        110,
+        115,
+        120,
+        125,
+        130,
+        135,
+        140,
+        145,
+        150,
+        155,
+        160,
+        165,
+        170,
+        175,
+        180,
+        185,
+        190,
+        195,
+        200,
+        205,
+        210,
+        215,
+        220,
+        225,
+        230,
+        235,
+        240,
+        245,
+        250,
+        255,
+        260,
+        265,
+        270,
+        275,
+        280,
+        285,
+        290,
+        295,
+        300,
+        305,
+        310,
+        315,
+        320,
+        325,
+        330,
+        335,
+        340,
+        345,
+        350,
+        355
+      ]
+    },
+    {
+      "radius_m": 16,
+      "distance_from_foundation_m": 1.4000000000000004,
+      "depression_deg": 67.3112276114739,
+      "clear_bearings": 52,
+      "tested_bearings": 72,
+      "clear_percent": 72.22222222222221,
+      "blocked_yaw_deg": [
+        0,
+        5,
+        10,
+        80,
+        85,
+        90,
+        95,
+        100,
+        170,
+        175,
+        180,
+        185,
+        190,
+        260,
+        265,
+        270,
+        275,
+        280,
+        350,
+        355
+      ]
+    },
+    {
+      "radius_m": 17,
+      "distance_from_foundation_m": 2.4000000000000004,
+      "depression_deg": 65.9702918538228,
+      "clear_bearings": 52,
+      "tested_bearings": 72,
+      "clear_percent": 72.22222222222221,
+      "blocked_yaw_deg": [
+        0,
+        5,
+        10,
+        80,
+        85,
+        90,
+        95,
+        100,
+        170,
+        175,
+        180,
+        185,
+        190,
+        260,
+        265,
+        270,
+        275,
+        280,
+        350,
+        355
+      ]
+    },
+    {
+      "radius_m": 18,
+      "distance_from_foundation_m": 3.4000000000000004,
+      "depression_deg": 64.6575492383322,
+      "clear_bearings": 52,
+      "tested_bearings": 72,
+      "clear_percent": 72.22222222222221,
+      "blocked_yaw_deg": [
+        0,
+        5,
+        10,
+        80,
+        85,
+        90,
+        95,
+        100,
+        170,
+        175,
+        180,
+        185,
+        190,
+        260,
+        265,
+        270,
+        275,
+        280,
+        350,
+        355
+      ]
+    },
+    {
+      "radius_m": 20,
+      "distance_from_foundation_m": 5.4,
+      "depression_deg": 62.11823110427167,
+      "clear_bearings": 60,
+      "tested_bearings": 72,
+      "clear_percent": 83.33333333333334,
+      "blocked_yaw_deg": [
+        0,
+        5,
+        85,
+        90,
+        95,
+        175,
+        180,
+        185,
+        265,
+        270,
+        275,
+        355
+      ]
+    },
+    {
+      "radius_m": 22,
+      "distance_from_foundation_m": 7.4,
+      "depression_deg": 59.69518107827071,
+      "clear_bearings": 69,
+      "tested_bearings": 72,
+      "clear_percent": 95.83333333333334,
+      "blocked_yaw_deg": [
+        265,
+        270,
+        275
+      ]
+    },
+    {
+      "radius_m": 24,
+      "distance_from_foundation_m": 9.4,
+      "depression_deg": 57.38849652554245,
+      "clear_bearings": 69,
+      "tested_bearings": 72,
+      "clear_percent": 95.83333333333334,
+      "blocked_yaw_deg": [
+        265,
+        270,
+        275
+      ]
+    },
+    {
+      "radius_m": 30,
+      "distance_from_foundation_m": 15.4,
+      "depression_deg": 51.147012537885985,
+      "clear_bearings": 69,
+      "tested_bearings": 72,
+      "clear_percent": 95.83333333333334,
+      "blocked_yaw_deg": [
+        265,
+        270,
+        275
+      ]
+    }
+  ],
+  "errors": [],
+  "mechanical": {
+    "min_moving_geometry_y_m": 32.99135089253574,
+    "deck_highest_marking_m": 32.041,
+    "minimum_vertical_clearance_m": 0.9503508925357451,
+    "scope": "Bearing collars intentionally contact the cradle at its pivot. Exact transformed vertex heights at sampled depressions; gun and cradle versus deck. Fork inner faces x=±1.24 m, cradle max |x|=1.20 m and gun max |x|=0.80 m, leaving 0.04 m cradle-side clearance at rest and yaw."
+  },
+  "summary": {
+    "fully_obstructed_sampled_bearings": [
+      270
+    ],
+    "best_near_base_gap_m": 0.8942244246894706,
+    "worst_near_base_gap_m": 19.128244982919995,
+    "minimum_max_clear_depression_deg": 47.75,
+    "maximum_max_clear_depression_deg": 68
+  },
+  "source_sha256": {
+    "biosphere_d0_lod0.glb": "8219e2a1292119f301235f55218ca13e74a8a707f21f30267ad45d3a4fb3dc45",
+    "fabrication_d0_lod0.glb": "f0d160c07b46cba1d56022585db4c92fd61762a3c4353771b53ee9dcf2cf74d3",
+    "bridge_d0_lod0.glb": "cd55b1f854e8235b275aa5fd21dfe929a6e7e2210eded45422a5eb55bf51e0bd",
+    "../sentries/lod1/railgun_t3_d0.glb": "ee3bcf50556e47b645ab835e751e56c471819f6d9af7f1aa95c66950dd84546e"
+  }
+}

@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
-export const LAYOUT={centres:[-24,24],bridgeLength:20,bridgeUnderside:7.5,bridgeFloor:7.9,portHeight:9.7,sentryHeight:13.78,padRadius:4.5,supportOpening:19};
+export const LAYOUT={centres:[-24,24],bridgeLength:20,bridgeUnderside:7.5,bridgeFloor:7.9,portHeight:9.7,sentryHeight:35.6,platformHeight:32,platformThickness:.18,padRadius:2.2,cradleHeight:3.6,defenseDepressionMax:70,supportOpening:19};
 export function buildColonyModule(kind,lod){
  const root=new T.Group();root.name='ROOT';root.userData={family:'dome_colony',module:kind,lod,damage_level:0};
  const bins=new Map(),n=[64,32,16][lod],fine=lod===0,far=lod===2;
@@ -23,9 +23,25 @@ export function buildColonyModule(kind,lod){
  }else{
   cyl(14.6,1.2,[0,.6,0],C.dark);cyl(14.2,.2,[0,1.3,0],C.white);ring(14.25,1.44,C.steel);
   cyl(2.4,12,[0,7.4,0],C.white);cyl(2.55,.3,[0,11.9,0],C.dark);
-  cyl(4.5,.6,[0,13.4,0],C.dark);cyl(4.3,.08,[0,13.74,0],C.steel);ring(3.6,13.79,C.amber);
-  for(let i=0;i<8;i++){const a=i*Math.PI/4;box([.5,.04,.25],[4*Math.cos(a),13.81,4*Math.sin(a)],C.amber);}
-  socket('SOCKET_SENTRY_00',[0,13.78,0],[0,1,0],'sentry');
+  // A slim mast carries a thin deck; a yawing fork tilts the whole canonical sentry.
+  cyl(3,.3,[0,13.35,0],C.dark);
+  cyl(.65,18.5,[0,22.65,0],C.white);
+  cyl(.83,.24,[0,13.6,0],C.steel);cyl(.83,.24,[0,31.7,0],C.steel);
+  cyl(LAYOUT.padRadius,LAYOUT.platformThickness,[0,31.91,0],C.dark);
+  cyl(1.95,.025,[0,32.0125,0],C.steel);
+  // Deck markings are flush strips, with no raised rim in the firing path.
+  for(let i=0;i<8;i++){const a=i*Math.PI/4;box([.22,.012,.12],[1.95*Math.cos(a),32.035,1.95*Math.sin(a)],C.amber);}
+  const yaw=new T.Group();yaw.name='MOUNT_YAW';yaw.position.y=32;root.add(yaw);
+  const cradle=new T.Group();cradle.name='CRADLE_PITCH';cradle.position.y=3.6;yaw.add(cradle);
+  yaw.userData={role:far?'lookup_only':'engine_pivot',axis:'+Y',range_deg:[-180,180]};
+  cradle.userData={role:far?'lookup_only':'engine_pivot',axis:'+X',depression_range_deg:[0,70]};
+  for(const x of [-1.35,1.35]){box([.22,3.6,.38],[x,1.8,0],C.steel,'FORK');box([.36,.5,.6],[x,3.6,0],C.amber,'FORK');}
+  box([2.92,.18,.7],[0,.1,0],C.steel,'FORK');
+  box([2.4,.14,2.4],[0,-.1,0],C.dark,'CRADLE');
+  for(const x of [-1.12,1.12])box([.16,.24,2.4],[x,.05,0],C.steel,'CRADLE');
+  socket('SOCKET_SENTRY_00',[0,0,0],[0,1,0],'sentry');
+  cradle.add(root.getObjectByName('SOCKET_SENTRY_00'));
+  if(far){for(const key of ['FORK','CRADLE']){for(const g of bins.get(key)){g.translate(0,key==='FORK'?32:35.6,0);bins.get('BODY').push(g);}bins.delete(key);}}
   // Ring grid omits four broad port openings; capped unused ports are optional scene parts.
   const ys=far?[1.4,3.5,7.5,11.9,12.6,13.15]:[1.4,3.5,5.5,7.5,9,10.5,11.9,12.6,13.15],r=y=>14*Math.sqrt(1-((y-1.4)/12)**2),verts=[];
   for(let j=0;j<ys.length-1;j++)for(let i=0;i<n;i++){
@@ -53,8 +69,8 @@ export function buildColonyModule(kind,lod){
    if(fine)for(let i=0;i<32;i++){const a=i*Math.PI/16;box([.2,.16,.3],[13.6*Math.cos(a),1.5,13.6*Math.sin(a)],C.amber);}
   }
  }
- for(const [key,list] of bins){const g=mergeGeometries(list.map(x=>{x.deleteAttribute('uv');return x.index?x.toNonIndexed():x;}),false);g.deleteAttribute('uv');const m=new T.Mesh(mergeVertices(g),key==='GLASS'||(key==='SHELL'&&kind==='biosphere')?glass:mat);m.name=key;root.add(m);for(const p of list)p.dispose();}
+ for(const [key,list] of bins){const g=mergeGeometries(list.map(x=>{x.deleteAttribute('uv');return x.index?x.toNonIndexed():x;}),false);g.deleteAttribute('uv');const m=new T.Mesh(mergeVertices(g),key==='GLASS'||(key==='SHELL'&&kind==='biosphere')?glass:mat);m.name=key;if(key==='FORK')root.getObjectByName('MOUNT_YAW').add(m);else if(key==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(m);else root.add(m);for(const p of list)p.dispose();}
  // Stable named semantic placeholders in static tier.
- for(const name of ['BODY',...(kind==='bridge'?['GLASS']:['SHELL','PORT_CAP_E','PORT_CAP_W','PORT_CAP_N','PORT_CAP_S'])])if(!root.getObjectByName(name)){const o=new T.Object3D();o.name=name;root.add(o);}
+ for(const name of ['BODY',...(kind==='bridge'?['GLASS']:['FORK','CRADLE','SHELL','PORT_CAP_E','PORT_CAP_W','PORT_CAP_N','PORT_CAP_S'])])if(!root.getObjectByName(name)){const o=new T.Object3D();o.name=name;if(name==='FORK')root.getObjectByName('MOUNT_YAW').add(o);else if(name==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(o);else root.add(o);}
  return root;
 }

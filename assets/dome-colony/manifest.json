@@ -1,5 +1,5 @@
 {
-  "schema": "dome-colony/blockout-v1",
+  "schema": "dome-colony/blockout-v2",
   "status": "scale_blockout_pending_game_review",
   "coordinate_system": {
     "units": "metres",
@@ -18,7 +18,7 @@
     "hysteresis_m": 20,
     "provisional": true,
     "lod0": "Detailed blockout master for close review",
-    "lod1": "Game candidate; static buildings, separately articulated sentry and vehicle",
+    "lod1": "Game candidate; engine-driven MOUNT_YAW and CRADLE_PITCH; canonical sentry rides the tilting cradle",
     "lod2": "Static opaque proxy; no interior or shell/cap hiding"
   },
   "budgets": {
@@ -42,9 +42,30 @@
     "bridgeUnderside": 7.5,
     "bridgeFloor": 7.9,
     "portHeight": 9.7,
-    "sentryHeight": 13.78,
-    "padRadius": 4.5,
+    "sentryHeight": 35.6,
+    "platformHeight": 32,
+    "platformThickness": 0.18,
+    "padRadius": 2.2,
+    "cradleHeight": 3.6,
+    "defenseDepressionMax": 70,
     "supportOpening": 19
+  },
+  "runtime": {
+    "adapter": "defense.js",
+    "measurement_report": "defense-report.json",
+    "engine_pivots": [
+      "MOUNT_YAW",
+      "CRADLE_PITCH"
+    ],
+    "yaw_axis": "+Y",
+    "depression_axis": "+X",
+    "depression_range_deg": [
+      0,
+      70
+    ],
+    "sentry_attachment": "Attach canonical sentry ROOT directly to CRADLE_PITCH with zero local translation/rotation; do not inherit socket orientation or add a second aiming rotation.",
+    "fire_gate": "Require a fresh firingTrace result with clear=true; geometric clearance is per pose, not a blanket angle allowance.",
+    "distance": "Static parked mount; swap to LOD1 before driving pivots."
   },
   "assets": [
     {
@@ -53,11 +74,11 @@
       "file": "biosphere_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "static": true,
-      "bytes": 625220,
-      "sha256": "d340424b9e272fab82ac0f576318d00f14100b8cad4fddaf6b0f0301055c5d5e",
-      "triangles": 11576,
-      "draw_calls": 6,
+      "static": false,
+      "bytes": 665996,
+      "sha256": "8219e2a1292119f301235f55218ca13e74a8a707f21f30267ad45d3a4fb3dc45",
+      "triangles": 12184,
+      "draw_calls": 8,
       "plot_m": [
         30,
         30
@@ -70,7 +91,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.885000228881836,
+          35.84999990463257,
           14.600000381469727
         ]
       },
@@ -81,7 +102,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -154,7 +175,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",
@@ -174,11 +199,11 @@
       "file": "biosphere_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "static": true,
-      "bytes": 337108,
-      "sha256": "bd5d14c5f8fad3b65d925983ca307d901bba55ebfd5bea4f1da64031ff1ebe3b",
-      "triangles": 5992,
-      "draw_calls": 6,
+      "static": false,
+      "bytes": 362524,
+      "sha256": "476635f5033d6da590e1676c22a39f897a0e5956e17950b298c43f41613513a9",
+      "triangles": 6344,
+      "draw_calls": 8,
       "plot_m": [
         30,
         30
@@ -191,7 +216,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.890000343322754,
+          35.84999990463257,
           14.600000381469727
         ]
       },
@@ -202,7 +227,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -275,7 +300,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",
@@ -296,9 +325,9 @@
       "lod": 2,
       "damage_level": 0,
       "static": true,
-      "bytes": 93812,
-      "sha256": "69ee3182f685bf9e175ac2250f77919e4172eaf7fe3b3584bbb0575314f7137f",
-      "triangles": 1936,
+      "bytes": 110316,
+      "sha256": "bbcd122c25617303de08619339bf87b22953722f8b5b5f1415a44c562761601f",
+      "triangles": 2192,
       "draw_calls": 1,
       "plot_m": [
         30,
@@ -312,7 +341,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.876602172851562,
+          35.849998474121094,
           14.600000381469727
         ]
       },
@@ -323,7 +352,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -396,7 +425,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",
@@ -416,11 +449,11 @@
       "file": "fabrication_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "static": true,
-      "bytes": 479080,
-      "sha256": "c29a190d8fedd56fa52f08ab0ee67ace5b4371f1a66fe54af5227b8a88d7ac70",
-      "triangles": 10296,
-      "draw_calls": 6,
+      "static": false,
+      "bytes": 519864,
+      "sha256": "f0d160c07b46cba1d56022585db4c92fd61762a3c4353771b53ee9dcf2cf74d3",
+      "triangles": 10904,
+      "draw_calls": 8,
       "plot_m": [
         30,
         30
@@ -433,7 +466,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.885000228881836,
+          35.84999990463257,
           14.600000381469727
         ]
       },
@@ -444,7 +477,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -517,7 +550,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",
@@ -537,11 +574,11 @@
       "file": "fabrication_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "static": true,
-      "bytes": 263932,
-      "sha256": "c6376ce25d39ac88b03c0a799e174aba3309dad6f8f81b4876bdbc270092184f",
-      "triangles": 5352,
-      "draw_calls": 6,
+      "static": false,
+      "bytes": 289352,
+      "sha256": "c9b6684660ec330e9f5b01c0f32b18d984edde57495793216673637e67d1cc79",
+      "triangles": 5704,
+      "draw_calls": 8,
       "plot_m": [
         30,
         30
@@ -554,7 +591,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.890000343322754,
+          35.84999990463257,
           14.600000381469727
         ]
       },
@@ -565,7 +602,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -638,7 +675,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",
@@ -659,9 +700,9 @@
       "lod": 2,
       "damage_level": 0,
       "static": true,
-      "bytes": 93812,
-      "sha256": "38aa17311be6809072ce0804f16124f841863f488d3cc35d3bc36230585cc05f",
-      "triangles": 1936,
+      "bytes": 110316,
+      "sha256": "ec933e0ca30f0bdc6a883267dc0e63fd49a77c56ffa2e5ae05dcdb49857da650",
+      "triangles": 2192,
       "draw_calls": 1,
       "plot_m": [
         30,
@@ -675,7 +716,7 @@
         ],
         "max": [
           14.600000381469727,
-          13.876602172851562,
+          35.849998474121094,
           14.600000381469727
         ]
       },
@@ -686,7 +727,7 @@
           "kind": "sentry",
           "position_m": [
             0,
-            13.78,
+            35.6,
             0
           ],
           "normal": [
@@ -759,7 +800,11 @@
       "clips": [],
       "required_nodes": [
         "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
         "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
         "SOCKET_LINK_E",
         "SOCKET_LINK_W",
         "SOCKET_LINK_N",

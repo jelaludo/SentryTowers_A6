@@ -15,7 +15,7 @@ const collectionImages={
 };
 
 export const collections=[
-['dome-colony','Planetary domes / First settlement','Industry','A clear biosphere and opaque fabrication dome, joined above a MÖRK crossing, with a reserved sentry pad on every roof.','3 modules · 3 LODs · tank clearance study','Scale blockout'],
+['dome-colony','Planetary domes / First settlement','Industry','Two domes joined above MÖRK, with thin elevated sentry platforms, tilting cradles and measured downward firing paths.','3 modules · 3 LODs · measured defense angles','Scale blockout'],
 ['settlement-brochure','Wish you lived here? / Galactic Getaways','Presentation','A pastel holiday brochure for your next exoplanet, with a wireframe settlement panorama, four easy steps and a friendly alien neighbour.','Guide look 03 · illustrated panorama · pack your towel','Guide'],
 ['settlement-terminal','New world setup / Mission control','Presentation','A friendly mint-and-amber settlement terminal with A6 wireframes, four mission confirmations and a towel packing switch.','Guide look 02 · readiness meter · mission console','Guide'],
 ['settlement-guide','Your new planet / Pocket guide','Presentation','Four reassuringly easy steps to a new world, with A6 machine wireframes and a reminder to pack your towel.','4 steps · illustrated field guide · collectible stamps','Guide'],
