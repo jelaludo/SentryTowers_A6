@@ -1,4 +1,5 @@
 const collectionImages={
+'dome-city':'assets/dome-city/preview.png',
 'dome-colony':'assets/dome-colony/preview.png',
 'settlement-brochure':'settlement-brochure/landscape.svg',
 'settlement-terminal':'settlement-guide/wireframes/sol88.svg',
@@ -15,6 +16,7 @@ const collectionImages={
 };
 
 export const collections=[
+['dome-city','Dome City / Four Squares','Industry','Nine specialized domes connected above MÖRK routes, framing launch, fabrication, solar and cargo squares with existing Workshop machinery.','9 domes · 12 skybridges · 4 squares','Diorama candidate'],
 ['dome-colony','Planetary domes / First settlement','Industry','Two domes joined above MÖRK, with thin elevated sentry platforms, tilting cradles and measured downward firing paths.','3 modules · 3 LODs · measured defense angles','Scale blockout'],
 ['settlement-brochure','Wish you lived here? / Galactic Getaways','Presentation','A pastel holiday brochure for your next exoplanet, with a wireframe settlement panorama, four easy steps and a friendly alien neighbour.','Guide look 03 · illustrated panorama · pack your towel','Guide'],
 ['settlement-terminal','New world setup / Mission control','Presentation','A friendly mint-and-amber settlement terminal with A6 wireframes, four mission confirmations and a towel packing switch.','Guide look 02 · readiness meter · mission console','Guide'],

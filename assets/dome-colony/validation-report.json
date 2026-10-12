@@ -55,6 +55,114 @@
       "degenerate": 0
     },
     {
+      "file": "habitat_d0_lod0.glb",
+      "triangles": 11496,
+      "draw_calls": 8,
+      "bytes": 557108,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "habitat_d0_lod1.glb",
+      "triangles": 5880,
+      "draw_calls": 8,
+      "bytes": 298756,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "habitat_d0_lod2.glb",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "bytes": 116820,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "research_d0_lod0.glb",
+      "triangles": 11816,
+      "draw_calls": 8,
+      "bytes": 551252,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "research_d0_lod1.glb",
+      "triangles": 6232,
+      "draw_calls": 8,
+      "bytes": 304036,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "research_d0_lod2.glb",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "bytes": 116820,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "power_d0_lod0.glb",
+      "triangles": 11768,
+      "draw_calls": 8,
+      "bytes": 560248,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "power_d0_lod1.glb",
+      "triangles": 6248,
+      "draw_calls": 8,
+      "bytes": 309384,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "power_d0_lod2.glb",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "bytes": 116816,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "logistics_d0_lod0.glb",
+      "triangles": 11496,
+      "draw_calls": 8,
+      "bytes": 556892,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "logistics_d0_lod1.glb",
+      "triangles": 6168,
+      "draw_calls": 8,
+      "bytes": 321004,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "logistics_d0_lod2.glb",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "bytes": 116820,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
       "file": "bridge_d0_lod0.glb",
       "triangles": 1428,
       "draw_calls": 2,
@@ -77,6 +185,33 @@
       "triangles": 740,
       "draw_calls": 1,
       "bytes": 36800,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_long_d0_lod0.glb",
+      "triangles": 1988,
+      "draw_calls": 2,
+      "bytes": 94032,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_long_d0_lod1.glb",
+      "triangles": 1060,
+      "draw_calls": 2,
+      "bytes": 53892,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate": 0
+    },
+    {
+      "file": "bridge_long_d0_lod2.glb",
+      "triangles": 1044,
+      "draw_calls": 1,
+      "bytes": 51448,
       "errors": 0,
       "warnings": 0,
       "degenerate": 0

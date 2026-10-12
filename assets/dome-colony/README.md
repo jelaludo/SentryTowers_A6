@@ -1,6 +1,6 @@
 # Planetary dome colony / Elevated defense study
 
-Two 28 m shell domes (biosphere and fabrication) and one elevated 20 m hallway span. This is a D0 scale study, not a finished production family. Original assets and the received collaboration contract are unchanged. The procedural source is `tools/asset-pipeline/dome-colony-shape.mjs`; LOD0 is the detailed blockout master. `source/blender/dome-colony-blockout.blend` is the editable assembled review scene, derived from these GLBs and the unchanged canonical unit references; rebuild it with `tools/blender/render_dome_colony.py`. The viewer is at `../../dome-colony/`.
+Six 28 m shell dome roles (biosphere, fabrication, habitat, research, power and logistics), plus elevated 20 m and 52 m hallway spans. The original two-dome viewer remains a clearance study; the expanded city is at `../../dome-city/`. This is a D0 scale study, not a finished production family. Original assets and the received collaboration contract are unchanged. The procedural source is `tools/asset-pipeline/dome-colony-shape.mjs`; LOD0 is the detailed blockout master. `source/blender/dome-colony-blockout.blend` is the editable assembled review scene, derived from these GLBs and the unchanged canonical unit references; rebuild it with `tools/blender/render_dome_colony.py`. The viewer is at `../../dome-colony/`.
 
 ## Placement and connections
 
@@ -29,6 +29,23 @@ Measurements exclude the separately composed canonical MÖRK and Railgun referen
 | Bridge | LOD0 | 1,428 | 2 | 68,632 |
 | Bridge | LOD1 | 756 | 2 | 39,240 |
 | Bridge | LOD2 | 740 | 1 | 36,800 |
+| habitat | LOD0 | 11,496 | 8 | 557,108 |
+| habitat | LOD1 | 5,880 | 8 | 298,756 |
+| habitat | LOD2 | 2,304 | 1 | 116,820 |
+| research | LOD0 | 11,816 | 8 | 551,252 |
+| research | LOD1 | 6,232 | 8 | 304,036 |
+| research | LOD2 | 2,304 | 1 | 116,820 |
+| power | LOD0 | 11,768 | 8 | 560,248 |
+| power | LOD1 | 6,248 | 8 | 309,384 |
+| power | LOD2 | 2,304 | 1 | 116,816 |
+| logistics | LOD0 | 11,496 | 8 | 556,892 |
+| logistics | LOD1 | 6,168 | 8 | 321,004 |
+| logistics | LOD2 | 2,304 | 1 | 116,820 |
+| bridge_long | LOD0 | 1,988 | 2 | 94,032 |
+| bridge_long | LOD1 | 1,060 | 2 | 53,892 |
+| bridge_long | LOD2 | 1,044 | 1 | 51,448 |
+
+Habitat contains apartment pods, research contains sample vessels and consoles, power contains accumulator/cooling banks, and logistics contains cargo racks. Habitat and research default to clear shells; power and logistics default to opaque. The new roles share the existing 30 × 30 m plot, four connection sockets and elevated sentry mount. The long bridge reserves 54 × 4.4 m including feet; end sockets are x=±26 m, y=9.7 m, with support columns at x=−26, −10, 10, 26 m.
 
 All exports have zero baked clips. Dome LOD0/1 mounts have engine-driven yaw and depression pivots. LOD0/1 retain separate `SHELL` and `PORT_CAP_*` meshes for inspection. Opaque fabrication retains simple workbench blockouts for the cutaway review; remove unseen interiors from a finalized opaque runtime variant. Shell appearance controls are viewer material overrides, not additional GLB variants. LOD2 merges opaque exterior geometry into one mesh/material and omits interiors and cap meshes; semantic names remain lookup-only empties. Its open port silhouettes are deliberate simplifications; use LOD1 before a close port inspection. Do not hide shells/caps or drive mount pivots on LOD2. The viewer parks the mount and disables firing-angle controls on that tier.
 
@@ -72,6 +89,6 @@ node tools/asset-pipeline/validate-dome-colony.mjs
 python3 tools/build-workshop-docs.py
 ```
 
-Validation checks all nine plain files, hashes, bytes, triangle/draw counts, budgets, zero glTF errors/warnings, degenerate triangles, unique dot-free names, required nodes, socket transforms, cross-tier socket/bounds parity, zero baked building clips, sampled tank envelopes, stale defense-report hashes, all-tier mount/socket transforms, clear/blocked firing regressions, solid cutaway shells and mechanical deck clearance. Desktop Safari review covers rendering, crossing play/pause, aiming, LOD switching, disabled distance-tier shell controls and detailed cutaway inspection. The Blender preview was inspected. Mobile and in-game review remain pending.
+Validation checks all 24 plain files, hashes, bytes, triangle/draw counts, budgets, zero glTF errors/warnings, degenerate triangles, unique dot-free names, required nodes, socket transforms, cross-tier socket/bounds parity, zero baked building clips, sampled tank envelopes, stale defense-report hashes, all-tier mount/socket transforms, clear/blocked firing regressions, solid cutaway shells and mechanical deck clearance. Desktop Safari review covers rendering, crossing play/pause, aiming, LOD switching, disabled distance-tier shell controls and detailed cutaway inspection. The Blender preview was inspected. Mobile and in-game review remain pending.
 
 Future work: art refinement, role-specific machinery, bridge seals and articulating modules, terrain/planet integration, D1–D3 damage states, construction animations, broader sentry compatibility and game-camera/reference-device profiling. Hand off this folder with the containing Git commit; generated GLBs are reproducible from the authored builder. Credit: Models by jelaludo.

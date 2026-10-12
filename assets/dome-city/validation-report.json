@@ -1,0 +1,169 @@
+{
+  "errors": [],
+  "tiers": [
+    {
+      "lod": 0,
+      "triangles": 254978,
+      "draw_calls": 462,
+      "unique_model_bytes": 7536032,
+      "unique_files": 22,
+      "instances": 55
+    },
+    {
+      "lod": 1,
+      "triangles": 129442,
+      "draw_calls": 350,
+      "unique_model_bytes": 4981084,
+      "unique_files": 22,
+      "instances": 55
+    },
+    {
+      "lod": 2,
+      "triangles": 75020,
+      "draw_calls": 118,
+      "unique_model_bytes": 2345168,
+      "unique_files": 21,
+      "instances": 55
+    }
+  ],
+  "connections": [
+    {
+      "id": "LINK_E_11",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_11",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_E_12",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_12",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_13",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_E_21",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_21",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_E_22",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_22",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_N_23",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_E_31",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    },
+    {
+      "id": "LINK_E_32",
+      "socket_gap_m": 0,
+      "span_m": 52,
+      "underside_m": 7.5
+    }
+  ],
+  "courts": [
+    {
+      "id": "launch",
+      "corner_domes": [
+        "DOME_11",
+        "DOME_12",
+        "DOME_21",
+        "DOME_22"
+      ],
+      "side_m": 80,
+      "props": 3
+    },
+    {
+      "id": "fabrication",
+      "corner_domes": [
+        "DOME_12",
+        "DOME_13",
+        "DOME_22",
+        "DOME_23"
+      ],
+      "side_m": 80,
+      "props": 3
+    },
+    {
+      "id": "solar",
+      "corner_domes": [
+        "DOME_21",
+        "DOME_22",
+        "DOME_31",
+        "DOME_32"
+      ],
+      "side_m": 80,
+      "props": 10
+    },
+    {
+      "id": "cargo",
+      "corner_domes": [
+        "DOME_22",
+        "DOME_23",
+        "DOME_32",
+        "DOME_33"
+      ],
+      "side_m": 80,
+      "props": 12
+    }
+  ],
+  "scope": "Static rest-pose assembly checks. Footprint overlap uses conservative AABBs. Patrol uses a flat-ground swept AABB with level forward gun. No launch, terrain, ballistics, manufacturing-motion or global defense-coverage certification.",
+  "patrol": {
+    "lane_width_m": 10,
+    "tank_width_m": 5.8191399574279785,
+    "side_margin_m": 2.0904300212860107,
+    "headroom_m": 3.9340482473373415,
+    "swept_bounds": {
+      "min": [
+        -42.90919238328934,
+        0.5554441913962365,
+        -102.62623691558838
+      ],
+      "max": [
+        -37.09005242586136,
+        3.5659517526626585,
+        106.64112377539277
+      ]
+    },
+    "support_clearance": "At all three crossings the nearest columns are 10 m either side of lane centre; inner faces leave a 19 m opening."
+  }
+}

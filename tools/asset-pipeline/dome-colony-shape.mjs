@@ -3,6 +3,7 @@ import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUt
 export const LAYOUT={centres:[-24,24],bridgeLength:20,bridgeUnderside:7.5,bridgeFloor:7.9,portHeight:9.7,sentryHeight:35.6,platformHeight:32,platformThickness:.18,padRadius:2.2,cradleHeight:3.6,defenseDepressionMax:70,supportOpening:19};
 export function buildColonyModule(kind,lod){
  const root=new T.Group();root.name='ROOT';root.userData={family:'dome_colony',module:kind,lod,damage_level:0};
+ const isBridge=kind.startsWith('bridge'),clearRole=['biosphere','habitat','research'].includes(kind),half=kind==='bridge_long'?26:10;
  const bins=new Map(),n=[64,32,16][lod],fine=lod===0,far=lod===2;
  const mat=new T.MeshStandardMaterial({name:'COLONY_PALETTE',vertexColors:true,roughness:.65,metalness:.25});
  const glass=new T.MeshStandardMaterial({name:'COLONY_GLASS',color:0x9cdce0,transparent:true,opacity:.18,roughness:.18,metalness:.05,side:T.DoubleSide,depthWrite:false});
@@ -13,13 +14,13 @@ export function buildColonyModule(kind,lod){
  function beam(a,b,r,c){const u=new T.Vector3(...a),v=new T.Vector3(...b),d=v.clone().sub(u),g=new T.CylinderGeometry(r,r,d.length(),fine?8:4);g.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),d.normalize()));add(g,c,u.add(v).multiplyScalar(.5).toArray());}
  function socket(name,p,normal,role){const o=new T.Object3D();o.name=name;o.position.set(...p);o.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),new T.Vector3(...normal));o.userData={role,normal};root.add(o);}
  function ring(r,y,c){add(new T.TorusGeometry(r,fine?.095:.1,far?3:4,n),c,[0,y,0],[Math.PI/2,0,0]);}
- if(kind==='bridge'){
-  box([20,.4,4.4],[0,7.7,0],C.white);
-  for(const x of [-10,10]){box([1,7.5,1],[x,3.75,0],C.steel);box([2,.3,2],[x,.15,0],C.dark);}
-  for(const z of [-2,2])box([20,1.1,.18],[0,8.45,z],C.white);
-  for(const x of [-10,-5,0,5,10]){for(let i=0;i<8;i++){const a=i*Math.PI/8,b=(i+1)*Math.PI/8;beam([x,8.8+2*Math.sin(a),2*Math.cos(a)],[x,8.8+2*Math.sin(b),2*Math.cos(b)],.1,C.steel);}}
-  const pos=[];for(let i=0;i<n/2;i++){const a=i*Math.PI/(n/2),b=(i+1)*Math.PI/(n/2);const p=[[-10,8.8+2*Math.sin(a),2*Math.cos(a)],[10,8.8+2*Math.sin(a),2*Math.cos(a)],[-10,8.8+2*Math.sin(b),2*Math.cos(b)],[10,8.8+2*Math.sin(b),2*Math.cos(b)]];for(const j of [0,1,2,1,3,2])pos.push(...p[j]);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.computeVertexNormals();add(g,far?C.cyan:C.white,[0,0,0],[0,0,0],far?'BODY':'GLASS');
-  socket('SOCKET_LINK_W',[-10,9.7,0],[-1,0,0],'hallway');socket('SOCKET_LINK_E',[10,9.7,0],[1,0,0],'hallway');
+ if(isBridge){
+  box([half*2,.4,4.4],[0,7.7,0],C.white);
+  for(const x of (half===10?[-10,10]:[-26,-10,10,26])){box([1,7.5,1],[x,3.75,0],C.steel);box([2,.3,2],[x,.15,0],C.dark);}
+  for(const z of [-2,2])box([half*2,1.1,.18],[0,8.45,z],C.white);
+  for(const x of (half===10?[-10,-5,0,5,10]:[-26,-18,-10,0,10,18,26])){for(let i=0;i<8;i++){const a=i*Math.PI/8,b=(i+1)*Math.PI/8;beam([x,8.8+2*Math.sin(a),2*Math.cos(a)],[x,8.8+2*Math.sin(b),2*Math.cos(b)],.1,C.steel);}}
+  const pos=[];for(let i=0;i<n/2;i++){const a=i*Math.PI/(n/2),b=(i+1)*Math.PI/(n/2);const p=[[-half,8.8+2*Math.sin(a),2*Math.cos(a)],[half,8.8+2*Math.sin(a),2*Math.cos(a)],[-half,8.8+2*Math.sin(b),2*Math.cos(b)],[half,8.8+2*Math.sin(b),2*Math.cos(b)]];for(const j of [0,1,2,1,3,2])pos.push(...p[j]);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.computeVertexNormals();add(g,far?C.cyan:C.white,[0,0,0],[0,0,0],far?'BODY':'GLASS');
+  socket('SOCKET_LINK_W',[-half,9.7,0],[-1,0,0],'hallway');socket('SOCKET_LINK_E',[half,9.7,0],[1,0,0],'hallway');
  }else{
   cyl(14.6,1.2,[0,.6,0],C.dark);cyl(14.2,.2,[0,1.3,0],C.white);ring(14.25,1.44,C.steel);
   cyl(2.4,12,[0,7.4,0],C.white);cyl(2.55,.3,[0,11.9,0],C.dark);
@@ -51,7 +52,7 @@ export function buildColonyModule(kind,lod){
    const p=[[r(ys[j])*Math.cos(a),ys[j],r(ys[j])*Math.sin(a)],[r(ys[j])*Math.cos(b),ys[j],r(ys[j])*Math.sin(b)],[r(ys[j+1])*Math.cos(a),ys[j+1],r(ys[j+1])*Math.sin(a)],[r(ys[j+1])*Math.cos(b),ys[j+1],r(ys[j+1])*Math.sin(b)]];
    for(const v of [0,2,1,1,2,3])verts.push(...p[v]);
   }
-  const shell=new T.BufferGeometry();shell.setAttribute('position',new T.Float32BufferAttribute(verts,3));shell.computeVertexNormals();add(shell,kind==='biosphere'&&far?0x77a6a5:C.white,[0,0,0],[0,0,0],far?'BODY':'SHELL');
+  const shell=new T.BufferGeometry();shell.setAttribute('position',new T.Float32BufferAttribute(verts,3));shell.computeVertexNormals();add(shell,clearRole&&far?0x77a6a5:C.white,[0,0,0],[0,0,0],far?'BODY':'SHELL');
   for(let i=0;i<(far?8:16);i++){const a=(i+.5)*2*Math.PI/(far?8:16);for(let j=0;j<ys.length-1;j++)beam([r(ys[j])*Math.cos(a),ys[j],r(ys[j])*Math.sin(a)],[r(ys[j+1])*Math.cos(a),ys[j+1],r(ys[j+1])*Math.sin(a)],fine?.12:.1,C.steel);}
   for(const y of [3.5,11.9,12.6])ring(r(y)+.035,y,C.steel);
   for(const [id,dx,dz] of [['E',1,0],['W',-1,0],['N',0,1],['S',0,-1]]){
@@ -63,14 +64,28 @@ export function buildColonyModule(kind,lod){
    // Mezzanine walkways join each port to central lift core.
    if(!far)box(dx?[10,.2,2.4]:[2.4,.2,10],[dx*7,7.8,dz*7],C.steel);
   }
+  const roleAccent={habitat:0xe5b878,research:0x71bbd4,power:0xeb964e,logistics:0xa2b68c}[kind];
+  if(roleAccent){cyl(14.35,.16,[0,1.15,0],roleAccent);for(let i=0;i<4;i++){const a=Math.PI/4+i*Math.PI/2;box([.65,.8,.65],[12.9*Math.cos(a),2,12.9*Math.sin(a)],roleAccent);}}
   if(!far){
    box([1.5,4.8,.2],[0,3.8,2.48],C.dark);box([1.5,.14,.2],[0,6.4,2.6],C.cyan);
-   for(const x of [-8,-5,5,8])for(const z of [-6,-3,3,6]){if(kind==='biosphere'){box([2,.55,2],[x,1.75,z],C.white);box([1.8,.12,1.8],[x,2.08,z],C.dark);for(let k=0;k<(fine?4:2);k++)add(new T.IcosahedronGeometry(.55,0),C.green,[x+(k%2-.5)*.7,2.55,z+(Math.floor(k/2)-.5)*.7]);}else{box([2,1.3,1.6],[x,2,z],C.steel);box([1.6,.12,1.3],[x,2.72,z],C.amber);}}
+   if(kind==='biosphere'||kind==='fabrication')for(const x of [-8,-5,5,8])for(const z of [-6,-3,3,6]){if(kind==='biosphere'){box([2,.55,2],[x,1.75,z],C.white);box([1.8,.12,1.8],[x,2.08,z],C.dark);for(let k=0;k<(fine?4:2);k++)add(new T.IcosahedronGeometry(.55,0),C.green,[x+(k%2-.5)*.7,2.55,z+(Math.floor(k/2)-.5)*.7]);}else{box([2,1.3,1.6],[x,2,z],C.steel);box([1.6,.12,1.3],[x,2.72,z],C.amber);}}
+   if(kind==='habitat'){
+    for(const x of [-7,7])for(const z of [-5,5])for(const floor of [0,1]){const y=2.5+floor*2.55;box([4,2.2,3.4],[x,y,z],C.white);box([3.5,1.1,.06],[x,y+.05,z+1.73],C.amber);box([3.5,1.1,.06],[x,y+.05,z-1.73],C.cyan);box([4.3,.12,3.7],[x,y-1.1,z],C.steel);if(fine)for(const dx of [-1,0,1])box([.06,1.1,.09],[x+dx,y+.05,z+1.78],C.dark);}
+   }
+   if(kind==='research'){
+    for(const x of [-7,7])for(const z of [-5,5]){cyl(1.9,.3,[x,1.6,z],C.white,16);cyl(.9,2.4,[x,2.95,z],C.cyan,12);cyl(1.1,.18,[x,4.2,z],C.steel,12);box([2.6,1.0,.9],[x,2,z+2.8],C.white);box([2.2,.65,.12],[x,2.85,z+2.75],C.dark);if(fine)for(const k of [-.6,.6])cyl(.2,.6,[x+k,2.85,z+2.8],C.amber,8);}
+   }
+   if(kind==='power'){
+    for(const x of [-7,7])for(const z of [-5,5]){cyl(1.5,3.6,[x,3.2,z],C.steel,16);cyl(1.6,.22,[x,5.1,z],C.amber,16);for(let k=0;k<(fine?8:4);k++)box([3.4,.12,3.4],[x,2+k*(fine?.35:.7),z],C.dark);box([1.2,1.4,1.2],[x+2.1,2.1,z],C.white);}
+   }
+   if(kind==='logistics'){
+    for(const x of [-7,7])for(const z of [-6,-3,3,6]){box([3,.16,2.3],[x,1.55,z],C.steel);for(const y of [2.1,3.25]){box([2.6,1,1.9],[x,y,z],y<3?C.white:C.amber);box([.16,1.04,1.96],[x-.85,y,z],C.dark);box([.16,1.04,1.96],[x+.85,y,z],C.dark);}}
+   }
    if(fine)for(let i=0;i<32;i++){const a=i*Math.PI/16;box([.2,.16,.3],[13.6*Math.cos(a),1.5,13.6*Math.sin(a)],C.amber);}
   }
  }
- for(const [key,list] of bins){const g=mergeGeometries(list.map(x=>{x.deleteAttribute('uv');return x.index?x.toNonIndexed():x;}),false);g.deleteAttribute('uv');const m=new T.Mesh(mergeVertices(g),key==='GLASS'||(key==='SHELL'&&kind==='biosphere')?glass:mat);m.name=key;if(key==='FORK')root.getObjectByName('MOUNT_YAW').add(m);else if(key==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(m);else root.add(m);for(const p of list)p.dispose();}
+ for(const [key,list] of bins){const g=mergeGeometries(list.map(x=>{x.deleteAttribute('uv');return x.index?x.toNonIndexed():x;}),false);g.deleteAttribute('uv');const m=new T.Mesh(mergeVertices(g),key==='GLASS'||(key==='SHELL'&&clearRole)?glass:mat);m.name=key;if(key==='FORK')root.getObjectByName('MOUNT_YAW').add(m);else if(key==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(m);else root.add(m);for(const p of list)p.dispose();}
  // Stable named semantic placeholders in static tier.
- for(const name of ['BODY',...(kind==='bridge'?['GLASS']:['FORK','CRADLE','SHELL','PORT_CAP_E','PORT_CAP_W','PORT_CAP_N','PORT_CAP_S'])])if(!root.getObjectByName(name)){const o=new T.Object3D();o.name=name;if(name==='FORK')root.getObjectByName('MOUNT_YAW').add(o);else if(name==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(o);else root.add(o);}
+ for(const name of ['BODY',...(isBridge?['GLASS']:['FORK','CRADLE','SHELL','PORT_CAP_E','PORT_CAP_W','PORT_CAP_N','PORT_CAP_S'])])if(!root.getObjectByName(name)){const o=new T.Object3D();o.name=name;if(name==='FORK')root.getObjectByName('MOUNT_YAW').add(o);else if(name==='CRADLE')root.getObjectByName('CRADLE_PITCH').add(o);else root.add(o);}
  return root;
 }

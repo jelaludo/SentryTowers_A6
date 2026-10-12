@@ -819,6 +819,1506 @@
       "credit": "Models by jelaludo"
     },
     {
+      "id": "habitat_d0_lod0",
+      "module": "habitat",
+      "file": "habitat_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 557108,
+      "sha256": "b687f2f394b7215af9a10a0424e8548f8cfcf049e1bc7c8e4eab29b8dbf8c932",
+      "triangles": 11496,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "habitat_d0_lod1",
+      "module": "habitat",
+      "file": "habitat_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 298756,
+      "sha256": "7b8e231fea26d39e6df62eb1dd5c7dbf89908253330af34497caaa9fbaeb18fc",
+      "triangles": 5880,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "habitat_d0_lod2",
+      "module": "habitat",
+      "file": "habitat_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 116820,
+      "sha256": "9d2bd16e978dbcb95236b2ebe90fbe17ef634af347a5b217259901c4fe6a4372",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.849998474121094,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "research_d0_lod0",
+      "module": "research",
+      "file": "research_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 551252,
+      "sha256": "72ba9c991c7be46b3b340fcdb7fa0c7c9f031e92870387e5414d5ecfcbb3c764",
+      "triangles": 11816,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "research_d0_lod1",
+      "module": "research",
+      "file": "research_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 304036,
+      "sha256": "8084a012971e5c5c6b39a35a34e84a344d889f26170aa35c2c2b63b06d89f8ee",
+      "triangles": 6232,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "research_d0_lod2",
+      "module": "research",
+      "file": "research_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 116820,
+      "sha256": "e0e50d2bd7610e9521efa533474080f04911c3cac94591963085b0d4bf711293",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.849998474121094,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "power_d0_lod0",
+      "module": "power",
+      "file": "power_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 560248,
+      "sha256": "e322bd2099aa7d5d57654039cea9505c7b84dbf6481aaf6f6323e7e7d45ba06e",
+      "triangles": 11768,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "power_d0_lod1",
+      "module": "power",
+      "file": "power_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 309384,
+      "sha256": "0b014c0fab356bdf2e49ad71a35557ff13805b93b8ecb4b805e8a2d790a6351b",
+      "triangles": 6248,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "power_d0_lod2",
+      "module": "power",
+      "file": "power_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 116816,
+      "sha256": "7055ac81f30f10cd448629d4fe00787dbec326ccff0dea9c8f3ee4d465b0f520",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.849998474121094,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "logistics_d0_lod0",
+      "module": "logistics",
+      "file": "logistics_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 556892,
+      "sha256": "76a6e43fab7d96ceea4bf051c4774fb4c09694abc52bb9a00c24d5fc6d34d020",
+      "triangles": 11496,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "logistics_d0_lod1",
+      "module": "logistics",
+      "file": "logistics_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "bytes": 321004,
+      "sha256": "172ae45d92ff111c5b7b4ac093cadeb60dcf47693c75515b1f39754d8b7e3b39",
+      "triangles": 6168,
+      "draw_calls": 8,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.84999990463257,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "logistics_d0_lod2",
+      "module": "logistics",
+      "file": "logistics_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 116820,
+      "sha256": "993a712d48d74cd5c189b428a5a424acbde08c906de0d03d0c444160330aa07b",
+      "triangles": 2304,
+      "draw_calls": 1,
+      "plot_m": [
+        30,
+        30
+      ],
+      "bounds": {
+        "min": [
+          -14.600000381469727,
+          -2.3841858265427618e-8,
+          -14.600000381469727
+        ],
+        "max": [
+          14.600000381469727,
+          35.849998474121094,
+          14.600000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_SENTRY_00",
+          "node": "SOCKET_SENTRY_00",
+          "kind": "sentry",
+          "position_m": [
+            0,
+            35.6,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            14,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -14,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_N",
+          "node": "SOCKET_LINK_N",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            14
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_S",
+          "node": "SOCKET_LINK_S",
+          "kind": "hallway",
+          "position_m": [
+            0,
+            9.7,
+            -14
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "MOUNT_YAW",
+        "CRADLE_PITCH",
+        "SOCKET_SENTRY_00",
+        "CRADLE",
+        "FORK",
+        "SOCKET_LINK_E",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_N",
+        "SOCKET_LINK_S",
+        "BODY",
+        "SHELL",
+        "PORT_CAP_E",
+        "PORT_CAP_W",
+        "PORT_CAP_N",
+        "PORT_CAP_S"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
       "id": "bridge_d0_lod0",
       "module": "bridge",
       "file": "bridge_d0_lod0.glb",
@@ -1005,6 +2505,213 @@
           "kind": "hallway",
           "position_m": [
             10,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_E",
+        "BODY",
+        "GLASS"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "bridge_long_d0_lod0",
+      "module": "bridge_long",
+      "file": "bridge_long_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 94032,
+      "sha256": "e996766494a316182709b45105f0c4840560f85e4df4afd47efa423db37ee731",
+      "triangles": 1988,
+      "draw_calls": 2,
+      "plot_m": [
+        54,
+        4.4
+      ],
+      "bounds": {
+        "min": [
+          -27,
+          -5.9604645663569045e-9,
+          -2.200000047683716
+        ],
+        "max": [
+          27,
+          10.898078918457031,
+          2.200000047683716
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -26,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            26,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_E",
+        "BODY",
+        "GLASS"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "bridge_long_d0_lod1",
+      "module": "bridge_long",
+      "file": "bridge_long_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 53892,
+      "sha256": "6f136c45bc1b6bb2004231e72efe1e36a6a1688fb8ddda1f67775b5047395759",
+      "triangles": 1060,
+      "draw_calls": 2,
+      "plot_m": [
+        54,
+        4.4
+      ],
+      "bounds": {
+        "min": [
+          -27,
+          -5.9604645663569045e-9,
+          -2.200000047683716
+        ],
+        "max": [
+          27,
+          10.898078918457031,
+          2.200000047683716
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -26,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            26,
+            9.7,
+            0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "clips": [],
+      "required_nodes": [
+        "ROOT",
+        "SOCKET_LINK_W",
+        "SOCKET_LINK_E",
+        "BODY",
+        "GLASS"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "bridge_long_d0_lod2",
+      "module": "bridge_long",
+      "file": "bridge_long_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "bytes": 51448,
+      "sha256": "e0ca7a4e0d964037d19b4b2a61dcb0d9d9f51e59ed8af7a9632829a022fe1d04",
+      "triangles": 1044,
+      "draw_calls": 1,
+      "plot_m": [
+        54,
+        4.4
+      ],
+      "bounds": {
+        "min": [
+          -27,
+          -5.9604645663569045e-9,
+          -2.200000047683716
+        ],
+        "max": [
+          27,
+          10.898078918457031,
+          2.200000047683716
+        ]
+      },
+      "sockets": [
+        {
+          "id": "SOCKET_LINK_W",
+          "node": "SOCKET_LINK_W",
+          "kind": "hallway",
+          "position_m": [
+            -26,
+            9.7,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "SOCKET_LINK_E",
+          "node": "SOCKET_LINK_E",
+          "kind": "hallway",
+          "position_m": [
+            26,
             9.7,
             0
           ],
