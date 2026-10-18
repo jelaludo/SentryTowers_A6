@@ -19,7 +19,7 @@ const collectionImages={
 };
 
 export const collections=[
-['recon-rover','R-47X / 6x6 Reconnaissance Rover','Industry','Unmanned 6x6 extreme-terrain reconnaissance vehicle with articulated hydraulic suspension, four COPV gas tanks, and 8 ventral/lateral gimbaled cold-gas thrusters for short low-gravity hops.','3 LODs · 8 cold-gas thrusters · 16s low-G jump cycle','Contract candidate'],
+['recon-rover','R-47X / 6x6 Reconnaissance Rover','Industry','Unmanned 6x6 extreme-terrain rover with 6 independent spinning wheels, ±34° front steering, per-wheel suspension, 8 individual gimbaled cold-gas nozzles + mist helper, and 4 UV-mapped onboard displays including a rear NASM FDAI panel.','3 LODs · 8 nozzles + mist FX · 4 UV displays','Contract candidate'],
 ['stalheart-disco','Stålheart / Celebration Disco Gantry','Props','A silly diegetic congratulation diorama where Stålheart hoists the DSC-01 balance disco ball inside its 36 m gantry above celebrating MÖRK and ISAO units.','3 LODs · Gantry pendulum swing · Laser + light show','Diorama candidate'],
 ['disco-ball','DSC-01 / Celebration Disco Ball','Props','Standalone faceted mirror sphere with a counter-rotating laser turret ring, four party floodlights, pendulum hoist pivot and detachable floor cradle.','3 LODs · 16-second celebration cycle · Gantry-compatible','Contract candidate'],
 ['dome-city','Dome City / Four Squares','Industry','Nine specialized domes connected above MÖRK routes, framing launch, fabrication, solar and cargo squares with existing Workshop machinery.','9 domes · 12 skybridges · 4 squares','Diorama candidate'],

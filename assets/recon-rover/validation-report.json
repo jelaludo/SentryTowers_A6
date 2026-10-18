@@ -5,16 +5,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 651796,
-          "triangles": 9628,
-          "draw_calls": 9,
+          "bytes": 650216,
+          "triangles": 9176,
+          "draw_calls": 26,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 184708,
-          "triangles": 9628,
-          "draw_calls": 9,
+          "bytes": 172484,
+          "triangles": 9176,
+          "draw_calls": 26,
           "degenerate": 0
         }
       ]
@@ -24,16 +24,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 381172,
-          "triangles": 5508,
-          "draw_calls": 9,
+          "bytes": 384984,
+          "triangles": 5120,
+          "draw_calls": 26,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 119068,
-          "triangles": 5508,
-          "draw_calls": 9,
+          "bytes": 117416,
+          "triangles": 5120,
+          "draw_calls": 26,
           "degenerate": 0
         }
       ]
@@ -43,15 +43,15 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 175540,
-          "triangles": 2436,
+          "bytes": 203012,
+          "triangles": 2712,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 55180,
-          "triangles": 2436,
+          "bytes": 70064,
+          "triangles": 2712,
           "draw_calls": 1,
           "degenerate": 0
         }

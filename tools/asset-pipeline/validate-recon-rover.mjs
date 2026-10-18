@@ -7,7 +7,7 @@ import {NodeIO} from '@gltf-transform/core';
 import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {dequantize} from '@gltf-transform/functions';
 import validator from 'gltf-validator';
-import {roverState,applyRover} from '../../assets/recon-rover/runtime.js';
+import {applyRover,createColdGasSystem,NOZZLE_IDS} from '../../assets/recon-rover/runtime.js';
 
 const out=new URL('../../assets/recon-rover/',import.meta.url);
 const manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));
@@ -19,6 +19,13 @@ await Promise.all([MeshoptDecoder.ready,MeshoptEncoder.ready]);
 const io=new NodeIO()
   .registerExtensions(ALL_EXTENSIONS)
   .registerDependencies({'meshopt.decoder':MeshoptDecoder,'meshopt.encoder':MeshoptEncoder});
+
+const DISPLAY_MESHES=[
+  'DISPLAY_SPEED_LEFT',
+  'DISPLAY_THRUST_RIGHT',
+  'DISPLAY_GAS_RESERVE_REAR',
+  'DISPLAY_FDAI_TELEMETRY_PANEL'
+];
 
 for(const e of manifest.assets){
   const stats=[];
@@ -80,11 +87,53 @@ for(const e of manifest.assets){
     }
     if(gltf.animations.length)report.errors.push(`${file}: unexpected baked clips`);
     if(e.lod===2&&draws!==1)report.errors.push(`${file}: static tier must be one draw`);
+
     if(e.lod<2){
-      applyRover(root,6.5,e.lod,{thrusters:true,jump:true,gimbalDeg:8,mastYawDeg:15});
-      if(!(root.getObjectByName('ROVER_CHASSIS_JUMP')?.position.y>1.0))report.errors.push(`${file}: airborne jump failed`);
-      if(root.getObjectByName('COLD_GAS_PLUMES')?.visible!==true)report.errors.push(`${file}: cold-gas plume visibility failed`);
-      if(!roverState(6.5).airborne)report.errors.push('Rover airborne state missing');
+      // Verify 4 onboard display meshes have clean UVs and distinct materials
+      const dispMats=new Set();
+      for(const dName of DISPLAY_MESHES){
+        const dm=root.getObjectByName(dName);
+        if(!dm?.isMesh){
+          report.errors.push(`${file}: ${dName} must be a Mesh in LOD${e.lod}`);
+          continue;
+        }
+        dispMats.add(dm.material.name);
+        const uv=dm.geometry.attributes.uv;
+        if(!uv||uv.count<4)report.errors.push(`${file}: ${dName} missing UV attribute`);
+      }
+      if(dispMats.size!==DISPLAY_MESHES.length){
+        report.errors.push(`${file}: onboard displays must have separately addressable materials`);
+      }
+
+      // Verify steering + spin + suspension + 8 individual nozzles + sensor pitch/yaw
+      const s=applyRover(root,5.2,e.lod,{
+        thrusters:true,
+        jump:false,
+        speedMps:6.0,
+        steerDeg:28,
+        mastYawDeg:135,
+        mastPitchDeg:-22
+      });
+      if(Math.abs(root.getObjectByName('WHEEL_STEER_FL').rotation.y)<0.35){
+        report.errors.push(`${file}: front steering pivot failed`);
+      }
+      if(Math.abs(root.getObjectByName('WHEEL_SPIN_RL').rotation.x)<0.1){
+        report.errors.push(`${file}: wheel spin pivot failed`);
+      }
+      if(Math.abs(root.getObjectByName('OPTICS_HEAD_PITCH').rotation.x)<0.2){
+        report.errors.push(`${file}: optics head pitch failed`);
+      }
+      for(const id of NOZZLE_IDS){
+        const sock=root.getObjectByName(`SOCKET_THRUSTER_${id}`);
+        if(sock?.parent?.name!==`THRUSTER_${id}`){
+          report.errors.push(`${file}: SOCKET_THRUSTER_${id} not parented to THRUSTER_${id}`);
+        }
+      }
+      const fx=createColdGasSystem(T,root,{enabled:true,dust:true});
+      const stepRes=fx.step(0.02,s.nozzleIntensities,root);
+      if(!(stepRes.activePlumeCount>0)){
+        report.errors.push(`${file}: cold-gas particle helper failed to spawn mist`);
+      }
     }
     stats.push({kind,bytes:bytes.length,triangles:Math.round(triangles),draw_calls:draws,degenerate});
   }
@@ -94,7 +143,7 @@ for(const e of manifest.assets){
 for(const e of manifest.assets){
   const b=manifest.budgets[`lod${e.lod}`];
   if(b&&(e.triangles>b.triangles||e.draw_calls>b.draw_calls||e.bytes>b.bytes)){
-    report.errors.push(`${e.id}: exceeds budget`);
+    report.errors.push(`${e.id}: exceeds budget (${e.triangles}/${b.triangles} tris, ${e.draw_calls}/${b.draw_calls} draws, ${e.bytes}/${b.bytes} bytes)`);
   }
 }
 

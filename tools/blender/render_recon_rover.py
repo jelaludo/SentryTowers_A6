@@ -1,4 +1,4 @@
-"""Derive editable Blender review scene and preview render for the R-47X 6x6 Reconnaissance Rover."""
+"""Derive editable Blender review scene and preview renders for the R-47X 6x6 Reconnaissance Rover."""
 from pathlib import Path
 import bpy
 from mathutils import Vector
@@ -45,33 +45,22 @@ def add_light(scene, name, loc, target, energy, size, color):
 scene = setup_scene('R47X_Recon_Rover_Review', (0.07, 0.10, 0.13))
 bpy.ops.import_scene.gltf(filepath=str(ROOT / 'assets/recon-rover/lod0/r47x_recon_rover_d0_lod0.glb'))
 
-# Elevate ROVER_CHASSIS_JUMP in Blender's Z-up frame (+0.32 m hop above rest 0.56 m -> 0.88 m)
-# and drooped wheels (-0.06 m) so the 6 wheels, exposed hydraulic dampers, and 8 ventral/lateral cold-gas thrusters read clearly
+# Demonstrate front wheel steering (±26°), sensor mast yaw + pitch, and individual thruster vectoring
 for o in bpy.data.objects:
     base = o.name.split('.')[0]
-    if base == 'ROVER_CHASSIS_JUMP':
-        o.location.z = 0.88
+    if base in ('WHEEL_STEER_FL', 'WHEEL_STEER_FR'):
         o.rotation_mode = 'XYZ'
-        o.rotation_euler.x = -0.04
-    elif base in ('WHEEL_DRIVE_L', 'WHEEL_DRIVE_R'):
-        o.location.z = -0.06
+        o.rotation_euler.z = 0.44
     elif base == 'SENSOR_MAST_YAW':
         o.rotation_mode = 'XYZ'
-        o.rotation_euler.z = 0.28
-    elif base == 'COLD_GAS_PLUMES' and o.type == 'MESH':
-        # Make cold-gas plumes softly translucent/emissive in Cycles preview
-        m = bpy.data.materials.new('CyclesColdGasPlume')
-        m.use_nodes = True
-        bsdf = m.node_tree.nodes.get('Principled BSDF')
-        if bsdf:
-            bsdf.inputs['Base Color'].default_value = (0.62, 0.92, 1.0, 1.0)
-            bsdf.inputs['Alpha'].default_value = 0.28
-            if 'Emission Color' in bsdf.inputs:
-                bsdf.inputs['Emission Color'].default_value = (0.45, 0.88, 1.0, 1.0)
-            if 'Emission Strength' in bsdf.inputs:
-                bsdf.inputs['Emission Strength'].default_value = 1.6
-        o.data.materials.clear()
-        o.data.materials.append(m)
+        o.rotation_euler.z = 0.35
+    elif base == 'OPTICS_HEAD_PITCH':
+        o.rotation_mode = 'XYZ'
+        o.rotation_euler.x = -0.18
+    elif base == 'GIMBAL_L_FL':
+        o.rotation_mode = 'XYZ'
+        o.rotation_euler.x = 0.22
+        o.rotation_euler.y = -0.18
 
 bpy.ops.mesh.primitive_plane_add(size=60, location=(0, 0, -0.01))
 ground = bpy.context.object
@@ -80,18 +69,16 @@ mat = bpy.data.materials.new('BasaltTestPad')
 mat.diffuse_color = (0.09, 0.12, 0.15, 1)
 ground.data.materials.append(mat)
 
-# Three-point industrial aerospace lighting + ventral cyan bounce for undercarriage thrusters
-add_light(scene, 'KEY_SUN_WARM', (-4.8, -5.4, 5.2), (0, 0, 0.8), 980, 3.8, (1.0, 0.95, 0.88))
-add_light(scene, 'FILL_STEEL_COOL', (5.0, -3.6, 3.6), (0, 0, 0.8), 640, 3.5, (0.72, 0.88, 1.0))
-add_light(scene, 'RIM_BACK', (2.6, 5.8, 4.4), (0, 0, 0.9), 880, 3.2, (0.85, 0.94, 1.0))
-add_light(scene, 'UNDERCAB_THRUSTER_GLOW', (-1.8, -2.0, 0.22), (0, 0, 0.65), 340, 1.8, (0.42, 0.88, 1.0))
+add_light(scene, 'KEY_SUN_WARM', (-4.8, -5.4, 5.2), (0, 0, 0.7), 980, 3.8, (1.0, 0.95, 0.88))
+add_light(scene, 'FILL_STEEL_COOL', (5.0, -3.6, 3.6), (0, 0, 0.7), 640, 3.5, (0.72, 0.88, 1.0))
+add_light(scene, 'RIM_BACK', (2.6, 5.8, 4.4), (0, 0, 0.8), 880, 3.2, (0.85, 0.94, 1.0))
+add_light(scene, 'UNDERCAB_THRUSTER_GLOW', (-1.8, -2.0, 0.22), (0, 0, 0.55), 320, 1.8, (0.42, 0.88, 1.0))
 
 cam_data = bpy.data.cameras.new('REVIEW_CAMERA')
 cam = bpy.data.objects.new('REVIEW_CAMERA', cam_data)
 scene.collection.objects.link(cam)
-# 3/4 low-angle front-left view showing wedge nose, all 6 wheels, exposed hydraulic shocks, COPV tanks, and 8 ventral/lateral thrusters
-cam.location = (-3.75, -4.10, 1.48)
-aim(cam, (0.0, -0.08, 0.78))
+cam.location = (-3.70, -4.05, 1.42)
+aim(cam, (0.0, -0.06, 0.64))
 cam_data.lens = 42
 scene.camera = cam
 

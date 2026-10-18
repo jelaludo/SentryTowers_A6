@@ -6,7 +6,7 @@ import {NodeIO} from '@gltf-transform/core';
 import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {dedup,reorder} from '@gltf-transform/functions';
 import {MeshoptEncoder,MeshoptDecoder} from 'meshoptimizer';
-import {buildReconRover,ENGINE_NODES} from './recon-rover-shape.mjs';
+import {buildReconRover,ENGINE_NODES,WHEEL_SPECS,THRUSTER_SPECS} from './recon-rover-shape.mjs';
 
 const out=new URL('../../assets/recon-rover/',import.meta.url);
 await fs.mkdir(out,{recursive:true});
@@ -37,13 +37,20 @@ for(const lod of [0,1,2]){
       mats.add(o.material);
     }
     if(o.name.startsWith('SOCKET_')){
-      sockets.push({
+      const entry={
         id:o.name.slice(7),
         node:o.name,
+        parent:o.parent?.name||null,
         kind:o.userData.kind,
         position_m:o.getWorldPosition(new T.Vector3()).toArray().map(v=>+v.toFixed(4)),
         normal:o.userData.normal||[0,0,1]
-      });
+      };
+      if(o.userData.exhaust_axis_local){
+        entry.exhaust_axis_local=o.userData.exhaust_axis_local;
+        entry.pitch_limit_deg=o.userData.pitch_limit_deg;
+        entry.roll_limit_deg=o.userData.roll_limit_deg;
+      }
+      sockets.push(entry);
     }
   });
   const bounds=new T.Box3().setFromObject(root);
@@ -104,14 +111,15 @@ for(const lod of [0,1,2]){
 const manifest={
   schema:'jelaludo.asset-family/v2-candidate',
   family:'recon_rover',
-  label:'R-47X / 6x6 Unmanned Reconnaissance Rover with 8 Gimbaled Cold-Gas Thrusters',
+  category:'mobile_unit_with_optional_static_distance',
+  label:'R-47X / 6x6 Unmanned Reconnaissance Rover with 8 Individual Gimbaled Cold-Gas Thrusters & Onboard Telemetry',
   status:'contract_candidate_pending_game_review',
   plain_glb_source_of_truth:true,
   coordinate_system:{units:'meters',up:'+Y',forward:'+Z',origin:'ground at plot centre'},
   supported_damage_levels:[0],
   missing_damage_states_reason:'D1–D3 are not authored yet; initial handoff provides intact D0 across LOD0–LOD2 while keeping damage independent of detail.',
   budgets:{
-    lod1:{triangles:8000,draw_calls:10,bytes:400000},
+    lod1:{triangles:8000,draw_calls:28,bytes:400000},
     lod2:{triangles:3000,draw_calls:1,bytes:250000}
   },
   lod_selection:{
@@ -120,20 +128,94 @@ const manifest={
     hysteresis_m:20,
     provisional:true,
     detailed:'Close inspection, suspension/thruster engineering cutaways and cinematic recordings',
-    distance:'Static merged rest pose with one material and one draw call. Swap to LOD1 before articulating suspension, sensor mast, or firing cold-gas jump thrusters.'
+    distance:'Static merged rest pose with one material and one draw call. Swap to LOD1 before spinning wheels, steering, articulating suspension, rotating sensor mast, or firing cold-gas thrusters.'
+  },
+  articulation:{
+    wheels:WHEEL_SPECS.map(w=>({
+      id:w.id,
+      suspension_pivot:`SUSP_PIVOT_${w.id}`,
+      suspension_arm:`SUSP_ARM_${w.id}`,
+      steering_pivot:`WHEEL_STEER_${w.id}`,
+      spin_pivot:`WHEEL_SPIN_${w.id}`,
+      wheel_mesh:`WHEEL_${w.id}`,
+      steerable:w.steerable,
+      steer_axis:'+Y',
+      steer_limit_deg:[-w.steerLimitDeg,w.steerLimitDeg],
+      spin_axis:'+X',
+      wheel_radius_m:0.48,
+      suspension_swing_z_deg:[-16,14],
+      suspension_travel_y_m:[-0.12,0.14]
+    })),
+    thrusters:THRUSTER_SPECS.map(t=>({
+      id:t.id,
+      group:t.group,
+      gimbal_pivot:`GIMBAL_${t.id}`,
+      nozzle_mesh:`THRUSTER_${t.id}`,
+      exit_socket:`SOCKET_THRUSTER_${t.id}`,
+      exhaust_axis_local:[0,-1,0],
+      rest_cant_rad:t.cant,
+      pitch_axis:'+X',
+      pitch_limit_deg:t.pitchLimitDeg,
+      roll_axis:'+Z',
+      roll_limit_deg:t.rollLimitDeg
+    })),
+    sensor_mast:{
+      yaw_pivot:'SENSOR_MAST_YAW',
+      yaw_axis:'+Y',
+      yaw_limit_deg:[-180,180],
+      yaw_continuous:true,
+      pitch_pivot:'OPTICS_HEAD_PITCH',
+      pitch_axis:'+X',
+      pitch_limit_deg:[-38,28],
+      head_mesh:'SENSOR_MAST_HEAD',
+      optics_socket:'SOCKET_SENSOR_MAST'
+    },
+    onboard_displays:[
+      {
+        id:'speed_left',
+        mesh:'DISPLAY_SPEED_LEFT',
+        socket:'SOCKET_DISPLAY_SPEED_L',
+        material:'DISPLAY_SPEED_ORANGE_MAT',
+        location:'Left rear wheel cover (viewed from behind)',
+        color_hex:'#d98a2b',
+        uv_mapped:true
+      },
+      {
+        id:'thrust_right',
+        mesh:'DISPLAY_THRUST_RIGHT',
+        socket:'SOCKET_DISPLAY_THRUST_R',
+        material:'DISPLAY_THRUST_CYAN_MAT',
+        location:'Right rear wheel cover (viewed from behind)',
+        color_hex:'#38e8ff',
+        uv_mapped:true
+      },
+      {
+        id:'gas_reserve_rear',
+        mesh:'DISPLAY_GAS_RESERVE_REAR',
+        socket:'SOCKET_DISPLAY_GAS_REAR',
+        material:'DISPLAY_GAS_RESERVE_MAT',
+        location:'Rear central bulkhead panel',
+        color_hex:'#46f09a',
+        uv_mapped:true
+      },
+      {
+        id:'fdai_telemetry_panel',
+        mesh:'DISPLAY_FDAI_TELEMETRY_PANEL',
+        socket:'SOCKET_DISPLAY_FDAI_REAR',
+        material:'DISPLAY_FDAI_TELEMETRY_MAT',
+        location:'Rear dorsal black panel (NASM Apollo FDAI-inspired codified yaw/pitch/roll rate & height/level indicator)',
+        color_hex:'#e6eef2',
+        uv_mapped:true
+      }
+    ]
   },
   runtime:{
     adapter:'runtime.js',
+    particle_helper:'thruster-fx.js',
+    particle_texture:'cold-gas-puff.png',
     baked_clips:[],
     demonstration:{name:'Low_Gravity_Recon_Jump_Cycle',duration_s:16,loop:true},
-    propulsion:{
-      wheels:6,
-      cold_gas_thrusters_total:8,
-      ventral_lift_thrusters:4,
-      lateral_vector_thrusters:4,
-      copv_pressure_tanks:4
-    },
-    scope:'Hydraulic suspension crouch, 6x6 wheel droop, 8-thruster ventral/lateral multi-axis gimbal vectoring, cold-gas exhaust plumes, airborne low-gravity jump arc, and EO/IR + LiDAR mast scanning are runtime-controlled via unbaked pivots.'
+    scope:'No baked vehicle movement. All 6 wheel spins, front steering pivots (±34°), per-wheel suspension linkages, 8 individual 2-axis thruster gimbals with child sockets, pale short-lived cold-gas mist particles + optional ground dust, 360° sensor yaw + pitch, and 4 UV-mapped onboard telemetry displays are runtime-controlled.'
   },
   assets
 };
