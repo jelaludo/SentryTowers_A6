@@ -5,9 +5,18 @@
   "concept_sheet": "research/recon-rover/concept-01.png",
   "reference_source": "research/recon-rover/reference-r47x.jpg",
   "team_feedback": "research/recon-rover/rover-3d-team-feedback.md",
+  "damage_brief": "research/recon-rover/rover-damage-asset-brief.md",
   "instrument_reference": "research/recon-rover/nasm-fdai-reference.jpg",
   "configuration": {
     "drivetrain": "6 independent spinning wheels (WHEEL_SPIN_FL..RR) with front +Y steering pivots (WHEEL_STEER_FL/FR, ±34 deg) and per-wheel wishbone suspension pivots (SUSP_PIVOT_FL..RR)",
+    "damage_system": {
+      "supported_damage_levels": [0, 1, 2, 3],
+      "exports_count": 24,
+      "localized_zones": 19,
+      "detachable_debris_fragments": 6,
+      "d2_cold_gas_leak_sockets": ["SOCKET_GAS_LEAK_NEG_X", "SOCKET_GAS_LEAK_POS_X", "SOCKET_GAS_LEAK_REAR"],
+      "convex_collision_proxies": 26
+    },
     "cold_gas_thrusters": {
       "total": 8,
       "ventral_undercarriage": ["GIMBAL_V_FL", "GIMBAL_V_FR", "GIMBAL_V_RL", "GIMBAL_V_RR"],
@@ -18,10 +27,11 @@
     },
     "sensors": "Dorsal 360-degree EO/IR thermal + LiDAR optical turret (SENSOR_MAST_YAW continuous 360 deg +Y, OPTICS_HEAD_PITCH -38..+28 deg +X)",
     "onboard_displays": {
-      "left_wheel_cover": "DISPLAY_SPEED_LEFT (orange speed m/s)",
-      "right_wheel_cover": "DISPLAY_THRUST_RIGHT (cyan vertical thrust %)",
+      "left_wheel_cover": "DISPLAY_SPEED_LEFT (orange speed m/s; -X side, screen-right from rear chase camera)",
+      "right_wheel_cover": "DISPLAY_THRUST_RIGHT (cyan vertical thrust %; +X side, screen-left from rear chase camera)",
       "rear_panel": "DISPLAY_GAS_RESERVE_REAR (COPV N2 gas reserve PSIA/%)",
-      "rear_black_panel": "DISPLAY_FDAI_TELEMETRY_PANEL (NASM Apollo FDAI-inspired codified yaw/pitch/roll rate, split-horizon attitude ball & height/level bar-tapes)"
+      "rear_black_panel": "DISPLAY_FDAI_TELEMETRY_PANEL (NASM Apollo FDAI-inspired codified yaw/pitch/roll rate, split-horizon attitude ball & height/level bar-tapes)",
+      "crack_overlay": "DISPLAY_CRACK_OVERLAY (separate visual layer for D1–D3 cracks so live UV display bindings survive)"
     },
     "weapons": "None (pure reconnaissance and telemetry platform)"
   }

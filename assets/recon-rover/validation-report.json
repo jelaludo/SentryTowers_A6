@@ -1,57 +1,252 @@
 {
   "assets": [
     {
+      "id": "r47x_recon_rover_d0_lod0",
       "lod": 0,
+      "damage_level": 0,
       "stats": [
         {
           "kind": "plain",
-          "bytes": 650216,
-          "triangles": 9176,
-          "draw_calls": 26,
+          "bytes": 637592,
+          "triangles": 8652,
+          "draw_calls": 37,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 172484,
-          "triangles": 9176,
-          "draw_calls": 26,
+          "bytes": 182764,
+          "triangles": 8652,
+          "draw_calls": 37,
           "degenerate": 0
         }
       ]
     },
     {
+      "id": "r47x_recon_rover_d0_lod1",
       "lod": 1,
+      "damage_level": 0,
       "stats": [
         {
           "kind": "plain",
-          "bytes": 384984,
-          "triangles": 5120,
-          "draw_calls": 26,
+          "bytes": 383848,
+          "triangles": 4796,
+          "draw_calls": 37,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 117416,
-          "triangles": 5120,
-          "draw_calls": 26,
+          "bytes": 135352,
+          "triangles": 4796,
+          "draw_calls": 37,
           "degenerate": 0
         }
       ]
     },
     {
+      "id": "r47x_recon_rover_d0_lod2",
       "lod": 2,
+      "damage_level": 0,
       "stats": [
         {
           "kind": "plain",
-          "bytes": 203012,
-          "triangles": 2712,
+          "bytes": 215964,
+          "triangles": 2772,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 70064,
-          "triangles": 2712,
+          "bytes": 79464,
+          "triangles": 2772,
+          "draw_calls": 1,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d1_lod0",
+      "lod": 0,
+      "damage_level": 1,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 635616,
+          "triangles": 8616,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 204088,
+          "triangles": 8616,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d1_lod1",
+      "lod": 1,
+      "damage_level": 1,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 382184,
+          "triangles": 4760,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 148620,
+          "triangles": 4760,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d1_lod2",
+      "lod": 2,
+      "damage_level": 1,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 213920,
+          "triangles": 2736,
+          "draw_calls": 1,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 83044,
+          "triangles": 2736,
+          "draw_calls": 1,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d2_lod0",
+      "lod": 0,
+      "damage_level": 2,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 590376,
+          "triangles": 7960,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 200476,
+          "triangles": 7960,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d2_lod1",
+      "lod": 1,
+      "damage_level": 2,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 373444,
+          "triangles": 4640,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 149740,
+          "triangles": 4640,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d2_lod2",
+      "lod": 2,
+      "damage_level": 2,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 204204,
+          "triangles": 2616,
+          "draw_calls": 1,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 81384,
+          "triangles": 2616,
+          "draw_calls": 1,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d3_lod0",
+      "lod": 0,
+      "damage_level": 3,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 521292,
+          "triangles": 6992,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 183220,
+          "triangles": 6992,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d3_lod1",
+      "lod": 1,
+      "damage_level": 3,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 372012,
+          "triangles": 4616,
+          "draw_calls": 37,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 149540,
+          "triangles": 4616,
+          "draw_calls": 37,
+          "degenerate": 0
+        }
+      ]
+    },
+    {
+      "id": "r47x_recon_rover_d3_lod2",
+      "lod": 2,
+      "damage_level": 3,
+      "stats": [
+        {
+          "kind": "plain",
+          "bytes": 208536,
+          "triangles": 2664,
+          "draw_calls": 1,
+          "degenerate": 0
+        },
+        {
+          "kind": "meshopt",
+          "bytes": 82900,
+          "triangles": 2664,
           "draw_calls": 1,
           "degenerate": 0
         }

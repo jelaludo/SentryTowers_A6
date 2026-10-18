@@ -5,8 +5,12 @@ import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {
   applyRover,
+  applyLocalizedDamage,
+  buildPresetZoneStates,
   createColdGasSystem,
   createOnboardDisplays,
+  ZONE_DEFS,
+  DEBRIS_MAP,
   DURATION
 } from '../assets/recon-rover/runtime.js';
 
@@ -49,18 +53,53 @@ controls.maxPolarAngle=Math.PI*0.54;
 controls.minDistance=1.4;
 controls.maxDistance=28;
 
-// Reusable cold-gas mist particle system + ground dust
+// Reusable cold-gas mist particle system + ground dust + D2 COPV leak mist
 const coldGasFX=createColdGasSystem(T,null,{
   enabled:true,
   dust:true,
+  leakEnabled:true,
   maxPlumeParticles:320,
   maxDustParticles:96,
   textureUrl:base+'cold-gas-puff.png'
 });
 scene.add(coldGasFX.group);
 
+// Reusable convex collision proxy wireframe group (zero-allocation updates)
+const proxyGroup=new T.Group();
+proxyGroup.name='COLLISION_PROXY_OVERLAY';
+proxyGroup.visible=false;
+scene.add(proxyGroup);
+
+const sharedBoxGeo=new T.BoxGeometry(1,1,1);
+const sharedCylGeo=new T.CylinderGeometry(0.5,0.5,1,12);
+sharedCylGeo.rotateZ(Math.PI/2);
+const proxyMeshes=new Map();
+
+function ensureProxyMesh(id,shape){
+  let m=proxyMeshes.get(id);
+  if(!m){
+    const geo=shape==='convex_cylinder'?sharedCylGeo:sharedBoxGeo;
+    const mat=new T.MeshBasicMaterial({color:0x46f09a,wireframe:true,transparent:true,opacity:0.78});
+    m=new T.Mesh(geo,mat);
+    m.name=id;
+    proxyGroup.add(m);
+    proxyMeshes.set(id,m);
+  }
+  return m;
+}
+
+// Populate 19 localized zone options
+const zoneSelect=$('zoneSelect');
+for(const z of ZONE_DEFS){
+  const opt=document.createElement('option');
+  opt.value=z.id;
+  opt.textContent=z.label;
+  zoneSelect.appendChild(opt);
+}
+
+let zoneStates=buildPresetZoneStates('d0');
 let displays=null;
-let root,manifest,lod=1,time=5.2,playing=true,last=performance.now(),token=0,w=0,h=0;
+let root=null,variantBank=null,manifest=null,lod=1,time=5.2,playing=true,last=performance.now(),token=0,w=0,h=0;
 
 function paint(){
   const a=stage.clientWidth,b=stage.clientHeight;
@@ -95,14 +134,20 @@ function frame(kind){
   paint();
 }
 
-function dispose(r){
-  r?.traverse(o=>{
-    if(o.isMesh){
-      o.geometry.dispose();
-      if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());
-      else o.material.dispose();
-    }
-  });
+function disposeBank(bank){
+  if(!bank)return;
+  const geos=new Set(),mats=new Set();
+  for(const sc of Object.values(bank)){
+    sc?.traverse(o=>{
+      if(o.isMesh){
+        if(o.geometry)geos.add(o.geometry);
+        if(Array.isArray(o.material))o.material.forEach(m=>m&&mats.add(m));
+        else if(o.material)mats.add(o.material);
+      }
+    });
+  }
+  geos.forEach(g=>g.dispose());
+  mats.forEach(m=>m.dispose());
 }
 
 function buildNozzleOverrides(preset){
@@ -115,11 +160,101 @@ function buildNozzleOverrides(preset){
   return null;
 }
 
+function getMaxDamageLevel(){
+  return Math.max(0,...ZONE_DEFS.map(z=>Number(zoneStates[z.id]??0)));
+}
+
+function updateProxyOverlay(){
+  proxyGroup.visible=$('showProxies').checked;
+  if(!manifest)return;
+  const showDebris=$('showDebris').checked;
+  const maxDmg=getMaxDamageLevel();
+  const assetByDmg={};
+  for(const d of [0,1,2,3]){
+    assetByDmg[d]=manifest.assets.find(a=>a.lod===lod&&a.damage_level===d)||manifest.assets[0];
+  }
+
+  // Chassis core proxy
+  const coreCollider=assetByDmg[maxDmg]?.colliders?.find(c=>c.zone==='CHASSIS_CORE');
+  if(coreCollider){
+    const m=ensureProxyMesh(coreCollider.id,coreCollider.shape);
+    m.position.set(...coreCollider.center_m);
+    m.scale.set(...coreCollider.size_m);
+    m.rotation.set(...(coreCollider.rotation_rad||[0,0,0]));
+    m.material.color.setHex(maxDmg===0?0x46f09a:maxDmg===1?0xffd24c:maxDmg===2?0xff8a24:0xff4238);
+  }
+
+  // 19 Zone proxies
+  for(const z of ZONE_DEFS){
+    const zd=Number(zoneStates[z.id]??0);
+    const col=assetByDmg[zd]?.colliders?.find(c=>c.zone===z.id);
+    if(!col)continue;
+    const m=ensureProxyMesh(col.id,col.shape);
+    m.position.set(...col.center_m);
+    m.scale.set(...col.size_m);
+    m.rotation.set(...(col.rotation_rad||[0,0,0]));
+    m.material.color.setHex(zd===0?0x46f09a:zd===1?0xffd24c:zd===2?0xff8a24:0xff4238);
+  }
+
+  // 6 Detachable debris proxies
+  for(const deb of DEBRIS_MAP){
+    const zd=Number(zoneStates[deb.zone]??0);
+    const detached=zd>=deb.minDamage;
+    const dCol=assetByDmg[zd]?.debris_colliders?.find(c=>c.fragment_node===deb.id);
+    if(!dCol)continue;
+    const m=ensureProxyMesh(dCol.id,dCol.shape);
+    m.visible=detached?showDebris:true;
+    m.position.set(...dCol.center_m);
+    m.scale.set(...dCol.size_m);
+    m.rotation.set(...(dCol.rotation_rad||[0,0,0]));
+    m.material.color.setHex(detached?0xb678ff:0x3894b8);
+  }
+}
+
+function syncDamageAndProxies(){
+  if(!root||!variantBank)return;
+  const showDebris=$('showDebris').checked;
+  const maxDmg=getMaxDamageLevel();
+
+  if(lod<2){
+    applyLocalizedDamage(root,variantBank,zoneStates,{showDebris});
+  }else{
+    const targetStatic=root.getObjectByName('ROVER_STATIC_BODY');
+    const donorStatic=variantBank[maxDmg]?.getObjectByName('ROVER_STATIC_BODY');
+    if(targetStatic?.isMesh&&donorStatic?.isMesh&&targetStatic.geometry!==donorStatic.geometry){
+      targetStatic.geometry=donorStatic.geometry;
+    }
+  }
+
+  // Summarize active zone states
+  const counts=[0,0,0,0];
+  for(const z of ZONE_DEFS)counts[Number(zoneStates[z.id]??0)]++;
+  const activeSel=zoneSelect.value;
+  $('zoneLevel').value=String(zoneStates[activeSel]??0);
+  $('zoneSummary').textContent=`D0:${counts[0]} D1:${counts[1]} D2:${counts[2]} D3:${counts[3]}`;
+
+  // Update stats & download link for active dominant damage level
+  if(manifest){
+    const e=manifest.assets.find(a=>a.lod===lod&&a.damage_level===maxDmg)||manifest.assets.find(a=>a.lod===lod);
+    if(e){
+      const file=$('encoding').value==='plain'?e.file:e.meshopt_file;
+      $('stats').textContent=`D${maxDmg} / LOD${lod} · ${e.triangles.toLocaleString()} triangles · ${e.draw_calls} draws · ${e.bytes.toLocaleString()} plain bytes · ${e.meshopt_bytes.toLocaleString()} Meshopt bytes`;
+      $('download').href=base+file;
+      $('status').textContent=`R-47X D${maxDmg} / LOD${lod} · ${lod===2?'Static merged distance tier (1 draw)':'19-zone localized damage + 6 wheels + 8 nozzles + 4 UV displays'} · Game review pending`;
+    }
+  }
+
+  updateProxyOverlay();
+  update(0.016);
+}
+
 function update(dt=0.016){
   if(!root)return;
   const thrusters=$('thrusters').checked&&lod<2;
   const dust=$('dust').checked&&lod<2;
   const jump=$('jump').checked&&lod<2;
+  const gasLeak=$('gasLeak').checked&&lod<2;
+  const leakIntensity=Number($('leakIntensity').value)||0;
   const autoMode=$('autoSteer').checked;
   const speedMps=Number($('speed').value)||0;
   const steerDeg=autoMode?null:Number($('steer').value)||0;
@@ -128,10 +263,12 @@ function update(dt=0.016){
   const mastYawDeg=autoMode?null:Number($('mast').value)||0;
   const mastPitchDeg=autoMode?null:Number($('mastPitch').value)||0;
   const preset=$('nozzlePreset').value;
+  const maxDmg=getMaxDamageLevel();
 
   $('speedVal').textContent=`${speedMps>=0?'+':''}${speedMps.toFixed(1)} m/s`;
   $('suspVal').textContent=`${suspBiasM>=0?'+':''}${suspBiasM.toFixed(2)} m`;
   $('gimbalVal').textContent=`${gimbalDeg}°`;
+  $('leakVal').textContent=leakIntensity.toFixed(2);
 
   const s=applyRover(root,time,lod,{
     thrusters,
@@ -144,7 +281,11 @@ function update(dt=0.016){
     nozzlePreset:preset,
     nozzleOverrides:buildNozzleOverrides(preset),
     mastYawDeg,
-    mastPitchDeg
+    mastPitchDeg,
+    damageLevel:maxDmg,
+    zoneStates,
+    gasLeak,
+    leakIntensity
   });
 
   if(autoMode){
@@ -158,7 +299,8 @@ function update(dt=0.016){
   root.updateMatrixWorld(true);
   coldGasFX.setEnabled(thrusters);
   coldGasFX.setDustEnabled(dust);
-  coldGasFX.step(dt,s.nozzleIntensities,root);
+  coldGasFX.setLeakEnabled(gasLeak);
+  coldGasFX.step(dt,s.nozzleIntensities,root,s.leakIntensities);
 
   if(displays&&lod<2){
     displays.update(s.telemetry,root);
@@ -173,37 +315,60 @@ function update(dt=0.016){
 
 async function load(){
   const my=++token,next=Number($('lod').value);
-  $('status').textContent='Loading R-47X rover…';
+  $('status').textContent='Loading R-47X D0–D3 variant bank…';
   try{
     if(!manifest){
       const r=await fetch(base+'manifest.json');
       if(!r.ok)throw Error('Manifest HTTP '+r.status);
       manifest=await r.json();
     }
-    const e=manifest.assets.find(a=>a.lod===next);
-    const file=$('encoding').value==='plain'?e.file:e.meshopt_file;
     const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-    const g=await loader.loadAsync(base+file);
-    if(my!==token){dispose(g.scene);return;}
-    if(root){scene.remove(root);dispose(root);}
-    root=g.scene;
+    const isPlain=$('encoding').value==='plain';
+    const entries=[0,1,2,3].map(d=>manifest.assets.find(a=>a.lod===next&&a.damage_level===d));
+    const gltfs=await Promise.all(
+      entries.map(e=>loader.loadAsync(base+(isPlain?e.file:e.meshopt_file)))
+    );
+    const nextBank={0:gltfs[0].scene,1:gltfs[1].scene,2:gltfs[2].scene,3:gltfs[3].scene};
+    // Clone D0 scene as the live editable root so variantBank[0] keeps pristine D0 geometry references
+    const liveScene=gltfs[0].scene.clone(true);
+    if(my!==token){
+      disposeBank(nextBank);
+      return;
+    }
+    if(root)scene.remove(root);
+    if(variantBank)disposeBank(variantBank);
+
+    variantBank=nextBank;
+    root=liveScene;
     scene.add(root);
     lod=next;
     displays=lod<2?createOnboardDisplays(T,root):null;
     root.traverse(o=>{if(o.isMesh)o.material.wireframe=$('wire').checked;});
-    for(const id of ['time','play','speed','autoSteer','steer','susp','nozzlePreset','gimbal','mast','mastPitch','thrusters','dust','jump']){
+
+    for(const id of ['zoneSelect','zoneLevel','time','play','speed','autoSteer','steer','susp','nozzlePreset','gimbal','mast','mastPitch','thrusters','dust','jump','gasLeak','leakIntensity','showDebris']){
       $(id).disabled=lod===2;
     }
     if(lod===2){
       playing=false;
       $('play').textContent='Play';
       coldGasFX.setEnabled(false);
+      coldGasFX.setLeakEnabled(false);
     }
-    $('stats').textContent=`${e.triangles.toLocaleString()} triangles · ${e.draw_calls} draws · ${e.bytes.toLocaleString()} plain bytes · ${e.meshopt_bytes.toLocaleString()} Meshopt bytes`;
-    $('download').href=base+file;
-    $('status').textContent=`R-47X D0 / LOD${lod} · ${lod===2?'Static merged distance tier (1 draw)':'6 wheels + 8 nozzles + 4 UV displays'} · Game review pending`;
-    update(0.016);
-    window.reconRoverViewer={get root(){return root;},scene,renderer,camera,manifest,coldGasFX,displays};
+
+    syncDamageAndProxies();
+    window.reconRoverViewer={
+      get root(){return root;},
+      get variantBank(){return variantBank;},
+      get zoneStates(){return zoneStates;},
+      scene,
+      renderer,
+      camera,
+      manifest,
+      coldGasFX,
+      displays,
+      proxyGroup,
+      syncDamageAndProxies
+    };
   }catch(e){
     if(my===token)$('status').textContent='Load failed: '+e.message;
   }
@@ -211,6 +376,26 @@ async function load(){
 
 $('lod').onchange=load;
 $('encoding').onchange=load;
+
+$('damagePreset').onchange=e=>{
+  zoneStates=buildPresetZoneStates(e.target.value);
+  syncDamageAndProxies();
+};
+
+$('zoneSelect').onchange=e=>{
+  $('zoneLevel').value=String(zoneStates[e.target.value]??0);
+};
+
+$('zoneLevel').onchange=e=>{
+  const zId=$('zoneSelect').value;
+  zoneStates[zId]=Number(e.target.value)||0;
+  syncDamageAndProxies();
+};
+
+for(const id of ['showDebris','showProxies']){
+  $(id).onchange=()=>syncDamageAndProxies();
+}
+
 $('time').oninput=e=>{
   playing=false;
   $('play').textContent='Play';
@@ -223,7 +408,7 @@ for(const id of ['steer','mast','mastPitch']){
     update(0.016);
   };
 }
-for(const id of ['speed','autoSteer','susp','nozzlePreset','gimbal','thrusters','dust','jump']){
+for(const id of ['speed','autoSteer','susp','nozzlePreset','gimbal','thrusters','dust','jump','gasLeak','leakIntensity']){
   $(id).oninput=()=>update(0.016);
 }
 $('wire').onchange=e=>{
@@ -240,6 +425,8 @@ $('reset').onclick=()=>{
   playing=false;
   $('play').textContent='Play';
   time=0;
+  $('damagePreset').value='d0';
+  zoneStates=buildPresetZoneStates('d0');
   $('speed').value=4.2;
   $('autoSteer').checked=true;
   $('steer').value=0;
@@ -248,8 +435,11 @@ $('reset').onclick=()=>{
   $('gimbal').value=0;
   $('mast').value=0;
   $('mastPitch').value=-8;
+  $('gasLeak').checked=true;
+  $('leakIntensity').value=0.75;
+  $('showDebris').checked=true;
   coldGasFX.clear();
-  update(0.016);
+  syncDamageAndProxies();
 };
 for(const b of document.querySelectorAll('[data-camera]'))b.onclick=()=>frame(b.dataset.camera);
 addEventListener('resize',paint);

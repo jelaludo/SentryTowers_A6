@@ -3,6 +3,12 @@ export const NOZZLE_IDS=[
   'L_FL','L_FR','L_RL','L_RR'
 ];
 
+export const LEAK_SOCKETS={
+  NEG_X:{node:'SOCKET_GAS_LEAK_NEG_X',dir:[-0.88,0.32,0.35]},
+  POS_X:{node:'SOCKET_GAS_LEAK_POS_X',dir:[0.88,0.32,-0.35]},
+  REAR:{node:'SOCKET_GAS_LEAK_REAR',dir:[0.25,0.40,-0.88]}
+};
+
 function makeFallbackMistTexture(T){
   const size=64;
   const data=new Uint8Array(size*size*4);
@@ -25,9 +31,8 @@ function makeFallbackMistTexture(T){
 }
 
 /**
- * Reusable Three.js cold-gas mist particle system + optional ground dust ring.
- * Immediate ignition, pale short-lived nitrogen mist (0.18s–0.36s lifetime),
- * bounded particle pool, zero per-frame allocations, and per-nozzle intensity (0..1).
+ * Reusable Three.js cold-gas mist particle system + optional D2 gas leak & ground dust ring.
+ * Uses a single bounded particle pool with zero per-frame heap allocations.
  */
 export function createColdGasSystem(T,root,options={}){
   const maxPlume=Math.max(32,Math.min(640,options.maxPlumeParticles||320));
@@ -35,6 +40,7 @@ export function createColdGasSystem(T,root,options={}){
   const groundY=options.groundY??0;
   let enabled=options.enabled!==false;
   let dustEnabled=options.dust!==false;
+  let leakEnabled=options.leak!==false;
 
   let spriteTex=options.texture||makeFallbackMistTexture(T);
   if(!options.texture&&typeof Image!=='undefined'&&options.textureUrl){
@@ -51,7 +57,6 @@ export function createColdGasSystem(T,root,options={}){
   const group=new T.Group();
   group.name='R47X_COLD_GAS_FX_GROUP';
 
-  // Bounded Plume Pool
   const plumePos=new Float32Array(maxPlume*3);
   const plumeCol=new Float32Array(maxPlume*3);
   const plumeVel=new Float32Array(maxPlume*3);
@@ -78,7 +83,6 @@ export function createColdGasSystem(T,root,options={}){
   plumePoints.frustumCulled=false;
   group.add(plumePoints);
 
-  // Bounded Ground Dust Pool (separate from nozzle mist plume)
   const dustPos=new Float32Array(maxDust*3);
   const dustCol=new Float32Array(maxDust*3);
   const dustVel=new Float32Array(maxDust*3);
@@ -130,29 +134,29 @@ export function createColdGasSystem(T,root,options={}){
     dustGeo.attributes.position.needsUpdate=true;
   }
 
-  function spawnPlumeParticle(origin,dir,intensity){
+  function spawnPlumeParticle(origin,dir,intensity,isLeak=false){
     const i=plumeCursor;
     plumeCursor=(plumeCursor+1)%maxPlume;
     plumeAge[i]=0;
-    // Short-lived cold-gas mist: 0.16s to 0.34s
-    plumeLife[i]=0.16+rand()*0.18*(0.5+0.5*intensity);
+    // Short-lived cold-gas mist: 0.16s to 0.34s (slightly wider, slower puff for D2 gas leaks)
+    plumeLife[i]=isLeak
+      ?(0.18+rand()*0.22*(0.5+0.5*intensity))
+      :(0.16+rand()*0.18*(0.5+0.5*intensity));
 
-    // Build orthonormal tangent basis for slight cone spread
     if(Math.abs(dir.y)<0.9)tmpRight.set(0,1,0).cross(dir).normalize();
     else tmpRight.set(1,0,0).cross(dir).normalize();
     tmpForward.copy(dir).cross(tmpRight).normalize();
 
     const angle=rand()*Math.PI*2;
-    const spread=(0.12+0.18*rand())*(0.65+0.35*intensity);
+    const spread=(isLeak?0.28+0.26*rand():0.12+0.18*rand())*(0.65+0.35*intensity);
     const rx=Math.cos(angle)*spread;
     const rz=Math.sin(angle)*spread;
 
-    const speed=(3.2+2.8*intensity)*(0.82+0.36*rand());
+    const speed=(isLeak?1.8+1.9*intensity:3.2+2.8*intensity)*(0.82+0.36*rand());
     const vx=(dir.x+tmpRight.x*rx+tmpForward.x*rz)*speed;
     const vy=(dir.y+tmpRight.y*rx+tmpForward.y*rz)*speed;
     const vz=(dir.z+tmpRight.z*rx+tmpForward.z*rz)*speed;
 
-    // Immediate ignition at nozzle exit lip
     plumePos[i*3]=origin.x+dir.x*0.03;
     plumePos[i*3+1]=origin.y+dir.y*0.03;
     plumePos[i*3+2]=origin.z+dir.z*0.03;
@@ -186,45 +190,63 @@ export function createColdGasSystem(T,root,options={}){
     dustCol[i*3+2]=0.68;
   }
 
-  function step(dt=0.016,intensities={},targetRoot=root){
-    group.visible=Boolean(enabled);
+  function step(dt=0.016,intensities={},targetRoot=root,leakIntensities={}){
+    group.visible=Boolean(enabled||leakEnabled);
     dustPoints.visible=Boolean(enabled&&dustEnabled);
-    if(!enabled){
+    if(!enabled&&!leakEnabled){
       clearParticles();
       return {activePlumeCount:0,activeDustCount:0};
     }
     const clampedDt=Math.max(0.001,Math.min(0.08,dt));
 
-    // 1. Spawn new mist particles at each active nozzle socket
     if(targetRoot){
       targetRoot.updateMatrixWorld(true);
-      for(const id of NOZZLE_IDS){
-        const thrust=Math.max(0,Math.min(1,Number(intensities[id]??0)));
-        if(thrust<=0.01)continue;
-        const sock=targetRoot.getObjectByName(`SOCKET_THRUSTER_${id}`);
-        if(!sock)continue;
-        sock.getWorldPosition(tmpOrigin);
-        // Socket local -Y is the physical nozzle exhaust axis
-        tmpDir.set(0,-1,0).transformDirection(sock.matrixWorld).normalize();
+      // 1. Spawn nozzle thrust mist
+      if(enabled){
+        for(const id of NOZZLE_IDS){
+          const thrust=Math.max(0,Math.min(1,Number(intensities[id]??0)));
+          if(thrust<=0.01)continue;
+          const sock=targetRoot.getObjectByName(`SOCKET_THRUSTER_${id}`);
+          if(!sock)continue;
+          sock.getWorldPosition(tmpOrigin);
+          tmpDir.set(0,-1,0).transformDirection(sock.matrixWorld).normalize();
 
-        const count=Math.max(1,Math.ceil(thrust*5));
-        for(let k=0;k<count;k++){
-          spawnPlumeParticle(tmpOrigin,tmpDir,thrust);
+          const count=Math.max(1,Math.ceil(thrust*5));
+          for(let k=0;k<count;k++){
+            spawnPlumeParticle(tmpOrigin,tmpDir,thrust,false);
+          }
+
+          if(dustEnabled&&tmpDir.y<-0.25){
+            const distToGround=(tmpOrigin.y-groundY)/(-tmpDir.y);
+            if(distToGround>0&&distToGround<2.4&&rand()<thrust*0.85){
+              const hx=tmpOrigin.x+tmpDir.x*distToGround;
+              const hz=tmpOrigin.z+tmpDir.z*distToGround;
+              spawnDustParticle(hx,hz,thrust);
+            }
+          }
         }
+      }
 
-        // Optional surface dust when exhaust ray points toward nearby ground
-        if(dustEnabled&&tmpDir.y<-0.25){
-          const distToGround=(tmpOrigin.y-groundY)/(-tmpDir.y);
-          if(distToGround>0&&distToGround<2.4&&rand()<thrust*0.85){
-            const hx=tmpOrigin.x+tmpDir.x*distToGround;
-            const hz=tmpOrigin.z+tmpDir.z*distToGround;
-            spawnDustParticle(hx,hz,thrust);
+      // 2. Spawn optional D2 cold-gas leak mist from ruptured COPV manifold sockets
+      var spawnedLeaks=0;
+      if(leakEnabled&&leakIntensities){
+        for(const [leakKey,spec] of Object.entries(LEAK_SOCKETS)){
+          const lvl=Math.max(0,Math.min(1,Number(leakIntensities[leakKey]??0)));
+          if(lvl<=0.01)continue;
+          const sock=targetRoot.getObjectByName(spec.node);
+          if(!sock)continue;
+          sock.getWorldPosition(tmpOrigin);
+          const n=sock.userData?.normal||spec.dir;
+          tmpDir.set(n[0],n[1],n[2]).transformDirection(sock.matrixWorld).normalize();
+          const count=Math.max(1,Math.ceil(lvl*3));
+          for(let k=0;k<count;k++){
+            spawnPlumeParticle(tmpOrigin,tmpDir,lvl,true);
+            spawnedLeaks++;
           }
         }
       }
     }
 
-    // 2. Integrate & dissipate mist particles
     let activePlumeCount=0;
     const drag=Math.pow(0.18,clampedDt);
     for(let i=0;i<maxPlume;i++){
@@ -240,21 +262,19 @@ export function createColdGasSystem(T,root,options={}){
       activePlumeCount++;
       const lifeRatio=plumeAge[i]/plumeLife[i];
       plumeVel[i*3]*=drag;
-      plumeVel[i*3+1]=plumeVel[i*3+1]*drag+0.35*clampedDt; // Slight buoyant mist curl
+      plumeVel[i*3+1]=plumeVel[i*3+1]*drag+0.35*clampedDt;
       plumeVel[i*3+2]*=drag;
 
       plumePos[i*3]+=plumeVel[i*3]*clampedDt;
       plumePos[i*3+1]=Math.max(groundY+0.02,plumePos[i*3+1]+plumeVel[i*3+1]*clampedDt);
       plumePos[i*3+2]+=plumeVel[i*3+2]*clampedDt;
 
-      // Rapid pale dissipation tail
       const fade=Math.pow(1-lifeRatio,1.5);
       plumeCol[i*3]=0.80*fade;
       plumeCol[i*3+1]=0.93*fade;
       plumeCol[i*3+2]=1.00*fade;
     }
 
-    // 3. Integrate ground dust particles
     let activeDustCount=0;
     for(let i=0;i<maxDust;i++){
       if(dustAge[i]>=dustLife[i]){
@@ -284,7 +304,7 @@ export function createColdGasSystem(T,root,options={}){
     plumeGeo.attributes.color.needsUpdate=true;
     dustGeo.attributes.position.needsUpdate=true;
     dustGeo.attributes.color.needsUpdate=true;
-    return {activePlumeCount,activeDustCount};
+    return {activePlumeCount,activeDustCount,activeLeakCount:spawnedLeaks||0};
   }
 
   return {
@@ -292,9 +312,11 @@ export function createColdGasSystem(T,root,options={}){
     maxPlumeParticles:maxPlume,
     maxDustParticles:maxDust,
     get enabled(){return enabled;},
-    setEnabled(v){enabled=Boolean(v);if(!enabled)clearParticles();},
+    setEnabled(v){enabled=Boolean(v);if(!enabled&&!leakEnabled)clearParticles();},
     get dustEnabled(){return dustEnabled;},
     setDustEnabled(v){dustEnabled=Boolean(v);},
+    get leakEnabled(){return leakEnabled;},
+    setLeakEnabled(v){leakEnabled=Boolean(v);if(!enabled&&!leakEnabled)clearParticles();},
     clear:clearParticles,
     step
   };
@@ -302,11 +324,7 @@ export function createColdGasSystem(T,root,options={}){
 
 /**
  * Binds live procedural canvas textures (or headless material emissive states)
- * to the 4 UV-mapped onboard displays:
- *  - DISPLAY_SPEED_LEFT (orange speed on left rear wheel cover)
- *  - DISPLAY_THRUST_RIGHT (cyan vertical thrust on right rear wheel cover)
- *  - DISPLAY_GAS_RESERVE_REAR (N2 COPV gas reserve on rear panel)
- *  - DISPLAY_FDAI_TELEMETRY_PANEL (NASM Apollo FDAI-inspired codified yaw/pitch/roll rate & height/level cluster on rear black panel)
+ * to the 4 UV-mapped onboard displays, preserving live telemetry across D0–D3.
  */
 export function createOnboardDisplays(T,root){
   const hasDOM=typeof document!=='undefined'&&typeof document.createElement==='function';
@@ -367,31 +385,31 @@ export function createOnboardDisplays(T,root){
     const rollDeg=Number(telemetry.rollDeg??0);
     const mastYawDeg=Number(telemetry.mastYawDeg??0);
     const mastPitchDeg=Number(telemetry.mastPitchDeg??0);
+    const damageLevel=Number(telemetry.damageLevel??0);
+    const isWreck=damageLevel>=3;
 
     if(targetRoot){
       const sMesh=targetRoot.getObjectByName('DISPLAY_SPEED_LEFT');
-      if(sMesh?.isMesh&&!speedSlot)sMesh.material.emissiveIntensity=0.35+0.95*speedNorm;
+      if(sMesh?.isMesh&&!speedSlot)sMesh.material.emissiveIntensity=isWreck?0.15:(0.35+0.95*speedNorm);
       const tMesh=targetRoot.getObjectByName('DISPLAY_THRUST_RIGHT');
-      if(tMesh?.isMesh&&!thrustSlot)tMesh.material.emissiveIntensity=0.35+1.15*thrustNorm;
+      if(tMesh?.isMesh&&!thrustSlot)tMesh.material.emissiveIntensity=isWreck?0.15:(0.35+1.15*thrustNorm);
       const gMesh=targetRoot.getObjectByName('DISPLAY_GAS_RESERVE_REAR');
-      if(gMesh?.isMesh&&!gasSlot)gMesh.material.emissiveIntensity=0.35+0.85*gasReserve;
+      if(gMesh?.isMesh&&!gasSlot)gMesh.material.emissiveIntensity=isWreck?0.15:(0.35+0.85*gasReserve);
     }
 
-    // 1. Orange Speed Display (Left Rear Wheel Cover)
     if(speedSlot){
       const {ctx,tex}=speedSlot;
       ctx.fillStyle='#0d1216';
       ctx.fillRect(0,0,256,128);
-      ctx.strokeStyle='#ff8a24';
+      ctx.strokeStyle=isWreck?'#9e3828':'#ff8a24';
       ctx.lineWidth=3;
       ctx.strokeRect(6,6,244,116);
-      ctx.fillStyle='#ff9d3b';
+      ctx.fillStyle=isWreck?'#e0523c':'#ff9d3b';
       ctx.font='bold 18px monospace';
-      ctx.fillText('SPD / WHEEL VEL',16,28);
+      ctx.fillText(isWreck?'SPD / DRIVE FAULT':'SPD / WHEEL VEL',16,28);
       ctx.font='bold 28px monospace';
-      ctx.fillText(`${speed>=0?'+':''}${speed.toFixed(1)} m/s`,16,62);
-      // Segmented bar
-      const segs=12,active=Math.round(speedNorm*segs);
+      ctx.fillText(isWreck?'0.0 m/s [D3]':`${speed>=0?'+':''}${speed.toFixed(1)} m/s`,16,62);
+      const segs=12,active=isWreck?0:Math.round(speedNorm*segs);
       for(let i=0;i<segs;i++){
         ctx.fillStyle=i<active?'#ff8a24':'#2a221b';
         ctx.fillRect(16+i*18.5,78,14,30);
@@ -399,20 +417,19 @@ export function createOnboardDisplays(T,root){
       tex.needsUpdate=true;
     }
 
-    // 2. Cyan Vertical Thrust Display (Right Rear Wheel Cover)
     if(thrustSlot){
       const {ctx,tex}=thrustSlot;
       ctx.fillStyle='#0b141a';
       ctx.fillRect(0,0,256,128);
-      ctx.strokeStyle='#38e8ff';
+      ctx.strokeStyle=isWreck?'#9e3828':'#38e8ff';
       ctx.lineWidth=3;
       ctx.strokeRect(6,6,244,116);
-      ctx.fillStyle='#5ce8ff';
+      ctx.fillStyle=isWreck?'#e0523c':'#5ce8ff';
       ctx.font='bold 18px monospace';
-      ctx.fillText('VERT THRUST / RCS',16,28);
+      ctx.fillText(isWreck?'RCS / DISABLED':'VERT THRUST / RCS',16,28);
       ctx.font='bold 28px monospace';
-      ctx.fillText(`${Math.round(thrustNorm*100)}% LIFT`,16,62);
-      const segs=12,active=Math.round(thrustNorm*segs);
+      ctx.fillText(isWreck?'OFFLINE':`${Math.round(thrustNorm*100)}% LIFT`,16,62);
+      const segs=12,active=isWreck?0:Math.round(thrustNorm*segs);
       for(let i=0;i<segs;i++){
         ctx.fillStyle=i<active?'#38e8ff':'#162a33';
         ctx.fillRect(16+i*18.5,78,14,30);
@@ -420,21 +437,19 @@ export function createOnboardDisplays(T,root){
       tex.needsUpdate=true;
     }
 
-    // 3. Rear Panel COPV Gas Reserve Display
     if(gasSlot){
       const {ctx,tex}=gasSlot;
       ctx.fillStyle='#0c1414';
       ctx.fillRect(0,0,384,128);
-      ctx.strokeStyle='#46f09a';
+      ctx.strokeStyle=damageLevel>=2?'#ff9d3b':'#46f09a';
       ctx.lineWidth=3;
       ctx.strokeRect(6,6,372,116);
       const psia=Math.round(gasReserve*3600);
-      ctx.fillStyle='#72ffb8';
+      ctx.fillStyle=damageLevel>=2?'#ffb258':'#72ffb8';
       ctx.font='bold 18px monospace';
-      ctx.fillText(`N2 COPV RESERVE · ${psia} PSIA`,18,30);
+      ctx.fillText(damageLevel===2?`N2 LEAK DETECTED · ${psia} PSIA`:`N2 COPV RESERVE · ${psia} PSIA`,18,30);
       ctx.font='bold 26px monospace';
       ctx.fillText(`${Math.round(gasReserve*100)}%`,300,32);
-      // Graduated Apollo-style edgewise scale
       ctx.strokeStyle='#88b8a0';
       ctx.lineWidth=2;
       for(let i=0;i<=10;i++){
@@ -446,22 +461,19 @@ export function createOnboardDisplays(T,root){
       }
       ctx.fillStyle='#192b22';
       ctx.fillRect(20,74,340,30);
-      ctx.fillStyle=gasReserve>0.25?'#46f09a':'#ff9d3b';
+      ctx.fillStyle=gasReserve>0.25&&damageLevel<2?'#46f09a':'#ff9d3b';
       ctx.fillRect(20,74,Math.round(340*gasReserve),30);
       tex.needsUpdate=true;
     }
 
-    // 4. NASM Apollo FDAI-inspired Codified Attitude / Rate / Height Panel on Rear Black Panel
     if(fdaiSlot){
       const {ctx,tex}=fdaiSlot;
       ctx.fillStyle='#14181c';
       ctx.fillRect(0,0,512,512);
-      // Outer metallic instrument frame
       ctx.strokeStyle='#6e7880';
       ctx.lineWidth=6;
       ctx.strokeRect(8,8,496,496);
 
-      // Left column: Dual Apollo edgewise vertical ribbon gauges (ALT / HEIGHT & N2 PSIA LEVEL)
       const drawVerticalGauge=(gx,gy,gw,gh,label,unit,norm,barColor,valText)=>{
         ctx.fillStyle='#0c0f12';
         ctx.fillRect(gx,gy,gw,gh);
@@ -485,7 +497,6 @@ export function createOnboardDisplays(T,root){
         const barH=Math.max(4,Math.min(1,norm)*span);
         ctx.fillStyle=barColor;
         ctx.fillRect(gx+gw-24,bot-barH,14,barH);
-        // Horizontal pointer tick
         ctx.fillStyle='#ffd24c';
         ctx.fillRect(gx+26,bot-barH-2,gw-32,5);
         ctx.fillStyle='#e8f0f5';
@@ -496,7 +507,6 @@ export function createOnboardDisplays(T,root){
       drawVerticalGauge(24,38,76,200,'HEIGHT','ALT m',Math.min(1,heightM/1.8),'#46f09a',`${heightM.toFixed(2)}m`);
       drawVerticalGauge(112,38,76,200,'RESERVE','PSIA',gasReserve,'#ffd24c',`${Math.round(gasReserve*100)}%`);
 
-      // Top-right X-Y Radar / Mast Vector Cross-Pointer Scope (from NASM panel upper-right)
       const sx=214,sy=28,sw=268,sh=150;
       ctx.fillStyle='#dce4e8';
       ctx.fillRect(sx,sy,sw,sh);
@@ -509,7 +519,6 @@ export function createOnboardDisplays(T,root){
       ctx.moveTo(sx+sw/2,sy);ctx.lineTo(sx+sw/2,sy+sh);
       ctx.moveTo(sx,sy+sh/2);ctx.lineTo(sx+sw,sy+sh/2);
       ctx.stroke();
-      // Live cross-pointer bars for sensor mast yaw/pitch
       const px=sx+sw/2+Math.max(-1,Math.min(1,mastYawDeg/90))*(sw*0.42);
       const py=sy+sh/2-Math.max(-1,Math.min(1,mastPitchDeg/38))*(sh*0.40);
       ctx.strokeStyle='#14181c';
@@ -520,11 +529,9 @@ export function createOnboardDisplays(T,root){
       ctx.stroke();
       ctx.fillStyle='#1f262b';
       ctx.font='bold 12px monospace';
-      ctx.fillText(`MAST Y:${Math.round(mastYawDeg)}° P:${Math.round(mastPitchDeg)}°`,sx+10,sy+sh-8);
+      ctx.fillText(`MAST Y:${Math.round(mastYawDeg)}° P:${Math.round(mastPitchDeg)}° [D${damageLevel}]`,sx+10,sy+sh-8);
 
-      // Center-bottom Octagonal FDAI (ROLL RATE, PITCH RATE, YAW RATE + 8-ball horizon)
       const cx=276,cy=348,r=112;
-      // Octagonal recessed bezel
       ctx.fillStyle='#0b0e11';
       ctx.beginPath();
       for(let i=0;i<8;i++){
@@ -539,7 +546,6 @@ export function createOnboardDisplays(T,root){
       ctx.lineWidth=4;
       ctx.stroke();
 
-      // Circular 8-ball split hemisphere
       ctx.save();
       ctx.beginPath();
       ctx.arc(cx,cy,r,0,Math.PI*2);
@@ -551,7 +557,6 @@ export function createOnboardDisplays(T,root){
       ctx.fillRect(-r*1.5,-r*1.5+pitchShift,r*3,r*1.5);
       ctx.fillStyle='#181d22';
       ctx.fillRect(-r*1.5,pitchShift,r*3,r*1.5);
-      // Latitude & longitude grid lines
       ctx.strokeStyle='#606a72';
       ctx.lineWidth=1.5;
       for(let g=-3;g<=3;g++){
@@ -566,7 +571,6 @@ export function createOnboardDisplays(T,root){
       }
       ctx.restore();
 
-      // Gold FDAI attitude reference needles
       ctx.strokeStyle='#f0b840';
       ctx.lineWidth=3;
       ctx.beginPath();
@@ -574,7 +578,15 @@ export function createOnboardDisplays(T,root){
       ctx.moveTo(cx,cy-r*0.75);ctx.lineTo(cx,cy+r*0.75);
       ctx.stroke();
 
-      // Top ROLL RATE scale
+      // Apollo FDAI red OFF flag when disabled/wrecked (D3) or D2 warning
+      if(damageLevel>=2){
+        ctx.fillStyle='#d9342b';
+        ctx.fillRect(cx-r+4,cy-22,28,44);
+        ctx.fillStyle='#ffffff';
+        ctx.font='bold 12px monospace';
+        ctx.fillText(isWreck?'OFF':'WRN',cx-r+7,cy+4);
+      }
+
       const drawHorizRate=(y,label,rateDeg)=>{
         ctx.fillStyle='#e6eef2';
         ctx.font='bold 12px monospace';
@@ -597,7 +609,6 @@ export function createOnboardDisplays(T,root){
       drawHorizRate(cy-r-18,'ROLL RATE',rollRateDeg);
       drawHorizRate(cy+r+26,'YAW RATE',yawRateDeg);
 
-      // Right PITCH RATE vertical scale
       const rx=cx+r+20;
       ctx.strokeStyle='#d8e2e8';
       ctx.lineWidth=2;
@@ -614,7 +625,6 @@ export function createOnboardDisplays(T,root){
       ctx.fillStyle='#ffd24c';
       ctx.fillRect(rx-8,ppy-3,16,6);
 
-      // Left lower telemetry summary box
       ctx.fillStyle='#0c1014';
       ctx.fillRect(24,258,110,224);
       ctx.strokeStyle='#5a6670';
@@ -622,7 +632,7 @@ export function createOnboardDisplays(T,root){
       ctx.strokeRect(24,258,110,224);
       ctx.fillStyle='#9ad8ff';
       ctx.font='bold 12px monospace';
-      ctx.fillText('RATE MON',34,280);
+      ctx.fillText(`STATE: D${damageLevel}`,32,280);
       ctx.fillStyle='#e6eef2';
       ctx.font='12px monospace';
       ctx.fillText(`YAW:${yawRateDeg.toFixed(1)}°/s`,32,310);

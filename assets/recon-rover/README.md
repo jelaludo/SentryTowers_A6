@@ -1,70 +1,97 @@
-# R-47X / 6x6 Unmanned Reconnaissance Rover
+# R-47X / 6x6 Unmanned Reconnaissance Rover (`recon_rover`)
 
-A next-generation unmanned military reconnaissance rover engineered for extreme planetary terrain and low-gravity reconnaissance hops. Models by jelaludo. Built around a low-slung wedge-shaped titanium and graphite-composite armored hull (`4.66 m` length × `2.36 m` width across hubs × `1.58 m` mast height), six independently spinning chevron-treaded wheels with front steering pivots (`±34°`) and per-wheel articulated wishbone suspension, an **8-nozzle individually gimbaled cold-gas propulsion system** with a reusable Three.js cold-gas mist particle helper, a continuous 360° yaw + pitch EO/IR + LiDAR sensor mast, and **four UV-mapped, separately addressable onboard telemetry displays** (including an Apollo NASM FDAI-inspired codified yaw/pitch/roll rate and height/level panel on the rear black deck).
+Next-generation unmanned military reconnaissance rover (`R-47X`) designed for extreme terrain and low-gravity planetary exploration, featuring **graduated physical damage states (`D0`–`D3`)** across **`LOD0`–`LOD2`** (12 plain source-of-truth GLBs + 12 derived Meshopt GLBs), **19 separately selectable localized damage zones** with zero-reload in-place geometry swapping (`applyLocalizedDamage`), **6 independent wheels with Ackermann front steering and per-wheel suspension**, **8 individual 2-axis gimbaled cold-gas thrusters**, **optional `D2` COPV manifold cold-gas leak mist**, **6 bounded `D3` detachable debris fragments with convex collision proxies**, and **4 UV-mapped onboard telemetry displays** with a separate `DISPLAY_CRACK_OVERLAY` layer.
 
-## Runtime contract & articulation hierarchy
+- **Concept Design Sheet**: `research/recon-rover/concept-01.png`
+- **Interactive Lab Viewer**: `/recon-rover/`
+- **Damage Brief**: `research/recon-rover/rover-damage-asset-brief.md`
+- **Source Generator**: `tools/asset-pipeline/recon-rover-shape.mjs`
+- **Runtime Articulation & Localized Damage Adapter**: `assets/recon-rover/runtime.js`
+- **Cold-Gas Mist, D2 Leak & Onboard Telemetry Helper**: `assets/recon-rover/thruster-fx.js` (`assets/recon-rover/cold-gas-puff.png`)
 
-- **Source of truth**: Plain GLBs in `lod0/`, `lod1/`, `lod2/` are authoritative. `derived/meshopt/` provides optional preview compression; release packing (`gltfpack -cc -kn -km -ke`) remains game-owned.
-- **Coordinate system & rest pose**: Metres, `+Y` up, `+Z` forward. `R47X_ROVER_ROOT` sits on the ground at `(0, 0, 0)` at the centre of a `6 × 8 m` plot. No vehicle movement is baked (`clips: []`); the game owns driving, steering, jumps and landings.
-- **LOD2 static distance limitations**: `LOD2` merges all geometry into a single static mesh and material (`ROVER_STATIC_BODY`, `1` draw call) for distant map/orbit views (`> 140 m`). All 82 engine and socket lookup nodes (`ENGINE_NODES`) remain present in `LOD2` as `Object3D` transforms at rest so node queries never fail, but individual wheel spin, steering, suspension, nozzle gimbaling, sensor articulation and separate display materials require `LOD1` (game tier) or `LOD0` (detailed master).
+## Coordinate System & Rear Chase-Camera Side Convention
 
-### 1. Six independent wheels, steering & per-wheel suspension
+- **Units**: Metres (`1 unit = 1 m`)
+- **Axes**: `+Y` up, `+Z` forward, ground contact at `(0, 0, 0)`
+- **Signed-X vs. Chase-Camera Screen Side**:
+  - `-X` (`x < 0`) is the rover's **left flank (`FLANK_NEG_X`, `WHEEL_FL`, `WHEEL_ML`, `WHEEL_RL`, `NOZZLE_V_FL`, `NOZZLE_V_RL`, `NOZZLE_L_FL`, `NOZZLE_L_RL`, `DISPLAY_SPEED_LEFT`)**. Because a rear chase camera sits at `-Z` looking toward `+Z`, **`-X` appears on screen-right** in rear chase view.
+  - `+X` (`x > 0`) is the rover's **right flank (`FLANK_POS_X`, `WHEEL_FR`, `WHEEL_MR`, `WHEEL_RR`, `NOZZLE_V_FR`, `NOZZLE_V_RR`, `NOZZLE_L_FR`, `NOZZLE_L_RR`, `DISPLAY_THRUST_RIGHT`)**. From the `-Z` rear chase camera looking toward `+Z`, **`+X` appears on screen-left**.
 
-Each wheel station `ID` in `['FL', 'FR', 'ML', 'MR', 'RL', 'RR']` (axles at `z = +1.44 m`, `-0.42 m`, `-1.44 m` in `ROVER_CHASSIS_JUMP` space; wheel hub centres at `x = ±0.98 m, y = 0.48 m` world rest) uses a strict three-level kinematic chain so suspension travel is completely independent of steering and axle spin, and connected suspension arms follow the wheel assembly without gaps or clipping:
+## Measured Metrics (`D0`–`D3` × `LOD0`–`LOD2`)
 
-1. **`SUSP_PIVOT_<ID>`** (at inner chassis wishbone hinge `[±0.48, -0.08, az]` in chassis space):
-   - Parents **`SUSP_ARM_<ID>`** (wishbone arms, steering knuckle carrier and twin exposed hydraulic shock absorbers; inner clevis barrel overlaps into the chassis side socket) and **`WHEEL_STEER_<ID>`** (at outer hub `[±0.50, 0, 0]`).
-   - **Recommended articulation**: rotate `SUSP_PIVOT_<ID>.rotation.z` (swing-arm roll angle `-sideSign * asin(travelY / 0.50)`, collision-free range **`[-16°, +14°]`**, equivalent to **`-0.12 m` droop to `+0.14 m` compression** at the hub) or translate `SUSP_PIVOT_<ID>.position.y` (`[-0.12 m, +0.14 m]`). Because `SUSP_ARM_<ID>` and `WHEEL_STEER_<ID>` share `SUSP_PIVOT_<ID>`, the arm and hub never separate or clip.
-2. **`WHEEL_STEER_<ID>`** (nested beneath `SUSP_PIVOT_<ID>` at the wheel hub centre, aligned with local `+Y` vertical at rest):
-   - **Axis & sign convention**: local **`+Y`** (`rotation.y`). Positive `+rotation.y` (rad) steers **left** (CCW viewed from above); negative `-rotation.y` steers **right** (CW viewed from above).
-   - **Collision-free mechanical limits**: Front wheels **`WHEEL_STEER_FL`** and **`WHEEL_STEER_FR`** clear the narrowed wedge nose and wishbones across **`±34°` (`±0.593 rad`)**, exceeding the `±30°` target. Middle and rear hubs (`WHEEL_STEER_ML/MR/RL/RR`) remain at `0°` for standard front steering or support up to `±15°` crab/all-wheel steering.
-3. **`WHEEL_SPIN_<ID>`** (nested directly beneath `WHEEL_STEER_<ID>` at `[0, 0, 0]`, parenting mesh **`WHEEL_<ID>`**):
-   - **Axis & sign convention**: local **`+X`** (`rotation.x`, wheel radius `0.48 m`). Positive `+rotation.x` rolls the wheel **forward** (`+Z` vehicle travel); negative `-rotation.x` rolls **backward** (`-Z`), where `omega = speedMps / 0.48`.
+Plain GLB is the source of truth; `derived/meshopt/` files are optional `EXT_meshopt_compression` preview copies. Damage states (`D0`–`D3`) are strictly orthogonal to detail tiers (`LOD0`–`LOD2`).
 
-### 2. Eight individually articulated cold-gas thruster gimbals & mist particles
+| Asset ID | Damage | Tier | Plain File | Triangles | Draw Calls | Materials | Plain Bytes | Meshopt Bytes | Role |
+| --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| `r47x_recon_rover_d0_lod0` | `D0` Intact | `LOD0` | `lod0/r47x_recon_rover_d0_lod0.glb` | 8,652 | 37 | 5 | 637,592 B | 182,764 B | Detailed master (intact) |
+| `r47x_recon_rover_d0_lod1` | `D0` Intact | `LOD1` | `lod1/r47x_recon_rover_d0_lod1.glb` | 4,796 | 37 | 5 | 383,848 B | 135,352 B | Game tier (`≤ 8,000` tris, `≤ 400 KB`) |
+| `r47x_recon_rover_d0_lod2` | `D0` Intact | `LOD2` | `lod2/r47x_recon_rover_d0_lod2.glb` | 2,772 | 1 | 1 | 215,964 B | 79,464 B | Static merged distance (`1` draw) |
+| `r47x_recon_rover_d1_lod0` | `D1` Battered | `LOD0` | `lod0/r47x_recon_rover_d1_lod0.glb` | 8,616 | 37 | 5 | 635,616 B | 204,088 B | Detailed master (dented armor + cracked glass) |
+| `r47x_recon_rover_d1_lod1` | `D1` Battered | `LOD1` | `lod1/r47x_recon_rover_d1_lod1.glb` | 4,760 | 37 | 5 | 382,184 B | 148,620 B | Game tier (full articulation preserved) |
+| `r47x_recon_rover_d1_lod2` | `D1` Battered | `LOD2` | `lod2/r47x_recon_rover_d1_lod2.glb` | 2,736 | 1 | 1 | 213,920 B | 83,044 B | Static merged distance (`1` draw) |
+| `r47x_recon_rover_d2_lod0` | `D2` Component | `LOD0` | `lod0/r47x_recon_rover_d2_lod0.glb` | 7,960 | 37 | 5 | 590,376 B | 200,476 B | Detailed master (buckled suspension/nozzles + gas leak) |
+| `r47x_recon_rover_d2_lod1` | `D2` Component | `LOD1` | `lod1/r47x_recon_rover_d2_lod1.glb` | 4,640 | 37 | 5 | 373,444 B | 149,740 B | Game tier (degraded capability + COPV leak) |
+| `r47x_recon_rover_d2_lod2` | `D2` Component | `LOD2` | `lod2/r47x_recon_rover_d2_lod2.glb` | 2,616 | 1 | 1 | 204,204 B | 81,384 B | Static merged distance (`1` draw) |
+| `r47x_recon_rover_d3_lod0` | `D3` Wreck | `LOD0` | `lod0/r47x_recon_rover_d3_lod0.glb` | 6,992 | 37 | 5 | 521,292 B | 183,220 B | Detailed master (collapsed axle + 6 debris fragments) |
+| `r47x_recon_rover_d3_lod1` | `D3` Wreck | `LOD1` | `lod1/r47x_recon_rover_d3_lod1.glb` | 4,616 | 37 | 5 | 372,012 B | 149,540 B | Game tier (disabled wreck + detachable debris) |
+| `r47x_recon_rover_d3_lod2` | `D3` Wreck | `LOD2` | `lod2/r47x_recon_rover_d3_lod2.glb` | 2,664 | 1 | 1 | 208,536 B | 82,900 B | Static merged distance (`1` draw) |
 
-Each of the 8 nozzles has its own 2-axis gimbal pivot, nozzle mesh and child exit socket parented directly to the moving nozzle:
+## Graduated Damage States (`D0`–`D3`)
 
-| Thruster ID | Gimbal Pivot | Nozzle Mesh | Child Exit Socket | World Rest Pivot `(x, y, z)` | Rest Exhaust Normal | Pitch Limit (`+X`) | Roll Limit (`+Z`) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **V_FL** (Ventral Front-Left) | `GIMBAL_V_FL` | `THRUSTER_V_FL` | `SOCKET_THRUSTER_V_FL` | `(-0.48, 0.38, 0.68)` | `(-0.080, -0.997, 0)` | `-28° .. +28°` | `-25° .. +25°` |
-| **V_FR** (Ventral Front-Right) | `GIMBAL_V_FR` | `THRUSTER_V_FR` | `SOCKET_THRUSTER_V_FR` | `(0.48, 0.38, 0.68)` | `(0.080, -0.997, 0)` | `-28° .. +28°` | `-25° .. +25°` |
-| **V_RL** (Ventral Rear-Left) | `GIMBAL_V_RL` | `THRUSTER_V_RL` | `SOCKET_THRUSTER_V_RL` | `(-0.48, 0.38, -0.78)` | `(-0.080, -0.997, 0)` | `-28° .. +28°` | `-25° .. +25°` |
-| **V_RR** (Ventral Rear-Right) | `GIMBAL_V_RR` | `THRUSTER_V_RR` | `SOCKET_THRUSTER_V_RR` | `(0.48, 0.38, -0.78)` | `(0.080, -0.997, 0)` | `-28° .. +28°` | `-25° .. +25°` |
-| **L_FL** (Lateral Front-Left) | `GIMBAL_L_FL` | `THRUSTER_L_FL` | `SOCKET_THRUSTER_L_FL` | `(-0.80, 0.46, 0.64)` | `(-0.408, -0.913, 0)` | `-35° .. +35°` | `-42° .. +18°` |
-| **L_FR** (Lateral Front-Right) | `GIMBAL_L_FR` | `THRUSTER_L_FR` | `SOCKET_THRUSTER_L_FR` | `(0.80, 0.46, 0.64)` | `(0.408, -0.913, 0)` | `-35° .. +35°` | `-18° .. +42°` |
-| **L_RL** (Lateral Rear-Left) | `GIMBAL_L_RL` | `THRUSTER_L_RL` | `SOCKET_THRUSTER_L_RL` | `(-0.80, 0.46, 0.18)` | `(-0.408, -0.913, 0)` | `-35° .. +35°` | `-42° .. +18°` |
-| **L_RR** (Lateral Rear-Right) | `GIMBAL_L_RR` | `THRUSTER_L_RR` | `SOCKET_THRUSTER_L_RR` | `(0.80, 0.46, 0.18)` | `(0.408, -0.913, 0)` | `-35° .. +35°` | `-18° .. +42°` |
-
-- **Exhaust axis & force direction**: Every `SOCKET_THRUSTER_<ID>` sits at `[0, -0.14, 0]` inside its moving `THRUSTER_<ID>` mesh, with local **`-Y` (`[0, -1, 0]`)** pointing along the physical exhaust jet (and reaction thrust force on the vehicle pointing along local **`+Y` `[0, +1, 0]`**). Compute instantaneous world exhaust direction via `new THREE.Vector3(0, -1, 0).transformDirection(socket.matrixWorld)`.
-- **Geometry-blocked directions (for physics reconciliation)**:
-  - Neither ventral nor lateral nozzles can point into the upper `+Y` hemisphere (so nozzles cannot produce downward negative-lift thrust; ventral nozzles are recessed inside undercarriage skid collars and lateral nozzles sit directly beneath the twin flank COPV tanks).
-  - Lateral nozzles (`L_*`) are canted `24°` outboard at rest and can vector an additional `42°` outboard (up to `66°` from vertical for strong lateral translation/roll authority), but inboard roll is mechanically limited to `18°` by the lower chassis hull tub.
-- **Companion Cold-Gas Mist Particle Helper (`assets/recon-rover/thruster-fx.js` + `cold-gas-puff.png`)**:
-  - `createColdGasSystem(THREE, root, { enabled, dust, maxPlumeParticles: 320, maxDustParticles: 96, textureUrl })` provides a bounded, zero-allocation particle pool with immediate ignition, pale nitrogen mist (`0.16–0.34 s` lifetime, proportional to per-nozzle intensity `0..1`), an effects-off toggle (`setEnabled(false)`), and separate ground surface dust (`setDustEnabled(bool)`).
-
-### 3. Top EO/IR + LiDAR sensor mast
-
-- **`SENSOR_MAST_YAW`** at `(0, 1.12, 0.26)` world: rotates about local **`+Y`** (`rotation.y`), supporting continuous **360°** rotation (`-180° .. +180°`).
-- **`OPTICS_HEAD_PITCH`** (nested beneath `SENSOR_MAST_YAW`, parenting `SENSOR_MAST_HEAD` and `SOCKET_SENSOR_MAST`): rotates about local **`+X`** (`rotation.x`). Collision-free pitch limits are **`-38°` (nose-up elevation, `-0.663 rad`) to `+28°` (nose-down depression, `+0.489 rad`)**.
-
-### 4. Onboard displays & rear NASM FDAI telemetry panel
-
-All four onboard display surfaces are exported with clean `[0..1] × [0..1]` `TEXCOORD_0` UVs and distinct, separately addressable emissive materials:
-
-| Display Mesh | Attachment Socket | Material Name | Location & Role |
+| State | Label | Visual Silhouette & Surface Changes | Functional Capability & Rig Behavior |
 | --- | --- | --- | --- |
-| `DISPLAY_SPEED_LEFT` | `SOCKET_DISPLAY_SPEED_L` | `DISPLAY_SPEED_ORANGE_MAT` | Left rear wheel cover (viewed from behind): **orange** (`#d98a2b`) speed & wheel velocity bar |
-| `DISPLAY_THRUST_RIGHT` | `SOCKET_DISPLAY_THRUST_R` | `DISPLAY_THRUST_CYAN_MAT` | Right rear wheel cover (viewed from behind): **cyan** (`#38e8ff`) vertical thrust & RCS lift bar |
-| `DISPLAY_GAS_RESERVE_REAR` | `SOCKET_DISPLAY_GAS_REAR` | `DISPLAY_GAS_RESERVE_MAT` | Rear bulkhead panel: **mint/amber** (`#46f09a`) N2 COPV gas reserve (`PSIA` / `%`) |
-| `DISPLAY_FDAI_TELEMETRY_PANEL` | `SOCKET_DISPLAY_FDAI_REAR` | `DISPLAY_FDAI_TELEMETRY_MAT` | Rear dorsal black panel: Apollo **NASM FDAI-inspired codified instrument panel** displaying live **Height/Altitude (`ALT m`)**, **Reserve (`PSIA`)**, **Mast X-Y cross-pointer**, and an octagonal **8-ball attitude reticle with graduated `ROLL RATE`, `PITCH RATE` and `YAW RATE` scales** (`createOnboardDisplays` in `thruster-fx.js`) |
+| `D0` | **Intact** | Clean wedge-shaped titanium chassis, intact wheel fenders, true 6x6 wheels, straight 8 thruster bells, upright sensor mast, uncracked display covers. | `100%` drive speed, `±34°` front steering, full suspension travel, `100%` 8-nozzle thrust & gimbal range, continuous `360°` mast scan. |
+| `D1` | **Battered** | Dented/bent nose beak and flank plates, scuffed titanium edges, and fractured display cover overlay (`DISPLAY_CRACK_OVERLAY`). | Full articulation (`95–100%` drive/steer/gimbal/sensor); subtle `0.015 rad` rim wobble on battered wheels. |
+| `D2` | **Component Damage** | Visibly buckled wheel fender & kinked hydraulic damper rod, flat-spotted/cambered tire, bent/crimped nozzle bell, tilted sensor head with exposed copper internals, and ruptured COPV manifold cold-gas leak (`SOCKET_GAS_LEAK_*`). | Affected wheels drop to `45%` spin efficiency & `±17°` steer limit; affected nozzles drop to `48%` thrust & `35%` gimbal range; sensor mast limited to `±75°` sector; NASM FDAI displays amber/red `WRN` flag and `N2 LEAK DETECTED`. Surviving components remain fully drivable! |
+| `D3` | **Disabled Wreck** | Collapsed suspension/axle posture, sheared hull & fender panels, crushed nozzle bells, snapped sensor mast pitched down (`+26°`), and **6 bounded detachable debris fragments** deployed on the ground. | `0%` drive/steer/thrust; displays dim to fault mode (`SPD / DRIVE FAULT`, `RCS / DISABLED`, red `OFF` flag on the NASM FDAI 8-ball). All 107 engine nodes and sockets remain intact at their contract hierarchy paths. |
 
-## Measured exports
+## 19 Addressable Localized Damage Zones (`applyLocalizedDamage`)
 
-| Tier | Triangles | Draws | Plain bytes | Decoded Meshopt bytes |
-| --- | ---: | ---: | ---: | ---: |
-| LOD0 detailed | 9,176 | 26 | 650,216 | 172,484 |
-| LOD1 game | 5,120 | 26 | 384,984 | 117,416 |
-| LOD2 static distance | 2,712 | 1 | 203,012 | 70,064 |
+Any combination of the 19 zones can be set independently to `D0`, `D1`, `D2`, or `D3` at runtime using `applyLocalizedDamage(liveRoot, variantBank, zoneStates, { showDebris })`. Geometry references are swapped in-place from the preloaded `D0`–`D3` scene bank with **zero network reloads and zero `BufferGeometry`/`Material` allocations**.
 
-`LOD1` (`5,120` triangles ≤ 8,000, `26` articulated draws, `384,984` bytes ≤ 400 KB plain) and `LOD2` (`2,712` triangles ≤ 3,000, `1` draw, `203,012` bytes ≤ 250 KB plain) pass all glTF, geometry, UV, socket and node-parity checks. Exact SHA-256 hashes, bounds and socket coordinates are recorded in `manifest.json`. No FPS claim is made.
+| Zone ID | Category | Signed X (`m`) | Rear Chase-Camera Side | Target Mesh Node(s) | Convex Collision Proxy |
+| --- | --- | ---: | --- | --- | --- |
+| `FRONT_BUMPER` | Hull | `0.00` | Center (`+Z` nose) | `ZONE_FRONT_BUMPER` | `PROXY_FRONT_BUMPER` (`convex_box`) |
+| `REAR_PANEL` | Hull | `0.00` | Center (`-Z` stern) | `ZONE_REAR_PANEL` | `PROXY_REAR_PANEL` (`convex_box`) |
+| `FLANK_NEG_X` | Hull | `-0.74` | **Screen-Right (`-X`)** | `ZONE_FLANK_NEG_X` | `PROXY_FLANK_NEG_X` (`convex_box`) |
+| `FLANK_POS_X` | Hull | `+0.74` | **Screen-Left (`+X`)** | `ZONE_FLANK_POS_X` | `PROXY_FLANK_POS_X` (`convex_box`) |
+| `SENSOR_MAST` | Mast | `0.00` | Center (`+Y` dorsal) | `SENSOR_MAST_HEAD` | `PROXY_SENSOR_MAST` (`convex_box`) |
+| `WHEEL_FL` | Wheel/Susp | `-0.98` | **Screen-Right (`-X`)** | `SUSP_ARM_FL`, `WHEEL_FL` | `PROXY_WHEEL_FL` (`convex_cylinder`) |
+| `WHEEL_FR` | Wheel/Susp | `+0.98` | **Screen-Left (`+X`)** | `SUSP_ARM_FR`, `WHEEL_FR` | `PROXY_WHEEL_FR` (`convex_cylinder`) |
+| `WHEEL_ML` | Wheel/Susp | `-0.98` | **Screen-Right (`-X`)** | `SUSP_ARM_ML`, `WHEEL_ML` | `PROXY_WHEEL_ML` (`convex_cylinder`) |
+| `WHEEL_MR` | Wheel/Susp | `+0.98` | **Screen-Left (`+X`)** | `SUSP_ARM_MR`, `WHEEL_MR` | `PROXY_WHEEL_MR` (`convex_cylinder`) |
+| `WHEEL_RL` | Wheel/Susp | `-0.98` | **Screen-Right (`-X`)** | `SUSP_ARM_RL`, `WHEEL_RL` | `PROXY_WHEEL_RL` (`convex_cylinder`) |
+| `WHEEL_RR` | Wheel/Susp | `+0.98` | **Screen-Left (`+X`)** | `SUSP_ARM_RR`, `WHEEL_RR` | `PROXY_WHEEL_RR` (`convex_cylinder`) |
+| `NOZZLE_V_FL` | Ventral RCS | `-0.48` | **Screen-Right (`-X`)** | `THRUSTER_V_FL` | `PROXY_NOZZLE_V_FL` (`convex_box`) |
+| `NOZZLE_V_FR` | Ventral RCS | `+0.48` | **Screen-Left (`+X`)** | `THRUSTER_V_FR` | `PROXY_NOZZLE_V_FR` (`convex_box`) |
+| `NOZZLE_V_RL` | Ventral RCS | `-0.48` | **Screen-Right (`-X`)** | `THRUSTER_V_RL` | `PROXY_NOZZLE_V_RL` (`convex_box`) |
+| `NOZZLE_V_RR` | Ventral RCS | `+0.48` | **Screen-Left (`+X`)** | `THRUSTER_V_RR` | `PROXY_NOZZLE_V_RR` (`convex_box`) |
+| `NOZZLE_L_FL` | Lateral RCS | `-0.80` | **Screen-Right (`-X`)** | `THRUSTER_L_FL` | `PROXY_NOZZLE_L_FL` (`convex_box`) |
+| `NOZZLE_L_FR` | Lateral RCS | `+0.80` | **Screen-Left (`+X`)** | `THRUSTER_L_FR` | `PROXY_NOZZLE_L_FR` (`convex_box`) |
+| `NOZZLE_L_RL` | Lateral RCS | `-0.80` | **Screen-Right (`-X`)** | `THRUSTER_L_RL` | `PROXY_NOZZLE_L_RL` (`convex_box`) |
+| `NOZZLE_L_RR` | Lateral RCS | `+0.80` | **Screen-Left (`+X`)** | `THRUSTER_L_RR` | `PROXY_NOZZLE_L_RR` (`convex_box`) |
+
+## 6 Bounded Detachable Debris Fragments & Leak Sockets
+
+| Debris Node | Source Zone | Detach Threshold | Attachment Socket | Convex Proxy | Size (`m`) |
+| --- | --- | --- | --- | --- | --- |
+| `DEBRIS_FRONT_BEAK` | `FRONT_BUMPER` | `D2+` | `SOCKET_DEBRIS_FRONT_BEAK` | `PROXY_DEBRIS_FRONT_BEAK` | `0.46 × 0.08 × 0.28` |
+| `DEBRIS_FLANK_NEG_X` | `FLANK_NEG_X` | `D2+` | `SOCKET_DEBRIS_FLANK_NEG_X` | `PROXY_DEBRIS_FLANK_NEG_X` | `0.12 × 0.22 × 0.56` |
+| `DEBRIS_FENDER_POS_X` | `FLANK_POS_X` | `D3` | `SOCKET_DEBRIS_FENDER_POS_X` | `PROXY_DEBRIS_FENDER_POS_X` | `0.28 × 0.08 × 0.52` |
+| `DEBRIS_WHEEL_RIM_FL` | `WHEEL_FL` | `D2+` | `SOCKET_DEBRIS_WHEEL_RIM_FL` | `PROXY_DEBRIS_WHEEL_RIM_FL` | `0.14 × 0.26 × 0.26` |
+| `DEBRIS_SENSOR_VISOR` | `SENSOR_MAST` | `D2+` | `SOCKET_DEBRIS_SENSOR_VISOR` | `PROXY_DEBRIS_SENSOR_VISOR` | `0.28 × 0.12 × 0.14` |
+| `DEBRIS_NOZZLE_BELL` | `NOZZLE_L_FL` | `D3` | `SOCKET_DEBRIS_NOZZLE_BELL` | `PROXY_DEBRIS_NOZZLE_BELL` | `0.16 × 0.18 × 0.16` |
+
+### `D2` Cold-Gas Leak Sockets
+
+- `SOCKET_GAS_LEAK_NEG_X`: `[-0.78, 0.58, 0.35]` (ruptured `-X` COPV manifold; active when `FLANK_NEG_X`, `NOZZLE_L_FL`, or `NOZZLE_L_RL` is in `D2`)
+- `SOCKET_GAS_LEAK_POS_X`: `[+0.78, 0.58, 0.35]` (ruptured `+X` COPV manifold; active when `FLANK_POS_X`, `NOZZLE_L_FR`, or `NOZZLE_L_RR` is in `D2`)
+- `SOCKET_GAS_LEAK_REAR`: `[+0.18, 0.68, -1.96]` (rear manifold bleed; active when `REAR_PANEL`, `NOZZLE_V_RL`, or `NOZZLE_V_RR` is in `D2`)
+
+## Validation Commands
+
+```bash
+node tools/asset-pipeline/build-recon-rover.mjs
+node tools/asset-pipeline/validate-recon-rover.mjs
+node tools/asset-pipeline/test-recon-rover.mjs
+```
