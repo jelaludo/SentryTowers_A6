@@ -1,0 +1,950 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "disco_ball",
+  "label": "DSC-01 / Celebration Disco Ball with Laser and Lights",
+  "status": "contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 are not authored; celebration rig is intact D0 only and damage remains independent of detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Close shots, celebration cutscenes and recordings",
+    "distance": "Static merged rest pose with one material and one draw call. Swap to LOD1 before spinning, pendulum swing or laser/light sweeps."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstration": {
+      "name": "Disco_Celebration_Cycle",
+      "duration_s": 16,
+      "loop": true
+    },
+    "gantry_mount": {
+      "hook_socket": "SOCKET_GANTRY_HOOK",
+      "hide_in_gantry_mode": [
+        "STANDALONE_CRADLE"
+      ],
+      "stalheart_target_node": "EXTRUSION_TIP"
+    },
+    "scope": "Pendulum swing, faceted sphere rotation, counter-rotating light halo and laser ring, spotlight/aperture emission and translucent laser beam preview are runtime-controlled via unbaked pivots."
+  },
+  "assets": [
+    {
+      "id": "disco_ball_d0_lod0",
+      "family": "disco_ball",
+      "file": "lod0/disco_ball_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "review_status": "contract_candidate_pending_game_review",
+      "bytes": 645800,
+      "sha256": "536575b955fac81232fdd8200cb7790c1394d75645f7b05cf85595aae848034f",
+      "triangles": 5876,
+      "draw_calls": 8,
+      "materials": 4,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/disco_ball_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 207052,
+      "meshopt_sha256": "371785c16238c957a9127397a85476a864d25b1d1742816577f03b856b67c0b0",
+      "meshopt_derived": true,
+      "plot_m": [
+        8,
+        8
+      ],
+      "bounds": {
+        "min": [
+          -4.9482,
+          0,
+          -4.9599
+        ],
+        "max": [
+          4.9482,
+          6.31,
+          4.9599
+        ],
+        "dimensions_m": [
+          9.8964,
+          6.31,
+          9.9199
+        ]
+      },
+      "sockets": [
+        {
+          "id": "GANTRY_HOOK",
+          "node": "SOCKET_GANTRY_HOOK",
+          "kind": "gantry_suspension",
+          "position_m": [
+            0,
+            6.2,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "BALL_CENTER",
+          "node": "SOCKET_BALL_CENTER",
+          "kind": "fx_origin",
+          "position_m": [
+            0,
+            3,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "LASER_N",
+          "node": "SOCKET_LASER_N",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            0.866
+          ]
+        },
+        {
+          "id": "LASER_E",
+          "node": "SOCKET_LASER_E",
+          "kind": "laser_emitter",
+          "position_m": [
+            1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LASER_S",
+          "node": "SOCKET_LASER_S",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            -1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            -0.866
+          ]
+        },
+        {
+          "id": "LASER_W",
+          "node": "SOCKET_LASER_W",
+          "kind": "laser_emitter",
+          "position_m": [
+            -1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            -0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LIGHT_NE",
+          "node": "SOCKET_LIGHT_NE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_NW",
+          "node": "SOCKET_LIGHT_NW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SE",
+          "node": "SOCKET_LIGHT_SE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SW",
+          "node": "SOCKET_LIGHT_SW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -2.4,
+            0.35,
+            -2.4
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "colliders": [
+        {
+          "id": "standalone_rig_envelope",
+          "center_m": [
+            0,
+            3.1,
+            0
+          ],
+          "size_m": [
+            5.6,
+            6.3,
+            5.6
+          ],
+          "condition": "standalone_cradle"
+        },
+        {
+          "id": "suspended_ball_envelope",
+          "center_m": [
+            0,
+            3.8,
+            0
+          ],
+          "size_m": [
+            4.2,
+            4.8,
+            4.2
+          ],
+          "condition": "gantry_hanging"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "required_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "disco_ball_d0_lod1",
+      "family": "disco_ball",
+      "file": "lod1/disco_ball_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "review_status": "contract_candidate_pending_game_review",
+      "bytes": 361576,
+      "sha256": "d24a0d50377f187bf72c11e68846ad0ebf988db51cca7e27917e40fd30d68526",
+      "triangles": 3244,
+      "draw_calls": 8,
+      "materials": 4,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/disco_ball_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 122152,
+      "meshopt_sha256": "001b286774705396a3ec68b3c795cbcdd986455b916a55124917fdbdb48c6fef",
+      "meshopt_derived": true,
+      "plot_m": [
+        8,
+        8
+      ],
+      "bounds": {
+        "min": [
+          -4.9278,
+          0,
+          -4.9599
+        ],
+        "max": [
+          4.9278,
+          6.31,
+          4.9599
+        ],
+        "dimensions_m": [
+          9.8556,
+          6.31,
+          9.9199
+        ]
+      },
+      "sockets": [
+        {
+          "id": "GANTRY_HOOK",
+          "node": "SOCKET_GANTRY_HOOK",
+          "kind": "gantry_suspension",
+          "position_m": [
+            0,
+            6.2,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "BALL_CENTER",
+          "node": "SOCKET_BALL_CENTER",
+          "kind": "fx_origin",
+          "position_m": [
+            0,
+            3,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "LASER_N",
+          "node": "SOCKET_LASER_N",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            0.866
+          ]
+        },
+        {
+          "id": "LASER_E",
+          "node": "SOCKET_LASER_E",
+          "kind": "laser_emitter",
+          "position_m": [
+            1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LASER_S",
+          "node": "SOCKET_LASER_S",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            -1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            -0.866
+          ]
+        },
+        {
+          "id": "LASER_W",
+          "node": "SOCKET_LASER_W",
+          "kind": "laser_emitter",
+          "position_m": [
+            -1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            -0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LIGHT_NE",
+          "node": "SOCKET_LIGHT_NE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_NW",
+          "node": "SOCKET_LIGHT_NW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SE",
+          "node": "SOCKET_LIGHT_SE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SW",
+          "node": "SOCKET_LIGHT_SW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -2.4,
+            0.35,
+            -2.4
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "colliders": [
+        {
+          "id": "standalone_rig_envelope",
+          "center_m": [
+            0,
+            3.1,
+            0
+          ],
+          "size_m": [
+            5.6,
+            6.3,
+            5.6
+          ],
+          "condition": "standalone_cradle"
+        },
+        {
+          "id": "suspended_ball_envelope",
+          "center_m": [
+            0,
+            3.8,
+            0
+          ],
+          "size_m": [
+            4.2,
+            4.8,
+            4.2
+          ],
+          "condition": "gantry_hanging"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "required_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "id": "disco_ball_d0_lod2",
+      "family": "disco_ball",
+      "file": "lod2/disco_ball_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "review_status": "contract_candidate_pending_game_review",
+      "bytes": 246976,
+      "sha256": "d37bf2c4ff1da5e19dfb2264a91a3191b5a3a50029b5154cf8fb2834fcca7086",
+      "triangles": 2244,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/disco_ball_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 76872,
+      "meshopt_sha256": "a4ab35dc687cd84b775cdc9f8311c7543b948c1508f9b3c22a395297b9d8be4f",
+      "meshopt_derived": true,
+      "plot_m": [
+        8,
+        8
+      ],
+      "bounds": {
+        "min": [
+          -2.95,
+          0,
+          -2.95
+        ],
+        "max": [
+          2.95,
+          6.31,
+          2.95
+        ],
+        "dimensions_m": [
+          5.9,
+          6.31,
+          5.9
+        ]
+      },
+      "sockets": [
+        {
+          "id": "GANTRY_HOOK",
+          "node": "SOCKET_GANTRY_HOOK",
+          "kind": "gantry_suspension",
+          "position_m": [
+            0,
+            6.2,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "BALL_CENTER",
+          "node": "SOCKET_BALL_CENTER",
+          "kind": "fx_origin",
+          "position_m": [
+            0,
+            3,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "LASER_N",
+          "node": "SOCKET_LASER_N",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            0.866
+          ]
+        },
+        {
+          "id": "LASER_E",
+          "node": "SOCKET_LASER_E",
+          "kind": "laser_emitter",
+          "position_m": [
+            1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LASER_S",
+          "node": "SOCKET_LASER_S",
+          "kind": "laser_emitter",
+          "position_m": [
+            0,
+            4.35,
+            -1.48
+          ],
+          "normal": [
+            0,
+            -0.5,
+            -0.866
+          ]
+        },
+        {
+          "id": "LASER_W",
+          "node": "SOCKET_LASER_W",
+          "kind": "laser_emitter",
+          "position_m": [
+            -1.48,
+            4.35,
+            0
+          ],
+          "normal": [
+            -0.866,
+            -0.5,
+            0
+          ]
+        },
+        {
+          "id": "LIGHT_NE",
+          "node": "SOCKET_LIGHT_NE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_NW",
+          "node": "SOCKET_LIGHT_NW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SE",
+          "node": "SOCKET_LIGHT_SE",
+          "kind": "party_spotlight",
+          "position_m": [
+            1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "LIGHT_SW",
+          "node": "SOCKET_LIGHT_SW",
+          "kind": "party_spotlight",
+          "position_m": [
+            -1.45,
+            4.74,
+            -1.45
+          ],
+          "normal": [
+            -0.58,
+            -0.58,
+            -0.58
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            -2.4,
+            0.35,
+            -2.4
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "colliders": [
+        {
+          "id": "standalone_rig_envelope",
+          "center_m": [
+            0,
+            3.1,
+            0
+          ],
+          "size_m": [
+            5.6,
+            6.3,
+            5.6
+          ],
+          "condition": "standalone_cradle"
+        },
+        {
+          "id": "suspended_ball_envelope",
+          "center_m": [
+            0,
+            3.8,
+            0
+          ],
+          "size_m": [
+            4.2,
+            4.8,
+            4.2
+          ],
+          "condition": "gantry_hanging"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "required_nodes": [
+        "DISCO_BALL_ROOT",
+        "STANDALONE_CRADLE",
+        "DISCO_PENDULUM_PIVOT",
+        "HOIST_TETHER_ASSEMBLY",
+        "LIGHT_HALO_YAW",
+        "LIGHT_HALO_BODY",
+        "SPOTLIGHT_POD_PITCH",
+        "LIGHT_LENS_ARRAY",
+        "LASER_RING_YAW",
+        "LASER_RING_BODY",
+        "LASER_EMITTER_PITCH",
+        "LASER_APERTURE_ARRAY",
+        "LASER_BEAM_PREVIEW",
+        "DISCO_SPHERE_SPIN",
+        "DISCO_SPHERE_MESH",
+        "DISCO_STATIC_BODY",
+        "SOCKET_GANTRY_HOOK",
+        "SOCKET_BALL_CENTER",
+        "SOCKET_LASER_N",
+        "SOCKET_LASER_E",
+        "SOCKET_LASER_S",
+        "SOCKET_LASER_W",
+        "SOCKET_LIGHT_NE",
+        "SOCKET_LIGHT_NW",
+        "SOCKET_LIGHT_SE",
+        "SOCKET_LIGHT_SW",
+        "SOCKET_POWER"
+      ],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

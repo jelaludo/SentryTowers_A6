@@ -1,4 +1,6 @@
 const collectionImages={
+'stalheart-disco':'assets/stalheart-disco/preview.png',
+'disco-ball':'assets/disco-ball/preview.png',
 'dome-city':'assets/dome-city/preview.png',
 'dome-colony':'assets/dome-colony/preview.png',
 'settlement-brochure':'settlement-brochure/landscape.svg',
@@ -16,6 +18,8 @@ const collectionImages={
 };
 
 export const collections=[
+['stalheart-disco','Stålheart / Celebration Disco Gantry','Props','A silly diegetic congratulation diorama where Stålheart hoists the DSC-01 balance disco ball inside its 36 m gantry above celebrating MÖRK and ISAO units.','3 LODs · Gantry pendulum swing · Laser + light show','Diorama candidate'],
+['disco-ball','DSC-01 / Celebration Disco Ball','Props','Standalone faceted mirror sphere with a counter-rotating laser turret ring, four party floodlights, pendulum hoist pivot and detachable floor cradle.','3 LODs · 16-second celebration cycle · Gantry-compatible','Contract candidate'],
 ['dome-city','Dome City / Four Squares','Industry','Nine specialized domes connected above MÖRK routes, framing launch, fabrication, solar and cargo squares with existing Workshop machinery.','9 domes · 12 skybridges · 4 squares','Diorama candidate'],
 ['dome-colony','Planetary domes / First settlement','Industry','Two domes joined above MÖRK, with thin elevated sentry platforms, tilting cradles and measured downward firing paths.','3 modules · 3 LODs · measured defense angles','Scale blockout'],
 ['settlement-brochure','Wish you lived here? / Galactic Getaways','Presentation','A pastel holiday brochure for your next exoplanet, with a wireframe settlement panorama, four easy steps and a friendly alien neighbour.','Guide look 03 · illustrated panorama · pack your towel','Guide'],

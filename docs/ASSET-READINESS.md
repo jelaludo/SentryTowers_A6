@@ -15,6 +15,8 @@ No collection is labeled Reviewed runtime yet because the repository does not co
 
 | Route | Current state | Scope and remaining review |
 | --- | --- | --- |
+| `stalheart-disco/` | Contract candidate | Diegetic congratulation diorama composing canonical Stålheart D0 LOD0/1/2 and DSC-01 Disco Ball D0 LOD0/1/2 by SHA-256 reference; 64-frame hook coupling and swing clearance checks pass. Game-camera, release compression and reference-phone review pending. |
+| `disco-ball/` | Contract candidate | D0 detailed/game/static-distance exports (`3,244` game triangles / `8` draws; `2,244` distance triangles / `1` draw); plain and decoded Meshopt validation, 27-node cross-tier parity, sockets and runtime controller checks pass. D1–D3, game-camera and phone review pending. |
 | `heptapod-extractor/` | Contract candidate | D0 detailed/articulated game/static distance; six plain/decoded exports, foot placement, tank corridor and controller tests pass. Live WebGL/mobile, terrain/navigation, traffic enforcement, resource hooks, release compression and phone review pending. |
 | `greenhouse/` | Contract candidate | D0 detailed/game/static-distance; plain/decoded validation, stable interfaces and continuous service motion pass. Viewer control tests use a mocked renderer; live browser/mobile transparency, game resources, release compression and phone acceptance pending. |
 | `chip-manufacturing/` | Contract candidate | D0 LOD0/1/2, plain/decoded geometry, stable nodes/sockets, mirror reflection and wafer travel validate. Blender views reviewed; browser/mobile, game resource hooks, release compression and phone acceptance pending. |

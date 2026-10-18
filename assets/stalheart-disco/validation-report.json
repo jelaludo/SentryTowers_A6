@@ -1,0 +1,35 @@
+{
+  "schema": "stalheart-disco/validation-v1",
+  "errors": [],
+  "tiers": [
+    {
+      "lod": 0,
+      "quality": "detailed",
+      "core_triangles": 170788,
+      "core_draws": 789,
+      "min_ball_ground_y_m": 6.543,
+      "max_hook_coupling_error_m": 0
+    },
+    {
+      "lod": 1,
+      "quality": "game",
+      "core_triangles": 10222,
+      "core_draws": 17,
+      "min_ball_ground_y_m": 6.54,
+      "max_hook_coupling_error_m": 0
+    },
+    {
+      "lod": 2,
+      "quality": "distance",
+      "core_triangles": 4417,
+      "core_draws": 2,
+      "min_ball_ground_y_m": 7.049,
+      "max_hook_coupling_error_m": 0
+    }
+  ],
+  "clearance": {
+    "min_ball_ground_y_m": 6.54,
+    "min_guest_headroom_m": 3.214,
+    "max_hook_coupling_error_m": 0
+  }
+}
