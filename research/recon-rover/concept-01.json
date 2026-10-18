@@ -1,0 +1,19 @@
+{
+  "family": "recon_rover",
+  "designation": "R-47X",
+  "title": "R-47X 6x6 Unmanned Military Reconnaissance Rover",
+  "concept_sheet": "research/recon-rover/concept-01.png",
+  "reference_source": "research/recon-rover/reference-r47x.jpg",
+  "configuration": {
+    "drivetrain": "6x6 independent wishbone suspension with twin exposed hydraulic actuators per wheel",
+    "cold_gas_thrusters": {
+      "total": 8,
+      "ventral_undercarriage": 4,
+      "lateral_flank": 4,
+      "gimbal_axes": ["pitch_x", "roll_z"],
+      "propellant_tanks": "4 cylindrical composite overwrapped pressure vessels (COPV) with armored manifold plumbing"
+    },
+    "sensors": "Dorsal 360-degree EO/IR thermal + LiDAR optical turret (SENSOR_MAST_YAW / OPTICS_HEAD_PITCH)",
+    "weapons": "None (pure reconnaissance and telemetry platform)"
+  }
+}
