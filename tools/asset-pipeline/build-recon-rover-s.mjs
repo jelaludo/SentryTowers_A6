@@ -141,7 +141,7 @@ const manifest={
       level:0,
       id:'D0',
       label:'Intact',
-      summary:'Clean nominal chassis, intact wheel fenders, true 6x6 wheel geometry, straight 8 thruster bells, upright sensor mast, uncracked display covers.',
+      summary:'Clean nominal chassis, open wheel arches, true 6x6 wheel geometry, straight 8 thruster bells, upright sensor mast, uncracked display covers.',
       capabilities:{drive_factor:1.0,steer_factor:1.0,suspension_factor:1.0,thrust_factor:1.0,sensor_sector_deg:360,cold_gas_leak:false,detachable_debris:false}
     },
     D1:{
@@ -155,14 +155,14 @@ const manifest={
       level:2,
       id:'D2',
       label:'Component Damage',
-      summary:'Visibly buckled wheel cover & suspension arm, flat-spotted/cambered tire, bent/crimped nozzle bell, tilted sensor head with exposed internals, and optional COPV manifold cold-gas leak.',
+      summary:'Visibly buckled suspension arm, flat-spotted/cambered tire, bent/crimped nozzle bell, tilted sensor head with exposed internals, and optional COPV manifold cold-gas leak.',
       capabilities:{drive_factor:0.45,steer_factor:0.5,suspension_factor:0.40,thrust_factor:0.5,sensor_sector_deg:150,cold_gas_leak:true,detachable_debris:false}
     },
     D3:{
       level:3,
       id:'D3',
       label:'Disabled Wreck',
-      summary:'Collapsed suspension/axle posture, sheared/missing hull & fender panels, crushed nozzle bells, snapped sensor mast, and 6 bounded detachable debris fragments.',
+      summary:'Collapsed suspension/axle posture, sheared/missing hull panels, crushed nozzle bells, snapped sensor mast, and 5 bounded detachable debris fragments.',
       capabilities:{drive_factor:0.0,steer_factor:0.0,suspension_factor:0.0,thrust_factor:0.0,sensor_sector_deg:0,cold_gas_leak:false,detachable_debris:true}
     }
   },
@@ -174,7 +174,7 @@ const manifest={
   })),
   detachable_debris:DEBRIS_SPECS.map(d=>({
     ...d,
-    max_fragments_budget:6
+    max_fragments_budget:5
   })),
   localized_presets:[
     {id:'d0_intact',label:'Whole Rover — D0 Intact',default_level:0,overrides:{}},
@@ -332,7 +332,7 @@ const manifest={
     particle_texture:'cold-gas-puff.png',
     baked_clips:[],
     demonstration:{name:'Low_Gravity_Recon_Jump_Cycle',duration_s:16,loop:true},
-    scope:'No baked vehicle movement. Supports whole-rover D0–D3 exports across LOD0–LOD2 AND zero-reload in-place localized zone swapping (applyLocalizedDamage) across 19 addressable zones, optional bounded D2 cold-gas COPV leak plumes, 6 detachable D3 debris fragments with convex collision proxies, and 4 UV-mapped onboard telemetry displays with separate crack overlays.'
+    scope:'No baked vehicle movement. Supports whole-rover D0–D3 exports across LOD0–LOD2 AND zero-reload in-place localized zone swapping (applyLocalizedDamage) across 19 addressable zones, optional bounded D2 cold-gas COPV leak plumes, 5 detachable D3 debris fragments with convex collision proxies, and 4 UV-mapped onboard telemetry displays with separate crack overlays.'
   },
   assets
 };

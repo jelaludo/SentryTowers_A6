@@ -12,7 +12,7 @@ import {
   ZONE_DEFS,
   DEBRIS_MAP,
   DURATION
-} from '../assets/recon-rover-s/runtime.js';
+} from '../assets/recon-rover-s/runtime.js?v=open-wheels-1';
 
 const $=id=>document.getElementById(id),stage=$('stage'),base='../assets/recon-rover-s/';
 const scene=new T.Scene();
@@ -325,7 +325,7 @@ async function load(){
   $('status').textContent='Loading R-47X-S D0–D3 variant bank…';
   try{
     if(!manifest){
-      const r=await fetch(base+'manifest.json');
+      const r=await fetch(base+'manifest.json?v=open-wheels-1');
       if(!r.ok)throw Error('Manifest HTTP '+r.status);
       manifest=await r.json();
     }
@@ -333,7 +333,7 @@ async function load(){
     const isPlain=$('encoding').value==='plain';
     const entries=[0,1,2,3].map(d=>manifest.assets.find(a=>a.lod===next&&a.damage_level===d));
     const gltfs=await Promise.all(
-      entries.map(e=>loader.loadAsync(base+(isPlain?e.file:e.meshopt_file)))
+      entries.map(e=>loader.loadAsync(base+(isPlain?e.file:e.meshopt_file)+'?v=open-wheels-1'))
     );
     const nextBank={0:gltfs[0].scene,1:gltfs[1].scene,2:gltfs[2].scene,3:gltfs[3].scene};
     // Clone D0 scene as the live editable root so variantBank[0] keeps pristine D0 geometry references

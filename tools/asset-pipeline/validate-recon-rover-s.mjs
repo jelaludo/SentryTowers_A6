@@ -134,7 +134,7 @@ for(const e of manifest.assets){
         report.errors.push(`${file}: onboard displays must have separately addressable materials`);
       }
 
-      // Verify all 19 localized zone mesh nodes and 6 debris nodes exist as Meshes in LOD0/LOD1
+      // Verify all 19 localized zone mesh nodes and 5 debris nodes exist as Meshes in LOD0/LOD1
       for(const z of ZONE_DEFS){
         for(const mName of z.meshes){
           const zm=root.getObjectByName(mName);

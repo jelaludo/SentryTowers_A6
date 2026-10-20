@@ -1,5 +1,9 @@
 # Devlog
 
+## 20 October 2026 / R-47X-S open wheel clearance
+
+Removed the white front mudguards and rear tandem canopies from all R-47X-S damage states and LODs to eliminate their interference at extreme suspension bias. Removed matching fender debris and collider, retaining their node/socket names as compatibility lookups; five debris fragments remain. Rebuilt all 24 plain/derived exports, measured manifest/README and Blender preview. All validation and 960 damper poses pass. Original R-47X and XB-12 remain unchanged. Physical terrain/collision integration and game acceptance remain pending.
+
 ## 20 October 2026 / R-47X-S swing-arm suspension derivative
 
 Pushed completed XB-12 history through `75d1b82`, then created the separate [R-47X-S viewer](../recon-rover-s/). The six-wheel R-47X body, thrusters, displays and damage system are retained, with boxed swing arms and six XB-12-style endpoint-driven telescopic dampers. Chassis-fixed upper anchors and arm-fixed lower anchors keep barrels and rods attached through suspension, steering and chassis motion. Added suspension isolation in the viewer. Original R-47X and XB-12 assets remain untouched.

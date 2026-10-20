@@ -67,7 +67,7 @@ for(const dmg of [0,1,2,3]){
       }
     }
 
-    // 4. Verify 6 bounded detachable debris fragments and sockets exist
+    // 4. Verify 5 bounded detachable debris fragments and sockets exist
     for(const d of DEBRIS_SPECS){
       assert(root.getObjectByName(d.id),`D${dmg} LOD${lod} missing debris fragment ${d.id}`);
       assert(root.getObjectByName(d.socket),`D${dmg} LOD${lod} missing debris socket ${d.socket}`);
@@ -134,7 +134,7 @@ for(const dmg of [0,1,2,3]){
   displays.update(s.telemetry,liveRoot);
 }
 
-// 6. Verify collision proxies cover all 19 zones + chassis core + 6 detachable debris fragments
+// 6. Verify collision proxies cover all 19 zones + chassis core + 5 detachable debris fragments
 {
   const proxies=buildCollisionProxies({WHEEL_FL:3,FLANK_NEG_X:2},0);
   assert.equal(proxies.length,1+DAMAGE_ZONES.length+DEBRIS_SPECS.length);
@@ -150,4 +150,4 @@ const a=roverState(0),b=roverState(DURATION);
 assert(Math.abs(a.steerDeg-b.steerDeg)<1e-9);
 assert(Math.abs(a.mastPitchDeg-b.mastPitchDeg)<1e-9);
 
-console.log('PASS test-recon-rover-s: D0–D3 × LOD0–LOD2 hierarchy, 19-zone zero-reload localized damage swapping, D2 COPV gas leak mist, D3 6-fragment debris & convex collision proxies verified.');
+console.log('PASS test-recon-rover-s: D0–D3 × LOD0–LOD2 hierarchy, 19-zone zero-reload localized damage swapping, D2 COPV gas leak mist, D3 5-fragment debris & convex collision proxies verified.');

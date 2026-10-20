@@ -188,17 +188,6 @@ export const DEBRIS_SPECS=[
     color:C.slate
   },
   {
-    id:'DEBRIS_FENDER_POS_X',
-    socket:'SOCKET_DEBRIS_FENDER_POS_X',
-    zone:'FLANK_POS_X',
-    minDamage:3,
-    attachedPos:[0.80,0.42,-0.88],
-    wreckPos:[1.36,-0.51,-0.94],
-    wreckRot:[-0.24,0.52,0.38],
-    size:[0.34,0.07,0.68],
-    color:C.titanium
-  },
-  {
     id:'DEBRIS_WHEEL_RIM_FL',
     socket:'SOCKET_DEBRIS_WHEEL_RIM_FL',
     zone:'WHEEL_FL',
@@ -423,9 +412,7 @@ function buildZoneFrontBumper(key,lod,dmg=0,yOffset=0){
     const sideHit=(sx<0&&dmg>=1)?dmg:Math.max(0,dmg-1);
     const cRot=[0.20-sideHit*0.11,sx*0.08+sideHit*0.08,-sx*0.18-sideHit*0.16];
     box(key,[0.28,0.11,1.00],[sx*0.46,Y(0.23-sideHit*0.03),1.44],sideHit>=2?C.primer:C.titaniumLight,cRot);
-    if(dmg<3||sx>0){
-      box(key,[0.34,0.07,0.58],[sx*0.80,Y(0.46-sideHit*0.04),1.48],sideHit>=1?C.titaniumMid:C.titaniumLight,[0.12+sideHit*0.14,sideHit*0.12,-sx*0.12-sideHit*0.22]);
-    }
+
   }
 
   // Front bumper bar, shackles & tactical lights
@@ -470,14 +457,7 @@ function buildZoneFlank(key,sideSign,lod,dmg=0,yOffset=0){
   const buckleZ=dmg===0?0:dmg===1?sx*0.10:dmg===2?sx*0.26:sx*0.44;
   const buckleX=dmg===0?0:dmg===1?0.05:dmg===2?0.16:0.28;
 
-  // Rear tandem fender canopy & wheel-cover display bezel
-  box(
-    key,
-    [0.38,0.08,1.74],
-    [sx*0.80,Y(0.42-dmg*0.03),-0.92],
-    dmg>=2?C.scuff:C.titanium,
-    [buckleX*0.6,0,-sx*0.12+buckleZ]
-  );
+  // Open wheel clearance: no tandem canopy on the S variant.
   // Wheel-cover display bezel (hosts DISPLAY_SPEED_LEFT on -X and DISPLAY_THRUST_RIGHT on +X)
   box(key,[0.34,0.18,0.10],[sx*0.80,Y(0.36),-1.82],C.carbon,[-0.42,0,dmg*sx*0.04]);
 
@@ -898,6 +878,11 @@ export function buildReconRover(lod=0,damageLevel=0,zoneOverrides=null){
       dm.userData={role:'detachable_debris',zone:d.zone,min_damage:d.minDamage,detached,socket:d.socket};
     }
   }
+
+  // Preserve retired fender identifiers as geometry-free compatibility lookups.
+  marker(chassisJump,'SOCKET_DEBRIS_FENDER_POS_X',[0.80,0.42,-0.88],'retired_fender_attachment',[0,1,0]);
+  const retiredFender=new T.Object3D();retiredFender.name='DEBRIS_FENDER_POS_X';
+  retiredFender.userData={role:'lookup_only',retired:true};debrisGroup.add(retiredFender);
 
   // 2. Six Independent Wheel & Suspension Stations
   for(const spec of WHEEL_SPECS){

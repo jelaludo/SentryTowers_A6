@@ -7,16 +7,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 759324,
-          "triangles": 10332,
-          "draw_calls": 49,
+          "bytes": 753308,
+          "triangles": 10272,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 193056,
-          "triangles": 10332,
-          "draw_calls": 49,
+          "bytes": 190508,
+          "triangles": 10272,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -28,16 +28,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 419656,
-          "triangles": 5084,
-          "draw_calls": 49,
+          "bytes": 413640,
+          "triangles": 5024,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 139996,
-          "triangles": 5084,
-          "draw_calls": 49,
+          "bytes": 137360,
+          "triangles": 5024,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -49,15 +49,15 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 218860,
-          "triangles": 2748,
+          "bytes": 213948,
+          "triangles": 2688,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 82072,
-          "triangles": 2748,
+          "bytes": 80356,
+          "triangles": 2688,
           "draw_calls": 1,
           "degenerate": 0
         }
@@ -70,16 +70,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 756952,
-          "triangles": 10296,
-          "draw_calls": 49,
+          "bytes": 750936,
+          "triangles": 10236,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 214956,
-          "triangles": 10296,
-          "draw_calls": 49,
+          "bytes": 212296,
+          "triangles": 10236,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -91,16 +91,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 417792,
-          "triangles": 5048,
-          "draw_calls": 49,
+          "bytes": 411780,
+          "triangles": 4988,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 153372,
-          "triangles": 5048,
-          "draw_calls": 49,
+          "bytes": 150588,
+          "triangles": 4988,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -112,15 +112,15 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 216312,
-          "triangles": 2712,
+          "bytes": 211396,
+          "triangles": 2652,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 85480,
-          "triangles": 2712,
+          "bytes": 83676,
+          "triangles": 2652,
           "draw_calls": 1,
           "degenerate": 0
         }
@@ -133,16 +133,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 711752,
-          "triangles": 9640,
-          "draw_calls": 49,
+          "bytes": 705732,
+          "triangles": 9580,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 210852,
-          "triangles": 9640,
-          "draw_calls": 49,
+          "bytes": 208160,
+          "triangles": 9580,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -154,16 +154,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 409104,
-          "triangles": 4928,
-          "draw_calls": 49,
+          "bytes": 403088,
+          "triangles": 4868,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 154428,
-          "triangles": 4928,
-          "draw_calls": 49,
+          "bytes": 151612,
+          "triangles": 4868,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -175,15 +175,15 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 206884,
-          "triangles": 2592,
+          "bytes": 201972,
+          "triangles": 2532,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 84016,
-          "triangles": 2592,
+          "bytes": 82244,
+          "triangles": 2532,
           "draw_calls": 1,
           "degenerate": 0
         }
@@ -196,16 +196,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 642676,
-          "triangles": 8672,
-          "draw_calls": 49,
+          "bytes": 637484,
+          "triangles": 8624,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 194264,
-          "triangles": 8672,
-          "draw_calls": 49,
+          "bytes": 191324,
+          "triangles": 8624,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -217,16 +217,16 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 407672,
-          "triangles": 4904,
-          "draw_calls": 49,
+          "bytes": 402480,
+          "triangles": 4856,
+          "draw_calls": 48,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 154408,
-          "triangles": 4904,
-          "draw_calls": 49,
+          "bytes": 151404,
+          "triangles": 4856,
+          "draw_calls": 48,
           "degenerate": 0
         }
       ]
@@ -238,15 +238,15 @@
       "stats": [
         {
           "kind": "plain",
-          "bytes": 211288,
-          "triangles": 2640,
+          "bytes": 207300,
+          "triangles": 2592,
           "draw_calls": 1,
           "degenerate": 0
         },
         {
           "kind": "meshopt",
-          "bytes": 85496,
-          "triangles": 2640,
+          "bytes": 83992,
+          "triangles": 2592,
           "draw_calls": 1,
           "degenerate": 0
         }

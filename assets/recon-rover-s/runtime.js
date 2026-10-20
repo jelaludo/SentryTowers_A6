@@ -43,7 +43,6 @@ export const ZONE_DEFS=[
 export const DEBRIS_MAP=[
   {id:'DEBRIS_FRONT_BEAK',zone:'FRONT_BUMPER',minDamage:2},
   {id:'DEBRIS_FLANK_NEG_X',zone:'FLANK_NEG_X',minDamage:2},
-  {id:'DEBRIS_FENDER_POS_X',zone:'FLANK_POS_X',minDamage:3},
   {id:'DEBRIS_WHEEL_RIM_FL',zone:'WHEEL_FL',minDamage:2},
   {id:'DEBRIS_SENSOR_VISOR',zone:'SENSOR_MAST',minDamage:2},
   {id:'DEBRIS_NOZZLE_BELL',zone:'NOZZLE_L_FL',minDamage:3}

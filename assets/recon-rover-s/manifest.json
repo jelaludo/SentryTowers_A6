@@ -23,7 +23,7 @@
       "level": 0,
       "id": "D0",
       "label": "Intact",
-      "summary": "Clean nominal chassis, intact wheel fenders, true 6x6 wheel geometry, straight 8 thruster bells, upright sensor mast, uncracked display covers.",
+      "summary": "Clean nominal chassis, open wheel arches, true 6x6 wheel geometry, straight 8 thruster bells, upright sensor mast, uncracked display covers.",
       "capabilities": {
         "drive_factor": 1,
         "steer_factor": 1,
@@ -53,7 +53,7 @@
       "level": 2,
       "id": "D2",
       "label": "Component Damage",
-      "summary": "Visibly buckled wheel cover & suspension arm, flat-spotted/cambered tire, bent/crimped nozzle bell, tilted sensor head with exposed internals, and optional COPV manifold cold-gas leak.",
+      "summary": "Visibly buckled suspension arm, flat-spotted/cambered tire, bent/crimped nozzle bell, tilted sensor head with exposed internals, and optional COPV manifold cold-gas leak.",
       "capabilities": {
         "drive_factor": 0.45,
         "steer_factor": 0.5,
@@ -68,7 +68,7 @@
       "level": 3,
       "id": "D3",
       "label": "Disabled Wreck",
-      "summary": "Collapsed suspension/axle posture, sheared/missing hull & fender panels, crushed nozzle bells, snapped sensor mast, and 6 bounded detachable debris fragments.",
+      "summary": "Collapsed suspension/axle posture, sheared/missing hull panels, crushed nozzle bells, snapped sensor mast, and 5 bounded detachable debris fragments.",
       "capabilities": {
         "drive_factor": 0,
         "steer_factor": 0,
@@ -401,7 +401,7 @@
         2,
         3
       ],
-      "debris_node": "DEBRIS_FENDER_POS_X",
+      "debris_node": null,
       "colliders_by_state": [
         {
           "id": "PROXY_FLANK_POS_X",
@@ -2498,7 +2498,7 @@
         0.42
       ],
       "color": 14476006,
-      "max_fragments_budget": 6
+      "max_fragments_budget": 5
     },
     {
       "id": "DEBRIS_FLANK_NEG_X",
@@ -2526,35 +2526,7 @@
         0.56
       ],
       "color": 5857898,
-      "max_fragments_budget": 6
-    },
-    {
-      "id": "DEBRIS_FENDER_POS_X",
-      "socket": "SOCKET_DEBRIS_FENDER_POS_X",
-      "zone": "FLANK_POS_X",
-      "minDamage": 3,
-      "attachedPos": [
-        0.8,
-        0.42,
-        -0.88
-      ],
-      "wreckPos": [
-        1.36,
-        -0.51,
-        -0.94
-      ],
-      "wreckRot": [
-        -0.24,
-        0.52,
-        0.38
-      ],
-      "size": [
-        0.34,
-        0.07,
-        0.68
-      ],
-      "color": 12107974,
-      "max_fragments_budget": 6
+      "max_fragments_budget": 5
     },
     {
       "id": "DEBRIS_WHEEL_RIM_FL",
@@ -2582,7 +2554,7 @@
         0.38
       ],
       "color": 9147548,
-      "max_fragments_budget": 6
+      "max_fragments_budget": 5
     },
     {
       "id": "DEBRIS_SENSOR_VISOR",
@@ -2610,7 +2582,7 @@
         0.26
       ],
       "color": 9147548,
-      "max_fragments_budget": 6
+      "max_fragments_budget": 5
     },
     {
       "id": "DEBRIS_NOZZLE_BELL",
@@ -2638,7 +2610,7 @@
         0.18
       ],
       "color": 4739417,
-      "max_fragments_budget": 6
+      "max_fragments_budget": 5
     }
   ],
   "localized_presets": [
@@ -3603,7 +3575,7 @@
       "duration_s": 16,
       "loop": true
     },
-    "scope": "No baked vehicle movement. Supports whole-rover D0–D3 exports across LOD0–LOD2 AND zero-reload in-place localized zone swapping (applyLocalizedDamage) across 19 addressable zones, optional bounded D2 cold-gas COPV leak plumes, 6 detachable D3 debris fragments with convex collision proxies, and 4 UV-mapped onboard telemetry displays with separate crack overlays."
+    "scope": "No baked vehicle movement. Supports whole-rover D0–D3 exports across LOD0–LOD2 AND zero-reload in-place localized zone swapping (applyLocalizedDamage) across 19 addressable zones, optional bounded D2 cold-gas COPV leak plumes, 5 detachable D3 debris fragments with convex collision proxies, and 4 UV-mapped onboard telemetry displays with separate crack overlays."
   },
   "assets": [
     {
@@ -3615,15 +3587,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 759324,
-      "sha256": "2611d26cc58af4e90cc543ca082be4493f8d485b338bfd7371cee6526b116c01",
-      "triangles": 10332,
-      "draw_calls": 49,
+      "bytes": 753308,
+      "sha256": "a292ef39c84d689b46407723b09ba9952bc3a4757c58b4a73b4b179e07c64bcf",
+      "triangles": 10272,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod0/r47xs_recon_rover_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 193056,
-      "meshopt_sha256": "e03de9c3252116bd7140b61b9c8c8ce321da617b8472761882b50525ea16adf6",
+      "meshopt_bytes": 190508,
+      "meshopt_sha256": "14d7f50cbaed47fd126ce106869c2dd5a0548ba66fc43c6b4a792951ea3dc451",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -3782,22 +3754,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -3838,6 +3794,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -4955,29 +4927,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -5250,16 +5199,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -5351,15 +5300,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 419656,
-      "sha256": "0ff23dec5aa6d8169b1616c837b955893467f513388419c1238d12a8b87eec85",
-      "triangles": 5084,
-      "draw_calls": 49,
+      "bytes": 413640,
+      "sha256": "5b594781ca6286f08eb20c9be744fc9bbb882e3ada5dbbaf92596ff8aa06f0f0",
+      "triangles": 5024,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod1/r47xs_recon_rover_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 139996,
-      "meshopt_sha256": "e3fcb6029b6e52ae196efec78d8c65ac2192cca090449d0f33aa31b3237b7cce",
+      "meshopt_bytes": 137360,
+      "meshopt_sha256": "ec239985810d16568e5392035ab3bb5f5374681e89257bc52895fe13eabfe449",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -5518,22 +5467,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -5574,6 +5507,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -6691,29 +6640,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -6986,16 +6912,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -7087,15 +7013,15 @@
       "static": true,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 218860,
-      "sha256": "a4c33ababc1d1057e5f3c30800855659878e039d86266161fa5bfce5630dadad",
-      "triangles": 2748,
+      "bytes": 213948,
+      "sha256": "b29544768f15d6beb249d22c5a85c78122753c7e4b5dd37a34ac035e033980e7",
+      "triangles": 2688,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod2/r47xs_recon_rover_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 82072,
-      "meshopt_sha256": "15d1223870f51633b7a0c2ab09d50e1ed9c82200a078e22a5c8277b04b74dcce",
+      "meshopt_bytes": 80356,
+      "meshopt_sha256": "d02ab91cc4e87c643fce477ff31ea05c0403c62c0025c02a62915d563a06aef2",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -7254,22 +7180,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -7310,6 +7220,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -8427,29 +8353,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -8722,16 +8625,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -8823,15 +8726,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 756952,
-      "sha256": "fc1c04ae23cee11f9e4db9cbca72470d02b7a16088c116822a0911e545fff6f3",
-      "triangles": 10296,
-      "draw_calls": 49,
+      "bytes": 750936,
+      "sha256": "d79fc03407350b10ee3186c9f9e7d105d9ba1b89bb0f79fea089a82381fe4ae8",
+      "triangles": 10236,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod0/r47xs_recon_rover_d1_lod0.meshopt.glb",
-      "meshopt_bytes": 214956,
-      "meshopt_sha256": "07fd99e7524cb0dfa340cde6fb8b3aa67bd6ce33021a554c3854d84e15508310",
+      "meshopt_bytes": 212296,
+      "meshopt_sha256": "674ffe2b40679fe7c00ed9bc574608edf7cedff0991a48a734de55c1aa24cd81",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -8990,22 +8893,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -9046,6 +8933,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -10163,29 +10066,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -10458,16 +10338,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -10559,15 +10439,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 417792,
-      "sha256": "cc2cff03ea23dd21997ec40dffdf2379bd7913cb69143fbea309900a983bacd8",
-      "triangles": 5048,
-      "draw_calls": 49,
+      "bytes": 411780,
+      "sha256": "ce633832402eb7d94c99960c600efee48cd7e96ba0bb8bb0c8b9fc206fc9bb68",
+      "triangles": 4988,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod1/r47xs_recon_rover_d1_lod1.meshopt.glb",
-      "meshopt_bytes": 153372,
-      "meshopt_sha256": "4d8955d41739908721b279ae3fd7e15c36d075da1972ffa92079e6286cf55239",
+      "meshopt_bytes": 150588,
+      "meshopt_sha256": "087727ccfb1339597b3ca2bec330e4c6167affdbb781e6242a839c63721784f8",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -10726,22 +10606,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -10782,6 +10646,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -11899,29 +11779,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -12194,16 +12051,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -12295,15 +12152,15 @@
       "static": true,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 216312,
-      "sha256": "319dda9d7668e72fedb2651042fd8e534c34a587c7b6698a6f9e8fac57206aaf",
-      "triangles": 2712,
+      "bytes": 211396,
+      "sha256": "c4023f503c22cc416dfb2e673cb53dd2b6badc0208fd71908e2ead8361daf549",
+      "triangles": 2652,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod2/r47xs_recon_rover_d1_lod2.meshopt.glb",
-      "meshopt_bytes": 85480,
-      "meshopt_sha256": "fa31dd4721046943a655765628b5b4cee2486d05690b5933ce91b351ab2012e2",
+      "meshopt_bytes": 83676,
+      "meshopt_sha256": "aa7f0eb683b79dd4f277d73be489823890735c00674dd2200d8611031c1d6d5b",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -12462,22 +12319,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -12518,6 +12359,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -13635,29 +13492,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -13930,16 +13764,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -14031,15 +13865,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 711752,
-      "sha256": "52d4f9f82d05f09f4389f75b3fe8430af37ee667e13cdd98f0842bd88e5c796a",
-      "triangles": 9640,
-      "draw_calls": 49,
+      "bytes": 705732,
+      "sha256": "9d67f6315b608ee26fdc2672088143fb928aaf250adaec41815a45f1473829da",
+      "triangles": 9580,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod0/r47xs_recon_rover_d2_lod0.meshopt.glb",
-      "meshopt_bytes": 210852,
-      "meshopt_sha256": "75607ebff2f51b1bfaad2a466bf89a11c111830254623bed2ac78ce476470943",
+      "meshopt_bytes": 208160,
+      "meshopt_sha256": "8bb97fcf517d946f28ff79a82e0e53bf2c53be58b0c77eb7d6d7208cffc417ce",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -14198,22 +14032,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -14254,6 +14072,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -15371,29 +15205,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -15666,16 +15477,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -15767,15 +15578,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 409104,
-      "sha256": "87845a9c262dd01b18144a8de311fe6b038ee5d64fde8bc556635c81fd7d29f8",
-      "triangles": 4928,
-      "draw_calls": 49,
+      "bytes": 403088,
+      "sha256": "6b98e19c8f55101b962897b27b474556c763b1dbf01465804ec17e91ce7f0afb",
+      "triangles": 4868,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod1/r47xs_recon_rover_d2_lod1.meshopt.glb",
-      "meshopt_bytes": 154428,
-      "meshopt_sha256": "eb355db0fd4c6704750b313f7c470627e252d751f5a90cef665bd8db862d3aa2",
+      "meshopt_bytes": 151612,
+      "meshopt_sha256": "afa1c2f759817b1f8af1f2630734ab4cad4841afbecc4e8ec13e24bf45beb2ee",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -15934,22 +15745,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -15990,6 +15785,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -17107,29 +16918,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -17402,16 +17190,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -17503,15 +17291,15 @@
       "static": true,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 206884,
-      "sha256": "c02e50836f37ba9da7abb7f7c7e2c3aeca760cdd2bb4fcc2b30120331feb3e03",
-      "triangles": 2592,
+      "bytes": 201972,
+      "sha256": "5cd4e4b5a28791217d65e1c8ce1abd4d3b561223e733b8f009c55bd5ffde726e",
+      "triangles": 2532,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod2/r47xs_recon_rover_d2_lod2.meshopt.glb",
-      "meshopt_bytes": 84016,
-      "meshopt_sha256": "e4b183e13768bcf5e157783f071e193efe24b0ced1811449ad9b90f59bf2005a",
+      "meshopt_bytes": 82244,
+      "meshopt_sha256": "51a44fc68369fc797b796e4f3872b59e24b7cf8a91af987912d2f0312b73889a",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -17670,22 +17458,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -17726,6 +17498,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -18843,29 +18631,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": false,
-          "center_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -19138,16 +18903,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -19239,15 +19004,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 642676,
-      "sha256": "a26e7145cf9c180d488bb5853d22a78049cf6deadae42cf016dc778eee8bab85",
-      "triangles": 8672,
-      "draw_calls": 49,
+      "bytes": 637484,
+      "sha256": "b3893a24f714302fef7579fe0c1002d8a38f958f6e887fc49d65d828401da3d2",
+      "triangles": 8624,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod0/r47xs_recon_rover_d3_lod0.meshopt.glb",
-      "meshopt_bytes": 194264,
-      "meshopt_sha256": "ae0356c046dd86128064c12c89f4188c089c82426226f8049dab64c8e38b6662",
+      "meshopt_bytes": 191324,
+      "meshopt_sha256": "8c6b8e7df729814e3035b171e6912b8c9889460e3b2b0c0d807a9d2df5df9e5d",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -19260,12 +19025,12 @@
           -2.392
         ],
         "max": [
-          1.6688,
+          1.382,
           1.435,
           2.789
         ],
         "dimensions_m": [
-          3.3455,
+          3.0588,
           1.5858,
           5.181
         ]
@@ -19406,22 +19171,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -19462,6 +19211,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -20579,29 +20344,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": true,
-          "center_m": [
-            1.36,
-            0.05,
-            -0.94
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            -0.24,
-            0.52,
-            0.38
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -20874,16 +20616,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -20975,15 +20717,15 @@
       "static": false,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 407672,
-      "sha256": "3a1fb8dbbd8a4bb6fabe99e65f5ab092be4978ff4c9dfbdce9504be9cb478ee1",
-      "triangles": 4904,
-      "draw_calls": 49,
+      "bytes": 402480,
+      "sha256": "bbe97e617962d841888fad56f1c8805d8231d8518b6d50eda0e94e61764e480f",
+      "triangles": 4856,
+      "draw_calls": 48,
       "materials": 5,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod1/r47xs_recon_rover_d3_lod1.meshopt.glb",
-      "meshopt_bytes": 154408,
-      "meshopt_sha256": "cd04859e39a3816c3dce3c6b2640288a2dfbdb772eb020fdbad1921040da1c9f",
+      "meshopt_bytes": 151404,
+      "meshopt_sha256": "6ae7dcad2c5b36ae176c664fc2c9e297e040fa91a8d8eeb6e6647dcab46c623e",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -20996,12 +20738,12 @@
           -2.392
         ],
         "max": [
-          1.6688,
+          1.3745,
           1.435,
           2.789
         ],
         "dimensions_m": [
-          3.3455,
+          3.0513,
           1.5858,
           5.181
         ]
@@ -21142,22 +20884,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -21198,6 +20924,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -22315,29 +22057,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": true,
-          "center_m": [
-            1.36,
-            0.05,
-            -0.94
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            -0.24,
-            0.52,
-            0.38
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -22610,16 +22329,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",
@@ -22711,15 +22430,15 @@
       "static": true,
       "derived": false,
       "review_status": "contract_candidate_pending_game_review",
-      "bytes": 211288,
-      "sha256": "9afcac771d33d612b75eaa3437e6b080dc9a27b1e3dad96f8d1a0b2ca742efdb",
-      "triangles": 2640,
+      "bytes": 207300,
+      "sha256": "48a668729a4332ba3f181e00d6c9847456f6fc3ea341779d25e87a88bd20585e",
+      "triangles": 2592,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "meshopt_file": "derived/meshopt/lod2/r47xs_recon_rover_d3_lod2.meshopt.glb",
-      "meshopt_bytes": 85496,
-      "meshopt_sha256": "c7af2bc86aa68592cf94ae640d8f0ac5e3e31e9d9bc0b022265e68e2620595c0",
+      "meshopt_bytes": 83992,
+      "meshopt_sha256": "7eca8298f22f56e4b982de8317efa99be88467628e89ed791c47a174f22805ca",
       "meshopt_derived": true,
       "plot_m": [
         6,
@@ -22732,12 +22451,12 @@
           -2.392
         ],
         "max": [
-          1.6688,
+          1.3331,
           1.4276,
           2.789
         ],
         "dimensions_m": [
-          3.3455,
+          3.0099,
           1.5785,
           5.181
         ]
@@ -22878,22 +22597,6 @@
           ]
         },
         {
-          "id": "DEBRIS_FENDER_POS_X",
-          "node": "SOCKET_DEBRIS_FENDER_POS_X",
-          "parent": "ROVER_CHASSIS_JUMP",
-          "kind": "debris_attachment",
-          "position_m": [
-            0.8,
-            0.98,
-            -0.88
-          ],
-          "normal": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
           "id": "DEBRIS_WHEEL_RIM_FL",
           "node": "SOCKET_DEBRIS_WHEEL_RIM_FL",
           "parent": "ROVER_CHASSIS_JUMP",
@@ -22934,6 +22637,22 @@
             -0.86,
             0.34,
             0.64
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "DEBRIS_FENDER_POS_X",
+          "node": "SOCKET_DEBRIS_FENDER_POS_X",
+          "parent": "ROVER_CHASSIS_JUMP",
+          "kind": "retired_fender_attachment",
+          "position_m": [
+            0.8,
+            0.98,
+            -0.88
           ],
           "normal": [
             0,
@@ -24051,29 +23770,6 @@
           ]
         },
         {
-          "id": "PROXY_DEBRIS_FENDER_POS_X",
-          "zone": "FLANK_POS_X",
-          "fragment_node": "DEBRIS_FENDER_POS_X",
-          "attachment_socket": "SOCKET_DEBRIS_FENDER_POS_X",
-          "shape": "convex_box",
-          "detached": true,
-          "center_m": [
-            1.36,
-            0.05,
-            -0.94
-          ],
-          "size_m": [
-            0.34,
-            0.07,
-            0.68
-          ],
-          "rotation_rad": [
-            -0.24,
-            0.52,
-            0.38
-          ]
-        },
-        {
           "id": "PROXY_DEBRIS_WHEEL_RIM_FL",
           "zone": "WHEEL_FL",
           "fragment_node": "DEBRIS_WHEEL_RIM_FL",
@@ -24346,16 +24042,16 @@
         "DEBRIS_DETACHABLE_GROUP",
         "DEBRIS_FRONT_BEAK",
         "DEBRIS_FLANK_NEG_X",
-        "DEBRIS_FENDER_POS_X",
         "DEBRIS_WHEEL_RIM_FL",
         "DEBRIS_SENSOR_VISOR",
         "DEBRIS_NOZZLE_BELL",
+        "DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_FRONT_BEAK",
         "SOCKET_DEBRIS_FLANK_NEG_X",
-        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DEBRIS_WHEEL_RIM_FL",
         "SOCKET_DEBRIS_SENSOR_VISOR",
         "SOCKET_DEBRIS_NOZZLE_BELL",
+        "SOCKET_DEBRIS_FENDER_POS_X",
         "SOCKET_DAMPER_UPPER_FL",
         "DAMPER_AIM_FL",
         "DAMPER_ROD_SLIDE_FL",

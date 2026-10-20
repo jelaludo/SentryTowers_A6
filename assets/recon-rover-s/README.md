@@ -22,20 +22,20 @@ D0 intact and D1 battered retain suspension movement. D2 affected wheel drive is
 
 | State | Tier | Triangles | Draws | Materials | Plain bytes | Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| D0 | LOD0 | 10,332 | 49 | 5 | 759,324 | 193,056 |
-| D0 | LOD1 | 5,084 | 49 | 5 | 419,656 | 139,996 |
-| D0 | LOD2 | 2,748 | 1 | 1 | 218,860 | 82,072 |
-| D1 | LOD0 | 10,296 | 49 | 5 | 756,952 | 214,956 |
-| D1 | LOD1 | 5,048 | 49 | 5 | 417,792 | 153,372 |
-| D1 | LOD2 | 2,712 | 1 | 1 | 216,312 | 85,480 |
-| D2 | LOD0 | 9,640 | 49 | 5 | 711,752 | 210,852 |
-| D2 | LOD1 | 4,928 | 49 | 5 | 409,104 | 154,428 |
-| D2 | LOD2 | 2,592 | 1 | 1 | 206,884 | 84,016 |
-| D3 | LOD0 | 8,672 | 49 | 5 | 642,676 | 194,264 |
-| D3 | LOD1 | 4,904 | 49 | 5 | 407,672 | 154,408 |
-| D3 | LOD2 | 2,640 | 1 | 1 | 211,288 | 85,496 |
+| D0 | LOD0 | 10,272 | 48 | 5 | 753,308 | 190,508 |
+| D0 | LOD1 | 5,024 | 48 | 5 | 413,640 | 137,360 |
+| D0 | LOD2 | 2,688 | 1 | 1 | 213,948 | 80,356 |
+| D1 | LOD0 | 10,236 | 48 | 5 | 750,936 | 212,296 |
+| D1 | LOD1 | 4,988 | 48 | 5 | 411,780 | 150,588 |
+| D1 | LOD2 | 2,652 | 1 | 1 | 211,396 | 83,676 |
+| D2 | LOD0 | 9,580 | 48 | 5 | 705,732 | 208,160 |
+| D2 | LOD1 | 4,868 | 48 | 5 | 403,088 | 151,612 |
+| D2 | LOD2 | 2,532 | 1 | 1 | 201,972 | 82,244 |
+| D3 | LOD0 | 8,624 | 48 | 5 | 637,484 | 191,324 |
+| D3 | LOD1 | 4,856 | 48 | 5 | 402,480 | 151,404 |
+| D3 | LOD2 | 2,592 | 1 | 1 | 207,300 | 83,992 |
 
-LOD1 meets the collaboration contract's articulated-unit triangle target of 25k. Its 49 draws include six separate moving barrel/rod pairs and the original individually addressable damage/display/thruster pieces. D0 game bytes are 419,656, above the 400 KB landmark reference; this is a mobile unit, and no draw/FPS improvement is claimed. LOD2 meets the 3k triangle / one draw / 250 KB distance reference.
+LOD1 meets the collaboration contract's articulated-unit triangle target of 25k. Its 48 draws include six separate moving barrel/rod pairs and the original individually addressable damage/display/thruster pieces. D0 game bytes are 413,640, above the 400 KB landmark reference; this is a mobile unit, and no draw/FPS improvement is claimed. LOD2 meets the 3k triangle / one draw / 250 KB distance reference.
 
 ## Viewer, validation and hand-off
 
@@ -44,3 +44,7 @@ Route: `/recon-rover-s/`. Select damage preset or individual zone, LOD, plain/Me
 Generator: `tools/asset-pipeline/recon-rover-s-shape.mjs`. Build with `node tools/asset-pipeline/build-recon-rover-s.mjs`; validate with `node tools/asset-pipeline/validate-recon-rover-s.mjs`; run behavior tests with `node tools/asset-pipeline/test-recon-rover-s.mjs`. `validation-report.json` covers all 24 files, decoded compressed validation, hashes, stable names/sockets, zero degenerate triangles, geometry metrics and damper motion. `source/blender/recon-rover-s.blend` is a derived editable review assembly; regenerate with `tools/blender/render_recon_rover_s.py`. Plain GLBs remain authoritative.
 
 Hand off the repository commit containing this README plus `assets/recon-rover-s/`; the manifest includes per-file SHA-256. Credit: **Models by jelaludo**. Game/mobile acceptance, physical ground contact and continuous collision clearance remain pending. Original R-47X reference art and damage brief remain in `research/recon-rover/` and are not new S-variant concept art.
+
+## Open wheel clearance revision
+
+Removed both front white mudguards and both rear tandem canopies from every state/tier. Removed the fender debris geometry and its collider; five debris fragments remain. `DEBRIS_FENDER_POS_X` and its socket remain geometry-free compatibility lookups. Telemetry bezels and displays remain. Suspension travel and all wheel/damper pivots are unchanged.
