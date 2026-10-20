@@ -12,9 +12,9 @@ Open `/xb12/` for play/pause, a four-second timeline, articulation/landing/manua
 
 | Tier | Triangles | Mesh draws | Materials | Plain bytes | Derived Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 detailed master | 10,684 | 19 | 1 | 603,964 | 126,464 |
-| LOD1 game prototype | 5,948 | 19 | 1 | 369,152 | 87,420 |
-| LOD2 static distance | 2,348 | 1 | 1 | 134,056 | 44,528 |
+| LOD0 detailed master | 10,684 | 19 | 1 | 604,004 | 126,520 |
+| LOD1 game prototype | 5,948 | 19 | 1 | 369,196 | 87,472 |
+| LOD2 static distance | 2,348 | 1 | 1 | 134,096 | 44,580 |
 
 Counts describe asset mesh submissions, excluding viewer ground, overlays and lighting. No FPS claim. LOD1 is under the collaboration contract's 25k-triangle unit target. LOD2 is an optional static map/loading representation, not an animated gameplay replacement. Use LOD1 before motion is readable; no automatic distance threshold has been certified. LOD0 adds armor fasteners, wheel bolts, denser split tread blocks, protective rails, antennas, vents and higher radial detail for close views. The revised muted olive-gray body uses connected armored wheel shoulders, layered maintenance panels, guarded lamps and recovery fittings.
 
@@ -50,6 +50,6 @@ Hull profile: 25% longer along Z than the prior revision. The longitudinal upper
 
 `SOCKET_SENTRY` is at [0, 1.41, 0.95] m, level, with +Y up and +Z forward. The viewer offers Empty mount and all 33 family/equipment combinations from `assets/sentries/manifest.json` (11 families × T1–T3), plus size and bearing. The chosen sentry follows the selected LOD and encoding. These are separate attached assets; the rover GLBs and rover download retain an empty mount, and the original sentry files are unchanged.
 
-`equipment.js` computes uniform placement using canonical sentry bounds: maximum horizontal radius 0.34 m, height 0.80 m, and at most 45% original scale. Size adjusts from 60–100% of that fitted maximum. Raise by `yOffset` so the base sits on the socket. Parent the attachment to the socket; preserve its internal pivots. Rotation around Y stays inside the fitted circular envelope. Attachments add their own triangles/draws; the viewer reports these separately from rover metrics. Static LOD2 loads the sentry’s static tier; mounting choices and bearing are configuration controls, not baked animation.
+`equipment.js` computes uniform placement relative to the rover using canonical sentry bounds: maximum width 1.10 m, height 1.25 m, overall length 2.50 m, forward reach 1.75 m, and at most 70% original scale. The support plate is 1.12 × 1.40 m; barrels deliberately overhang it. Railgun T3 now uses 56.5% original scale (previously 10.6%). Size adjusts from 60–100% of that fitted maximum. Raise by `yOffset` so the base sits on the socket. Parent the attachment to the socket; preserve its internal pivots. Bearing rotates the entire attachment. The larger barrel sweep is not constrained to the support plate, so rear-facing or elevated configurations require collision review before gameplay use. Attachments add their own triangles/draws; the viewer reports these separately from rover metrics. Static LOD2 loads the sentry’s static tier; mounting choices and bearing are configuration controls, not baked animation.
 
-`node tools/asset-pipeline/test-xb12-equipment.mjs` checks actual vertices from all 33 game-tier GLBs at both size limits for seating, radial clearance and height. Results are in `equipment-validation.json`. This does not certify weapon elevation, recoil, firing or animated mobile-sentry motion; those are not driven in this viewer. Desktop Safari verified selection and loading of Railgun T3.
+`node tools/asset-pipeline/test-xb12-equipment.mjs` checks actual vertices from all 33 game-tier GLBs at both size limits for seating, width, forward reach, length and height. Results are in `equipment-validation.json`. This does not certify weapon elevation, recoil, firing or animated mobile-sentry motion; those are not driven in this viewer. Desktop Safari verified selection and loading of Railgun T3.

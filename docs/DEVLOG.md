@@ -1,5 +1,11 @@
 # Devlog
 
+## 20 October 2026 / Rover-proportioned sentry sizes
+
+Replaced the overly restrictive 0.34 m whole-weapon radius fit with rover-relative width, height and barrel-reach limits. Railgun T3 is now 56.5% of original scale instead of 10.6% (approximately 5.3× larger); all 33 sentry choices use the new sizing rule. Widened the mounting plate to 1.12 × 1.40 m, allowing barrels to overhang. The size slider still adjusts 60–100% of each fitted size.
+
+All six rover exports and sampled suspension poses pass validation, and all 33 loaded game sentries pass width/height/reach/seating checks at both slider limits. Rover geometry counts remain 10,684 / 5,948 / 2,348 triangles and 19 / 19 / one draw; updated plain sizes are 604,004 / 369,196 / 134,096 bytes. Original sentry assets are unchanged. Full bearing/elevation/firing clearance is now explicitly pending for the larger overhanging weapons; the earlier circular footprint claim no longer applies. Updated preview, Blender review assembly, manifest and runtime notes.
+
 ## 20 October 2026 / Longer XB-12, crowned underside and selectable front sentries
 
 Lengthened the XB-12 body and wheelbase 25% along Z. The upper ridge now carries through the underside, with a raised central belly and sloped ends instead of a flat bottom. Moved the hexagonal telemetry head to the rear and added a level `SOCKET_SENTRY` at the front. The viewer offers Empty mount and all 33 existing sentry variants (11 families × T1–T3), fitted uniformly at reduced scale, with size and bearing controls. Selection follows LOD and encoding; equipment remains separate from the plain rover exports. Original R-47X and sentry files are unchanged.

@@ -50,9 +50,9 @@ export function buildXB12(lod=0){
   }
  }
  if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,roofY(1.03)+.025,1.03],[roofAngle(1),0,0]),box([.79,.025,.41],C.shell,[0,roofY(1.023)+.05,1.023],[roofAngle(1),0,0]));
- body.push(box([.58,.06,.42],C.dark,[0,1.255,-.92],[roofAngle(-1),0,0]),cyl(.18,.12,C.edge,[0,1.30,-.92]),cyl(.24,.09,C.chrome,[0,1.38,-.92]),cyl(.30,.10,C.dark,[0,1.325,.76],undefined,8),cyl(.34,.035,C.chrome,[0,1.3925,.76],undefined,8));
+ body.push(box([.58,.06,.42],C.dark,[0,1.255,-.92],[roofAngle(-1),0,0]),cyl(.18,.12,C.edge,[0,1.30,-.92]),cyl(.24,.09,C.chrome,[0,1.38,-.92]),cyl(.52,.10,C.dark,[0,1.325,.76],undefined,8),cyl(.56,.035,C.chrome,[0,1.3925,.76],undefined,8));
  part('XB12_HULL',chassis,body).geometry.scale(1,1,1.25);
- const sentrySocket=group('SOCKET_SENTRY',chassis,[0,1.41,.95]);sentrySocket.userData={kind:'optional_scaled_sentry',radius_m:.34,max_height_m:.8,up:'+Y',forward:'+Z'};
+ const sentrySocket=group('SOCKET_SENTRY',chassis,[0,1.41,.95]);sentrySocket.userData={kind:'optional_scaled_sentry',support_half_width_m:.56,support_half_length_m:.70,max_height_m:1.25,up:'+Y',forward:'+Z'};
  group('SOCKET_PAYLOAD',chassis,[0,1.52,0]);
  // A truncated octahedron gives eight genuine hexagonal faces and six square faces.
  const sensorYaw=group('SENSOR_YAW',chassis,[0,1.84,-1.15]);
