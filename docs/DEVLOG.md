@@ -1,5 +1,13 @@
 # Devlog
 
+## 20 October 2026 / XB-12 rugged armor and hex-only sensors
+
+Revised the separate [XB-12](../xb12/) from the supplied military rover references: connected armored wheel shoulders replace the light guards, with layered flank plates, maintenance panels, guarded lamps, recovery fittings, wider split-tread tires, reinforced swing arms and ribbed damper housings. The palette is muted olive-gray with dark hardware. Removed the round camera eyes and top lidar cap; camera, radar and lidar apertures now use the sensor sphere’s hexagonal faces. Existing sensor socket names are retained but their face positions are revised in the manifest; suspension pivots and mounts are unchanged.
+
+Rebuilt D0 LOD0 (10,528 triangles / 19 draws / 596,808 bytes), LOD1 (5,872 / 19 / 365,500) and static LOD2 (2,272 / one draw / 130,404), plus optional derived Meshopt copies. All six pass glTF validation with zero errors/warnings, geometry/hash/name/socket checks and 60 sampled suspension poses. Updated the derived Blender assembly, preview and integration notes. The earlier XB-12 remains available in commit `64f1612eaa1d444dab0638c8d287c112f66d6f1d`; R-47X assets remain untouched.
+
+Pending: continuous collision clearance, physical terrain contact, D1–D3, sensor coverage and game/mobile profiling. No FPS claim.
+
 ## 20 October 2026 / XB-12 four-wheel suspension prototype
 
 Created the separate [XB-12 Terrain Scout](../xb12/) with four independently animated swing arms, chassis-fixed damper tops and sliding rods, a shorter wedge hull, supported wheel guards and a raised hex-faceted sensor sphere carrying four radar panels, stereo cameras and top lidar. The existing R-47X models, exports, generator and runtime are unchanged. The previous suspension study was exploratory; implementation now belongs to XB-12.

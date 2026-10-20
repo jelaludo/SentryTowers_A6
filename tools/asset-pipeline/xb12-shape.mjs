@@ -2,10 +2,10 @@ import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
 export const STATIONS=[{id:'FL',side:-1,z:1.18},{id:'FR',side:1,z:1.18},{id:'RL',side:-1,z:-1.18},{id:'RR',side:1,z:-1.18}];
-const C={shell:0xb3c3c9,dark:0x26373e,edge:0x6b858e,rubber:0x182327,chrome:0xc9dde1,accent:0xdb9c43,glass:0x17485c};
+const C={shell:0x646c63,dark:0x202722,edge:0x414a42,rubber:0x161b18,chrome:0x8c968b,accent:0xaca88d,glass:0x122b2b};
 export function buildXB12(lod=0){
  const root=new T.Group();root.name='XB12_ROOT';root.userData={family:'xb12',damage_level:0,lod,static:lod===2};
- const mat=new T.MeshStandardMaterial({name:'XB12_PALETTE',vertexColors:true,metalness:.45,roughness:.48});
+ const mat=new T.MeshStandardMaterial({name:'XB12_PALETTE',vertexColors:true,metalness:.35,roughness:.68});
  const seg=lod===0?16:lod===1?10:6;
  function group(name,parent=root,pos=[0,0,0]){const g=new T.Group();g.name=name;g.position.set(...pos);parent.add(g);return g;}
  function part(name,parent,items){
@@ -16,15 +16,36 @@ export function buildXB12(lod=0){
  const cyl=(r,h,c,p,rot=[0,0,0],n=seg)=>[new T.CylinderGeometry(r,r,h,n),c,p,rot];
  function beam(a,b,r,c){const va=new T.Vector3(...a),vb=new T.Vector3(...b),d=vb.clone().sub(va),g=new T.CylinderGeometry(r,r,d.length(),lod===0?10:6);g.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),d.normalize()));return [g,c,va.add(vb).multiplyScalar(.5).toArray()];}
  const chassis=group('XB12_CHASSIS');
- const points=[];for(const x of [-.68,.68])for(const [y,z] of [[.63,-1.5],[.94,-1.4],[1.08,.75],[.78,1.65],[.63,1.45]])points.push(new T.Vector3(x,y,z));
- const body=[[new ConvexGeometry(points),C.shell],box([1.12,.14,2.45],C.dark,[0,.59,0]),box([.78,.08,1.4],C.dark,[0,1.07,-.35]),box([.10,.07,1.15],C.accent,[-.46,1.07,-.28]),box([.10,.07,1.15],C.accent,[.46,1.07,-.28])];
+ // Broad armored shoulders replace the light detached wheel guards.
+ function slab(x0,x1,profile,color){const vs=[];for(const x of [x0,x1])for(const [y,z] of profile)vs.push(new T.Vector3(x,y,z));return [new ConvexGeometry(vs),color];}
+ const body=[slab(-.70,.70,[[.59,-1.50],[1.08,-1.42],[1.23,-.65],[1.19,.65],[.92,1.63],[.64,1.55]],C.shell),box([1.15,.17,2.6],C.dark,[0,.58,0])];
  for(const side of [-1,1]){
-  body.push(box([.14,.2,2.45],C.dark,[side*.71,.79,-.02]),box([.025,.06,1.65],C.accent,[side*.79,.83,.05]));
-  for(const z of [-1.18,1.18])body.push(beam([side*.7,.96,z],[side*.78,1.235,z],.045,C.edge),beam([side*.78,1.235,z],[side*1.20,1.235,z],.045,C.edge),box([.49,.09,.85],C.shell,[side*1.2,1.28,z]),box([.5,.04,.09],C.accent,[side*1.2,1.33,z+.38]));
-  body.push(box([.22,.13,.09],C.glass,[side*.43,.86,1.52]),box([.15,.1,.06],C.accent,[side*.48,.78,-1.53]));
-  if(lod===0)for(let i=0;i<8;i++)body.push(box([.04,.025,.38],C.edge,[side*.43,1.12,-.75+i*.12]));
+  body.push(box([.16,.26,2.65],C.dark,[side*.71,.82,0]));
+  for(const z of [-1.18,1.18]){
+   body.push(slab(Math.min(side*.64,side*.79),Math.max(side*.64,side*.79),[[.99,z-.35],[1.32,z-.30],[1.32,z+.30],[.99,z+.35]],C.edge));
+   body.push(slab(Math.min(side*.66,side*1.44),Math.max(side*.66,side*1.44),[[1.25,z-.5],[1.40,z-.32],[1.38,z+.30],[1.25,z+.5]],C.shell));
+   if(lod<2){body.push(box([.60,.035,.45],C.edge,[side*1.08,1.405,z]),box([.5,.065,.12],C.dark,[side*1.13,1.255,z+.45]));}
+  }
+  if(lod<2){
+   // Layered flank armor, recessed maintenance panels and guarded lamps.
+   for(const z of [-.53,.12,.66])body.push(box([.035,.30,.48],C.dark,[side*.795,.96,z]),box([.055,.245,.41],C.shell,[side*.817,.97,z]),box([.065,.06,.16],C.dark,[side*.852,1.04,z]));
+   body.push(box([.30,.18,.14],C.dark,[side*.43,.96,1.51]),box([.20,.05,.022],C.accent,[side*.43,.97,1.59]),box([.28,.1,.08],C.dark,[side*.43,.89,-1.49]),box([.19,.025,.025],0x743b30,[side*.43,.90,-1.54]));
+   for(const end of [-1,1]){
+    body.push(beam([side*.50,.76,end*1.59],[side*.50,.88,end*1.59],.045,C.chrome),beam([side*.5,.76,end*1.59],[side*.30,.76,end*1.59],.045,C.chrome));
+   }
+   for(const z of [-.92,-.58])body.push(box([.45,.06,.25],C.dark,[side*.34,1.22,z]));
+   for(let i=0;i<(lod===0?9:5);i++)body.push(box([.37,.025,.026],C.edge,[side*.34,1.26,-1.02+i*.055]));
+   body.push(box([.2,.14,.55],C.edge,[side*.56,1.23,-.28]));
+   if(lod===0){
+    for(const z of [-1.18,1.18])for(const dx of [-.22,.22])for(const dz of [-.16,.16])body.push(cyl(.025,.025,C.chrome,[side*1.08+dx,1.435,z+dz],[0,0,0],6));
+    for(const z of [-.53,.12,.66])for(const yy of [.88,1.06])body.push(cyl(.019,.07,C.chrome,[side*.85,yy,z-.15],[0,0,Math.PI/2],6));
+    // Protective rails and rear whip aerials remain detailed-master features.
+    body.push(beam([side*.63,1.31,-.95],[side*.63,1.31,.7],.022,C.dark),cyl(.027,.16,C.dark,[side*.57,1.32,-1.1]),cyl(.009,.45,C.dark,[side*.57,1.62,-1.1],undefined,6));
+   }
+  }
  }
- body.push(cyl(.13,.30,C.dark,[0,1.20,.10]),cyl(.24,.09,C.chrome,[0,1.34,.10]));
+ if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,1.105,1.03],[.27,0,0]),box([.79,.025,.41],C.shell,[0,1.13,1.023],[.27,0,0]));
+ body.push(box([.72,.055,.58],C.dark,[0,1.25,.12]),cyl(.18,.12,C.edge,[0,1.31,.10]),cyl(.24,.09,C.chrome,[0,1.34,.10]));
  part('XB12_HULL',chassis,body);
  group('SOCKET_PAYLOAD',chassis,[0,1.12,-.7]);
  // A truncated octahedron gives eight genuine hexagonal faces and six square faces.
@@ -33,31 +54,30 @@ export function buildXB12(lod=0){
  const verts=[];for(let zero=0;zero<3;zero++)for(const swap of [false,true])for(const a of [-1,1])for(const b of [-1,1]){const v=[0,0,0],axes=[0,1,2].filter(i=>i!==zero);v[axes[0]]=a*(swap?2:1)*.23;v[axes[1]]=b*(swap?1:2)*.23;verts.push(new T.Vector3(...v));}
  part('SENSOR_HEX_SPHERE',sensorPitch,[[new ConvexGeometry(verts),C.shell]]);
  const sensorItems=[];
+ // Every visible sensor aperture is a flush hexagon; no protruding round eyes or cap.
  for(const x of [-1,1])for(const y of [-1,1])for(const z of [-1,1]){
-  const n=new T.Vector3(x,y,z).normalize();const g=new T.CylinderGeometry(.267,.267,.018,6);g.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n));sensorItems.push([g,y>0?C.dark:C.edge,n.clone().multiplyScalar(.406).toArray()]);
+  const n=new T.Vector3(x,y,z).normalize();
+  for(const [radius,height,distance,color] of [[.282,.022,.407,C.edge],[.243,.018,.424,y>0?C.glass:C.dark]]){
+   const g=new T.CylinderGeometry(radius,radius,height,6);g.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n));sensorItems.push([g,color,n.clone().multiplyScalar(distance).toArray()]);
+  }
+  if(y<0)group(`SOCKET_RADAR_${x<0?'L':'R'}_${z<0?'REAR':'FRONT'}`,sensorPitch,n.clone().multiplyScalar(.44).toArray());
+  if(y>0&&z>0)group(`SOCKET_CAMERA_${x<0?'L':'R'}`,sensorPitch,n.clone().multiplyScalar(.44).toArray());
  }
- // Four radar arrays on diagonal lower hexagons, identifiable amber edge frame.
- for(const x of [-1,1])for(const z of [-1,1]){
-  const n=new T.Vector3(x,-1,z).normalize();const g=new T.CylinderGeometry(.205,.205,.025,6);g.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n));sensorItems.push([g,C.accent,n.clone().multiplyScalar(.425).toArray()]);const face=new T.CylinderGeometry(.182,.182,.028,6);face.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n));sensorItems.push([face,C.dark,n.clone().multiplyScalar(.44).toArray()]);group(`SOCKET_RADAR_${x<0?'L':'R'}_${z<0?'REAR':'FRONT'}`,sensorPitch,n.multiplyScalar(.46).toArray());
- }
- sensorItems.push(box([.36,.22,.04],C.dark,[0,0,.47]));
- for(const x of [-.115,.115]){sensorItems.push(cyl(.075,.06,C.chrome,[x,0,.5],[Math.PI/2,0,0]),cyl(.055,.065,C.glass,[x,0,.52],[Math.PI/2,0,0]));group(`SOCKET_CAMERA_${x<0?'L':'R'}`,sensorPitch,[x,0,.555]);}
- sensorItems.push(cyl(.17,.12,C.dark,[0,.51,0]),cyl(.148,.065,C.glass,[0,.575,0]),cyl(.18,.045,C.accent,[0,.63,0]));
- part('SENSOR_INSTRUMENTS',sensorPitch,sensorItems);group('SOCKET_LIDAR',sensorPitch,[0,.575,0]);
+ part('SENSOR_INSTRUMENTS',sensorPitch,sensorItems);group('SOCKET_LIDAR',sensorPitch,new T.Vector3(1,1,-1).normalize().multiplyScalar(.44).toArray());
  for(const {id,side,z} of STATIONS){
   const p=group(`SUSP_PIVOT_${id}`,chassis,[side*.5,.5,z]);p.userData={axis:'+Z',arm_length_m:.70,compression_m:[-.12,.14]};
-  part(`SUSP_ARM_${id}`,p,[beam([0,0,-.2],[side*.70,0,0],.052,C.edge),beam([0,0,.2],[side*.70,0,0],.052,C.edge),cyl(.09,.46,C.dark,[0,0,0],[Math.PI/2,0,0]),box([.14,.14,.16],C.chrome,[side*.70,0,0])]);
+  part(`SUSP_ARM_${id}`,p,[box([.48,.13,.22],C.shell,[side*.36,0,0]),beam([0,0,-.2],[side*.70,0,0],.052,C.edge),beam([0,0,.2],[side*.70,0,0],.052,C.edge),cyl(.09,.46,C.dark,[0,0,0],[Math.PI/2,0,0]),box([.14,.14,.16],C.chrome,[side*.70,0,0])]);
   const lower=group(`SOCKET_DAMPER_LOWER_${id}`,p,[side*.54,0,0]);
   const upper=group(`SOCKET_DAMPER_UPPER_${id}`,chassis,[side*.6,1.035,z]);
   const damper=group(`DAMPER_AIM_${id}`,chassis,upper.position.toArray());
-  part(`DAMPER_BARREL_${id}`,damper,[cyl(.068,.44,C.accent,[0,.22,0]),cyl(.084,.04,C.dark,[0,.035,0]),cyl(.079,.035,C.dark,[0,.42,0])]);
+  const barrel=[cyl(.082,.44,C.edge,[0,.22,0]),cyl(.102,.04,C.chrome,[0,.035,0]),cyl(.095,.035,C.chrome,[0,.42,0])];if(lod<2)for(let k=0;k<6;k++)barrel.push(cyl(.09,.018,C.dark,[0,.10+k*.045,0]));part(`DAMPER_BARREL_${id}`,damper,barrel);
   const rod=group(`DAMPER_ROD_${id}`,damper);part(`DAMPER_ROD_MESH_${id}`,rod,[cyl(.029,.44,C.chrome,[0,-.22,0]),cyl(.055,.045,C.dark,[0,-.018,0])]);
   const upright=group(`UPRIGHT_${id}`,p,[side*.70,0,0]);
   const steer=group(`WHEEL_STEER_${id}`,upright);const spin=group(`WHEEL_SPIN_${id}`,steer);
-  const wheel=[cyl(.5,.32,C.rubber,[0,0,0],[0,0,Math.PI/2]),cyl(.29,.335,C.dark,[0,0,0],[0,0,Math.PI/2]),cyl(.205,.35,C.edge,[0,0,0],[0,0,Math.PI/2]),cyl(.09,.38,C.accent,[0,0,0],[0,0,Math.PI/2])];
-  const tread=lod===0?28:lod===1?16:8;
-  for(let i=0;i<tread;i++){const a=i/tread*Math.PI*2;wheel.push(box([.34,.055,.09],C.dark,[0,.4725*Math.cos(a),.4725*Math.sin(a)],[a,0,0]));}
-  if(lod===0)for(let i=0;i<8;i++){const a=i*Math.PI/4;wheel.push(cyl(.022,.365,C.chrome,[0,.15*Math.cos(a),.15*Math.sin(a)],[0,0,Math.PI/2],8));}
+  const wheel=[cyl(.5,.42,C.rubber,[0,0,0],[0,0,Math.PI/2]),cyl(.33,.435,C.dark,[0,0,0],[0,0,Math.PI/2]),cyl(.25,.45,C.edge,[0,0,0],[0,0,Math.PI/2]),cyl(.12,.47,C.accent,[0,0,0],[0,0,Math.PI/2])];
+  const tread=lod===0?24:lod===1?16:8;
+  for(let i=0;i<tread;i++){const a=i/tread*Math.PI*2;if(lod===2)wheel.push(box([.43,.07,.13],C.dark,[0,.465*Math.cos(a),.465*Math.sin(a)],[a,0,0]));else for(const half of [-1,1]){const g=new T.BoxGeometry(.23,.07,.14);g.rotateY(half*.32);g.rotateX(a);wheel.push([g,C.edge,[half*.105,.46*Math.cos(a),.46*Math.sin(a)]]);}}
+  if(lod===0)for(let i=0;i<8;i++){const a=i*Math.PI/4;wheel.push(cyl(.027,.48,C.chrome,[0,.19*Math.cos(a),.19*Math.sin(a)],[0,0,Math.PI/2],8));}
   part(`WHEEL_${id}`,spin,wheel);
  }
  root.updateMatrixWorld(true);

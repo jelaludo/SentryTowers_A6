@@ -33,14 +33,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 396316,
-      "triangles": 7080,
+      "bytes": 596808,
+      "triangles": 10528,
       "draw_calls": 19,
       "materials": 1,
-      "sha256": "1e83543f886e74425005b27dbe35ff4ecce537a3c58b245d2c76a5e5712eec7e",
+      "sha256": "3d81fb61893c95371a908f339b0b1fd1ad11e1cb22a0a8280e16b792ab7392c0",
       "meshopt_file": "derived/meshopt/xb12_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 85228,
-      "meshopt_sha256": "eb49288a3cda09788f2607372e1a4d8ac8488af9be6679661db61240855f3d71",
+      "meshopt_bytes": 123060,
+      "meshopt_sha256": "a39224ddb5b57cefa3da55a95eef85f70bc26588bee3430704ea1a7b4b7be048",
       "meshopt_derived": true,
       "plot_m": [
         4,
@@ -48,19 +48,19 @@
       ],
       "bounds": {
         "min": [
-          -1.4500000476837158,
-          0,
-          -1.68
+          -1.440000057220459,
+          -0.004693746566772461,
+          -1.6846937465667724
         ],
         "max": [
-          1.4500000476837158,
-          2.452499973773956,
-          1.68
+          1.440000057220459,
+          2.2637387990951536,
+          1.690000057220459
         ],
         "dimensions_m": [
-          2.9000000953674316,
-          2.452499973773956,
-          3.36
+          2.880000114440918,
+          2.268432545661926,
+          3.374693803787231
         ]
       },
       "sockets": [
@@ -77,63 +77,63 @@
           "node": "SOCKET_RADAR_L_REAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
+            -0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
           ]
         },
         {
           "node": "SOCKET_RADAR_L_FRONT",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_REAR",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_FRONT",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
+            -0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_L",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.115,
-            1.8,
-            0.655
+            -0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_R",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0.115,
-            1.8,
-            0.655
+            0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_LIDAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0,
-            2.375,
-            0.1
+            0.2540341184434354,
+            2.054034118443435,
+            -0.15403411844343537
           ]
         },
         {
@@ -219,9 +219,9 @@
         "SENSOR_HEX_SPHERE",
         "SOCKET_RADAR_L_REAR",
         "SOCKET_RADAR_L_FRONT",
+        "SOCKET_CAMERA_L",
         "SOCKET_RADAR_R_REAR",
         "SOCKET_RADAR_R_FRONT",
-        "SOCKET_CAMERA_L",
         "SOCKET_CAMERA_R",
         "SENSOR_INSTRUMENTS",
         "SOCKET_LIDAR",
@@ -283,14 +283,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 231164,
-      "triangles": 3856,
+      "bytes": 365500,
+      "triangles": 5872,
       "draw_calls": 19,
       "materials": 1,
-      "sha256": "62f2baf07e3bb6c0b867c2d7dca29a4e9fadf1bcd41b1fe701e38dd22320171a",
+      "sha256": "22ef323f7d999f8cb9f217bda87bdc996df69abc60d9d4bd5879ccbe3988a021",
       "meshopt_file": "derived/meshopt/xb12_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 61028,
-      "meshopt_sha256": "9100fe3f43528bda721a9ae5d08ef0fa2132c4cf989212d5099da9bb0ca73164",
+      "meshopt_bytes": 85732,
+      "meshopt_sha256": "d6972abe62cb43b41f60cd9de995202d23f751b659433b5f51d1e04bf0e48a95",
       "meshopt_derived": true,
       "plot_m": [
         4,
@@ -298,19 +298,19 @@
       ],
       "bounds": {
         "min": [
-          -1.4500000476837158,
-          0,
+          -1.440000057220459,
+          0.0034080445766448975,
           -1.68
         ],
         "max": [
-          1.4500000476837158,
-          2.452499973773956,
-          1.68
+          1.440000057220459,
+          2.2637387990951536,
+          1.690000057220459
         ],
         "dimensions_m": [
-          2.9000000953674316,
-          2.452499973773956,
-          3.36
+          2.880000114440918,
+          2.2603307545185087,
+          3.3700000572204587
         ]
       },
       "sockets": [
@@ -327,63 +327,63 @@
           "node": "SOCKET_RADAR_L_REAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
+            -0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
           ]
         },
         {
           "node": "SOCKET_RADAR_L_FRONT",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_REAR",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_FRONT",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
+            -0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_L",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.115,
-            1.8,
-            0.655
+            -0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_R",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0.115,
-            1.8,
-            0.655
+            0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_LIDAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0,
-            2.375,
-            0.1
+            0.2540341184434354,
+            2.054034118443435,
+            -0.15403411844343537
           ]
         },
         {
@@ -469,9 +469,9 @@
         "SENSOR_HEX_SPHERE",
         "SOCKET_RADAR_L_REAR",
         "SOCKET_RADAR_L_FRONT",
+        "SOCKET_CAMERA_L",
         "SOCKET_RADAR_R_REAR",
         "SOCKET_RADAR_R_FRONT",
-        "SOCKET_CAMERA_L",
         "SOCKET_CAMERA_R",
         "SENSOR_INSTRUMENTS",
         "SOCKET_LIDAR",
@@ -533,14 +533,14 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 150636,
-      "triangles": 2688,
+      "bytes": 130404,
+      "triangles": 2272,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "bf0be0f97e269b2f3c70a6b4450e2b8ce923450351154257208029a2951677fa",
+      "sha256": "825f1869993d5cdf75610222df6a17b4588aa696ee7e6e526fb5d22bb497799b",
       "meshopt_file": "derived/meshopt/xb12_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 48836,
-      "meshopt_sha256": "b6870df0b4044ac67134f5fa5256aa36bff80cfbe6eaa19bbc747a35ddc613f2",
+      "meshopt_bytes": 43468,
+      "meshopt_sha256": "4e61a0164e26293f4665051facc930d672d3c9cc4132e04c4dfba7a05ae9e8d2",
       "meshopt_derived": true,
       "plot_m": [
         4,
@@ -548,18 +548,18 @@
       ],
       "bounds": {
         "min": [
-          -1.4500000476837158,
+          -1.440000057220459,
           0,
           -1.6799999475479126
         ],
         "max": [
-          1.4500000476837158,
-          2.4524998664855957,
+          1.440000057220459,
+          2.2637388706207275,
           1.6799999475479126
         ],
         "dimensions_m": [
-          2.9000000953674316,
-          2.4524998664855957,
+          2.880000114440918,
+          2.2637388706207275,
           3.359999895095825
         ]
       },
@@ -577,63 +577,63 @@
           "node": "SOCKET_RADAR_L_REAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
+            -0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
           ]
         },
         {
           "node": "SOCKET_RADAR_L_FRONT",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_REAR",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            -0.16558112382722787
-          ]
-        },
-        {
-          "node": "SOCKET_RADAR_R_FRONT",
-          "parent": "SENSOR_PITCH",
-          "position_m": [
-            0.26558112382722787,
-            1.5344188761727722,
-            0.36558112382722785
+            -0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_L",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            -0.115,
-            1.8,
-            0.655
+            -0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            -0.15403411844343537
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.2540341184434354,
+            1.5459658815565647,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_CAMERA_R",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0.115,
-            1.8,
-            0.655
+            0.2540341184434354,
+            2.054034118443435,
+            0.35403411844343535
           ]
         },
         {
           "node": "SOCKET_LIDAR",
           "parent": "SENSOR_PITCH",
           "position_m": [
-            0,
-            2.375,
-            0.1
+            0.2540341184434354,
+            2.054034118443435,
+            -0.15403411844343537
           ]
         },
         {
@@ -717,9 +717,9 @@
         "SENSOR_PITCH",
         "SOCKET_RADAR_L_REAR",
         "SOCKET_RADAR_L_FRONT",
+        "SOCKET_CAMERA_L",
         "SOCKET_RADAR_R_REAR",
         "SOCKET_RADAR_R_FRONT",
-        "SOCKET_CAMERA_L",
         "SOCKET_CAMERA_R",
         "SOCKET_LIDAR",
         "SENSOR_HEX_SPHERE",

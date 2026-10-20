@@ -4,7 +4,7 @@ Separate four-wheel D0 design prototype based on the R-47X visual language. The 
 
 ## Design and controls
 
-Four independent lateral swing arms with chassis-fixed upper damper mounts and sliding piston rods. Wheel steering and spin are separate transforms. The sensor sphere is a truncated octahedron with eight hexagonal faces and six square faces: four diagonal radar panels, two front cameras and a top lidar head. Its yaw and pitch are independent of the chassis. The sensors are visual representations; this prototype does not simulate sensing.
+Four independent lateral swing arms with chassis-fixed upper damper mounts and sliding piston rods. Wheel steering and spin are separate transforms. The sensor sphere is a truncated octahedron with eight hexagonal faces and six square faces: four lower radar panels, two upper-front camera apertures and an upper-rear lidar aperture, all integrated into hexagonal faces without round lenses or a top cap. Its yaw and pitch are independent of the chassis. The sensors are visual representations; this prototype does not simulate sensing.
 
 Open `/xb12/` for play/pause, a four-second timeline, articulation/landing/manual modes, common compression plus four independent offsets, ±30° front steering, sensor yaw, wireframe, damper mount markers, three camera views, LOD and plain/Meshopt selection. The floor is lowered in the suspension test stand to show full droop. Wheel contact, vehicle forces and driving are not simulated.
 
@@ -12,11 +12,11 @@ Open `/xb12/` for play/pause, a four-second timeline, articulation/landing/manua
 
 | Tier | Triangles | Mesh draws | Materials | Plain bytes | Derived Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 detailed master | 7,080 | 19 | 1 | 396,316 | 85,228 |
-| LOD1 game prototype | 3,856 | 19 | 1 | 231,164 | 61,028 |
-| LOD2 static distance | 2,688 | 1 | 1 | 150,636 | 48,836 |
+| LOD0 detailed master | 10,528 | 19 | 1 | 596,808 | 123,060 |
+| LOD1 game prototype | 5,872 | 19 | 1 | 365,500 | 85,732 |
+| LOD2 static distance | 2,272 | 1 | 1 | 130,404 | 43,468 |
 
-Counts describe asset mesh submissions, excluding viewer ground, overlays and lighting. No FPS claim. LOD1 is under the collaboration contract's 25k-triangle unit target. LOD2 is an optional static map/loading representation, not an animated gameplay replacement. Use LOD1 before motion is readable; no automatic distance threshold has been certified. LOD0 adds wheel bolts, denser treads, vents and higher radial detail for close views.
+Counts describe asset mesh submissions, excluding viewer ground, overlays and lighting. No FPS claim. LOD1 is under the collaboration contract's 25k-triangle unit target. LOD2 is an optional static map/loading representation, not an animated gameplay replacement. Use LOD1 before motion is readable; no automatic distance threshold has been certified. LOD0 adds armor fasteners, wheel bolts, denser split tread blocks, protective rails, antennas, vents and higher radial detail for close views. The revised muted olive-gray body uses connected armored wheel shoulders, layered maintenance panels, guarded lamps and recovery fittings.
 
 ## Runtime contract
 
@@ -26,7 +26,7 @@ Import `applyXB12` from `runtime.js` and call it with the loaded scene and `{com
 
 Per-wheel hierarchy: `SUSP_PIVOT_*` → `UPRIGHT_*` → `WHEEL_STEER_*` → `WHEEL_SPIN_*` → `WHEEL_*`. The upright inherits swing-arm camber; it is not a double-wishbone or compensated upright. `SOCKET_DAMPER_UPPER_*` stays chassis-fixed, `SOCKET_DAMPER_LOWER_*` follows the arm, `DAMPER_AIM_*` aims at it and `DAMPER_ROD_*` slides to the lower endpoint. Barrel and rod are each 0.44 m long. Sampled damper lengths are 0.605–0.762 m, retaining at least 0.118 m overlap. Engine-facing names and rest sockets match across tiers. LOD2 names are lookup-only: its mesh cannot articulate.
 
-`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
+`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. This revision relocates camera and lidar sockets into the hexagonal faces; radar sockets also follow the revised flush faces. Socket names are preserved, but consumers must refresh their pinned manifest. Suspension and payload socket rest positions are unchanged. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
 
 ## Sources and validation
 
@@ -41,3 +41,5 @@ The validation report covers all three plain and three decoded Meshopt files, ze
 Pending: continuous tire/fender/chassis clearance certification, game physics/contact and independent wheel speeds, full radar/lidar coverage assessment, D1–D3 and localized damage, mobile/game-camera profiling and consuming-game acceptance. D0 is the only authored damage state; do not inherit R-47X damage mappings. This is an animated design prototype, not a claim of production physics readiness.
 
 Hand-off: use the commit containing this folder together with `assets/xb12/`; pin that commit and the hashes in `manifest.json`. Credit: Models by jelaludo.
+
+The original XB-12 prototype is preserved in commit `64f1612eaa1d444dab0638c8d287c112f66d6f1d`. The rugged revision follows the two user-supplied R-47X orthographic references for visual character, not their inconsistent dimension annotations.
