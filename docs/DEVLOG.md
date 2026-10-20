@@ -1,5 +1,13 @@
 # Devlog
 
+## 20 October 2026 / R-47X-S swing-arm suspension derivative
+
+Pushed completed XB-12 history through `75d1b82`, then created the separate [R-47X-S viewer](../recon-rover-s/). The six-wheel R-47X body, thrusters, displays and damage system are retained, with boxed swing arms and six XB-12-style endpoint-driven telescopic dampers. Chassis-fixed upper anchors and arm-fixed lower anchors keep barrels and rods attached through suspension, steering and chassis motion. Added suspension isolation in the viewer. Original R-47X and XB-12 assets remain untouched.
+
+Includes D0–D3 at all three tiers, 12 plain GLBs and 12 decoded/validated Meshopt derivatives. D0 detailed/game/distance: 10,332 / 5,084 / 2,748 triangles, 49 / 49 / one draw and 759,324 / 419,656 / 218,860 plain bytes. All exports pass glTF/geometry/name/socket checks; 960 sampled decoded poses retain damper endpoints with at least 0.0507 m piston overlap. Existing localized damage, gas leak and debris tests pass. Game tier meets the 25k articulated-unit triangle target; no FPS claim. Distance is static and one material.
+
+Added generated preview, editable Blender review assembly, manifest/integration notes and catalogue route. Pending: physical terrain/contact/collision integration and game/mobile acceptance. Suspension is an engine-driven visual rig, not a physics solver.
+
 ## 20 October 2026 / XB-12 D0–D3 damage series
 
 Added four whole-rover states to the [XB-12 viewer](../xb12/): D0 intact, D1 battered, D2 component damage and D3 disabled wreck. Damage includes folded/scuffed armor, buckled arms and rods, crushed tire profiles with missing treads, stripped wreck trim and a deformed/drooped rear sensor. D2 reduces FL/RR wheel drive and travel to 40%, front-left steering to 50%, and sensor yaw to ±60°. D3 ignores drive/steering commands, locks suspension and parks the sensor; selected sentries remain separate attachments, visibly dimmed and marked offline. The front mount and payload sockets remain fixed across states.

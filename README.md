@@ -1,5 +1,7 @@
 # Model Workshop
 
+**R-47X-S / Swing-arm Recon Rover** is a separate six-wheel R-47X derivative with XB-12-style articulated swing arms and telescopic dampers, D0–D3 damage and three tiers. Open `recon-rover-s/`; integration notes are in `assets/recon-rover-s/README.md`.
+
 **XB-12 / Terrain Scout** is a separate four-wheel Rover with animated swing arms, telescopic dampers and a hex-faceted radar/lidar/camera sphere. Open `xb12/`; source and measured integration notes are in `assets/xb12/README.md`. The existing R-47X remains unchanged.
 
 The [terraforming story](terraforming-story/) follows eleven chapters from SH02 landing and rocket salvage through Stålheart, the first grid, extraction, manufacturing and life support. It separates the existing planet-orbit demonstrations from the proposed Dyson collector swarm around the star and planet-side energy receivers. [Story map](terraforming-story/README.md).

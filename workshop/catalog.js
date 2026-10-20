@@ -1,4 +1,5 @@
 const collectionImages={
+'recon-rover-s':'assets/recon-rover-s/preview.png',
 'xb12':'assets/xb12/preview.png',
 'recon-rover':'assets/recon-rover/preview.png',
 'stalheart-disco':'assets/stalheart-disco/preview.png',
@@ -20,6 +21,7 @@ const collectionImages={
 };
 
 export const collections=[
+['recon-rover-s','R-47X-S / Swing-arm Recon Rover','Industry','Six independent swing arms with endpoint-driven telescopic dampers, D0–D3 damage, 19 localized zones and the R-47X thruster and telemetry systems.','6 swing arms · D0–D3 · 3 LODs','Animated prototype'],
 ['xb12','XB-12 / Terrain Scout','Industry','Four-wheel armored Rover with D0–D3 physical damage, animated suspension, rear hexagonal sensors and selectable rover-sized sentries.','D0–D3 · 4 wheels · 3 LODs','Animated prototype'],
 ['recon-rover','R-47X / 6x6 Reconnaissance Rover','Industry','Unmanned 6x6 extreme-terrain rover with graduated D0–D3 & 19-zone localized damage, 6 independent spinning wheels, ±34° front steering, 8 gimbaled cold-gas nozzles + D2 COPV leak mist, and 4 UV-mapped displays including a rear NASM FDAI panel.','D0–D3 · 19 zones · 3 LODs · 8 nozzles + FDAI','Contract candidate'],
 ['stalheart-disco','Stålheart / Celebration Disco Gantry','Props','A silly diegetic congratulation diorama where Stålheart hoists the DSC-01 balance disco ball inside its 36 m gantry above celebrating MÖRK and ISAO units.','3 LODs · Gantry pendulum swing · Laser + light show','Diorama candidate'],
