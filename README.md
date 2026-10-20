@@ -1,5 +1,7 @@
 # Model Workshop
 
+**XB-12 / Terrain Scout** is a separate four-wheel Rover with animated swing arms, telescopic dampers and a hex-faceted radar/lidar/camera sphere. Open `xb12/`; source and measured integration notes are in `assets/xb12/README.md`. The existing R-47X remains unchanged.
+
 The [terraforming story](terraforming-story/) follows eleven chapters from SH02 landing and rocket salvage through Stålheart, the first grid, extraction, manufacturing and life support. It separates the existing planet-orbit demonstrations from the proposed Dyson collector swarm around the star and planet-side energy receivers. [Story map](terraforming-story/README.md).
 
 **MÖRK open-roof customization garage** adds a crew-built paint bay with an articulated spray arm, workbench, colored paint containers and two night-cycle tripod lights. Its three separate GLB tiers are previewed with the canonical MÖRK at `mork-garage/`; integration and optional crew-life ideas are in `assets/mork-garage/README.md`.

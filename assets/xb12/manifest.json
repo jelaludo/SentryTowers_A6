@@ -1,0 +1,782 @@
+{
+  "family": "xb12",
+  "status": "D0 animated design prototype; game integration pending",
+  "units": "metres",
+  "axes": "+Y up, +Z forward",
+  "root": "ground centre",
+  "damage_states": [
+    0
+  ],
+  "lod_selection": {
+    "lod0": "recordings and close inspection",
+    "lod1": "moving gameplay unit",
+    "lod2": "static map/loading only; switch to LOD1 before visible animation",
+    "automatic_distance_m": null
+  },
+  "animation": {
+    "engine_driven": true,
+    "compression_m": [
+      -0.12,
+      0.14
+    ],
+    "positive_compression": "hub rises relative to chassis",
+    "front_steer_deg": [
+      -30,
+      30
+    ],
+    "preview_cycle_seconds": 4
+  },
+  "assets": [
+    {
+      "file": "xb12_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 396316,
+      "triangles": 7080,
+      "draw_calls": 19,
+      "materials": 1,
+      "sha256": "1e83543f886e74425005b27dbe35ff4ecce537a3c58b245d2c76a5e5712eec7e",
+      "meshopt_file": "derived/meshopt/xb12_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 85228,
+      "meshopt_sha256": "eb49288a3cda09788f2607372e1a4d8ac8488af9be6679661db61240855f3d71",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.4500000476837158,
+          0,
+          -1.68
+        ],
+        "max": [
+          1.4500000476837158,
+          2.452499973773956,
+          1.68
+        ],
+        "dimensions_m": [
+          2.9000000953674316,
+          2.452499973773956,
+          3.36
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0,
+            1.12,
+            -0.7
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_L",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_R",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_LIDAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0,
+            2.375,
+            0.1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FL",
+          "parent": "SUSP_PIVOT_FL",
+          "position_m": [
+            -1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FR",
+          "parent": "SUSP_PIVOT_FR",
+          "position_m": [
+            1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RL",
+          "parent": "SUSP_PIVOT_RL",
+          "position_m": [
+            -1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RR",
+          "parent": "SUSP_PIVOT_RR",
+          "position_m": [
+            1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            -1.18
+          ]
+        }
+      ],
+      "required_nodes": [
+        "XB12_ROOT",
+        "XB12_CHASSIS",
+        "XB12_HULL",
+        "SOCKET_PAYLOAD",
+        "SENSOR_YAW",
+        "SENSOR_PITCH",
+        "SENSOR_HEX_SPHERE",
+        "SOCKET_RADAR_L_REAR",
+        "SOCKET_RADAR_L_FRONT",
+        "SOCKET_RADAR_R_REAR",
+        "SOCKET_RADAR_R_FRONT",
+        "SOCKET_CAMERA_L",
+        "SOCKET_CAMERA_R",
+        "SENSOR_INSTRUMENTS",
+        "SOCKET_LIDAR",
+        "SUSP_PIVOT_FL",
+        "SUSP_ARM_FL",
+        "SOCKET_DAMPER_LOWER_FL",
+        "UPRIGHT_FL",
+        "WHEEL_STEER_FL",
+        "WHEEL_SPIN_FL",
+        "WHEEL_FL",
+        "SOCKET_DAMPER_UPPER_FL",
+        "DAMPER_AIM_FL",
+        "DAMPER_BARREL_FL",
+        "DAMPER_ROD_FL",
+        "DAMPER_ROD_MESH_FL",
+        "SUSP_PIVOT_FR",
+        "SUSP_ARM_FR",
+        "SOCKET_DAMPER_LOWER_FR",
+        "UPRIGHT_FR",
+        "WHEEL_STEER_FR",
+        "WHEEL_SPIN_FR",
+        "WHEEL_FR",
+        "SOCKET_DAMPER_UPPER_FR",
+        "DAMPER_AIM_FR",
+        "DAMPER_BARREL_FR",
+        "DAMPER_ROD_FR",
+        "DAMPER_ROD_MESH_FR",
+        "SUSP_PIVOT_RL",
+        "SUSP_ARM_RL",
+        "SOCKET_DAMPER_LOWER_RL",
+        "UPRIGHT_RL",
+        "WHEEL_STEER_RL",
+        "WHEEL_SPIN_RL",
+        "WHEEL_RL",
+        "SOCKET_DAMPER_UPPER_RL",
+        "DAMPER_AIM_RL",
+        "DAMPER_BARREL_RL",
+        "DAMPER_ROD_RL",
+        "DAMPER_ROD_MESH_RL",
+        "SUSP_PIVOT_RR",
+        "SUSP_ARM_RR",
+        "SOCKET_DAMPER_LOWER_RR",
+        "UPRIGHT_RR",
+        "WHEEL_STEER_RR",
+        "WHEEL_SPIN_RR",
+        "WHEEL_RR",
+        "SOCKET_DAMPER_UPPER_RR",
+        "DAMPER_AIM_RR",
+        "DAMPER_BARREL_RR",
+        "DAMPER_ROD_RR",
+        "DAMPER_ROD_MESH_RR"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "file": "xb12_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 231164,
+      "triangles": 3856,
+      "draw_calls": 19,
+      "materials": 1,
+      "sha256": "62f2baf07e3bb6c0b867c2d7dca29a4e9fadf1bcd41b1fe701e38dd22320171a",
+      "meshopt_file": "derived/meshopt/xb12_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 61028,
+      "meshopt_sha256": "9100fe3f43528bda721a9ae5d08ef0fa2132c4cf989212d5099da9bb0ca73164",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.4500000476837158,
+          0,
+          -1.68
+        ],
+        "max": [
+          1.4500000476837158,
+          2.452499973773956,
+          1.68
+        ],
+        "dimensions_m": [
+          2.9000000953674316,
+          2.452499973773956,
+          3.36
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0,
+            1.12,
+            -0.7
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_L",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_R",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_LIDAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0,
+            2.375,
+            0.1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FL",
+          "parent": "SUSP_PIVOT_FL",
+          "position_m": [
+            -1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FR",
+          "parent": "SUSP_PIVOT_FR",
+          "position_m": [
+            1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RL",
+          "parent": "SUSP_PIVOT_RL",
+          "position_m": [
+            -1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RR",
+          "parent": "SUSP_PIVOT_RR",
+          "position_m": [
+            1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            -1.18
+          ]
+        }
+      ],
+      "required_nodes": [
+        "XB12_ROOT",
+        "XB12_CHASSIS",
+        "XB12_HULL",
+        "SOCKET_PAYLOAD",
+        "SENSOR_YAW",
+        "SENSOR_PITCH",
+        "SENSOR_HEX_SPHERE",
+        "SOCKET_RADAR_L_REAR",
+        "SOCKET_RADAR_L_FRONT",
+        "SOCKET_RADAR_R_REAR",
+        "SOCKET_RADAR_R_FRONT",
+        "SOCKET_CAMERA_L",
+        "SOCKET_CAMERA_R",
+        "SENSOR_INSTRUMENTS",
+        "SOCKET_LIDAR",
+        "SUSP_PIVOT_FL",
+        "SUSP_ARM_FL",
+        "SOCKET_DAMPER_LOWER_FL",
+        "UPRIGHT_FL",
+        "WHEEL_STEER_FL",
+        "WHEEL_SPIN_FL",
+        "WHEEL_FL",
+        "SOCKET_DAMPER_UPPER_FL",
+        "DAMPER_AIM_FL",
+        "DAMPER_BARREL_FL",
+        "DAMPER_ROD_FL",
+        "DAMPER_ROD_MESH_FL",
+        "SUSP_PIVOT_FR",
+        "SUSP_ARM_FR",
+        "SOCKET_DAMPER_LOWER_FR",
+        "UPRIGHT_FR",
+        "WHEEL_STEER_FR",
+        "WHEEL_SPIN_FR",
+        "WHEEL_FR",
+        "SOCKET_DAMPER_UPPER_FR",
+        "DAMPER_AIM_FR",
+        "DAMPER_BARREL_FR",
+        "DAMPER_ROD_FR",
+        "DAMPER_ROD_MESH_FR",
+        "SUSP_PIVOT_RL",
+        "SUSP_ARM_RL",
+        "SOCKET_DAMPER_LOWER_RL",
+        "UPRIGHT_RL",
+        "WHEEL_STEER_RL",
+        "WHEEL_SPIN_RL",
+        "WHEEL_RL",
+        "SOCKET_DAMPER_UPPER_RL",
+        "DAMPER_AIM_RL",
+        "DAMPER_BARREL_RL",
+        "DAMPER_ROD_RL",
+        "DAMPER_ROD_MESH_RL",
+        "SUSP_PIVOT_RR",
+        "SUSP_ARM_RR",
+        "SOCKET_DAMPER_LOWER_RR",
+        "UPRIGHT_RR",
+        "WHEEL_STEER_RR",
+        "WHEEL_SPIN_RR",
+        "WHEEL_RR",
+        "SOCKET_DAMPER_UPPER_RR",
+        "DAMPER_AIM_RR",
+        "DAMPER_BARREL_RR",
+        "DAMPER_ROD_RR",
+        "DAMPER_ROD_MESH_RR"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo"
+    },
+    {
+      "file": "xb12_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 150636,
+      "triangles": 2688,
+      "draw_calls": 1,
+      "materials": 1,
+      "sha256": "bf0be0f97e269b2f3c70a6b4450e2b8ce923450351154257208029a2951677fa",
+      "meshopt_file": "derived/meshopt/xb12_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 48836,
+      "meshopt_sha256": "b6870df0b4044ac67134f5fa5256aa36bff80cfbe6eaa19bbc747a35ddc613f2",
+      "meshopt_derived": true,
+      "plot_m": [
+        4,
+        4
+      ],
+      "bounds": {
+        "min": [
+          -1.4500000476837158,
+          0,
+          -1.6799999475479126
+        ],
+        "max": [
+          1.4500000476837158,
+          2.4524998664855957,
+          1.6799999475479126
+        ],
+        "dimensions_m": [
+          2.9000000953674316,
+          2.4524998664855957,
+          3.359999895095825
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0,
+            1.12,
+            -0.7
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_L_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_REAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            -0.16558112382722787
+          ]
+        },
+        {
+          "node": "SOCKET_RADAR_R_FRONT",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.26558112382722787,
+            1.5344188761727722,
+            0.36558112382722785
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_L",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            -0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_CAMERA_R",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0.115,
+            1.8,
+            0.655
+          ]
+        },
+        {
+          "node": "SOCKET_LIDAR",
+          "parent": "SENSOR_PITCH",
+          "position_m": [
+            0,
+            2.375,
+            0.1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FL",
+          "parent": "SUSP_PIVOT_FL",
+          "position_m": [
+            -1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_FR",
+          "parent": "SUSP_PIVOT_FR",
+          "position_m": [
+            1.04,
+            0.5,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_FR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RL",
+          "parent": "SUSP_PIVOT_RL",
+          "position_m": [
+            -1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RL",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            -0.6,
+            1.035,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_RR",
+          "parent": "SUSP_PIVOT_RR",
+          "position_m": [
+            1.04,
+            0.5,
+            -1.18
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_RR",
+          "parent": "XB12_CHASSIS",
+          "position_m": [
+            0.6,
+            1.035,
+            -1.18
+          ]
+        }
+      ],
+      "required_nodes": [
+        "XB12_ROOT",
+        "XB12_CHASSIS",
+        "SOCKET_PAYLOAD",
+        "SENSOR_YAW",
+        "SENSOR_PITCH",
+        "SOCKET_RADAR_L_REAR",
+        "SOCKET_RADAR_L_FRONT",
+        "SOCKET_RADAR_R_REAR",
+        "SOCKET_RADAR_R_FRONT",
+        "SOCKET_CAMERA_L",
+        "SOCKET_CAMERA_R",
+        "SOCKET_LIDAR",
+        "SENSOR_HEX_SPHERE",
+        "SENSOR_INSTRUMENTS",
+        "SUSP_PIVOT_FL",
+        "SOCKET_DAMPER_LOWER_FL",
+        "UPRIGHT_FL",
+        "WHEEL_STEER_FL",
+        "WHEEL_SPIN_FL",
+        "WHEEL_FL",
+        "SUSP_ARM_FL",
+        "SOCKET_DAMPER_UPPER_FL",
+        "DAMPER_AIM_FL",
+        "DAMPER_ROD_FL",
+        "DAMPER_ROD_MESH_FL",
+        "DAMPER_BARREL_FL",
+        "SUSP_PIVOT_FR",
+        "SOCKET_DAMPER_LOWER_FR",
+        "UPRIGHT_FR",
+        "WHEEL_STEER_FR",
+        "WHEEL_SPIN_FR",
+        "WHEEL_FR",
+        "SUSP_ARM_FR",
+        "SOCKET_DAMPER_UPPER_FR",
+        "DAMPER_AIM_FR",
+        "DAMPER_ROD_FR",
+        "DAMPER_ROD_MESH_FR",
+        "DAMPER_BARREL_FR",
+        "SUSP_PIVOT_RL",
+        "SOCKET_DAMPER_LOWER_RL",
+        "UPRIGHT_RL",
+        "WHEEL_STEER_RL",
+        "WHEEL_SPIN_RL",
+        "WHEEL_RL",
+        "SUSP_ARM_RL",
+        "SOCKET_DAMPER_UPPER_RL",
+        "DAMPER_AIM_RL",
+        "DAMPER_ROD_RL",
+        "DAMPER_ROD_MESH_RL",
+        "DAMPER_BARREL_RL",
+        "SUSP_PIVOT_RR",
+        "SOCKET_DAMPER_LOWER_RR",
+        "UPRIGHT_RR",
+        "WHEEL_STEER_RR",
+        "WHEEL_SPIN_RR",
+        "WHEEL_RR",
+        "SUSP_ARM_RR",
+        "SOCKET_DAMPER_UPPER_RR",
+        "DAMPER_AIM_RR",
+        "DAMPER_ROD_RR",
+        "DAMPER_ROD_MESH_RR",
+        "DAMPER_BARREL_RR",
+        "XB12_HULL",
+        "XB12_STATIC"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo"
+    }
+  ]
+}

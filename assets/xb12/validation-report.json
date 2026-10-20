@@ -1,0 +1,60 @@
+{
+  "assets": [
+    {
+      "file": "xb12_d0_lod0.glb",
+      "triangles": 7080,
+      "draws": 19,
+      "bytes": 396316,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d0_lod0.meshopt.glb",
+      "triangles": 7080,
+      "draws": 19,
+      "bytes": 85228,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d0_lod1.glb",
+      "triangles": 3856,
+      "draws": 19,
+      "bytes": 231164,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d0_lod1.meshopt.glb",
+      "triangles": 3856,
+      "draws": 19,
+      "bytes": 61028,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d0_lod2.glb",
+      "triangles": 2688,
+      "draws": 1,
+      "bytes": 150636,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d0_lod2.meshopt.glb",
+      "triangles": 2688,
+      "draws": 1,
+      "bytes": 48836,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 60,
+  "damper_length_m": [
+    0.6053486954737466,
+    0.7618892314633519
+  ],
+  "minimum_rod_overlap_m": 0.11811076853664815,
+  "errors": [],
+  "scope": "glTF, decoded Meshopt, geometry, hashes, node/socket parity and sampled rig kinematics; not full continuous collision or physics certification"
+}
