@@ -47,9 +47,153 @@
       "bytes": 44580,
       "gltf_errors": 0,
       "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d1_lod0.glb",
+      "triangles": 10684,
+      "draws": 19,
+      "bytes": 604672,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d1_lod0.meshopt.glb",
+      "triangles": 10684,
+      "draws": 19,
+      "bytes": 233492,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d1_lod1.glb",
+      "triangles": 5948,
+      "draws": 19,
+      "bytes": 369624,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d1_lod1.meshopt.glb",
+      "triangles": 5948,
+      "draws": 19,
+      "bytes": 153848,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d1_lod2.glb",
+      "triangles": 2348,
+      "draws": 1,
+      "bytes": 134100,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d1_lod2.meshopt.glb",
+      "triangles": 2348,
+      "draws": 1,
+      "bytes": 57532,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d2_lod0.glb",
+      "triangles": 10444,
+      "draws": 19,
+      "bytes": 586056,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d2_lod0.meshopt.glb",
+      "triangles": 10444,
+      "draws": 19,
+      "bytes": 228572,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d2_lod1.glb",
+      "triangles": 5756,
+      "draws": 19,
+      "bytes": 354800,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d2_lod1.meshopt.glb",
+      "triangles": 5756,
+      "draws": 19,
+      "bytes": 149872,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d2_lod2.glb",
+      "triangles": 2300,
+      "draws": 1,
+      "bytes": 130412,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d2_lod2.meshopt.glb",
+      "triangles": 2300,
+      "draws": 1,
+      "bytes": 56728,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d3_lod0.glb",
+      "triangles": 7868,
+      "draws": 19,
+      "bytes": 430708,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d3_lod0.meshopt.glb",
+      "triangles": 7868,
+      "draws": 19,
+      "bytes": 96252,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d3_lod1.glb",
+      "triangles": 4556,
+      "draws": 19,
+      "bytes": 268272,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d3_lod1.meshopt.glb",
+      "triangles": 4556,
+      "draws": 19,
+      "bytes": 70436,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "xb12_d3_lod2.glb",
+      "triangles": 2204,
+      "draws": 1,
+      "bytes": 123164,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/xb12_d3_lod2.meshopt.glb",
+      "triangles": 2204,
+      "draws": 1,
+      "bytes": 45464,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
     }
   ],
-  "pose_samples": 60,
+  "pose_samples": 240,
   "damper_length_m": [
     0.6053486954737466,
     0.7618892314633519

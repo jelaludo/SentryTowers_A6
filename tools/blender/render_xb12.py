@@ -1,9 +1,11 @@
 """Derive editable Blender review scene and preview renders for the XB-12 four-wheel rover."""
 from pathlib import Path
 import bpy
+import sys
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
+DAMAGE = int(sys.argv[sys.argv.index("--damage")+1]) if "--damage" in sys.argv else 0
 
 
 def setup_scene(name, bg_color=(0.07, 0.10, 0.13)):
@@ -43,7 +45,7 @@ def add_light(scene, name, loc, target, energy, size, color):
 
 
 scene = setup_scene('XB12_Review_Derived', (0.07, 0.10, 0.13))
-bpy.ops.import_scene.gltf(filepath=str(ROOT / 'assets/xb12/xb12_d0_lod0.glb'))
+bpy.ops.import_scene.gltf(filepath=str(ROOT / f'assets/xb12/xb12_d{DAMAGE}_lod0.glb'))
 
 bpy.ops.mesh.primitive_plane_add(size=60, location=(0, 0, -0.01))
 ground = bpy.context.object
@@ -66,6 +68,7 @@ cam_data.lens = 37
 scene.camera = cam
 
 (ROOT / 'source/blender').mkdir(parents=True, exist_ok=True)
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / 'source/blender/xb12.blend'))
-scene.render.filepath = str(ROOT / 'assets/xb12/preview.png')
+if DAMAGE == 0:
+    bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / 'source/blender/xb12.blend'))
+scene.render.filepath = str(ROOT / ('assets/xb12/preview.png' if DAMAGE == 0 else f'assets/xb12/damage-d{DAMAGE}.png'))
 bpy.ops.render.render(write_still=True)

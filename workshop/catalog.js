@@ -20,7 +20,7 @@ const collectionImages={
 };
 
 export const collections=[
-['xb12','XB-12 / Terrain Scout','Industry','Elongated four-wheel armored Rover with a crowned underside, rear hexagonal sensor head and selectable miniature sentries on its front mount.','4 wheels · 3 LODs · Suspension lab','Animated prototype'],
+['xb12','XB-12 / Terrain Scout','Industry','Four-wheel armored Rover with D0–D3 physical damage, animated suspension, rear hexagonal sensors and selectable rover-sized sentries.','D0–D3 · 4 wheels · 3 LODs','Animated prototype'],
 ['recon-rover','R-47X / 6x6 Reconnaissance Rover','Industry','Unmanned 6x6 extreme-terrain rover with graduated D0–D3 & 19-zone localized damage, 6 independent spinning wheels, ±34° front steering, 8 gimbaled cold-gas nozzles + D2 COPV leak mist, and 4 UV-mapped displays including a rear NASM FDAI panel.','D0–D3 · 19 zones · 3 LODs · 8 nozzles + FDAI','Contract candidate'],
 ['stalheart-disco','Stålheart / Celebration Disco Gantry','Props','A silly diegetic congratulation diorama where Stålheart hoists the DSC-01 balance disco ball inside its 36 m gantry above celebrating MÖRK and ISAO units.','3 LODs · Gantry pendulum swing · Laser + light show','Diorama candidate'],
 ['disco-ball','DSC-01 / Celebration Disco Ball','Props','Standalone faceted mirror sphere with a counter-rotating laser turret ring, four party floodlights, pendulum hoist pivot and detachable floor cradle.','3 LODs · 16-second celebration cycle · Gantry-compatible','Contract candidate'],

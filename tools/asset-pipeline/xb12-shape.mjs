@@ -3,8 +3,8 @@ import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUt
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
 export const STATIONS=[{id:'FL',side:-1,z:1.475},{id:'FR',side:1,z:1.475},{id:'RL',side:-1,z:-1.475},{id:'RR',side:1,z:-1.475}];
 const C={shell:0x646c63,dark:0x202722,edge:0x414a42,rubber:0x161b18,chrome:0x8c968b,accent:0xaca88d,glass:0x122b2b};
-export function buildXB12(lod=0){
- const root=new T.Group();root.name='XB12_ROOT';root.userData={family:'xb12',damage_level:0,lod,static:lod===2};
+export function buildXB12(lod=0,damage=0){
+ const root=new T.Group();root.name='XB12_ROOT';root.userData={family:'xb12',damage_level:damage,lod,static:lod===2};
  const mat=new T.MeshStandardMaterial({name:'XB12_PALETTE',vertexColors:true,metalness:.35,roughness:.68});
  const seg=lod===0?16:lod===1?10:6;
  function group(name,parent=root,pos=[0,0,0]){const g=new T.Group();g.name=name;g.position.set(...pos);parent.add(g);return g;}
@@ -29,9 +29,9 @@ export function buildXB12(lod=0){
   for(const z of [-1.18,1.18]){
    body.push(slab(Math.min(side*.64,side*.79),Math.max(side*.64,side*.79),[[.99,z-.35],[shoulderY(z-.30)-.04,z-.30],[shoulderY(z+.30)-.04,z+.30],[.99,z+.35]],C.edge));
    body.push(slab(Math.min(side*.66,side*1.44),Math.max(side*.66,side*1.44),[[shoulderY(z-.5)-.14,z-.5],[shoulderY(z-.5),z-.5],[shoulderY(z+.5),z+.5],[shoulderY(z+.5)-.14,z+.5]],C.shell));
-   if(lod<2){body.push(box([.60,.035,.45],C.edge,[side*1.08,shoulderY(z)+.018,z],[Math.sign(z)*Math.atan(.22),0,0]),box([.5,.065,.12],C.dark,[side*1.13,shoulderY(z+.45)-.09,z+.45],[Math.sign(z)*Math.atan(.22),0,0]));}
+   if(lod<2&&damage<3){body.push(box([.60,.035,.45],C.edge,[side*1.08,shoulderY(z)+.018,z],[Math.sign(z)*Math.atan(.22),0,0]),box([.5,.065,.12],C.dark,[side*1.13,shoulderY(z+.45)-.09,z+.45],[Math.sign(z)*Math.atan(.22),0,0]));}
   }
-  if(lod<2){
+  if(lod<2&&damage<3){
    // Layered flank armor, recessed maintenance panels and guarded lamps.
    for(const z of [-.53,.12,.66])body.push(box([.035,.30,.48],C.dark,[side*.795,.96,z]),box([.055,.245,.41],C.shell,[side*.817,.97,z]),box([.065,.06,.16],C.dark,[side*.852,1.04,z]));
    body.push(box([.30,.18,.14],C.dark,[side*.43,.96,1.51]),box([.20,.05,.022],C.accent,[side*.43,.97,1.59]),box([.28,.1,.08],C.dark,[side*.43,.89,-1.49]),box([.19,.025,.025],0x743b30,[side*.43,.90,-1.54]));
@@ -41,7 +41,7 @@ export function buildXB12(lod=0){
    for(const z of [-.92,-.58])body.push(box([.45,.06,.25],C.dark,[side*.34,roofY(z)+.035,z],[roofAngle(z),0,0]));
    for(let i=0;i<(lod===0?9:5);i++)body.push(box([.37,.025,.026],C.edge,[side*.34,roofY(-1.02+i*.055)+.07,-1.02+i*.055],[roofAngle(-1),0,0]));
    body.push(box([.2,.14,.55],C.edge,[side*.56,roofY(-.28)+.07,-.28],[roofAngle(-1),0,0]));
-   if(lod===0){
+   if(lod===0&&damage<3){
     for(const z of [-1.18,1.18])for(const dx of [-.22,.22])for(const dz of [-.16,.16])body.push(cyl(.025,.025,C.chrome,[side*1.08+dx,shoulderY(z+dz)+.05,z+dz],[Math.sign(z)*Math.atan(.22),0,0],6));
     for(const z of [-.53,.12,.66])for(const yy of [.88,1.06])body.push(cyl(.019,.07,C.chrome,[side*.85,yy,z-.15],[0,0,Math.PI/2],6));
     // Protective rails and rear whip aerials remain detailed-master features.
@@ -49,7 +49,7 @@ export function buildXB12(lod=0){
    }
   }
  }
- if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,roofY(1.03)+.025,1.03],[roofAngle(1),0,0]),box([.79,.025,.41],C.shell,[0,roofY(1.023)+.05,1.023],[roofAngle(1),0,0]));
+ if(lod<2&&damage<3)body.push(box([.95,.035,.55],C.dark,[0,roofY(1.03)+.025,1.03],[roofAngle(1),0,0]),box([.79,.025,.41],C.shell,[0,roofY(1.023)+.05,1.023],[roofAngle(1),0,0]));
  body.push(box([.58,.06,.42],C.dark,[0,1.255,-.92],[roofAngle(-1),0,0]),cyl(.18,.12,C.edge,[0,1.30,-.92]),cyl(.24,.09,C.chrome,[0,1.38,-.92]),cyl(.52,.10,C.dark,[0,1.325,.76],undefined,8),cyl(.56,.035,C.chrome,[0,1.3925,.76],undefined,8));
  part('XB12_HULL',chassis,body).geometry.scale(1,1,1.25);
  const sentrySocket=group('SOCKET_SENTRY',chassis,[0,1.41,.95]);sentrySocket.userData={kind:'optional_scaled_sentry',support_half_width_m:.56,support_half_length_m:.70,max_height_m:1.25,up:'+Y',forward:'+Z'};
@@ -82,10 +82,60 @@ export function buildXB12(lod=0){
   const steer=group(`WHEEL_STEER_${id}`,upright);const spin=group(`WHEEL_SPIN_${id}`,steer);
   const wheel=[cyl(.5,.42,C.rubber,[0,0,0],[0,0,Math.PI/2]),cyl(.33,.435,C.dark,[0,0,0],[0,0,Math.PI/2]),cyl(.25,.45,C.edge,[0,0,0],[0,0,Math.PI/2]),cyl(.12,.47,C.accent,[0,0,0],[0,0,Math.PI/2])];
   const tread=lod===0?24:lod===1?16:8;
-  for(let i=0;i<tread;i++){const a=i/tread*Math.PI*2;if(lod===2)wheel.push(box([.43,.07,.13],C.dark,[0,.465*Math.cos(a),.465*Math.sin(a)],[a,0,0]));else for(const half of [-1,1]){const g=new T.BoxGeometry(.23,.07,.14);g.rotateY(half*.32);g.rotateX(a);wheel.push([g,C.edge,[half*.105,.46*Math.cos(a),.46*Math.sin(a)]]);}}
+  for(let i=0;i<tread;i++){if((damage===3&&i%3===0)||(damage===2&&['FL','RR'].includes(id)&&i%5===0))continue;const a=i/tread*Math.PI*2;if(lod===2)wheel.push(box([.43,.07,.13],C.dark,[0,.465*Math.cos(a),.465*Math.sin(a)],[a,0,0]));else for(const half of [-1,1]){const g=new T.BoxGeometry(.23,.07,.14);g.rotateY(half*.32);g.rotateX(a);wheel.push([g,C.edge,[half*.105,.46*Math.cos(a),.46*Math.sin(a)]]);}}
   if(lod===0)for(let i=0;i<8;i++){const a=i*Math.PI/4;wheel.push(cyl(.027,.48,C.chrome,[0,.19*Math.cos(a),.19*Math.sin(a)],[0,0,Math.PI/2],8));}
   part(`WHEEL_${id}`,spin,wheel);
  }
+ // Damage is authored into vertex geometry; engine lookup nodes and pivot translations survive.
+ if(damage>0)root.traverse(o=>{
+  if(!o.isMesh)return;
+  const g=o.geometry,p=g.attributes.position,colors=g.attributes.color;
+  const wheel=o.name.startsWith('WHEEL_'),arm=o.name.startsWith('SUSP_ARM_'),damper=o.name.startsWith('DAMPER_'),sensor=o.name.startsWith('SENSOR_');
+  const affected=damage===3||o.name.endsWith('_FL')||o.name.endsWith('_RR');
+  for(let i=0;i<p.count;i++){
+   let x=p.getX(i),y=p.getY(i),z=p.getZ(i),stress=0;
+   if(o.name==='XB12_HULL'){
+    const pad=Math.abs(x)<.61&&Math.abs(z-.95)<.76;
+    const mast=Math.abs(x)<.28&&Math.abs(z+1.15)<.29;
+    const impact=Math.exp(-((x+.95)**2/.4+(z-1.25)**2/.65));
+    const rearImpact=Math.exp(-((x-1.05)**2/.32+(z+1.35)**2/.5));
+    stress=Math.max(impact,rearImpact*.75);
+    if(!pad&&!mast){
+     const k=damage===1?.045:damage===2?.22:.45;
+     y-=k*stress*Math.max(0,y-.65);
+     x+=k*stress*.45;
+     z-=k*stress*.35;
+     // Fold exposed outer wheel shoulders downward; inner deck stays attached.
+     if(Math.abs(x)>.86&&y>1.0){y-=(damage===1?.025:damage===2?.16:.37)*(Math.abs(x)-.86)/.6;z+=Math.sign(z)*k*.18;}
+    }
+   }else if(wheel&&affected){
+    stress=.8;
+    const k=damage===1?.025:damage===2?.12:.24;
+    x+=y*k;
+    if(damage>=2){y=y<0?y*(damage===3?.84:1):y*(damage===3?.55:.78);z*=damage===3?.82:.94;}
+   }else if(arm&&affected){
+    stress=.8;
+    const t=Math.min(1,Math.abs(x)/.7);
+    // Buckle the arm centre, keeping hinge and hub endpoints joined.
+    y-=Math.sin(t*Math.PI)*(damage===1?.012:damage===2?.07:.16);
+    z+=Math.sin(t*Math.PI)*(damage===1?.008:damage===2?.045:.10);
+   }else if(damper&&affected){
+    stress=.7;
+    if(o.name.includes('ROD_MESH'))x+=(damage===1?.003:damage===2?.016:.035)*Math.sin(Math.min(1,Math.abs(y)/.44)*Math.PI);
+   }else if(sensor){
+    stress=damage===1?.2:damage===2?.6:1;
+    if(damage>=2){x+=(damage===2?.05:.12)*Math.max(0,y+.3);y*=damage===3?.78:.94;}
+   }
+   p.setXYZ(i,x,y,z);
+   const noise=(Math.sin(x*31+z*17+y*23)+1)*.5;
+   const scorch=damage===3?.32:damage===2?1-.57*stress:1-.18*stress;
+   const scrape=damage<3&&noise>.82&&stress>.15;
+   for(let axis=0;axis<3;axis++){
+    const old=colors.array[i*3+axis];colors.array[i*3+axis]=scrape?Math.min(.5,old*.7+.12):old*scorch;
+   }
+  }
+  p.needsUpdate=true;colors.needsUpdate=true;g.computeVertexNormals();g.computeBoundingBox();g.computeBoundingSphere();
+ });
  root.updateMatrixWorld(true);
  return root;
 }

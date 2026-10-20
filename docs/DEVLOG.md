@@ -1,5 +1,13 @@
 # Devlog
 
+## 20 October 2026 / XB-12 D0–D3 damage series
+
+Added four whole-rover states to the [XB-12 viewer](../xb12/): D0 intact, D1 battered, D2 component damage and D3 disabled wreck. Damage includes folded/scuffed armor, buckled arms and rods, crushed tire profiles with missing treads, stripped wreck trim and a deformed/drooped rear sensor. D2 reduces FL/RR wheel drive and travel to 40%, front-left steering to 50%, and sensor yaw to ±60°. D3 ignores drive/steering commands, locks suspension and parks the sensor; selected sentries remain separate attachments, visibly dimmed and marked offline. The front mount and payload sockets remain fixed across states.
+
+Generated 12 plain GLBs and 12 derived Meshopt exports. All 24 pass glTF validation with zero errors/warnings, geometry/hash/name checks, socket parity per damage state and 240 sampled poses, plus wreck command-invariance checks. D0 and D1 game tiers are 5,948 triangles / 19 draws; D2 is 5,756 / 19; D3 is 4,556 / 19. Distance tiers remain one draw at 2,204–2,348 triangles. Per-file bytes and hashes are in the manifest and README. All 33 sentry-fit checks still pass. D0 exports remain byte-identical to the preceding revision. Original R-47X and sentry assets remain unchanged.
+
+Added state selection with preserved equipment choice, damaged capability controls, D1–D3 rendered previews and integration notes. Safari verified D0→D3→D2 switching, locked wreck controls, an offline Rotor T2 and restored attachment materials on leaving D3. Earlier intact revision preserved at `02eed85`. Pending: localized damage, continuous collision/terrain physics, weapon firing/elevation clearance and game/mobile acceptance. This completes the requested damage series, not those separate integrations. No FPS claim.
+
 ## 20 October 2026 / Rover-proportioned sentry sizes
 
 Replaced the overly restrictive 0.34 m whole-weapon radius fit with rover-relative width, height and barrel-reach limits. Railgun T3 is now 56.5% of original scale instead of 10.6% (approximately 5.3× larger); all 33 sentry choices use the new sizing rule. Widened the mounting plate to 1.12 × 1.40 m, allowing barrels to overhang. The size slider still adjusts 60–100% of each fitted size.
