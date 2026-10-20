@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
-export const STATIONS=[{id:'FL',side:-1,z:1.18},{id:'FR',side:1,z:1.18},{id:'RL',side:-1,z:-1.18},{id:'RR',side:1,z:-1.18}];
+export const STATIONS=[{id:'FL',side:-1,z:1.475},{id:'FR',side:1,z:1.475},{id:'RL',side:-1,z:-1.475},{id:'RR',side:1,z:-1.475}];
 const C={shell:0x646c63,dark:0x202722,edge:0x414a42,rubber:0x161b18,chrome:0x8c968b,accent:0xaca88d,glass:0x122b2b};
 export function buildXB12(lod=0){
  const root=new T.Group();root.name='XB12_ROOT';root.userData={family:'xb12',damage_level:0,lod,static:lod===2};
@@ -21,9 +21,11 @@ export function buildXB12(lod=0){
  const roofY=z=>1.48-.30*Math.abs(z);
  const roofAngle=z=>Math.sign(z)*Math.atan(.30);
  const shoulderY=z=>1.62-.22*Math.abs(z);
- const body=[slab(-.70,.70,[[.59,-1.50],[1.03,-1.50],[1.48,0],[.991,1.63],[.64,1.55]],C.shell),box([1.15,.17,2.6],C.dark,[0,.58,0])];
+ // Concave underside follows the crown too; an extruded polygon preserves the upward notch.
+ function crownedHull(){const shape=new T.Shape();const profile=[[.52,-1.50],[1.03,-1.50],[1.48,0],[.991,1.63],[.52,1.55],[.88,0]];profile.forEach(([y,z],i)=>i?shape.lineTo(-z,y):shape.moveTo(-z,y));shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:1.4,bevelEnabled:false,steps:1});g.rotateY(Math.PI/2);g.translate(-.7,0,0);return [g,C.shell];}
+ const body=[crownedHull()];
  for(const side of [-1,1]){
-  body.push(box([.16,.26,2.65],C.dark,[side*.71,.82,0]));
+  for(const end of [-1,1])body.push(slab(Math.min(side*.69,side*.79),Math.max(side*.69,side*.79),[[.90,0],[.56,end*1.48],[.70,end*1.48],[1.04,0]],C.dark));
   for(const z of [-1.18,1.18]){
    body.push(slab(Math.min(side*.64,side*.79),Math.max(side*.64,side*.79),[[.99,z-.35],[shoulderY(z-.30)-.04,z-.30],[shoulderY(z+.30)-.04,z+.30],[.99,z+.35]],C.edge));
    body.push(slab(Math.min(side*.66,side*1.44),Math.max(side*.66,side*1.44),[[shoulderY(z-.5)-.14,z-.5],[shoulderY(z-.5),z-.5],[shoulderY(z+.5),z+.5],[shoulderY(z+.5)-.14,z+.5]],C.shell));
@@ -48,11 +50,12 @@ export function buildXB12(lod=0){
   }
  }
  if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,roofY(1.03)+.025,1.03],[roofAngle(1),0,0]),box([.79,.025,.41],C.shell,[0,roofY(1.023)+.05,1.023],[roofAngle(1),0,0]));
- body.push(box([.72,.055,.58],C.dark,[0,1.49,.12]),cyl(.18,.12,C.edge,[0,1.55,.10]),cyl(.24,.09,C.chrome,[0,1.58,.10]));
- part('XB12_HULL',chassis,body);
- group('SOCKET_PAYLOAD',chassis,[0,roofY(-.7)+.04,-.7]);
+ body.push(box([.58,.06,.42],C.dark,[0,1.255,-.92],[roofAngle(-1),0,0]),cyl(.18,.12,C.edge,[0,1.30,-.92]),cyl(.24,.09,C.chrome,[0,1.38,-.92]),cyl(.30,.10,C.dark,[0,1.325,.76],undefined,8),cyl(.34,.035,C.chrome,[0,1.3925,.76],undefined,8));
+ part('XB12_HULL',chassis,body).geometry.scale(1,1,1.25);
+ const sentrySocket=group('SOCKET_SENTRY',chassis,[0,1.41,.95]);sentrySocket.userData={kind:'optional_scaled_sentry',radius_m:.34,max_height_m:.8,up:'+Y',forward:'+Z'};
+ group('SOCKET_PAYLOAD',chassis,[0,1.52,0]);
  // A truncated octahedron gives eight genuine hexagonal faces and six square faces.
- const sensorYaw=group('SENSOR_YAW',chassis,[0,2.04,.10]);
+ const sensorYaw=group('SENSOR_YAW',chassis,[0,1.84,-1.15]);
  const sensorPitch=group('SENSOR_PITCH',sensorYaw);
  const verts=[];for(let zero=0;zero<3;zero++)for(const swap of [false,true])for(const a of [-1,1])for(const b of [-1,1]){const v=[0,0,0],axes=[0,1,2].filter(i=>i!==zero);v[axes[0]]=a*(swap?2:1)*.23;v[axes[1]]=b*(swap?1:2)*.23;verts.push(new T.Vector3(...v));}
  part('SENSOR_HEX_SPHERE',sensorPitch,[[new ConvexGeometry(verts),C.shell]]);

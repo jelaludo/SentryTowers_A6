@@ -12,21 +12,21 @@ Open `/xb12/` for play/pause, a four-second timeline, articulation/landing/manua
 
 | Tier | Triangles | Mesh draws | Materials | Plain bytes | Derived Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 detailed master | 10,604 | 19 | 1 | 600,076 | 125,172 |
-| LOD1 game prototype | 5,868 | 19 | 1 | 365,252 | 86,240 |
-| LOD2 static distance | 2,268 | 1 | 1 | 130,168 | 43,456 |
+| LOD0 detailed master | 10,684 | 19 | 1 | 603,964 | 126,464 |
+| LOD1 game prototype | 5,948 | 19 | 1 | 369,152 | 87,420 |
+| LOD2 static distance | 2,348 | 1 | 1 | 134,056 | 44,528 |
 
 Counts describe asset mesh submissions, excluding viewer ground, overlays and lighting. No FPS claim. LOD1 is under the collaboration contract's 25k-triangle unit target. LOD2 is an optional static map/loading representation, not an animated gameplay replacement. Use LOD1 before motion is readable; no automatic distance threshold has been certified. LOD0 adds armor fasteners, wheel bolts, denser split tread blocks, protective rails, antennas, vents and higher radial detail for close views. The revised muted olive-gray body uses connected armored wheel shoulders, layered maintenance panels, guarded lamps and recovery fittings.
 
 ## Runtime contract
 
-Metres, +Y up, +Z forward, root at the ground-centred plot origin; reserve a 4 × 4 m plot. `-X` is left and `+X` right in rover coordinates. Nominal hubs are X ±1.20 m, Y 0.50 m, Z ±1.18 m. Swing arms are 0.70 m long. Positive compression moves the hub upward: range −0.12 to +0.14 m. This intentionally uses an explicit compression sign rather than the R-47X's old travel sign. Steering is parallel front-wheel steering, not an Ackermann solver.
+Metres, +Y up, +Z forward, root at the ground-centred plot origin; reserve a 4 × 5 m plot. `-X` is left and `+X` right in rover coordinates. Nominal hubs are X ±1.20 m, Y 0.50 m, Z ±1.475 m. Swing arms are 0.70 m long. Positive compression moves the hub upward: range −0.12 to +0.14 m. This intentionally uses an explicit compression sign rather than the R-47X's old travel sign. Steering is parallel front-wheel steering, not an Ackermann solver.
 
 Import `applyXB12` from `runtime.js` and call it with the loaded scene and `{compression:{FL,FR,RL,RR}, steerDeg, spinRad, sensorYaw, sensorPitch}`. Compression is in metres, steering in degrees, the other angles in radians. Sensor pitch clamps to ±0.25 rad. The game should supply solved physics state; `demoPose(time, mode, bias)` is an art-directed preview helper. Do not stack its oscillations on game physics. Pass finite numeric inputs. The loaded scene must carry `userData.static=true` for LOD2, as the viewer does using the manifest.
 
 Per-wheel hierarchy: `SUSP_PIVOT_*` → `UPRIGHT_*` → `WHEEL_STEER_*` → `WHEEL_SPIN_*` → `WHEEL_*`. The upright inherits swing-arm camber; it is not a double-wishbone or compensated upright. `SOCKET_DAMPER_UPPER_*` stays chassis-fixed, `SOCKET_DAMPER_LOWER_*` follows the arm, `DAMPER_AIM_*` aims at it and `DAMPER_ROD_*` slides to the lower endpoint. Barrel and rod are each 0.44 m long. Sampled damper lengths are 0.605–0.762 m, retaining at least 0.118 m overlap. Engine-facing names and rest sockets match across tiers. LOD2 names are lookup-only: its mesh cannot articulate.
 
-`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. This revision relocates camera and lidar sockets into the hexagonal faces; radar sockets also follow the revised flush faces. Socket names are preserved, but consumers must refresh their pinned manifest. The shallow peaked hull revision raises the sensor assembly by 0.24 m and moves the payload socket onto the new rear deck at Y 1.31 m. Suspension rest positions are unchanged. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
+`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. This revision relocates camera and lidar sockets into the hexagonal faces; radar sockets also follow the revised flush faces. Socket names are preserved, but consumers must refresh their pinned manifest. The elongated revision moves the sensor assembly to [0, 1.84, −1.15] m and the payload socket to [0, 1.52, 0] m. Wheel stations and both damper mounts move to Z ±1.475 m; local arm dimensions, travel and axes are unchanged. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
 
 ## Sources and validation
 
@@ -44,4 +44,12 @@ Hand-off: use the commit containing this folder together with `assets/xb12/`; pi
 
 The original XB-12 prototype is preserved in commit `64f1612eaa1d444dab0638c8d287c112f66d6f1d`. The rugged revision follows the two user-supplied R-47X orthographic references for visual character, not their inconsistent dimension annotations.
 
-Hull profile: a shallow longitudinal peak at Y 1.48 m, Z 0, sloping toward the front and rear at approximately 16.7°. Wheel shoulders slope outward toward the ends at approximately 12.4°. Deck panels and rails follow these slopes. The prior armor revision is preserved in commit `55823e0`.
+Hull profile: 25% longer along Z than the prior revision. The longitudinal upper ridge is Y 1.48 m at Z 0 and the underside rises to Y 0.88 m at the centre, falling toward Y 0.52 m at the ends. The belly uses a concave extruded profile, not a convex hull that fills the notch. Deck slopes are approximately 13.5° after lengthening. Earlier shape preserved at commit `13fafb4`.
+
+## Optional front sentry
+
+`SOCKET_SENTRY` is at [0, 1.41, 0.95] m, level, with +Y up and +Z forward. The viewer offers Empty mount and all 33 family/equipment combinations from `assets/sentries/manifest.json` (11 families × T1–T3), plus size and bearing. The chosen sentry follows the selected LOD and encoding. These are separate attached assets; the rover GLBs and rover download retain an empty mount, and the original sentry files are unchanged.
+
+`equipment.js` computes uniform placement using canonical sentry bounds: maximum horizontal radius 0.34 m, height 0.80 m, and at most 45% original scale. Size adjusts from 60–100% of that fitted maximum. Raise by `yOffset` so the base sits on the socket. Parent the attachment to the socket; preserve its internal pivots. Rotation around Y stays inside the fitted circular envelope. Attachments add their own triangles/draws; the viewer reports these separately from rover metrics. Static LOD2 loads the sentry’s static tier; mounting choices and bearing are configuration controls, not baked animation.
+
+`node tools/asset-pipeline/test-xb12-equipment.mjs` checks actual vertices from all 33 game-tier GLBs at both size limits for seating, radial clearance and height. Results are in `equipment-validation.json`. This does not certify weapon elevation, recoil, firing or animated mobile-sentry motion; those are not driven in this viewer. Desktop Safari verified selection and loading of Railgun T3.

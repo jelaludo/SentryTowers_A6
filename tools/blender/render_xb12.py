@@ -62,7 +62,7 @@ cam = bpy.data.objects.new('REVIEW_CAMERA', cam_data)
 scene.collection.objects.link(cam)
 cam.location = (-4.8, -5.3, 3.1)
 aim(cam, (0.0, 0.0, 1.0))
-cam_data.lens = 42
+cam_data.lens = 37
 scene.camera = cam
 
 (ROOT / 'source/blender').mkdir(parents=True, exist_ok=True)

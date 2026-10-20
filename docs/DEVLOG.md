@@ -1,5 +1,13 @@
 # Devlog
 
+## 20 October 2026 / Longer XB-12, crowned underside and selectable front sentries
+
+Lengthened the XB-12 body and wheelbase 25% along Z. The upper ridge now carries through the underside, with a raised central belly and sloped ends instead of a flat bottom. Moved the hexagonal telemetry head to the rear and added a level `SOCKET_SENTRY` at the front. The viewer offers Empty mount and all 33 existing sentry variants (11 families × T1–T3), fitted uniformly at reduced scale, with size and bearing controls. Selection follows LOD and encoding; equipment remains separate from the plain rover exports. Original R-47X and sentry files are unchanged.
+
+Rebuilt detailed/game/static exports and derived Meshopt copies: LOD0 10,684 triangles / 19 draws / 603,964 bytes; LOD1 5,948 / 19 / 369,152; LOD2 2,348 / one draw / 134,056. All six exports and 60 rig poses pass validation. Actual geometry from all 33 game-tier sentries passes mount seating, circular footprint and height checks at both size limits. Safari verified front-mount Railgun T3 selection. Updated Blender assembly, preview, manifest and integration notes; earlier shape preserved at `13fafb4`.
+
+Pending: continuous vehicle collision, physical terrain contact, weapon elevation/recoil/firing clearance, damage states and game/mobile profiling. No FPS claim.
+
 ## 20 October 2026 / XB-12 shallow peaked hull
 
 Changed the [XB-12](../xb12/) from a flat central deck to the reference-inspired shallow longitudinal peak: the centre rises to 1.48 m, with front and rear roof slopes of approximately 16.7°. The wheel shoulders now slope toward the ends at approximately 12.4°; deck hatches, ventilation panels, fasteners and protective rails follow the slopes. Raised the hexagonal sensor assembly 0.24 m and updated its manifest sockets; the payload socket now sits on the rear deck at Y 1.31 m. Wheel and suspension pivots are unchanged.
