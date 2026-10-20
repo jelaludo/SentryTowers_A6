@@ -2,49 +2,49 @@
   "assets": [
     {
       "file": "xb12_d0_lod0.glb",
-      "triangles": 10528,
+      "triangles": 10604,
       "draws": 19,
-      "bytes": 596808,
+      "bytes": 600076,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/xb12_d0_lod0.meshopt.glb",
-      "triangles": 10528,
+      "triangles": 10604,
       "draws": 19,
-      "bytes": 123060,
+      "bytes": 125172,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "xb12_d0_lod1.glb",
-      "triangles": 5872,
+      "triangles": 5868,
       "draws": 19,
-      "bytes": 365500,
+      "bytes": 365252,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/xb12_d0_lod1.meshopt.glb",
-      "triangles": 5872,
+      "triangles": 5868,
       "draws": 19,
-      "bytes": 85732,
+      "bytes": 86240,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "xb12_d0_lod2.glb",
-      "triangles": 2272,
+      "triangles": 2268,
       "draws": 1,
-      "bytes": 130404,
+      "bytes": 130168,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/xb12_d0_lod2.meshopt.glb",
-      "triangles": 2272,
+      "triangles": 2268,
       "draws": 1,
-      "bytes": 43468,
+      "bytes": 43456,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }

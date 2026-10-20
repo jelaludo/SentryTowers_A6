@@ -12,9 +12,9 @@ Open `/xb12/` for play/pause, a four-second timeline, articulation/landing/manua
 
 | Tier | Triangles | Mesh draws | Materials | Plain bytes | Derived Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 detailed master | 10,528 | 19 | 1 | 596,808 | 123,060 |
-| LOD1 game prototype | 5,872 | 19 | 1 | 365,500 | 85,732 |
-| LOD2 static distance | 2,272 | 1 | 1 | 130,404 | 43,468 |
+| LOD0 detailed master | 10,604 | 19 | 1 | 600,076 | 125,172 |
+| LOD1 game prototype | 5,868 | 19 | 1 | 365,252 | 86,240 |
+| LOD2 static distance | 2,268 | 1 | 1 | 130,168 | 43,456 |
 
 Counts describe asset mesh submissions, excluding viewer ground, overlays and lighting. No FPS claim. LOD1 is under the collaboration contract's 25k-triangle unit target. LOD2 is an optional static map/loading representation, not an animated gameplay replacement. Use LOD1 before motion is readable; no automatic distance threshold has been certified. LOD0 adds armor fasteners, wheel bolts, denser split tread blocks, protective rails, antennas, vents and higher radial detail for close views. The revised muted olive-gray body uses connected armored wheel shoulders, layered maintenance panels, guarded lamps and recovery fittings.
 
@@ -26,7 +26,7 @@ Import `applyXB12` from `runtime.js` and call it with the loaded scene and `{com
 
 Per-wheel hierarchy: `SUSP_PIVOT_*` → `UPRIGHT_*` → `WHEEL_STEER_*` → `WHEEL_SPIN_*` → `WHEEL_*`. The upright inherits swing-arm camber; it is not a double-wishbone or compensated upright. `SOCKET_DAMPER_UPPER_*` stays chassis-fixed, `SOCKET_DAMPER_LOWER_*` follows the arm, `DAMPER_AIM_*` aims at it and `DAMPER_ROD_*` slides to the lower endpoint. Barrel and rod are each 0.44 m long. Sampled damper lengths are 0.605–0.762 m, retaining at least 0.118 m overlap. Engine-facing names and rest sockets match across tiers. LOD2 names are lookup-only: its mesh cannot articulate.
 
-`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. This revision relocates camera and lidar sockets into the hexagonal faces; radar sockets also follow the revised flush faces. Socket names are preserved, but consumers must refresh their pinned manifest. Suspension and payload socket rest positions are unchanged. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
+`SENSOR_YAW`, `SENSOR_PITCH`, `SOCKET_CAMERA_L/R`, four `SOCKET_RADAR_*`, `SOCKET_LIDAR` and `SOCKET_PAYLOAD` provide integration points. Socket positions and parents are recorded in `manifest.json`. This revision relocates camera and lidar sockets into the hexagonal faces; radar sockets also follow the revised flush faces. Socket names are preserved, but consumers must refresh their pinned manifest. The shallow peaked hull revision raises the sensor assembly by 0.24 m and moves the payload socket onto the new rear deck at Y 1.31 m. Suspension rest positions are unchanged. No production clips are baked (`clips: []`); the preview articulation and landing cycles each last four seconds.
 
 ## Sources and validation
 
@@ -43,3 +43,5 @@ Pending: continuous tire/fender/chassis clearance certification, game physics/co
 Hand-off: use the commit containing this folder together with `assets/xb12/`; pin that commit and the hashes in `manifest.json`. Credit: Models by jelaludo.
 
 The original XB-12 prototype is preserved in commit `64f1612eaa1d444dab0638c8d287c112f66d6f1d`. The rugged revision follows the two user-supplied R-47X orthographic references for visual character, not their inconsistent dimension annotations.
+
+Hull profile: a shallow longitudinal peak at Y 1.48 m, Z 0, sloping toward the front and rear at approximately 16.7°. Wheel shoulders slope outward toward the ends at approximately 12.4°. Deck panels and rails follow these slopes. The prior armor revision is preserved in commit `55823e0`.

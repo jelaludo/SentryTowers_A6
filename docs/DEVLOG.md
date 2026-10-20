@@ -1,5 +1,11 @@
 # Devlog
 
+## 20 October 2026 / XB-12 shallow peaked hull
+
+Changed the [XB-12](../xb12/) from a flat central deck to the reference-inspired shallow longitudinal peak: the centre rises to 1.48 m, with front and rear roof slopes of approximately 16.7°. The wheel shoulders now slope toward the ends at approximately 12.4°; deck hatches, ventilation panels, fasteners and protective rails follow the slopes. Raised the hexagonal sensor assembly 0.24 m and updated its manifest sockets; the payload socket now sits on the rear deck at Y 1.31 m. Wheel and suspension pivots are unchanged.
+
+Rebuilt detailed/game/static tiers and derived Meshopt files: LOD0 10,604 triangles / 19 draws / 600,076 bytes; LOD1 5,868 / 19 / 365,252; LOD2 2,268 / one draw / 130,168. All six exports pass validation and the 60 sampled rig poses. Updated Blender assembly, preview and runtime notes. Prior version preserved at `55823e0`; the R-47X remains untouched. Full continuous collision, terrain physics, damage states and game review remain pending.
+
 ## 20 October 2026 / XB-12 rugged armor and hex-only sensors
 
 Revised the separate [XB-12](../xb12/) from the supplied military rover references: connected armored wheel shoulders replace the light guards, with layered flank plates, maintenance panels, guarded lamps, recovery fittings, wider split-tread tires, reinforced swing arms and ribbed damper housings. The palette is muted olive-gray with dark hardware. Removed the round camera eyes and top lidar cap; camera, radar and lidar apertures now use the sensor sphere’s hexagonal faces. Existing sensor socket names are retained but their face positions are revised in the manifest; suspension pivots and mounts are unchanged.

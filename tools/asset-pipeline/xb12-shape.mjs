@@ -18,13 +18,16 @@ export function buildXB12(lod=0){
  const chassis=group('XB12_CHASSIS');
  // Broad armored shoulders replace the light detached wheel guards.
  function slab(x0,x1,profile,color){const vs=[];for(const x of [x0,x1])for(const [y,z] of profile)vs.push(new T.Vector3(x,y,z));return [new ConvexGeometry(vs),color];}
- const body=[slab(-.70,.70,[[.59,-1.50],[1.08,-1.42],[1.23,-.65],[1.19,.65],[.92,1.63],[.64,1.55]],C.shell),box([1.15,.17,2.6],C.dark,[0,.58,0])];
+ const roofY=z=>1.48-.30*Math.abs(z);
+ const roofAngle=z=>Math.sign(z)*Math.atan(.30);
+ const shoulderY=z=>1.62-.22*Math.abs(z);
+ const body=[slab(-.70,.70,[[.59,-1.50],[1.03,-1.50],[1.48,0],[.991,1.63],[.64,1.55]],C.shell),box([1.15,.17,2.6],C.dark,[0,.58,0])];
  for(const side of [-1,1]){
   body.push(box([.16,.26,2.65],C.dark,[side*.71,.82,0]));
   for(const z of [-1.18,1.18]){
-   body.push(slab(Math.min(side*.64,side*.79),Math.max(side*.64,side*.79),[[.99,z-.35],[1.32,z-.30],[1.32,z+.30],[.99,z+.35]],C.edge));
-   body.push(slab(Math.min(side*.66,side*1.44),Math.max(side*.66,side*1.44),[[1.25,z-.5],[1.40,z-.32],[1.38,z+.30],[1.25,z+.5]],C.shell));
-   if(lod<2){body.push(box([.60,.035,.45],C.edge,[side*1.08,1.405,z]),box([.5,.065,.12],C.dark,[side*1.13,1.255,z+.45]));}
+   body.push(slab(Math.min(side*.64,side*.79),Math.max(side*.64,side*.79),[[.99,z-.35],[shoulderY(z-.30)-.04,z-.30],[shoulderY(z+.30)-.04,z+.30],[.99,z+.35]],C.edge));
+   body.push(slab(Math.min(side*.66,side*1.44),Math.max(side*.66,side*1.44),[[shoulderY(z-.5)-.14,z-.5],[shoulderY(z-.5),z-.5],[shoulderY(z+.5),z+.5],[shoulderY(z+.5)-.14,z+.5]],C.shell));
+   if(lod<2){body.push(box([.60,.035,.45],C.edge,[side*1.08,shoulderY(z)+.018,z],[Math.sign(z)*Math.atan(.22),0,0]),box([.5,.065,.12],C.dark,[side*1.13,shoulderY(z+.45)-.09,z+.45],[Math.sign(z)*Math.atan(.22),0,0]));}
   }
   if(lod<2){
    // Layered flank armor, recessed maintenance panels and guarded lamps.
@@ -33,23 +36,23 @@ export function buildXB12(lod=0){
    for(const end of [-1,1]){
     body.push(beam([side*.50,.76,end*1.59],[side*.50,.88,end*1.59],.045,C.chrome),beam([side*.5,.76,end*1.59],[side*.30,.76,end*1.59],.045,C.chrome));
    }
-   for(const z of [-.92,-.58])body.push(box([.45,.06,.25],C.dark,[side*.34,1.22,z]));
-   for(let i=0;i<(lod===0?9:5);i++)body.push(box([.37,.025,.026],C.edge,[side*.34,1.26,-1.02+i*.055]));
-   body.push(box([.2,.14,.55],C.edge,[side*.56,1.23,-.28]));
+   for(const z of [-.92,-.58])body.push(box([.45,.06,.25],C.dark,[side*.34,roofY(z)+.035,z],[roofAngle(z),0,0]));
+   for(let i=0;i<(lod===0?9:5);i++)body.push(box([.37,.025,.026],C.edge,[side*.34,roofY(-1.02+i*.055)+.07,-1.02+i*.055],[roofAngle(-1),0,0]));
+   body.push(box([.2,.14,.55],C.edge,[side*.56,roofY(-.28)+.07,-.28],[roofAngle(-1),0,0]));
    if(lod===0){
-    for(const z of [-1.18,1.18])for(const dx of [-.22,.22])for(const dz of [-.16,.16])body.push(cyl(.025,.025,C.chrome,[side*1.08+dx,1.435,z+dz],[0,0,0],6));
+    for(const z of [-1.18,1.18])for(const dx of [-.22,.22])for(const dz of [-.16,.16])body.push(cyl(.025,.025,C.chrome,[side*1.08+dx,shoulderY(z+dz)+.05,z+dz],[Math.sign(z)*Math.atan(.22),0,0],6));
     for(const z of [-.53,.12,.66])for(const yy of [.88,1.06])body.push(cyl(.019,.07,C.chrome,[side*.85,yy,z-.15],[0,0,Math.PI/2],6));
     // Protective rails and rear whip aerials remain detailed-master features.
-    body.push(beam([side*.63,1.31,-.95],[side*.63,1.31,.7],.022,C.dark),cyl(.027,.16,C.dark,[side*.57,1.32,-1.1]),cyl(.009,.45,C.dark,[side*.57,1.62,-1.1],undefined,6));
+    body.push(beam([side*.63,roofY(-.95)+.09,-.95],[side*.63,1.57,0],.022,C.dark),beam([side*.63,1.57,0],[side*.63,roofY(.7)+.09,.7],.022,C.dark),cyl(.027,.16,C.dark,[side*.57,1.32,-1.1]),cyl(.009,.45,C.dark,[side*.57,1.62,-1.1],undefined,6));
    }
   }
  }
- if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,1.105,1.03],[.27,0,0]),box([.79,.025,.41],C.shell,[0,1.13,1.023],[.27,0,0]));
- body.push(box([.72,.055,.58],C.dark,[0,1.25,.12]),cyl(.18,.12,C.edge,[0,1.31,.10]),cyl(.24,.09,C.chrome,[0,1.34,.10]));
+ if(lod<2)body.push(box([.95,.035,.55],C.dark,[0,roofY(1.03)+.025,1.03],[roofAngle(1),0,0]),box([.79,.025,.41],C.shell,[0,roofY(1.023)+.05,1.023],[roofAngle(1),0,0]));
+ body.push(box([.72,.055,.58],C.dark,[0,1.49,.12]),cyl(.18,.12,C.edge,[0,1.55,.10]),cyl(.24,.09,C.chrome,[0,1.58,.10]));
  part('XB12_HULL',chassis,body);
- group('SOCKET_PAYLOAD',chassis,[0,1.12,-.7]);
+ group('SOCKET_PAYLOAD',chassis,[0,roofY(-.7)+.04,-.7]);
  // A truncated octahedron gives eight genuine hexagonal faces and six square faces.
- const sensorYaw=group('SENSOR_YAW',chassis,[0,1.80,.10]);
+ const sensorYaw=group('SENSOR_YAW',chassis,[0,2.04,.10]);
  const sensorPitch=group('SENSOR_PITCH',sensorYaw);
  const verts=[];for(let zero=0;zero<3;zero++)for(const swap of [false,true])for(const a of [-1,1])for(const b of [-1,1]){const v=[0,0,0],axes=[0,1,2].filter(i=>i!==zero);v[axes[0]]=a*(swap?2:1)*.23;v[axes[1]]=b*(swap?1:2)*.23;verts.push(new T.Vector3(...v));}
  part('SENSOR_HEX_SPHERE',sensorPitch,[[new ConvexGeometry(verts),C.shell]]);
