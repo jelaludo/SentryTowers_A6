@@ -1,5 +1,7 @@
 # Model Workshop
 
+**MX-06 Ridgeback / Six-legged mech** adds 18 spike claws, telescopic hydraulics, a rotary minigun, laser and twin missile pods. D0–D3 include detailed/game/static-distance tiers and exported four-second walk clips. Open `ridgeback-mech/`; measured hand-off is in `assets/ridgeback-mech/README.md`.
+
 **R-47X-S / Swing-arm Recon Rover** is a separate six-wheel R-47X derivative with XB-12-style articulated swing arms and telescopic dampers, D0–D3 damage and three tiers. Open `recon-rover-s/`; integration notes are in `assets/recon-rover-s/README.md`.
 
 **XB-12 / Terrain Scout** is a separate four-wheel Rover with animated swing arms, telescopic dampers and a hex-faceted radar/lidar/camera sphere. Open `xb12/`; source and measured integration notes are in `assets/xb12/README.md`. The existing R-47X remains unchanged.

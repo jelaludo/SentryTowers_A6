@@ -1,0 +1,291 @@
+{
+  "assets": [
+    {
+      "file": "mx06_d0_lod0.glb",
+      "triangles": 19748,
+      "draws": 38,
+      "bytes": 1159236,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d0_lod0.meshopt.glb",
+      "triangles": 19748,
+      "draws": 38,
+      "bytes": 195460,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d0_lod1.glb",
+      "triangles": 7888,
+      "draws": 38,
+      "bytes": 663856,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d0_lod1.meshopt.glb",
+      "triangles": 7888,
+      "draws": 38,
+      "bytes": 128988,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d0_lod2.glb",
+      "triangles": 2920,
+      "draws": 1,
+      "bytes": 199480,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d0_lod2.meshopt.glb",
+      "triangles": 2920,
+      "draws": 1,
+      "bytes": 73756,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "mx06_d1_lod0.glb",
+      "triangles": 19748,
+      "draws": 38,
+      "bytes": 1159996,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d1_lod0.meshopt.glb",
+      "triangles": 19748,
+      "draws": 38,
+      "bytes": 276396,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d1_lod1.glb",
+      "triangles": 7888,
+      "draws": 38,
+      "bytes": 664648,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d1_lod1.meshopt.glb",
+      "triangles": 7888,
+      "draws": 38,
+      "bytes": 169776,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d1_lod2.glb",
+      "triangles": 2920,
+      "draws": 1,
+      "bytes": 199476,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d1_lod2.meshopt.glb",
+      "triangles": 2920,
+      "draws": 1,
+      "bytes": 94572,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "mx06_d2_lod0.glb",
+      "triangles": 19840,
+      "draws": 38,
+      "bytes": 1165032,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Damaged_Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d2_lod0.meshopt.glb",
+      "triangles": 19840,
+      "draws": 38,
+      "bytes": 287452,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Damaged_Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d2_lod1.glb",
+      "triangles": 7948,
+      "draws": 38,
+      "bytes": 668344,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Damaged_Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "derived/meshopt/mx06_d2_lod1.meshopt.glb",
+      "triangles": 7948,
+      "draws": 38,
+      "bytes": 176552,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": [
+        {
+          "name": "Damaged_Walk_Cycle",
+          "duration_s": 4
+        }
+      ]
+    },
+    {
+      "file": "mx06_d2_lod2.glb",
+      "triangles": 2964,
+      "draws": 1,
+      "bytes": 202408,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d2_lod2.meshopt.glb",
+      "triangles": 2964,
+      "draws": 1,
+      "bytes": 96632,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "mx06_d3_lod0.glb",
+      "triangles": 19676,
+      "draws": 38,
+      "bytes": 962952,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d3_lod0.meshopt.glb",
+      "triangles": 19676,
+      "draws": 38,
+      "bytes": 184176,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "mx06_d3_lod1.glb",
+      "triangles": 7892,
+      "draws": 38,
+      "bytes": 474836,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d3_lod1.meshopt.glb",
+      "triangles": 7892,
+      "draws": 38,
+      "bytes": 113184,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "mx06_d3_lod2.glb",
+      "triangles": 2908,
+      "draws": 1,
+      "bytes": 198156,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    },
+    {
+      "file": "derived/meshopt/mx06_d3_lod2.meshopt.glb",
+      "triangles": 2908,
+      "draws": 1,
+      "bytes": 74760,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "clips": []
+    }
+  ],
+  "pose_samples": 1296,
+  "clip_samples": 384,
+  "minimum_planted_feet": 3,
+  "piston_length_m": [
+    0.5927454315244778,
+    0.9254588116945922
+  ],
+  "minimum_piston_overlap_m": 0.15454118830540786,
+  "maximum_clip_endpoint_error_m": 0.0012969817918092022,
+  "errors": [],
+  "scope": "Decoded plain/Meshopt geometry and gait checks on level ground; not continuous collision, terrain physics, firing or mobile performance certification"
+}

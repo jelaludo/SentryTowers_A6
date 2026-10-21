@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## MX-06 Ridgeback / 21 October 2026
+
+Original procedural geometry, damage variants and animation by jelaludo, created from the user-provided six-legged military exploration mech concept image and description. The supplied image is visual reference only; no image, third-party mesh or external texture is embedded in the exports. Plain GLBs are authoritative. Meshopt copies, rendered previews and the Blender review assembly are derived. MX-06 is a provisional prototype designation.
+
 ## First Light cinematic / 25 September 2026
 
 Scene choreography, procedural planet/atmosphere/stars/spiral galaxy and presentation effects by jelaludo. Reuses the repository's original ARC-01, SOL-88 Syzygy and HEL-01 reflector geometry. The orbital HEL-01 head and rendered poster are presentation derivatives; original GLBs and their dimensions are preserved. No external art, textures or audio embedded.
