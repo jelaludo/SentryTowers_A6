@@ -39,6 +39,7 @@ export function solveHydraulics(root){
 export function applyMech(root,time=0,{mode='walk',damage,aimYaw=0,aimPitch=0,barrelAngle=0}={}){
  const asset=root.getObjectByName('MX06_ROOT')||root,d=damage??asset.userData.damage_level??0,p=policy(d);
  if(asset.userData.static)return {contacts:6,phase:'Static distance pose',targets:{}};
+ const drop=root.getObjectByName('DROP_ROOT');if(drop){drop.position.set(0,0,0);drop.rotation.set(0,0,0);}
  const body=root.getObjectByName('MECH_BODY');body.position.y=p.bodyY;
  const targets={};let contacts=0;
  for(const leg of LEGS){
@@ -57,8 +58,32 @@ export function applyMech(root,time=0,{mode='walk',damage,aimYaw=0,aimPitch=0,ba
  const yaw=clamp(aimYaw,-Math.PI/5,Math.PI/5)*(d===3?0:d===2?.5:1),pitch=clamp(aimPitch,-.12,.55)*(d===3?0:1);
  for(const gun of ['MINIGUN','LASER']){root.getObjectByName(gun+'_YAW').rotation.y=yaw;root.getObjectByName(gun+'_PITCH').rotation.x=d===3?.23:-pitch;}
  root.getObjectByName('MINIGUN_SPIN').rotation.z=d===3?0:barrelAngle;
- root.getObjectByName('MISSILE_ELEVATION').rotation.x=d===3?.18:-.18-pitch*.4;
+ root.getObjectByName('MISSILE_ELEVATION').rotation.x=d===3?-.42:-.58-pitch*.4;
  root.getObjectByName('SENSOR_YAW').rotation.y=d===3?.28:yaw*.7;
  root.updateMatrixWorld(true);
  return {contacts,targets,phase:d===3?'D3 / Disabled wreck':d===2?'D2 / Reduced-stride tripod walk':mode==='walk'?'Alternating tripod walk':'Parked / Six feet planted'};
+}
+
+export const DROP_DURATION=7,TOUCHDOWN_TIME=2.6;
+const smooth=x=>{x=clamp(x,0,1);return x*x*(3-2*x);};
+const hermite=(a,b,va,vb,u,duration)=>(2*u**3-3*u*u+1)*a+(u**3-2*u*u+u)*va*duration+(-2*u**3+3*u*u)*b+(u**3-u*u)*vb*duration;
+export function dropState(time){
+ const t=clamp(time,0,DROP_DURATION);let height=6,compression=0,jet=0;
+ if(t>=.6&&t<1.6)height=6-2.5*(t-.6)**2;
+ else if(t>=1.6&&t<2.6){const u=t-1.6;height=3.5-5*u+1.5*u*u;jet=smooth(u/.1);}
+ else if(t>=2.6){height=0;const u=t-2.6;jet=.32*(1-smooth(u/.12));
+  if(u<.22)compression=hermite(0,.64,2,0,u/.22,.22);
+  else if(u<.77)compression=hermite(.64,-.08,0,0,(u-.22)/.55,.55);
+  else {const q=u-.77;compression=-.08*Math.exp(-2.5*q)*(Math.cos(8*q)+.3125*Math.sin(8*q))*(1-smooth((t-5.5)/1.5));}
+ }
+ const tuck=.24*(1-smooth((t-1.5)/.9));
+ return {time:t,height,compression,jet,tuck,contacts:t<2.6?0:6,phase:t<.6?'Gunship sling / release armed':t<1.6?'Released / accelerating descent':t<2.6?'Ventral braking jet / deploy legs':t<2.82?'Heavy touchdown / full compression':t<4.6?'Mass rebound / damped settling':'Landed / systems ready',impact:Math.max(0,t-2.6)};
+}
+export function applyAirdrop(root,time=0,{damage}={}){
+ const asset=root.getObjectByName('MX06_ROOT')||root,d=damage??asset.userData.damage_level??0;
+ if(asset.userData.static||d===3){applyMech(root,0,{mode:'park',damage:d});return {...dropState(7),phase:d===3?'Disabled wreck / deployment unavailable':'Static distance pose',jet:0};}
+ applyMech(root,0,{mode:'park',damage:d});const s=dropState(time),drop=root.getObjectByName('DROP_ROOT'),body=root.getObjectByName('MECH_BODY');
+ drop.position.y=s.height;body.position.y=1.9-s.compression;
+ for(const leg of LEGS)poseLeg(root,leg,[leg.fx-leg.side*s.tuck,.18+s.tuck,leg.fz]);
+ solveHydraulics(root);return s;
 }

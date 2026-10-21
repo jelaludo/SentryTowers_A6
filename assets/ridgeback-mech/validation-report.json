@@ -2,276 +2,324 @@
   "assets": [
     {
       "file": "mx06_d0_lod0.glb",
-      "triangles": 19748,
+      "triangles": 20004,
       "draws": 38,
-      "bytes": 1159236,
+      "bytes": 1363788,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d0_lod0.meshopt.glb",
-      "triangles": 19748,
+      "triangles": 20004,
       "draws": 38,
-      "bytes": 195460,
+      "bytes": 239784,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d0_lod1.glb",
-      "triangles": 7888,
+      "triangles": 8016,
       "draws": 38,
-      "bytes": 663856,
+      "bytes": 862912,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d0_lod1.meshopt.glb",
-      "triangles": 7888,
+      "triangles": 8016,
       "draws": 38,
-      "bytes": 128988,
+      "bytes": 168564,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d0_lod2.glb",
-      "triangles": 2920,
+      "triangles": 2936,
       "draws": 1,
-      "bytes": 199480,
+      "bytes": 201112,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d0_lod2.meshopt.glb",
-      "triangles": 2920,
+      "triangles": 2936,
       "draws": 1,
-      "bytes": 73756,
+      "bytes": 75164,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "mx06_d1_lod0.glb",
-      "triangles": 19748,
+      "triangles": 20004,
       "draws": 38,
-      "bytes": 1159996,
+      "bytes": 1364552,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d1_lod0.meshopt.glb",
-      "triangles": 19748,
+      "triangles": 20004,
       "draws": 38,
-      "bytes": 276396,
+      "bytes": 318240,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d1_lod1.glb",
-      "triangles": 7888,
+      "triangles": 8016,
       "draws": 38,
-      "bytes": 664648,
+      "bytes": 863708,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d1_lod1.meshopt.glb",
-      "triangles": 7888,
+      "triangles": 8016,
       "draws": 38,
-      "bytes": 169776,
+      "bytes": 208200,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d1_lod2.glb",
-      "triangles": 2920,
+      "triangles": 2936,
       "draws": 1,
-      "bytes": 199476,
+      "bytes": 201112,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d1_lod2.meshopt.glb",
-      "triangles": 2920,
+      "triangles": 2936,
       "draws": 1,
-      "bytes": 94572,
+      "bytes": 95900,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "mx06_d2_lod0.glb",
-      "triangles": 19840,
+      "triangles": 20096,
       "draws": 38,
-      "bytes": 1165032,
+      "bytes": 1369676,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d2_lod0.meshopt.glb",
-      "triangles": 19840,
+      "triangles": 20096,
       "draws": 38,
-      "bytes": 287452,
+      "bytes": 329308,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d2_lod1.glb",
-      "triangles": 7948,
+      "triangles": 8076,
       "draws": 38,
-      "bytes": 668344,
+      "bytes": 867480,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "derived/meshopt/mx06_d2_lod1.meshopt.glb",
-      "triangles": 7948,
+      "triangles": 8076,
       "draws": 38,
-      "bytes": 176552,
+      "bytes": 215032,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
         {
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7
         }
       ]
     },
     {
       "file": "mx06_d2_lod2.glb",
-      "triangles": 2964,
+      "triangles": 2980,
       "draws": 1,
-      "bytes": 202408,
+      "bytes": 204040,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d2_lod2.meshopt.glb",
-      "triangles": 2964,
+      "triangles": 2980,
       "draws": 1,
-      "bytes": 96632,
+      "bytes": 97896,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "mx06_d3_lod0.glb",
-      "triangles": 19676,
+      "triangles": 19932,
       "draws": 38,
-      "bytes": 962952,
+      "bytes": 974668,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d3_lod0.meshopt.glb",
-      "triangles": 19676,
+      "triangles": 19932,
       "draws": 38,
-      "bytes": 184176,
+      "bytes": 191892,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "mx06_d3_lod1.glb",
-      "triangles": 7892,
+      "triangles": 8020,
       "draws": 38,
-      "bytes": 474836,
+      "bytes": 481172,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d3_lod1.meshopt.glb",
-      "triangles": 7892,
+      "triangles": 8020,
       "draws": 38,
-      "bytes": 113184,
+      "bytes": 117500,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "mx06_d3_lod2.glb",
-      "triangles": 2908,
+      "triangles": 2924,
       "draws": 1,
-      "bytes": 198156,
+      "bytes": 199788,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
     },
     {
       "file": "derived/meshopt/mx06_d3_lod2.meshopt.glb",
-      "triangles": 2908,
+      "triangles": 2924,
       "draws": 1,
-      "bytes": 74760,
+      "bytes": 75996,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": []
@@ -285,7 +333,7 @@
     0.9254588116945922
   ],
   "minimum_piston_overlap_m": 0.15454118830540786,
-  "maximum_clip_endpoint_error_m": 0.0012969817918092022,
+  "maximum_clip_endpoint_error_m": 0.0012969817918087989,
   "errors": [],
   "scope": "Decoded plain/Meshopt geometry and gait checks on level ground; not continuous collision, terrain physics, firing or mobile performance certification"
 }

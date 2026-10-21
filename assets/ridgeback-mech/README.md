@@ -12,54 +12,20 @@ LOD0 is the detailed close-shot/recording master; LOD1 retains the complete walk
 
 | State | Geometry and appearance | Capability |
 | --- | --- | --- |
-| D0 | Intact layered armor and limbs | Full 0.8 m foot travel, 0.32 m lift |
-| D1 | Dented front-left armor and scuffed surfaces | Full gait and aiming |
-| D2 | Breached/dented front-left hull, buckled left-front shin, darkened damaged components | 0.36 m travel, 0.15 m lift, half weapon bearing sector |
-| D3 | Lowered/spread wreck posture, missing flank panels, short damaged aerial, sagged laser and darkened armor | No walking clip, movement, barrel spin or aiming; weapons offline |
+| D0 | LOD0 | 20,004 | 38 | 1,363,788 | 239,784 |
+| D0 | LOD1 | 8,016 | 38 | 862,912 | 168,564 |
+| D0 | LOD2 | 2,936 | 1 | 201,112 | 75,164 |
+| D1 | LOD0 | 20,004 | 38 | 1,364,552 | 318,240 |
+| D1 | LOD1 | 8,016 | 38 | 863,708 | 208,200 |
+| D1 | LOD2 | 2,936 | 1 | 201,112 | 95,900 |
+| D2 | LOD0 | 20,096 | 38 | 1,369,676 | 329,308 |
+| D2 | LOD1 | 8,076 | 38 | 867,480 | 215,032 |
+| D2 | LOD2 | 2,980 | 1 | 204,040 | 97,896 |
+| D3 | LOD0 | 19,932 | 38 | 974,668 | 191,892 |
+| D3 | LOD1 | 8,020 | 38 | 481,172 | 117,500 |
+| D3 | LOD2 | 2,924 | 1 | 199,788 | 75,996 |
 
-Damage is whole-machine; localized damage swapping and detached fragments are not implemented in this prototype. All six legs and 18 spike sockets remain addressable in every state.
-
-## Walk and hydraulic rig
-
-`Walk_Cycle` is a four-second, looping, in-place GLB clip in D0/D1 at LOD0/1. D2 uses `Damaged_Walk_Cycle`, also four seconds. D3 and LOD2 have no baked clips. The clips drive only leg and hydraulic nodes. Weapon aiming, rotary barrel spin and sensors remain engine-driven.
-
-Alternating tripods are FL/MR/RL and FR/ML/RR. A 60% stance phase gives overlap between support tripods. Each leg has `HIP_YAW_{id}`, `HIP_PITCH_{id}`, `KNEE_{id}`, `ANKLE_{id}`; upper and lower links measure 1.15 and 1.65 m. Ankle counter-rotation holds the claw orientation fixed during stance. `SOCKET_FOOT_{id}` is the ground-level foot centre; `SOCKET_CLAW_{id}_{1..3}` are the actual spike tips.
-
-Choose one gait source:
-
-- Use the exported clip with an animation mixer. After its update, call `solveHydraulics(root)` for exact piston alignment between baked keyframes.
-- Or call `applyMech(root, timeSeconds, {mode:'walk', damage, aimYaw, aimPitch, barrelAngle})` from `runtime.js`. Use `mode:'park'` for all six feet planted. Angles are radians. This controller is procedural visual IK, not terrain/contact physics.
-
-The gait contains no root translation. For a level-ground forward walk at playback rate 1, move the root along +Z by 0.333333 m/s in D0/D1 or 0.15 m/s in D2 (stride / 2.4 s). Scale root speed and playback rate together. Root turns, slopes, uneven ground, obstacle negotiation and footstep events require game-side integration.
-
-`SOCKET_HYDRAULIC_UPPER_{id}` and `SOCKET_HYDRAULIC_LOWER_{id}` are the piston endpoints. `HYDRAULIC_AIM_{id}` points local +Y toward the lower endpoint; `PISTON_SLIDE_{id}` translates by endpoint distance. Barrel and rod are each 0.54 m long. Piston diameter never scales. Sampled lengths: 0.5927–0.9255 m, with minimum overlap 0.1545 m. These are visual mechanisms, not engineered actuators.
-
-## Weapons, sensors and collision
-
-Engine-driven pivots: `MINIGUN_YAW`, `MINIGUN_PITCH`, `MINIGUN_SPIN`, `LASER_YAW`, `LASER_PITCH`, `MISSILE_ELEVATION`, `SENSOR_YAW`. Preview bearing is ±36°, elevation approximately −6.9° to +31.5°. Positive user elevation produces negative local X rotation for +Z-pointing guns. The minigun spins about local Z. `SOCKET_MINIGUN_MUZZLE_1..6`, `SOCKET_LASER_MUZZLE`, `SOCKET_MISSILE_L_1..6`, `SOCKET_MISSILE_R_1..6`, `SOCKET_CAMERA` and `SOCKET_PAYLOAD` are explicit connection nodes. Weapon muzzle axes are local +Z. Exported gait does not touch these pivots.
-
-No projectile, missile guidance, hit detection or firing simulation is included. The manifest supplies a prototype hull box and named foot contacts. Game-side articulated collision, terrain response, aiming/firing clearance and mobile profiling remain pending. No FPS claim or production acceptance claim.
-
-## Measured exports
-
-One shared vertex-color material. Draw counts reflect authored meshes, excluding viewer grid/contact markers.
-
-| State | Tier | Triangles | Draws | Plain bytes | Derived Meshopt bytes |
-| --- | --- | ---: | ---: | ---: | ---: |
-| D0 | LOD0 | 19,748 | 38 | 1,159,236 | 195,460 |
-| D0 | LOD1 | 7,888 | 38 | 663,856 | 128,988 |
-| D0 | LOD2 | 2,920 | 1 | 199,480 | 73,756 |
-| D1 | LOD0 | 19,748 | 38 | 1,159,996 | 276,396 |
-| D1 | LOD1 | 7,888 | 38 | 664,648 | 169,776 |
-| D1 | LOD2 | 2,920 | 1 | 199,476 | 94,572 |
-| D2 | LOD0 | 19,840 | 38 | 1,165,032 | 287,452 |
-| D2 | LOD1 | 7,948 | 38 | 668,344 | 176,552 |
-| D2 | LOD2 | 2,964 | 1 | 202,408 | 96,632 |
-| D3 | LOD0 | 19,676 | 38 | 962,952 | 184,176 |
-| D3 | LOD1 | 7,892 | 38 | 474,836 | 113,184 |
-| D3 | LOD2 | 2,908 | 1 | 198,156 | 74,760 |
-
-Game tiers are under the 25k articulated-unit triangle target. Their 38 independently animated meshes and approximately 0.66 MB animated plain exports are reported explicitly; they do not meet the separate landmark 10-draw/400 KB reference. Distance tiers meet 3k triangles, one draw and 250 KB. The game can apply its own release-time gltfpack compression to the plain sources.
+Game tiers are under the 25k articulated-unit triangle target. Their 38 independently animated meshes and animated plain export sizes listed above are reported explicitly; they do not meet the separate landmark 10-draw/400 KB reference. Distance tiers meet 3k triangles, one draw and 250 KB. The game can apply its own release-time gltfpack compression to the plain sources.
 
 ## Viewer and validation
 
@@ -74,3 +40,25 @@ Render: Blender `--background --python tools/blender/render_ridgeback_mech.py`; 
 `source/blender/ridgeback-mech.blend` is a derived editable parked review assembly. Detailed GLBs retain the walk clips for animation/recording. The preview and D1–D3 images are renders of actual exported geometry. Generator: `tools/asset-pipeline/ridgeback-mech-shape.mjs`.
 
 Hand-off: the repository commit containing this README plus folder `assets/ridgeback-mech/`; use manifest SHA-256 values for lock files. Credit: **Models by jelaludo**. Original rovers, sentries and extractor assets are preserved.
+
+## Outboard missile pods and gunship airdrop / 22 October 2026
+
+Both pods are moved to ±1.18 m outboard, raised and set farther aft, with braced supports. Each pod has 30° local outward yaw under the shared `MISSILE_ELEVATION` frame, whose nominal elevation is 33.2°. Combined muzzle directions are approximately 34.6° outward bearing and 28.3° elevation; consult socket transforms for exact launch directions. Newly named `MISSILE_OUTBOARD_L/R` groups retain pod mesh and muzzle names. Conservative pod/gun bounding boxes and forward missile rays pass 650 sampled healthy aiming combinations across LOD0/1. This is not full projectile/terrain certification.
+
+`Airdrop_Land` is a seven-second one-shot in D0–D2, LOD0/1. Play once and clamp at the last frame. It animates vertical `DROP_ROOT` displacement, `MECH_BODY` compression and the leg/hydraulic rig; it does not bake weapon aiming. The outer `MX06_ROOT` stays at the landing site. Do not add a second copy of the vertical drop translation in the game. The clip ends in the normal parked pose so walking can take over without a pose snap.
+
+| Time | Event |
+| --- | --- |
+| 0–0.6 s | Suspended under KORP; root 6 m above landing site, legs tucked |
+| 0.6 s | Sling release |
+| 1.6 s | Underside braking burn begins; legs deploy |
+| 2.6 s | Feet touch down with 2 m/s downward hull speed; dust impulse |
+| 2.82 s | Maximum 0.64 m hull/suspension compression |
+| 3.37 s | Small rebound crest, followed by damped settling |
+| 7 s | Parked and ready; playback stops |
+
+The trajectory is authored cinematic motion, not a gravity/force simulation. `applyAirdrop(root,time,{damage})` reproduces it procedurally; use it OR the GLB clip. `dropState(time)` supplies deterministic jet intensity, height, compression and event timing for the game's effects. Call `solveHydraulics` after mixer updates. Airdrop is unavailable for D3 and static LOD2.
+
+The underbody `SOCKET_BRAKE_JET` emits along local -Y. Four `SOCKET_AIRDROP_{L/R}_{FRONT/REAR}` anchors support release effects. The socket and modeled nozzle are in every state/tier. The viewer reuses the unmodified, full-scale `assets/korp/korp_d0_lod1.glb` as a separate carrier with a preview sling rack/cables. `ridgeback-mech/airdrop-fx.js` contains the bounded, deterministic braking plume and 36 dust particles; carrier, cables, dust and camera movement are not embedded in the mech GLBs. The cinematic framing can be disabled. Release/Brake/Impact/Settled buttons scrub to review poses; Replay/reset restarts the one-shot.
+
+`airdrop-validation-report.json`: 5,052 decoded procedural deployment poses, 1,692 decoded landing-clip samples, maximum foot interpolation error 1.95 mm, minimum piston overlap 0.1377 m, planted feet and no below-ground claw samples. Both export encodings pass. Run `node tools/asset-pipeline/test-ridgeback-airdrop.mjs`. Original KORP assets are unchanged.

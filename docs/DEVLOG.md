@@ -1,5 +1,13 @@
 # Devlog
 
+## 22 October 2026 / Ridgeback outboard pods and heavy airdrop
+
+Moved the missile pods outward and aft, raised their supports and added outward cant plus steeper elevation. Added bracing and a small underbody braking nozzle. Healthy pod/gun bounds and forward missile paths pass 650 sampled aiming checks. All damage/LOD exports rebuilt with stable existing node names plus new deployment, outboard-pod and braking-jet nodes.
+
+Added the seven-second one-shot `Airdrop_Land` to D0–D2 detailed/game GLBs: sling release at 0.6 s, braking burn at 1.6 s, touchdown at 2.6 s with residual 2 m/s vertical speed, 0.64 m suspension compression, small rebound and damped settling. D3 and distance tiers remain static. The viewer reuses the full-scale KORP as a separate carrier, with sling cables, a short ventral jet, bounded dust and brief camera shake. Added Release/Brake/Impact/Settled review buttons and optional cinematic framing. Safari review confirmed the sling release framing, ventral braking plume and compressed touchdown pose. Carrier and particles are not merged into mech exports.
+
+All 24 plain/decoded Meshopt files pass base validation. Added 5,052 procedural deployment poses and 1,692 decoded landing-clip checks: no below-ground claw samples, minimum piston overlap 0.1377 m, maximum clip foot error 1.95 mm, and a clean parked endpoint. Existing walk checks pass. Export sizes, hashes, new sockets, one-shot metadata and root-motion ownership are updated in the manifest/README. Physics/contact integration and game acceptance remain pending; no FPS claim. Original KORP and rover assets are unchanged.
+
 ## 21 October 2026 / MX-06 Ridgeback mech prototype
 
 Created the separate [MX-06 Ridgeback viewer](../ridgeback-mech/) from the supplied concept: exactly six hydraulic legs, three per side, three spike claws per foot, one rotary minigun, one laser and two six-tube missile pods. Includes layered sand/graphite armor, protected hoses, reconnaissance sensors, joint guards and amber identification details. D0 intact, D1 dented/scuffed, D2 breached hull and buckled shin with reduced gait, D3 lowered/stripped disabled wreck. Original asset families remain unchanged.

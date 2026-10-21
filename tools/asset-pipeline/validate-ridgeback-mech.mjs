@@ -43,7 +43,7 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
    root.traverse(o=>assert(o.matrixWorld.elements.every(Number.isFinite)));
   }
   if(e.damage_level<3){
-   assert.equal(gltf.animations.length,1);const clip=gltf.animations[0];assert.equal(clip.duration,4);assert.equal(clip.name,e.damage_level===2?'Damaged_Walk_Cycle':'Walk_Cycle');
+   assert.equal(gltf.animations.length,2);const clip=gltf.animations.find(c=>c.name.includes('Walk'));assert.equal(clip.duration,4);assert.equal(clip.name,e.damage_level===2?'Damaged_Walk_Cycle':'Walk_Cycle');
    assert(clip.tracks.every(t=>/^(HIP_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(t.name)),'aiming baked');
    // Every tip stays fixed in world space while the root advances during stance.
    const speed=policy(e.damage_level).stride/(.6*4);

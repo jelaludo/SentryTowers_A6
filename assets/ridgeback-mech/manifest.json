@@ -71,6 +71,30 @@
     ],
     "integration": "Use baked gait OR procedural applyMech, never both on leg pivots. Advance root +Z at stride / (0.6 * 4) metres/sec for non-sliding stance on level ground. After mixer update call solveHydraulics for exact piston endpoints. Clip playback rate scales root speed equally."
   },
+  "deployment": {
+    "clip": "Airdrop_Land",
+    "duration_s": 7,
+    "loop": false,
+    "release_s": 0.6,
+    "braking_start_s": 1.6,
+    "touchdown_s": 2.6,
+    "release_height_m": 6,
+    "touchdown_speed_mps": 2,
+    "maximum_compression_m": 0.64,
+    "jet_socket": "SOCKET_BRAKE_JET",
+    "jet_axis": [
+      0,
+      -1,
+      0
+    ],
+    "motion_node": "DROP_ROOT",
+    "supported_damage": [
+      0,
+      1,
+      2
+    ],
+    "fx": "dropState(time) returns deterministic jet intensity and impact time; gunship and particles are viewer-only"
+  },
   "weapons": {
     "minigun": 1,
     "laser_cannon": 1,
@@ -81,7 +105,11 @@
       -6.875,
       31.513
     ],
-    "firing_simulated": false
+    "firing_simulated": false,
+    "missile_local_outward_yaw_deg": 30,
+    "missile_parent_elevation_deg": 33.23,
+    "nominal_muzzle_outward_bearing_deg": 34.6,
+    "nominal_muzzle_elevation_deg": 28.3
   },
   "colliders": {
     "prototype_only": true,
@@ -109,14 +137,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1159236,
-      "triangles": 19748,
+      "bytes": 1363788,
+      "triangles": 20004,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "149019721e891b4c08ac4753fb1cdf30e96b2d23bf3d1d5defec7ac33729503a",
+      "sha256": "85ad62e09e239034d750ac1b575acc44f3130c9090a4e9663d16601dc4cf39d0",
       "meshopt_file": "derived/meshopt/mx06_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 195460,
-      "meshopt_sha256": "4cd3e7130a8628a6d9240c0ea3072303617b3e03efebcc63237981aaf48e2f71",
+      "meshopt_bytes": 239784,
+      "meshopt_sha256": "ff4da7faafb1a60784d2450c8ac7ca61f3231359bb23b53e52da2b06f7534be9",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -130,16 +158,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.9140304768193017,
           2.72497423529625
         ],
         "dimensions_m": [
           6.787072126062657,
-          3.872103801383445,
+          3.9861343020446047,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -547,110 +620,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -665,7 +738,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -789,6 +868,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -796,6 +876,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -811,7 +892,15 @@
           "name": "Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -822,14 +911,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 663856,
-      "triangles": 7888,
+      "bytes": 862912,
+      "triangles": 8016,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "eb0c445478a03e73721c3d55494c2bf1faab6c8dc63108951a61b7579fb65e2c",
+      "sha256": "d4734893ef9b421e4997c64543e95d09305e968b585980ee5fcdf90b821c9a38",
       "meshopt_file": "derived/meshopt/mx06_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 128988,
-      "meshopt_sha256": "faa11e85cc21e851d9b4cdd321d1f3ad7565d8b11761f0b93854a35ec8b27794",
+      "meshopt_bytes": 168564,
+      "meshopt_sha256": "ca8dda03c42d3d71501fd922fb6c7aa4ccb74ba2554ff402fb604d0f43fda1bf",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -843,16 +932,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.906674131426718,
           2.72497423529625
         ],
         "dimensions_m": [
           6.785794082223356,
-          3.872103801383445,
+          3.978777956652021,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -1260,110 +1394,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -1378,7 +1512,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -1502,6 +1642,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -1509,6 +1650,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -1524,7 +1666,15 @@
           "name": "Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -1535,14 +1685,14 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 199480,
-      "triangles": 2920,
+      "bytes": 201112,
+      "triangles": 2936,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "18b535ec9acd180ce29105b9fffd975871d56b9beb4036b9a7b21018d592d970",
+      "sha256": "655d21aca433b7a36402e40cfa76bec45f35cacf9f025e8e435a43bdacfbe25c",
       "meshopt_file": "derived/meshopt/mx06_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 73756,
-      "meshopt_sha256": "8bc7e4774df93d69fbc52d612a82e8c4d55095a4b528a5d70aadccd5769e0432",
+      "meshopt_bytes": 75164,
+      "meshopt_sha256": "a2ae1206465776ce43024f0e0c9f146289b3b3a6c8ca81139b97286450086308",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -1551,21 +1701,66 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-9,
+          -7.152557657263969e-09,
           -2.7249741554260254
         ],
         "max": [
           3.509999990463257,
-          3.799999952316284,
+          3.808055877685547,
           2.7249741554260254
         ],
         "dimensions_m": [
           6.740000009536743,
-          3.799999959468842,
+          3.8080558848381045,
           5.449948310852051
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -1973,110 +2168,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -2091,7 +2286,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
         "SOCKET_CAMERA",
@@ -2214,19 +2415,21 @@
         "SOCKET_LASER_MUZZLE",
         "LASER_CANNON",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
         "SOCKET_MISSILE_L_4",
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
+        "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
         "SOCKET_MISSILE_R_4",
         "SOCKET_MISSILE_R_5",
         "SOCKET_MISSILE_R_6",
-        "MISSILE_POD_L",
         "MISSILE_POD_R",
         "HULL_ARMOR",
         "SERVICE_DETAILS",
@@ -2242,14 +2445,14 @@
       "damage_level": 1,
       "static": false,
       "derived": false,
-      "bytes": 1159996,
-      "triangles": 19748,
+      "bytes": 1364552,
+      "triangles": 20004,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "e306cad77255126baade76d3620d4cc7829a690b939751336de0c6fa822b65e7",
+      "sha256": "c5c2e1f8a13d9ced38c37b658bcbfee640bc97ba52726a83dac30b4dc80aba19",
       "meshopt_file": "derived/meshopt/mx06_d1_lod0.meshopt.glb",
-      "meshopt_bytes": 276396,
-      "meshopt_sha256": "6f37d1b3bb4d7275bf8540fbd6d389cdb37a5bb0ec8b63a1e28120f33e75f54b",
+      "meshopt_bytes": 318240,
+      "meshopt_sha256": "6baa26b0da94f2bffa51fba816cb718f89754c6a3396e246af3bd9cead1b624c",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -2263,16 +2466,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.9140304768193017,
           2.72497423529625
         ],
         "dimensions_m": [
           6.787072126062657,
-          3.872103801383445,
+          3.9861343020446047,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -2680,110 +2928,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -2798,7 +3046,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -2922,6 +3176,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -2929,6 +3184,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -2944,7 +3200,15 @@
           "name": "Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -2955,14 +3219,14 @@
       "damage_level": 1,
       "static": false,
       "derived": false,
-      "bytes": 664648,
-      "triangles": 7888,
+      "bytes": 863708,
+      "triangles": 8016,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "a28be9998c1750c2562f536bc4dcc68124e291ed6f172ba3ebecf40219c7a759",
+      "sha256": "230383172184898365e443e3a9eb7fbeb56eb696430269309f614b4dbc3c33bf",
       "meshopt_file": "derived/meshopt/mx06_d1_lod1.meshopt.glb",
-      "meshopt_bytes": 169776,
-      "meshopt_sha256": "9a0375dfe375496e38381f0cd26b47be7006cdcc2c704c08fb36c114c448a8c7",
+      "meshopt_bytes": 208200,
+      "meshopt_sha256": "09d440622c2fb65e73806c1f1880cb3bde444b765b2441d3a4c0033c099f462a",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -2976,16 +3240,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.906674131426718,
           2.72497423529625
         ],
         "dimensions_m": [
           6.785794082223356,
-          3.872103801383445,
+          3.978777956652021,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -3393,110 +3702,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -3511,7 +3820,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -3635,6 +3950,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -3642,6 +3958,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -3657,7 +3974,15 @@
           "name": "Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -3668,14 +3993,14 @@
       "damage_level": 1,
       "static": true,
       "derived": false,
-      "bytes": 199476,
-      "triangles": 2920,
+      "bytes": 201112,
+      "triangles": 2936,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "a7f2a45b5f53d37dfbb9dd683019c24ec6ac4781577806833e4c8d9d3468a91b",
+      "sha256": "d4e1a87ae4612b970d2f074c7f77b2003fdc433915c3d5ca73fbc8bf9b594c93",
       "meshopt_file": "derived/meshopt/mx06_d1_lod2.meshopt.glb",
-      "meshopt_bytes": 94572,
-      "meshopt_sha256": "519fca2b4521b0c3ba4fa515985aa9a7f14c8eac29af26b750a153f3e93377d7",
+      "meshopt_bytes": 95900,
+      "meshopt_sha256": "e678d002e354578b89737a6239ae10c110be395f83c0de6c2e7b7c2faaeb3e6d",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -3684,21 +4009,66 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-9,
+          -7.152557657263969e-09,
           -2.7249741554260254
         ],
         "max": [
           3.509999990463257,
-          3.799999952316284,
+          3.808055877685547,
           2.7249741554260254
         ],
         "dimensions_m": [
           6.740000009536743,
-          3.799999959468842,
+          3.8080558848381045,
           5.449948310852051
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -4106,110 +4476,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -4224,7 +4594,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
         "SOCKET_CAMERA",
@@ -4347,19 +4723,21 @@
         "SOCKET_LASER_MUZZLE",
         "LASER_CANNON",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
         "SOCKET_MISSILE_L_4",
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
+        "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
         "SOCKET_MISSILE_R_4",
         "SOCKET_MISSILE_R_5",
         "SOCKET_MISSILE_R_6",
-        "MISSILE_POD_L",
         "MISSILE_POD_R",
         "HULL_ARMOR",
         "SERVICE_DETAILS",
@@ -4375,14 +4753,14 @@
       "damage_level": 2,
       "static": false,
       "derived": false,
-      "bytes": 1165032,
-      "triangles": 19840,
+      "bytes": 1369676,
+      "triangles": 20096,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "3b65b735c9bbecfd734ee1d92454bf38458c9df460a515001fc834dd45478b30",
+      "sha256": "fa5b2f5310251a72e414db21cf659c828f5d0067a0b664a8350dfc42fad08c1c",
       "meshopt_file": "derived/meshopt/mx06_d2_lod0.meshopt.glb",
-      "meshopt_bytes": 287452,
-      "meshopt_sha256": "0229ef7303fe2923d2973797289e5c296d933968c7759972c47afa0edf06d5e9",
+      "meshopt_bytes": 329308,
+      "meshopt_sha256": "5f81a09d12eff9a9cb3645dbe6ef4356ed386fa8523d14ee1452a59d7e3f9459",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -4396,16 +4774,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.9140304768193017,
           2.72497423529625
         ],
         "dimensions_m": [
           6.787072126062657,
-          3.872103801383445,
+          3.9861343020446047,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -4813,110 +5236,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -4931,7 +5354,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -5055,6 +5484,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -5062,6 +5492,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -5077,7 +5508,15 @@
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -5088,14 +5527,14 @@
       "damage_level": 2,
       "static": false,
       "derived": false,
-      "bytes": 668344,
-      "triangles": 7948,
+      "bytes": 867480,
+      "triangles": 8076,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "36025128006b5c6ee3edf1380be9422a7db98e12e916ede43684128e7d8fbb07",
+      "sha256": "a97b16dedba320c2f911f3323ca1c96ec88b41c5843bd7d5606c6848408a8696",
       "meshopt_file": "derived/meshopt/mx06_d2_lod1.meshopt.glb",
-      "meshopt_bytes": 176552,
-      "meshopt_sha256": "aca3315dabf47e16dd47d79af469d6a76274b3c79bce080602bbc53811d2cb94",
+      "meshopt_bytes": 215032,
+      "meshopt_sha256": "2c4bb248c537739c5dcb391d1d8d80268f8d8d14382c6c1128acb16dfffda5f8",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -5109,16 +5548,61 @@
         ],
         "max": [
           3.510000002384186,
-          3.799999976158142,
+          3.906674131426718,
           2.72497423529625
         ],
         "dimensions_m": [
           6.785794082223356,
-          3.872103801383445,
+          3.978777956652021,
           5.4499484705925
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -5526,110 +6010,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -5644,7 +6128,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -5768,6 +6258,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -5775,6 +6266,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -5790,7 +6282,15 @@
           "name": "Damaged_Walk_Cycle",
           "duration_s": 4,
           "loop": true,
-          "root_motion": false
+          "root_motion": false,
+          "root_motion_node": null
+        },
+        {
+          "name": "Airdrop_Land",
+          "duration_s": 7,
+          "loop": false,
+          "root_motion": true,
+          "root_motion_node": "DROP_ROOT"
         }
       ],
       "credit": "Models by jelaludo"
@@ -5801,14 +6301,14 @@
       "damage_level": 2,
       "static": true,
       "derived": false,
-      "bytes": 202408,
-      "triangles": 2964,
+      "bytes": 204040,
+      "triangles": 2980,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "31da2baf10a2857387105016345dca0023ff9fe124a6eda34afba658c88b500c",
+      "sha256": "d980c1ba3768af3e18e8756f7310be6339bdc19c2ea7d387a21153b22b9b90d8",
       "meshopt_file": "derived/meshopt/mx06_d2_lod2.meshopt.glb",
-      "meshopt_bytes": 96632,
-      "meshopt_sha256": "04a54b0aa28ee30e3af8d0f82c836f7bbb4017bafae5e489891040ada2c21585",
+      "meshopt_bytes": 97896,
+      "meshopt_sha256": "1195dc92812f3c4150219b4e8a9ee9da41ae6151bc9ae1f029b0362c984610db",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -5817,21 +6317,66 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-9,
+          -7.152557657263969e-09,
           -2.7249741554260254
         ],
         "max": [
           3.509999990463257,
-          3.799999952316284,
+          3.808055877685547,
           2.7249741554260254
         ],
         "dimensions_m": [
           6.740000009536743,
-          3.799999959468842,
+          3.8080558848381045,
           5.449948310852051
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            1.31,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            2.46,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            2.46,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -6239,110 +6784,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            -1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            -1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            -1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.866758389826068,
-            -0.6270001511152006
+            1.3537564434701785,
+            3.2398248542561627,
+            -0.925691175485899
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.866758389826068,
-            -0.6270001511152006
+            1.5962435565298212,
+            3.1631015031053007,
+            -1.042795946474025
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.132396186878861,
-            -0.6753381359401731
+            1.3537564434701785,
+            3.4656697697332635,
+            -1.073657638419705
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.132396186878861,
-            -0.6753381359401731
+            1.5962435565298212,
+            3.388946418582401,
+            -1.190762409407831
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.3537564434701785,
+            3.6915146852103637,
+            -1.2216241013535107
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            3.3980339839316533,
-            -0.7236761207651456
+            1.5962435565298212,
+            3.6147913340595013,
+            -1.3387288723416368
           ]
         },
         {
@@ -6357,7 +6902,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
         "SOCKET_CAMERA",
@@ -6480,19 +7031,21 @@
         "SOCKET_LASER_MUZZLE",
         "LASER_CANNON",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
         "SOCKET_MISSILE_L_4",
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
+        "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
         "SOCKET_MISSILE_R_4",
         "SOCKET_MISSILE_R_5",
         "SOCKET_MISSILE_R_6",
-        "MISSILE_POD_L",
         "MISSILE_POD_R",
         "HULL_ARMOR",
         "SERVICE_DETAILS",
@@ -6508,14 +7061,14 @@
       "damage_level": 3,
       "static": false,
       "derived": false,
-      "bytes": 962952,
-      "triangles": 19676,
+      "bytes": 974668,
+      "triangles": 19932,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "16db43927eef1311a13cdbe81b8d9c664ef52018e0a75833d95c2f8224cafaa2",
+      "sha256": "009a6a4d2e3f4f7f931990b8c198f3cb2afced7e9f0fd1f47581cd93ccb0fb15",
       "meshopt_file": "derived/meshopt/mx06_d3_lod0.meshopt.glb",
-      "meshopt_bytes": 184176,
-      "meshopt_sha256": "a233ec5d9f8f1f9adc30aeceb9317f77af3555a1340ddc9a3e03dc527bd502d5",
+      "meshopt_bytes": 191892,
+      "meshopt_sha256": "1f6f632b41b0496e00fe0a87dae08781c234bb0b7b4698aee891077dc4e4a07a",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -6529,16 +7082,61 @@
         ],
         "max": [
           3.630000002384186,
-          2.8252628614278783,
+          3.1297492586622533,
           2.7249742352962496
         ],
         "dimensions_m": [
           7.021131859731922,
-          2.911382433277242,
+          3.215868830511617,
           5.449948470592499
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            0.57,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -6946,110 +7544,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            1.915503493183595,
-            -0.652064291394816
+            -1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            1.915503493183595,
-            -0.652064291394816
+            -1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            1.915503493183595,
-            -0.652064291394816
+            1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            1.915503493183595,
-            -0.652064291394816
+            1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
@@ -7064,7 +7662,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -7188,6 +7792,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -7195,6 +7800,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -7214,14 +7820,14 @@
       "damage_level": 3,
       "static": false,
       "derived": false,
-      "bytes": 474836,
-      "triangles": 7892,
+      "bytes": 481172,
+      "triangles": 8020,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "e0fedb87b3466e173452e4b1e1271d553c41b7bd36c95c790ab36d2040f98a5f",
+      "sha256": "dd80d2e6fa4f348342e0a897cc23537b8609a5c37f2649cdbf9356f7fd743e84",
       "meshopt_file": "derived/meshopt/mx06_d3_lod1.meshopt.glb",
-      "meshopt_bytes": 113184,
-      "meshopt_sha256": "6c7b0054c6e2827d0e986972f65267751934d5ceaa9dc882974114fed97cb183",
+      "meshopt_bytes": 117500,
+      "meshopt_sha256": "4588a6f91bffab7df285efbc0c84475a8ddf834ea8fb0a6fc7c3082819e5117d",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -7235,16 +7841,61 @@
         ],
         "max": [
           3.630000002384186,
-          2.8252628614278783,
+          3.124275726342293,
           2.7249742352962496
         ],
         "dimensions_m": [
           7.019932656198744,
-          2.911382433277242,
+          3.2103952981916564,
           5.449948470592499
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            0.57,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -7652,110 +8303,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            1.915503493183595,
-            -0.652064291394816
+            -1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            1.915503493183595,
-            -0.652064291394816
+            -1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            1.915503493183595,
-            -0.652064291394816
+            1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            1.915503493183595,
-            -0.652064291394816
+            1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
@@ -7770,7 +8421,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "HULL_ARMOR",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
@@ -7894,6 +8551,7 @@
         "LASER_CANNON",
         "SOCKET_LASER_MUZZLE",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
@@ -7901,6 +8559,7 @@
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
         "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
@@ -7920,14 +8579,14 @@
       "damage_level": 3,
       "static": true,
       "derived": false,
-      "bytes": 198156,
-      "triangles": 2908,
+      "bytes": 199788,
+      "triangles": 2924,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "0182ba6f22df448516470ce7840b35b821da9df06721c120f9328d224d6a17d9",
+      "sha256": "d6856a5626123e2b2b49f596ded846adea9e2efe5240fcb901953f44266b470a",
       "meshopt_file": "derived/meshopt/mx06_d3_lod2.meshopt.glb",
-      "meshopt_bytes": 74760,
-      "meshopt_sha256": "1ffc51831769df942bd207c0633d2c9947c821a78d8b49fcc8bc297c84819b2c",
+      "meshopt_bytes": 75996,
+      "meshopt_sha256": "c9b570393ac06fbf33ad6e8ef895b1bcacd8dc99ed38d1ee0a507db375abb25b",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -7936,21 +8595,66 @@
       "bounds": {
         "min": [
           -3.3499999046325684,
-          -7.1525572131747595e-9,
+          -7.1525572131747595e-09,
           -2.7249741554260254
         ],
         "max": [
           3.630000114440918,
-          2.821458578109741,
+          3.0408542156219482,
           2.7249741554260254
         ],
         "dimensions_m": [
           6.980000019073486,
-          2.8214585852622984,
+          3.0408542227745055,
           5.449948310852051
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_BRAKE_JET",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0,
+            0.57,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_L_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            -0.8,
+            1.72,
+            0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_REAR",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            -0.8
+          ]
+        },
+        {
+          "node": "SOCKET_AIRDROP_R_FRONT",
+          "parent": "MECH_BODY",
+          "position_m": [
+            0.8,
+            1.72,
+            0.8
+          ]
+        },
         {
           "node": "SOCKET_PAYLOAD",
           "parent": "MECH_BODY",
@@ -8358,110 +9062,110 @@
         },
         {
           "node": "SOCKET_MISSILE_L_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            1.915503493183595,
-            -0.652064291394816
+            -1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            1.915503493183595,
-            -0.652064291394816
+            -1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            -1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
           "node": "SOCKET_MISSILE_L_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_L",
           "position_m": [
-            -0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            -1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_1",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            1.915503493183595,
-            -0.652064291394816
+            1.3537564434701785,
+            2.41297424338717,
+            -0.890993193711176
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_2",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            1.915503493183595,
-            -0.652064291394816
+            1.5962435565298212,
+            2.35588777995883,
+            -1.0188256453548992
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_3",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.181141290236388,
-            -0.6037263065698435
+            1.3537564434701785,
+            2.659508257271493,
+            -1.00108851603726
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_4",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.181141290236388,
-            -0.6037263065698435
+            1.5962435565298212,
+            2.6024217938431535,
+            -1.1289209676809833
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_5",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.51,
-            2.4467790872891806,
-            -0.555388321744871
+            1.3537564434701785,
+            2.9060422711558167,
+            -1.111183838363344
           ]
         },
         {
           "node": "SOCKET_MISSILE_R_6",
-          "parent": "MISSILE_ELEVATION",
+          "parent": "MISSILE_OUTBOARD_R",
           "position_m": [
-            0.79,
-            2.4467790872891806,
-            -0.555388321744871
+            1.5962435565298212,
+            2.848955807727477,
+            -1.2390162900070671
           ]
         },
         {
@@ -8476,7 +9180,13 @@
       ],
       "required_nodes": [
         "MX06_ROOT",
+        "DROP_ROOT",
         "MECH_BODY",
+        "SOCKET_BRAKE_JET",
+        "SOCKET_AIRDROP_L_REAR",
+        "SOCKET_AIRDROP_L_FRONT",
+        "SOCKET_AIRDROP_R_REAR",
+        "SOCKET_AIRDROP_R_FRONT",
         "SOCKET_PAYLOAD",
         "SENSOR_YAW",
         "SOCKET_CAMERA",
@@ -8599,19 +9309,21 @@
         "SOCKET_LASER_MUZZLE",
         "LASER_CANNON",
         "MISSILE_ELEVATION",
+        "MISSILE_OUTBOARD_L",
         "SOCKET_MISSILE_L_1",
         "SOCKET_MISSILE_L_2",
         "SOCKET_MISSILE_L_3",
         "SOCKET_MISSILE_L_4",
         "SOCKET_MISSILE_L_5",
         "SOCKET_MISSILE_L_6",
+        "MISSILE_POD_L",
+        "MISSILE_OUTBOARD_R",
         "SOCKET_MISSILE_R_1",
         "SOCKET_MISSILE_R_2",
         "SOCKET_MISSILE_R_3",
         "SOCKET_MISSILE_R_4",
         "SOCKET_MISSILE_R_5",
         "SOCKET_MISSILE_R_6",
-        "MISSILE_POD_L",
         "MISSILE_POD_R",
         "HULL_ARMOR",
         "SERVICE_DETAILS",

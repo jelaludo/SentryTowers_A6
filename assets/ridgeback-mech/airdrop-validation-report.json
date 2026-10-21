@@ -1,0 +1,9 @@
+{
+  "drop_pose_samples": 5052,
+  "decoded_clip_samples": 1692,
+  "clearance_samples": 650,
+  "min_piston_overlap_m": 0.13770365065240486,
+  "max_clip_foot_error_m": 0.0019475965596171818,
+  "errors": [],
+  "scope": "Sampled level-ground deployment, conservative gun/pod AABB clearance and forward missile rays; not terrain physics or full articulated collision"
+}

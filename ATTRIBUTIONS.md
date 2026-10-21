@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## MX-06 Ridgeback airdrop / 22 October 2026
+
+The airdrop viewer reuses the repository’s original KORP game-tier gunship at authored scale as a separate carrier. Original KORP geometry and exports remain unchanged. New sling preview, landing motion, braking jet and dust effects by jelaludo; effects are separate from the authoritative mech GLBs.
+
 ## MX-06 Ridgeback / 21 October 2026
 
 Original procedural geometry, damage variants and animation by jelaludo, created from the user-provided six-legged military exploration mech concept image and description. The supplied image is visual reference only; no image, third-party mesh or external texture is embedded in the exports. Plain GLBs are authoritative. Meshopt copies, rendered previews and the Blender review assembly are derived. MX-06 is a provisional prototype designation.

@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
-import {LEGS,UPPER,LOWER,applyMech} from '../../assets/ridgeback-mech/runtime.js';
+import {LEGS,UPPER,LOWER,applyMech,applyAirdrop,DROP_DURATION} from '../../assets/ridgeback-mech/runtime.js';
 const C={sand:0x827565,light:0xa5957a,edge:0x4d4941,dark:0x242828,black:0x101819,steel:0x6b7472,rod:0xb6bdb5,amber:0xe3a349,glass:0x264a4c,scar:0x38322c};
 export function buildMech(lod=0,damage=0){
  const root=new T.Group();root.name='MX06_ROOT';root.userData={family:'ridgeback-mech',damage_level:damage,lod,static:false,leg_count:6,spikes_per_foot:3};
@@ -16,7 +16,8 @@ export function buildMech(lod=0,damage=0){
   const gs=items.map(([g,c,pos=[0,0,0],rot=[0,0,0]])=>{if(g.index){const old=g;g=g.toNonIndexed();old.dispose();}g.applyMatrix4(new T.Matrix4().makeRotationFromEuler(new T.Euler(...rot)));g.translate(...pos);for(const k of Object.keys(g.attributes))if(!['position','normal'].includes(k))g.deleteAttribute(k);const color=new T.Color(c),data=new Float32Array(g.attributes.position.count*3);for(let i=0;i<data.length;i+=3){data[i]=color.r;data[i+1]=color.g;data[i+2]=color.b;}g.setAttribute('color',new T.BufferAttribute(data,3));return g;});
   const raw=mergeGeometries(gs),g=mergeVertices(raw,1e-5);raw.dispose();gs.forEach(g=>g.dispose());const m=new T.Mesh(g,mat);m.name=name;parent.add(m);return m;
  }
- const body=group('MECH_BODY',root,[0,1.9,0]);
+ const drop=group('DROP_ROOT',root);
+ const body=group('MECH_BODY',drop,[0,1.9,0]);
  const shell=[hull([2.25,.7,3.85],C.sand,[0,.14,0]),hull([1.65,.28,3.5],C.dark,[0,-.31,0]),hull([1.8,.25,2.6],C.edge,[0,.55,-.26]),hull([1.65,.36,.8],C.light,[0,.22,1.86],[-.22,0,0]),box([1.9,.14,.22],C.dark,[0,-.06,2.12])];
  for(const side of [-1,1]){
   for(const z of [-1.35,-.45,.45,1.35]){
@@ -29,6 +30,10 @@ export function buildMech(lod=0,damage=0){
  }
  if(damage>=2)shell.push(hull([.7,.15,.65],C.black,[-.7,.53,.9],[.3,0,-.2]),beam([-.65,.48,.7],[-.4,.65,1.2],.04,C.steel));
  shell.push(cyl(.09,.18,C.dark,[.9,.72,-1.3]),cyl(.015,damage===3?.25:1.1,C.steel,[.9,damage===3?.92:1.35,-1.3],[damage===3?.5:0,0,0],6));
+ for(const side of [-1,1])shell.push(beam([side*.72,.62,-1.3],[side*1.18,1.08,-1.45],.085,C.edge));
+ shell.push(cyl(.22,.17,C.edge,[0,-.48,0]),cyl(.14,.025,C.black,[0,-.575,0]));
+ group('SOCKET_BRAKE_JET',body,[0,-.59,0]).userData={axis:[0,-1,0],kind:'braking_jet'};
+ for(const side of [-1,1])for(const z of [-.8,.8])group(`SOCKET_AIRDROP_${side<0?'L':'R'}_${z<0?'REAR':'FRONT'}`,body,[side*.8,.56,z]);
  part('HULL_ARMOR',body,shell);group('SOCKET_PAYLOAD',body,[0,.72,-.35]);group('SOCKET_ROOT_MOTION',root);
  const sensor=group('SENSOR_YAW',body,[0,.33,2.33]);part('RECON_SENSOR',sensor,[hull([.68,.29,.23],C.edge),cyl(.09,.055,C.black,[-.17,0,.14],[Math.PI/2,0,0]),cyl(.062,.06,C.glass,[-.17,0,.15],[Math.PI/2,0,0]),box([.17,.12,.035],C.glass,[.16,0,.15])]);group('SOCKET_CAMERA',sensor,[0,0,.18]);
  for(const leg of LEGS){const {id,side,z}=leg;
@@ -64,11 +69,12 @@ export function buildMech(lod=0,damage=0){
  const ly=group('LASER_YAW',body,[.58,.85,.1]),lp=group('LASER_PITCH',ly);
  const laser=[hull([.46,.46,1.8],C.sand,[0,.09,.65]),box([.28,.28,1.95],C.dark,[0,.09,.72]),hull([.54,.52,.23],C.edge,[0,.09,1.72]),box([.23,.26,.025],damage===3?C.black:C.amber,[0,.09,1.85])];
  if(lod<2)for(const side of [-1,1])laser.push(box([.04,.06,1.15],damage===3?C.black:C.amber,[side*.24,.08,.72]),beam([side*.19,.33,.18],[side*.19,.33,1.55],.033,C.steel));part('LASER_CANNON',lp,laser);group('SOCKET_LASER_MUZZLE',lp,[0,.09,1.88]);
- const missiles=group('MISSILE_ELEVATION',body,[0,.93,-1.22]);
+ const missiles=group('MISSILE_ELEVATION',body,[0,1.08,-1.45]);
  for(const side of [-1,1]){
-  const items=[hull([.69,.94,.85],C.sand,[side*.65,.2,0]),box([.60,.85,.04],C.dark,[side*.65,.2,.45])];
-  for(let r=0;r<3;r++)for(let col=0;col<2;col++){const x=side*.65+(col-.5)*.28,y=.2+(r-1)*.27;items.push(cyl(.116,.12,C.edge,[x,y,.5],[Math.PI/2,0,0]),cyl(.083,.015,C.black,[x,y,.565],[Math.PI/2,0,0]));if(lod===0)items.push([new T.TorusGeometry(.094,.008,4,seg),damage>=2?C.edge:C.amber,[x,y,.58]]);group(`SOCKET_MISSILE_${side<0?'L':'R'}_${r*2+col+1}`,missiles,[x,y,.59]);}
-  part('MISSILE_POD_'+(side<0?'L':'R'),missiles,items);
+  const pod=group('MISSILE_OUTBOARD_'+(side<0?'L':'R'),missiles,[side*1.18,0,0]);pod.rotation.y=side*Math.PI/6;
+  const items=[hull([.69,.94,.85],C.sand,[0,.2,0]),box([.60,.85,.04],C.dark,[0,.2,.45])];
+  for(let r=0;r<3;r++)for(let col=0;col<2;col++){const x=(col-.5)*.28,y=.2+(r-1)*.27;items.push(cyl(.116,.12,C.edge,[x,y,.5],[Math.PI/2,0,0],lod===2?3:seg),cyl(.083,.015,C.black,[x,y,.565],[Math.PI/2,0,0]));if(lod===0)items.push([new T.TorusGeometry(.094,.008,4,seg),damage>=2?C.edge:C.amber,[x,y,.58]]);group(`SOCKET_MISSILE_${side<0?'L':'R'}_${r*2+col+1}`,pod,[x,y,.59]);}
+  part('MISSILE_POD_'+(side<0?'L':'R'),pod,items);
  }
  if(lod===0&&damage<3){const detail=[];for(const s of [-1,1])for(let i=0;i<5;i++)detail.push(box([.05,.035,.18],C.dark,[s*.86,.48,-1.3+i*.5],[0,.3,0]));part('SERVICE_DETAILS',body,detail);}else part('SERVICE_DETAILS',body,[box([.18,.035,.26],C.edge,[0,.52,-1.55])]);
  // Deterministic mesh-only damage: hierarchy/socket coordinates are not destroyed.
@@ -94,5 +100,14 @@ export function walkClip(root,damage){
  const times=[],values=new Map(nodes.map(n=>[n.name,{p:[],q:[]}]));
  for(let i=0;i<=120;i++){const t=i/30;times.push(t);applyMech(root,t,{damage});for(const n of nodes){values.get(n.name).p.push(...n.position);values.get(n.name).q.push(...n.quaternion);}}
  const tracks=[];for(const n of nodes){const v=values.get(n.name);tracks.push(new T.VectorKeyframeTrack(n.name+'.position',times,v.p),new T.QuaternionKeyframeTrack(n.name+'.quaternion',times,v.q));}
- applyMech(root,0,{mode:'park',damage});return new T.AnimationClip(damage===2?'Damaged_Walk_Cycle':'Walk_Cycle',4,tracks);
+ applyMech(root,0,{mode:'park',damage});return new T.AnimationClip(damage===2?'Damaged_Walk_Cycle':'Walk_Cycle',4,tracks).optimize();
+}
+
+export function airdropClip(root,damage){
+ if(damage===3)return null;
+ const nodes=[];root.traverse(o=>{if(/^(DROP_ROOT$|MECH_BODY$|HIP_YAW_|HIP_PITCH_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(o.name))nodes.push(o);});
+ const times=[],values=new Map(nodes.map(n=>[n.name,{p:[],q:[]}]));
+ for(let i=0;i<=DROP_DURATION*60;i++){const t=i/60;times.push(t);applyAirdrop(root,t,{damage});for(const n of nodes){values.get(n.name).p.push(...n.position);values.get(n.name).q.push(...n.quaternion);}}
+ const tracks=[];for(const n of nodes){const v=values.get(n.name);tracks.push(new T.VectorKeyframeTrack(n.name+'.position',times,v.p),new T.QuaternionKeyframeTrack(n.name+'.quaternion',times,v.q));}
+ applyMech(root,0,{mode:'park',damage});return new T.AnimationClip('Airdrop_Land',DROP_DURATION,tracks).optimize();
 }
