@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Unpredictable lure speed bursts
+
+The orange lure cruises at 0.65 m/s and occasionally accelerates toward 1.8–3.0 m/s for 1.2–2.8 seconds, with randomized intervals and slight changes of escape direction. Ridgeback aggression responds to lure speed and separation with a perception delay, while retaining limited acceleration and anchored gait. It eases back after bursts without stopping pursuit. The status reports lure speed and active bursts.
+
+Startup and 600 pursuit-frame checks pass; a seeded 120-second run includes 14 bursts, reaches 2.885 m/s lure speed and 0.830 m/s mech speed, and retains planted-claw stability. These are procedural checks, not live browser visual verification.
+
 ## 22 October 2026 / Ridgeback startup cache fix
 
 Versioned the shared gait runtime and pursuit imports to avoid mixing cached pre-gait modules with the new viewer. Added a caught dynamic startup import so module failures appear in the status instead of leaving the loading message. A Node startup harness using the actual GLB passes initialization and 600 pursuit frames with rendering/DOM adapters; it does not verify WebGL output. Continuous pursuit regression checks also pass.

@@ -4,7 +4,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {applyMech,applyAirdrop,solveHydraulics,LEGS,DROP_DURATION,walkSpeed} from '../assets/ridgeback-mech/runtime.js?v=heavy-gait-1';
-import {LureBehavior} from './behavior.js?v=continuous3';
+import {LureBehavior} from './behavior.js?v=bursts1';
 import {createAirdropFX} from './airdrop-fx.js';
 const $=id=>document.getElementById(id),stage=$('stage'),base='../assets/ridgeback-mech/';
 const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;stage.prepend(renderer.domElement);
@@ -44,7 +44,7 @@ function pose(){if(!root)return;root.rotation.set(0,0,0);root.position.x=0;const
  dropFX.update(root,state,carrier,dropping);
  if(dropping&&$('followDrop').checked){const u=T.MathUtils.smoothstep(time,.7,2.65);camera.position.lerpVectors(new T.Vector3(-27,18,31),new T.Vector3(-9,5.5,11),u);controls.target.lerpVectors(new T.Vector3(0,7,0),new T.Vector3(0,1.4,0),u);const hit=time-2.6;if(hit>0){const kick=.085*Math.exp(-6*hit)*Math.sin(hit*75);camera.position.y+=kick;controls.target.x+=kick*.5;}controls.update();}
  root.traverse(o=>{if(o.isMesh)o.material.wireframe=$('wire').checked;});for(const m of markers){m.visible=$('contacts').checked;m.position.copy(root.getObjectByName(m.userData.node).getWorldPosition(new T.Vector3()));}
- $('status').textContent=`MX-06 / D${entry.damage_level} · ${state.phase} · ${state.contacts}/6 planted feet · ${entry.static?'static':(agency()?behavior.elapsed:time).toFixed(2)+' s'}${walking?' · '+(z).toFixed(2)+' m travelled · '+(walkSpeed(entry.damage_level)).toFixed(3)+' m/s':''}${agency()?' · '+behavior.state+' · Aggro '+Math.round(behavior.aggro*100)+'% · '+(behavior.speed||0).toFixed(2)+' m/s':''}${$('mode').value==='clip'&&clip?' · Exported GLB clip':''}`;}
+ $('status').textContent=`MX-06 / D${entry.damage_level} · ${state.phase} · ${state.contacts}/6 planted feet · ${entry.static?'static':(agency()?behavior.elapsed:time).toFixed(2)+' s'}${walking?' · '+(z).toFixed(2)+' m travelled · '+(walkSpeed(entry.damage_level)).toFixed(3)+' m/s':''}${agency()?' · '+behavior.state+' · Aggro '+Math.round(behavior.aggro*100)+'% · '+(behavior.speed||0).toFixed(2)+' m/s · Lure '+behavior.lureSpeed.toFixed(2)+' m/s'+(behavior.burstRemaining>0?' / burst':''):''}${$('mode').value==='clip'&&clip?' · Exported GLB clip':''}`;}
 for(const id of ['lod','damage','encoding'])$(id).onchange=load;
 for(const id of ['yaw','pitch','spin','wire','contacts','followDrop','travel','followWalk'])$(id).oninput=pose;
 $('mode').onchange=async()=>{behavior.reset();time=0;playing=true;$('play').textContent='Pause';$('time').max=$('mode').value==='drop'?7:4;$('timeLabel').textContent=$('mode').value==='drop'?'Airdrop / 7 seconds':'Cycle / 4 seconds';if($('mode').value==='drop'){try{await loadCarrier();}catch(e){$('status').textContent='Carrier failed: '+e.message;}}else view('hero');pose();};
