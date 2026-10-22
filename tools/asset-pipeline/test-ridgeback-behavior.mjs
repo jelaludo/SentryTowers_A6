@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-const source=(await fs.readFile(new URL('../../ridgeback-mech/behavior.js',import.meta.url),'utf8')).replace("'three'",JSON.stringify(import.meta.resolve('three'))).replace("'../assets/ridgeback-mech/runtime.js'",JSON.stringify(new URL('../../assets/ridgeback-mech/runtime.js',import.meta.url).href));
+const source=(await fs.readFile(new URL('../../ridgeback-mech/behavior.js',import.meta.url),'utf8')).replace("'three'",JSON.stringify(import.meta.resolve('three'))).replace("'../assets/ridgeback-mech/runtime.js?v=heavy-gait-1'",JSON.stringify(new URL('../../assets/ridgeback-mech/runtime.js',import.meta.url).href));
 const {LureBehavior}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 const bytes=await fs.readFile(new URL('../../assets/ridgeback-mech/mx06_d0_lod1.glb',import.meta.url));
 const {scene:root}=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');

@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {applyMech,poseLeg,solveHydraulics,LEGS,STANCE_DUTY,walkSpeed} from '../assets/ridgeback-mech/runtime.js';
+import {applyMech,poseLeg,solveHydraulics,LEGS,STANCE_DUTY,walkSpeed} from '../assets/ridgeback-mech/runtime.js?v=heavy-gait-1';
 const clamp=T.MathUtils.clamp;
 // Viewer-only attention and locomotion controller. GLB clips remain reusable in-place sources.
 export class LureBehavior {

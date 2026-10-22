@@ -1,5 +1,9 @@
 # Devlog
 
+## 22 October 2026 / Ridgeback startup cache fix
+
+Versioned the shared gait runtime and pursuit imports to avoid mixing cached pre-gait modules with the new viewer. Added a caught dynamic startup import so module failures appear in the status instead of leaving the loading message. A Node startup harness using the actual GLB passes initialization and 600 pursuit frames with rendering/DOM adapters; it does not verify WebGL output. Continuous pursuit regression checks also pass.
+
 ## 22 October 2026 / Continuous pursuit and visible lure
 
 Enlarged the orange lure, used an unlit orange material and added a ground ring. Follow framing now includes both actors. Lure mode hides the four-second scrubber and displays elapsed simulation time; pursuit continues indefinitely with variable aggression instead of stopping to rescan. The ball selects destinations ahead of the mech. Original walk and clip inspection retain their four-second cycles.
