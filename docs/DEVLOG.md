@@ -1,5 +1,9 @@
 # Devlog
 
+## 22 October 2026 / Upward shield heat ripples
+
+Reversed the FEIDS-26 thermal wave phase so heat ripples travel from the bottom leading shield toward the top (local -Z in nose-down flight). Preserved the heat colours, intensity and cooldown.
+
 ## 22 October 2026 / Longer spindle and stronger blue entry heating
 
 Stretched FEIDS-26 by 40% along its axis to 20.16 m, retaining the 7.5 m width, symmetric pointed taper, four matching quarters and existing cargo sockets. Updated plot reservation to 8 × 22 m and rebuilt D0–D3 detailed/game/distance and derived Meshopt exports. Triangle/draw budgets remain unchanged; packed cargo minimum sampled clearance is now 0.808 m.
