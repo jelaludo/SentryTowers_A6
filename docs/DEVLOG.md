@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Ridgeback lure detection and pursuit
+
+Added a separate autonomous viewer mode with a moving orange lure, scanning/detection pauses, variable pursuit bursts and deliberate settling. Aggro adjusts cadence; acceleration and turn speed are limited, root travel follows gait phase, and world-space claw anchors prevent stance sliding while steering. The mech finishes recovering its feet before resting. Pause and Replay control both actors; original walk/clip/drop inspection remains available. Source GLBs and their damage/LOD exports are unchanged.
+
+A seeded 120-second runtime check passes all four behavior states, full stops and planted-claw stability, reaching 0.763 m/s at default aggression. Browser visual review remains pending.
+
 ## 22 October 2026 / Ridgeback anchored heavy walk
 
 Reworked MX-06 walking around 72% planted stance, overlapping tripod support, deliberate claw recovery and continuous foot velocity at touchdown. Added hull heave, pitch, roll and a forward pulling surge, with level claws solved against the moving body. Viewer defaults to walking across the ground grid with a following camera; travel can be disabled for in-place inspection. D2 retains a shorter, lower gait; D3 and distance tiers remain static.
