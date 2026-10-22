@@ -17,3 +17,5 @@ Validation: `node tools/asset-pipeline/test-ridgeback-cinematic.mjs` samples bot
 Credit: models by jelaludo; derived cinematic arrangement, procedural staging and VFX authored in this repository. Hand-off: commit containing this folder, plus the referenced `assets/ridgeback-mech/` and `assets/korp/` folders.
 
 Browser review limitation: Safari loaded the scene resources but displayed a blank content area for both this scene and the unchanged Ridgeback viewer; final camera/VFX visual review remains pending.
+
+Direct playback URL: append `?play=1` to the scene URL. This hides the interface immediately and starts the one-shot after the models load. It fills the browser viewport; browser security requires a user gesture for native fullscreen. Play/Replay still request native fullscreen. Input or completion restores the controls, and a failed model load restores the interface.

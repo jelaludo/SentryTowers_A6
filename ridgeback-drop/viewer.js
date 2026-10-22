@@ -34,10 +34,10 @@ function reveal(){
  if(!immersive)return;immersive=false;fullscreenRequest++;document.body.classList.remove('immersive');
  if(document.fullscreenElement===stage)document.exitFullscreen().catch(()=>{});
 }
-function present(){
+function present(nativeFullscreen=true){
  immersive=true;armedAt=performance.now();const token=++fullscreenRequest;document.body.classList.add('immersive');
  // Full-viewport presentation remains available when native fullscreen is unsupported.
- if(stage.requestFullscreen&&!document.fullscreenElement)stage.requestFullscreen().then(()=>{if(token!==fullscreenRequest&&document.fullscreenElement===stage)document.exitFullscreen().catch(()=>{});}).catch(()=>{});
+ if(nativeFullscreen&&stage.requestFullscreen&&!document.fullscreenElement)stage.requestFullscreen().then(()=>{if(token!==fullscreenRequest&&document.fullscreenElement===stage)document.exitFullscreen().catch(()=>{});}).catch(()=>{});
 }
 for(const event of ['pointerdown','keydown','wheel','touchstart'])document.addEventListener(event,reveal,{capture:true,passive:true});
 document.addEventListener('pointermove',e=>{if(performance.now()-armedAt>250&&(Math.abs(e.movementX)+Math.abs(e.movementY)>1))reveal();},{passive:true});
@@ -50,3 +50,4 @@ $('tier').onchange=load;
 for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>{time=+b.dataset.time;playing=false;$('play').textContent='Play';$('time').value=time;$('cinema').checked=true;update();};
 new ResizeObserver(()=>{renderer.setSize(stage.clientWidth,stage.clientHeight);camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();}).observe(stage);
 let last=performance.now();renderer.setAnimationLoop(now=>{const dt=Math.min(.1,(now-last)/1000);last=now;if(ready&&playing){time=Math.min(DURATION,time+dt*+$('rate').value);if(time===DURATION){playing=false;$('play').textContent='Play';reveal();}$('time').value=time;}update();if(!$('cinema').checked)controls.update();renderer.render(scene,camera);$('stats').textContent=`Rendered frame: ${renderer.info.render.triangles.toLocaleString()} triangles · ${renderer.info.render.calls} draw calls · shared mech geometry · no FPS claim`;});await load();
+if(new URLSearchParams(location.search).get('play')==='1'){if(ready){time=0;playing=true;$('play').textContent='Pause';present(false);update();}else document.body.classList.remove('immersive');}

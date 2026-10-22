@@ -1,5 +1,9 @@
 # Devlog
 
+## 22 October 2026 / Direct cinematic playback link
+
+Added `ridgeback-drop/?play=1` to open Heavy Rain directly in an unobstructed full-viewport presentation and start playback once models load. User input or completion restores controls. Native fullscreen remains available through Play/Replay because browsers require a user gesture. Added the direct link to the scene controls and documented the URL.
+
 ## 22 October 2026 / Clear cinematic landing and minimal playback HUD
 
 Moved the Heavy Rain rock field behind the landing zone to clear the low camera approach. Replaced the bottom HUD with compact top-right Play/Replay and a slim timeline; extra scene controls and diagnostics expand on demand. Playback now starts on user action and requests fullscreen, with a full-viewport fallback. Navigation and overlays hide during playback and return at completion or user input. Input reveals controls without interrupting the timeline. Original assets and drop choreography unchanged.
