@@ -57,8 +57,19 @@ scene.collection.objects.link(cam)
 cam.location=(-18,-23,17)
 aim(cam,(0,0,3.8))
 cam_data.type='ORTHO'
-cam_data.ortho_scale=26
+cam_data.ortho_scale=34
 scene.camera=cam
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/feids26-review.blend'))
 scene.render.filepath=str(ROOT/'assets/feids26/preview.png')
+bpy.ops.render.render(write_still=True)
+# Separate ground-camera proof frame, using the actual final landing pose.
+scene=setup_scene('FEIDS26_Ground_Camera_Review', (.12,.16,.20))
+bpy.ops.import_scene.gltf(filepath='/tmp/feids-impact-review.glb')
+add_light(scene,'GROUND_KEY',(-12,-8,18),(7,-5,1),2400,8,(1,.88,.72))
+add_light(scene,'GROUND_FILL',(10,5,12),(7,-5,1),2000,8,(.7,.85,1))
+bpy.ops.mesh.primitive_plane_add(size=180,location=(0,0,-.015))
+mat=bpy.data.materials.new('GROUND');mat.diffuse_color=(.19,.20,.21,1);bpy.context.object.data.materials.append(mat)
+cam_data=bpy.data.cameras.new('ANT_CAMERA');cam=bpy.data.objects.new('ANT_CAMERA',cam_data);scene.collection.objects.link(cam)
+cam.location=(9.75,-7,.2);aim(cam,(7.6,-5.5,.65));cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=18.1;cam_data.clip_start=.1;scene.camera=cam
+scene.render.filepath=str(ROOT/'assets/feids26/landing-preview.png')
 bpy.ops.render.render(write_still=True)

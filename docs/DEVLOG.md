@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Symmetric FEIDS shell and ground-level laggard finale
+
+Replaced the asymmetric silhouette with an axially symmetric oblong shell and four identical quarters, grey above and black below in entry attitude. Removed the yellow telemetry mesh while preserving its lookup node. Added stronger seeded, three-axis debris motion: each replay varies, while `?play=1&seed=26` and timeline scrubbing remain reproducible. Plain and decoded Meshopt exports rebuilt for D0–D3; D0 game is 1,568 triangles, four draws and 126,420 bytes.
+
+Extended deployment to 24 seconds, with shell separation at approximately 300 m, reused Heavy Rain heat trails during the longer mech descent, and touchdowns at 13.00, 13.43, 14.00 and 16.23 s. The camera lowers to 20 cm before the laggard arrives; the closest claw is 81 cm from the lens and remains in frame. Reduced last-impact smoke to preserve the silhouette. Rendered and inspected the exploded shell and ground-camera impact frame. Validation passes for 24 plain/decoded exports, 492 clip samples, 5,768 landing poses, packing, symmetry and repeatable RNG. Live browser motion review remains pending; no FPS claim.
+
 ## 22 October 2026 / FEIDS shield heating and violent separation
 
 Simplified FEIDS-26 to smooth oblong shell quarters with plain ceramic surfaces and dark leading shields; removed tile patchwork, ribs and studs. Game shell now has 1,312 triangles in five draws (122,768 bytes), down from 4,848 triangles; distance is 736 triangles in one draw. These are geometry measurements, not an FPS claim. Rebuilt all damage/detail exports and derived Meshopt files.

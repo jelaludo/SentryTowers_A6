@@ -24,7 +24,7 @@ const collectionImages={
 };
 
 export const collections=[
-['feids26','FEIDS-26 / Interplanetary Cargo Shell','Industry','Fusiform expendable delivery capsule: two folded Ridgebacks in tandem, four separating shell quadrants, atmospheric entry and a two-capsule / four-mech deployment.','4 shell quarters · 2 mechs per capsule · D0–D3 · 3 LODs','Animated prototype'],
+['feids26','FEIDS-26 / Interplanetary Cargo Shell','Industry','Fusiform expendable delivery capsule: two folded Ridgebacks in tandem, four separating shell quadrants, high-altitude breakup, burning mech descent and a ground-level laggard finale.','4 shell quarters · 2 mechs per capsule · D0–D3 · 3 LODs','Animated prototype'],
 ['ridgeback-drop','Heavy Rain / Ridgeback Deployment','Presentation','One KORP drops three smaller Ridgebacks from 180 metres. Staggered five-second falls, heat trails, braking pulses, heavy leg recoil, smoke and cracked ground.','13-second cinematic · 3 mechs · Replay + slow motion','Cinematic study'],
 ['ridgeback-mech','MX-06 / Ridgeback Mech','Combat','Six reinforced hydraulic legs, 18 spike claws, rotary minigun, laser and paired missile pods. D0–D3 damage, tripod walk clips and a heavy gunship airdrop with braking jet.','6 legs · D0–D3 · Walk + airdrop · 3 LODs','Animated prototype'],
 ['recon-rover-s','R-47X-S / Swing-arm Recon Rover','Industry','Six independent swing arms with endpoint-driven telescopic dampers, D0–D3 damage, 19 localized zones and the R-47X thruster and telemetry systems.','6 swing arms · D0–D3 · 3 LODs','Animated prototype'],

@@ -2,10 +2,16 @@
   "files": 24,
   "errors": 0,
   "warnings": 0,
-  "max_cargo_radius_excess_m": -0.24659353381079674,
+  "max_cargo_radius_excess_m": -1.148427337185229,
   "packing_vertices": 66296,
   "animation_samples": 492,
-  "max_clip_error_m": 0.005039140917605019,
+  "max_clip_error_m": 0.000004795461009286736,
   "minimum_cargo_gap_m": 0.31253864705562506,
-  "landing_samples": 3608
+  "landing_samples": 5768,
+  "ant_claw_ndc": [
+    -0.11257897366927089,
+    -0.6775372521748653,
+    0.727261440861695
+  ],
+  "ant_claw_distance_m": 0.809308880358094
 }

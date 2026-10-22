@@ -1,6 +1,6 @@
 import * as T from 'three';
 // Deterministic, bounded pools: seeking backwards restores all effects without simulation history.
-export function effects(scene,index){
+export function effects(scene,index,options={}){
  const group=new T.Group();scene.add(group);
  const canvas=document.createElement('canvas');canvas.width=canvas.height=64;const ctx=canvas.getContext('2d'),gradient=ctx.createRadialGradient(32,32,0,32,32,32);gradient.addColorStop(0,'rgba(255,255,255,1)');gradient.addColorStop(.3,'rgba(255,255,255,.55)');gradient.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=gradient;ctx.fillRect(0,0,64,64);const texture=new T.CanvasTexture(canvas);
  const fire=new T.Group();group.add(fire);const sparks=[];
@@ -15,6 +15,6 @@ export function effects(scene,index){
  sparks.forEach((m,i)=>{const q=((t*(.7+i%3*.12)+i*.618)%1),a=i*2.399+index;m.position.set(Math.cos(a)*(1.15+q*.5),q*(5+s.heat*8),Math.sin(a)*(1.1+q*.5));m.scale.set((.5+q)*s.heat,(1+q*4)*s.heat,1);m.material.opacity=s.heat*(1-q)*.6;});
  jet.position.copy(root.getObjectByName('SOCKET_BRAKE_JET').getWorldPosition(new T.Vector3()));jet.visible=s.jet>0;jet.scale.setScalar(s.jet);
  cracks.position.set(s.x,0,s.z);cracks.rotation.y=s.yaw;cracks.visible=s.hit>=0;cracks.scale.setScalar(Math.min(1,Math.max(0,s.hit)*7));
- smoke.forEach((m,i)=>{const a=i*2.399,age=s.hit-i%5*.035,spread=1+Math.max(0,age)*(.9+i%4*.35);m.visible=age>=0&&age<5;m.position.set(s.x+Math.cos(a)*spread,.2+Math.max(0,age)*(.3+i%3*.13),s.z+Math.sin(a)*spread);m.scale.setScalar(.7+Math.max(0,age)*1.3);m.material.opacity=Math.max(0,.5-age*.1);});
+ smoke.forEach((m,i)=>{const a=i*2.399,age=s.hit-i%5*.035,spread=1+Math.max(0,age)*(.9+i%4*.35);m.visible=age>=0&&age<5;m.position.set(s.x+Math.cos(a)*spread,.2+Math.max(0,age)*(.3+i%3*.13),s.z+Math.sin(a)*spread);m.scale.setScalar(.7+Math.max(0,age)*1.3);m.material.opacity=Math.max(0,.5-age*.1)*(options.smokeOpacity??1);});
  }};
 }
