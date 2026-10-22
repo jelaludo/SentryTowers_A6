@@ -1,0 +1,7 @@
+{
+  "samples": 4686,
+  "max_ground_error_m": 1.4432899320127035e-15,
+  "min_piston_overlap_m": 0.13770365065240486,
+  "errors": [],
+  "scope": "Plain source rigs; deterministic cinematic trajectory, scaled ground contacts and hydraulic endpoints. Original decoded exports unchanged."
+}

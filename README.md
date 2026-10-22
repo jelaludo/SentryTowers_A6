@@ -1,5 +1,7 @@
 # Model Workshop
 
+Separate cinematic study: `ridgeback-drop/` — one KORP deploys three smaller Ridgebacks in a 13-second high-altitude drop, with braking pulses, leg recoil, smoke and ground cracks. See its README and manifest for the procedural scene contract.
+
 **MX-06 Ridgeback / Six-legged mech** adds 18 spike claws, telescopic hydraulics, a rotary minigun, laser and twin missile pods. D0–D3 include detailed/game/static-distance tiers and exported four-second walk clips. Open `ridgeback-mech/`; measured hand-off is in `assets/ridgeback-mech/README.md`.
 
 **R-47X-S / Swing-arm Recon Rover** is a separate six-wheel R-47X derivative with XB-12-style articulated swing arms and telescopic dampers, D0–D3 damage and three tiers. Open `recon-rover-s/`; integration notes are in `assets/recon-rover-s/README.md`.

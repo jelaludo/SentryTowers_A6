@@ -1,4 +1,5 @@
 const collectionImages={
+'ridgeback-drop':'assets/ridgeback-mech/preview.png',
 'ridgeback-mech':'assets/ridgeback-mech/preview.png',
 'recon-rover-s':'assets/recon-rover-s/preview.png',
 'xb12':'assets/xb12/preview.png',
@@ -22,6 +23,7 @@ const collectionImages={
 };
 
 export const collections=[
+['ridgeback-drop','Heavy Rain / Ridgeback Deployment','Presentation','One KORP drops three smaller Ridgebacks from 180 metres. Staggered five-second falls, heat trails, braking pulses, heavy leg recoil, smoke and cracked ground.','13-second cinematic · 3 mechs · Replay + slow motion','Cinematic study'],
 ['ridgeback-mech','MX-06 / Ridgeback Mech','Combat','Six reinforced hydraulic legs, 18 spike claws, rotary minigun, laser and paired missile pods. D0–D3 damage, tripod walk clips and a heavy gunship airdrop with braking jet.','6 legs · D0–D3 · Walk + airdrop · 3 LODs','Animated prototype'],
 ['recon-rover-s','R-47X-S / Swing-arm Recon Rover','Industry','Six independent swing arms with endpoint-driven telescopic dampers, D0–D3 damage, 19 localized zones and the R-47X thruster and telemetry systems.','6 swing arms · D0–D3 · 3 LODs','Animated prototype'],
 ['xb12','XB-12 / Terrain Scout','Industry','Four-wheel armored Rover with D0–D3 physical damage, animated suspension, rear hexagonal sensors and selectable rover-sized sentries.','D0–D3 · 4 wheels · 3 LODs','Animated prototype'],

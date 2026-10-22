@@ -1,0 +1,60 @@
+{
+  "type": "derived procedural cinematic scene",
+  "clip": {
+    "name": "Heavy_Rain_Deployment",
+    "duration_s": 13,
+    "loop": false,
+    "baked": false
+  },
+  "mech_scale": 0.75,
+  "drop_height_m": 180,
+  "freefall_duration_s": 5,
+  "release_times_s": [
+    1.2,
+    1.55,
+    1.9
+  ],
+  "touchdown_times_s": [
+    6.85,
+    7.2,
+    7.55
+  ],
+  "lod_selection": {
+    "default": 1,
+    "recording": 0,
+    "distance": "excluded: static rigs cannot perform this animation"
+  },
+  "assets": [
+    {
+      "file": "assets/ridgeback-mech/mx06_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "triangles": 20004,
+      "draw_calls": 38,
+      "bytes": 1363788,
+      "sha256": "85ad62e09e239034d750ac1b575acc44f3130c9090a4e9663d16601dc4cf39d0",
+      "instances": 3
+    },
+    {
+      "file": "assets/ridgeback-mech/mx06_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 8016,
+      "draw_calls": 38,
+      "bytes": 862912,
+      "sha256": "d4734893ef9b421e4997c64543e95d09305e968b585980ee5fcdf90b821c9a38",
+      "instances": 3
+    },
+    {
+      "file": "assets/korp/korp_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 2472,
+      "draw_calls": 16,
+      "bytes": 198764,
+      "sha256": "e1dc17e06c53160b95970e79315bf72e75b3047d6522a1a4fd200bdd394165d6",
+      "instances": 1
+    }
+  ],
+  "credit": "jelaludo / repository cinematic study"
+}

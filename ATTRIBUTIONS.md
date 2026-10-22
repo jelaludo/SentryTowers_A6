@@ -86,3 +86,7 @@ Original rabbit, circuit, camouflage and stroke-lettering artwork by jelaludo, p
 
 - ISAO uses newly authored 8 × 6 LED patterns, semantic colors and limb performances. No Braille cells, encoded characters, code or data files from the reference are embedded in the model or viewer.
 - No external author, source URL or separate third-party license was provided with these files. Their inclusion here records project provenance; it does not invent or broaden usage rights.
+
+## Heavy Rain cinematic study
+
+`ridgeback-drop/` reuses jelaludo’s MX-06 Ridgeback and KORP plain source GLBs. Derived arrangement, procedural drop timeline, heat trails, braking plume, smoke and crack marks are repository-authored presentation elements. Original exports preserved.

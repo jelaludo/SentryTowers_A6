@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Heavy Rain cinematic deployment
+
+Added a separate `ridgeback-drop/` scene: one KORP, three 75%-scale Ridgebacks, staggered 180 m releases and five-second accelerating falls, stylized hot trails, short braking pulses, distinct headings, heavy hydraulic recoil, spreading cracks and smoke. A 13-second procedural one-shot provides phase jumps, slow motion, optional camera shake, free orbit and detailed/game mesh selection. Original models, damage states and baked drop clips remain unchanged. Scene manifest records source hashes/bytes and geometry budgets; rendered metrics include VFX. Tested 4,686 poses across both animated tiers with planted claw contacts and safe piston travel. No FPS claim; cinematic effects are presentation-only, not a terrain or atmospheric simulation.
+
+Browser review limitation: Safari loaded the scene resources but displayed a blank content area for both this scene and the unchanged Ridgeback viewer; final camera/VFX visual review remains pending.
+
 ## 22 October 2026 / Ridgeback outboard pods and heavy airdrop
 
 Moved the missile pods outward and aft, raised their supports and added outward cant plus steeper elevation. Added bracing and a small underbody braking nozzle. Healthy pod/gun bounds and forward missile paths pass 650 sampled aiming checks. All damage/LOD exports rebuilt with stable existing node names plus new deployment, outboard-pod and braking-jet nodes.
