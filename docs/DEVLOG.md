@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / FEIDS-26 interplanetary cargo delivery
+
+Added a separate linked FEIDS-26 entry: 14.3 m fusiform shell with four separating quarters, two 75%-scale folded Ridgebacks packed in tandem, and a 15-second scene showing two capsules releasing four mechs. Includes hot atmospheric entry, shell separation, leg unfolding, braking jets and heavy landings. Packed cutaway and split-shell inspection, D0–D3 shell damage, detailed/game selection and immersive autoplay link are available. Original Ridgeback exports remain unchanged.
+
+Twelve plain and twelve derived Meshopt GLBs validate with zero errors/warnings after decoding; 492 clip samples and 902 cargo landing poses pass. Measured minimum healthy shell clearance is 0.247 m over 66,296 cargo vertices; conservative tandem bounds leave 0.313 m between mechs. D0 game shell: 4,848 triangles, five draws, 280,584 bytes; static distance: 880 triangles, one draw, 63,420 bytes. Generated and visually inspected a Blender review render; live browser cinematic review remains pending. This is a deployment presentation prototype, not a ballistic, thermal or interplanetary navigation simulation.
+
 ## 22 October 2026 / Direct cinematic playback link
 
 Added `ridgeback-drop/?play=1` to open Heavy Rain directly in an unobstructed full-viewport presentation and start playback once models load. User input or completion restores controls. Native fullscreen remains available through Play/Replay because browsers require a user gesture. Added the direct link to the scene controls and documented the URL.

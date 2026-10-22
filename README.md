@@ -1,5 +1,7 @@
 # Model Workshop
 
+New linked asset family: `feids26/` — FEIDS-26 fusiform interplanetary delivery shells, two packed Ridgebacks per capsule, four animated shell quarters, D0–D3 and three detail tiers.
+
 Separate cinematic study: `ridgeback-drop/` — one KORP deploys three smaller Ridgebacks in a 13-second high-altitude drop, with braking pulses, leg recoil, smoke and ground cracks. See its README and manifest for the procedural scene contract.
 
 **MX-06 Ridgeback / Six-legged mech** adds 18 spike claws, telescopic hydraulics, a rotary minigun, laser and twin missile pods. D0–D3 include detailed/game/static-distance tiers and exported four-second walk clips. Open `ridgeback-mech/`; measured hand-off is in `assets/ridgeback-mech/README.md`.

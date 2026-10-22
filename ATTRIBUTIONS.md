@@ -90,3 +90,7 @@ Original rabbit, circuit, camouflage and stroke-lettering artwork by jelaludo, p
 ## Heavy Rain cinematic study
 
 `ridgeback-drop/` reuses jelaludo’s MX-06 Ridgeback and KORP plain source GLBs. Derived arrangement, procedural drop timeline, heat trails, braking plume, smoke and crack marks are repository-authored presentation elements. Original exports preserved.
+
+## FEIDS-26 / Interplanetary Delivery System
+
+Original fusiform shell, quadrant separation rig, procedural re-entry scene and generated preview by jelaludo. `assets/feids26/` plain GLBs are the source of truth; Meshopt files and `source/blender/feids26-review.blend` are derived. Cargo references the existing MX-06 Ridgeback family; landing VFX reuse the linked Heavy Rain scene.
