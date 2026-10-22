@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / FEIDS shield heating and violent separation
+
+Simplified FEIDS-26 to smooth oblong shell quarters with plain ceramic surfaces and dark leading shields; removed tile patchwork, ribs and studs. Game shell now has 1,312 triangles in five draws (122,768 bytes), down from 4,848 triangles; distance is 736 triangles in one draw. These are geometry measurements, not an FPS claim. Rebuilt all damage/detail exports and derived Meshopt files.
+
+Entry stays nose-down with white-blue heat on the bottom shield. A brief controlled white flash marks each sudden split, followed by shell drag separation and tumbling above the faster-falling mechs. Four distinct landing sites and release delays produce impacts at 9.85, 10.03, 10.30 and 10.48 seconds, each with leg recoil, smoke, cracks and a camera kick. Updated phase controls and regenerated the Blender review. Plain/decoded validation passes; maximum decoded detached-shell clip drift is 5.1 mm. Live browser motion review remains pending.
+
 ## 22 October 2026 / FEIDS-26 interplanetary cargo delivery
 
 Added a separate linked FEIDS-26 entry: 14.3 m fusiform shell with four separating quarters, two 75%-scale folded Ridgebacks packed in tandem, and a 15-second scene showing two capsules releasing four mechs. Includes hot atmospheric entry, shell separation, leg unfolding, braking jets and heavy landings. Packed cutaway and split-shell inspection, D0–D3 shell damage, detailed/game selection and immersive autoplay link are available. Original Ridgeback exports remain unchanged.

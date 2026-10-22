@@ -57,7 +57,7 @@ scene.collection.objects.link(cam)
 cam.location=(-18,-23,17)
 aim(cam,(0,0,3.8))
 cam_data.type='ORTHO'
-cam_data.ortho_scale=29
+cam_data.ortho_scale=26
 scene.camera=cam
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/feids26-review.blend'))
 scene.render.filepath=str(ROOT/'assets/feids26/preview.png')

@@ -9,8 +9,8 @@
     "origin": "ground below shell centre"
   },
   "dimensions_m": [
-    7.545665264129639,
-    7.545665264129639,
+    7.499760150909424,
+    7.499760150909424,
     14.300000190734863
   ],
   "cargo": {
@@ -39,25 +39,25 @@
       "lod": 0,
       "bounds": {
         "min": [
-          -3.7728326320648193,
-          0.027167367935180486,
+          -3.749880075454712,
+          0.05011992454528791,
           -8.100000381469727
         ],
         "max": [
-          3.7728326320648193,
-          7.572832632064819,
+          3.749880075454712,
+          7.549880075454712,
           6.199999809265137
         ],
         "dimensions_m": [
-          7.545665264129639,
-          7.545665264129639,
+          7.499760150909424,
+          7.499760150909424,
           14.300000190734863
         ]
       },
       "damage_level": 0,
       "static": false,
-      "bytes": 888964,
-      "triangles": 18400,
+      "bytes": 213036,
+      "triangles": 4640,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -111,9 +111,9 @@
           "loop": false
         }
       ],
-      "sha256": "e1adc5e6615c3b1f689de27a67d26c5304dcdcebd274d83d4c1f707f47deb0ea",
+      "sha256": "24854975431d007766894084cedc06dffa9520687bcccdba0d0df45c933f6d36",
       "meshopt_file": "derived/meshopt/feids26_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 225544,
+      "meshopt_bytes": 45744,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -139,8 +139,8 @@
       },
       "damage_level": 0,
       "static": false,
-      "bytes": 280584,
-      "triangles": 4848,
+      "bytes": 122768,
+      "triangles": 1312,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -194,9 +194,9 @@
           "loop": false
         }
       ],
-      "sha256": "d0507f9deadfbaae56f19ac706e6e1be49fa342166289dea670117dfa2852f52",
+      "sha256": "12c3aaf5b949d59c9f7194a9a9aed1db235327336da7134b57bab143130bd3ef",
       "meshopt_file": "derived/meshopt/feids26_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 79928,
+      "meshopt_bytes": 27016,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -222,8 +222,8 @@
       },
       "damage_level": 0,
       "static": true,
-      "bytes": 63420,
-      "triangles": 880,
+      "bytes": 28996,
+      "triangles": 736,
       "draw_calls": 1,
       "plot_m": [
         8,
@@ -272,9 +272,9 @@
         "FEIDS_STATIC"
       ],
       "clips": [],
-      "sha256": "bdae2399226ec974b84ace6c057576e67c3c3becb97b9dd72b3c9f51b757a931",
+      "sha256": "d43e08029eb5168b006c582be742da8bbe5c04100c9f05dbf00da80baf8a0bf4",
       "meshopt_file": "derived/meshopt/feids26_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 26540,
+      "meshopt_bytes": 11520,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -283,25 +283,25 @@
       "lod": 0,
       "bounds": {
         "min": [
-          -3.7728326320648193,
-          0.027167367935180486,
+          -3.749880075454712,
+          0.05011992454528791,
           -8.100000381469727
         ],
         "max": [
-          3.7728326320648193,
-          7.572832632064819,
+          3.749880075454712,
+          7.549880075454712,
           6.199999809265137
         ],
         "dimensions_m": [
-          7.545665264129639,
-          7.545665264129639,
+          7.499760150909424,
+          7.499760150909424,
           14.300000190734863
         ]
       },
       "damage_level": 1,
       "static": false,
-      "bytes": 922088,
-      "triangles": 18400,
+      "bytes": 226720,
+      "triangles": 4640,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -355,9 +355,9 @@
           "loop": false
         }
       ],
-      "sha256": "ef45ebdf32fb57bba90ea1caeb5412d0a8c6edb407e6eca54e3c8813d37a88f5",
+      "sha256": "cc0a27a6ea6d47f3de74c62de23f22f741e5d524448b28668b2d05b8a7580ac6",
       "meshopt_file": "derived/meshopt/feids26_d1_lod0.meshopt.glb",
-      "meshopt_bytes": 235556,
+      "meshopt_bytes": 50880,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -383,8 +383,8 @@
       },
       "damage_level": 1,
       "static": false,
-      "bytes": 286060,
-      "triangles": 4848,
+      "bytes": 126948,
+      "triangles": 1312,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -438,9 +438,9 @@
           "loop": false
         }
       ],
-      "sha256": "d0fa2a15c16f8a5b739f4858bae41e5f4231339c633881b03765421aebbf7424",
+      "sha256": "6332916c8fef71a8ec80181eba7705414b8fa4159f4b3e5d72d3e9269c8b7386",
       "meshopt_file": "derived/meshopt/feids26_d1_lod1.meshopt.glb",
-      "meshopt_bytes": 81604,
+      "meshopt_bytes": 28600,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -466,8 +466,8 @@
       },
       "damage_level": 1,
       "static": true,
-      "bytes": 63424,
-      "triangles": 880,
+      "bytes": 31160,
+      "triangles": 736,
       "draw_calls": 1,
       "plot_m": [
         8,
@@ -516,9 +516,9 @@
         "FEIDS_STATIC"
       ],
       "clips": [],
-      "sha256": "fa11e0f9774784e176cc4b614d34cfe3659d11d96e95e4c040032434916c4a4e",
+      "sha256": "94ec04235b458bb0878c19c30a125d3cd676feb7afc6625c809e3a78c5c75cac",
       "meshopt_file": "derived/meshopt/feids26_d1_lod2.meshopt.glb",
-      "meshopt_bytes": 26472,
+      "meshopt_bytes": 12420,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -527,25 +527,25 @@
       "lod": 0,
       "bounds": {
         "min": [
-          -3.7728326320648193,
-          0.027167367935180486,
+          -3.749880075454712,
+          0.05011992454528791,
           -8.100000381469727
         ],
         "max": [
-          3.7728326320648193,
-          7.572832632064819,
+          3.749880075454712,
+          7.549880075454712,
           6.199999809265137
         ],
         "dimensions_m": [
-          7.545665264129639,
-          7.545665264129639,
+          7.499760150909424,
+          7.499760150909424,
           14.300000190734863
         ]
       },
       "damage_level": 2,
       "static": false,
-      "bytes": 922808,
-      "triangles": 18400,
+      "bytes": 229748,
+      "triangles": 4640,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -599,9 +599,9 @@
           "loop": false
         }
       ],
-      "sha256": "36ca9345dc660ab323a5a1a5be8d2b4fb4ec8e0dc968b1f50f1ba0e9ab372a82",
+      "sha256": "7bc2fb7d340712c1bc26858b0189326574c6e79a82aae82d587caba1affe70e4",
       "meshopt_file": "derived/meshopt/feids26_d2_lod0.meshopt.glb",
-      "meshopt_bytes": 262316,
+      "meshopt_bytes": 54588,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -627,8 +627,8 @@
       },
       "damage_level": 2,
       "static": false,
-      "bytes": 286348,
-      "triangles": 4848,
+      "bytes": 128608,
+      "triangles": 1312,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -682,9 +682,9 @@
           "loop": false
         }
       ],
-      "sha256": "20b1fef643371ba9c4c2148b8437c7e970de5a33f9d5b277c4b6d7bc2dbf633a",
+      "sha256": "006b1ef4d569ff670c24c31872d56da1db7debd594e1bf84c00022187b72ab8d",
       "meshopt_file": "derived/meshopt/feids26_d2_lod1.meshopt.glb",
-      "meshopt_bytes": 90812,
+      "meshopt_bytes": 30736,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -710,8 +710,8 @@
       },
       "damage_level": 2,
       "static": true,
-      "bytes": 63712,
-      "triangles": 880,
+      "bytes": 32132,
+      "triangles": 736,
       "draw_calls": 1,
       "plot_m": [
         8,
@@ -760,9 +760,9 @@
         "FEIDS_STATIC"
       ],
       "clips": [],
-      "sha256": "6cb99be875485b10ff1a05b8c72ce42962e78ee3e1f8aa338d45d491344ad43d",
+      "sha256": "78f05d1ad21fea3332c09c4c32c4c671a7d52b33ad552af9c44baf8e8721cb71",
       "meshopt_file": "derived/meshopt/feids26_d2_lod2.meshopt.glb",
-      "meshopt_bytes": 26620,
+      "meshopt_bytes": 13032,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -771,25 +771,25 @@
       "lod": 0,
       "bounds": {
         "min": [
-          -3.7728326320648193,
-          0.027167367935180486,
+          -3.749880075454712,
+          0.05011992454528791,
           -8.100000381469727
         ],
         "max": [
-          3.7728326320648193,
-          7.572832632064819,
+          3.749880075454712,
+          7.549880075454712,
           6.199999809265137
         ],
         "dimensions_m": [
-          7.545665264129639,
-          7.545665264129639,
+          7.499760150909424,
+          7.499760150909424,
           14.300000190734863
         ]
       },
       "damage_level": 3,
       "static": false,
-      "bytes": 882024,
-      "triangles": 17920,
+      "bytes": 152588,
+      "triangles": 4496,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -837,9 +837,9 @@
         "SOCKET_CENTER"
       ],
       "clips": [],
-      "sha256": "a36b6cd5b7494d634baf79b662fdfcb99bbcbb61fbcb272d4fdad96fd4027996",
+      "sha256": "f4f9a638fdf9d89d6c8b45e7ac7505aef874c3e2c66fcb1b3fe6be66cab96e99",
       "meshopt_file": "derived/meshopt/feids26_d3_lod0.meshopt.glb",
-      "meshopt_bytes": 248448,
+      "meshopt_bytes": 45000,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -865,8 +865,8 @@
       },
       "damage_level": 3,
       "static": false,
-      "bytes": 266780,
-      "triangles": 4736,
+      "bytes": 54392,
+      "triangles": 1272,
       "draw_calls": 5,
       "plot_m": [
         8,
@@ -914,9 +914,9 @@
         "SOCKET_CENTER"
       ],
       "clips": [],
-      "sha256": "e3419716facc0e9124925a402c37a7c44e0cc409c10aae8b1272d9a4d7448fc7",
+      "sha256": "ec36c5c849fc439653bce5f23289b2cdb975f6072b983d4d59baac6599345075",
       "meshopt_file": "derived/meshopt/feids26_d3_lod1.meshopt.glb",
-      "meshopt_bytes": 84184,
+      "meshopt_bytes": 21784,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     },
@@ -942,8 +942,8 @@
       },
       "damage_level": 3,
       "static": true,
-      "bytes": 62464,
-      "triangles": 864,
+      "bytes": 31028,
+      "triangles": 708,
       "draw_calls": 1,
       "plot_m": [
         8,
@@ -992,9 +992,9 @@
         "FEIDS_STATIC"
       ],
       "clips": [],
-      "sha256": "f3a8a2d7581a6c703fc032e4528fbaab9192f14482a4fbc6bd9882add7abc62c",
+      "sha256": "014bee8fecf76539e3086d5a4d88488dcae90edbccf60d639d055c5c03f8ea8a",
       "meshopt_file": "derived/meshopt/feids26_d3_lod2.meshopt.glb",
-      "meshopt_bytes": 26104,
+      "meshopt_bytes": 12552,
       "meshopt_derived": true,
       "credit": "Models by jelaludo"
     }
