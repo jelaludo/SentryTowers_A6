@@ -1,5 +1,9 @@
 # Devlog
 
+## 22 October 2026 / Clear cinematic landing and minimal playback HUD
+
+Moved the Heavy Rain rock field behind the landing zone to clear the low camera approach. Replaced the bottom HUD with compact top-right Play/Replay and a slim timeline; extra scene controls and diagnostics expand on demand. Playback now starts on user action and requests fullscreen, with a full-viewport fallback. Navigation and overlays hide during playback and return at completion or user input. Input reveals controls without interrupting the timeline. Original assets and drop choreography unchanged.
+
 ## 22 October 2026 / Heavy Rain cinematic deployment
 
 Added a separate `ridgeback-drop/` scene: one KORP, three 75%-scale Ridgebacks, staggered 180 m releases and five-second accelerating falls, stylized hot trails, short braking pulses, distinct headings, heavy hydraulic recoil, spreading cracks and smoke. A 13-second procedural one-shot provides phase jumps, slow motion, optional camera shake, free orbit and detailed/game mesh selection. Original models, damage states and baked drop clips remain unchanged. Scene manifest records source hashes/bytes and geometry budgets; rendered metrics include VFX. Tested 4,686 poses across both animated tiers with planted claw contacts and safe piston travel. No FPS claim; cinematic effects are presentation-only, not a terrain or atmospheric simulation.
