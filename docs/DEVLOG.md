@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Longer spindle and stronger blue entry heating
+
+Stretched FEIDS-26 by 40% along its axis to 20.16 m, retaining the 7.5 m width, symmetric pointed taper, four matching quarters and existing cargo sockets. Updated plot reservation to 8 × 22 m and rebuilt D0–D3 detailed/game/distance and derived Meshopt exports. Triangle/draw budgets remain unchanged; packed cargo minimum sampled clearance is now 0.808 m.
+
+Strengthened the lower-tip bow glow and replaced narrow cone flames with 24 bright blue ribbons following the shield exterior and streaming upward. Added optional viewer-only shield heating: outer black surfaces glow toward the tip, then cool on the detached debris; cold GLB materials remain unchanged. Regenerated shape review images. Export and rig checks pass; live browser review of the thermal shader remains pending.
+
 ## 22 October 2026 / True spindle profile and settled-trio pause
 
 Reshaped FEIDS-26 into a symmetric fusiform spindle with a continuously tapering convex profile and pointed ends. Removed the cylindrical centre and rounded end-cap silhouette while preserving the four equal sections, grey/black finish, sockets and damage/LOD contracts. Healthy packed cargo retains 0.233 m minimum sampled shell clearance. Rebuilt and validated all exports, with unchanged triangle/draw budgets.

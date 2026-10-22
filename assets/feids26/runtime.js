@@ -1,6 +1,7 @@
 export const SHELL_DURATION=4,CENTER_Y=3.8;
 // Symmetric spindle: a continuous lens taper, without a cylindrical middle or domed caps.
-export const PROFILE=[[-7.2,.04],[-5.76,1.35],[-4.32,2.4],[-2.88,3.15],[-1.44,3.6],[0,3.75],[1.44,3.6],[2.88,3.15],[4.32,2.4],[5.76,1.35],[7.2,.04]];
+export const AXIAL_STRETCH=1.4;
+export const PROFILE=[[-7.2,.04],[-5.76,1.35],[-4.32,2.4],[-2.88,3.15],[-1.44,3.6],[0,3.75],[1.44,3.6],[2.88,3.15],[4.32,2.4],[5.76,1.35],[7.2,.04]].map(([z,r])=>[z*AXIAL_STRETCH,r]);
 export function radiusAt(z){for(let i=1;i<PROFILE.length;i++)if(z<=PROFILE[i][0]){const [a,r]=PROFILE[i-1],[b,s]=PROFILE[i];return r+(s-r)*(z-a)/(b-a);}return .08;}
 export const smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
 // Seeded debris variation: stable while scrubbing; the viewer chooses a new seed per replay.

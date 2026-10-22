@@ -57,7 +57,7 @@ scene.collection.objects.link(cam)
 cam.location=(-18,-23,17)
 aim(cam,(0,0,3.8))
 cam_data.type='ORTHO'
-cam_data.ortho_scale=34
+cam_data.ortho_scale=40
 scene.camera=cam
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/feids26-review.blend'))
 scene.render.filepath=str(ROOT/'assets/feids26/preview.png')
@@ -79,6 +79,6 @@ bpy.ops.import_scene.gltf(filepath='/tmp/feids-closed-review.glb')
 add_light(scene,'SPINDLE_KEY',(-12,-12,18),(0,0,3.8),4500,10,(.95,.97,1))
 add_light(scene,'SPINDLE_FILL',(10,8,10),(0,0,3.8),3500,8,(.7,.85,1))
 cam_data=bpy.data.cameras.new('SPINDLE_CAMERA');cam=bpy.data.objects.new('SPINDLE_CAMERA',cam_data);scene.collection.objects.link(cam)
-cam.location=(18,-8,10);aim(cam,(0,0,3.8));cam_data.type='ORTHO';cam_data.ortho_scale=18;scene.camera=cam
+cam.location=(18,-8,10);aim(cam,(0,0,3.8));cam_data.type='ORTHO';cam_data.ortho_scale=24;scene.camera=cam
 scene.render.filepath=str(ROOT/'assets/feids26/closed-preview.png')
 bpy.ops.render.render(write_still=True)

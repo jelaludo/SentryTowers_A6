@@ -2,9 +2,10 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {applyShell,smooth} from '../assets/feids26/runtime.js';
+import {applyShell,smooth,radiusAt} from '../assets/feids26/runtime.js';
 import {DURATION,SCALE,TOUCHDOWNS,GROUND_CAMERA_START,GROUND_CAMERA_END,capsuleState,cargoState,packMech} from './timeline.js';
 import {effects} from '../ridgeback-drop/effects.js';
+import {thermalMaterial} from './shield-heat.js';
 const $=id=>document.getElementById(id),stage=$('stage'),renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=T.ACESFilmicToneMapping;stage.prepend(renderer.domElement);
 const scene=new T.Scene();scene.background=new T.Color(0x101d2b);scene.fog=new T.FogExp2(0x556775,.0018);const pm=new T.PMREMGenerator(renderer),room=new RoomEnvironment();scene.environment=pm.fromScene(room).texture;room.dispose();pm.dispose();scene.add(new T.HemisphereLight(0xb1d3e9,0x3d342c,2));const sun=new T.DirectionalLight(0xffd6a2,3);sun.position.set(-50,100,30);scene.add(sun);
 const camera=new T.PerspectiveCamera(48,1,.1,2500),controls=new OrbitControls(camera,renderer.domElement);controls.maxDistance=600;controls.enableDamping=true;
@@ -13,22 +14,30 @@ const mountain=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),new T.MeshStan
 const starPositions=[];for(let i=0;i<260;i++){const a=i*2.399,z=.15+.85*((Math.sin(i*71)+1)/2),r=Math.sqrt(1-z*z);starPositions.push(Math.cos(a)*r*950,180+z*950,Math.sin(a)*r*950);}const stars=new T.Points(new T.BufferGeometry().setAttribute('position',new T.Float32BufferAttribute(starPositions,3)),new T.PointsMaterial({color:0xc1d5e6,size:2.1,transparent:true,depthWrite:false}));scene.add(stars);
 const loader=new GLTFLoader(),capsules=[],cargo=[],fx=Array.from({length:4},(_,i)=>effects(scene,i,{smokeOpacity:i===3?.3:.65}));let time=0,playing=false,ready=false,serial=0,immersive=false,armedAt=0,request=0;
 const fixedSeed=new URLSearchParams(location.search).get('seed');let debrisSeed=fixedSeed===null?crypto.getRandomValues(new Uint32Array(1))[0]:Number(fixedSeed)>>>0;
-const heat=[],flashes=[];
+const heat=[],flashes=[],thermal=[];
 for(let i=0;i<2;i++){
  const group=new T.Group();scene.add(group);
  // The leading shield is local +Z: nose-down flight places this glow at the bottom.
- const glow=new T.Mesh(new T.SphereGeometry(1,20,12),new T.MeshBasicMaterial({color:0x94ccff,transparent:true,opacity:.3,depthWrite:false,blending:T.AdditiveBlending}));glow.scale.set(1.45,1.45,1.1);glow.position.z=6.1;group.add(glow);
- const rim=new T.Mesh(new T.TorusGeometry(1.1,.18,6,32),new T.MeshBasicMaterial({color:0xf5f7ff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));rim.position.z=6.2;group.add(rim);
- for(let k=0;k<16;k++){const a=k*Math.PI/8,trail=new T.Mesh(new T.ConeGeometry(.22,5.5,5,1,true),new T.MeshBasicMaterial({color:0x529fff,transparent:true,opacity:.35,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide}));trail.rotation.x=-Math.PI/2;trail.position.set(Math.cos(a)*1.35,Math.sin(a)*1.35,3.3);group.add(trail);}heat.push(group);
+ const glow=new T.Mesh(new T.SphereGeometry(1,20,12),new T.MeshBasicMaterial({color:0x2689ff,transparent:true,opacity:.3,depthWrite:false,blending:T.AdditiveBlending}));glow.scale.set(1.7,1.7,1.5);glow.position.z=8.8;group.add(glow);
+ const rim=new T.Mesh(new T.TorusGeometry(1.25,.28,6,32),new T.MeshBasicMaterial({color:0xf5f7ff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));rim.position.z=8.9;group.add(rim);
+ for(let k=0;k<24;k++){
+  const positions=[],colors=[],indices=[],steps=18;
+  for(let j=0;j<=steps;j++){const u=j/steps,z=9.35-u*18.3,r=radiusAt(z)+.2+u*1.25,a=k*Math.PI/12+Math.sin(u*8+k)*.035,width=.12+Math.sin(Math.PI*u)*.2,fade=(1-u)**.65;
+   for(const side of [-1,1]){const theta=a+side*width/r;positions.push(Math.cos(theta)*r,Math.sin(theta)*r,z);colors.push(.1*fade,.45*fade,fade);}
+   if(j<steps){const n=j*2;indices.push(n,n+1,n+2,n+1,n+3,n+2);}
+  }
+  const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.setIndex(indices);
+  const trail=new T.Mesh(geometry,new T.MeshBasicMaterial({vertexColors:true,color:0xffffff,transparent:true,opacity:.7,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide}));trail.userData.flameIndex=k;group.add(trail);
+ }heat.push(group);
  const flash=new T.Mesh(new T.SphereGeometry(1,16,10),new T.MeshBasicMaterial({color:0xffffff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));scene.add(flash);flashes.push(flash);
 }
 function disposeGroups(groups){const gs=new Set(),ms=new Set();groups.forEach(g=>{g.traverse(o=>{if(o.isMesh){gs.add(o.geometry);ms.add(o.material);}});scene.remove(g);});gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());groups.length=0;}
-async function load(){ready=false;const ticket=++serial;try{const [shell,mech]=await Promise.all([loader.loadAsync(`../assets/feids26/feids26_d${$('damage').value}_lod${$('tier').value}.glb`),loader.loadAsync(`../assets/ridgeback-mech/mx06_d0_lod${$('tier').value}.glb`)]);if(ticket!==serial)return;disposeGroups(capsules);disposeGroups(cargo);for(let i=0;i<2;i++){const g=new T.Group();g.add(shell.scene.clone(true));scene.add(g);capsules.push(g);for(let j=0;j<2;j++){const m=new T.Group();m.scale.setScalar(SCALE);m.add(mech.scene.clone(true));scene.add(m);cargo.push(m);}}
+async function load(){ready=false;const ticket=++serial;try{const [shell,mech]=await Promise.all([loader.loadAsync(`../assets/feids26/feids26_d${$('damage').value}_lod${$('tier').value}.glb`),loader.loadAsync(`../assets/ridgeback-mech/mx06_d0_lod${$('tier').value}.glb`)]);if(ticket!==serial)return;disposeGroups(capsules);disposeGroups(cargo);for(let i=0;i<2;i++){const g=new T.Group();g.add(shell.scene.clone(true));let source;g.traverse(o=>{if(o.isMesh)source=o.material;});thermal[i]=thermalMaterial(source);g.traverse(o=>{if(o.isMesh)o.material=thermal[i].material;});scene.add(g);capsules.push(g);for(let j=0;j<2;j++){const m=new T.Group();m.scale.setScalar(SCALE);m.add(mech.scene.clone(true));scene.add(m);cargo.push(m);}}
  ready=true;if($('damage').value==='3'){$('mode').value='open';playing=false;$('play').textContent='Play';}update();}catch(e){$('status').textContent='Load failed: '+e.message;document.querySelector('details').open=true;reveal();document.body.classList.remove('immersive');}}
 function update(){if(!ready)return;const inspecting=$('mode').value!=='flight',wreck=$('damage').value==='3';
  floor.visible=!inspecting;mountain.visible=!inspecting;stars.visible=!inspecting;stars.material.opacity=1-smooth(time/5);scene.background.set(0x08121f).lerp(new T.Color(0x617381),inspecting?0:smooth(time/7));
  for(let i=0;i<2;i++){const c=capsuleState(time,i),g=capsules[i];g.visible=!inspecting||i===0;g.position.set(inspecting?0:c.x,inspecting?0:c.y,0);g.rotation.set(inspecting?0:c.pitch,0,0);applyShell(g,wreck?0:inspecting?($('mode').value==='open'?.12:0):c.opening,inspecting?26:debrisSeed+i*101);g.visible=g.visible&&(inspecting||c.split<3.5);g.traverse(o=>{if(o.name==='SHELL_ARMOR_2')o.visible=$('mode').value!=='packed';});g.updateMatrixWorld(true);
- heat[i].visible=!inspecting&&c.heat>.001;heat[i].position.copy(g.position).add(new T.Vector3(0,3.8,0).applyQuaternion(g.quaternion));heat[i].quaternion.copy(g.quaternion);heat[i].scale.setScalar(1+.025*Math.sin(time*71));heat[i].children.forEach((o,k)=>o.material.opacity=c.heat*(k===1?.8:.27));
+ heat[i].visible=!inspecting&&c.heat>.001;heat[i].position.copy(g.position).add(new T.Vector3(0,3.8,0).applyQuaternion(g.quaternion));heat[i].quaternion.copy(g.quaternion);heat[i].scale.setScalar(1+.025*Math.sin(time*71));heat[i].children.forEach((o,k)=>{o.material.opacity=c.heat*(k===1?1:k===0?.5:.58);if(k>1){const pulse=.8+.2*Math.sin(time*31+o.userData.flameIndex*2.4);o.material.opacity*=pulse;}});thermal[i].update(inspecting?0:c.split<0?c.heat:Math.exp(-c.split*1.8),time);
  flashes[i].visible=!inspecting&&c.flash>0;flashes[i].position.copy(heat[i].position);flashes[i].scale.setScalar(2+Math.max(0,c.split)*17);flashes[i].material.opacity=c.flash*.85;
  for(let j=0;j<2;j++){const n=i*2+j,m=cargo[n],s=cargoState(time,i,j),held=inspecting||s.age<0;packMech(m,held?1:s.fold,held?0:s.compression);m.visible=(!inspecting||i===0)&&!wreck;if(held){const socket=g.getObjectByName('SOCKET_CARGO_'+(j+1));m.position.copy(socket.getWorldPosition(new T.Vector3()));m.quaternion.copy(g.quaternion);}else{m.position.set(s.x,s.height,s.z);m.rotation.set(s.pitch,s.yaw,0);}m.updateMatrixWorld(true);fx[n].update(inspecting?{...s,hit:-1,jet:0,heat:0}:s,time,m);}
  }
