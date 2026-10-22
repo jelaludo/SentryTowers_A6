@@ -1,5 +1,5 @@
 const collectionImages={
-'feids26':'assets/feids26/preview.png',
+'feids26':'assets/feids26/closed-preview.png',
 'ridgeback-drop':'assets/ridgeback-mech/preview.png',
 'ridgeback-mech':'assets/ridgeback-mech/preview.png',
 'recon-rover-s':'assets/recon-rover-s/preview.png',

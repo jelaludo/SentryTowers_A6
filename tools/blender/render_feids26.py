@@ -73,3 +73,12 @@ cam_data=bpy.data.cameras.new('ANT_CAMERA');cam=bpy.data.objects.new('ANT_CAMERA
 cam.location=(9.75,-7,.2);aim(cam,(7.6,-5.5,.65));cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=18.1;cam_data.clip_start=.1;scene.camera=cam
 scene.render.filepath=str(ROOT/'assets/feids26/landing-preview.png')
 bpy.ops.render.render(write_still=True)
+# Closed-shell silhouette proof: continuous spindle taper at both ends.
+scene=setup_scene('FEIDS26_Closed_Spindle_Review',(.045,.065,.085))
+bpy.ops.import_scene.gltf(filepath='/tmp/feids-closed-review.glb')
+add_light(scene,'SPINDLE_KEY',(-12,-12,18),(0,0,3.8),4500,10,(.95,.97,1))
+add_light(scene,'SPINDLE_FILL',(10,8,10),(0,0,3.8),3500,8,(.7,.85,1))
+cam_data=bpy.data.cameras.new('SPINDLE_CAMERA');cam=bpy.data.objects.new('SPINDLE_CAMERA',cam_data);scene.collection.objects.link(cam)
+cam.location=(18,-8,10);aim(cam,(0,0,3.8));cam_data.type='ORTHO';cam_data.ortho_scale=18;scene.camera=cam
+scene.render.filepath=str(ROOT/'assets/feids26/closed-preview.png')
+bpy.ops.render.render(write_still=True)

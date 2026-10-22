@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / True spindle profile and settled-trio pause
+
+Reshaped FEIDS-26 into a symmetric fusiform spindle with a continuously tapering convex profile and pointed ends. Removed the cylindrical centre and rounded end-cap silhouette while preserving the four equal sections, grey/black finish, sockets and damage/LOD contracts. Healthy packed cargo retains 0.233 m minimum sampled shell clearance. Rebuilt and validated all exports, with unchanged triangle/draw budgets.
+
+Extended the cinematic to 28 seconds. The camera follows the first three mechs into their landings, then holds on the fully grounded trio for 2.5 seconds after the third touchdown at 14.0 s. The ground-level camera move now runs from 16.5 to 18.0 s; the laggard lands at 19.23 s. Added a Trio landed phase jump and checked that all three landed mech bounds remain in the wide frame. Regenerated closed-spindle, exploded-shell and ground-camera proof renders. Live browser playback review remains pending.
+
 ## 22 October 2026 / Symmetric FEIDS shell and ground-level laggard finale
 
 Replaced the asymmetric silhouette with an axially symmetric oblong shell and four identical quarters, grey above and black below in entry attitude. Removed the yellow telemetry mesh while preserving its lookup node. Added stronger seeded, three-axis debris motion: each replay varies, while `?play=1&seed=26` and timeline scrubbing remain reproducible. Plain and decoded Meshopt exports rebuilt for D0–D3; D0 game is 1,568 triangles, four draws and 126,420 bytes.

@@ -3,7 +3,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {applyShell,smooth} from '../assets/feids26/runtime.js';
-import {DURATION,SCALE,TOUCHDOWNS,capsuleState,cargoState,packMech} from './timeline.js';
+import {DURATION,SCALE,TOUCHDOWNS,GROUND_CAMERA_START,GROUND_CAMERA_END,capsuleState,cargoState,packMech} from './timeline.js';
 import {effects} from '../ridgeback-drop/effects.js';
 const $=id=>document.getElementById(id),stage=$('stage'),renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.toneMapping=T.ACESFilmicToneMapping;stage.prepend(renderer.domElement);
 const scene=new T.Scene();scene.background=new T.Color(0x101d2b);scene.fog=new T.FogExp2(0x556775,.0018);const pm=new T.PMREMGenerator(renderer),room=new RoomEnvironment();scene.environment=pm.fromScene(room).texture;room.dispose();pm.dispose();scene.add(new T.HemisphereLight(0xb1d3e9,0x3d342c,2));const sun=new T.DirectionalLight(0xffd6a2,3);sun.position.set(-50,100,30);scene.add(sun);
@@ -17,9 +17,9 @@ const heat=[],flashes=[];
 for(let i=0;i<2;i++){
  const group=new T.Group();scene.add(group);
  // The leading shield is local +Z: nose-down flight places this glow at the bottom.
- const glow=new T.Mesh(new T.SphereGeometry(1,20,12),new T.MeshBasicMaterial({color:0x94ccff,transparent:true,opacity:.3,depthWrite:false,blending:T.AdditiveBlending}));glow.scale.set(2.4,2.4,1.1);glow.position.z=6.1;group.add(glow);
- const rim=new T.Mesh(new T.TorusGeometry(1.9,.18,6,32),new T.MeshBasicMaterial({color:0xf5f7ff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));rim.position.z=6.2;group.add(rim);
- for(let k=0;k<16;k++){const a=k*Math.PI/8,trail=new T.Mesh(new T.ConeGeometry(.22,5.5,5,1,true),new T.MeshBasicMaterial({color:0x529fff,transparent:true,opacity:.35,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide}));trail.rotation.x=-Math.PI/2;trail.position.set(Math.cos(a)*2.2,Math.sin(a)*2.2,3.3);group.add(trail);}heat.push(group);
+ const glow=new T.Mesh(new T.SphereGeometry(1,20,12),new T.MeshBasicMaterial({color:0x94ccff,transparent:true,opacity:.3,depthWrite:false,blending:T.AdditiveBlending}));glow.scale.set(1.45,1.45,1.1);glow.position.z=6.1;group.add(glow);
+ const rim=new T.Mesh(new T.TorusGeometry(1.1,.18,6,32),new T.MeshBasicMaterial({color:0xf5f7ff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));rim.position.z=6.2;group.add(rim);
+ for(let k=0;k<16;k++){const a=k*Math.PI/8,trail=new T.Mesh(new T.ConeGeometry(.22,5.5,5,1,true),new T.MeshBasicMaterial({color:0x529fff,transparent:true,opacity:.35,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide}));trail.rotation.x=-Math.PI/2;trail.position.set(Math.cos(a)*1.35,Math.sin(a)*1.35,3.3);group.add(trail);}heat.push(group);
  const flash=new T.Mesh(new T.SphereGeometry(1,16,10),new T.MeshBasicMaterial({color:0xffffff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));scene.add(flash);flashes.push(flash);
 }
 function disposeGroups(groups){const gs=new Set(),ms=new Set();groups.forEach(g=>{g.traverse(o=>{if(o.isMesh){gs.add(o.geometry);ms.add(o.material);}});scene.remove(g);});gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());groups.length=0;}
@@ -33,15 +33,15 @@ function update(){if(!ready)return;const inspecting=$('mode').value!=='flight',w
  for(let j=0;j<2;j++){const n=i*2+j,m=cargo[n],s=cargoState(time,i,j),held=inspecting||s.age<0;packMech(m,held?1:s.fold,held?0:s.compression);m.visible=(!inspecting||i===0)&&!wreck;if(held){const socket=g.getObjectByName('SOCKET_CARGO_'+(j+1));m.position.copy(socket.getWorldPosition(new T.Vector3()));m.quaternion.copy(g.quaternion);}else{m.position.set(s.x,s.height,s.z);m.rotation.set(s.pitch,s.yaw,0);}m.updateMatrixWorld(true);fx[n].update(inspecting?{...s,hit:-1,jet:0,heat:0}:s,time,m);}
  }
  if($('cinema').checked){if(inspecting){camera.fov=48;camera.position.set(-16,11,18);controls.target.set(0,3.8,0);}else{
- const mid=(capsuleState(time,0).y+capsuleState(time,1).y)/2,fall=cargo.reduce((sum,m)=>sum+m.position.y,0)/4,blend=smooth((time-5.8)/.8),alt=(mid+3)*(1-blend)+(fall+1)*blend,near=smooth((time-11)/3);
+ const mid=(capsuleState(time,0).y+capsuleState(time,1).y)/2,allFall=cargo.reduce((sum,m)=>sum+m.position.y,0)/4,firstFall=cargo.slice(0,3).reduce((sum,m)=>sum+m.position.y,0)/3,focus=smooth((time-10.5)/1.8),fall=allFall*(1-focus)+firstFall*focus,blend=smooth((time-5.8)/.8),alt=(mid+3)*(1-blend)+(fall+1)*blend,near=smooth((time-11)/3);
  const wide=new T.Vector3(-30+near*4,alt+15-near*9,46-near*11),target=new T.Vector3(0,alt,0);
  // Drop to a fixed ground camera before the final, deliberately late unit arrives.
- const ant=smooth((time-12.7)/1.65),laggard=cargoState(time,1,1);
+ const ant=smooth((time-GROUND_CAMERA_START)/(GROUND_CAMERA_END-GROUND_CAMERA_START)),laggard=cargoState(time,1,1);
  const groundCamera=new T.Vector3(9.75,.2,7.0),menace=new T.Vector3(7.6,Math.max(.55,laggard.height+.65),5.5);
  camera.position.lerpVectors(wide,groundCamera,ant);controls.target.lerpVectors(target,menace,ant);camera.fov=48+ant*19;
  if($('shake').checked){let shake=.035*capsuleState(time,0).heat;for(let i=0;i<2;i++){shake+=capsuleState(time,i).flash*.16;for(let j=0;j<2;j++){const age=cargoState(time,i,j).hit;if(age>=0)shake+=(i===1&&j===1?.1:.22)*Math.exp(-age*5);}}camera.position.x+=Math.cos(time*73)*shake;camera.position.y+=Math.sin(time*81)*shake*(1-ant*.6);}
  }camera.updateProjectionMatrix();controls.update();}
- $('clock').textContent=`${time.toFixed(2)} / 24 s`;$('status').textContent=inspecting?'Two folded Ridgebacks per shell · four separating quarters':time<6.2?'Atmospheric entry / heat shield leading':time<6.9?'Separation charges / shell drag':time<12.7?'High-altitude mech re-entry':time<14.35?'First three impacts / camera to ground':time<16.23?'Laggard inbound / ground camera':'Last heavy impact / claws at ground level';
+ $('clock').textContent=`${time.toFixed(2)} / 28 s`;$('status').textContent=inspecting?'Two folded Ridgebacks per shell · four separating quarters':time<6.2?'Atmospheric entry / heat shield leading':time<6.9?'Separation charges / shell drag':time<12.7?'High-altitude mech re-entry':time<14?'First three impacts':time<16.5?'First three landed / settling':time<18?'Camera to ground':time<19.23?'Laggard inbound / ground camera':'Last heavy impact / claws at ground level';
 }
 function reveal(){if(!immersive)return;immersive=false;request++;document.body.classList.remove('immersive');if(document.fullscreenElement===stage)document.exitFullscreen().catch(()=>{});}
 function present(native=true){immersive=true;armedAt=performance.now();const token=++request;document.body.classList.add('immersive');if(native&&stage.requestFullscreen&&!document.fullscreenElement)stage.requestFullscreen().then(()=>{if(token!==request&&document.fullscreenElement===stage)document.exitFullscreen().catch(()=>{});}).catch(()=>{});}
