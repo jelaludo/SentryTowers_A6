@@ -13,5 +13,5 @@ for(let frame=0;frame<7200;frame++){
  for(const [id,planted] of b.previous){const foot=root.getObjectByName('SOCKET_CLAW_'+id+'_1').getWorldPosition(new T.Vector3());const prior=before.get(id);if(planted&&prior?.planted)maxSlip=Math.max(maxSlip,foot.distanceTo(prior.foot));before.set(id,{foot,planted});assert(Math.abs(foot.y)<.6);}
  root.traverse(o=>assert(o.matrixWorld.elements.every(Number.isFinite)));
 }
-assert.equal(states.size,4);assert(stopped>60);assert(maxSpeed>.5);assert(maxSlip<.002,`stance slip ${maxSlip}`);
+assert.equal(states.size,2);assert.equal(stopped,0);assert(b.phase>4);assert(b.elapsed>119);assert(b.position.length()>1);assert(maxSpeed>.5);assert(maxSlip<.002,`stance slip ${maxSlip}`);
 console.log({seconds:120,states:[...states],stoppedFrames:stopped,maxSpeed,maxSlip});

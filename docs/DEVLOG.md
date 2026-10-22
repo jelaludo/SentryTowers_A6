@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Continuous pursuit and visible lure
+
+Enlarged the orange lure, used an unlit orange material and added a ground ring. Follow framing now includes both actors. Lure mode hides the four-second scrubber and displays elapsed simulation time; pursuit continues indefinitely with variable aggression instead of stopping to rescan. The ball selects destinations ahead of the mech. Original walk and clip inspection retain their four-second cycles.
+
+A 120-second seeded run passes continuous movement, aggression changes and planted-claw checks. Live rendering could not be reviewed: no browser is available in this session.
+
 ## 22 October 2026 / Ridgeback lure detection and pursuit
 
 Added a separate autonomous viewer mode with a moving orange lure, scanning/detection pauses, variable pursuit bursts and deliberate settling. Aggro adjusts cadence; acceleration and turn speed are limited, root travel follows gait phase, and world-space claw anchors prevent stance sliding while steering. The mech finishes recovering its feet before resting. Pause and Replay control both actors; original walk/clip/drop inspection remains available. Source GLBs and their damage/LOD exports are unchanged.
