@@ -96,9 +96,9 @@ export function makeStatic(root){
  const m=new T.Mesh(mergeGeometries(gs),material);m.name='MX06_STATIC';root.add(m);gs.forEach(g=>g.dispose());root.userData.static=true;return root;
 }
 export function walkClip(root,damage){
- if(damage===3)return null;const nodes=[];root.traverse(o=>{if(/^(HIP_YAW_|HIP_PITCH_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(o.name))nodes.push(o);});
+ if(damage===3)return null;const nodes=[];root.traverse(o=>{if(/^(MECH_BODY$|HIP_YAW_|HIP_PITCH_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(o.name))nodes.push(o);});
  const times=[],values=new Map(nodes.map(n=>[n.name,{p:[],q:[]}]));
- for(let i=0;i<=120;i++){const t=i/30;times.push(t);applyMech(root,t,{damage});for(const n of nodes){values.get(n.name).p.push(...n.position);values.get(n.name).q.push(...n.quaternion);}}
+ for(let i=0;i<=240;i++){const t=i/60;times.push(t);applyMech(root,t,{damage});for(const n of nodes){values.get(n.name).p.push(...n.position);values.get(n.name).q.push(...n.quaternion);}}
  const tracks=[];for(const n of nodes){const v=values.get(n.name);tracks.push(new T.VectorKeyframeTrack(n.name+'.position',times,v.p),new T.QuaternionKeyframeTrack(n.name+'.quaternion',times,v.q));}
  applyMech(root,0,{mode:'park',damage});return new T.AnimationClip(damage===2?'Damaged_Walk_Cycle':'Walk_Cycle',4,tracks).optimize();
 }

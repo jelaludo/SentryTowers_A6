@@ -43,7 +43,7 @@
   },
   "animation": {
     "runtime": "runtime.js",
-    "gait": "Alternating tripod; FL/MR/RL and FR/ML/RR; duty factor 0.6",
+    "gait": "Alternating tripod; FL/MR/RL and FR/ML/RR; 72% anchored stance, overlapping tripods; weighted body heave/pitch/roll",
     "duration_s": 4,
     "root_motion": false,
     "stance_travel_m": {
@@ -53,9 +53,9 @@
       "D3": 0
     },
     "ground_speed_mps": {
-      "D0": 0.333333,
-      "D1": 0.333333,
-      "D2": 0.15,
+      "D0": 0.2777777778,
+      "D1": 0.2777777778,
+      "D2": 0.125,
       "D3": 0
     },
     "walk_clip": "Walk_Cycle",
@@ -69,7 +69,7 @@
       "MISSILE_ELEVATION",
       "SENSOR_YAW"
     ],
-    "integration": "Use baked gait OR procedural applyMech, never both on leg pivots. Advance root +Z at stride / (0.6 * 4) metres/sec for non-sliding stance on level ground. After mixer update call solveHydraulics for exact piston endpoints. Clip playback rate scales root speed equally."
+    "integration": "Use baked gait OR procedural applyMech, never both on leg pivots. Advance root +Z at stride / (0.72 * 4) metres/sec for non-sliding stance on level ground. After mixer update call solveHydraulics for exact piston endpoints. Clip playback rate scales root speed equally."
   },
   "deployment": {
     "clip": "Airdrop_Land",
@@ -96,6 +96,10 @@
     "fx": "dropState(time) returns deterministic jet intensity and impact time; gunship and particles are viewer-only"
   },
   "weapons": {
+    "missile_local_outward_yaw_deg": 30,
+    "missile_parent_elevation_deg": 33.23,
+    "nominal_muzzle_outward_bearing_deg": 34.6,
+    "nominal_muzzle_elevation_deg": 28.3,
     "minigun": 1,
     "laser_cannon": 1,
     "missile_banks": 2,
@@ -105,11 +109,7 @@
       -6.875,
       31.513
     ],
-    "firing_simulated": false,
-    "missile_local_outward_yaw_deg": 30,
-    "missile_parent_elevation_deg": 33.23,
-    "nominal_muzzle_outward_bearing_deg": 34.6,
-    "nominal_muzzle_elevation_deg": 28.3
+    "firing_simulated": false
   },
   "colliders": {
     "prototype_only": true,
@@ -137,14 +137,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1363788,
+      "bytes": 1468120,
       "triangles": 20004,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "85ad62e09e239034d750ac1b575acc44f3130c9090a4e9663d16601dc4cf39d0",
+      "sha256": "5b90fad8d5bb3bf553fce343922ccca7f6aa686d175f353c76e0ba57e3d470b6",
       "meshopt_file": "derived/meshopt/mx06_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 239784,
-      "meshopt_sha256": "ff4da7faafb1a60784d2450c8ac7ca61f3231359bb23b53e52da2b06f7534be9",
+      "meshopt_bytes": 250088,
+      "meshopt_sha256": "8eb42e18092e2c4c7b7f13befa12cf44517a2ac00b7ae1a7a930ea963a3887d0",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -911,14 +911,14 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 862912,
+      "bytes": 967180,
       "triangles": 8016,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "d4734893ef9b421e4997c64543e95d09305e968b585980ee5fcdf90b821c9a38",
+      "sha256": "6ed3777ce5935f117dfc3d2585db005ad6f105450f247d32673468faab059306",
       "meshopt_file": "derived/meshopt/mx06_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 168564,
-      "meshopt_sha256": "ca8dda03c42d3d71501fd922fb6c7aa4ccb74ba2554ff402fb604d0f43fda1bf",
+      "meshopt_bytes": 178872,
+      "meshopt_sha256": "fbb7626e1335f7f05855b23ee475d0b9825a9c8cf9280533ce5aa00fe6b85e34",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -1701,7 +1701,7 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-09,
+          -7.152557657263969e-9,
           -2.7249741554260254
         ],
         "max": [
@@ -2445,14 +2445,14 @@
       "damage_level": 1,
       "static": false,
       "derived": false,
-      "bytes": 1364552,
+      "bytes": 1468880,
       "triangles": 20004,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "c5c2e1f8a13d9ced38c37b658bcbfee640bc97ba52726a83dac30b4dc80aba19",
+      "sha256": "5ac73c797df6ceefa8b64431b7956cb02c652f4882421934786a606e3c63108d",
       "meshopt_file": "derived/meshopt/mx06_d1_lod0.meshopt.glb",
-      "meshopt_bytes": 318240,
-      "meshopt_sha256": "6baa26b0da94f2bffa51fba816cb718f89754c6a3396e246af3bd9cead1b624c",
+      "meshopt_bytes": 328544,
+      "meshopt_sha256": "555f1bfcd7f8d9f3963a2c39b8d95061101e19508a0ce2ddcc8cc41ae603c119",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -3219,14 +3219,14 @@
       "damage_level": 1,
       "static": false,
       "derived": false,
-      "bytes": 863708,
+      "bytes": 967976,
       "triangles": 8016,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "230383172184898365e443e3a9eb7fbeb56eb696430269309f614b4dbc3c33bf",
+      "sha256": "838f609ea2fe79cf37a43762a7dca908cb9494330fe26bde027a208de2a3df91",
       "meshopt_file": "derived/meshopt/mx06_d1_lod1.meshopt.glb",
-      "meshopt_bytes": 208200,
-      "meshopt_sha256": "09d440622c2fb65e73806c1f1880cb3bde444b765b2441d3a4c0033c099f462a",
+      "meshopt_bytes": 218512,
+      "meshopt_sha256": "b44b6859811eb36127bd7515c778857297b45ad77c6a8fe0c922b6e218b3b35d",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -4009,7 +4009,7 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-09,
+          -7.152557657263969e-9,
           -2.7249741554260254
         ],
         "max": [
@@ -4753,14 +4753,14 @@
       "damage_level": 2,
       "static": false,
       "derived": false,
-      "bytes": 1369676,
+      "bytes": 1473712,
       "triangles": 20096,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "fa5b2f5310251a72e414db21cf659c828f5d0067a0b664a8350dfc42fad08c1c",
+      "sha256": "a9fc6eb9eda46d62855002288fbeff7c40311c0d5299453a39b526c21e06d1a6",
       "meshopt_file": "derived/meshopt/mx06_d2_lod0.meshopt.glb",
-      "meshopt_bytes": 329308,
-      "meshopt_sha256": "5f81a09d12eff9a9cb3645dbe6ef4356ed386fa8523d14ee1452a59d7e3f9459",
+      "meshopt_bytes": 339096,
+      "meshopt_sha256": "0bf490bd79627e458cae9292b5a3b128c796215ba6e8ce525115c02dede12a07",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -5527,14 +5527,14 @@
       "damage_level": 2,
       "static": false,
       "derived": false,
-      "bytes": 867480,
+      "bytes": 971468,
       "triangles": 8076,
       "draw_calls": 38,
       "materials": 1,
-      "sha256": "a97b16dedba320c2f911f3323ca1c96ec88b41c5843bd7d5606c6848408a8696",
+      "sha256": "65734c0e65db12b86b3961c058ce4516f08ba9adeead1017c1b6d4b9158a77b8",
       "meshopt_file": "derived/meshopt/mx06_d2_lod1.meshopt.glb",
-      "meshopt_bytes": 215032,
-      "meshopt_sha256": "2c4bb248c537739c5dcb391d1d8d80268f8d8d14382c6c1128acb16dfffda5f8",
+      "meshopt_bytes": 224828,
+      "meshopt_sha256": "003ee4baf9253909a8401723d01c4a1027be7f7dd58303167e88c18e58b312cd",
       "meshopt_derived": true,
       "plot_m": [
         8,
@@ -6317,7 +6317,7 @@
       "bounds": {
         "min": [
           -3.2300000190734863,
-          -7.152557657263969e-09,
+          -7.152557657263969e-9,
           -2.7249741554260254
         ],
         "max": [
@@ -8595,7 +8595,7 @@
       "bounds": {
         "min": [
           -3.3499999046325684,
-          -7.1525572131747595e-09,
+          -7.1525572131747595e-9,
           -2.7249741554260254
         ],
         "max": [

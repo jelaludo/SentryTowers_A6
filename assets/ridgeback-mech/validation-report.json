@@ -4,7 +4,7 @@
       "file": "mx06_d0_lod0.glb",
       "triangles": 20004,
       "draws": 38,
-      "bytes": 1363788,
+      "bytes": 1468120,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -22,7 +22,7 @@
       "file": "derived/meshopt/mx06_d0_lod0.meshopt.glb",
       "triangles": 20004,
       "draws": 38,
-      "bytes": 239784,
+      "bytes": 250088,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -40,7 +40,7 @@
       "file": "mx06_d0_lod1.glb",
       "triangles": 8016,
       "draws": 38,
-      "bytes": 862912,
+      "bytes": 967180,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -58,7 +58,7 @@
       "file": "derived/meshopt/mx06_d0_lod1.meshopt.glb",
       "triangles": 8016,
       "draws": 38,
-      "bytes": 168564,
+      "bytes": 178872,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -94,7 +94,7 @@
       "file": "mx06_d1_lod0.glb",
       "triangles": 20004,
       "draws": 38,
-      "bytes": 1364552,
+      "bytes": 1468880,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -112,7 +112,7 @@
       "file": "derived/meshopt/mx06_d1_lod0.meshopt.glb",
       "triangles": 20004,
       "draws": 38,
-      "bytes": 318240,
+      "bytes": 328544,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -130,7 +130,7 @@
       "file": "mx06_d1_lod1.glb",
       "triangles": 8016,
       "draws": 38,
-      "bytes": 863708,
+      "bytes": 967976,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -148,7 +148,7 @@
       "file": "derived/meshopt/mx06_d1_lod1.meshopt.glb",
       "triangles": 8016,
       "draws": 38,
-      "bytes": 208200,
+      "bytes": 218512,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -184,7 +184,7 @@
       "file": "mx06_d2_lod0.glb",
       "triangles": 20096,
       "draws": 38,
-      "bytes": 1369676,
+      "bytes": 1473712,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -202,7 +202,7 @@
       "file": "derived/meshopt/mx06_d2_lod0.meshopt.glb",
       "triangles": 20096,
       "draws": 38,
-      "bytes": 329308,
+      "bytes": 339096,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -220,7 +220,7 @@
       "file": "mx06_d2_lod1.glb",
       "triangles": 8076,
       "draws": 38,
-      "bytes": 867480,
+      "bytes": 971468,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -238,7 +238,7 @@
       "file": "derived/meshopt/mx06_d2_lod1.meshopt.glb",
       "triangles": 8076,
       "draws": 38,
-      "bytes": 215032,
+      "bytes": 224828,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "clips": [
@@ -327,13 +327,15 @@
   ],
   "pose_samples": 1296,
   "clip_samples": 384,
+  "stance_tip_samples": 18792,
+  "maximum_stance_slip_m": 3.710641232780828e-15,
   "minimum_planted_feet": 3,
   "piston_length_m": [
     0.5927454315244778,
-    0.9254588116945922
+    0.919288873206924
   ],
-  "minimum_piston_overlap_m": 0.15454118830540786,
-  "maximum_clip_endpoint_error_m": 0.0012969817918087989,
+  "minimum_piston_overlap_m": 0.1607111267930761,
+  "maximum_clip_endpoint_error_m": 0.001685528262531044,
   "errors": [],
   "scope": "Decoded plain/Meshopt geometry and gait checks on level ground; not continuous collision, terrain physics, firing or mobile performance certification"
 }

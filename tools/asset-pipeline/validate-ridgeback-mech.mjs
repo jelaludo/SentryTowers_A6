@@ -8,11 +8,11 @@ import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
 import {dequantize} from '@gltf-transform/functions';
 import {MeshoptDecoder} from 'meshoptimizer';
 import validator from 'gltf-validator';
-import {LEGS,applyMech,solveHydraulics,policy} from '../../assets/ridgeback-mech/runtime.js';
+import {LEGS,applyMech,solveHydraulics,policy,walkSpeed} from '../../assets/ridgeback-mech/runtime.js';
 const out=new URL('../../assets/ridgeback-mech/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));
 await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
-const report={assets:[],pose_samples:0,clip_samples:0,minimum_planted_feet:6,piston_length_m:[Infinity,-Infinity],minimum_piston_overlap_m:Infinity,maximum_clip_endpoint_error_m:0,errors:[],scope:'Decoded plain/Meshopt geometry and gait checks on level ground; not continuous collision, terrain physics, firing or mobile performance certification'};
+const report={assets:[],pose_samples:0,clip_samples:0,stance_tip_samples:0,maximum_stance_slip_m:0,minimum_planted_feet:6,piston_length_m:[Infinity,-Infinity],minimum_piston_overlap_m:Infinity,maximum_clip_endpoint_error_m:0,errors:[],scope:'Decoded plain/Meshopt geometry and gait checks on level ground; not continuous collision, terrain physics, firing or mobile performance certification'};
 let baselineNames;const socketBaselines=new Map();
 function near(a,b,tol,message){assert(a.distanceTo(b)<tol,message+': '+a.distanceTo(b));}
 function wp(root,name){return root.getObjectByName(name).getWorldPosition(new T.Vector3());}
@@ -44,10 +44,15 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
   }
   if(e.damage_level<3){
    assert.equal(gltf.animations.length,2);const clip=gltf.animations.find(c=>c.name.includes('Walk'));assert.equal(clip.duration,4);assert.equal(clip.name,e.damage_level===2?'Damaged_Walk_Cycle':'Walk_Cycle');
-   assert(clip.tracks.every(t=>/^(HIP_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(t.name)),'aiming baked');
+   assert(clip.tracks.every(t=>/^(MECH_BODY|HIP_|KNEE_|ANKLE_|HYDRAULIC_AIM_|PISTON_SLIDE_)/.test(t.name)),'aiming baked');
    // Every tip stays fixed in world space while the root advances during stance.
-   const speed=policy(e.damage_level).stride/(.6*4);
-   for(const leg of LEGS){const poses=[];for(const u of [.1,.2]){const t=((u-leg.phase+1)%1)*4;applyMech(root,t,{damage:e.damage_level});poses.push([1,2,3].map(i=>wp(root,`SOCKET_CLAW_${leg.id}_${i}`).add(new T.Vector3(0,0,speed*t))));}for(let i=0;i<3;i++)near(poses[0][i],poses[1][i],.002,'stance sliding '+leg.id);}
+   const speed=walkSpeed(e.damage_level);
+   for(const leg of LEGS){let anchor;for(let step=0;step<=86;step++){
+    const u=step/120,t=(u-leg.phase+1)*4;
+    applyMech(root,t,{damage:e.damage_level});
+    const tips=[1,2,3].map(i=>wp(root,`SOCKET_CLAW_${leg.id}_${i}`).add(new T.Vector3(0,0,speed*t)));
+    if(!anchor)anchor=tips;for(let i=0;i<3;i++){const slip=tips[i].distanceTo(anchor[i]);report.stance_tip_samples++;report.maximum_stance_slip_m=Math.max(report.maximum_stance_slip_m,slip);assert(slip<.002,'stance sliding '+leg.id);}
+   }}
    // Actual decoded clip playback, including interpolated times between baked keys.
    const mixer=new T.AnimationMixer(root);mixer.clipAction(clip).play();
    for(let i=0;i<32;i++){const t=(i+.37)/8;applyMech(root,t,{damage:e.damage_level});const expected=LEGS.map(l=>wp(root,'SOCKET_FOOT_'+l.id));mixer.setTime(t);root.updateMatrixWorld(true);report.clip_samples++;

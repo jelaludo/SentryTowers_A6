@@ -10,16 +10,31 @@ LOD0 is the detailed close-shot/recording master; LOD1 retains the complete walk
 
 ## Damage states
 
-| State | Geometry and appearance | Capability |
-| --- | --- | --- |
-| D0 | LOD0 | 20,004 | 38 | 1,363,788 | 239,784 |
-| D0 | LOD1 | 8,016 | 38 | 862,912 | 168,564 |
+| State | Behavior |
+| --- | --- |
+| D0 | Intact |
+| D1 | Battered: dented armor, scuffed surfaces; full gait |
+| D2 | Component damage: buckled FL shin, breached hull, reduced stride/lift; half aiming sector |
+| D3 | Disabled wreck: lowered body, spread legs, stripped armor, sagged laser; no movement or firing |
+
+## Heavy anchored walk
+
+`Walk_Cycle` (D0/D1) and `Damaged_Walk_Cycle` (D2) are four-second loops. Each foot spends 72% of the cycle planted, with overlapping support between alternating tripods. The claws stay level while the hull pulls forward, shifts weight and rises/falls by 11 cm in the healthy gait. Swing legs lift deliberately, reach ahead and return with continuous endpoint velocity. D2 reduces stride, clearance and body movement.
+
+The clips remain in-place: translate the outer root continuously along +Z at `walkSpeed(damage)` (0.27778 m/s D0/D1; 0.125 m/s D2). This is `stride / (0.72 * 4)`; scale root speed with playback rate and do not reset travel at loop boundaries. Use procedural `applyMech` OR the baked clip. Body position and pitch/roll are now included in the walk clip; adding an independent body bob would break ground contacts unless the legs are solved again. Weapon aiming remains engine-driven. Blend between parked and walking poses. This is a level-ground gait; terrain adaptation requires game-side foothold placement.
+
+## Measured exports
+
+| Damage | Tier | Triangles | Draws | Plain bytes | Meshopt bytes |
+| --- | --- | ---: | ---: | ---: | ---: |
+| D0 | LOD0 | 20,004 | 38 | 1,468,120 | 250,088 |
+| D0 | LOD1 | 8,016 | 38 | 967,180 | 178,872 |
 | D0 | LOD2 | 2,936 | 1 | 201,112 | 75,164 |
-| D1 | LOD0 | 20,004 | 38 | 1,364,552 | 318,240 |
-| D1 | LOD1 | 8,016 | 38 | 863,708 | 208,200 |
+| D1 | LOD0 | 20,004 | 38 | 1,468,880 | 328,544 |
+| D1 | LOD1 | 8,016 | 38 | 967,976 | 218,512 |
 | D1 | LOD2 | 2,936 | 1 | 201,112 | 95,900 |
-| D2 | LOD0 | 20,096 | 38 | 1,369,676 | 329,308 |
-| D2 | LOD1 | 8,076 | 38 | 867,480 | 215,032 |
+| D2 | LOD0 | 20,096 | 38 | 1,473,712 | 339,096 |
+| D2 | LOD1 | 8,076 | 38 | 971,468 | 224,828 |
 | D2 | LOD2 | 2,980 | 1 | 204,040 | 97,896 |
 | D3 | LOD0 | 19,932 | 38 | 974,668 | 191,892 |
 | D3 | LOD1 | 8,020 | 38 | 481,172 | 117,500 |
@@ -29,9 +44,9 @@ Game tiers are under the 25k articulated-unit triangle target. Their 38 independ
 
 ## Viewer and validation
 
-Open `/ridgeback-mech/`. Select D0–D3, detailed/game/distance, plain or Meshopt, procedural walk/exported clip/park, pause or scrub, weapon bearing/elevation, rotary barrel preview, 18 claw-contact markers, wireframe and three camera views. D3 and LOD2 disable animation/aiming controls. Downloads match the selected state/tier/encoding.
+Open `/ridgeback-mech/`. Select D0–D3, detailed/game/distance, plain or Meshopt, procedural walk/exported clip/park, pause or scrub, weapon bearing/elevation, rotary barrel preview, 18 claw-contact markers, ground travel and follow-camera toggles, wireframe and three camera views. The viewer starts with the heavy walk and continuous ground travel; disable ground travel to inspect the in-place cycle. D3 and LOD2 disable animation/aiming controls. Downloads match the selected state/tier/encoding.
 
-`validation-report.json` records 24 validated exports, zero glTF errors/warnings (compressed copies validated after decoding), unique dot-free node names, node/socket tier parity, measured geometry/bytes/hashes, nondegenerate triangles, 1,296 procedural pose samples and 384 decoded clip samples. At least three feet stay planted; all spike tips remain level and fixed during stance when root motion is applied. Maximum sampled clip foot error versus procedural IK: 1.30 mm. D3 ignores motion commands.
+`validation-report.json` records 24 validated exports, zero glTF errors/warnings (compressed copies validated after decoding), unique dot-free node names, node/socket tier parity, measured geometry/bytes/hashes, nondegenerate triangles, 1,296 procedural pose samples and 384 decoded clip samples. At least three feet stay planted; all spike tips remain level and fixed during stance when root motion is applied. Maximum sampled clip foot error versus procedural IK: 1.69 mm. D3 ignores motion commands.
 
 Build: `node tools/asset-pipeline/build-ridgeback-mech.mjs`.
 Validate: `node tools/asset-pipeline/validate-ridgeback-mech.mjs`.
@@ -45,7 +60,7 @@ Hand-off: the repository commit containing this README plus folder `assets/ridge
 
 Both pods are moved to ±1.18 m outboard, raised and set farther aft, with braced supports. Each pod has 30° local outward yaw under the shared `MISSILE_ELEVATION` frame, whose nominal elevation is 33.2°. Combined muzzle directions are approximately 34.6° outward bearing and 28.3° elevation; consult socket transforms for exact launch directions. Newly named `MISSILE_OUTBOARD_L/R` groups retain pod mesh and muzzle names. Conservative pod/gun bounding boxes and forward missile rays pass 650 sampled healthy aiming combinations across LOD0/1. This is not full projectile/terrain certification.
 
-`Airdrop_Land` is a seven-second one-shot in D0–D2, LOD0/1. Play once and clamp at the last frame. It animates vertical `DROP_ROOT` displacement, `MECH_BODY` compression and the leg/hydraulic rig; it does not bake weapon aiming. The outer `MX06_ROOT` stays at the landing site. Do not add a second copy of the vertical drop translation in the game. The clip ends in the normal parked pose so walking can take over without a pose snap.
+`Airdrop_Land` is a seven-second one-shot in D0–D2, LOD0/1. Play once and clamp at the last frame. It animates vertical `DROP_ROOT` displacement, `MECH_BODY` compression and the leg/hydraulic rig; it does not bake weapon aiming. The outer `MX06_ROOT` stays at the landing site. Do not add a second copy of the vertical drop translation in the game. The clip ends in the normal parked pose; blend into the walking pose for a smooth transition.
 
 | Time | Event |
 | --- | --- |

@@ -1,5 +1,11 @@
 # Devlog
 
+## 22 October 2026 / Ridgeback anchored heavy walk
+
+Reworked MX-06 walking around 72% planted stance, overlapping tripod support, deliberate claw recovery and continuous foot velocity at touchdown. Added hull heave, pitch, roll and a forward pulling surge, with level claws solved against the moving body. Viewer defaults to walking across the ground grid with a following camera; travel can be disabled for in-place inspection. D2 retains a shorter, lower gait; D3 and distance tiers remain static.
+
+Rebuilt detailed/game plain and derived Meshopt clips, including body motion at 60 Hz. Root translation remains game-driven: 0.27778 m/s healthy, 0.125 m/s damaged at normal playback. All 24 plain/decoded exports validate; dense stance-tip checks, continuous loop checks, hydraulics and exported clip interpolation pass (maximum sampled clip foot error 1.69 mm). Original airdrop, Heavy Rain and FEIDS deployment regression checks pass. Live browser motion review remains pending; no performance claim.
+
 ## 22 October 2026 / Upward shield heat ripples
 
 Reversed the FEIDS-26 thermal wave phase so heat ripples travel from the bottom leading shield toward the top (local -Z in nose-down flight). Preserved the heat colours, intensity and cooldown.

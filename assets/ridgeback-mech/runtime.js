@@ -1,5 +1,5 @@
 // Metres; +Y up, +Z forward. Visual IK, not a terrain/contact physics solver.
-export const DURATION=4,UPPER=1.15,LOWER=1.65;
+export const DURATION=4,STANCE_DUTY=.72,UPPER=1.15,LOWER=1.65;
 export const LEGS=[
  {id:'FL',side:-1,z:1.48,fx:-2.48,fz:2.24,phase:0},
  {id:'ML',side:-1,z:0,fx:-2.95,fz:0,phase:.5},
@@ -9,10 +9,11 @@ export const LEGS=[
  {id:'RR',side:1,z:-1.48,fx:2.48,fz:-2.24,phase:.5}
 ];
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-export const policy=d=>({stride:d===3?0:d===2?.36:.8,lift:d===3?0:d===2?.15:.32,bodyY:d===3?1.16:1.9,enabled:d<3,rate:d===2?.45:d===3?0:1});
+export const policy=d=>({stride:d===3?0:d===2?.36:.8,lift:d===3?0:d===2?.20:.42,bodyY:d===3?1.16:1.9,enabled:d<3,rate:d===2?.45:d===3?0:1});
+export const walkSpeed=d=>policy(d).stride/(STANCE_DUTY*DURATION);
 export function poseLeg(root,leg,target){
- const body=root.getObjectByName('MECH_BODY'),hipY=body.position.y;
- const dx=target[0]-leg.side*.98,dz=target[2]-leg.z,dy=target[1]-hipY;
+ const body=root.getObjectByName('MECH_BODY'),local=body.position.clone().set(...target).sub(body.position).applyQuaternion(body.quaternion.clone().invert());
+ const dx=local.x-leg.side*.98,dz=local.z-leg.z,dy=local.y;
  const radial=Math.hypot(dx,dz),distance=Math.hypot(radial,dy);
  const a=Math.atan2(dy,radial)+Math.acos(clamp((UPPER*UPPER+distance*distance-LOWER*LOWER)/(2*UPPER*distance),-1,1));
  const b=-Math.acos(clamp((distance*distance-UPPER*UPPER-LOWER*LOWER)/(2*UPPER*LOWER),-1,1));
@@ -23,6 +24,7 @@ export function poseLeg(root,leg,target){
  // Cancel hip heading as well as pitch: all three claw tips stay planted in stance.
  ankle.quaternion.setFromAxisAngle(ankle.up.clone().set(0,0,1),-a-b);
  ankle.quaternion.multiply(ankle.quaternion.clone().setFromAxisAngle(ankle.up,-Math.atan2(-dz,dx)));
+ ankle.quaternion.multiply(body.quaternion.clone().invert());
  return {distance,reachable:distance<UPPER+LOWER&&distance>Math.abs(UPPER-LOWER)};
 }
 export function solveHydraulics(root){
@@ -40,18 +42,28 @@ export function applyMech(root,time=0,{mode='walk',damage,aimYaw=0,aimPitch=0,ba
  const asset=root.getObjectByName('MX06_ROOT')||root,d=damage??asset.userData.damage_level??0,p=policy(d);
  if(asset.userData.static)return {contacts:6,phase:'Static distance pose',targets:{}};
  const drop=root.getObjectByName('DROP_ROOT');if(drop){drop.position.set(0,0,0);drop.rotation.set(0,0,0);}
- const body=root.getObjectByName('MECH_BODY');body.position.y=p.bodyY;
+ const body=root.getObjectByName('MECH_BODY');body.position.set(0,p.bodyY,0);body.rotation.set(0,0,0);
+ const walking=p.enabled&&mode==='walk',cycle=time/DURATION*Math.PI*2,weight=d===2?.6:1;
+ if(walking){
+  // Weight sinks as a fresh tripod takes load; small fore/aft surges pull over the anchors.
+  body.position.set(.035*Math.sin(cycle)*weight,p.bodyY+(-.06+.055*Math.cos(cycle*2+.65))*weight,.035*Math.sin(cycle*2)*weight);
+  body.rotation.set(.012*Math.sin(cycle*2+.3)*weight,0,.018*Math.sin(cycle)*weight);
+ }
  const targets={};let contacts=0;
  for(const leg of LEGS){
-  let travel=0,lift=0;
-  if(p.enabled&&mode==='walk'){
+  let travel=0,lift=0,reach=0;
+  if(walking){
    const u=((time/DURATION+leg.phase)%1+1)%1;
-   if(u<.6)travel=p.stride*(.5-u/.6);
-   else {const q=(u-.6)/.4;travel=p.stride*(-.5+q);lift=p.lift*Math.sin(Math.PI*q);}
+   if(u<STANCE_DUTY)travel=p.stride*(.5-u/STANCE_DUTY);
+   else {const q=(u-STANCE_DUTY)/(1-STANCE_DUTY),arc=Math.sin(Math.PI*q)**2;
+    // Lift without dragging, reach forward, then lower into a locked claw contact.
+    travel=hermite(-p.stride/2,p.stride/2,-walkSpeed(d),-walkSpeed(d),q,DURATION*(1-STANCE_DUTY));
+    lift=p.lift*arc;reach=leg.side*.07*arc;
+   }
   }
   if(lift<1e-6)contacts++;
   // Disabled stance spreads the feet; pivot names and lengths remain unchanged.
-  const target=[leg.fx+(d===3?leg.side*.12:0),.18+lift,leg.fz+travel];
+  const target=[leg.fx+reach+(d===3?leg.side*.12:0),.18+lift,leg.fz+travel];
   targets[leg.id]={position:target,...poseLeg(root,leg,target),contact:lift<1e-6};
  }
  solveHydraulics(root);
@@ -61,7 +73,7 @@ export function applyMech(root,time=0,{mode='walk',damage,aimYaw=0,aimPitch=0,ba
  root.getObjectByName('MISSILE_ELEVATION').rotation.x=d===3?-.42:-.58-pitch*.4;
  root.getObjectByName('SENSOR_YAW').rotation.y=d===3?.28:yaw*.7;
  root.updateMatrixWorld(true);
- return {contacts,targets,phase:d===3?'D3 / Disabled wreck':d===2?'D2 / Reduced-stride tripod walk':mode==='walk'?'Alternating tripod walk':'Parked / Six feet planted'};
+ return {contacts,targets,speed_mps:walking?walkSpeed(d):0,phase:d===3?'D3 / Disabled wreck':d===2?'D2 / Reduced-stride tripod walk':mode==='walk'?'Claw anchors / weighted tripod pull':'Parked / Six feet planted'};
 }
 
 export const DROP_DURATION=7,TOUCHDOWN_TIME=2.6;
