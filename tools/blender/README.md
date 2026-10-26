@@ -75,3 +75,7 @@ Run `node tools/asset-pipeline/sample-missile-flight.mjs`, then `blender --backg
 ## KESTREL original astronaut
 
 `build_kestrel.py` authors the detailed original EVA character, wear textures and seven skinned clips. It uses the original humanoid helpers in `character_rig.py`. Validate with `node tools/asset-pipeline/validate-kestrel.mjs`. Source: `source/blender/a6-kestrel.blend`; viewer: `animation-tests/`.
+
+## RECKON K9 mechanical canine
+
+`build_reckon_k9.py` creates the 36-joint detailed master, reduced game skin and static distance silhouette with eight canine clips. `pack-reckon-k9.mjs` writes measured hashes and optional derived Meshopt copies; `validate-reckon-k9.mjs` verifies decoded geometry, paw contacts, loops, rigid limb lengths and fetch events. `render_reckon_k9.py` renders eight review poses; `render-reckon-review.mjs` assembles the contact sheet. Source: `source/blender/a6-reckon-k9.blend`; viewer: `reckon-k9/`; integration: `assets/reckon-k9/README.md`.

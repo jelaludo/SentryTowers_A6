@@ -1,5 +1,16 @@
 # Devlog
 
+## 26 October 2026 / RECKON K9 articulated recon dog
+
+Created a separate mechanical canine from the supplied K9-RECON reference: long camera muzzle, pointed folding ears, graphite/titanium armor, battery cassettes, paired radio antennas, servo legs, three-digit paws and a segmented tail. Includes a 36-joint rigid skin and eight named clips: alert, walk, run, sit, full roll, pickup-and-return fetch, give paw and jump. The Blender master keeps editable actions; source generation analytically solves paw targets and exports sampled motion. Reckon-Guard remains a separate drone.
+
+Detailed/game/static-distance tiers contain 25,884 / 9,732 / 2,484 triangles, six / six / one mesh draws, with full measured bytes, hashes, stable nodes/sockets and LOD policy in `assets/reckon-k9/manifest.json`. D0 intact only. Plain GLBs are authoritative; optional Meshopt copies and rendered reviews are marked derived. The distance tier is a standing map/loading silhouette; retain game tier during animation.
+
+Six plain/decoded exports pass zero-error/zero-warning glTF validation. Across 6,344 pose samples, geometry stays above the floor, loop seams remain continuous, maximum planted walk/run drift is 0.33 mm and limb-length error stays below 0.08 mm. Fetch sockets meet the separate prop at attach/release and the jump has four airborne paws. Blender renders and Chromium WebGL views were visually reviewed; browser checks exercise eight clips, six tier/encoding combinations, timeline, playback speed, skeleton/wireframe, travel and mobile layout. No FPS claim.
+
+Added `reckon-k9/` to the shared Workshop navigation/gallery with a motion lab, camera presets, detailed/game/distance controls, downloads and rig notes. Requested modeling and animations are complete. Pending consuming-game work: terrain/contact and collision integration, animation state transitions, r160/release gltfpack verification, camera/LOD thresholds and reference-phone acceptance.
+
+
 ## 22 October 2026 / Unpredictable lure speed bursts
 
 The orange lure cruises at 0.65 m/s and occasionally accelerates toward 1.8–3.0 m/s for 1.2–2.8 seconds, with randomized intervals and slight changes of escape direction. Ridgeback aggression responds to lure speed and separation with a perception delay, while retaining limited acceleration and anchored gait. It eases back after bursts without stopping pursuit. The status reports lure speed and active bursts.

@@ -1,5 +1,10 @@
 # Asset attributions and provenance
 
+## RECKON K9 / 26 October 2026
+
+New procedural mechanical-canine geometry, rigid skin, action authoring and viewer by jelaludo, guided by the user-supplied K9-RECON concept image. The reference image’s author and license were not supplied; it is retained in the user’s original location and is not redistributed, textured onto the model or embedded in exports. No third-party geometry or textures are used. The Blender source is editable authoring material; plain GLBs are the runtime source of truth. Optional Meshopt copies and rendered review images are derived. This is a separate asset family from Reckon-Guard.
+
+
 ## MX-06 Ridgeback airdrop / 22 October 2026
 
 The airdrop viewer reuses the repository’s original KORP game-tier gunship at authored scale as a separate carrier. Original KORP geometry and exports remain unchanged. New sling preview, landing motion, braking jet and dust effects by jelaludo; effects are separate from the authoritative mech GLBs.

@@ -1,5 +1,8 @@
 # Model Workshop
 
+**RECKON K9 / Recon robot dog** adds an articulated mechanical canine with eight named clips: alert, walk, run, sit, roll, fetch, give paw and jump. Detailed/game/static-distance GLBs, decoded Meshopt copies, an editable Blender master and motion inspection controls are in `reckon-k9/`. Measured hand-off and runtime notes: `assets/reckon-k9/README.md`.
+
+
 New linked asset family: `feids26/` — FEIDS-26 fusiform interplanetary delivery shells, two packed Ridgebacks per capsule, four animated shell quarters, D0–D3 and three detail tiers.
 
 Separate cinematic study: `ridgeback-drop/` — one KORP deploys three smaller Ridgebacks in a 13-second high-altitude drop, with braking pulses, leg recoil, smoke and ground cracks. See its README and manifest for the procedural scene contract.

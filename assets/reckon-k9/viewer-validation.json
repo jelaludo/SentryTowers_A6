@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless; real WebGL",
+  "clip_controls": [
+    {
+      "clip": "Alert_Idle",
+      "time": 1,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "ALERT / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Walk_Cycle",
+      "time": 0.4,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "WALK / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Run_Cycle",
+      "time": 0.2,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "RUN / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Sit_Down",
+      "time": 2.4,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "SIT / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Roll_Over",
+      "time": 2.2,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "ROLL / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Fetch_Return",
+      "time": 2.65,
+      "clips": 8,
+      "draws": 9,
+      "triangles": 26414,
+      "status": "FETCH / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Give_Paw",
+      "time": 2,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "HAND / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Jump",
+      "time": 0.95,
+      "clips": 8,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "JUMP / PAUSED · DETAILED MASTER"
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "eight clip selectors, scrubbing and camera bounds",
+    "skeleton and wireframe",
+    "plain and decoded Meshopt loading",
+    "static tier disables clips",
+    "ground travel on/off",
+    "desktop and 390px mobile layout",
+    "no page errors"
+  ]
+}
