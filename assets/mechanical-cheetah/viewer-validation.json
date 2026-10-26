@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "asset_hashes": [
+    {
+      "file": "c07_d0_lod0.glb",
+      "sha256": "30d97c51badb4a00b40b16206bfbe8bc9d748fe616794b716ab5929d6b3b810b",
+      "meshopt_sha256": "8175986d90825cb724e6795f4758b3258bba954648e1e10c4d70e1000fae380c"
+    },
+    {
+      "file": "c07_d0_lod1.glb",
+      "sha256": "a786604c7ca5994c4f6312ad90f8602e8d161dd0855336eca4157fc5dd96cc6a",
+      "meshopt_sha256": "ad80cf103a10e60da724bc93b5210c3527d73ab41fcf7ef5b1d69714b99511f4"
+    },
+    {
+      "file": "c07_d0_lod2.glb",
+      "sha256": "64a4f6a97e3f1f285f5ba6400c9da1e02c405beae20b3e67b71019794762e6e8",
+      "meshopt_sha256": "49e05f3bd6124d45c4afe529ed0a5694e21505a40b6e07a199082501327fb088"
+    }
+  ],
+  "browser": "Chromium headless, real WebGL; not a performance benchmark",
+  "clip_controls": [
+    {
+      "clip": "Watch_Idle",
+      "time": 1,
+      "clips": 6,
+      "draws": 16,
+      "status": "WATCH / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Feline_Walk_Cycle",
+      "time": 0.4,
+      "clips": 6,
+      "draws": 16,
+      "status": "WALK / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Stalk_Cycle",
+      "time": 0.7,
+      "clips": 6,
+      "draws": 16,
+      "status": "STALK / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Gallop_Cycle",
+      "time": 0.296,
+      "clips": 6,
+      "draws": 16,
+      "status": "GALLOP / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Sit_Down",
+      "time": 2.4,
+      "clips": 6,
+      "draws": 16,
+      "status": "SIT / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Pounce",
+      "time": 1.275,
+      "clips": 6,
+      "draws": 16,
+      "status": "POUNCE / PAUSED · DETAILED MASTER"
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "six clips and scrubbed times",
+    "four gallop phases, zero sole contacts in both flights",
+    "hero, side and mobile camera bounds",
+    "skeleton, wireframe and paw marker toggles",
+    "all plain and Meshopt tiers load",
+    "static tier disables animation",
+    "ground travel on/off",
+    "desktop and 390px mobile layout",
+    "no page errors"
+  ]
+}

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**C-07 / Mechanical Cheetah** adds a 51-joint feline with walk, stalk, rotary gallop, sit and pounce. The gallop has distinct gathered and extended flight phases. Detailed/game/static-distance GLBs, an editable Blender master and a phase-by-phase motion viewer are in `mechanical-cheetah/`. Measured hand-off: `assets/mechanical-cheetah/README.md`.
+
 **RECKON K9 / Recon robot dog** adds an articulated mechanical canine with eight named clips: alert, walk, run, sit, roll, fetch, give paw and jump. Detailed/game/static-distance GLBs, decoded Meshopt copies, an editable Blender master and motion inspection controls are in `reckon-k9/`. Measured hand-off and runtime notes: `assets/reckon-k9/README.md`.
 
 

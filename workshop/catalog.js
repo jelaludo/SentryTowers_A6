@@ -1,4 +1,5 @@
 const collectionImages={
+'mechanical-cheetah':'assets/mechanical-cheetah/preview.png',
 'reckon-k9':'assets/reckon-k9/preview.png',
 'feids26':'assets/feids26/closed-preview.png',
 'ridgeback-drop':'assets/ridgeback-mech/preview.png',
@@ -25,6 +26,7 @@ const collectionImages={
 };
 
 export const collections=[
+['mechanical-cheetah','C-07 / Mechanical Cheetah','Characters','Ochre armor, a flexible spine and a long articulated tail. Feline walk, low stalk and a rotary gallop with gathered and extended flight.','6 clips · 51 joints · 3 LODs','Animated prototype'],
 ['reckon-k9','RECKON K9 / Recon Robot Dog','Characters','An articulated mechanical canine with camera optics, folding ears, a segmented tail and a modular payload. Walk, run, sit, roll, fetch, give paw and jump.','8 clips · Canine skeleton · 3 LODs','Animated prototype'],
 ['feids26','FEIDS-26 / Interplanetary Cargo Shell','Industry','Fusiform expendable delivery capsule: two folded Ridgebacks in tandem, four separating shell quadrants, high-altitude breakup, burning mech descent and a ground-level laggard finale.','4 shell quarters · 2 mechs per capsule · D0–D3 · 3 LODs','Animated prototype'],
 ['ridgeback-drop','Heavy Rain / Ridgeback Deployment','Presentation','One KORP drops three smaller Ridgebacks from 180 metres. Staggered five-second falls, heat trails, braking pulses, heavy leg recoil, smoke and cracked ground.','13-second cinematic · 3 mechs · Replay + slow motion','Cinematic study'],

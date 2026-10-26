@@ -1,5 +1,17 @@
 # Devlog
 
+## 26 October 2026 / C-07 Mechanical Cheetah and feline motion study
+
+Created a separate ochre, ivory and graphite feline robot from the supplied C-07 concept. The 51-joint rigid armor rig has a flexible lumbar/chest/pelvis assembly, independent sliding scapulae, wrists and hocks, four-digit paws and an eight-section tail. Six clips cover watch, walk, stalk, rotary gallop, sit and pounce. The local cat-walk model was inspected for timing and shoulder movement; its geometry, textures, rig and keys were not copied or redistributed.
+
+The gallop has sequential fore contacts, gathered flight, sequential hind contacts and extended flight. Four viewer phase buttons expose those poses in a side view. Measured chest–pelvis chord changes from 0.670 m gathered to 0.778 m extended, with 1.801 m fore–aft paw span in extended flight. Walk/stalk retain at least two/three stance paws. A hind-paw lateral transition was smoothed before touchdown to remove stance drift. Motion remains authored flat-floor kinematics, not a force simulation.
+
+Detailed/game/static-distance tiers contain 62,720 / 12,760 / 2,848 triangles, six / six / one mesh draws and 2,671,008 / 1,233,736 / 232,288 plain bytes. Game and distance budget targets pass. All 54 engine-facing nodes and seven sockets persist across tiers. D0 intact only; LOD2 is static and must not replace animated gameplay. Manifest records hashes, dimensions, clip durations and runtime speeds; optional decoded Meshopt files and rendered motion sheets are marked derived.
+
+Six plain/decoded files pass zero-error/zero-warning glTF validation. At 120 Hz, 6,456 full-geometry pose samples plus intermediate joint checks confirm floor clearance, continuous loops, flight poses, rigid segment lengths and planted stance. Worst stance drift is 0.516 mm, minimum floor clearance 1.59 mm, and worst segment-length error 0.059 mm. Blender and Chromium WebGL views were visually reviewed. Browser tests exercise all clips, gallop phase controls, all tier/encoding combinations, inspection toggles, travel and desktop/mobile framing. No FPS claim.
+
+Added `mechanical-cheetah/` to the shared Workshop navigation/gallery. Requested model and feline clips are complete. Pending consuming-game work: terrain/contact and collision adaptation, animation blending and root-motion transfer, r160/release gltfpack verification, game-camera/LOD thresholds and reference-phone acceptance. Source, motion notes and reproducible builders are in the committed hand-off.
+
 ## 26 October 2026 / RECKON K9 articulated recon dog
 
 Created a separate mechanical canine from the supplied K9-RECON reference: long camera muzzle, pointed folding ears, graphite/titanium armor, battery cassettes, paired radio antennas, servo legs, three-digit paws and a segmented tail. Includes a 36-joint rigid skin and eight named clips: alert, walk, run, sit, full roll, pickup-and-return fetch, give paw and jump. The Blender master keeps editable actions; source generation analytically solves paw targets and exports sampled motion. Reckon-Guard remains a separate drone.

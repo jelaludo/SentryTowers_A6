@@ -1,0 +1,694 @@
+{
+  "family": "mechanical-cheetah",
+  "label": "C-07 / Mechanical Cheetah",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at torso centre; long tail extends aft"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 120,
+    "skeleton_joints": 51,
+    "placement_node": "instance wrapper around the glTF scene",
+    "motion_node": "MOTION",
+    "engine_driven_excluded": [
+      "SENSOR_YAW"
+    ],
+    "gallop": "Rotary contacts FL, FR, HR, HL; gathered and extended airborne phases; independently articulated lumbar, pelvis, thorax, scapulae and tail",
+    "walk_reference": "Local user-supplied cat-walk inspected for phase timing and shoulder motion; all exported motion authored independently",
+    "skeleton_root": "ROOT"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 30,
+    "hysteresis_m": 8,
+    "lod0": "Detailed recording master",
+    "lod1": "All animated gameplay; retain while moving",
+    "lod2": "Static standing map/loading silhouette; no animation"
+  },
+  "assets": [
+    {
+      "file": "c07_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 2671008,
+      "triangles": 62720,
+      "draw_calls": 6,
+      "plot_m": [
+        0.65,
+        3
+      ],
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.5416666666666667,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.20299145299145302,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.8,
+          "loop": true,
+          "speed_mps": 3.055555555555556,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          }
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "travel_m": 1.2
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "30d97c51badb4a00b40b16206bfbe8bc9d748fe616794b716ab5929d6b3b810b",
+      "bounds": {
+        "min": [
+          -0.24217237532138824,
+          0.0019999949783084947,
+          -1.820000048726797
+        ],
+        "max": [
+          0.24217237532138824,
+          0.8489999771118164,
+          0.9549999870359898
+        ],
+        "dimensions_m": [
+          0.4843447506427765,
+          0.8469999821335079,
+          2.775000035762787
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "C07_RIG",
+        "C07_SKIN",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.6949999928474426,
+            0.7799999751150608
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6079999804496765,
+            0.9350000061094761
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.7649999856948853,
+            0.11000000312924385
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 747812,
+      "meshopt_sha256": "8175986d90825cb724e6795f4758b3258bba954648e1e10c4d70e1000fae380c"
+    },
+    {
+      "file": "c07_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 1233736,
+      "triangles": 12760,
+      "draw_calls": 6,
+      "plot_m": [
+        0.65,
+        3
+      ],
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.5416666666666667,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.20299145299145302,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.8,
+          "loop": true,
+          "speed_mps": 3.055555555555556,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          }
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "travel_m": 1.2
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "a786604c7ca5994c4f6312ad90f8602e8d161dd0855336eca4157fc5dd96cc6a",
+      "bounds": {
+        "min": [
+          -0.24217237532138824,
+          0.0019999949783084947,
+          -1.820000048726797
+        ],
+        "max": [
+          0.24217237532138824,
+          0.8489999771118164,
+          0.9549999870359898
+        ],
+        "dimensions_m": [
+          0.4843447506427765,
+          0.8469999821335079,
+          2.775000035762787
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "C07_RIG",
+        "C07_SKIN",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.6949999928474426,
+            0.7799999751150608
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6079999804496765,
+            0.9350000061094761
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.7649999856948853,
+            0.11000000312924385
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 424324,
+      "meshopt_sha256": "ad80cf103a10e60da724bc93b5210c3527d73ab41fcf7ef5b1d69714b99511f4"
+    },
+    {
+      "file": "c07_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 232288,
+      "triangles": 2848,
+      "draw_calls": 1,
+      "plot_m": [
+        0.65,
+        3
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo",
+      "sha256": "64a4f6a97e3f1f285f5ba6400c9da1e02c405beae20b3e67b71019794762e6e8",
+      "bounds": {
+        "min": [
+          -0.24217237532138824,
+          0.001999998465180397,
+          -1.8200000524520874
+        ],
+        "max": [
+          0.24217237532138824,
+          0.8489999771118164,
+          0.9549999833106995
+        ],
+        "dimensions_m": [
+          0.4843447506427765,
+          0.846999978646636,
+          2.775000035762787
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "C07_RIG",
+        "C07_SKIN",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.6949999928474426,
+            0.7799999751150608
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6079999804496765,
+            0.9350000061094761
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.7649999856948853,
+            0.11000000312924385
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c07_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 71088,
+      "meshopt_sha256": "49e05f3bd6124d45c4afe529ed0a5694e21505a40b6e07a199082501327fb088"
+    }
+  ],
+  "budgets": {
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the entire glTF scene in an instance group. ROOT is an unanimated skeleton lookup. Clone with SkeletonUtils.clone.",
+    "gait": "Translate the instance group along +Z at clips.speed_mps multiplied by playback rate. Keep LOD1 during animated gameplay.",
+    "pounce": "MOTION contains 1.2 m of forward travel. Do not apply additional game locomotion during Pounce.",
+    "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
+    "collision": "SOCKET_PAW_FL/FR/HL/HR mark paw soles 3 mm above the authored floor. Game supplies collision and terrain adaptation.",
+    "bounds": "Use validation-report.json clip envelopes for animation-aware culling. The 0.65 by 3.0 m plot reserves the standing silhouette; pounce travels beyond it.",
+    "units": "Authored kinematic mechanical gait, not a physical cheetah speed or ground-reaction-force simulation."
+  },
+  "provenance": {
+    "geometry": "Original procedural model; no reference geometry or textures copied.",
+    "walk_reference": {
+      "file": "Cat walk.glb",
+      "sha256": "51b589493729ee93bb23457dfc7739caff9d8684fc5e5528532f41e19aa9f6c8",
+      "duration_s": 0.7666666507720947,
+      "keys": 24,
+      "usage": "Observed contact order, shoulder glide and head stability; not redistributed or retargeted."
+    },
+    "motion_sources": [
+      "https://www.nature.com/articles/s41598-021-88879-0",
+      "https://journals.biologists.com/jeb/article/215/14/2425/10852/High-speed-galloping-in-the-cheetah-Acinonyx"
+    ]
+  },
+  "source": {
+    "file": "../../source/blender/a6-mechanical-cheetah.blend",
+    "bytes": 4233570,
+    "sha256": "fc4a9feb23ce23845f33dac6d1729f5485e8d39ba075ec450c82c321be8f9d6a",
+    "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
+  }
+}
