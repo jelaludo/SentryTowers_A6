@@ -1,5 +1,13 @@
 # Devlog
 
+## 26 October 2026 / Quadruped animation review and pending polish
+
+User review: the Mechanical Cheetah and RECKON K9 are generally working well; the cheetah's `Pounce` and dog's `Jump` need further refinement. Record both as pending animation polish. This review does not change the exported clips or their validation results.
+
+The next pass should use complete real-animal takeoff-to-landing footage to refine weight transfer, individual paw release and touchdown timing, body trajectory, leg tuck/reach, and landing recovery. Prefer a clear side view plus a front or three-quarter view, with the full animal and floor visible, known frame rate and playback speed, and several repetitions. Match the intended action: a short targeted feline pounce versus a standing canine hop or running obstacle jump. The existing cat-walk reference remains useful for gait but does not supply jump timing.
+
+Reference lead: the authors' DogJumpingData repository supplies supplementary videos and motion data for obstacle jumps: https://github.com/Senwei-Huang/DogJumpingData . These references have not yet been incorporated into the animations.
+
 ## 26 October 2026 / C-07 Mechanical Cheetah and feline motion study
 
 Created a separate ochre, ivory and graphite feline robot from the supplied C-07 concept. The 51-joint rigid armor rig has a flexible lumbar/chest/pelvis assembly, independent sliding scapulae, wrists and hocks, four-digit paws and an eight-section tail. Six clips cover watch, walk, stalk, rotary gallop, sit and pounce. The local cat-walk model was inspected for timing and shoulder movement; its geometry, textures, rig and keys were not copied or redistributed.
