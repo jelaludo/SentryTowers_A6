@@ -3,7 +3,7 @@
   "name": "Chase / K9, C-07 and K0-TECH-01",
   "baked": false,
   "seed": 27,
-  "source_commit": "5549087a70356a10f1e373c0092bdcbecfc0bd3c",
+  "source_commit": "1be374f4a2f1a97f8737b9e21f49bca5388f4d6c",
   "coordinate_system": {
     "units": "metres",
     "up": "+Y",
@@ -1128,10 +1128,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "triangles": 71698,
+      "triangles": 67654,
       "draw_calls": 7,
-      "bytes": 3657412,
-      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
+      "bytes": 3573464,
+      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1239,12 +1239,12 @@
           ],
           "travel_m": 1.6,
           "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
           "root_motion_profile": {
             "kind": "base_plus_airborne",
             "base_travel_m": 0.527999997138977,
             "airborne_extra_m": 1.072000002861023
-          }
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
         },
         {
           "name": "Roll_Over",
@@ -1353,12 +1353,12 @@
         "max": [
           0.1504499912261963,
           0.4206499755382538,
-          0.40545418858528137
+          0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
           0.41970997798925275,
-          1.0475325286388397
+          1.0452063381671906
         ]
       },
       "static": false,
@@ -1369,10 +1369,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "triangles": 14906,
+      "triangles": 14526,
       "draw_calls": 7,
-      "bytes": 1805320,
-      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
+      "bytes": 1824924,
+      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1480,12 +1480,12 @@
           ],
           "travel_m": 1.6,
           "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
           "root_motion_profile": {
             "kind": "base_plus_airborne",
             "base_travel_m": 0.527999997138977,
             "airborne_extra_m": 1.072000002861023
-          }
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
         },
         {
           "name": "Roll_Over",
@@ -1594,12 +1594,12 @@
         "max": [
           0.1504499912261963,
           0.4206499755382538,
-          0.40347999334335327
+          0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
           0.41970997798925275,
-          1.0455583333969116
+          1.0452063381671906
         ]
       },
       "static": false,
@@ -1746,15 +1746,15 @@
   "measured_source_totals": [
     {
       "lod": 1,
-      "triangles": 37398,
+      "triangles": 37018,
       "draw_calls": 19,
-      "plain_glb_bytes": 4974296
+      "plain_glb_bytes": 4993900
     },
     {
       "lod": 0,
-      "triangles": 160302,
+      "triangles": 156258,
       "draw_calls": 19,
-      "plain_glb_bytes": 8751136
+      "plain_glb_bytes": 8667188
     }
   ],
   "validation": {

@@ -2,12 +2,12 @@
   "status": "passed",
   "browser": "Chromium headless with real WebGL (software rendering); not an FPS benchmark",
   "code_hashes": {
-    "index.html": "be2ce2fe4076320380f3189603ea9585c60b9e59d77a2c3f0a2cfe6386257e89",
-    "viewer.js": "8abaa4cb3b5586ff89bbda0efc316a5419b6fb330482b1a56e0dcb3f28b1ee0d",
+    "index.html": "2a710f353a639e8981a1b7b394c4a7d8c062e11f23d744b0e3093697bf245f0a",
+    "viewer.js": "cbad7003e4442d89b32b071868611b86a867b62acd53db60dfb0c68665731068",
     "viewer.css": "c5d7a2dea1ed6059a6ccf4e89eda3313920d53c46c535e5fce76ce00cbf709c6",
     "simulation.js": "e1b9d7ecd9264959826b45524663d0ed9b5e024189d64f5a946ee497a8516597",
     "actor.js": "66859701b0191345b8cd190e84ee77daa7203b160425fe23acdbe648696ca6fc",
-    "manifest.json": "9704a574e3a63960e1d05bdcaf50a92b440550bbed15dc9fb8c8801f34315e09"
+    "manifest.json": "4bd3583289d5636d470bc04da3edf91c41e9e93eaf5db708d1928dddb1c6d0d1"
   },
   "checks": [
     "both plain animated tiers load with source clips",
@@ -22,10 +22,10 @@
     {
       "name": "start",
       "time": 0,
-      "maximumX": 0.8087835556578687,
+      "maximumX": 0.8083822587430113,
       "maximumY": 0.4516217619296885,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 28,
       "states": [
         {
@@ -50,8 +50,8 @@
       "time": 2.999999999999992,
       "maximumX": 0.6939942975474601,
       "maximumY": 0.5150501611458248,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 28,
       "states": [
         {
@@ -76,8 +76,8 @@
       "time": 4.416666666666676,
       "maximumX": 0.5843708653947914,
       "maximumY": 0.5893257338527247,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 28,
       "states": [
         {
@@ -102,8 +102,8 @@
       "time": 4.600000000000018,
       "maximumX": 0.5946685188754681,
       "maximumY": 0.5782944180998948,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 28,
       "states": [
         {
@@ -128,8 +128,8 @@
       "time": 7.866666666666847,
       "maximumX": 0.6658859313334866,
       "maximumY": 0.5786994515659577,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 28,
       "states": [
         {
@@ -154,8 +154,8 @@
       "time": 7.866666666666847,
       "maximumX": 0.7576549966536127,
       "maximumY": 0.3985844230125871,
-      "vertices": 14112,
-      "triangles": 39072,
+      "vertices": 14277,
+      "triangles": 38692,
       "draws": 27,
       "states": [
         {
@@ -180,8 +180,8 @@
       "time": 7.866666666666847,
       "maximumX": 0.3827789481256379,
       "maximumY": 0.09088253845800552,
-      "vertices": 14112,
-      "triangles": 39072,
+      "vertices": 14277,
+      "triangles": 38692,
       "draws": 27,
       "states": [
         {
@@ -206,8 +206,8 @@
       "time": 2.999999999999992,
       "maximumX": 0.6939942975474601,
       "maximumY": 0.5150501611458248,
-      "vertices": 37138,
-      "triangles": 162084,
+      "vertices": 36685,
+      "triangles": 158040,
       "draws": 28,
       "states": [
         {
@@ -232,8 +232,8 @@
       "time": 17.99999999999962,
       "maximumX": 0.6900430190151381,
       "maximumY": 0.5788464630061427,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 32,
       "states": [
         {
@@ -258,8 +258,8 @@
       "time": 17.99999999999962,
       "maximumX": 0.8187236014070512,
       "maximumY": 0.3571090049579936,
-      "vertices": 14112,
-      "triangles": 39180,
+      "vertices": 14277,
+      "triangles": 38800,
       "draws": 32,
       "states": [
         {
