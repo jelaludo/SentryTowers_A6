@@ -2,12 +2,12 @@
   "status": "passed",
   "browser": "Chromium headless with real WebGL (software rendering); not an FPS benchmark",
   "code_hashes": {
-    "index.html": "518e749c91e2a30900adc3e01af42c6dd5efa544e8621d5e2f2c3eff7ca77609",
-    "viewer.js": "78e61c2f24ceb87a58c089ac35924afd4afe0967cf5c4051ca3eedb351a705f2",
+    "index.html": "da53074d66a2b9b3567bae022d41b9fe14f6eb01bf6b5a4c39d69a1c69a111dc",
+    "viewer.js": "1ee5947af6af609c50703a404c2d803f9b6bf433e1f2591ac42e61c7622400fc",
     "viewer.css": "c5d7a2dea1ed6059a6ccf4e89eda3313920d53c46c535e5fce76ce00cbf709c6",
-    "simulation.js": "0990b43e545a52579831cfbcc1b5f4df06d2478cfc8ae8eb99245ffa966aed54",
+    "simulation.js": "a2bfaed9435589f7c91ae09c76f22ffcbdc76af34f956774176c5407e95988ae",
     "actor.js": "66859701b0191345b8cd190e84ee77daa7203b160425fe23acdbe648696ca6fc",
-    "manifest.json": "6ebb6912fd07181304b1d3540363fdc4499a0ca4b0fb908a9a76ce4d59d5459d"
+    "manifest.json": "580087a985e13dda7f648654b0d697a4a89790b04d4c48d2f61309fcfc43ccf2"
   },
   "checks": [
     "both plain animated tiers load with source clips",
@@ -65,8 +65,8 @@
           "jumps": 0
         },
         {
-          "clip": "Gallop_Cycle",
-          "speed": 1.2438666455569467,
+          "clip": "Pounce",
+          "speed": 0,
           "jumps": 0
         }
       ]
@@ -125,78 +125,78 @@
     },
     {
       "name": "k0-jump",
-      "time": 8.025000000000185,
-      "maximumX": 0.6361938880069246,
-      "maximumY": 0.5814060858819541,
+      "time": 7.866666666666847,
+      "maximumX": 0.6658859313334866,
+      "maximumY": 0.5786994515659577,
       "vertices": 14112,
       "triangles": 39180,
       "draws": 28,
       "states": [
         {
-          "clip": "Walk_Cycle",
-          "speed": 0.9838111881500881,
+          "clip": "Run_Cycle",
+          "speed": 1.5379785380801312,
           "jumps": 1
         },
         {
           "clip": "Gallop_Cycle",
-          "speed": 2.880358109841154,
+          "speed": 3.4345278694594903,
           "jumps": 1
         },
         {
           "clip": "Pounce",
-          "speed": 7.071162980423651,
+          "speed": 10.499734408994641,
           "jumps": 1
         }
       ]
     },
     {
       "name": "ground",
-      "time": 8.025000000000185,
-      "maximumX": 0.7548610709721006,
-      "maximumY": 0.4262519307696816,
+      "time": 7.866666666666847,
+      "maximumX": 0.7576549966536127,
+      "maximumY": 0.3985844230125871,
       "vertices": 14112,
       "triangles": 39072,
       "draws": 27,
       "states": [
         {
-          "clip": "Walk_Cycle",
-          "speed": 0.9838111881500881,
+          "clip": "Run_Cycle",
+          "speed": 1.5379785380801312,
           "jumps": 1
         },
         {
           "clip": "Gallop_Cycle",
-          "speed": 2.880358109841154,
+          "speed": 3.4345278694594903,
           "jumps": 1
         },
         {
           "clip": "Pounce",
-          "speed": 7.071162980423651,
+          "speed": 10.499734408994641,
           "jumps": 1
         }
       ]
     },
     {
       "name": "overview",
-      "time": 8.025000000000185,
-      "maximumX": 0.39532044415655,
-      "maximumY": 0.09129566513079164,
+      "time": 7.866666666666847,
+      "maximumX": 0.3827789481256379,
+      "maximumY": 0.09088253845800552,
       "vertices": 14112,
       "triangles": 39072,
       "draws": 27,
       "states": [
         {
-          "clip": "Walk_Cycle",
-          "speed": 0.9838111881500881,
+          "clip": "Run_Cycle",
+          "speed": 1.5379785380801312,
           "jumps": 1
         },
         {
           "clip": "Gallop_Cycle",
-          "speed": 2.880358109841154,
+          "speed": 3.4345278694594903,
           "jumps": 1
         },
         {
           "clip": "Pounce",
-          "speed": 7.071162980423651,
+          "speed": 10.499734408994641,
           "jumps": 1
         }
       ]
@@ -221,8 +221,8 @@
           "jumps": 0
         },
         {
-          "clip": "Gallop_Cycle",
-          "speed": 1.2438666455569467,
+          "clip": "Pounce",
+          "speed": 0,
           "jumps": 0
         }
       ]
@@ -248,7 +248,7 @@
         },
         {
           "clip": "Gallop_Cycle",
-          "speed": 1.6028066328637756,
+          "speed": 1.602803990255815,
           "jumps": 2
         }
       ]
@@ -256,8 +256,8 @@
     {
       "name": "mobile",
       "time": 17.99999999999962,
-      "maximumX": 0.6900430190151381,
-      "maximumY": 0.5788464630061427,
+      "maximumX": 0.8187236014070512,
+      "maximumY": 0.3571090049579936,
       "vertices": 14112,
       "triangles": 39180,
       "draws": 32,
@@ -274,7 +274,7 @@
         },
         {
           "clip": "Gallop_Cycle",
-          "speed": 1.6028066328637756,
+          "speed": 1.602803990255815,
           "jumps": 2
         }
       ]

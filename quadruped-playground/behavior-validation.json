@@ -30,14 +30,14 @@
       "minimum_capsule_gap_m": 0.3008657999707948,
       "pair_minima_m": {
         "k9_cheetah": 1.5563121992308417,
-        "k9_k0": 0.7250584558805739,
+        "k9_k0": 0.7385030583909697,
         "cheetah_k0": 0.3008657999707948
       },
       "maximum_ball_gap_m": 9.76837009708575,
       "peak_ground_speed_mps": [
         5.3195380185042005,
         4.993333344496831,
-        6.800166328855965
+        6.511743302690259
       ],
       "minimum_ground_speed_mps": [
         0,
@@ -50,7 +50,7 @@
         11
       ],
       "bursts": 24,
-      "avoidance_frames": 42274
+      "avoidance_frames": 42202
     },
     {
       "seed": 104,
@@ -58,14 +58,14 @@
       "minimum_capsule_gap_m": 0.3008657999707948,
       "pair_minima_m": {
         "k9_cheetah": 1.5379373473305424,
-        "k9_k0": 0.7334679627559448,
+        "k9_k0": 0.3564508675397923,
         "cheetah_k0": 0.3008657999707948
       },
       "maximum_ball_gap_m": 10.924180161800422,
       "peak_ground_speed_mps": [
         4.509816189382122,
         4.918323809950835,
-        6.800284525804874
+        6.800046455639087
       ],
       "minimum_ground_speed_mps": [
         0,
@@ -78,7 +78,7 @@
         11
       ],
       "bursts": 22,
-      "avoidance_frames": 42206
+      "avoidance_frames": 41778
     },
     {
       "seed": 891,
@@ -86,14 +86,14 @@
       "minimum_capsule_gap_m": 0.3008657999707948,
       "pair_minima_m": {
         "k9_cheetah": 1.5340785978033114,
-        "k9_k0": 0.7223512141866251,
+        "k9_k0": 0.7223504912140208,
         "cheetah_k0": 0.3008657999707948
       },
       "maximum_ball_gap_m": 10.887177013341955,
       "peak_ground_speed_mps": [
         5.353164801488404,
         5.525836553342685,
-        6.799950620771522
+        6.79993305292103
       ],
       "minimum_ground_speed_mps": [
         0,
@@ -106,7 +106,7 @@
         12
       ],
       "bursts": 22,
-      "avoidance_frames": 41893
+      "avoidance_frames": 41630
     }
   ]
 }

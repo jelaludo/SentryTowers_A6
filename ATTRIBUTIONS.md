@@ -10,7 +10,7 @@ Original mechanical house-cat geometry, rigid retarget adapter, family viewer an
 
 ## CHASE / K9 × C-07 × K0 / 27 October 2026
 
-`quadruped-playground/` reuses jelaludo’s original RECKON K9, Mechanical Cheetah and K0-TECH-01 GLBs from `e15a12a7361256e4b44e651837b03b8c60ff3bd7`, preserved unchanged. Shared pursuit behavior, seeded ball motion, lateral avoidance, hurdle placement, runtime rig corrections, K0 speed/response tuning and airborne lift, and preview capture are newly authored derived presentation work by jelaludo. Source motion reference provenance remains recorded below; no additional external motion, models or images are embedded. The compound scene is procedural JavaScript, not a new baked GLB animation.
+`quadruped-playground/` reuses jelaludo’s original RECKON K9, Mechanical Cheetah and K0-TECH-01 GLBs from `9a1eb5695704aadbdc95682fc8dbb1bdb16fe1d4`, preserved unchanged. Shared pursuit behavior, seeded ball motion, lateral avoidance, hurdle placement, runtime rig corrections, K0 speed/response tuning and airborne lift, and preview capture are newly authored derived presentation work by jelaludo. Source motion reference provenance remains recorded below; no additional external motion, models or images are embedded. The compound scene is procedural JavaScript, not a new baked GLB animation.
 
 ## Quadruped motion reference study / 27 October 2026
 

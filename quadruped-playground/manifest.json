@@ -3,7 +3,7 @@
   "name": "Chase / K9, C-07 and K0-TECH-01",
   "baked": false,
   "seed": 27,
-  "source_commit": "e15a12a7361256e4b44e651837b03b8c60ff3bd7",
+  "source_commit": "9a1eb5695704aadbdc95682fc8dbb1bdb16fe1d4",
   "coordinate_system": {
     "units": "metres",
     "up": "+Y",
@@ -1108,8 +1108,8 @@
       "damage_level": 0,
       "triangles": 71698,
       "draw_calls": 7,
-      "bytes": 3657504,
-      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "bytes": 3657412,
+      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1215,9 +1215,14 @@
             0.815,
             1.34
           ],
-          "travel_m": 0.527999997138977,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+          "travel_m": 1.6,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0.527999997138977,
+            "airborne_extra_m": 1.072000002861023
+          }
         },
         {
           "name": "Roll_Over",
@@ -1344,8 +1349,8 @@
       "damage_level": 0,
       "triangles": 14906,
       "draw_calls": 7,
-      "bytes": 1805408,
-      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "bytes": 1805320,
+      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1451,9 +1456,14 @@
             0.815,
             1.34
           ],
-          "travel_m": 0.527999997138977,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+          "travel_m": 1.6,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0.527999997138977,
+            "airborne_extra_m": 1.072000002861023
+          }
         },
         {
           "name": "Roll_Over",
@@ -1657,7 +1667,7 @@
         "laneDamping": 8,
         "lateralAcceleration": 3.8,
         "lateralSpeed": 1.3,
-        "jumpDistance": 2.2,
+        "jumpDistance": 3.2,
         "jumpRate": 1.8,
         "jumpLift": 0.16,
         "blend": 0.1
@@ -1679,7 +1689,7 @@
     "ball_wait_gap_m": 9,
     "avoidance": "All-neighbor forward-gap braking with stable passing sides: K9 left, C-07 right, K0 centre; conservative whole-animal capsules tested for every pair. Authored course, not a general collision solver.",
     "gait_phase": "Actual distance / source stride. K0 blends in 0.10 s; others 0.18 s. Rigid-joint foot correction preserves limb lengths.",
-    "jump_displacement": "Source travel preserved; extra range advances only between last paw release and first touchdown. K0 adds a 0.16 m sin-squared vertical arc only in this all-air window; source GLBs unchanged.",
+    "jump_displacement": "Original source travel preserved, including K0 base_plus_airborne profile. Extra scene range advances only between last release and first touchdown. K0 crosses 3.2 m; its 0.16 m sin-squared vertical lift remains confined to this all-air window.",
     "speed_limits": "maxSpeed is desired world ground speed; acceleration/braking are bounded. Lane-radius transitions and airborne crossing can briefly exceed ground targets."
   },
   "course": {
@@ -1716,13 +1726,13 @@
       "lod": 1,
       "triangles": 37398,
       "draw_calls": 19,
-      "plain_glb_bytes": 4973456
+      "plain_glb_bytes": 4973368
     },
     {
       "lod": 0,
       "triangles": 160302,
       "draw_calls": 19,
-      "plain_glb_bytes": 8750304
+      "plain_glb_bytes": 8750212
     }
   ],
   "validation": {

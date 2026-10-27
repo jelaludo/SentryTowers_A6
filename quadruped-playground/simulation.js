@@ -6,7 +6,7 @@ export const TRACK_LENGTH=2*STRAIGHT+2*Math.PI*RADIUS;
 export const ACTORS=[
  {id:'k9',family:'reckon-k9',node:'RECKON_K9_ACTOR',start:-1.1,lane:-1.3,maxSpeed:4.43,acceleration:2.1,braking:3.5,reaction:3,turnRate:2.3,pursuit:.9,gap:2.3,laneSpring:7,laneDamping:5,lateralAcceleration:1.5,lateralSpeed:.7,jumpDistance:3,jumpRate:1.05,jumpLift:0,blend:.18},
  {id:'cheetah',family:'mechanical-cheetah',node:'C07_CHEETAH_ACTOR',start:-3.2,lane:1.3,maxSpeed:5.6,acceleration:2.8,braking:3.5,reaction:3,turnRate:2.3,pursuit:.9,gap:2.3,laneSpring:7,laneDamping:5,lateralAcceleration:1.5,lateralSpeed:.7,jumpDistance:3,jumpRate:1.25,jumpLift:0,blend:.18},
- {id:'k0',family:'k0-tech-01',node:'K0_TECH_01_ACTOR',start:-5.6,lane:0,maxSpeed:6.8,acceleration:6.4,braking:7,reaction:10,turnRate:4.6,pursuit:1.6,gap:.9,laneSpring:18,laneDamping:8,lateralAcceleration:3.8,lateralSpeed:1.3,jumpDistance:2.2,jumpRate:1.8,jumpLift:.16,blend:.10}
+ {id:'k0',family:'k0-tech-01',node:'K0_TECH_01_ACTOR',start:-5.6,lane:0,maxSpeed:6.8,acceleration:6.4,braking:7,reaction:10,turnRate:4.6,pursuit:1.6,gap:.9,laneSpring:18,laneDamping:8,lateralAcceleration:3.8,lateralSpeed:1.3,jumpDistance:3.2,jumpRate:1.8,jumpLift:.16,blend:.10}
 ];
 export const OBSTACLES=[
  {id:'H01',s:5,height:.14,width:4.8,depth:.10},
@@ -31,12 +31,13 @@ export function nextObstacle(s){
 export function sourceJumpTravel(meta,t){
  if(!meta.travel_m)return 0;
  const a=Math.max(...Object.values(meta.release_s)),b=Math.min(...Object.values(meta.touchdown_s)),r=a-.17,e=b+.20;
- const v=meta.travel_m/(b-a+(a-r)/2+(e-b)/2);
- if(t<=r)return 0;
- if(t<a)return .5*v*(t-r)**2/(a-r);
- if(t<b)return .5*v*(a-r)+v*(t-a);
- if(t<e){const q=t-b;return .5*v*(a-r)+v*(b-a)+v*q-.5*v*q*q/(e-b);}
- return meta.travel_m;
+ const base=meta.root_motion_profile?.base_travel_m??meta.travel_m,v=base/(b-a+(a-r)/2+(e-b)/2);
+ let distance=0;
+ if(t>=e)distance=base;
+ else if(t>=b){const q=t-b;distance=.5*v*(a-r)+v*(b-a)+v*q-.5*v*q*q/(e-b);}
+ else if(t>=a)distance=.5*v*(a-r)+v*(t-a);
+ else if(t>r)distance=.5*v*(t-r)**2/(a-r);
+ return distance+(meta.root_motion_profile?.airborne_extra_m||0)*clamp((t-a)/(b-a),0,1);
 }
 export function jumpTravel(meta,t,distance=3){
  const a=Math.max(...Object.values(meta.release_s)),b=Math.min(...Object.values(meta.touchdown_s));
