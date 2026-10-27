@@ -8,7 +8,7 @@ This is a **derived procedural scene**, using original plain GLBs without modify
 
 ## Hand-off and placement
 
-Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `4b247f902c9eb838aa6f9d266e0edec17e7c8359`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
+Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `e15a12a7361256e4b44e651837b03b8c60ff3bd7`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
 
 Metres, +Y up, +Z local forward. The course is centered at world origin and reserves 16 × 32 m, with 2.5 m vertical clearance. The decorative floor is at Y = −0.01 m; paw targets use the original approximately +0.003 m sole height for K9/C-07 and +0.00141 m for K0. Each actor retains its original metre scale and ground root. The flat stadium course has 16 m straights and 5.5 m bend radius. Its three rails are 0.14, 0.18 and 0.20 m high, 4.8 m wide and 0.10 m deep; end posts extend another 0.05 m vertically.
 
@@ -43,14 +43,14 @@ The default is articulated **LOD1 / game**. **LOD0 / detailed** is available for
 | --- | --- | ---: | ---: | ---: |
 | RECKON K9 | Game LOD1 | 9,732 | 6 | 1,630,292 |
 | C-07 | Game LOD1 | 12,760 | 6 | 1,537,756 |
-| K0-TECH-01 | Game LOD1 | 15,578 | 7 | 1,821,604 |
-| All three | Game LOD1 | 38,070 | 19 | 4,989,652 |
+| K0-TECH-01 | Game LOD1 | 14,906 | 7 | 1,805,408 |
+| All three | Game LOD1 | 37,398 | 19 | 4,973,456 |
 | RECKON K9 | Detailed LOD0 | 25,884 | 6 | 2,117,768 |
 | C-07 | Detailed LOD0 | 62,720 | 6 | 2,975,032 |
-| K0-TECH-01 | Detailed LOD0 | 74,946 | 7 | 3,742,308 |
-| All three | Detailed LOD0 | 163,550 | 19 | 8,835,108 |
+| K0-TECH-01 | Detailed LOD0 | 71,698 | 7 | 3,657,504 |
+| All three | Detailed LOD0 | 160,302 | 19 | 8,750,304 |
 
-The game units individually remain within the contract's 25k-triangle unit target. The course repeats one shared box geometry for nine instanced hurdle parts and another for 66 lane marks. It uses no external textures. Sampled browser rendering with hurdles reports **39,852 triangles / 28–32 draws** at game detail and **165,332 triangles / 28 draws** in the detailed review frame. Trail draw counts depend on whether histories have enough points. These are renderer counters, including the transparent halo's passes, not GPU timings, FPS or network-transfer totals. Source Meshopt copies remain optional derivatives in the original asset folders; this scene loads authoritative plain files.
+The game units individually remain within the contract's 25k-triangle unit target. The course repeats one shared box geometry for nine instanced hurdle parts and another for 66 lane marks. It uses no external textures. Sampled browser rendering with hurdles reports **39,180 triangles / 28–32 draws** at game detail and **162,084 triangles / 28 draws** in the detailed review frame. Trail draw counts depend on whether histories have enough points. These are renderer counters, including the transparent halo's passes, not GPU timings, FPS or network-transfer totals. Source Meshopt copies remain optional derivatives in the original asset folders; this scene loads authoritative plain files.
 
 ## Viewer controls
 

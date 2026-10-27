@@ -3,7 +3,7 @@
   "name": "Chase / K9, C-07 and K0-TECH-01",
   "baked": false,
   "seed": 27,
-  "source_commit": "4b247f902c9eb838aa6f9d266e0edec17e7c8359",
+  "source_commit": "e15a12a7361256e4b44e651837b03b8c60ff3bd7",
   "coordinate_system": {
     "units": "metres",
     "up": "+Y",
@@ -1106,10 +1106,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "triangles": 74946,
+      "triangles": 71698,
       "draw_calls": 7,
-      "bytes": 3742308,
-      "sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
+      "bytes": 3657504,
+      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1342,10 +1342,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "triangles": 15578,
+      "triangles": 14906,
       "draw_calls": 7,
-      "bytes": 1821604,
-      "sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
+      "bytes": 1805408,
+      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1714,15 +1714,15 @@
   "measured_source_totals": [
     {
       "lod": 1,
-      "triangles": 38070,
+      "triangles": 37398,
       "draw_calls": 19,
-      "plain_glb_bytes": 4989652
+      "plain_glb_bytes": 4973456
     },
     {
       "lod": 0,
-      "triangles": 163550,
+      "triangles": 160302,
       "draw_calls": 19,
-      "plain_glb_bytes": 8835108
+      "plain_glb_bytes": 8750304
     }
   ],
   "validation": {
