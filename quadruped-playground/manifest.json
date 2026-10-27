@@ -1,0 +1,1208 @@
+{
+  "type": "derived continuous procedural interaction scene",
+  "name": "Chase / K9 and C-07",
+  "baked": false,
+  "seed": 27,
+  "source_commit": "ab4642deb90836628ee5f7c8b0049ec9a7b5dfae",
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "centre of playground"
+  },
+  "lod_selection": {
+    "default": 1,
+    "recording": 0,
+    "distance": "Static source LOD2 excluded during interaction"
+  },
+  "assets": [
+    {
+      "family": "reckon-k9",
+      "file": "assets/reckon-k9/reckon_k9_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "triangles": 25884,
+      "draw_calls": 6,
+      "bytes": 2117768,
+      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
+      "clips": [
+        {
+          "name": "Alert_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk_Cycle",
+          "loop": true,
+          "duration_s": 1.4,
+          "speed_mps": 0.3571428571428572,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0.25,
+            "FR": 0.5,
+            "HL": 0.75
+          },
+          "gait": "walk",
+          "beat_count": 4,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Run_Cycle",
+          "loop": true,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817,
+          "duty_factor": 0.44,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0,
+            "FR": 0.5,
+            "HL": 0.5
+          },
+          "gait": "trot",
+          "beat_count": 2,
+          "flight_intervals": {
+            "first": [
+              0.44,
+              0.5
+            ],
+            "second": [
+              0.94,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.7
+        },
+        {
+          "name": "Pace_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 0.9,
+          "duty_factor": 0.52,
+          "touchdown_phase": {
+            "FL": 0,
+            "HL": 0,
+            "FR": 0.5,
+            "HR": 0.5
+          },
+          "gait": "pace",
+          "beat_count": 2,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Canter_Cycle",
+          "loop": true,
+          "duration_s": 0.45,
+          "speed_mps": 2.24,
+          "duty_factor": 0.3,
+          "touchdown_phase": {
+            "HL": 0,
+            "HR": 0.3,
+            "FL": 0.3,
+            "FR": 0.6
+          },
+          "gait": "canter",
+          "beat_count": 3,
+          "flight_intervals": {
+            "suspension": [
+              0.9,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.9
+        },
+        {
+          "name": "Gallop_Cycle",
+          "loop": true,
+          "duration_s": 0.4,
+          "speed_mps": 3.1,
+          "duty_factor": {
+            "FL": 0.28,
+            "FR": 0.28,
+            "HR": 0.4,
+            "HL": 0.4
+          },
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.52,
+            "HL": 0.64
+          },
+          "gait": "rotary gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.38,
+              0.52
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.8
+        },
+        {
+          "name": "Sprint_Cycle",
+          "loop": true,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334,
+          "duty_factor": 0.22,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.54,
+            "HL": 0.64
+          },
+          "gait": "double-suspension gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.32,
+              0.54
+            ],
+            "extended": [
+              0.86,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.7
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 4.8,
+          "loop": false
+        },
+        {
+          "name": "Fetch_Return",
+          "duration_s": 8,
+          "loop": false,
+          "root_motion": true
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4,
+          "loop": false
+        },
+        {
+          "name": "Jump",
+          "duration_s": 2,
+          "loop": false,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.48,
+            "FR": 0.505,
+            "HR": 0.615,
+            "HL": 0.63
+          },
+          "touchdown_s": {
+            "FL": 1.08,
+            "FR": 1.105,
+            "HR": 1.19,
+            "HL": 1.215
+          },
+          "phase_landmarks_s": {
+            "ready": 0.08,
+            "crouch": 0.34,
+            "push_off": 0.61,
+            "apex": 0.855,
+            "fore_contact": 1.09,
+            "absorb": 1.26,
+            "recover": 1.9
+          },
+          "flight_interval_s": [
+            0.63,
+            1.08
+          ],
+          "travel_m": 0,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        }
+      ],
+      "plot_m": [
+        0.6,
+        1.6
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6679999232292175,
+            0.6859999895095825
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.7099999189376831,
+            0.3199999928474426
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.17000000178813934,
+            0.0029999390244483948,
+            0.32499998807907104
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.17000000178813934,
+            0.0029999390244483948,
+            0.32499998807907104
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE",
+          "position_m": [
+            0,
+            0.6499999165534973,
+            -0.03500000014901161
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.17000000178813934,
+            0.00299999862909317,
+            -0.23499999940395355
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.17000000178813934,
+            0.00299999862909317,
+            -0.23499999940395355
+          ]
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "bounds": {
+        "min": [
+          -0.23899999260902405,
+          0.0040000006556510925,
+          -0.7130016088485718
+        ],
+        "max": [
+          0.23899999260902405,
+          0.9549999833106995,
+          0.7009999752044678
+        ],
+        "dimensions_m": [
+          0.4779999852180481,
+          0.9509999826550484,
+          1.4140015840530396
+        ]
+      },
+      "static": false,
+      "derived": false
+    },
+    {
+      "family": "reckon-k9",
+      "file": "assets/reckon-k9/reckon_k9_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 9732,
+      "draw_calls": 6,
+      "bytes": 1630292,
+      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
+      "clips": [
+        {
+          "name": "Alert_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk_Cycle",
+          "loop": true,
+          "duration_s": 1.4,
+          "speed_mps": 0.3571428571428572,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0.25,
+            "FR": 0.5,
+            "HL": 0.75
+          },
+          "gait": "walk",
+          "beat_count": 4,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Run_Cycle",
+          "loop": true,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817,
+          "duty_factor": 0.44,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0,
+            "FR": 0.5,
+            "HL": 0.5
+          },
+          "gait": "trot",
+          "beat_count": 2,
+          "flight_intervals": {
+            "first": [
+              0.44,
+              0.5
+            ],
+            "second": [
+              0.94,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.7
+        },
+        {
+          "name": "Pace_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 0.9,
+          "duty_factor": 0.52,
+          "touchdown_phase": {
+            "FL": 0,
+            "HL": 0,
+            "FR": 0.5,
+            "HR": 0.5
+          },
+          "gait": "pace",
+          "beat_count": 2,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Canter_Cycle",
+          "loop": true,
+          "duration_s": 0.45,
+          "speed_mps": 2.24,
+          "duty_factor": 0.3,
+          "touchdown_phase": {
+            "HL": 0,
+            "HR": 0.3,
+            "FL": 0.3,
+            "FR": 0.6
+          },
+          "gait": "canter",
+          "beat_count": 3,
+          "flight_intervals": {
+            "suspension": [
+              0.9,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.9
+        },
+        {
+          "name": "Gallop_Cycle",
+          "loop": true,
+          "duration_s": 0.4,
+          "speed_mps": 3.1,
+          "duty_factor": {
+            "FL": 0.28,
+            "FR": 0.28,
+            "HR": 0.4,
+            "HL": 0.4
+          },
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.52,
+            "HL": 0.64
+          },
+          "gait": "rotary gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.38,
+              0.52
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.8
+        },
+        {
+          "name": "Sprint_Cycle",
+          "loop": true,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334,
+          "duty_factor": 0.22,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.54,
+            "HL": 0.64
+          },
+          "gait": "double-suspension gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.32,
+              0.54
+            ],
+            "extended": [
+              0.86,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ],
+          "retimed_from_duration_s": 0.7
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 4.8,
+          "loop": false
+        },
+        {
+          "name": "Fetch_Return",
+          "duration_s": 8,
+          "loop": false,
+          "root_motion": true
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4,
+          "loop": false
+        },
+        {
+          "name": "Jump",
+          "duration_s": 2,
+          "loop": false,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.48,
+            "FR": 0.505,
+            "HR": 0.615,
+            "HL": 0.63
+          },
+          "touchdown_s": {
+            "FL": 1.08,
+            "FR": 1.105,
+            "HR": 1.19,
+            "HL": 1.215
+          },
+          "phase_landmarks_s": {
+            "ready": 0.08,
+            "crouch": 0.34,
+            "push_off": 0.61,
+            "apex": 0.855,
+            "fore_contact": 1.09,
+            "absorb": 1.26,
+            "recover": 1.9
+          },
+          "flight_interval_s": [
+            0.63,
+            1.08
+          ],
+          "travel_m": 0,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        }
+      ],
+      "plot_m": [
+        0.6,
+        1.6
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6679999232292175,
+            0.6859999895095825
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.7099999189376831,
+            0.3199999928474426
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.17000000178813934,
+            0.0029999390244483948,
+            0.32499998807907104
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.17000000178813934,
+            0.0029999390244483948,
+            0.32499998807907104
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE",
+          "position_m": [
+            0,
+            0.6499999165534973,
+            -0.03500000014901161
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.17000000178813934,
+            0.00299999862909317,
+            -0.23499999940395355
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.17000000178813934,
+            0.00299999862909317,
+            -0.23499999940395355
+          ]
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "bounds": {
+        "min": [
+          -0.23899999260902405,
+          0.0040000006556510925,
+          -0.7130016088485718
+        ],
+        "max": [
+          0.23899999260902405,
+          0.9549999833106995,
+          0.7009999752044678
+        ],
+        "dimensions_m": [
+          0.4779999852180481,
+          0.9509999826550484,
+          1.4140015840530396
+        ]
+      },
+      "static": false,
+      "derived": false
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "assets/mechanical-cheetah/c07_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "triangles": 62720,
+      "draw_calls": 6,
+      "bytes": 2975032,
+      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.5416666666666667,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.20299145299145302,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.4,
+          "retimed_from_duration_s": 0.8,
+          "loop": true,
+          "speed_mps": 6.111111111111112,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          }
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 1.2,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          }
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          }
+        }
+      ],
+      "plot_m": [
+        0.65,
+        3
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.6949999928474426,
+            0.7799999751150608
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6079999804496765,
+            0.9350000061094761
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.7649999856948853,
+            0.11000000312924385
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "bounds": {
+        "min": [
+          -0.24217237532138824,
+          0.0019999949783084947,
+          -1.820000048726797
+        ],
+        "max": [
+          0.24217237532138824,
+          0.8489999771118164,
+          0.9549999870359898
+        ],
+        "dimensions_m": [
+          0.4843447506427765,
+          0.8469999821335079,
+          2.775000035762787
+        ]
+      },
+      "static": false,
+      "derived": false
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "assets/mechanical-cheetah/c07_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 12760,
+      "draw_calls": 6,
+      "bytes": 1537756,
+      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.5416666666666667,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.20299145299145302,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          }
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.4,
+          "retimed_from_duration_s": 0.8,
+          "loop": true,
+          "speed_mps": 6.111111111111112,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          }
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 1.2,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          }
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          }
+        }
+      ],
+      "plot_m": [
+        0.65,
+        3
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.6949999928474426,
+            0.7799999751150608
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.6079999804496765,
+            0.9350000061094761
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            0.5400000251829624
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.7649999856948853,
+            0.11000000312924385
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.14000000059604645,
+            0.00299999862909317,
+            -0.31999998912215233
+          ]
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "bounds": {
+        "min": [
+          -0.24217237532138824,
+          0.0019999949783084947,
+          -1.820000048726797
+        ],
+        "max": [
+          0.24217237532138824,
+          0.8489999771118164,
+          0.9549999870359898
+        ],
+        "dimensions_m": [
+          0.4843447506427765,
+          0.8469999821335079,
+          2.775000035762787
+        ]
+      },
+      "static": false,
+      "derived": false
+    }
+  ],
+  "credit": "Models and original animation by jelaludo; derived interaction scene by jelaludo",
+  "derived": true,
+  "plot_m": [
+    16,
+    32
+  ],
+  "vertical_reserve_m": 2.5,
+  "floor_y_m": -0.01,
+  "duration_s": null,
+  "loop": "Continuous seeded simulation; individual source clip durations are listed per asset.",
+  "engine_owned_nodes": [
+    "RECKON_K9_ACTOR",
+    "C07_CHEETAH_ACTOR",
+    "CHASE_BALL",
+    "PLAYGROUND_HURDLES"
+  ],
+  "placement": "Metre-scale source roots are wrapped; source MOTION translation is neutralized after mixing and applied once by the scene trajectory. Scope bone/socket lookups to each actor.",
+  "controller": {
+    "step_hz": 120,
+    "perception_time_constant_s": 0.3333333333333333,
+    "ground_acceleration_mps2": {
+      "k9": 2.1,
+      "cheetah": 2.8
+    },
+    "ground_braking_mps2": 3.5,
+    "ball_cruise_mps": [
+      0.55,
+      1.65
+    ],
+    "ball_burst_mps": [
+      3.4,
+      3.9
+    ],
+    "ball_wait_gap_m": 9,
+    "avoidance": "Forward-gap braking plus bounded lateral steering; conservative capsules validated in three seeded runs. Not a general collision solver.",
+    "gait_phase": "Distance-driven using source speed_mps \u00d7 duration_s stride; 0.18 s crossfade and rigid-joint foot correction.",
+    "jump_range_m": 3,
+    "jump_rates": {
+      "k9": 1.05,
+      "cheetah": 1.25
+    },
+    "jump_displacement": "Source travel preserved; extra range advances only between last paw release and first touchdown."
+  },
+  "course": {
+    "shape": "Stadium",
+    "straight_m": 16,
+    "bend_radius_m": 5.5,
+    "hurdles": [
+      {
+        "id": "H01",
+        "s_m": 5,
+        "height_m": 0.14,
+        "width_m": 4.8,
+        "depth_m": 0.1
+      },
+      {
+        "id": "H02",
+        "s_m": 13,
+        "height_m": 0.18,
+        "width_m": 4.8,
+        "depth_m": 0.1
+      },
+      {
+        "id": "H03",
+        "s_m": 41.27875959474386,
+        "height_m": 0.2,
+        "width_m": 4.8,
+        "depth_m": 0.1
+      }
+    ],
+    "post_extra_height_m": 0.05
+  },
+  "measured_source_totals": [
+    {
+      "lod": 1,
+      "triangles": 22492,
+      "draw_calls": 12,
+      "plain_glb_bytes": 3168048
+    },
+    {
+      "lod": 0,
+      "triangles": 88604,
+      "draw_calls": 12,
+      "plain_glb_bytes": 5092800
+    }
+  ],
+  "validation": {
+    "behavior": "behavior-validation.json",
+    "rigs": "rig-validation.json",
+    "viewer": "viewer-validation.json",
+    "pending": [
+      "Consuming-game Three r160 and release gltfpack validation",
+      "Arbitrary environments, terrain and collision integration",
+      "Reference phone performance and game camera acceptance"
+    ]
+  },
+  "derived_artifacts": [
+    "preview.png",
+    "behavior-validation.json",
+    "rig-validation.json",
+    "viewer-validation.json"
+  ]
+}

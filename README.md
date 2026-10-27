@@ -1,5 +1,7 @@
 # Model Workshop
 
+**CHASE / K9 × C-07** brings both rigs into `quadruped-playground/`: an irregularly accelerating ball, responsive pursuit, lateral avoidance and three low hurdles. Continuous seeded replay, slow motion, follow/ground/free cameras, and game/detailed tiers. The procedural scene reuses the pinned original GLBs unchanged. Hand-off and measured checks: `quadruped-playground/README.md`.
+
 **C-07 / Mechanical Cheetah** adds a 51-joint feline with walk, stalk, rotary gallop, sit, pounce, roll and give paw. The gallop has distinct gathered and extended flight phases, now at 6.11 m/s with a 0.40 s cycle. The 27 October pounce revision adds separate paw release/landing, anchored support and delayed hip compression. Detailed/game/static-distance GLBs, an editable Blender master and a phase-by-phase motion viewer are in `mechanical-cheetah/`. Measured hand-off: `assets/mechanical-cheetah/README.md`.
 
 **RECKON K9 / Recon robot dog** adds an articulated mechanical canine with twelve named clips: alert, walk, trot (`Run_Cycle`), pace, canter, gallop, sprint, sit, roll, fetch, give paw and jump. The 27 October revisions correct walk/trot contact order, refine the jump and increase running cadence with matching ground travel (3.10 m/s gallop, 4.43 m/s sprint). Detailed/game/static-distance GLBs, decoded Meshopt copies, an editable Blender master and motion inspection controls are in `reckon-k9/`. Measured hand-off and runtime notes: `assets/reckon-k9/README.md`.

@@ -1,4 +1,5 @@
 const collectionImages={
+'quadruped-playground':'quadruped-playground/preview.png',
 'mechanical-cheetah':'assets/mechanical-cheetah/preview.png',
 'reckon-k9':'assets/reckon-k9/preview.png',
 'feids26':'assets/feids26/closed-preview.png',
@@ -26,6 +27,7 @@ const collectionImages={
 };
 
 export const collections=[
+['quadruped-playground','CHASE / K9 × C-07','Presentation','Two mechanical animals follow one unpredictable ball. Variable-speed pursuit, giving way, passing and low-hurdle jumps in a continuous shared playground.','2 animated rigs · 3 hurdles · Seeded replay','Interaction study'],
 ['mechanical-cheetah','C-07 / Mechanical Cheetah','Characters','Ochre armor, a flexible spine and a long articulated tail. Feline walk, faster rotary gallop, pounce, sit, roll and give paw. Contact timelines and pose studies.','8 clips · 51 joints · 3 LODs','Animated prototype'],
 ['reckon-k9','RECKON K9 / Recon Robot Dog','Characters','An articulated mechanical canine with six distinct gaits with faster running, sit, roll, fetch, give paw and a refined jump. Inspect paw-contact order and seven jump poses.','12 clips · Canine skeleton · 3 LODs','Animated prototype'],
 ['feids26','FEIDS-26 / Interplanetary Cargo Shell','Industry','Fusiform expendable delivery capsule: two folded Ridgebacks in tandem, four separating shell quadrants, high-altitude breakup, burning mech descent and a ground-level laggard finale.','4 shell quarters · 2 mechs per capsule · D0–D3 · 3 LODs','Animated prototype'],

@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "scope": "Seeded 120 Hz behavior; conservative whole-animal capsules, repeated hurdles, speed changes and repeatability. No physical dynamics or FPS claim.",
+  "acceleration_response": {
+    "interval_s": 1.2,
+    "before": {
+      "ball": 0.9,
+      "actors": [
+        1.0098700330440955,
+        1.1658381157308113
+      ]
+    },
+    "after": {
+      "ball": 3.6016331979539244,
+      "actors": [
+        3.295145749217436,
+        3.9184312452003103
+      ]
+    }
+  },
+  "runs": [
+    {
+      "seed": 27,
+      "seconds": 120.00000000004157,
+      "minimum_capsule_gap_m": 0.28920907970240284,
+      "maximum_ball_gap_m": 9.970716888923931,
+      "peak_ground_speed_mps": [
+        5.055543183150494,
+        5.164091354512266
+      ],
+      "minimum_ground_speed_mps": [
+        0,
+        0
+      ],
+      "jumps": [
+        11,
+        11
+      ],
+      "bursts": 24,
+      "avoidance_frames": 28606
+    },
+    {
+      "seed": 104,
+      "seconds": 120.00000000004157,
+      "minimum_capsule_gap_m": 0.28920907970240284,
+      "maximum_ball_gap_m": 10.69657547123918,
+      "peak_ground_speed_mps": [
+        4.676140451533043,
+        5.391380164389833
+      ],
+      "minimum_ground_speed_mps": [
+        0,
+        0
+      ],
+      "jumps": [
+        11,
+        11
+      ],
+      "bursts": 22,
+      "avoidance_frames": 28800
+    },
+    {
+      "seed": 891,
+      "seconds": 120.00000000004157,
+      "minimum_capsule_gap_m": 0.28920907970240284,
+      "maximum_ball_gap_m": 10.7970640619466,
+      "peak_ground_speed_mps": [
+        5.071453286832223,
+        5.600000000000023
+      ],
+      "minimum_ground_speed_mps": [
+        0,
+        0
+      ],
+      "jumps": [
+        11,
+        11
+      ],
+      "bursts": 22,
+      "avoidance_frames": 28710
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless with real WebGL (software rendering); not an FPS benchmark",
+  "code_hashes": {
+    "index.html": "d7f58a8bc54953d1f01735d229230b72aab7eeb8d814c67f1da6f336b61678b8",
+    "viewer.js": "c9146ff1b51bc920c925acd338f4ee831b4d59c92d998b720cbde773f7be45ca",
+    "viewer.css": "eeb23a164db21f4ac3016fe86817a5864c53746858fbd77234aaf7f6f6bdbdb6",
+    "simulation.js": "84be34748d91ca2b4cadeeeec03f2cac9c45b49f777af2323cbb27b4e4f2cd17",
+    "actor.js": "545692af59718eed24013509d53ef2eaf01fc6541e3c1bb9c37f288aca26f2f1",
+    "manifest.json": "af03be1e4905d3bf5fbe0a822c822eed519c2b16c4ebd167a4d94790324275ea"
+  },
+  "checks": [
+    "both plain animated tiers load with source clips",
+    "pause, manual ball burst, replay and new seed",
+    "hurdles and trails toggles",
+    "four camera modes and slow-motion selector",
+    "two source jump clips with procedural world travel",
+    "follow camera contains both rigs and ball including bend and 390px mobile",
+    "no horizontal overflow or page errors"
+  ],
+  "frames": [
+    {
+      "name": "start",
+      "time": 0,
+      "maximumX": 0.7533628061864488,
+      "maximumY": 0.45390740709426286,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 21,
+      "states": [
+        {
+          "clip": "Walk_Cycle",
+          "speed": 0.8,
+          "jumps": 0
+        },
+        {
+          "clip": "Feline_Walk_Cycle",
+          "speed": 0.8,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "pursuit",
+      "time": 2.999999999999992,
+      "maximumX": 0.6218198179992315,
+      "maximumY": 0.5231918508954077,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 21,
+      "states": [
+        {
+          "clip": "Run_Cycle",
+          "speed": 2.194604345623101,
+          "jumps": 0
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "speed": 3.315823034324009,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "k9-jump",
+      "time": 4.283333333333336,
+      "maximumX": 0.5651903640216246,
+      "maximumY": 0.5893962108619056,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 21,
+      "states": [
+        {
+          "clip": "Jump",
+          "speed": 6.9999999999987494,
+          "jumps": 0
+        },
+        {
+          "clip": "Pounce",
+          "speed": 0,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "cheetah-jump",
+      "time": 4.7250000000000245,
+      "maximumX": 0.5546160875827756,
+      "maximumY": 0.5779394216568746,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 21,
+      "states": [
+        {
+          "clip": "Jump",
+          "speed": 0,
+          "jumps": 0
+        },
+        {
+          "clip": "Pounce",
+          "speed": 6.398390342051243,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "ground",
+      "time": 4.7250000000000245,
+      "maximumX": 0.699195546960853,
+      "maximumY": 0.5312626108132527,
+      "vertices": 8785,
+      "triangles": 24166,
+      "draws": 20,
+      "states": [
+        {
+          "clip": "Jump",
+          "speed": 0,
+          "jumps": 0
+        },
+        {
+          "clip": "Pounce",
+          "speed": 6.398390342051243,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "overview",
+      "time": 4.7250000000000245,
+      "maximumX": 0.1996055214003035,
+      "maximumY": 0.22182490375199182,
+      "vertices": 8785,
+      "triangles": 24166,
+      "draws": 20,
+      "states": [
+        {
+          "clip": "Jump",
+          "speed": 0,
+          "jumps": 0
+        },
+        {
+          "clip": "Pounce",
+          "speed": 6.398390342051243,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "detailed",
+      "time": 2.999999999999992,
+      "maximumX": 0.6218198179992315,
+      "maximumY": 0.5231918508954077,
+      "vertices": 20361,
+      "triangles": 90386,
+      "draws": 21,
+      "states": [
+        {
+          "clip": "Run_Cycle",
+          "speed": 2.194604345623101,
+          "jumps": 0
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "speed": 3.315823034324009,
+          "jumps": 0
+        }
+      ]
+    },
+    {
+      "name": "bend",
+      "time": 17.99999999999962,
+      "maximumX": 0.8288892154090041,
+      "maximumY": 0.3996983636349037,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 24,
+      "states": [
+        {
+          "clip": "Run_Cycle",
+          "speed": 2.477118324263138,
+          "jumps": 2
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "speed": 1.8186248639752174,
+          "jumps": 2
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "time": 17.99999999999962,
+      "maximumX": 0.8173302475501482,
+      "maximumY": 0.2114569246362955,
+      "vertices": 8785,
+      "triangles": 24274,
+      "draws": 24,
+      "states": [
+        {
+          "clip": "Run_Cycle",
+          "speed": 2.477118324263138,
+          "jumps": 2
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "speed": 1.8186248639752174,
+          "jumps": 2
+        }
+      ]
+    }
+  ]
+}

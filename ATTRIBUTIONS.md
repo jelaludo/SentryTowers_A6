@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## CHASE / K9 × C-07 / 27 October 2026
+
+`quadruped-playground/` reuses jelaludo’s original RECKON K9 and Mechanical Cheetah GLBs from `ab4642deb90836628ee5f7c8b0049ec9a7b5dfae`, preserved unchanged. Shared pursuit behavior, seeded ball motion, lateral avoidance, hurdle placement, runtime rig corrections and preview capture are newly authored derived presentation work by jelaludo. Source motion reference provenance remains recorded below; no additional external motion, models or images are embedded. The compound scene is procedural JavaScript, not a new baked GLB animation.
+
 ## Quadruped motion reference study / 27 October 2026
 
 The same-day follow-up adds independently authored Cheetah roll-over and give-paw actions, retains its sit action, and retimes the existing running gaits with synchronized travel. Original model and motion credit remains **jelaludo**. The social actions use the existing mechanical rig and no additional external motion assets.
