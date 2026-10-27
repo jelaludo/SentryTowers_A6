@@ -58,8 +58,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3657412,
-      "triangles": 71698,
+      "bytes": 3573464,
+      "triangles": 67654,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -172,12 +172,12 @@
           ],
           "travel_m": 1.6,
           "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
           "root_motion_profile": {
             "kind": "base_plus_airborne",
             "base_travel_m": 0.527999997138977,
             "airborne_extra_m": 1.072000002861023
-          }
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
         },
         {
           "name": "Roll_Over",
@@ -208,7 +208,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
+      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -218,12 +218,12 @@
         "max": [
           0.1504499912261963,
           0.4206499755382538,
-          0.40545418858528137
+          0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
           0.41970997798925275,
-          1.0475325286388397
+          1.0452063381671906
         ]
       },
       "required_nodes": [
@@ -349,8 +349,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 1005276,
-      "meshopt_sha256": "44a9de7e135958122e357f8f293608a60cdda9f4e3a51c7fe7437bb8643e7f2c"
+      "meshopt_bytes": 988548,
+      "meshopt_sha256": "bd13e44b629b1695856b0e0c3043566a88db0c203b1bb4c683504f73f6a695ae"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
@@ -358,8 +358,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1805320,
-      "triangles": 14906,
+      "bytes": 1824924,
+      "triangles": 14526,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -472,12 +472,12 @@
           ],
           "travel_m": 1.6,
           "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
           "root_motion_profile": {
             "kind": "base_plus_airborne",
             "base_travel_m": 0.527999997138977,
             "airborne_extra_m": 1.072000002861023
-          }
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
         },
         {
           "name": "Roll_Over",
@@ -508,7 +508,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
+      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -518,12 +518,12 @@
         "max": [
           0.1504499912261963,
           0.4206499755382538,
-          0.40347999334335327
+          0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
           0.41970997798925275,
-          1.0455583333969116
+          1.0452063381671906
         ]
       },
       "required_nodes": [
@@ -649,8 +649,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 608120,
-      "meshopt_sha256": "5023adf9e0d09a168c5601774d7d280175ba84197d9f5c6308ecc65e0c5eb102"
+      "meshopt_bytes": 610980,
+      "meshopt_sha256": "4da86f44488d520171d04be62ba86d4c2432eb32c4a7056e03dbce4faba4183b"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
@@ -658,8 +658,8 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 244156,
-      "triangles": 2972,
+      "bytes": 237748,
+      "triangles": 2924,
       "draw_calls": 1,
       "plot_m": [
         0.4,
@@ -667,7 +667,7 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "sha256": "c0b99c72c034a75b010f8197bedcfdd43dbc4d88b81bedde225abd5dcb4be946",
       "bounds": {
         "min": [
           -0.14288169145584106,
@@ -677,12 +677,12 @@
         "max": [
           0.14288169145584106,
           0.4206499755382538,
-          0.40347999334335327
+          0.4026000201702118
         ],
         "dimensions_m": [
           0.28576338291168213,
           0.41970997623866424,
-          1.0377265214920044
+          1.036846548318863
         ]
       },
       "required_nodes": [
@@ -808,16 +808,25 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 77080,
-      "meshopt_sha256": "5f7b7161170e2ccc9c15bf28a3fb8cd9bf458a7429990447da7039be899f3d41"
+      "meshopt_bytes": 75092,
+      "meshopt_sha256": "be160beca583d0f74e0846a5c3fa0f16790b45fc238b360991b713ee106a79c6"
     }
   ],
   "optics": {
-    "design": "Recessed blue-tinted camera lenses in tapered titanium retaining barrels, carbon seals and angular mounting plates. Detailed tier adds retaining-ring and fastener detail; static tier uses simplified coated-blue faces.",
+    "design": "Asymmetric recessed sensor cassette: one primary blue-coated camera, a smaller auxiliary camera and a compact range instrument. Faceted ceramic roof, service covers, vents, retaining barrels and straight bumper rails; static tier simplifies the instruments.",
     "material": "K0_Blue_coated_optical_glass",
     "emissive": false,
     "glass_finish": "Opaque blue-coated lens surface with environment reflections and KHR_materials_clearcoat; no transparency sorting or transmission passes.",
     "rig_binding": "Rigid HEAD attachment. No pupils, modeled white catchlights or animated eye controls."
+  },
+  "face": {
+    "design": "Industrial sensor head aligned with RECKON K9 and C-07. Faceted case and armor, rectangular cassette and hinged flat lower guard. No rounded cheek pads, animal nose, whiskers, brow markings or sculpted muzzle.",
+    "changed_bones": [
+      "HEAD",
+      "JAW"
+    ],
+    "preserved": "Body, ears, neck, tail, proportions, palette, rest transforms, sockets and all eight actions.",
+    "baseline_commit": "b918febcfb7783550c5a2717319b7835e6b776ca"
   },
   "budgets": {
     "game_triangles": 25000,
@@ -848,18 +857,18 @@
   },
   "source": {
     "file": "../../source/blender/a6-k0-tech-01.blend",
-    "bytes": 7027094,
-    "sha256": "1d133dabb7a83d6de41746e7bdc8cdd70ee8ba5e6b301824db096ec06c323dde",
+    "bytes": 6958854,
+    "sha256": "0ad2aa6d2be67d59e60c5937ddb8d89b971c4714079c8fb004970f3db40f1b54",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   },
   "authoring_dependencies": [
     {
       "file": "tools/blender/build_k0_tech_01.py",
-      "sha256": "79eb28f88427f093bb463e7c37b0ffdb5427cb490aff8d0945f963d7ce2f2906"
+      "sha256": "52ccbd218e0210875fc83d246b20c299f04b1de7e62575be3d4cfbcaa5ad3550"
     },
     {
       "file": "tools/blender/k0_tech_motion.py",
-      "sha256": "ea3af7c6706e754269c96ca8a15b10d297176259ff8363bea9f911518471a985"
+      "sha256": "a641debb17349e1ef251597501e7374f7fe52ce21027c6e3da6b3b2b600bf458"
     },
     {
       "file": "tools/blender/build_mechanical_cheetah.py",
@@ -867,7 +876,7 @@
     },
     {
       "file": "tools/blender/cheetah_motion.py",
-      "sha256": "75daeb0e5294357e21a23ac55a9192071c4f80e1fded9f289dc7ea03fac6fff8"
+      "sha256": "0ab1310b35fee3c04919f850daafd984ba1f3e6ba7eda94b873cb2dc8c39f687"
     },
     {
       "file": "tools/blender/quadruped_geometry.py",
@@ -883,7 +892,7 @@
     "dimensions_ratio_xyz": [
       0.62125166434253,
       0.4955253681730258,
-      0.3774891946446033
+      0.3766509278187761
     ],
     "reference_dimensions_m": [
       0.4843447506427765,

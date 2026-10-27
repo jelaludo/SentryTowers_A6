@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "baseline_commit": "b918febcfb7783550c5a2717319b7835e6b776ca",
+  "scope": "All rest transforms, sockets, clip metadata and material palette unchanged. Animation keys match except the automatic Roll_Over LUMBAR height correction for the new contact surface; sampled roll articulation and horizontal position remain unchanged.",
+  "checks": [
+    {
+      "file": "k0_tech_01_d0_lod0.glb",
+      "before_sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
+      "after_sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
+      "unchanged_rest_nodes": 54,
+      "unchanged_animation_channels": 1031,
+      "clip_metadata_sockets_and_palette_unchanged": true,
+      "maximum_roll_ground_settle_adjustment_m": 0.014598785127431124
+    },
+    {
+      "file": "k0_tech_01_d0_lod1.glb",
+      "before_sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
+      "after_sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
+      "unchanged_rest_nodes": 54,
+      "unchanged_animation_channels": 1031,
+      "clip_metadata_sockets_and_palette_unchanged": true,
+      "maximum_roll_ground_settle_adjustment_m": 0.014598785127431124
+    },
+    {
+      "file": "k0_tech_01_d0_lod2.glb",
+      "before_sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "after_sha256": "c0b99c72c034a75b010f8197bedcfdd43dbc4d88b81bedde225abd5dcb4be946",
+      "unchanged_rest_nodes": 54,
+      "unchanged_animation_channels": 0,
+      "clip_metadata_sockets_and_palette_unchanged": true,
+      "maximum_roll_ground_settle_adjustment_m": 0
+    }
+  ]
+}

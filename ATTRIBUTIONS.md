@@ -2,6 +2,8 @@
 
 ## K0-TECH-01 / Felis / 27 October 2026
 
+The industrial face revision replaces the sculpted animal face with an original faceted case, asymmetric optical cassette, service panels, vents and a flat hinged guard. Only HEAD/JAW geometry is revised; the existing motion system recalculates roll ground support for the new shell. No new external imagery, textures or geometry are used.
+
 The forward-pounce revision adds an original 1.072 m horizontal flight component to the 0.528 m retargeted push/settle trajectory, totaling 1.6 m. It preserves existing contact events and rigid articulation; the fixed camera, ground ruler and revised study images are derived presentation work. No new external motion reference is used.
 
 The subsequent optical revision replaces the iris, slit pupil and modeled catchlights with original recessed blue-coated camera lenses, metal retaining barrels, carbon seals and mounting fasteners. Geometry, finish and close-up render are original workshop work; no additional external references or textures are embedded.

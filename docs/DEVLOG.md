@@ -1,5 +1,13 @@
 # Devlog
 
+## 27 October 2026 / K0 industrial face
+
+Rebuilt K0-TECH-01's face as an industrial sensor assembly aligned with C-07 and RECKON K9. The head has a faceted case, sloped ceramic hood, recessed rectangular cassette with unequal blue-coated camera/range apertures, straight protective rails, vented service panels, hex fasteners and a flat hinged lower guard. Removed rounded cheek pads, whisker wires, the animal nose, brow markings and sculpted muzzle. The body, neck, ears, tail, striped extremities and beige/white palette retain their existing geometry and proportions.
+
+Source comparisons at all three tiers confirm that only HEAD/JAW geometry changed. All 54 exported rest-node transforms, sockets, clip metadata and material finishes match the previous revision. The eight actions and 1.6 m pounce retain their timing and articulation. The existing geometry-based roll support calculation adjusts one vertical translation channel by at most 14.6 mm for the new contact surface; the other 1,031 channels match exactly per animated tier.
+
+Rebuilt the master, three authoritative plain GLBs, optional Meshopt derivatives and review imagery. Counts are detailed 67,654 triangles / seven draws / 3,573,464 plain bytes; game 14,526 / seven / 1,824,924; static distance 2,924 / one / 237,748. All six plain/decoded exports pass glTF and 11,072 geometry-pose checks. Minimum sampled floor clearance is 0.783 mm, maximum pounce support drift 1.024 mm. The source viewer passes all action controls, six tier/encoding combinations, actual-scale comparison and desktop/mobile framing. Chase source repinning and integration review follow this source export; consuming-game and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / C-07 and K9 — forward leaps
 
 Applied K0's forward-leap approach to C-07 `Pounce` (3 m, previously 1.2 m) and RECKON K9 `Jump` (2.4 m, previously in place). Extra horizontal travel occurs only between the last hind release and first fore touchdown, preserving preparation and grounded landing anchors. Durations remain 3.2 / 2.0 s. Forward displacement is 6.45 / 7.44 times the measured torso rise. Explicit root-motion metadata prevents consumers from applying the trajectory twice.

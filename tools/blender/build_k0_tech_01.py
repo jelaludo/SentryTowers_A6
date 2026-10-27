@@ -60,6 +60,55 @@ def split_painted_face(g,points,mat,bone,sm,a,b,lod):
   pigment=6 if any(l<=(lo+hi)/2<=h for l,h in bands) else mat
   g.add(clean,[tuple(range(len(clean)))],pigment,bone,sm)
 
+def industrial_face(g,lod):
+ """Faceted sensor carriage and hinged lower guard; no sculpted animal features."""
+ # Chamfered structural case and a separate ceramic roof, with open seams.
+ g.hull([(-.632,.074,.684,.058),(-.715,.103,.685,.070),(-.805,.098,.674,.060),(-.878,.081,.659,.042)],0,'HEAD')
+ g.hull([(-.632,.074,.746,.008),(-.714,.104,.765,.010),(-.795,.097,.737,.009),(-.877,.082,.705,.008)],1,'HEAD')
+ for s in [-1,1]:
+  g.side_plate([(-.644,.721),(-.708,.748),(-.773,.730),(-.842,.698),(-.857,.638),(-.809,.617),(-.699,.624),(-.648,.655)],s*.102,.006,2,'HEAD')
+  # Flat service cover and an exposed rear hinge, like the larger robots.
+  if lod<2:
+   g.side_plate([(-.665,.698),(-.699,.716),(-.761,.708),(-.797,.682),(-.781,.650),(-.687,.650)],s*.111,.002,0,'HEAD')
+   g.tube((s*.102,-.674,.661),(s*.119,-.674,.661),.025,4,'HEAD',sides=12 if lod==0 else 8)
+   g.tube((s*.119,-.674,.661),(s*.121,-.674,.661),.015,3,'HEAD',sides=8)
+   for j in range(4 if lod==0 else 3):g.box((s*.115,-.720-j*.016,.683),(.004,.006,.025),3,'HEAD',0,(-.25,0,0))
+   for y,z in [(-.704,.730),(-.816,.681),(-.786,.633)]:g.bolt((s*.112,y,z),'HEAD',axis=(s,0,0))
+  # Straight bumper rails flank the cassette; the front is functional hardware.
+  g.box((s*.085,-.885,.659),(.012,.031,.079),1,'HEAD',.002)
+ # Recessed rectangular sensor cassette. A large camera and two smaller
+ # instruments break the paired-eye reading without changing the head rig.
+ g.box((0,-.884,.667),(.158,.028,.074),4,'HEAD',.004)
+ g.box((0,-.900,.667),(.145,.009,.061),3,'HEAD',.003)
+ if lod<2:
+  g.box((.044,-.908,.666),(.036,.008,.051),0,'HEAD',.002)
+  for x in [-.065,.065]:
+   for z in [.642,.691]:
+    if lod==0:
+     g.tube((x,-.907,z),(x,-.911,z),.0038,4,'HEAD',sides=6)
+     g.box((x,-.9115,z),(.003,.0007,.0008),3,'HEAD',0)
+ def lens(x,z,r):
+  start=len(g.v)
+  if lod<2:
+   g.tube((x,-.905,z),(x,-.912,z),r,4,'HEAD',r1=r*.91)
+   g.tube((x,-.912,z),(x,-.915,z),r*.84,3,'HEAD')
+   g.tube((x,-.9152,z),(x,-.9162,z),r*.70,5,'HEAD')
+   if lod==0:g.ring((x,-.910,z),r*.97,.0007,(0,-1,0),0,'HEAD')
+  else:
+   g.tube((x,-.905,z),(x,-.914,z),r,0,'HEAD',sides=8)
+   g.tube((x,-.9141,z),(x,-.915,z),r*.70,5,'HEAD',sides=8)
+  # Compensate the family's width/height retarget so optical glass is circular.
+  for i in range(start,len(g.v)):g.v[i].x=x+(g.v[i].x-x)*motion.SCALE.z/motion.SCALE.x
+ lens(-.030,.668,.027)
+ lens(.044,.680,.011)
+ if lod<2:lens(.044,.651,.007)
+ # Hinged lower impact/prop guard retains JAW and the original mouth socket.
+ g.hull([(-.698,.067,.615,.013),(-.800,.079,.606,.013),(-.899,.074,.614,.012)],0,'JAW')
+ g.box((0,-.902,.612),(.139,.018,.025),2,'JAW',.003)
+ if lod<2:
+  g.box((0,-.912,.611),(.067,.003,.009),3,'JAW',.001)
+  for s in [-1,1]:g.box((s*.057,-.913,.612),(.011,.004,.012),4,'JAW',.001)
+
 def shape(lod,reference=None):
  g=FelisGeometry(lod);old=reference or cheetah.shape(lod)
  # Retain our proven mechanical limb/waist construction. The face, ears, neck,
@@ -102,42 +151,13 @@ def shape(lod,reference=None):
  for s in [-1,1]:
   g.tube((s*.083,-.515,.70),(s*.081,-.687,.68),.012,4,'NECK',r1=.009)
   if lod<2:g.hose([(s*.09,-.53,.638),(s*.09,-.59,.62),(s*.075,-.68,.632)],.009,0,'NECK')
- # Rounder skull, shorter muzzle, pale cheeks and a dark lynx-point eye mask.
- g.ellipsoid((0,-.715,.682),(.112,.112,.088),0,'HEAD')
- g.hull([(-.63,.079,.737,.029),(-.69,.103,.755,.030),(-.76,.097,.74,.030),(-.82,.066,.698,.025),(-.87,.041,.659,.018)],1,'HEAD')
- g.hull([(-.69,.068,.618,.023),(-.79,.079,.602,.026),(-.872,.052,.611,.017)],2,'JAW')
+ # Angular industrial sensor head. Only HEAD/JAW geometry changes; ears keep
+ # their original plates, pivots and proportions.
+ industrial_face(g,lod)
  for s in [-1,1]:
-  g.side_plate([(-.66,.716),(-.725,.74),(-.805,.705),(-.84,.666),(-.80,.631),(-.70,.629),(-.65,.665)],s*.097,.016,2,'HEAD')
-  # Flush camera modules: angular mounting plate, metal barrel, rubber seal
-  # and a shallow blue-coated glass face. Highlights come from scene lighting.
-  x=s*.067;z=.695
-  mount=[(-.034,-.011),(-.025,-.022),(.025,-.022),(.034,-.011),(.034,.011),(.025,.022),(-.025,.022),(-.034,.011)] if lod<2 else [(-.032,-.020),(.032,-.020),(.032,.020),(-.032,.020)]
-  g.panel([(x+dx,-.807,z+dz) for dx,dz in mount],.010,6,'HEAD')
-  if lod<2:
-   g.tube((x,-.811,z),(x,-.820,z),.022,4,'HEAD',r1=.020)
-   g.ring((x,-.8205,z),.0165,.002,(0,-1,0),3,'HEAD')
-   g.ellipsoid((x,-.8205,z),(.0148,.0028,.0148),5,'HEAD')
-   if lod==0:
-    g.ring((x,-.817,z),.021,.0008,(0,-1,0),0,'HEAD')
-    for side in [-1,1]:
-     g.tube((x+side*.027,-.8125,z),(x+side*.027,-.815,z),.0032,4,'HEAD',sides=8)
-     g.box((x+side*.027,-.8153,z),(.0034,.0008,.0007),3,'HEAD',0)
-  else:
-   g.tube((x,-.812,z),(x,-.819,z),.020,0,'HEAD')
-   g.tube((x,-.8195,z),(x,-.821,z),.0148,5,'HEAD')
-  g.ellipsoid((s*.039,-.859,.634),(.047,.036,.031),2,'HEAD')
-  # Brow stripes and cheek bars are actual small closed armor patches.
-  g.panel([(s*.016,-.785,.749),(s*.035,-.779,.762),(s*.074,-.769,.766),(s*.071,-.779,.755),(s*.035,-.791,.752)],.003,6,'HEAD')
-  for y,z in [(-.735,.668),(-.712,.65)]:g.side_plate([(y-.026,z+.010),(y+.013,z+.014),(y+.026,z+.002),(y-.022,z-.005)],s*.113,.002,6,'HEAD')
   ear='EAR_'+('L' if s>0 else 'R');x=s*.09
   g.panel([(x-s*.035,-.638,.728),(x+s*.041,-.635,.735),(x+s*.057,-.615,.895),(x+s*.032,-.629,.874),(x-s*.026,-.65,.786)],.022,1,ear)
   g.panel([(x-s*.018,-.655,.755),(x+s*.029,-.654,.761),(x+s*.044,-.638,.866)],.005,6,ear)
-  if lod<2:
-   for j in range(3 if lod==0 else 2):
-    g.hose([(s*.065,-.867,.636-j*.009),(s*.13,-.887,.641-j*.016),(s*(.195+j*.009),-.876-j*.022,.654-j*.027)],.0016,4,'HEAD')
-   g.bolt((s*.119,-.703,.69),'HEAD',axis=(s,0,0))
- g.panel([(-.018,-.891,.651),(.018,-.891,.651),(0,-.91,.631)],.014,3,'HEAD')
- if lod<2:g.tube((0,-.898,.63),(0,-.899,.612),.002,6,'HEAD',sides=6)
  # Broad pale toes and repeated transverse taupe markings on lower legs/paws.
  for id in LEGS:
   s=1 if id.endswith('L') else -1
