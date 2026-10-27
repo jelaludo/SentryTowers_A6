@@ -12,8 +12,9 @@ for name,loc,power,size,color in [('Key',(2,-3,4),370,3,(1,.92,.79)),('Fill',(-3
  d=bpy.data.lights.new(name,'AREA');o=bpy.data.objects.new(name,d);s.collection.objects.link(o);o.location=loc;d.energy=power;d.shape='DISK';d.size=size;d.color=color;aim(o,(0,.2,.45))
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.003));floor=bpy.context.object;floor.name='REVIEW_GROUND';m=bpy.data.materials.new('Warm_graphite_studio');m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.09,.10,.105,1);m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8;floor.data.materials.append(m)
 d=bpy.data.cameras.new('REVIEW_CAMERA');cam=bpy.data.objects.new('REVIEW_CAMERA',d);s.collection.objects.link(cam);d.type='ORTHO';s.camera=cam;arm=bpy.data.objects['C07_RIG']
-poses=[('preview','Watch_Idle',0,'hero'),('walk','Feline_Walk_Cycle',.4,'hero'),('stalk','Stalk_Cycle',.7,'hero'),('fore-support','Gallop_Cycle',.104,'side'),('gathered','Gallop_Cycle',.296,'side'),('hind-support','Gallop_Cycle',.488,'side'),('extended','Gallop_Cycle',.696,'side'),('sit','Sit_Down',2.4,'hero'),('pounce','Pounce',1.0775,'hero')]
+poses=[('preview','Watch_Idle',0,'hero'),('walk','Feline_Walk_Cycle',.4,'hero'),('stalk','Stalk_Cycle',.7,'hero'),('fore-support','Gallop_Cycle',.052,'side'),('gathered','Gallop_Cycle',.148,'side'),('hind-support','Gallop_Cycle',.244,'side'),('extended','Gallop_Cycle',.348,'side'),('sit','Sit_Down',2.4,'hero'),('pounce','Pounce',1.0775,'hero'),('roll','Roll_Over',2.6,'hero'),('hand','Give_Paw',2.1,'hero')]
 if '--hero' in sys.argv:poses=poses[:1]
+if '--social-study' in sys.argv:poses=[('social-sit','Sit_Down',2.4,'hero'),('social-offer','Give_Paw',1.65,'hero'),('social-shake','Give_Paw',2.1,'hero'),('social-roll-side','Roll_Over',1.97,'hero'),('social-roll-back','Roll_Over',2.6,'hero'),('social-recover','Roll_Over',5.4,'hero')]
 if '--jump-study' in sys.argv:
  sys.path.insert(0,str(Path(__file__).resolve().parent))
  from quadruped_motion import JUMPS

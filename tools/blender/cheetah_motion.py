@@ -3,6 +3,7 @@ Walk timing is informed by inspection of the user's cat GLB; no source keys are 
 Gallop has sequential fore contacts, gathered flight, hind contacts, extended flight.
 """
 import math
+import numpy as np
 from mathutils import Vector,Matrix
 from quadruped_motion import jump_meta,jump_body,jump_foot,jump_tail
 H={};PAR={};FPS=120
@@ -38,10 +39,18 @@ CLIPS=[
  {'name':'Watch_Idle','duration_s':3.,'loop':True},
  {'name':'Feline_Walk_Cycle','duration_s':1.6,'loop':True,'speed_mps':.52/(.60*1.6),'duty_factor':.60,'touchdown_phase':WALK_TOUCH},
  {'name':'Stalk_Cycle','duration_s':2.4,'loop':True,'speed_mps':.38/(.78*2.4),'duty_factor':.78,'touchdown_phase':WALK_TOUCH},
- {'name':'Gallop_Cycle','duration_s':.8,'loop':True,'speed_mps':.44/(.18*.8),'duty_factor':.18,'touchdown_phase':GALLOP_TOUCH,'flight_intervals':{'gathered':[.26,.48],'extended':[.74,1.0]},'phase_landmarks':{'fore_support':.13,'gathered':.37,'hind_support':.61,'extended':.87}},
+ {'name':'Gallop_Cycle','duration_s':.4,'retimed_from_duration_s':.8,'loop':True,'speed_mps':.44/(.18*.4),'duty_factor':.18,'touchdown_phase':GALLOP_TOUCH,'flight_intervals':{'gathered':[.26,.48],'extended':[.74,1.0]},'phase_landmarks':{'fore_support':.13,'gathered':.37,'hind_support':.61,'extended':.87}},
  {'name':'Sit_Down','duration_s':2.4,'loop':False},
- {'name':'Pounce','duration_s':3.2,'loop':False,'root_motion':True,**jump_meta('cheetah')}
+ {'name':'Pounce','duration_s':3.2,'loop':False,'root_motion':True,**jump_meta('cheetah')},
+ {'name':'Roll_Over','duration_s':5.6,'loop':False,'phase_landmarks_s':{'crouch':.8,'side':1.97,'back':2.6,'other_side':3.23,'recover':5.4}},
+ {'name':'Give_Paw','duration_s':4.4,'loop':False,'offered_paw':'FL','phase_landmarks_s':{'sit':1.0,'offer':1.65,'shake':2.1,'lower':3.15,'recover':4.4}}
 ]
+FLOOR_POINTS=None
+
+def configure_floor(geometry):
+ """Use the detailed master's rigid geometry to support the rolling body."""
+ global FLOOR_POINTS
+ FLOOR_POINTS={n:np.array([v-H[n] for v,b in zip(geometry.v,geometry.b) if b==n]) for n in set(geometry.b)}
 
 def rx(a):return Matrix.Rotation(a,3,'X')
 def ry(a):return Matrix.Rotation(a,3,'Y')
@@ -107,6 +116,9 @@ def ik(a,c,L1,L2,pole,tag):
 def pose(clip,t):
  duration=next(c['duration_s'] for c in CLIPS if c['name']==clip);u=(t/duration)%1;wave=math.tau*u;pos={};ori={};flex=0;stalk=clip=='Stalk_Cycle';gallop=clip=='Gallop_Cycle';walk=clip in ['Feline_Walk_Cycle','Stalk_Cycle'];sit=smooth(.1,1.9,t) if clip=='Sit_Down' else 0
  base=Vector((0,0,0));lumbar=H['LUMBAR'].copy();bodyroll=0;bodyyaw=0;jump=0;crouch=0;jump_state=None;pitch=0
+ offering=clip=='Give_Paw';rolling=clip=='Roll_Over';paw=0
+ if offering:sit=pulse(.1,1.,3.25,4.3,t);paw=pulse(1.05,1.6,2.65,3.15,t);lumbar.x=-.025*paw
+ if rolling:crouch=pulse(0,.8,4.35,5.5,t);lumbar.z-=.24*crouch;flex=.38*crouch
  if walk:lumbar.z-=.17 if stalk else .035;lumbar.z+=.007*math.cos(2*wave);lumbar.x=.009*math.sin(wave);bodyroll=.017*math.sin(wave);bodyyaw=.018*math.sin(wave+.5)
  if gallop:
   arch=math.cos(math.tau*(u-.37));flex=.70*arch+.30;lumbar.z=.66+.075*math.cos(2*math.tau*(u-.37))+.08*arch;lumbar.x=.004*math.sin(wave)
@@ -119,13 +131,14 @@ def pose(clip,t):
  bone('LUMBAR_REAR_LINK',rx(pitch-flex*.35-.35*sit)@rz(bodyyaw));bone('SPINE_REAR',rx(pitch-flex*.65-.80*sit)@rz(bodyyaw));bone('PELVIS',rx(pitch-flex-.80*sit)@rz(-bodyyaw))
  bone('LUMBAR_FRONT_LINK',rx(pitch+flex*.35-.30*sit)@ry(-bodyroll));bone('SPINE_FRONT',rx(pitch+flex*.65-.45*sit+(jump_state['fore_response'] if jump_state else 0))@ry(-bodyroll));bone('CHEST',rx(pitch+flex-.45*sit)@rz(-bodyyaw))
  bone('NECK',rx((.12 if stalk else .015)-.13*sit+.08*math.sin(wave) if gallop else (.12 if stalk else .015)-.13*sit))
- bone('HEAD',rx(.025+.04*stalk)@rz(.07*math.sin(wave) if clip=='Watch_Idle' else .015*math.sin(wave)))
+ bone('HEAD',rx(.025+.04*stalk+.10*crouch)@rz(.08*paw if offering else .07*math.sin(wave) if clip=='Watch_Idle' else .015*math.sin(wave)))
  if jump_state:ori['HEAD']=rx(jump_state['gaze'])
  bone('JAW',ori['HEAD']@rx(.06 if gallop else 0))
- for side in ['L','R']:bone('EAR_'+side,ori['HEAD']@rx((.16 if gallop else 0)+.045*math.sin(wave+(0 if side=='L' else 1.3))))
+ for side in ['L','R']:bone('EAR_'+side,ori['HEAD']@rx(-.6*crouch+(.16 if gallop else 0)+.045*math.sin(wave+(0 if side=='L' else 1.3))))
  for i in range(8):
   tail_sit=[-.45,-.15,.28,.38,.40,.30,.15,0][i]
   n='TAIL_'+str(i+1).zfill(2);bone(n,rx(jump_tail('cheetah',t,i) if jump_state else .05*math.sin(wave-i*.3)+.20*max(flex,0)+tail_sit*sit)@rz(.075*math.sin(wave-i*.45)))
+  if rolling:ori[n]=rx(.25*crouch)@rz((.12+i*.045)*crouch)
  for n in ['SOCKET_MOUTH','SOCKET_PAYLOAD','SENSOR_YAW','SOCKET_SENSOR']:bone(n)
  for id in LEGS:
   if id[0]=='F':
@@ -135,18 +148,34 @@ def pose(clip,t):
   upper='UPPER_'+id;lower='LOWER_'+id;ankle='ANKLE_'+id;foot='PAW_'+id
   parent=PAR[upper];a=pos[parent]+ori[parent]@(H[upper]-H[parent]);target,q,contact=foot_path(id,clip,u)
   if sit and id[0]=='H':target.y-=.05*sit
+  if rolling:target+=Vector((0,.07 if id[0]=='F' else -.04,.18))*crouch
+  if offering and id=='FL':target+=Vector((.035,-.18,.26))*paw;target.z+=.018*math.sin((t-1.6)*math.tau*2)*paw
   paw_pitch=None
   if jump_state:
    target,paw_pitch,contact=jump_foot('cheetah',id,t,H[foot]);target=Vector(target)
-   q=0 if contact else (t-CLIPS[-1]['release_s'][id])/(CLIPS[-1]['touchdown_s'][id]-CLIPS[-1]['release_s'][id])
+   meta=next(c for c in CLIPS if c['name']=='Pounce');q=0 if contact else (t-meta['release_s'][id])/(meta['touchdown_s'][id]-meta['release_s'][id])
   # Distal segment swings toward the toe on takeoff; exact length is retained.
   distal=H[ankle]-H[foot]
   ankleangle=(.28*math.sin(math.pi*q) if id[0]=='F' else -.18*math.sin(math.pi*q)) if not contact else 0
   c=target+rx(ankleangle)@distal
   b=ik(a,c,(H[lower]-H[upper]).length,(H[ankle]-H[lower]).length,1 if id[0]=='F' else -1,(clip,t,id))
   for n,p,v,rest in [(upper,a,b,H[lower]-H[upper]),(lower,b,c,H[ankle]-H[lower]),(ankle,c,target,H[foot]-H[ankle])]:pos[n]=p;ori[n]=rest.rotation_difference(v-p).to_matrix()
-  pos[foot]=target;ori[foot]=rx(paw_pitch if paw_pitch is not None else -.20*math.sin(math.pi*q)**2 if not contact else 0)
+  pos[foot]=target;ori[foot]=rx(-.35*paw if offering and id=='FL' else paw_pitch if paw_pitch is not None else -.20*math.sin(math.pi*q)**2 if not contact else 0)
   bone('TOES_'+id,ori[foot]@rx(.18*math.sin(math.pi*q)**2 if not contact else 0));bone('SOCKET_PAW_'+id)
  for n in pos:
   if n!='MOTION':pos[n]+=base
+ if rolling:
+  # Curl first, then rotate the complete articulated body about its long axis.
+  # Detailed geometry supplies floor support as paws, shoulder, back and flank
+  # successively bear weight; no limb or armor scaling is used.
+  rotation=ry(math.tau*smooth(1.,4.2,t));pivot=pos['LUMBAR'].copy()
+  for n in pos:
+   if n!='MOTION':pos[n]=pivot+rotation@(pos[n]-pivot);ori[n]=rotation@ori[n]
+  assert FLOOR_POINTS is not None,'Configure detailed geometry before authoring roll'
+  minimum=min(float((v@np.array(ori[n]).T+np.array(pos[n]))[:,2].min()) for n,v in FLOOR_POINTS.items())
+  # Settle the curled animal onto its flank/back, not just prevent penetration.
+  # Ease into this support correction while crouching and out while standing.
+  delta=.003-minimum;lift=max(0,delta)+min(0,delta)*pulse(.2,.9,4.3,5.4,t)
+  for n in pos:
+   if n!='MOTION':pos[n].z+=lift
  return pos,ori

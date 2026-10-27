@@ -27,7 +27,7 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  const validation=await validator.validateBytes(decoded);assert.equal(validation.issues.numErrors,0,file+JSON.stringify(validation.issues));assert.equal(validation.issues.numWarnings,0,file+JSON.stringify(validation.issues));
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');const root=gltf.scene;root.updateMatrixWorld(true);
  const meshes=[];let triangles=0;root.traverse(o=>{if(o.isMesh){meshes.push(o);const g=o.geometry,p=g.attributes.position,index=g.index,n=index?.count||p.count;triangles+=n/3;for(let i=0;i<n;i+=3){const v=[0,1,2].map(k=>new T.Vector3().fromBufferAttribute(p,index?index.getX(i+k):i+k));assert(v.every(a=>a.toArray().every(Number.isFinite)));assert(v[1].sub(v[0]).cross(v[2].sub(v[0])).lengthSq()>1e-18,'degenerate triangle '+file+' index '+i);}}});
- assert.equal(triangles,e.triangles);assert.equal(meshes.length,e.draw_calls);assert.equal(gltf.animations.length,e.static?0:6);
+ assert.equal(triangles,e.triangles);assert.equal(meshes.length,e.draw_calls);assert.equal(gltf.animations.length,e.static?0:8);
  const sockets=e.sockets.map(s=>{const p=wp(root,s.node);assert(p.distanceTo(new T.Vector3(...s.position_m))<.0001);return p;});if(baselineSockets)sockets.forEach((p,i)=>assert(p.distanceTo(baselineSockets[i])<.0001,'socket mismatch'));else baselineSockets=sockets;
  if(e.static){assert(triangles<=3000&&meshes.length===1&&e.bytes<=250000,'distance budget');assert(meshes.every(o=>!o.isSkinnedMesh),'distance must be static');}
  else{
@@ -53,6 +53,18 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
    if(meta.loop)for(let i=0;i<first.length;i++){report.maximum_loop_error_m=Math.max(report.maximum_loop_error_m,first[i].distanceTo(last[i]));report.maximum_loop_rotation_error_rad=Math.max(report.maximum_loop_rotation_error_rad,firstQ[i].angleTo(lastQ[i]));}
    if(meta.speed_mps){for(const [id,touch] of Object.entries(meta.touchdown_phase)){let anchor;for(let i=1;i<50;i++){const phase=touch+meta.duty_factor*i/50,t=phase*clip.duration;sample((phase%1)*clip.duration);const p=wp(root,'SOCKET_PAW_'+id).add(new T.Vector3(0,0,meta.speed_mps*t));if(!anchor)anchor=p;report.maximum_stance_slip_m=Math.max(report.maximum_stance_slip_m,p.distanceTo(anchor));}}}
    if(clip.name==='Pounce'){sample(clip.duration);const error=Math.abs(wp(root,'MOTION').z-1.2);report.maximum_pounce_travel_error_m=Math.max(report.maximum_pounce_travel_error_m,error);assert(error<.002,'root travel '+error);sample(meta.phase_landmarks_s.apex);for(const id of ['FL','FR','HL','HR'])assert(wp(root,'SOCKET_PAW_'+id).y>.35);}
+   if(clip.name==='Sit_Down'){sample(clip.duration);assert(wp(root,'PELVIS').y<.35,'sit must lower the hips');for(const id of ['FL','FR'])assert(wp(root,'SOCKET_PAW_'+id).y<.006,'sit fore support');}
+   if(clip.name==='Roll_Over'){
+    for(const t of [1.4,meta.phase_landmarks_s.side,meta.phase_landmarks_s.back,meta.phase_landmarks_s.other_side,3.8]){sample(t);assert(new T.Box3().setFromObject(root,true).min.y<.006,'rolling body must remain supported by floor');}
+    sample(meta.phase_landmarks_s.back);assert(new T.Vector3(0,1,0).applyQuaternion(wq(root,'LUMBAR')).y<-.95,'roll must turn fully onto the back');
+    sample(clip.duration);assert(new T.Vector3(0,1,0).applyQuaternion(wq(root,'LUMBAR')).y>.99,'roll must return upright');
+    assert(first.every((p,i)=>p.distanceTo(last[i])<.002),'roll must recover the initial pose');
+   }
+   if(clip.name==='Give_Paw'){
+    sample(meta.phase_landmarks_s.offer);assert(wp(root,'SOCKET_PAW_FL').y>.23,'offered forepaw too low');
+    for(const id of ['FR','HL','HR'])assert(Math.abs(wp(root,'SOCKET_PAW_'+id).y-.003)<.002,'give paw needs three support paws');
+    assert(first.every((p,i)=>p.distanceTo(last[i])<.002),'give paw must return to standing');
+   }
    if(clip.name==='Gallop_Cycle'){
     const phases={};for(const [name,u] of Object.entries(meta.phase_landmarks)){sample(u*clip.duration);const feet=Object.fromEntries(['FL','FR','HL','HR'].map(id=>[id,wp(root,'SOCKET_PAW_'+id)]));const airborne=Object.values(feet).filter(p=>p.y>.10).length;phases[name]={phase:u,airborne_paws:airborne,paw_positions_m:Object.fromEntries(Object.entries(feet).map(([id,p])=>[id,p.toArray()])),pelvis_chest_chord_m:wp(root,'PELVIS').distanceTo(wp(root,'CHEST')),fore_aft_paw_span_m:Math.max(...Object.values(feet).map(p=>p.z))-Math.min(...Object.values(feet).map(p=>p.z))};if(['gathered','extended'].includes(name))assert.equal(airborne,4);}
     assert(phases.gathered.pelvis_chest_chord_m<phases.extended.pelvis_chest_chord_m-.08,'spine does not flex');assert(phases.extended.fore_aft_paw_span_m>1.7,'extended flight too short');assert(phases.gathered.paw_positions_m.HL[2]>phases.gathered.paw_positions_m.FL[2]+.1,'hindfeet do not gather under forefeet');

@@ -208,10 +208,11 @@ def animate(arm):
 
 def build():
  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
- scene=bpy.context.scene;scene.name='C07_MECHANICAL_CHEETAH';scene.render.fps=FPS;scene.frame_start=0;scene.frame_end=384;assets=[]
+ scene=bpy.context.scene;scene.name='C07_MECHANICAL_CHEETAH';scene.render.fps=FPS;scene.frame_start=0;scene.frame_end=round(max(c['duration_s'] for c in CLIPS)*FPS);assets=[]
+ master=shape(0);motion.configure_floor(master)
  for lod in [0,1,2]:
   col=bpy.data.collections.new('C07_LOD'+str(lod));scene.collection.children.link(col);root=bpy.data.objects.new('ROOT',None);col.objects.link(root);root['forward']='+Z in glTF';root['damage_level']=0
-  g=shape(lod);arm=make_arm(col);arm.parent=root;skin=make_skin(g,col,arm,lod)
+  g=master if lod==0 else shape(lod);arm=make_arm(col);arm.parent=root;skin=make_skin(g,col,arm,lod)
   if lod<2:animate(arm)
   bpy.ops.object.select_all(action='DESELECT')
   for o in col.objects:o.select_set(True)

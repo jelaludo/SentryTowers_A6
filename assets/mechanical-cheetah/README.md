@@ -2,19 +2,19 @@
 
 An original articulated feline robot with ochre armor, ivory inserts, a low head, sliding shoulder carriages, a flexible segmented torso and an eight-section rudder tail. Separate asset family from RECKON K9. D0 intact only; damage levels and detail tiers are different concepts.
 
-Open the local viewer at http://127.0.0.1:8788/mechanical-cheetah/ after serving the repository on port 8788. Select **Gallop**, use **¼ speed**, or select the four phase buttons to pause in a side view. Walk, stalk, sit and pounce have their own clips. Controls include scrubbing, replay, travel, skeleton, wireframe, paw markers, camera presets, plain/Meshopt loading and downloads. Each floor grid square is 0.25 m. Contact badges mean the sole socket is within 12 mm of the floor; they are a visualization, not a collision solver.
+Open the local viewer at http://127.0.0.1:8788/mechanical-cheetah/ after serving the repository on port 8788. Select **Gallop**, use **¼ speed**, or select the four phase buttons to pause in a side view. Walk, stalk, sit, pounce, roll and hand have their own clips. Controls include scrubbing, replay, travel, skeleton, wireframe, paw markers, camera presets, plain/Meshopt loading and downloads. Each floor grid square is 0.25 m. Contact badges mean the sole socket is within 12 mm of the floor; they are a visualization, not a collision solver.
 
 ## Export measurements
 
 | File | Role | Triangles | Mesh draws / materials | Plain bytes | Derived Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `c07_d0_lod0.glb` | Detailed animation / recording master | 62,720 | 6 / 6 | 2,721,968 | 764,044 |
-| `c07_d0_lod1.glb` | Articulated game model | 12,760 | 6 / 6 | 1,284,692 | 440,556 |
+| `c07_d0_lod0.glb` | Detailed animation / recording master | 62,720 | 6 / 6 | 2,975,032 | 863,064 |
+| `c07_d0_lod1.glb` | Articulated game model | 12,760 | 6 / 6 | 1,537,756 | 539,572 |
 | `c07_d0_lod2.glb` | Static standing distance / loading silhouette | 2,848 | 1 / 1 | 232,288 | 71,088 |
 
 These are asset mesh draws, excluding lights, shadow passes, the viewer floor and overlays. All materials use a small palette; there are no texture dependencies. The game tier meets the unit triangle target. The optional static distance tier meets the 3k triangle, one draw and 250,000 byte targets. No FPS improvement is claimed.
 
-Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optional compressed derivatives, not replacements for the originals. All PNGs here are derived Blender review renders or their composite `motion-sheet.png` and seven-pose `jump-study.png`. The editable detailed source is `../../source/blender/a6-mechanical-cheetah.blend`. `manifest.json` records measured sizes, SHA-256 hashes, bounds, named nodes, socket transforms and source provenance.
+Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optional compressed derivatives, not replacements for the originals. All PNGs here are derived Blender review renders or their composite `motion-sheet.png` seven-pose `jump-study.png` and `social-study.png`. The editable detailed source is `../../source/blender/a6-mechanical-cheetah.blend`. `manifest.json` records measured sizes, SHA-256 hashes, bounds, named nodes, socket transforms and source provenance.
 
 ## Runtime contract
 
@@ -35,9 +35,11 @@ Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optio
 | `Watch_Idle` | 3.0 s | Yes | Quiet head scan, ear and tail movement |
 | `Feline_Walk_Cycle` | 1.6 s | Yes | Narrow four-beat walk; 0.541667 m/s, duty factor 0.60 |
 | `Stalk_Cycle` | 2.4 s | Yes | Lower body and low paw clearance; 0.202991 m/s, duty factor 0.78 |
-| `Gallop_Cycle` | 0.8 s | Yes | Rotary contacts and two flight phases; 3.055556 m/s, duty factor 0.18 |
+| `Gallop_Cycle` | 0.4 s | Yes | Rotary contacts and two flight phases; 6.111111 m/s, duty factor 0.18 |
 | `Sit_Down` | 2.4 s | No | Fold hindquarters and hold seated pose |
 | `Pounce` | 3.2 s | No | Crouch, hind push, tucked flight, forepaw-first landing, 1.2 m forward travel |
+| `Roll_Over` | 5.6 s | No | Crouch, tuck, roll 360° over flank/back, stand again |
+| `Give_Paw` | 4.4 s | No | Sit, offer and shake left forepaw, lower it, stand again |
 
 Loop phases are normalized 0–1. Walk/stalk touchdown phases are HR 0.00, FR 0.22, HL 0.50, FL 0.72: hind foot followed by the forefoot on the same side. At least two paws remain in stance during the walk and three during stalk. Shoulder glide, narrow tracks and a relatively quiet head distinguish these clips from the canine family.
 
@@ -51,13 +53,21 @@ The viewer adds four clickable contact tracks, a live sole-height readout and se
 
 Shared source profiles and validation evidence are in `source/motion-patterns/`. `docs/ANIMATION-REFERENCE-WORKFLOW.md` documents reference → event annotation → reusable pattern → rig adaptation → export/review, with an annotation tool proposed as a future step.
 
+## Faster gallop and social actions
+
+Gallop is now twice as fast: its baked cycle is 0.40 s and synchronized ground travel is 6.111111 m/s at normal playback. Contact phases and stride distance are unchanged. Use the new manifest speed with the new clip; do not combine it with the old 0.80 s export. Other existing clip durations remain unchanged. The previous complete set is preserved at `3847df11c149220c6996ae940e78371ccbe2e2d5`.
+
+Sit remains the existing 2.4 s seated hold. New **Roll** (`Roll_Over`) and **Hand** (`Give_Paw`) buttons expose the two added actions. Roll folds the limbs and ears, turns fully over the back, and settles the detailed geometry against the floor throughout the turn. Hand sits, offers the left paw with a gentle shake, and returns to standing with the other three paws supporting the body. Both are in-place one-shots and should use `LoopOnce` with a clamped endpoint. Their named pose landmarks are included in the manifest. See `social-study.png` for the original review renders. Use the measured clip envelopes for clearance around the tail during roll.
+
 ## Validation and regeneration
 
-`validation-report.json` covers all three plain files and decoded Meshopt copies: zero glTF errors/warnings; finite nondegenerate geometry; stable dot-free nodes, sockets and hashes; static tier budgets; 6,456 full-geometry pose samples at 120 Hz, plus intermediate joint checks. Across both articulated tiers and encodings: minimum floor clearance **1.59 mm**, maximum stance drift **0.516 mm**, maximum rigid segment-length error **0.059 mm**, loop position error **0.014 mm** and pounce travel quantization error **0.196 mm**. Gathered/extended flight, spine flexion and minimum support counts are asserted separately.
+`validation-report.json` covers all three plain files and decoded Meshopt copies: zero glTF errors/warnings; finite nondegenerate geometry; stable dot-free nodes, sockets and hashes; static tier budgets; 11,072 full-geometry pose samples at 120 Hz, plus intermediate joint checks. Across both articulated tiers and encodings: minimum floor clearance **1.59 mm**, maximum stance drift **1.169 mm**, maximum rigid segment-length error **0.062 mm**, loop position error **0.014 mm** and pounce travel quantization error **0.196 mm**. Gathered/extended flight, spine flexion and minimum support counts are asserted separately.
+
+Roll checks assert an inverted mid-pose, floor support through the turn and an upright matching endpoint. Hand checks assert a raised left forepaw, three supporting paws and return to standing. Sit checks verify lowered hips and forepaw support.
 
 Independent pattern checks on both animated tiers and encodings measure at most **0.606 mm** jump-anchor drift and hip compression **41 ms** after the chest, verify fore-before-hind release/landing, and compare the node/socket and clip-duration contracts to the preserved baseline.
 
-`viewer-validation.json` records Chromium real-WebGL tests of six clips, four gallop phases, all six tier/encoding combinations, static clip disabling, inspection controls, travel, camera framing and desktop/390 px mobile layout. The shared study test checks seven jump poses, contact scrubbing, sole readouts and static-tier hiding. Blender renders and browser screenshots were visually inspected. Self-collision and arbitrary animation blends have not been physically validated. Consuming-game r160/release gltfpack, game cameras, terrain and reference-phone acceptance remain pending.
+`viewer-validation.json` records Chromium real-WebGL tests of eight clips, four gallop phases, all six tier/encoding combinations, static clip disabling, inspection controls, travel, camera framing and desktop/390 px mobile layout. The shared study test checks seven jump poses, contact scrubbing, sole readouts and static-tier hiding. Blender renders and browser screenshots were visually inspected. Self-collision and arbitrary animation blends have not been physically validated. Consuming-game r160/release gltfpack, game cameras, terrain and reference-phone acceptance remain pending.
 
 Regenerate from the repository root with Blender and the pinned dependencies in `tools/asset-pipeline/package.json`:
 
@@ -68,6 +78,8 @@ node tools/asset-pipeline/validate-mechanical-cheetah.mjs
 node tools/asset-pipeline/validate-quadruped-patterns.mjs
 blender -b --python-exit-code 1 --python tools/blender/render_mechanical_cheetah.py
 blender -b --python-exit-code 1 --python tools/blender/render_mechanical_cheetah.py -- --jump-study
+blender -b --python-exit-code 1 --python tools/blender/render_mechanical_cheetah.py -- --social-study
+node tools/asset-pipeline/render-cheetah-social-sheet.mjs
 node tools/asset-pipeline/render-cheetah-motion-sheet.mjs
 node tools/asset-pipeline/render-quadruped-jump-sheets.mjs
 python3 tools/build-workshop-docs.py

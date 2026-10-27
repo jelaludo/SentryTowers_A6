@@ -1,7 +1,7 @@
 {
   "status": "passed",
-  "baseline_commit": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031",
-  "scope": "Existing nodes/sockets/geometry budgets and clip durations; independent contact topology checks, jump release/landing order, apex and world-space paw anchors on both animated tiers and encodings.",
+  "baseline_commit": "3847df11c149220c6996ae940e78371ccbe2e2d5",
+  "scope": "Stable nodes/sockets/geometry budgets; requested gait retiming preserves stride distance and other clip durations; independent contact topology checks, jump release/landing order, apex and world-space paw anchors on both animated tiers and encodings.",
   "results": [
     {
       "family": "reckon-k9",
@@ -38,6 +38,32 @@
           "t": 1.2596666666666667
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Run_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817
+        },
+        {
+          "name": "Canter_Cycle",
+          "previous_duration_s": 0.9,
+          "duration_s": 0.45,
+          "speed_mps": 2.24
+        },
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 3.1
+        },
+        {
+          "name": "Sprint_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334
+        }
+      ],
       "gaits": [
         {
           "clip": "Run_Cycle",
@@ -150,6 +176,32 @@
           "t": 1.2690000000000001
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Run_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817
+        },
+        {
+          "name": "Canter_Cycle",
+          "previous_duration_s": 0.9,
+          "duration_s": 0.45,
+          "speed_mps": 2.24
+        },
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 3.1
+        },
+        {
+          "name": "Sprint_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334
+        }
+      ],
       "gaits": [
         {
           "clip": "Run_Cycle",
@@ -262,6 +314,32 @@
           "t": 1.2596666666666667
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Run_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817
+        },
+        {
+          "name": "Canter_Cycle",
+          "previous_duration_s": 0.9,
+          "duration_s": 0.45,
+          "speed_mps": 2.24
+        },
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 3.1
+        },
+        {
+          "name": "Sprint_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334
+        }
+      ],
       "gaits": [
         {
           "clip": "Run_Cycle",
@@ -374,6 +452,32 @@
           "t": 1.2690000000000001
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Run_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817
+        },
+        {
+          "name": "Canter_Cycle",
+          "previous_duration_s": 0.9,
+          "duration_s": 0.45,
+          "speed_mps": 2.24
+        },
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 3.1
+        },
+        {
+          "name": "Sprint_Cycle",
+          "previous_duration_s": 0.7,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334
+        }
+      ],
       "gaits": [
         {
           "clip": "Run_Cycle",
@@ -486,6 +590,14 @@
           "t": 1.5333333333333334
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 6.111111111111112
+        }
+      ],
       "gaits": []
     },
     {
@@ -523,6 +635,14 @@
           "t": 1.5333333333333334
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 6.111111111111112
+        }
+      ],
       "gaits": []
     },
     {
@@ -560,6 +680,14 @@
           "t": 1.5333333333333334
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 6.111111111111112
+        }
+      ],
       "gaits": []
     },
     {
@@ -597,6 +725,14 @@
           "t": 1.5333333333333334
         }
       },
+      "retimed_clips": [
+        {
+          "name": "Gallop_Cycle",
+          "previous_duration_s": 0.8,
+          "duration_s": 0.4,
+          "speed_mps": 6.111111111111112
+        }
+      ],
       "gaits": []
     }
   ]

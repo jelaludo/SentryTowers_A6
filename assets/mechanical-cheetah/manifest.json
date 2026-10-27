@@ -24,15 +24,15 @@
     "skeleton_root": "ROOT",
     "patterns": {
       "file": "../../source/motion-patterns/quadruped-patterns.json",
-      "revision": "2026-10-27-contact-study",
-      "sha256": "5383037a915ff42d0ee2fa5994e80cfb9f847be546fb3a8061636c10e3d5edd0",
+      "revision": "2026-10-27-faster-gaits-social",
+      "sha256": "69d9b832fbacd1c8b2f636bf82d88c75b8bf6449ee4cae0a44056defc80b5f16",
       "timing": "Original authored timing; source diagrams establish contact topology and pose order."
     },
     "reference_urls": [
       "https://motionzoo.net/dog_walk_gaits/",
       "https://motionzoo.net/making_cat_jump/"
     ],
-    "supersedes_revision": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031"
+    "supersedes_revision": "3847df11c149220c6996ae940e78371ccbe2e2d5"
   },
   "lod_selection": {
     "initial": 2,
@@ -49,7 +49,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2721968,
+      "bytes": 2975032,
       "triangles": 62720,
       "draw_calls": 6,
       "plot_m": [
@@ -90,9 +90,10 @@
         },
         {
           "name": "Gallop_Cycle",
-          "duration_s": 0.8,
+          "duration_s": 0.4,
+          "retimed_from_duration_s": 0.8,
           "loop": true,
-          "speed_mps": 3.055555555555556,
+          "speed_mps": 6.111111111111112,
           "duty_factor": 0.18,
           "touchdown_phase": {
             "FL": 0,
@@ -130,7 +131,7 @@
           "source_ids": [
             "motionzoo_jump"
           ],
-          "pattern_revision": "2026-10-27-contact-study",
+          "pattern_revision": "2026-10-27-faster-gaits-social",
           "release_s": {
             "FL": 0.65,
             "FR": 0.675,
@@ -158,10 +159,35 @@
           ],
           "travel_m": 1.2,
           "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          }
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          }
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "3081e25a71e3f51bf139fd13a6abdde5327ba0945300ef5b0bca4a43f293b4da",
+      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -302,8 +328,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 764044,
-      "meshopt_sha256": "c7c0e5c743bf8a50e9ff0ad75584ac7d8ea3c8a895b44c1856ae02cfad44e5ae"
+      "meshopt_bytes": 863064,
+      "meshopt_sha256": "bbb8b63cd1064e674f30792ef659dd91dc868aaa522125642ac0f4c701ce7e81"
     },
     {
       "file": "c07_d0_lod1.glb",
@@ -311,7 +337,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1284692,
+      "bytes": 1537756,
       "triangles": 12760,
       "draw_calls": 6,
       "plot_m": [
@@ -352,9 +378,10 @@
         },
         {
           "name": "Gallop_Cycle",
-          "duration_s": 0.8,
+          "duration_s": 0.4,
+          "retimed_from_duration_s": 0.8,
           "loop": true,
-          "speed_mps": 3.055555555555556,
+          "speed_mps": 6.111111111111112,
           "duty_factor": 0.18,
           "touchdown_phase": {
             "FL": 0,
@@ -392,7 +419,7 @@
           "source_ids": [
             "motionzoo_jump"
           ],
-          "pattern_revision": "2026-10-27-contact-study",
+          "pattern_revision": "2026-10-27-faster-gaits-social",
           "release_s": {
             "FL": 0.65,
             "FR": 0.675,
@@ -420,10 +447,35 @@
           ],
           "travel_m": 1.2,
           "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          }
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          }
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "da0cc9cf37dbeeac2f9ec4e361501747e63eb60c6662610bf8c274ccef5f9bd4",
+      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -564,8 +616,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 440556,
-      "meshopt_sha256": "c5baa781694bfe9289e1aa837c454f9379c2c378e4650ec5db6a06677397ff99"
+      "meshopt_bytes": 539572,
+      "meshopt_sha256": "3383bbcac0a5e9a594951dc2ac9694ac76d66f51a6e763813036139c77ee5086"
     },
     {
       "file": "c07_d0_lod2.glb",
@@ -758,8 +810,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-mechanical-cheetah.blend",
-    "bytes": 4305492,
-    "sha256": "5497b193fa11295058a4a703ba851eb4065c96b8c92282f3776ea1b69b17aa7b",
+    "bytes": 6746243,
+    "sha256": "bfb21aa06430bd7303abf380cdae63b2a3dac52871fae1767112a5af64502b3d",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   }
 }

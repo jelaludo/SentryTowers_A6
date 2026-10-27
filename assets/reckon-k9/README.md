@@ -10,8 +10,8 @@ Plain GLBs are authoritative, self-contained and texture-free. The six-material 
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 / detailed | 25,884 | 6 | 2,184,100 | 600,768 | 12 |
-| LOD1 / game | 9,732 | 6 | 1,696,624 | 508,556 | 12 |
+| LOD0 / detailed | 25,884 | 6 | 2,117,768 | 586,848 | 12 |
+| LOD1 / game | 9,732 | 6 | 1,630,292 | 494,640 | 12 |
 | LOD2 / static distance | 2,484 | 1 | 190,764 | 56,072 | 0 |
 
 The articulated game tier meets the 25k unit triangle target. The static tier meets 3k triangles / one draw / 250 KB. Detailed and game files include the full animation set, so their byte counts include motion. Draw counts exclude the viewer floor, demonstration prop, skeleton, and shadow passes. No FPS claim is made.
@@ -34,22 +34,24 @@ Rigid components carry a single bone weight, preserving hard armor and servo sha
 | --- | ---: | --- | --- |
 | `Alert_Idle` | 3.0 | Loop | Quiet head scan, ear adjustment and tail motion. |
 | `Walk_Cycle` | 1.4 | Loop | Four-beat walk, 68% stance, 0.34 m stance travel. |
-| `Run_Cycle` | 0.7 | Loop | Diagonal running trot, 44% stance, 0.48 m stance travel. |
+| `Run_Cycle` | 0.5 | Loop | Diagonal running trot, 44% stance, 0.48 m stance travel. |
 | `Pace_Cycle` | 0.9 | Loop | Same-side pairs, 52% stance, 0.90 m/s. |
-| `Canter_Cycle` | 0.9 | Loop | Three beats: HL → HR + FL → FR, then suspension; 1.12 m/s. |
-| `Gallop_Cycle` | 0.8 | Loop | Four rotary contacts and one gathered flight; 1.55 m/s. |
-| `Sprint_Cycle` | 0.7 | Loop | Rotary contacts with gathered and extended flights; 1.90 m/s. |
+| `Canter_Cycle` | 0.45 | Loop | Three beats: HL → HR + FL → FR, then suspension; 2.24 m/s. |
+| `Gallop_Cycle` | 0.4 | Loop | Four rotary contacts and one gathered flight; 3.10 m/s. |
+| `Sprint_Cycle` | 0.3 | Loop | Rotary contacts with gathered and extended flights; 4.43 m/s. |
 | `Sit_Down` | 2.4 | One-shot, clamp | Fold hindquarters and hold seated. |
 | `Roll_Over` | 4.8 | One-shot | Crouch, fold ears/antennas, roll fully, stand. |
 | `Fetch_Return` | 8.0 | One-shot, root motion | Ease out 0.625 m, lower muzzle, pick up, turn, return and release. |
 | `Give_Paw` | 4.0 | One-shot | Sit, offer left forepaw, shake, return upright. |
 | `Jump` | 2.0 | One-shot | Crouch, hind push, airborne tuck, forepaw landing and delayed hip compression. |
 
-All six gaits are in place. Translate the instance along +Z at the manifest's `clips.speed_mps`, multiplied by playback rate: **0.357142857 m/s** for walk and **1.558441558 m/s** for trot. Gaits return continuously to their starting poses. Crossfades require consuming-game review for entering/exiting locomotion.
+All six gaits are in place. Translate the instance along +Z at the manifest's `clips.speed_mps`, multiplied by playback rate: **0.357142857 m/s** for walk and **2.181818182 m/s** for trot. Gaits return continuously to their starting poses. Crossfades require consuming-game review for entering/exiting locomotion.
 
-The 27 October contact study corrects the earlier walk phase sign and the same-side pairing previously mislabeled as a trot. `Run_Cycle` retains its engine-facing name and duration but now pairs **FL + HR / FR + HL**; the viewer calls it **Trot**. Walk touchdown phases are FL 0.00 → HR 0.25 → FR 0.50 → HL 0.75, so each hind paw precedes its same-side forepaw. Gallop and sprint use FL → FR → HR → HL. Sprint's gathered flight is phase 0.32–0.54; extended flight is 0.86–1.00. Full support intervals are exported in the manifest.
+The 27 October contact study corrects the earlier walk phase sign and the same-side pairing previously mislabeled as a trot. `Run_Cycle` retains its engine-facing name and now pairs **FL + HR / FR + HL**; the viewer calls it **Trot**. Walk touchdown phases are FL 0.00 → HR 0.25 → FR 0.50 → HL 0.75, so each hind paw precedes its same-side forepaw. Gallop and sprint use FL → FR → HR → HL. Sprint's gathered flight is phase 0.32–0.54; extended flight is 0.86–1.00. Full support intervals are exported in the manifest.
 
 Jump remains in place. Forepaws release at 0.480/0.505 s, hind paws at 0.615/0.630 s; forepaws land at 1.080/1.105 s, hind paws at 1.190/1.215 s. Seven pose landmarks expose preparation through recovery. A parabolic torso arc, independent paw paths, stable ground anchors, head compensation and delayed tail motion establish the performance. These seconds and amplitudes are authored for the mechanical rig, not measurements from the reference images.
+
+The faster-motion follow-up shortens trot from 0.70 to 0.50 s, canter from 0.90 to 0.45 s, gallop from 0.80 to 0.40 s and sprint from 0.70 to 0.30 s. These durations are baked into both animated exports at normal playback speed. Matching travel speeds preserve each stride length and contact phase; no viewer-only speed multiplier is required. `retimed_from_duration_s` records the previous cadence. Walk and pace are unchanged. The complete previous revision remains at `3847df11c149220c6996ae940e78371ccbe2e2d5`.
 
 Only fetch contains forward/turning motion on `MOTION`; disable additional game root travel while that performance plays. The placement wrapper stays under game control. Play one-shots with `LoopOnce` and `clampWhenFinished=true`; sit intentionally holds at the endpoint. The other one-shots return upright. The viewer's repeat option restarts one-shots and is an inspection convenience.
 
@@ -68,7 +70,7 @@ LOD0 is the close-shot / recording master. LOD1 retains the complete skeleton an
 
 ## Validation and hand-off
 
-Six plain/decoded Meshopt exports pass glTF validation with zero errors and warnings. Geometry checks cover finite positions, nondegenerate triangles, names, material draws, hashes, socket parity and identical skeleton interfaces. Across 14,256 sampled animated poses, minimum mesh clearance is approximately 1.69 mm; maximum gait stance drift is 0.362 mm and limb-length error is below 0.073 mm. Fetch attachment events meet the prop centre within 2 mm. Jump has four airborne paws. Independent pattern checks measure at most 0.315 mm jump-anchor drift and hip compression 51–61 ms after the chest. Existing node/socket interfaces, triangle/draw budgets and original clip durations match the preserved baseline. See the full measured reports for exact values.
+Six plain/decoded Meshopt exports pass glTF validation with zero errors and warnings. Geometry checks cover finite positions, nondegenerate triangles, names, material draws, hashes, socket parity and identical skeleton interfaces. Across 13,560 sampled animated poses, minimum mesh clearance is approximately 1.69 mm; maximum gait stance drift is 1.164 mm and limb-length error is below 0.073 mm. Fetch attachment events meet the prop centre within 2 mm. Jump has four airborne paws. Independent pattern checks measure at most 0.315 mm jump-anchor drift and hip compression 51–61 ms after the chest. Existing node/socket interfaces and triangle/draw budgets match the preserved baseline. Requested gait retiming preserves stride distance; all other clip durations remain unchanged. See the full measured reports for exact values.
 
 The real Chromium/WebGL viewer tests exercise all twelve clip controls, scrubbers, camera framing, six tier/encoding combinations, skeleton/wireframe, ground travel, and a 390 px mobile layout. The shared study test covers seven jump-pose buttons, contact tracks, gait labels and hiding motion controls for the static tier. Blender review renders and browser views were visually inspected. These are repository checks, not consuming-game r160, terrain, release-gltfpack or reference-phone acceptance. Those integration checks remain pending.
 

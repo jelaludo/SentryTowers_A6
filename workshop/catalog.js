@@ -26,8 +26,8 @@ const collectionImages={
 };
 
 export const collections=[
-['mechanical-cheetah','C-07 / Mechanical Cheetah','Characters','Ochre armor, a flexible spine and a long articulated tail. Feline walk, rotary gallop and a refined pounce with contact timelines and seven pose studies.','6 clips · 51 joints · 3 LODs','Animated prototype'],
-['reckon-k9','RECKON K9 / Recon Robot Dog','Characters','An articulated mechanical canine with six distinct gaits, sit, roll, fetch, give paw and a refined jump. Inspect paw-contact order and seven jump poses.','12 clips · Canine skeleton · 3 LODs','Animated prototype'],
+['mechanical-cheetah','C-07 / Mechanical Cheetah','Characters','Ochre armor, a flexible spine and a long articulated tail. Feline walk, faster rotary gallop, pounce, sit, roll and give paw. Contact timelines and pose studies.','8 clips · 51 joints · 3 LODs','Animated prototype'],
+['reckon-k9','RECKON K9 / Recon Robot Dog','Characters','An articulated mechanical canine with six distinct gaits with faster running, sit, roll, fetch, give paw and a refined jump. Inspect paw-contact order and seven jump poses.','12 clips · Canine skeleton · 3 LODs','Animated prototype'],
 ['feids26','FEIDS-26 / Interplanetary Cargo Shell','Industry','Fusiform expendable delivery capsule: two folded Ridgebacks in tandem, four separating shell quadrants, high-altitude breakup, burning mech descent and a ground-level laggard finale.','4 shell quarters · 2 mechs per capsule · D0–D3 · 3 LODs','Animated prototype'],
 ['ridgeback-drop','Heavy Rain / Ridgeback Deployment','Presentation','One KORP drops three smaller Ridgebacks from 180 metres. Staggered five-second falls, heat trails, braking pulses, heavy leg recoil, smoke and cracked ground.','13-second cinematic · 3 mechs · Replay + slow motion','Cinematic study'],
 ['ridgeback-mech','MX-06 / Ridgeback Mech','Combat','Six reinforced hydraulic legs, 18 spike claws, rotary minigun, laser and paired missile pods. D0–D3 damage, tripod walk clips and a heavy gunship airdrop with braking jet.','6 legs · D0–D3 · Walk + airdrop · 3 LODs','Animated prototype'],

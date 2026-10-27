@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "2026-10-27-contact-study",
+  "revision": "2026-10-27-faster-gaits-social",
   "axes": "Blender Z up, -Y forward; exporters convert to glTF +Y/+Z.",
   "sources": [
     {
@@ -50,8 +50,8 @@
       ]
     },
     "Run_Cycle": {
-      "duration_s": 0.7,
-      "speed_mps": 1.5584415584415583,
+      "duration_s": 0.5,
+      "speed_mps": 2.1818181818181817,
       "duty_factor": 0.44,
       "touchdown_phase": {
         "FL": 0,
@@ -73,7 +73,8 @@
       },
       "source_ids": [
         "motionzoo_gaits"
-      ]
+      ],
+      "retimed_from_duration_s": 0.7
     },
     "Pace_Cycle": {
       "duration_s": 0.9,
@@ -93,8 +94,8 @@
       ]
     },
     "Canter_Cycle": {
-      "duration_s": 0.9,
-      "speed_mps": 1.12,
+      "duration_s": 0.45,
+      "speed_mps": 2.24,
       "duty_factor": 0.3,
       "touchdown_phase": {
         "HL": 0,
@@ -112,11 +113,12 @@
       },
       "source_ids": [
         "motionzoo_gaits"
-      ]
+      ],
+      "retimed_from_duration_s": 0.9
     },
     "Gallop_Cycle": {
-      "duration_s": 0.8,
-      "speed_mps": 1.55,
+      "duration_s": 0.4,
+      "speed_mps": 3.1,
       "duty_factor": {
         "FL": 0.28,
         "FR": 0.28,
@@ -139,11 +141,12 @@
       },
       "source_ids": [
         "motionzoo_gaits"
-      ]
+      ],
+      "retimed_from_duration_s": 0.8
     },
     "Sprint_Cycle": {
-      "duration_s": 0.7,
-      "speed_mps": 1.9,
+      "duration_s": 0.3,
+      "speed_mps": 4.433333333333334,
       "duty_factor": 0.22,
       "touchdown_phase": {
         "FL": 0,
@@ -165,7 +168,8 @@
       },
       "source_ids": [
         "motionzoo_gaits"
-      ]
+      ],
+      "retimed_from_duration_s": 0.7
     }
   },
   "jumps": {

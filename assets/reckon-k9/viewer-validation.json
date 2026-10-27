@@ -3,13 +3,13 @@
   "asset_hashes": [
     {
       "file": "reckon_k9_d0_lod0.glb",
-      "sha256": "b7466bf4bc6e57cc54cfb20bb35375a6425104b6558e59f0c018e3d706fc9712",
-      "meshopt_sha256": "c384c494ef5428aff3e86fa1328c929e189a339d55d5352a69f919afd8459b14"
+      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
+      "meshopt_sha256": "d6400a6eae28834e8a79c81f271609b1408ba99252d29ce5b1bfe9bea0d3fe1b"
     },
     {
       "file": "reckon_k9_d0_lod1.glb",
-      "sha256": "0a5f7c714741c0b89f7ad3364a5411120cebba15c002ce0726e7a07df817ed17",
-      "meshopt_sha256": "dfd78b4633e8fcfd865db8f167fd44b0fba5e7e1003ca689dbd86a7221cb7153"
+      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
+      "meshopt_sha256": "765357846923c362505d4ce6bbfd422fd8e582d2419543a2f6dc6500ccc97377"
     },
     {
       "file": "reckon_k9_d0_lod2.glb",
@@ -18,6 +18,32 @@
     }
   ],
   "browser": "Chromium headless; real WebGL",
+  "retimed_ground_travel": [
+    {
+      "clip": "Run_Cycle",
+      "duration": 0.5,
+      "distance": 0.21818181818181817,
+      "speed_mps": 2.1818181818
+    },
+    {
+      "clip": "Canter_Cycle",
+      "duration": 0.44999998807907104,
+      "distance": 0.22400000000000003,
+      "speed_mps": 2.24
+    },
+    {
+      "clip": "Gallop_Cycle",
+      "duration": 0.4000000059604645,
+      "distance": 0.31000000000000005,
+      "speed_mps": 3.1
+    },
+    {
+      "clip": "Sprint_Cycle",
+      "duration": 0.30000001192092896,
+      "distance": 0.44333333333333336,
+      "speed_mps": 4.4333333333
+    }
+  ],
   "clip_controls": [
     {
       "clip": "Alert_Idle",
@@ -53,7 +79,7 @@
     },
     {
       "clip": "Canter_Cycle",
-      "time": 0.4,
+      "time": 0.2,
       "clips": 12,
       "draws": 8,
       "triangles": 25886,
@@ -61,7 +87,7 @@
     },
     {
       "clip": "Gallop_Cycle",
-      "time": 0.36,
+      "time": 0.18,
       "clips": 12,
       "draws": 8,
       "triangles": 25886,
@@ -69,7 +95,7 @@
     },
     {
       "clip": "Sprint_Cycle",
-      "time": 0.3,
+      "time": 0.129,
       "clips": 12,
       "draws": 8,
       "triangles": 25886,

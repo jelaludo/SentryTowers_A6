@@ -1,5 +1,15 @@
 # Devlog
 
+## 27 October 2026 / Faster quadruped running and Cheetah social actions
+
+Increased running cadence in the exported clips and synchronized ground travel. K9 trot is now 0.50 s / 2.181818 m/s, canter 0.45 s / 2.24 m/s, gallop 0.40 s / 3.10 m/s and sprint 0.30 s / 4.433333 m/s. Cheetah gallop is now 0.40 s / 6.111111 m/s, twice the previous cadence and travel speed. Contact phases and stride distances remain unchanged. Walk, pace, stalk and existing one-shot durations are unchanged. Both viewers offer playback rates up to 2×. These speeds are authored motion settings, not performance or biological measurements.
+
+Added Cheetah `Roll_Over` (5.6 s) and `Give_Paw` (4.4 s), alongside its existing `Sit_Down` (2.4 s). Roll crouches, folds paws and ears, turns 360° through flank and back support, then stands. Detailed geometry determines floor support through the turn; visual review corrected an initial floating pose. Hand sits, offers and gently shakes the left forepaw while the other three remain grounded, then returns upright. The Cheetah now has eight clips in both animated tiers, with explicit pose landmarks and a rendered `social-study.png` linked from its viewer.
+
+All twelve plain/decoded Meshopt exports pass glTF, geometry and interface checks. The two families retain their triangle/draw budgets, node/socket names and static distance exports. Across 24,632 full-geometry pose samples at 120 Hz, minimum floor clearance is 1.59 mm, maximum gait stance drift is 1.169 mm and limb-length error remains below 0.073 mm. New checks verify inverted/upright roll poses, body-floor support, hand's three supporting paws, sit posture and recovery endpoints. Baseline comparison against `3847df11c149220c6996ae940e78371ccbe2e2d5` permits only the requested gait retiming and asserts unchanged stride distances. Jump/pounce contact and anchor checks still pass.
+
+Blender renders and Chromium WebGL desktop/mobile views were reviewed. Browser checks cover all twenty clip controls, the faster travel distances and shorter cycles, six tier/encoding combinations per family, and the contact/jump studies. Updated manifests, source masters, measured README tables, gallery, readiness, workflow notes and shared navigation. Terrain/collision, arbitrary animation blends, consuming-game r160/release gltfpack, camera thresholds and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / Reference-based quadruped contacts and jump refinement
 
 Integrated the supplied Motion Zoo canine gait/contact diagrams and seven-pose cat-jump study into RECKON K9 and Mechanical Cheetah. The references establish paw grouping and pose/event order; numeric timing, speed and amplitude remain original choices fitted to these mechanical rigs. Abiharu / Motion Zoo source links and observations are recorded in `source/motion-patterns/quadruped-patterns.json`; no external images, animation keys or rigs are redistributed.

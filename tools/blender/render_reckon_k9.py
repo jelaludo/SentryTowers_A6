@@ -13,14 +13,14 @@ for name,loc,power,size,color in [('Key',(1,-2,3),180,2,(1,.91,.78)),('Fill',(-2
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.004));floor=bpy.context.object;floor.name='REVIEW_FLOOR';m=bpy.data.materials.new('Studio graphite');m.diffuse_color=(.045,.06,.073,1);m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.045,.06,.073,1);m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.72;floor.data.materials.append(m)
 d=bpy.data.cameras.new('REVIEW_CAMERA');cam=bpy.data.objects.new('REVIEW_CAMERA',d);s.collection.objects.link(cam);cam.location=(1.55,-2.05,1.25);aim(cam,(0,-.01,.43));d.type='ORTHO';d.ortho_scale=1.95;s.camera=cam
 arm=bpy.data.objects['RECKON_RIG']
-poses=[('preview','Alert_Idle',0),('walk','Walk_Cycle',.32),('run','Run_Cycle',.2),('sit','Sit_Down',2.4),('roll','Roll_Over',2.2),('hand','Give_Paw',2),('jump','Jump',.855),('fetch','Fetch_Return',2.65)]
+poses=[('preview','Alert_Idle',0),('walk','Walk_Cycle',.32),('run','Run_Cycle',.2*.5/.7),('sit','Sit_Down',2.4),('roll','Roll_Over',2.2),('hand','Give_Paw',2),('jump','Jump',.855),('fetch','Fetch_Return',2.65)]
 if '--hero' in sys.argv:poses=poses[:1]
 if '--jump-study' in sys.argv:
  sys.path.insert(0,str(Path(__file__).resolve().parent))
  from quadruped_motion import JUMPS
  poses=[('jump-'+name,'Jump',t) for name,t in JUMPS['k9']['landmarks_s'].items()]
 
-if '--gait-study' in sys.argv:poses=[('gait-walk','Walk_Cycle',.32),('gait-trot','Run_Cycle',.20),('gait-pace','Pace_Cycle',.2),('gait-canter','Canter_Cycle',.405),('gait-gallop','Gallop_Cycle',.36),('gait-sprint','Sprint_Cycle',.651)]
+if '--gait-study' in sys.argv:poses=[('gait-walk','Walk_Cycle',.32),('gait-trot','Run_Cycle',.20*.5/.7),('gait-pace','Pace_Cycle',.2),('gait-canter','Canter_Cycle',.2025),('gait-gallop','Gallop_Cycle',.18),('gait-sprint','Sprint_Cycle',.279)]
 if '--pose' in sys.argv:poses=[p for p in poses if p[0]==sys.argv[sys.argv.index('--pose')+1]]
 for file,clip,t in poses:
  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!=clip

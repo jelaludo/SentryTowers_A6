@@ -14,7 +14,7 @@ for(const [family,global,clip] of [['reckon-k9','reckonK9','Jump'],['mechanical-
  }
  if(family==='reckon-k9'){
   for(const [name,order] of [['Run_Cycle','FL + HR → FR + HL'],['Pace_Cycle','FL + HL → FR + HR'],['Canter_Cycle','HL → HR + FL → FR']]){await page.locator(`[data-clip="${name}"]`).click();assert.equal(await page.locator('.motion-contact-order').textContent(),order);}
-  await page.locator('[data-clip="Sprint_Cycle"]').click();await page.locator('#time').evaluate(el=>{el.value=.301;el.dispatchEvent(new Event('input'));});assert((await page.locator('.motion-contact-readout').textContent()).startsWith('Flight'));await page.screenshot({path:'/tmp/k9-contact-study.png'});
+  await page.locator('[data-clip="Sprint_Cycle"]').click();await page.locator('#time').evaluate(el=>{el.value=Number(el.max)*.43;el.dispatchEvent(new Event('input'));});assert((await page.locator('.motion-contact-readout').textContent()).startsWith('Flight'));await page.screenshot({path:'/tmp/k9-contact-study.png'});
  }
  await page.locator(`[data-clip="${clip}"]`).click();await page.locator('[data-motion-pose="fore_contact"]').click();
  const chart=page.locator('.motion-contact-chart');await chart.click({position:{x:100,y:40}});assert(await page.evaluate(g=>window[g].time>0,global));

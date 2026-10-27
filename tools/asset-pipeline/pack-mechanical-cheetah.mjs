@@ -14,7 +14,7 @@ for(const e of manifest.assets){const path=new URL(e.file,out);const doc=await i
  for(const a of doc.getRoot().listAnimations())for(const s of a.listSamplers())if(!a.listChannels().some(c=>c.getSampler()===s))s.dispose();
  await doc.transform(resample({tolerance:1e-5}),dedup());await io.write(path.pathname,doc);const bytes=await fs.readFile(path);e.bytes=bytes.length;e.sha256=sha(bytes);
  const gltf=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');gltf.scene.updateMatrixWorld(true);const box=new T.Box3().setFromObject(gltf.scene,true);e.bounds={min:box.min.toArray(),max:box.max.toArray(),dimensions_m:box.getSize(new T.Vector3()).toArray()};e.required_nodes=doc.getRoot().listNodes().map(n=>n.getName()).filter(Boolean).sort();e.sockets=[];gltf.scene.traverse(o=>{if(o.name.startsWith('SOCKET_'))e.sockets.push({node:o.name,parent:o.parent.name,position_m:o.getWorldPosition(new T.Vector3()).toArray()});});
- const names=gltf.animations.map(c=>c.name);if(e.lod<2&&names.length!==6)throw new Error('Incorrect clips '+names);
+ const names=gltf.animations.map(c=>c.name);if(e.lod<2&&names.length!==8)throw new Error('Incorrect clips '+names);
  await doc.transform(reorder({encoder:MeshoptEncoder,target:'size'}));doc.createExtension(EXTMeshoptCompression).setRequired(true).setEncoderOptions({method:EXTMeshoptCompression.EncoderMethod.FILTER});const packed=await io.writeBinary(doc);await fs.mkdir(new URL('derived/meshopt/',out),{recursive:true});e.meshopt_file='derived/meshopt/'+e.file.replace('.glb','.meshopt.glb');e.meshopt_derived=true;e.meshopt_bytes=packed.length;e.meshopt_sha256=sha(packed);await fs.writeFile(new URL(e.meshopt_file,out),packed);console.log(e.file,e.triangles,e.draw_calls,e.bytes,'packed',e.meshopt_bytes,names);
 }
 manifest.animation.placement_node='instance wrapper around the glTF scene';manifest.animation.skeleton_root='ROOT';
@@ -24,5 +24,5 @@ manifest.provenance={geometry:'Original procedural model; no reference geometry 
 const source=await fs.readFile(new URL('../../source/blender/a6-mechanical-cheetah.blend',out));manifest.source={file:'../../source/blender/a6-mechanical-cheetah.blend',bytes:source.length,sha256:sha(source),role:'Editable LOD0 authoring master; plain GLBs are runtime source of truth'};
 const patternBytes=await fs.readFile(new URL('../../source/motion-patterns/quadruped-patterns.json',out));
 const pattern=JSON.parse(patternBytes);manifest.animation.patterns={file:'../../source/motion-patterns/quadruped-patterns.json',revision:pattern.revision,sha256:sha(patternBytes),timing:'Original authored timing; source diagrams establish contact topology and pose order.'};
-manifest.animation.reference_urls=pattern.sources.map(s=>s.url);manifest.animation.supersedes_revision='a4b1e41e6a8f85fa2385f242b418edc9a2a82031';
+manifest.animation.reference_urls=pattern.sources.map(s=>s.url);manifest.animation.supersedes_revision='3847df11c149220c6996ae940e78371ccbe2e2d5';
 await fs.writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');

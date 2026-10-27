@@ -7,8 +7,9 @@ import cheetah_motion as c
 import build_mechanical_cheetah as cg
 import build_reckon_k9 as k
 results=[]
-for mod,g,names in [(c,cg.shape(0),['Pounce']),(k,k.shape(0),list(k.GAITS)+['Jump'])]:
+for mod,g,names in [(c,cg.shape(0),['Gallop_Cycle','Sit_Down','Roll_Over','Give_Paw','Pounce']),(k,k.shape(0),list(k.GAITS)+['Jump'])]:
  g.ground={n:np.array([v-mod.H[n] for v,b in zip(g.v,g.b) if b==n]) for n in set(g.b)}
+ if mod==c:c.configure_floor(g)
  for name in names:
   mod.MAX_REACH_ERROR=0;mod.WORST_REACH=None;minimum=10;worst=None
   duration=next(x['duration_s'] for x in mod.CLIPS if x['name']==name)

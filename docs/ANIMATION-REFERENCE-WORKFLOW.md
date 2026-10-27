@@ -45,7 +45,7 @@ The Cheetah profile travels 1.2 m in `MOTION`; K9 Jump stays in place. A paw tar
 
 Run `tools/blender/check_quadruped_motion.py` before export to find unreachable targets or geometry below the floor. The asset validators then check plain and decoded compressed GLBs, 120 Hz skin envelopes, loop seams, stance drift, limb lengths, naming, sockets and budgets. `validate-quadruped-patterns.mjs` independently checks the expected gait groups, fore-before-hind jump events, apex clearance, planted world anchors and delayed hip compression.
 
-`baseline-2026-10-26.json` records the prior commit, node/socket interfaces, triangle/draw counts and existing clip durations. Changed motion can therefore be reviewed without silently changing those contracts. Hash-linked browser reports validate the actual published files.
+The baseline ledgers record prior commits, node/socket interfaces, triangle/draw counts and existing clip durations. The faster-gait follow-up compares to `baseline-2026-10-27-contact-study.json`: explicitly requested duration changes are paired with matching travel-speed changes and checked for identical stride distance; other durations stay fixed. Changed motion can therefore be reviewed without silently changing those contracts. Hash-linked browser reports validate the actual published files.
 
 Numerical checks do not establish acting quality, anatomical correctness, self-collision-free blending, force balance or terrain behavior. Review at real speed and slow speed, from side/front/three-quarter views. Inspect the transition into and out of a clip in the consuming game before runtime acceptance.
 

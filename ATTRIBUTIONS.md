@@ -2,6 +2,8 @@
 
 ## Quadruped motion reference study / 27 October 2026
 
+The same-day follow-up adds independently authored Cheetah roll-over and give-paw actions, retains its sit action, and retimes the existing running gaits with synchronized travel. Original model and motion credit remains **jelaludo**. The social actions use the existing mechanical rig and no additional external motion assets.
+
 The K9 gait corrections/additions and both jump revisions were independently authored by jelaludo, informed by Abiharu / Motion Zoo's canine gait diagrams and cat-jump pose study. References were observed for paw grouping, contact order and pose sequence. Durations, amplitudes and rig-specific trajectories are original authored choices, not measurements claimed from those images. No source images, videos, geometry, rigs or animation keys are redistributed. Provenance and the separation between observed and authored data are recorded in `source/motion-patterns/quadruped-patterns.json` and `docs/ANIMATION-REFERENCE-WORKFLOW.md`.
 
 https://motionzoo.net/dog_walk_gaits/

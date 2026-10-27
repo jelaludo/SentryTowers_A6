@@ -46,17 +46,17 @@
     "skeleton_root": "ROOT",
     "patterns": {
       "file": "../../source/motion-patterns/quadruped-patterns.json",
-      "revision": "2026-10-27-contact-study",
-      "sha256": "5383037a915ff42d0ee2fa5994e80cfb9f847be546fb3a8061636c10e3d5edd0",
+      "revision": "2026-10-27-faster-gaits-social",
+      "sha256": "69d9b832fbacd1c8b2f636bf82d88c75b8bf6449ee4cae0a44056defc80b5f16",
       "timing": "Original authored timing; source diagrams establish contact topology and pose order."
     },
     "reference_urls": [
       "https://motionzoo.net/dog_walk_gaits/",
       "https://motionzoo.net/making_cat_jump/"
     ],
-    "supersedes_revision": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031",
+    "supersedes_revision": "3847df11c149220c6996ae940e78371ccbe2e2d5",
     "skeleton_joints": 36,
-    "run_clip_compatibility": "Run_Cycle retains its name and duration; now correctly uses diagonal trot pairs. Pace_Cycle is the separate same-side gait."
+    "run_clip_compatibility": "Run_Cycle retains its name and diagonal trot pairs; cadence is now a 0.50 s cycle. Pace_Cycle is the separate same-side gait."
   },
   "assets": [
     {
@@ -65,7 +65,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2184100,
+      "bytes": 2117768,
       "triangles": 25884,
       "draw_calls": 6,
       "plot_m": [
@@ -100,8 +100,8 @@
         {
           "name": "Run_Cycle",
           "loop": true,
-          "duration_s": 0.7,
-          "speed_mps": 1.5584415584415583,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817,
           "duty_factor": 0.44,
           "touchdown_phase": {
             "FL": 0,
@@ -123,7 +123,8 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.7
         },
         {
           "name": "Pace_Cycle",
@@ -147,8 +148,8 @@
         {
           "name": "Canter_Cycle",
           "loop": true,
-          "duration_s": 0.9,
-          "speed_mps": 1.12,
+          "duration_s": 0.45,
+          "speed_mps": 2.24,
           "duty_factor": 0.3,
           "touchdown_phase": {
             "HL": 0,
@@ -166,13 +167,14 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.9
         },
         {
           "name": "Gallop_Cycle",
           "loop": true,
-          "duration_s": 0.8,
-          "speed_mps": 1.55,
+          "duration_s": 0.4,
+          "speed_mps": 3.1,
           "duty_factor": {
             "FL": 0.28,
             "FR": 0.28,
@@ -195,13 +197,14 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.8
         },
         {
           "name": "Sprint_Cycle",
           "loop": true,
-          "duration_s": 0.7,
-          "speed_mps": 1.9,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334,
           "duty_factor": 0.22,
           "touchdown_phase": {
             "FL": 0,
@@ -223,7 +226,8 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.7
         },
         {
           "name": "Sit_Down",
@@ -253,7 +257,7 @@
           "source_ids": [
             "motionzoo_jump"
           ],
-          "pattern_revision": "2026-10-27-contact-study",
+          "pattern_revision": "2026-10-27-faster-gaits-social",
           "release_s": {
             "FL": 0.48,
             "FR": 0.505,
@@ -284,7 +288,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "b7466bf4bc6e57cc54cfb20bb35375a6425104b6558e59f0c018e3d706fc9712",
+      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -410,8 +414,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 600768,
-      "meshopt_sha256": "c384c494ef5428aff3e86fa1328c929e189a339d55d5352a69f919afd8459b14"
+      "meshopt_bytes": 586848,
+      "meshopt_sha256": "d6400a6eae28834e8a79c81f271609b1408ba99252d29ce5b1bfe9bea0d3fe1b"
     },
     {
       "file": "reckon_k9_d0_lod1.glb",
@@ -419,7 +423,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1696624,
+      "bytes": 1630292,
       "triangles": 9732,
       "draw_calls": 6,
       "plot_m": [
@@ -454,8 +458,8 @@
         {
           "name": "Run_Cycle",
           "loop": true,
-          "duration_s": 0.7,
-          "speed_mps": 1.5584415584415583,
+          "duration_s": 0.5,
+          "speed_mps": 2.1818181818181817,
           "duty_factor": 0.44,
           "touchdown_phase": {
             "FL": 0,
@@ -477,7 +481,8 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.7
         },
         {
           "name": "Pace_Cycle",
@@ -501,8 +506,8 @@
         {
           "name": "Canter_Cycle",
           "loop": true,
-          "duration_s": 0.9,
-          "speed_mps": 1.12,
+          "duration_s": 0.45,
+          "speed_mps": 2.24,
           "duty_factor": 0.3,
           "touchdown_phase": {
             "HL": 0,
@@ -520,13 +525,14 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.9
         },
         {
           "name": "Gallop_Cycle",
           "loop": true,
-          "duration_s": 0.8,
-          "speed_mps": 1.55,
+          "duration_s": 0.4,
+          "speed_mps": 3.1,
           "duty_factor": {
             "FL": 0.28,
             "FR": 0.28,
@@ -549,13 +555,14 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.8
         },
         {
           "name": "Sprint_Cycle",
           "loop": true,
-          "duration_s": 0.7,
-          "speed_mps": 1.9,
+          "duration_s": 0.3,
+          "speed_mps": 4.433333333333334,
           "duty_factor": 0.22,
           "touchdown_phase": {
             "FL": 0,
@@ -577,7 +584,8 @@
           },
           "source_ids": [
             "motionzoo_gaits"
-          ]
+          ],
+          "retimed_from_duration_s": 0.7
         },
         {
           "name": "Sit_Down",
@@ -607,7 +615,7 @@
           "source_ids": [
             "motionzoo_jump"
           ],
-          "pattern_revision": "2026-10-27-contact-study",
+          "pattern_revision": "2026-10-27-faster-gaits-social",
           "release_s": {
             "FL": 0.48,
             "FR": 0.505,
@@ -638,7 +646,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "0a5f7c714741c0b89f7ad3364a5411120cebba15c002ce0726e7a07df817ed17",
+      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -764,8 +772,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 508556,
-      "meshopt_sha256": "dfd78b4633e8fcfd865db8f167fd44b0fba5e7e1003ca689dbd86a7221cb7153"
+      "meshopt_bytes": 494640,
+      "meshopt_sha256": "765357846923c362505d4ce6bbfd422fd8e582d2419543a2f6dc6500ccc97377"
     },
     {
       "file": "reckon_k9_d0_lod2.glb",
@@ -927,7 +935,7 @@
   },
   "source": {
     "file": "../../source/blender/a6-reckon-k9.blend",
-    "bytes": 3987451,
-    "sha256": "4b7b6fc6b39ad73799c8233a9518eb9e6f1c5d7bc4bfa985ba5f541f6b635edd"
+    "bytes": 3715407,
+    "sha256": "5261e6d4dd878e7ca02c094652420b01a25d5e66a0c858d58cdc577ad9d553fb"
   }
 }
