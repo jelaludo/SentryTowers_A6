@@ -1,83 +1,112 @@
 {
   "status": "passed",
-  "scope": "Seeded 120 Hz behavior; conservative whole-animal capsules, repeated hurdles, speed changes and repeatability. No physical dynamics or FPS claim.",
-  "acceleration_response": {
-    "interval_s": 1.2,
-    "before": {
-      "ball": 0.9,
-      "actors": [
-        1.0098700330440955,
-        1.1658381157308113
-      ]
+  "scope": "Seeded 120 Hz three-actor behavior; conservative whole-animal capsules for all pairs, repeated hurdles, speed changes and repeatability. Isolated equal-condition speed response. No physical dynamics or FPS claim.",
+  "actor_order": [
+    "k9",
+    "cheetah",
+    "k0"
+  ],
+  "acceleration_response": [
+    {
+      "id": "k9",
+      "speed_at_1s_mps": 2.70677849872925,
+      "time_to_3_5_mps_s": 1.3833333333333309
     },
-    "after": {
-      "ball": 3.6016331979539244,
-      "actors": [
-        3.295145749217436,
-        3.9184312452003103
-      ]
+    {
+      "id": "cheetah",
+      "speed_at_1s_mps": 3.150760785553075,
+      "time_to_3_5_mps_s": 1.1249999999999984
+    },
+    {
+      "id": "k0",
+      "speed_at_1s_mps": 3.92923853346133,
+      "time_to_3_5_mps_s": 0.866666666666666
     }
-  },
+  ],
   "runs": [
     {
       "seed": 27,
       "seconds": 120.00000000004157,
-      "minimum_capsule_gap_m": 0.28920907970240284,
-      "maximum_ball_gap_m": 9.970716888923931,
+      "minimum_capsule_gap_m": 0.3008657999707948,
+      "pair_minima_m": {
+        "k9_cheetah": 1.5563121992308417,
+        "k9_k0": 0.7250584558805739,
+        "cheetah_k0": 0.3008657999707948
+      },
+      "maximum_ball_gap_m": 9.76837009708575,
       "peak_ground_speed_mps": [
-        5.055543183150494,
-        5.164091354512266
+        5.3195380185042005,
+        4.993333344496831,
+        6.800166328855965
       ],
       "minimum_ground_speed_mps": [
+        0,
         0,
         0
       ],
       "jumps": [
+        11,
         11,
         11
       ],
       "bursts": 24,
-      "avoidance_frames": 28606
+      "avoidance_frames": 42274
     },
     {
       "seed": 104,
       "seconds": 120.00000000004157,
-      "minimum_capsule_gap_m": 0.28920907970240284,
-      "maximum_ball_gap_m": 10.69657547123918,
+      "minimum_capsule_gap_m": 0.3008657999707948,
+      "pair_minima_m": {
+        "k9_cheetah": 1.5379373473305424,
+        "k9_k0": 0.7334679627559448,
+        "cheetah_k0": 0.3008657999707948
+      },
+      "maximum_ball_gap_m": 10.924180161800422,
       "peak_ground_speed_mps": [
-        4.676140451533043,
-        5.391380164389833
+        4.509816189382122,
+        4.918323809950835,
+        6.800284525804874
       ],
       "minimum_ground_speed_mps": [
+        0,
         0,
         0
       ],
       "jumps": [
         11,
+        11,
         11
       ],
       "bursts": 22,
-      "avoidance_frames": 28800
+      "avoidance_frames": 42206
     },
     {
       "seed": 891,
       "seconds": 120.00000000004157,
-      "minimum_capsule_gap_m": 0.28920907970240284,
-      "maximum_ball_gap_m": 10.7970640619466,
+      "minimum_capsule_gap_m": 0.3008657999707948,
+      "pair_minima_m": {
+        "k9_cheetah": 1.5340785978033114,
+        "k9_k0": 0.7223512141866251,
+        "cheetah_k0": 0.3008657999707948
+      },
+      "maximum_ball_gap_m": 10.887177013341955,
       "peak_ground_speed_mps": [
-        5.071453286832223,
-        5.600000000000023
+        5.353164801488404,
+        5.525836553342685,
+        6.799950620771522
       ],
       "minimum_ground_speed_mps": [
+        0,
         0,
         0
       ],
       "jumps": [
         11,
-        11
+        11,
+        12
       ],
       "bursts": 22,
-      "avoidance_frames": 28710
+      "avoidance_frames": 41893
     }
   ]
 }

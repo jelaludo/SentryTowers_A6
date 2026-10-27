@@ -1,5 +1,15 @@
 # Devlog
 
+## 27 October 2026 / K0 joins the chase — faster, quicker to react
+
+Added K0-TECH-01 to `quadruped-playground/` at its original half-height scale. It starts behind the larger robots, catches up at a 6.8 m/s target ground speed, accelerates at 6.4 m/s² and responds to lure speed with a 0.10 s time constant. K9/C-07 retain 4.43/5.6 m/s targets, 2.1/2.8 m/s² acceleration and 0.333 s perception. K0 also has faster lateral/heading response and shorter 0.10 s gait blends. Actual distance drives the shorter cat stride; source GLBs and clips remain unchanged.
+
+Generalized the controller, loader, trails, telemetry and camera checks to three actors. Every animal considers both neighbors; stable passing sides reserve the centre for K0. Its 2.2 m hurdle crossing uses the original pounce at 1.8×, with a 0.16 m smooth added lift only while all paws are airborne. Source travel is applied once, and rigid joint correction retains its smaller sole height and limb lengths. Updated all three model viewers' chase links and the gallery preview.
+
+Three seeded two-minute runs complete 11–12 hurdles per animal, with a minimum tested conservative capsule gap of 0.3009 m. K0 is fastest in every run. Under identical isolated acceleration conditions, K0 reaches 3.5 m/s in 0.867 s, C-07 in 1.125 s and K9 in 1.383 s. Actual GLBs in both animated tiers pass 5,760 sampled rig poses with zero sampled rail collisions; minimum expanded-rail clearance is 0.1426 m overall and 0.1550 m for K0. Minimum sampled mesh Y is +0.939 mm, maximum retained-anchor error below 1.92 mm, and limb-length error below 0.001 mm. Chromium WebGL review covers all three jumps, game/detailed tiers, controls, camera containment and mobile overflow.
+
+Source totals are 38,070 triangles / 19 mesh draws / 4,989,652 plain bytes for game, and 163,550 triangles / 19 draws / 8,835,108 bytes for detailed. Game scene counters are 39,852 triangles / 28–32 draws including course and trails; no FPS claim. Hand-off is the implementing commit plus `quadruped-playground/` and all three original asset folders, pinned to source commit `4b247f902c9eb838aa6f9d266e0edec17e7c8359`. General terrain/collision, consuming-game integration, camera and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / K0-TECH-01 — compact lynx-point Siamese robot
 
 Created the separate `k0-tech-01/` feline family from the supplied beige/white concept. K0 has a rounder skull, larger ears, white cheek pads and whisker wires, blue iris optics, fuller chest/haunch shells, broader paws, taupe lower-leg/paw stripes and a shorter ringed tail. The shoulder marking reads K0 / TECH. Standing detailed bounds are 0.301 × 0.420 × 1.048 m: 49.6% of C-07's height, with a broader width-to-height ratio and shorter tail. The source image stays outside the repository; its hash and reference-only use are recorded.

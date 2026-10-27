@@ -9,7 +9,7 @@ await page.goto((process.env.BASE_URL||'http://127.0.0.1:8788')+'/quadruped-play
 await page.waitForFunction(()=>window.quadrupedPlayground?.ready,null,{timeout:60000});
 await page.evaluate(()=>{const p=window.quadrupedPlayground;p.restart(27);p.playing=false;});
 const initial=await page.evaluate(()=>{const p=window.quadrupedPlayground;return {tiers:p.actors.map(a=>a.metadata.lod),clips:p.actors.map(a=>a.gltf.animations.length),seed:p.sim.seed};});
-assert.deepEqual(initial,{tiers:[1,1],clips:[12,8],seed:27});
+assert.deepEqual(initial,{tiers:[1,1,1],clips:[12,8,8],seed:27});
 async function snapshot(name){
  const result=await page.evaluate(async()=>{
   const p=window.quadrupedPlayground,T=await import('three');p.cameraUpdate(1,true);p.render();
@@ -28,6 +28,8 @@ await page.evaluate(()=>{const p=window.quadrupedPlayground;for(let i=0;i<1200;i
 assert(await page.evaluate(()=>!!window.quadrupedPlayground.sim.actors[0].jump));frames.push(await snapshot('k9-jump'));
 await page.evaluate(()=>{const p=window.quadrupedPlayground;for(let i=0;i<1800;i++){p.advance(1/120);const j=p.sim.actors[1].jump;if(j&&j.time>1.07&&j.time<1.32)break;}});
 assert(await page.evaluate(()=>!!window.quadrupedPlayground.sim.actors[1].jump));frames.push(await snapshot('cheetah-jump'));
+await page.evaluate(()=>{const p=window.quadrupedPlayground;for(let i=0;i<2400;i++){p.advance(1/120);const j=p.sim.actors[2].jump;if(j&&j.time>1.07&&j.time<1.32)break;}});
+assert(await page.evaluate(()=>!!window.quadrupedPlayground.sim.actors[2].jump));frames.push(await snapshot('k0-jump'));
 const bursts=await page.evaluate(()=>window.quadrupedPlayground.sim.burstCount);await page.locator('#burst').click();assert.equal(await page.evaluate(()=>window.quadrupedPlayground.sim.burstCount),bursts+1);
 await page.locator('#trails').uncheck();await page.locator('#obstacles').uncheck();assert(await page.evaluate(()=>{const p=window.quadrupedPlayground;return !p.sim.obstacles&&!p.scene.getObjectByName('PLAYGROUND_HURDLES').visible;}));
 await page.locator('#camera').selectOption('low');frames.push(await snapshot('ground'));
@@ -46,5 +48,5 @@ await page.evaluate(()=>{const p=window.quadrupedPlayground;p.restart(27);p.play
 await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await page.evaluate(()=>window.scrollTo(0,0));
 assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'horizontal overflow');frames.push(await snapshot('mobile'));
 assert.deepEqual(errors,[]);const code_hashes={};for(const file of ['index.html','viewer.js','viewer.css','simulation.js','actor.js','manifest.json'])code_hashes[file]=createHash('sha256').update(await fs.readFile(new URL('../../quadruped-playground/'+file,import.meta.url))).digest('hex');
-const report={status:'passed',browser:'Chromium headless with real WebGL (software rendering); not an FPS benchmark',code_hashes,checks:['both plain animated tiers load with source clips','pause, manual ball burst, replay and new seed','hurdles and trails toggles','four camera modes and slow-motion selector','two source jump clips with procedural world travel','follow camera contains both rigs and ball including bend and 390px mobile','no horizontal overflow or page errors'],frames};
+const report={status:'passed',browser:'Chromium headless with real WebGL (software rendering); not an FPS benchmark',code_hashes,checks:['both plain animated tiers load with source clips','pause, manual ball burst, replay and new seed','hurdles and trails toggles','four camera modes and slow-motion selector','three source jump clips with procedural world travel','follow camera contains all three rigs and ball including bend and 390px mobile','no horizontal overflow or page errors'],frames};
 await fs.writeFile(new URL('../../quadruped-playground/viewer-validation.json',import.meta.url),JSON.stringify(report,null,2)+'\n');await browser.close();

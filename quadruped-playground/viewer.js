@@ -2,9 +2,9 @@ import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {ChaseSimulation,STEP,track,TRACK_LENGTH,OBSTACLES} from './simulation.js?v=chase-20261027';
-import {ChaseActor} from './actor.js?v=chase-20261027';
-const $=id=>document.getElementById(id),stage=$('stage'),manifest=await fetch('manifest.json?v=chase-20261027').then(r=>r.json());
+import {ChaseSimulation,ACTORS,STEP,track,TRACK_LENGTH,OBSTACLES} from './simulation.js?v=chase-trio-20261027';
+import {ChaseActor} from './actor.js?v=chase-trio-20261027';
+const $=id=>document.getElementById(id),stage=$('stage'),manifest=await fetch('manifest.json?v=chase-trio-20261027').then(r=>r.json());
 const scene=new T.Scene();scene.background=new T.Color('#1c292b');scene.fog=new T.Fog('#1c292b',32,75);
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.22;stage.prepend(renderer.domElement);
 const camera=new T.PerspectiveCamera(42,1,.05,150),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.maxPolarAngle=Math.PI*.485;controls.minDistance=2;controls.maxDistance=65;
@@ -21,17 +21,17 @@ const rails=new T.InstancedMesh(new T.BoxGeometry(1,1,1),new T.MeshStandardMater
 OBSTACLES.forEach((h,i)=>{const p=track(h.s);for(let n=0;n<3;n++){const o=new T.Object3D(),side=n===0?0:n===1?-h.width/2:h.width/2;o.position.set(p.x+p.dz*side,(h.height+(n?.05:0))/2,p.z-p.dx*side);o.rotation.y=p.yaw;o.scale.set(n?.12:h.width,h.height+(n?.05:0),n?.22:h.depth);o.updateMatrix();rails.setMatrixAt(i*3+n,o.matrix);rails.setColorAt(i*3+n,new T.Color(n?0xeea84f:0xc6d6cd));}});rails.castShadow=true;rails.receiveShadow=true;hurdles.add(rails);
 const ball=new T.Mesh(new T.SphereGeometry(.135,24,16),new T.MeshStandardMaterial({color:0xff812f,emissive:0xfb6d17,emissiveIntensity:.8,roughness:.24,metalness:.15}));ball.name='CHASE_BALL';ball.castShadow=true;scene.add(ball);
 const halo=new T.Mesh(new T.RingGeometry(.20,.26,40),new T.MeshBasicMaterial({color:0xffa04c,transparent:true,opacity:.65,side:T.DoubleSide}));halo.rotation.x=-Math.PI/2;scene.add(halo);
-const traces=[0xa7d0b9,0xebbf68,0xff9955].map(color=>{const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(new Float32Array(150*3),3));geometry.setDrawRange(0,0);const line=new T.Line(geometry,new T.LineBasicMaterial({color,transparent:true,opacity:.48}));scene.add(line);return {line,points:[]};});
+const traces=[0xa7d0b9,0xebbf68,0x9bccec,0xff9955].map(color=>{const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(new Float32Array(150*3),3));geometry.setDrawRange(0,0);const line=new T.Line(geometry,new T.LineBasicMaterial({color,transparent:true,opacity:.48}));scene.add(line);return {line,points:[]};});
 const loader=new GLTFLoader();let actors=[],sim,ready=false,playing=true,accumulator=0,loadToken=0,lastTrace=0;
 const seedParam=Number(new URLSearchParams(location.search).get('seed'));let seed=Number.isFinite(seedParam)&&seedParam>0?seedParam:27;
 function clearTraces(){for(const t of traces){t.points=[];t.line.geometry.setDrawRange(0,0);}lastTrace=0;}
 function restart(nextSeed=seed){seed=nextSeed;sim.reset(seed);sim.obstacles=$('obstacles').checked;accumulator=0;actors.forEach(a=>a.reset());clearTraces();actors.forEach((a,i)=>a.pose(sim.actors[i]));playing=true;$('play').textContent='Pause';cameraUpdate(1,true);render();}
 async function load(){
- const token=++loadToken;ready=false;$('loading').hidden=false;$('loading').textContent='Loading both articulated rigs…';
- const entries=['reckon-k9','mechanical-cheetah'].map(f=>manifest.assets.find(a=>a.family===f&&a.lod===Number($('lod').value)));
+ const token=++loadToken;ready=false;$('loading').hidden=false;$('loading').textContent='Loading three articulated rigs…';
+ const entries=ACTORS.map(p=>manifest.assets.find(a=>a.family===p.family&&a.lod===Number($('lod').value)));
  const loaded=await Promise.all(entries.map(e=>loader.loadAsync('../'+e.file+'?v='+e.sha256.slice(0,12))));if(token!==loadToken)return;
  for(const a of actors){scene.remove(a.holder);a.dispose();}actors=loaded.map((g,i)=>new ChaseActor(g,entries[i]));actors.forEach(a=>scene.add(a.holder));
- const clips={k9:entries[0].clips,cheetah:entries[1].clips};sim=new ChaseSimulation({seed,clips,obstacles:$('obstacles').checked});ready=true;restart(seed);$('loading').hidden=true;
+ const clips=Object.fromEntries(ACTORS.map((p,i)=>[p.id,entries[i].clips]));sim=new ChaseSimulation({seed,clips,obstacles:$('obstacles').checked});ready=true;restart(seed);$('loading').hidden=true;
  for(const id of ['play','burst','restart','new-seed'])$(id).disabled=false;
 }
 function advance(seconds){

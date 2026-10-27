@@ -1,20 +1,21 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chase / K9 × C-07</title><link rel="stylesheet" href="viewer.css"><link rel="stylesheet" href="../workshop/navigation.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chase / K9 × C-07 × K0</title><link rel="stylesheet" href="viewer.css"><link rel="stylesheet" href="../workshop/navigation.css"></head>
 <body class="workshop-viewer">
 <header class="workshop-header"><a class="workshop-home" href="../">← Back to Workshop</a><nav class="workshop-tabs" aria-label="Workshop navigation"><a href="../" aria-current="page">Workshop</a><a href="../devlog/">Devlog</a><a href="../roadmap/">Roadmap</a><a href="../readiness/">Readiness</a><a href="../best-practices/">Best Practices</a></nav></header>
 <main>
- <section id="stage" aria-label="Two mechanical animals chasing a ball through a hurdle course">
-  <div class="identity"><p>FIELD ROBOTICS / SHARED MOTION STUDY</p><h1>CHASE<span> / 02</span></h1><p class="subtitle">One ball. Two very different instincts.</p></div>
-  <div class="legend"><span class="dog">● RECKON K9</span><span class="cat">● C-07 CHEETAH</span><span class="ball">● LURE</span></div>
+ <section id="stage" aria-label="Three mechanical animals chasing a ball through a hurdle course">
+  <div class="identity"><p>FIELD ROBOTICS / SHARED MOTION STUDY</p><h1>CHASE<span> / 03</span></h1><p class="subtitle">One ball. Three very different instincts.</p></div>
+  <div class="legend"><span class="dog">● RECKON K9</span><span class="cat">● C-07 CHEETAH</span><span class="k0">● K0-TECH-01</span><span class="ball">● LURE</span></div>
   <div id="loading" role="status">Preparing the playground…</div>
   <div class="stage-footer"><span id="status">LOADING RIGS</span><span>METRES / CONTINUOUS PLAY</span></div>
  </section>
  <aside>
-  <p class="eyebrow">LIVE / FOLLOW THE ORANGE BALL</p><h2>A little friendly competition.</h2><p class="intro">The ball changes pace. They give chase, make room for each other and clear the low hurdles.</p>
+  <p class="eyebrow">LIVE / FOLLOW THE ORANGE BALL</p><h2>A little friendly competition.</h2><p class="intro">The ball changes pace. They give chase, make room for each other and clear the low hurdles. Little K0 reacts first, accelerates harder and darts ahead.</p>
   <div class="telemetry" aria-label="Live movement">
-   <article class="ball"><div><span>LURE</span><strong id="ball-speed">0.00 <small>m/s</small></strong></div><meter id="ball-meter" min="0" max="6" value="0"></meter><p id="ball-state">Cruise</p></article>
-   <article class="dog"><div><span>RECKON K9</span><strong id="k9-speed">0.00 <small>m/s</small></strong></div><meter id="k9-meter" min="0" max="6" value="0"></meter><p id="k9-state">Tracking ball</p></article>
-   <article class="cat"><div><span>C-07 CHEETAH</span><strong id="cheetah-speed">0.00 <small>m/s</small></strong></div><meter id="cheetah-meter" min="0" max="6" value="0"></meter><p id="cheetah-state">Tracking ball</p></article>
+   <article class="ball"><div><span>LURE</span><strong id="ball-speed">0.00 <small>m/s</small></strong></div><meter id="ball-meter" min="0" max="10" value="0"></meter><p id="ball-state">Cruise</p></article>
+   <article class="dog"><div><span>RECKON K9</span><strong id="k9-speed">0.00 <small>m/s</small></strong></div><meter id="k9-meter" min="0" max="10" value="0"></meter><p id="k9-state">Tracking ball</p></article>
+   <article class="cat"><div><span>C-07 CHEETAH</span><strong id="cheetah-speed">0.00 <small>m/s</small></strong></div><meter id="cheetah-meter" min="0" max="10" value="0"></meter><p id="cheetah-state">Tracking ball</p></article>
+   <article class="k0"><div><span>K0-TECH-01</span><strong id="k0-speed">0.00 <small>m/s</small></strong></div><meter id="k0-meter" min="0" max="10" value="0"></meter><p id="k0-state">Tracking ball</p></article>
   </div>
   <div class="primary"><button id="play" disabled>Pause</button><button id="burst" disabled>Make the ball sprint ↗</button></div>
   <div class="secondary-controls"><button id="restart" disabled>Replay this chase</button><button id="new-seed" disabled>New chase</button></div>
@@ -22,12 +23,12 @@
   <div class="setting"><label for="camera">Camera</label><select id="camera"><option value="follow">Follow the pack</option><option value="low">Ground view</option><option value="overview">Whole course</option><option value="free">Free orbit</option></select></div>
   <div class="setting"><label for="lod">Model detail</label><select id="lod"><option value="1" selected>Game / animated</option><option value="0">Detailed / recording</option></select></div>
   <div class="toggles"><label><input id="obstacles" type="checkbox" checked> Hurdles</label><label><input id="trails" type="checkbox" checked> Motion trails</label></div>
-  <dl class="stats"><dt>Elapsed</dt><dd id="elapsed">00:00</dd><dt>Jumps / K9 · C-07</dt><dd id="jumps">0 · 0</dd><dt>Chase seed</dt><dd id="seed">27</dd><dt>Rendered triangles</dt><dd id="triangles">—</dd><dt>Rendered draws</dt><dd id="draws">—</dd></dl>
+  <dl class="stats"><dt>Elapsed</dt><dd id="elapsed">00:00</dd><dt>Jumps / K9 · C-07 · K0</dt><dd id="jumps">0 · 0 · 0</dd><dt>Chase seed</dt><dd id="seed">27</dd><dt>Rendered triangles</dt><dd id="triangles">—</dd><dt>Rendered draws</dt><dd id="draws">—</dd></dl>
   <p class="hint">Drag to explore · Scroll to zoom · Space to pause<br>Replay repeats the same chase. New chase changes the ball’s timing.</p>
-  <nav class="asset-links" aria-label="Inspect individual models"><a href="../reckon-k9/">Inspect RECKON K9 ↗</a><a href="../mechanical-cheetah/">Inspect C-07 ↗</a><a href="README.md">Scene notes & integration ↗</a></nav>
+  <nav class="asset-links" aria-label="Inspect individual models"><a href="../reckon-k9/">Inspect RECKON K9 ↗</a><a href="../mechanical-cheetah/">Inspect C-07 ↗</a><a href="../k0-tech-01/">Inspect K0-TECH-01 ↗</a><a href="README.md">Scene notes & integration ↗</a></nav>
   <p class="credit">MODELS & ANIMATION / JELALUDO</p>
  </aside>
 </main>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
-<script type="module">import('./viewer.js?v=chase-20261027').catch(e=>{document.getElementById('loading').textContent='Unable to load the playground: '+e.message;console.error(e);});</script>
+<script type="module">import('./viewer.js?v=chase-trio-20261027').catch(e=>{document.getElementById('loading').textContent='Unable to load the playground: '+e.message;console.error(e);});</script>
 <script type="module" src="../workshop/navigation.js"></script></body></html>

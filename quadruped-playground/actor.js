@@ -28,9 +28,10 @@ function anchorLeg(nodes,id,target,footQ){
 
 export class ChaseActor{
  constructor(gltf,metadata){
-  this.gltf=gltf;this.metadata=metadata;this.holder=new T.Group();this.holder.name=metadata.family==='reckon-k9'?'RECKON_K9_ACTOR':'C07_CHEETAH_ACTOR';this.holder.add(gltf.scene);
+  this.gltf=gltf;this.metadata=metadata;this.holder=new T.Group();this.holder.name=({'reckon-k9':'RECKON_K9_ACTOR','mechanical-cheetah':'C07_CHEETAH_ACTOR','k0-tech-01':'K0_TECH_01_ACTOR'})[metadata.family];this.holder.add(gltf.scene);
   this.nodes={};gltf.scene.traverse(o=>{if(o.name)this.nodes[o.name]=o;if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;}});
   this.mixer=new T.AnimationMixer(gltf.scene);this.actions=new Map(gltf.animations.map(c=>[c.name,this.mixer.clipAction(c)]));
+  this.soleY=metadata.family==='k0-tech-01'?.00141:.003;this.contactHeight=metadata.family==='k0-tech-01'?.006:.013;
   this.motionRest=this.nodes.MOTION.position.clone();this.anchors=new Map();this.current=null;this.elapsed=0;this.maxCorrection=0;this.releasedAnchors=0;
   this.holder.updateMatrixWorld(true);this.restFootQuats=Object.fromEntries(ids.map(id=>[id,quaternion(this.nodes['PAW_'+id])]));
  }
@@ -38,7 +39,7 @@ export class ChaseActor{
  pose(state,dt=0){
   this.elapsed+=dt;
   if(this.current!==state.clip){this.previous=this.current?{name:this.current,time:this.lastTime}:null;this.current=state.clip;this.change=this.elapsed;this.anchors.clear();}
-  this.lastTime=state.clipTime;const blend=T.MathUtils.smoothstep(this.elapsed-this.change,0,.18);
+  this.lastTime=state.clipTime;const blend=T.MathUtils.smoothstep(this.elapsed-this.change,0,state.blend??.18);
   for(const [name,action] of this.actions){
    const weight=name===this.current?(this.previous?blend:1):name===this.previous?.name?1-blend:0;
    action.enabled=weight>0;action.paused=false;action.setEffectiveWeight(weight);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;
@@ -48,22 +49,22 @@ export class ChaseActor{
   // Scene placement owns the combined jump trajectory. Neutralize the source
   // MOTION displacement after evaluation to avoid applying C-07's travel twice.
   this.nodes.MOTION.position.copy(this.motionRest);
-  this.holder.position.set(state.position.x,0,state.position.z);this.holder.rotation.set(0,state.yaw,0);this.holder.updateMatrixWorld(true);
+  this.holder.position.set(state.position.x,state.lift||0,state.position.z);this.holder.rotation.set(0,state.yaw,0);this.holder.updateMatrixWorld(true);
   const meta=this.metadata.clips.find(c=>c.name===state.clip),locomotion=!!meta?.speed_mps&&!state.jump;
   for(const id of ids){
    const foot=this.nodes['PAW_'+id],sole=this.nodes['SOCKET_PAW_'+id],p=position(sole);
    const flat=quaternion(this.holder).multiply(this.restFootQuats[id]);
-   if(locomotion&&p.y<.013){
-    if(!this.anchors.has(id))this.anchors.set(id,{point:p.clone().setY(.003),rotation:flat});
+   if(locomotion&&p.y<this.contactHeight){
+    if(!this.anchors.has(id))this.anchors.set(id,{point:p.clone().setY(this.soleY),rotation:flat});
     const anchor=this.anchors.get(id),result=anchorLeg(this.nodes,id,anchor.point,anchor.rotation);
     if(!result.reachable){this.anchors.delete(id);this.releasedAnchors++;}else this.maxCorrection=Math.max(this.maxCorrection,result.error);
-   }else{this.anchors.delete(id);if(p.y<.003)anchorLeg(this.nodes,id,p.clone().setY(.003),flat);}
+   }else{this.anchors.delete(id);if(p.y<this.soleY)anchorLeg(this.nodes,id,p.clone().setY(this.soleY),flat);}
   }
   // Interpolating joint rotations during a clip change can lower a sole even
   // when both source poses clear the floor. Correct residual unreachable cases
   // with a small common lift instead of stretching a limb through the ground.
   const minimum=Math.min(...ids.map(id=>position(this.nodes['SOCKET_PAW_'+id]).y));
-  if(minimum<.002){this.holder.position.y+=.002-minimum;this.holder.updateMatrixWorld(true);}
+  if(minimum<this.soleY*.67){this.holder.position.y+=this.soleY*.67-minimum;this.holder.updateMatrixWorld(true);}
   this.holder.updateMatrixWorld(true);gltfSkeletons(this.gltf.scene);
  }
  dispose(){this.mixer.stopAllAction();this.gltf.scene.traverse(o=>{if(o.isMesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});}

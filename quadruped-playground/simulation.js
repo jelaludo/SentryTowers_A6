@@ -1,6 +1,13 @@
 // Deterministic, fixed-step playground behavior. Metres and seconds; X/Z ground.
 export const STEP=1/120, RADIUS=5.5, STRAIGHT=16;
 export const TRACK_LENGTH=2*STRAIGHT+2*Math.PI*RADIUS;
+// Ground speed limits are in world metres/second, independent of lane radius.
+// K0's smaller stride is retimed by distance; the source animation stays intact.
+export const ACTORS=[
+ {id:'k9',family:'reckon-k9',node:'RECKON_K9_ACTOR',start:-1.1,lane:-1.3,maxSpeed:4.43,acceleration:2.1,braking:3.5,reaction:3,turnRate:2.3,pursuit:.9,gap:2.3,laneSpring:7,laneDamping:5,lateralAcceleration:1.5,lateralSpeed:.7,jumpDistance:3,jumpRate:1.05,jumpLift:0,blend:.18},
+ {id:'cheetah',family:'mechanical-cheetah',node:'C07_CHEETAH_ACTOR',start:-3.2,lane:1.3,maxSpeed:5.6,acceleration:2.8,braking:3.5,reaction:3,turnRate:2.3,pursuit:.9,gap:2.3,laneSpring:7,laneDamping:5,lateralAcceleration:1.5,lateralSpeed:.7,jumpDistance:3,jumpRate:1.25,jumpLift:0,blend:.18},
+ {id:'k0',family:'k0-tech-01',node:'K0_TECH_01_ACTOR',start:-5.6,lane:0,maxSpeed:6.8,acceleration:6.4,braking:7,reaction:10,turnRate:4.6,pursuit:1.6,gap:.9,laneSpring:18,laneDamping:8,lateralAcceleration:3.8,lateralSpeed:1.3,jumpDistance:2.2,jumpRate:1.8,jumpLift:.16,blend:.10}
+];
 export const OBSTACLES=[
  {id:'H01',s:5,height:.14,width:4.8,depth:.10},
  {id:'H02',s:13,height:.18,width:4.8,depth:.10},
@@ -37,11 +44,15 @@ export function jumpTravel(meta,t,distance=3){
  // that window the source clip's planted contacts and 1.2 m pounce are retained.
  return sourceJumpTravel(meta,t)+(distance-(meta.travel_m||0))*clamp((t-a)/(b-a),0,1);
 }
+export function jumpLift(meta,t,height=0){
+ const a=Math.max(...Object.values(meta.release_s)),b=Math.min(...Object.values(meta.touchdown_s));
+ return height*Math.sin(Math.PI*clamp((t-a)/(b-a),0,1))**2;
+}
 export class ChaseSimulation{
- constructor({seed=27,clips,obstacles=true}={}){this.clips=clips;this.obstacles=obstacles;this.reset(seed);}
+ constructor({seed=27,clips,obstacles=true,actorIds=ACTORS.map(a=>a.id)}={}){this.profiles=ACTORS.filter(a=>actorIds.includes(a.id));this.clips=clips;this.obstacles=obstacles;this.reset(seed);}
  reset(seed=this.seed){
   this.seed=seed;this.random=seeded(seed);this.time=0;this.accumulator=0;this.burstCount=0;this.events=[];this.nextChange=2.1;this.goalSpeed=.9;this.ball={s:1.3,speed:.8,lane:0,...track(1.3),y:.14,state:'Cruise'};
-  this.actors=['k9','cheetah'].map((id,i)=>({id,s:-1.1-i*2.1,lane:i?.5:-.5,laneVelocity:0,speed:.8,worldSpeed:.8,reactedSpeed:.8,phase:0,clip:i?'Feline_Walk_Cycle':'Walk_Cycle',clipTime:0,jump:null,lastObstacle:-Infinity,jumps:0,avoidance:0,yaw:track(-1.1-i*2.1).yaw,position:track(-1.1-i*2.1,i?.5:-.5),state:'Tracking ball'}));
+  this.actors=this.profiles.map(p=>({id:p.id,s:p.start,lane:p.lane,laneVelocity:0,speed:.8,worldSpeed:.8,reactedSpeed:.8,phase:0,clip:p.id==='k9'?'Walk_Cycle':'Feline_Walk_Cycle',clipTime:0,jump:null,lift:0,blend:p.blend,lastObstacle:-Infinity,jumps:0,avoidance:0,yaw:track(p.start).yaw,position:track(p.start,p.lane),state:'Tracking ball'}));
  }
  burst(){this.goalSpeed=3.4+this.random()*.5;this.nextChange=this.time+1.3+this.random()*1.4;this.burstCount++;this.events.push({type:'burst',time:this.time,speed:this.goalSpeed});}
  update(dt){this.accumulator+=Math.max(0,dt);let steps=0;while(this.accumulator>=STEP&&steps<240){this.step(STEP);this.accumulator-=STEP;steps++;}return steps;}
@@ -58,51 +69,54 @@ export class ChaseSimulation{
   const near=OBSTACLES.reduce((d,o)=>Math.min(d,Math.abs(mod(this.ball.s-o.s+TRACK_LENGTH/2,TRACK_LENGTH)-TRACK_LENGTH/2)),Infinity);
   this.ball.y=.14+.035*Math.abs(Math.sin(this.time*7))+(this.obstacles&&near<.8?.34*Math.sin(Math.PI*(1-near/.8)/2)**2:0);
   const old=this.actors.map(a=>({...a,position:{...a.position}}));
-  for(let i=0;i<2;i++){
-   const a=this.actors[i],other=old[1-i],before={...a.position};
-   a.reactedSpeed+=(this.ball.speed-a.reactedSpeed)*(1-Math.exp(-dt*3));
+  for(let i=0;i<this.actors.length;i++){
+   const a=this.actors[i],p=this.profiles[i],before={...a.position},pathScale=Math.max(.6,1-a.position.curvature*a.lane);
+   a.reactedSpeed+=(this.ball.speed-a.reactedSpeed)*(1-Math.exp(-dt*p.reaction));a.lift=0;
    if(a.jump){
-    const j=a.jump;j.time=Math.min(j.meta.duration_s,j.time+dt*j.rate);a.s=j.start+jumpTravel(j.meta,j.time,j.distance);a.lane=j.lane;a.clip=j.meta.name;a.clipTime=j.time;
+    const j=a.jump;j.time=Math.min(j.meta.duration_s,j.time+dt*j.rate);a.s=j.start+jumpTravel(j.meta,j.time,j.distance);a.lift=jumpLift(j.meta,j.time,p.jumpLift);a.lane=j.lane;a.clip=j.meta.name;a.clipTime=j.time;
     a.state=j.time<Math.max(...Object.values(j.meta.release_s))?'Preparing jump':j.time<Math.min(...Object.values(j.meta.touchdown_s))?'Jumping obstacle': 'Landing / recover';
     if(j.time>=j.meta.duration_s){a.lastObstacle=j.obstacle;a.jump=null;a.speed=0;a.phase=0;a.jumps++;this.events.push({type:'land',actor:a.id,time:this.time,obstacle:j.obstacle});}
    }else{
-    const gap=this.ball.s-a.s,lead=Math.sin(this.time*.15)>0?0:1;
-    const desiredGap=i===lead?1.8:2.8;
-    let wanted=clamp(a.reactedSpeed+(gap-desiredGap)*.9,0,(i===0?4.43:5.6)/Math.max(.6,1-a.position.curvature*a.lane));
-    const along=other.s-a.s,close=Math.abs(along)<4.8;
-    const separation=Math.abs(a.lane-other.lane);
-    a.avoidance=close?clamp((4.8-Math.abs(along))/2.4,0,1):0;
-    let laneTarget=this.ball.lane+(i===0?-.35:.35);
-    if(close)laneTarget=(i===0?-1:1)*(.75+.30*a.avoidance);
-    if(along>0&&along<3.8&&separation<1.05)wanted=Math.min(wanted,Math.max(0,other.speed+(along-3.8)*1.5));
-    a.state=a.avoidance>.2?(along>0&&separation<.95?'Giving way':'Passing with space'):'Tracking ball';
+    const gap=this.ball.s-a.s,desiredGap=p.gap+(a.id==='k0'?0:(a.id==='k9'?-1:1)*.5*Math.sin(this.time*.15));
+    let wanted=clamp(a.reactedSpeed+(gap-desiredGap)*p.pursuit,0,p.maxSpeed/pathScale);
+    a.avoidance=0;let yielding=false;
+    for(const other of old){
+     if(other.id===a.id)continue;
+     const along=other.s-a.s,separation=Math.abs(a.lane-other.lane);
+     a.avoidance=Math.max(a.avoidance,clamp((5.2-Math.abs(along))/2.4,0,1));
+     if(along>0&&along<3.8&&separation<1.05){wanted=Math.min(wanted,Math.max(0,other.speed+(along-3.8)*1.5));yielding=true;}
+    }
+    // Stable passing sides avoid crossing another rig's long tail on the bends.
+    // The small cat has the centre lane and reacts more sharply to lure weaving.
+    let laneTarget=p.lane+this.ball.lane*(a.id==='k0'?.35:.12)*(1-.6*a.avoidance);
+    a.state=yielding?'Giving way':a.avoidance>.2?'Passing with space':'Tracking ball';
     if(wanted>a.speed+.3&&a.avoidance<.2)a.state='Accelerating after ball';
-    const obstacle=nextObstacle(a.s-.05),stage=obstacle.worldS-1.5;
-    if(this.obstacles&&obstacle.worldS>a.lastObstacle+.1&&stage-a.s<4.2){
-     laneTarget=i===0?-1.05:1.05;
-     wanted=Math.min(wanted,Math.sqrt(Math.max(0,2*3.5*(stage-a.s))));
+    const obstacle=nextObstacle(a.s-.05),stage=obstacle.worldS-p.jumpDistance/2;
+    if(this.obstacles&&obstacle.worldS>a.lastObstacle+.1&&stage-a.s<Math.max(4.2,a.speed*a.speed/(2*p.braking)+.5)){
+     laneTarget=p.lane;
+     wanted=Math.min(wanted,Math.sqrt(Math.max(0,2*p.braking*(stage-a.s))));
      a.state='Lining up hurdle';
      if(stage-a.s<.035&&a.speed<.48){
-      a.s=stage;a.speed=0;const name=i===0?'Jump':'Pounce',meta=this.clips[a.id].find(c=>c.name===name);
-      a.jump={start:stage,lane:a.lane,time:0,meta,rate:i===0?1.05:1.25,distance:3,obstacle:obstacle.worldS};a.clip=name;a.clipTime=0;
+      a.s=stage;a.speed=0;const name=a.id==='k9'?'Jump':'Pounce',meta=this.clips[a.id].find(c=>c.name===name);
+      a.jump={start:stage,lane:a.lane,time:0,meta,rate:p.jumpRate,distance:p.jumpDistance,obstacle:obstacle.worldS};a.clip=name;a.clipTime=0;
       this.events.push({type:'jump',actor:a.id,time:this.time,obstacle:obstacle.worldS});
      }
     }
     if(!a.jump){
-     a.speed+=clamp(wanted-a.speed,-3.5*dt,(i===0?2.1:2.8)*dt);
+     a.speed+=clamp(wanted-a.speed,-p.braking*dt/pathScale,p.acceleration*dt/pathScale);
      if(this.obstacles&&obstacle.worldS>a.lastObstacle+.1&&stage-a.s>=0)a.s=Math.min(stage,a.s+a.speed*dt);else a.s+=a.speed*dt;
-     const accel=clamp((laneTarget-a.lane)*7-a.laneVelocity*5,-1.5,1.5);a.laneVelocity=clamp(a.laneVelocity+accel*dt,-.7,.7);a.lane=clamp(a.lane+a.laneVelocity*dt,-1.25,1.25);
+     const accel=clamp((laneTarget-a.lane)*p.laneSpring-a.laneVelocity*p.laneDamping,-p.lateralAcceleration,p.lateralAcceleration);a.laneVelocity=clamp(a.laneVelocity+accel*dt,-p.lateralSpeed,p.lateralSpeed);a.lane=clamp(a.lane+a.laneVelocity*dt,-1.45,1.45);
     }
    }
    a.position=track(a.s,a.lane);const dx=a.position.x-before.x,dz=a.position.z-before.z;
    a.worldSpeed=Math.hypot(dx,dz)/dt;
    const yaw=a.jump?track(a.jump.start).yaw:a.worldSpeed>.05?Math.atan2(dx,dz):a.position.yaw;
-   a.yaw+=clamp(Math.atan2(Math.sin(yaw-a.yaw),Math.cos(yaw-a.yaw)),-dt*2.3,dt*2.3);
+   a.yaw+=clamp(Math.atan2(Math.sin(yaw-a.yaw),Math.cos(yaw-a.yaw)),-dt*p.turnRate,dt*p.turnRate);
    if(!a.jump){
     const previous=a.clip;
-    if(a.worldSpeed<.10)a.clip=i===0?'Alert_Idle':'Watch_Idle';
-    else if(i===0)a.clip=a.worldSpeed<1.1?'Walk_Cycle':a.worldSpeed<2.55?'Run_Cycle':a.worldSpeed<3.55?'Gallop_Cycle':'Sprint_Cycle';
-    else a.clip=a.worldSpeed<1.25?'Feline_Walk_Cycle':'Gallop_Cycle';
+    if(a.worldSpeed<.10)a.clip=a.id==='k9'?'Alert_Idle':'Watch_Idle';
+    else if(a.id==='k9')a.clip=a.worldSpeed<1.1?'Walk_Cycle':a.worldSpeed<2.55?'Run_Cycle':a.worldSpeed<3.55?'Gallop_Cycle':'Sprint_Cycle';
+    else a.clip=a.worldSpeed<(a.id==='k0'?.6:1.25)?'Feline_Walk_Cycle':'Gallop_Cycle';
     const meta=this.clips[a.id].find(c=>c.name===a.clip);
     if(meta.speed_mps)a.phase+=Math.hypot(dx,dz)/(meta.speed_mps*meta.duration_s);else a.phase+=dt/meta.duration_s;
     a.clipTime=mod(a.phase,1)*meta.duration_s;
