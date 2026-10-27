@@ -58,7 +58,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3657504,
+      "bytes": 3657412,
       "triangles": 71698,
       "draw_calls": 7,
       "plot_m": [
@@ -170,9 +170,14 @@
             0.815,
             1.34
           ],
-          "travel_m": 0.527999997138977,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+          "travel_m": 1.6,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0.527999997138977,
+            "airborne_extra_m": 1.072000002861023
+          }
         },
         {
           "name": "Roll_Over",
@@ -203,7 +208,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -344,8 +349,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 1005396,
-      "meshopt_sha256": "37b3b6664a43dcaf6018c775d24980fcae5cb6ad889e6227951833145d08ac09"
+      "meshopt_bytes": 1005276,
+      "meshopt_sha256": "44a9de7e135958122e357f8f293608a60cdda9f4e3a51c7fe7437bb8643e7f2c"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
@@ -353,7 +358,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1805408,
+      "bytes": 1805320,
       "triangles": 14906,
       "draw_calls": 7,
       "plot_m": [
@@ -465,9 +470,14 @@
             0.815,
             1.34
           ],
-          "travel_m": 0.527999997138977,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
-          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+          "travel_m": 1.6,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0.527999997138977,
+            "airborne_extra_m": 1.072000002861023
+          }
         },
         {
           "name": "Roll_Over",
@@ -498,7 +508,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -639,8 +649,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 608240,
-      "meshopt_sha256": "284a63f30022632e2d5a285f544648cbc66f4f11542e8dcd5957f466156baea9"
+      "meshopt_bytes": 608120,
+      "meshopt_sha256": "5023adf9e0d09a168c5601774d7d280175ba84197d9f5c6308ecc65e0c5eb102"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
@@ -818,7 +828,7 @@
   "integration": {
     "placement": "Place the entire glTF scene in an instance group. ROOT is an unanimated skeleton lookup. Clone with SkeletonUtils.clone.",
     "gait": "Translate the instance group along +Z at clips.speed_mps multiplied by playback rate. Keep LOD1 during animated gameplay.",
-    "pounce": "MOTION contains 0.528 m of forward travel. Do not apply additional game locomotion during Pounce.",
+    "pounce": "MOTION contains 1.6 m of forward travel. Do not apply additional game locomotion during Pounce.",
     "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
     "collision": "SOCKET_PAW_FL/FR/HL/HR mark paw soles 1.41 mm above the authored floor. Game supplies collision and terrain adaptation.",
     "bounds": "Use validation-report.json clip envelopes for animation-aware culling. The 0.40 by 1.35 m plot reserves the standing silhouette; pounce travels beyond it.",
@@ -838,8 +848,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-k0-tech-01.blend",
-    "bytes": 7025583,
-    "sha256": "cb371b53b512f135823cfc775e845791fc492bc50d3182c9a9dabd7fd3a68d63",
+    "bytes": 7027094,
+    "sha256": "1d133dabb7a83d6de41746e7bdc8cdd70ee8ba5e6b301824db096ec06c323dde",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   },
   "authoring_dependencies": [
@@ -849,7 +859,7 @@
     },
     {
       "file": "tools/blender/k0_tech_motion.py",
-      "sha256": "1743961a618cda45664cfaadb463bc0ab9b9dab363eb3623c37a74157cd3326b"
+      "sha256": "ea3af7c6706e754269c96ca8a15b10d297176259ff8363bea9f911518471a985"
     },
     {
       "file": "tools/blender/build_mechanical_cheetah.py",

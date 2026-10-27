@@ -1,5 +1,13 @@
 # Devlog
 
+## 27 October 2026 / K0 pounce — longer forward flight
+
+Extended K0-TECH-01's exported `Pounce` from 0.528 m to 1.6 m of forward travel. An additional 1.072 m is applied during the existing all-air window, preserving the preparation, separate paw release/contact events and translated landing anchors. The measured torso rise remains 0.219 m: forward displacement is 7.32 times that rise. Duration remains 3.2 s. Geometry, skin, rest transforms and the other seven clips are unchanged; relative pounce articulation differs by less than 0.045 mm after removing root translation.
+
+The standalone viewer now holds a fixed camera over the complete trajectory and displays a ground ruler. It no longer follows the pounce root and conceals forward travel. The side-on seven-pose study also uses a fixed world camera and ground marks. The source profile explicitly records the original 0.528 m push/settle component and added airborne travel, so consuming scenes can apply it once.
+
+Rebuilt both animated plain GLBs, optional Meshopt derivatives and the editable master; the static export is unchanged. Triangles/draws remain 71,698/seven detailed, 14,906/seven game and 2,972/one static. Plain bytes are 3,657,412, 1,805,320 and 244,156 respectively. All six exports pass glTF checks and 11,072 geometry samples. Maximum pounce support-anchor drift is 1.024 mm and decoded root travel error 0.391 mm. The longer 3.2 m chase crossing is being integrated separately; consuming-game, arbitrary terrain/collision and phone acceptance remain pending.
+
 ## 27 October 2026 / K0 optical revision — blue-coated camera lenses
 
 Replaced K0-TECH-01's bright irises, slit pupils and modeled white catchlights with recessed blue-coated lenses in tapered titanium barrels, carbon seals and angular mounting plates. The detailed master includes retaining-ring grooves and small fasteners; the game tier retains the functional silhouette, and the static tier uses simplified dark mounts/blue faces. The optical material is non-emissive, with clearcoat reflections driven by scene lighting. No transparent/transmission pass or additional draw call is introduced.

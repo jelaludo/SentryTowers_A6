@@ -1,5 +1,26 @@
 {
   "status": "passed",
+  "pounce_travel": {
+    "start": {
+      "camera": [
+        3.7481060506252444,
+        0.743985221479757,
+        0.6816879242658618
+      ],
+      "root": 0,
+      "screen": 0.40562289428102705
+    },
+    "end": {
+      "camera": [
+        3.7481060506252444,
+        0.743985221479757,
+        0.6816879242658618
+      ],
+      "root": 1.600000023841858,
+      "screen": -0.5109252043529309,
+      "guide": true
+    }
+  },
   "size_comparison": {
     "cat": [
       0.3008999824523925,
@@ -16,13 +37,13 @@
   "asset_hashes": [
     {
       "file": "k0_tech_01_d0_lod0.glb",
-      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
-      "meshopt_sha256": "37b3b6664a43dcaf6018c775d24980fcae5cb6ad889e6227951833145d08ac09"
+      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
+      "meshopt_sha256": "44a9de7e135958122e357f8f293608a60cdda9f4e3a51c7fe7437bb8643e7f2c"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
-      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
-      "meshopt_sha256": "284a63f30022632e2d5a285f544648cbc66f4f11542e8dcd5957f466156baea9"
+      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
+      "meshopt_sha256": "5023adf9e0d09a168c5601774d7d280175ba84197d9f5c6308ecc65e0c5eb102"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
@@ -83,7 +104,7 @@
       "clip": "Roll_Over",
       "time": 2.6,
       "clips": 8,
-      "draws": 17,
+      "draws": 23,
       "status": "ROLL / PAUSED · DETAILED MASTER"
     },
     {
@@ -96,6 +117,7 @@
   ],
   "lod_encoding_combinations": 6,
   "checks": [
+    "1.6 m pounce displacement with fixed camera, ground ruler and desktop/mobile containment",
     "actual-scale C-07 comparison and half-height measurement",
     "eight clips and scrubbed times",
     "four gallop phases, zero sole contacts in both flights",

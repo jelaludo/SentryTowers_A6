@@ -2,37 +2,37 @@
   "assets": [
     {
       "file": "k0_tech_01_d0_lod0.glb",
-      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
       "triangles": 71698,
       "draw_calls": 7,
-      "bytes": 3657504,
+      "bytes": 3657412,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
-      "sha256": "37b3b6664a43dcaf6018c775d24980fcae5cb6ad889e6227951833145d08ac09",
+      "sha256": "44a9de7e135958122e357f8f293608a60cdda9f4e3a51c7fe7437bb8643e7f2c",
       "triangles": 71698,
       "draw_calls": 7,
-      "bytes": 1005396,
+      "bytes": 1005276,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
-      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
       "triangles": 14906,
       "draw_calls": 7,
-      "bytes": 1805408,
+      "bytes": 1805320,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
-      "sha256": "284a63f30022632e2d5a285f544648cbc66f4f11542e8dcd5957f466156baea9",
+      "sha256": "5023adf9e0d09a168c5601774d7d280175ba84197d9f5c6308ecc65e0c5eb102",
       "triangles": 14906,
       "draw_calls": 7,
-      "bytes": 608240,
+      "bytes": 608120,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -57,12 +57,12 @@
   ],
   "clip_samples": 11072,
   "sample_hz": 120,
-  "minimum_geometry_y_m": 0.0007725426826024948,
+  "minimum_geometry_y_m": 0.000783069491414231,
   "maximum_loop_error_m": 0.000004149710286594688,
   "maximum_loop_rotation_error_rad": 0.0014839989437966585,
   "maximum_stance_slip_m": 0.0006781421420575292,
   "maximum_segment_length_error_m": 0.00002921989234595801,
-  "maximum_pounce_travel_error_m": 0.00016796588897705078,
+  "maximum_pounce_travel_error_m": 0.0003906250000000888,
   "clip_envelopes": {
     "Watch_Idle": {
       "min": [
@@ -152,18 +152,18 @@
     "Pounce": {
       "min": [
         -0.15044999867677078,
-        0.0008773567421645344,
+        0.0008767055338031587,
         -0.6480346816036233
       ],
       "max": [
         0.15044999867677078,
         0.6408372456290118,
-        0.9332695405359788
+        2.0052695672388596
       ],
       "dimensions_m": [
         0.30089999735354156,
-        0.6399598888868473,
-        1.581304222139602
+        0.6399605400952086,
+        2.653304248842483
       ]
     },
     "Roll_Over": {
@@ -321,6 +321,6 @@
     "Gallop_Cycle": 0
   },
   "scope": "Plain and decoded Meshopt exports. Full skinned geometry at 120 Hz, intermediate-time rigid joint lengths, loop position/rotation, stance-foot travel, flight landmarks and static tier budgets. Authored flat-floor kinematics; no terrain physics or measured FPS.",
-  "maximum_jump_anchor_drift_m": 0.000436542167103548,
+  "maximum_jump_anchor_drift_m": 0.001023102147495417,
   "status": "passed"
 }

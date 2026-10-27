@@ -23,6 +23,10 @@ for c in CLIPS:
  if 'travel_m' in c:c['travel_m']*=SCALE.y
  if 'retimed_from_duration_s' in c:del c['retimed_from_duration_s']
  c['pattern_family']='C07 authored feline pattern; proportions and travel adapted for K0-TECH-01'
+POUNCE=next(c for c in CLIPS if c['name']=='Pounce')
+POUNCE['root_motion_profile']={'kind':'base_plus_airborne','base_travel_m':POUNCE['travel_m'],'airborne_extra_m':1.6-POUNCE['travel_m']}
+POUNCE['travel_m']=1.6
+POUNCE['trajectory']='Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.'
 FLOOR_POINTS=None;MAX_REACH_ERROR=0.;WORST_REACH=None
 
 def configure_floor(geometry):
@@ -62,4 +66,11 @@ def pose(clip,t):
   delta=SOLE-minimum;lift=max(0,delta)+min(0,delta)*source.pulse(.2,.9,4.3,5.4,t)
   for n in pos:
    if n!='MOTION':pos[n].z+=lift
+ if clip=='Pounce':
+  # Forward impulse at hind release; settle at the translated landing anchors.
+  # Translating every world joint equally changes only MOTION in the export,
+  # preserving rigid armor and every source preparation/landing contact.
+  a=max(POUNCE['release_s'].values());b=min(POUNCE['touchdown_s'].values())
+  travel=POUNCE['root_motion_profile']['airborne_extra_m']*max(0.,min(1.,(t-a)/(b-a)))
+  for n in pos:pos[n].y-=travel
  return pos,ori

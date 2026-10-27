@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "baseline_commit": "6fe8ac2d80629d89285973ed34a61bceb2ea988c",
+  "scope": "Forward pounce revision: unchanged geometry/skin, rest transforms and seven other animations. Sampled pounce poses retain their articulation relative to MOTION; forward travel is monotonic and exceeds torso rise by more than four times.",
+  "checks": [
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
+      "before_sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "after_sha256": "dd8d42cc53d31e725989ff1a3c0d750c97ccdc1539f3f38aa5d341fbb50c392d",
+      "unchanged_animation_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "unchanged_node_transforms": 54,
+      "geometry_and_skin_unchanged": true,
+      "trajectory": {
+        "forward_travel_m": 1.600000023841858,
+        "maximum_torso_rise_m": 0.21855789318215002,
+        "forward_to_rise_ratio": 7.320714894100803,
+        "maximum_relative_pose_difference_m": 0.00004468493699188202,
+        "maximum_added_travel_error_m": 0.000005022720044989271
+      }
+    },
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
+      "before_sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "after_sha256": "37e5558473ee1335467fb83a4082f8e3b5f05443dce6bc33f9b9dbbed6937dff",
+      "unchanged_animation_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "unchanged_node_transforms": 54,
+      "geometry_and_skin_unchanged": true,
+      "trajectory": {
+        "forward_travel_m": 1.600000023841858,
+        "maximum_torso_rise_m": 0.21855789318215002,
+        "forward_to_rise_ratio": 7.320714894100803,
+        "maximum_relative_pose_difference_m": 0.00004468493699188202,
+        "maximum_added_travel_error_m": 0.000005022720044989271
+      }
+    },
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod2.glb",
+      "before_sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "after_sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "unchanged_animation_clips": [],
+      "unchanged_node_transforms": 54,
+      "geometry_and_skin_unchanged": true,
+      "trajectory": null
+    }
+  ]
+}

@@ -19,7 +19,12 @@ if '--social-study' in sys.argv:poses=[('social-sit','Sit_Down',2.4,'hero'),('so
 if '--jump-study' in sys.argv:
  sys.path.insert(0,str(Path(__file__).resolve().parent))
  from quadruped_motion import JUMPS
- poses=[('jump-'+name,'Pounce',t,'side') for name,t in JUMPS['cheetah']['landmarks_s'].items()]
+ poses=[('jump-'+name,'Pounce',t,'travel') for name,t in JUMPS['cheetah']['landmarks_s'].items()]
+ # World-fixed takeoff/landing ruler: the study now shows displacement instead
+ # of centring each frame on MOTION and concealing forward travel.
+ rail=bpy.data.materials.new('REVIEW_TRAVEL_MARKS');rail.diffuse_color=(.18,.45,.63,1)
+ for i in range(5):
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(0,-1.6*i/4,.0002));o=bpy.context.object;o.name='REVIEW_TRAVEL_'+str(i);o.dimensions=(.36 if i in [0,4] else .18,.008,.001);o.data.materials.append(rail)
 
 if '--pose' in sys.argv:poses=[p for p in poses if p[0]==sys.argv[sys.argv.index('--pose')+1]]
 for file,clip,t,view in poses:
@@ -28,5 +33,7 @@ for file,clip,t,view in poses:
  cam.location=base+Vector((1.8,.10,.55) if view=='side' else (1.15,-1.625,.825));aim(cam,base+Vector((0,.08,.29 if clip=='Pounce' else .23)));d.ortho_scale=1.40 if view=='side' else 1.27
  if view=='optics':
   cam.location=base+Vector((.14,-.75,.40));aim(cam,base+Vector((0,-.354,.326)));d.ortho_scale=.26
+ if view=='travel':
+  cam.location=Vector((2,-.72,.53));aim(cam,(0,-.72,.34));d.ortho_scale=3.05
  s.render.filepath=str(OUT/(file+'.png'));bpy.ops.render.render(write_still=True)
 print('K0_TECH_REVIEW_COMPLETE',flush=True)

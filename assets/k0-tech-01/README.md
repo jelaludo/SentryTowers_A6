@@ -4,7 +4,7 @@ A lynx-point Siamese mechanical house cat with recessed blue-tinted optical lens
 
 https://jelaludo.github.io/SentryTowers_A6/k0-tech-01/
 
-The viewer exposes all eight feline actions, contact diagrams, four gallop phases, seven pounce landmarks, slow motion, scrubbing, camera presets, skeleton/wireframe, plain/Meshopt selection and downloads. **Cheetah scale reference** places the original standing C-07 distance model beside K0 at true metre scale. It resets K0 to paused watch for comparison; it is a size guide, not another interacting character.
+The viewer frames the full 1.6 m pounce in a fixed world camera with takeoff/landing ground marks, so the forward travel remains visible. It also exposes all eight feline actions, contact diagrams, four gallop phases, seven pounce landmarks, slow motion, scrubbing, camera presets, skeleton/wireframe, plain/Meshopt selection and downloads. **Cheetah scale reference** places the original standing C-07 distance model beside K0 at true metre scale. It resets K0 to paused watch for comparison; it is a size guide, not another interacting character.
 
 ## Optical assembly
 
@@ -22,8 +22,8 @@ This is a separate D0-intact family. Damage states and LOD levels remain differe
 
 | File | Role | Triangles | Draws / materials | Plain bytes | Derived Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `k0_tech_01_d0_lod0.glb` | Detailed animation / recording master | 71,698 | 7 / 7 | 3,657,504 | 1,005,396 |
-| `k0_tech_01_d0_lod1.glb` | Articulated game model | 14,906 | 7 / 7 | 1,805,408 | 608,240 |
+| `k0_tech_01_d0_lod0.glb` | Detailed animation / recording master | 71,698 | 7 / 7 | 3,657,412 | 1,005,276 |
+| `k0_tech_01_d0_lod1.glb` | Articulated game model | 14,906 | 7 / 7 | 1,805,320 | 608,120 |
 | `k0_tech_01_d0_lod2.glb` | Static standing distance / loading silhouette | 2,972 | 1 / 1 | 244,156 | 77,080 |
 
 The game tier is within the 25k-triangle unit target. The distance tier meets the 3k triangles, one draw and 250,000-byte targets. It merges the palette into vertex colors, simplifies rounded parts, removes whiskers and tiny mechanics, and paints stripe bands into existing surfaces. Triangle/draw counts are asset-only, excluding the viewer floor, lights, overlays and optional C-07 reference. No FPS improvement is claimed.
@@ -36,7 +36,7 @@ Plain GLBs are authoritative, self-contained and texture-free. Optional `derived
 - Place the **entire glTF scene** in an instance wrapper. The rigid skinned mesh is a sibling of the skeleton hierarchy; `ROOT` is a lookup frame, not the placement wrapper. Use `SkeletonUtils.clone` for independent instances.
 - Keep articulated LOD1 for visible gameplay, interactions and animations. LOD0 is the close-shot/recording master. LOD2 has no skin or clips; it preserves the named hierarchy and seven socket transforms for standing map/loading use. The manifest's 18 m approach and 5 m hysteresis are review proposals, not accepted game-camera thresholds.
 - `SENSOR_YAW` remains excluded from clips. Its sensor frame, mouth, payload and four paw sockets retain meaningful dot-free names. Look up nodes within this family's instance. `manifest.json` records the complete node list and measured socket positions.
-- Locomotion is in place. Move the instance along +Z by the selected clip's `speed_mps × playbackRate`. `Pounce` contains **0.528 m** forward travel on `MOTION`: suppress extra locomotion during the action and transfer that displacement to the instance before returning to idle.
+- Locomotion is in place. Move the instance along +Z by the selected clip's `speed_mps × playbackRate`. `Pounce` contains **1.6 m** forward travel on `MOTION`: suppress extra locomotion during the action and transfer that displacement to the instance before returning to idle.
 - Use `validation-report.json` clip envelopes for culling and placement clearance; moving poses extend beyond the standing plot. The game owns collision, terrain adaptation, navigation, transitions and events. This is authored kinematic animation, not physical dynamics.
 
 ## Rig and full move-set
@@ -50,9 +50,11 @@ Plain GLBs are authoritative, self-contained and texture-free. Optional `derived
 | `Stalk_Cycle` | 2.4 s | Yes | Low body and cautious steps; 0.089316 m/s |
 | `Gallop_Cycle` | 0.4 s | Yes | Rotary contacts, gathered and extended flight; 2.688889 m/s |
 | `Sit_Down` | 2.4 s | No | Fold hindquarters and hold seated pose |
-| `Pounce` | 3.2 s | No | Crouch, hind push, tuck/reach, forepaw-first landing; 0.528 m root travel |
+| `Pounce` | 3.2 s | No | Crouch, hind push, tuck/reach, forepaw-first landing; 1.6 m root travel |
 | `Roll_Over` | 5.6 s | No | Crouch, tuck, roll through flank/back and recover |
 | `Give_Paw` | 4.4 s | No | Sit, offer/shake the left forepaw, lower it and stand |
+
+The forward pounce retains the original 0.528 m push/settle profile and adds 1.072 m of horizontal travel during the all-air interval (0.815–1.340 s). This moves both the body and landing anchors without changing the airborne articulation or stretching the rig. The measured torso rise is 0.219 m, so forward travel is 7.32 times the rise. The full 3.2 s clip includes preparation and recovery. `root_motion_profile` records both travel components; do not reconstruct the entire trajectory by simply scaling the old root curve.
 
 Names, durations and contact/event timing match C-07's eight authored actions. The adapter rebuilds torso/tail chains at K0 rest lengths and solves each limb again against adapted paw trajectories. The forward dimension uses 0.44 of C-07, vertical dimensions 0.47 and lateral dimensions 0.59, with an additional 0.78 tail-length factor. Added geometry establishes the distinct facial and armor shape. There is **no animated nonuniform bone scale**. Requested unreachable targets are clamped rather than stretching limbs; the largest authoring clamp is 0.708 mm during a tucked roll. The export validator independently checks actual limb lengths and contacts.
 
@@ -62,9 +64,11 @@ Walk/stalk contacts remain HR → FR → HL → FL with duty factors 0.60 / 0.78
 
 The family validator covers plain and decoded Meshopt exports, glTF errors/warnings, finite nondegenerate geometry, stable node/socket interfaces, budgets, all eight clips, floor clearance, stance drift, loop continuity, intermediate rigid lengths, two-flight gallop, pounce travel and supported sit/roll/hand poses. The browser test covers the eight clip controls, four gait landmarks, six tier/encoding combinations, static animation disabling, actual-scale comparison and desktop/mobile layout. Generated reports record the measured results and input file hashes.
 
-`optics-revision-validation.json` compares the revised plain exports against `2f2b955d17941b5b9a3dd06ef77e6e35f3df5f4b`: all eight animation key arrays, node rest transforms and non-optical material parameters match exactly in all tiers. Standing dimensions and sockets remain unchanged.
+The historical `optics-revision-validation.json` records the optical-only revision at `e15a12a7361256e4b44e651837b03b8c60ff3bd7` against `2f2b955d17941b5b9a3dd06ef77e6e35f3df5f4b`: all eight animation key arrays, node rest transforms and non-optical material parameters match exactly in all tiers. Standing dimensions and sockets remained unchanged in that revision.
 
-All six exports pass with zero glTF errors/warnings. Across 11,072 full-geometry samples at 120 Hz, minimum floor clearance is 0.773 mm, maximum stance drift 0.679 mm, maximum rigid segment-length error 0.030 mm, and maximum pounce support-anchor drift 0.437 mm. Loop position error is below 0.005 mm; pounce travel quantization error is below 0.168 mm. Both flight phases, forepaw-first landing and the supporting paws during sit/hand are asserted separately. Blender pose sheets and Chromium desktop/390px mobile captures were visually reviewed.
+`pounce-revision-validation.json` compares the current exports against `6fe8ac2d80629d89285973ed34a61bceb2ea988c`: geometry, rigid skin, rest nodes and the other seven clips are unchanged. The pounce travels monotonically to 1.6 m; relative articulation differs by less than 0.045 mm after root translation is removed.
+
+All six exports pass with zero glTF errors/warnings. Across 11,072 full-geometry samples at 120 Hz, minimum floor clearance is 0.783 mm, maximum stance drift 0.679 mm, maximum rigid segment-length error 0.030 mm, and maximum pounce support-anchor drift 1.024 mm. Loop position error is below 0.005 mm; pounce travel quantization error is below 0.391 mm. Both flight phases, forepaw-first landing and the supporting paws during sit/hand are asserted separately. Blender pose sheets and Chromium desktop/390px mobile captures were visually reviewed.
 
 Regenerate from the repository root:
 

@@ -16,17 +16,23 @@ const rim=new T.DirectionalLight(0xb6d5ef,2.5);rim.position.set(-2,2,-3);scene.a
 const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({color:0x262b2c,roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.005;floor.receiveShadow=true;scene.add(floor);
 const grid=new T.GridHelper(20,160,0x74705c,0x48504c);grid.position.y=-.003;grid.material.transparent=true;grid.material.opacity=.35;scene.add(grid);
 const holder=new T.Group();scene.add(holder);
+// A fixed ground ruler makes the exported forward displacement easy to read.
+const pounceGuide=new T.Group();pounceGuide.name='POUNCE_TRAVEL_GUIDE';scene.add(pounceGuide);
+const guideMaterial=new T.MeshBasicMaterial({color:0x9bccec,transparent:true,opacity:.48,depthWrite:false});
+const guideLine=new T.Mesh(new T.BoxGeometry(.003,.002,1),guideMaterial);guideLine.position.set(0,.002,.5);pounceGuide.add(guideLine);
+for(let i=0;i<=4;i++){const tick=new T.Mesh(new T.BoxGeometry(i%4===0?.25:.09,.002,.003),guideMaterial);tick.position.set(0,.002,i/4);pounceGuide.add(tick);}
 const markers={};for(const id of ['FL','FR','HL','HR']){const marker=new T.Mesh(new T.RingGeometry(.021,.024,32),new T.MeshBasicMaterial({color:0x9bccec,side:T.DoubleSide,transparent:true,opacity:.8,depthWrite:false}));marker.rotation.x=-Math.PI/2;scene.add(marker);markers[id]=marker;}
-const manifest=await fetch('../assets/k0-tech-01/manifest.json?v=k0-optics-20261027').then(r=>r.json());
+const manifest=await fetch('../assets/k0-tech-01/manifest.json?v=k0-forward-pounce-20261027').then(r=>r.json());
 const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const labels={Watch_Idle:'Watch',Feline_Walk_Cycle:'Walk',Stalk_Cycle:'Stalk',Gallop_Cycle:'Gallop',Sit_Down:'Sit',Pounce:'Pounce',Roll_Over:'Roll',Give_Paw:'Hand'};
-const notes={Watch_Idle:'A quiet watch with small head, ear and tail adjustments.',Feline_Walk_Cycle:'Hind foot, then the forefoot on the same side. Narrow steps, sliding shoulders and a quiet head. 0.24 m/s.',Stalk_Cycle:'A lower body and slower paw lift keep at least three feet in stance. 0.09 m/s.',Gallop_Cycle:'Fore contacts → gathered flight → hind contacts → extended flight. Study the spine at ¼ speed. 2.69 m/s.',Sit_Down:'Hindquarters fold down while the forepaws support the chest. Holds the seated pose.',Roll_Over:'Crouch, tuck the paws and ears, roll through 360°, then stand again.',Give_Paw:'Sit, offer the left forepaw, shake gently, then return to standing.',Pounce:'Crouch, extend from the hind legs, tuck, then reach for forepaw-first contact. The hips and tail settle afterward. Includes 0.528 m travel.'};
+const notes={Watch_Idle:'A quiet watch with small head, ear and tail adjustments.',Feline_Walk_Cycle:'Hind foot, then the forefoot on the same side. Narrow steps, sliding shoulders and a quiet head. 0.24 m/s.',Stalk_Cycle:'A lower body and slower paw lift keep at least three feet in stance. 0.09 m/s.',Gallop_Cycle:'Fore contacts → gathered flight → hind contacts → extended flight. Study the spine at ¼ speed. 2.69 m/s.',Sit_Down:'Hindquarters fold down while the forepaws support the chest. Holds the seated pose.',Roll_Over:'Crouch, tuck the paws and ears, roll through 360°, then stand again.',Give_Paw:'Sit, offer the left forepaw, shake gently, then return to standing.',Pounce:'Crouch, extend from the hind legs, tuck, then reach for forepaw-first contact. The hips and tail settle afterward. Leaps 1.6 m forward. The fixed camera and ground marks show takeoff to landing.'};
 const inspector=createMotionInspector($('motion-study'),{seek:t=>scrub(t),sideView:()=>setView('side')});
-let gltf,mixer,action,helper,entry,comparison,comparisonPromise,clipName='Watch_Idle',time=0,elapsed=0,playing=true,loadToken=0;
+let gltf,mixer,action,helper,entry,comparison,comparisonPromise,clipName='Watch_Idle',activeView='hero',time=0,elapsed=0,playing=true,loadToken=0;
 const phaseNames={fore_support:'Fore support',gathered:'Gathered flight',hind_support:'Hind support',extended:'Extended flight'};
 for(const [name,label] of Object.entries(labels)){const button=document.createElement('button');button.innerHTML=`<span>${String(Object.keys(labels).indexOf(name)+1).padStart(2,'0')}</span>${label}`;button.onclick=()=>selectClip(name);button.dataset.clip=name;$('clips').append(button);}
 function metadata(){return entry?.clips.find(c=>c.name===clipName);}
 function selectClip(name){
+ const wasPounce=clipName==='Pounce';
  clipName=name;time=0;elapsed=0;playing=true;holder.position.set($('comparison').checked?.42:0,0,0);mixer?.stopAllAction();
  const clip=gltf?.animations.find(c=>c.name===name);action=clip?mixer.clipAction(clip):null;
  if(action){action.reset().setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();mixer.update(0);}
@@ -35,6 +41,7 @@ function selectClip(name){
  $('phase-panel').hidden=name!=='Gallop_Cycle'||!!entry?.static;
  document.querySelectorAll('[data-clip]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.clip===name));b.disabled=!!entry?.static;});
  updatePose();
+ if(name==='Pounce'||wasPounce)setView(activeView);
 }
 function disposeAsset(asset){asset.scene.traverse(o=>{if(o.isMesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});}
 async function load(){
@@ -54,6 +61,7 @@ function wireframe(){gltf?.scene.traverse(o=>{if(o.isMesh)for(const m of Array.i
 function phaseLabel(){const u=time/(action?.getClip().duration||1);return u<.26?'Fore support':u<.48?'Gathered flight':u<.74?'Hind support':'Extended flight';}
 function updatePose(){
  if(!gltf)return;holder.position.z=0;
+ pounceGuide.visible=clipName==='Pounce'&&!entry.static&&!$('comparison').checked;pounceGuide.scale.z=metadata()?.travel_m||1;
  if(action){action.time=Math.min(time,action.getClip().duration-1e-7);action.enabled=true;action.paused=false;mixer.update(0);const meta=metadata();if($('travel').checked&&meta.speed_mps)holder.position.z=meta.speed_mps*elapsed;}
  holder.updateMatrixWorld(true);gltf.scene.traverse(o=>{if(o.isSkinnedMesh)o.skeleton.update();});helper?.updateMatrixWorld(true);
  let contacts=0;for(const [id,marker] of Object.entries(markers)){
@@ -74,9 +82,22 @@ $('skeleton').onchange=()=>helper.visible=$('skeleton').checked&&!entry.static;
 $('play').onclick=()=>{if(!playing&&action&&time>=action.getClip().duration){time=0;elapsed=0;}playing=!playing;$('play').textContent=playing?'Pause':'Play';};
 $('replay').onclick=()=>selectClip(clipName);$('travel').onchange=()=>{elapsed=time;updatePose();};$('contacts').onchange=updatePose;$('time').oninput=()=>scrub(Number($('time').value));
 const views={hero:{p:[1.325,.80,1.60],target:[0,.245,-.12]},side:{p:[2.25,.41,-.12],target:[0,.24,-.12]},front:{p:[0,.60,1.8],target:[0,.235,-.08]},head:{p:[.38,.50,.79],target:[0,.325,.34]}};
-function followPoint(){const p=new T.Vector3();gltf?.scene.getObjectByName('MOTION')?.getWorldPosition(p);p.y=0;return p;}
+function followPoint(){const p=new T.Vector3();if(clipName!=='Pounce')gltf?.scene.getObjectByName('MOTION')?.getWorldPosition(p);p.y=0;return p;}
 let previousFollow=new T.Vector3();
-function setView(name){const v=views[name],focus=followPoint();camera.position.fromArray(v.p).add(focus);controls.target.fromArray(v.target).add(focus);if($('comparison').checked&&name!=='head'){controls.target.set(0,.40,focus.z-.35);camera.position.copy(controls.target).add(new T.Vector3(...v.p).sub(new T.Vector3(...v.target)).multiplyScalar(2.05));}previousFollow.copy(focus);controls.update();camera.updateMatrixWorld(true);}
+function setView(name){
+ activeView=name;const v=views[name],focus=followPoint();camera.position.fromArray(v.p).add(focus);controls.target.fromArray(v.target).add(focus);
+ if(clipName==='Pounce'&&metadata()?.travel_m&&!$('comparison').checked){
+  // Frame the entire trajectory once, rather than following MOTION and hiding
+  // its displacement. Takeoff, flight and landing share this world-space view.
+  const min=new T.Vector3(...entry.bounds.min),max=new T.Vector3(...entry.bounds.max);max.z+=metadata().travel_m;max.y+=.5;
+  const target=min.clone().add(max).multiplyScalar(.5),back=new T.Vector3(...v.p).sub(new T.Vector3(...v.target)).normalize(),right=new T.Vector3(back.z,0,-back.x).normalize(),up=new T.Vector3().crossVectors(back,right);
+  const tanV=Math.tan(camera.fov*Math.PI/360),tanH=tanV*camera.aspect;let distance=.5;
+  for(const x of [min.x,max.x])for(const y of [min.y,max.y])for(const z of [min.z,max.z]){const point=new T.Vector3(x,y,z).sub(target);distance=Math.max(distance,point.dot(back)+(Math.abs(point.dot(right))+.10)/(tanH*.86),point.dot(back)+(Math.abs(point.dot(up))+.10)/(tanV*.80));}
+  controls.target.copy(target);camera.position.copy(target).addScaledVector(back,distance);
+ }
+ if($('comparison').checked&&name!=='head'){controls.target.set(0,.40,focus.z-.35);camera.position.copy(controls.target).add(new T.Vector3(...v.p).sub(new T.Vector3(...v.target)).multiplyScalar(2.05));}
+ previousFollow.copy(focus);controls.update();camera.updateMatrixWorld(true);
+}
 async function showComparison(){
  const enabled=$('comparison').checked;
  if(enabled&&!comparison){
@@ -93,7 +114,7 @@ for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>
 for(const button of document.querySelectorAll('[data-phase]'))button.onclick=()=>{const meta=metadata();if(!meta?.phase_landmarks)return;scrub(meta.duration_s*meta.phase_landmarks[button.dataset.phase]);setView('side');};
 $('fullscreen').onclick=async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen();};
 document.addEventListener('keydown',e=>{if(e.code==='Space'&&!['INPUT','SELECT','BUTTON'].includes(e.target.tagName)){e.preventDefault();$('play').click();}});
-new ResizeObserver(()=>{camera.aspect=stage.clientWidth/stage.clientHeight;camera.fov=2*Math.atan(Math.tan(38*Math.PI/360)/Math.min(1,camera.aspect/1.1))*180/Math.PI;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);}).observe(stage);
+new ResizeObserver(()=>{camera.aspect=stage.clientWidth/stage.clientHeight;camera.fov=2*Math.atan(Math.tan(38*Math.PI/360)/Math.min(1,camera.aspect/1.1))*180/Math.PI;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);if(clipName==='Pounce')setView(activeView);}).observe(stage);
 await load();let last=performance.now();
 renderer.setAnimationLoop(now=>{
  const dt=Math.min((now-last)/1000,.05);last=now;
