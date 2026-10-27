@@ -16,18 +16,18 @@
   "asset_hashes": [
     {
       "file": "k0_tech_01_d0_lod0.glb",
-      "sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
-      "meshopt_sha256": "97f0df7ef68f7785000d1fa764d27823e3f8fcf3c4f8e3e8f34465a49bbc1104"
+      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "meshopt_sha256": "37b3b6664a43dcaf6018c775d24980fcae5cb6ad889e6227951833145d08ac09"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
-      "sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
-      "meshopt_sha256": "2a53f3a8080297aa18ec99b12b443e90ce77080e083c24c803b05131094877ae"
+      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "meshopt_sha256": "284a63f30022632e2d5a285f544648cbc66f4f11542e8dcd5957f466156baea9"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
-      "sha256": "28277ccd20381f1134e51bea695b0718fbcef435b611b591bb2095acea4c2a9e",
-      "meshopt_sha256": "0c750cceaee7224de4c6185185476424b97139f187dded07fae1343dc4864aa7"
+      "sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "meshopt_sha256": "5f7b7161170e2ccc9c15bf28a3fb8cd9bf458a7429990447da7039be899f3d41"
     }
   ],
   "browser": "Chromium headless, real WebGL; not a performance benchmark",

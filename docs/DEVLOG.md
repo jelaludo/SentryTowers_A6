@@ -1,5 +1,13 @@
 # Devlog
 
+## 27 October 2026 / K0 optical revision — blue-coated camera lenses
+
+Replaced K0-TECH-01's bright irises, slit pupils and modeled white catchlights with recessed blue-coated lenses in tapered titanium barrels, carbon seals and angular mounting plates. The detailed master includes retaining-ring grooves and small fasteners; the game tier retains the functional silhouette, and the static tier uses simplified dark mounts/blue faces. The optical material is non-emissive, with clearcoat reflections driven by scene lighting. No transparent/transmission pass or additional draw call is introduced.
+
+Rebuilt the editable master, three plain GLBs and optional Meshopt derivatives. Measured totals are 71,698 triangles / seven draws / 3,657,504 plain bytes for detailed; 14,906 / seven / 1,805,408 for game; 2,972 / one / 244,156 for static distance. Plain exports match all previous animation key arrays, node rest transforms and non-optical material parameters exactly. Standing dimensions, sockets, all eight actions and K0's chase tuning remain intact.
+
+Added an optical assembly close-up, refreshed family review imagery and the viewer wording, and retained the Head camera for interactive inspection. Family plain/decoded validation and browser review are recorded alongside the exports. The shared chase's asset pins and derived preview will be refreshed in the integration commit. Consuming-game r160/release gltfpack, arbitrary terrain/collisions, camera and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / K0 joins the chase — faster, quicker to react
 
 Added K0-TECH-01 to `quadruped-playground/` at its original half-height scale. It starts behind the larger robots, catches up at a 6.8 m/s target ground speed, accelerates at 6.4 m/s² and responds to lure speed with a 0.10 s time constant. K9/C-07 retain 4.43/5.6 m/s targets, 2.1/2.8 m/s² acceleration and 0.333 s perception. K0 also has faster lateral/heading response and shorter 0.10 s gait blends. Actual distance drives the shorter cat stride; source GLBs and clips remain unchanged.

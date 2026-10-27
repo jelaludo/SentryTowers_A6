@@ -1,4 +1,4 @@
-import {collections} from './catalog.js?v=chase-trio-20261027';
+import {collections} from './catalog.js?v=k0-optics-20261027';
 const $=id=>document.getElementById(id),params=new URLSearchParams(location.search),categories=['All',...new Set(collections.map(c=>c.category))];let category=categories.includes(params.get('category'))?params.get('category'):'All';$('search').value=params.get('q')||'';$('collectionCount').textContent=collections.length;
 for(const name of categories){const b=document.createElement('button');b.textContent=name;b.onclick=()=>{category=name;render();};$('filters').append(b);}
 const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();

@@ -9,13 +9,15 @@ import build_mechanical_cheetah as cheetah
 import k0_tech_motion as motion
 from k0_tech_motion import H,PAR,LEGS,TAIL,CLIPS,FPS,pose,mapped
 P=Path(__file__).resolve().parents[2];OUT=P/'assets/k0-tech-01';OUT.mkdir(exist_ok=True)
-COLORS=[(.030,.037,.041),(.62,.48,.32),(.82,.79,.69),(.012,.016,.019),(.31,.34,.33),(.018,.32,.95),(.19,.135,.086)]
+COLORS=[(.030,.037,.041),(.62,.48,.32),(.82,.79,.69),(.012,.016,.019),(.31,.34,.33),(.010,.065,.18),(.19,.135,.086)]
 
 def material(i,distance=False):
- names=['Graphite_frame','Warm_beige_ceramic','Porcelain_white','Carbon_seals','Satin_titanium','Sapphire_blue_eyes','Lynx_taupe_stripes']
+ names=['Graphite_frame','Warm_beige_ceramic','Porcelain_white','Carbon_seals','Satin_titanium','Blue_coated_optical_glass','Lynx_taupe_stripes']
  m=bpy.data.materials.new('K0_'+names[i]);m.use_nodes=True;s=m.node_tree.nodes.get('Principled BSDF');s.inputs['Base Color'].default_value=(*COLORS[i],1);m.diffuse_color=(*COLORS[i],1)
- s.inputs['Metallic'].default_value=[.7,.25,.20,.05,.85,.35,.20][i];s.inputs['Roughness'].default_value=[.35,.43,.38,.72,.30,.16,.49][i]
- if i==5:s.inputs['Emission Color'].default_value=(*COLORS[i],1);s.inputs['Emission Strength'].default_value=2.3
+ s.inputs['Metallic'].default_value=[.7,.25,.20,.05,.85,.15,.20][i];s.inputs['Roughness'].default_value=[.35,.43,.38,.72,.30,.12,.49][i]
+ if i==5:
+  s.inputs['IOR'].default_value=1.46;s.inputs['Coat Weight'].default_value=.65;s.inputs['Coat Roughness'].default_value=.09
+  s.inputs['Emission Strength'].default_value=0
  if distance:
   s.inputs['Metallic'].default_value=.35;n=m.node_tree.nodes.new('ShaderNodeVertexColor');n.layer_name='Palette';m.node_tree.links.new(n.outputs['Color'],s.inputs['Base Color'])
  return m
@@ -106,12 +108,23 @@ def shape(lod,reference=None):
  g.hull([(-.69,.068,.618,.023),(-.79,.079,.602,.026),(-.872,.052,.611,.017)],2,'JAW')
  for s in [-1,1]:
   g.side_plate([(-.66,.716),(-.725,.74),(-.805,.705),(-.84,.666),(-.80,.631),(-.70,.629),(-.65,.665)],s*.097,.016,2,'HEAD')
-  # Eyes face forward with a blue iris and slim dark pupil.
-  g.ellipsoid((s*.067,-.797,.696),(.037,.023,.025),6,'HEAD')
-  g.ellipsoid((s*.067,-.816,.695),(.027,.010,.014),5,'HEAD')
+  # Flush camera modules: angular mounting plate, metal barrel, rubber seal
+  # and a shallow blue-coated glass face. Highlights come from scene lighting.
+  x=s*.067;z=.695
+  mount=[(-.034,-.011),(-.025,-.022),(.025,-.022),(.034,-.011),(.034,.011),(.025,.022),(-.025,.022),(-.034,.011)] if lod<2 else [(-.032,-.020),(.032,-.020),(.032,.020),(-.032,.020)]
+  g.panel([(x+dx,-.807,z+dz) for dx,dz in mount],.010,6,'HEAD')
   if lod<2:
-   g.ellipsoid((s*.067,-.825,.696),(.0055,.0025,.011),3,'HEAD')
-   g.ellipsoid((s*.060,-.8255,.700),(.003,.002,.003),2,'HEAD')
+   g.tube((x,-.811,z),(x,-.820,z),.022,4,'HEAD',r1=.020)
+   g.ring((x,-.8205,z),.0165,.002,(0,-1,0),3,'HEAD')
+   g.ellipsoid((x,-.8205,z),(.0148,.0028,.0148),5,'HEAD')
+   if lod==0:
+    g.ring((x,-.817,z),.021,.0008,(0,-1,0),0,'HEAD')
+    for side in [-1,1]:
+     g.tube((x+side*.027,-.8125,z),(x+side*.027,-.815,z),.0032,4,'HEAD',sides=8)
+     g.box((x+side*.027,-.8153,z),(.0034,.0008,.0007),3,'HEAD',0)
+  else:
+   g.tube((x,-.812,z),(x,-.819,z),.020,0,'HEAD')
+   g.tube((x,-.8195,z),(x,-.821,z),.0148,5,'HEAD')
   g.ellipsoid((s*.039,-.859,.634),(.047,.036,.031),2,'HEAD')
   # Brow stripes and cheek bars are actual small closed armor patches.
   g.panel([(s*.016,-.785,.749),(s*.035,-.779,.762),(s*.074,-.769,.766),(s*.071,-.779,.755),(s*.035,-.791,.752)],.003,6,'HEAD')

@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "baseline_commit": "2f2b955d17941b5b9a3dd06ef77e6e35f3df5f4b",
+  "scope": "Eye geometry and optical finish revision. All plain-export animation key arrays, node rest transforms, and non-optical materials match the previous revision exactly.",
+  "checks": [
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
+      "before_sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
+      "after_sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
+      "unchanged_animation_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Pounce",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "unchanged_node_transforms": 54
+    },
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
+      "before_sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
+      "after_sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
+      "unchanged_animation_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Pounce",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "unchanged_node_transforms": 54
+    },
+    {
+      "file": "assets/k0-tech-01/k0_tech_01_d0_lod2.glb",
+      "before_sha256": "28277ccd20381f1134e51bea695b0718fbcef435b611b591bb2095acea4c2a9e",
+      "after_sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
+      "unchanged_animation_clips": [],
+      "unchanged_node_transforms": 54
+    }
+  ]
+}

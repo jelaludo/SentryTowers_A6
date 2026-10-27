@@ -1,28 +1,34 @@
 # K0-TECH-01 / Felis
 
-A lynx-point Siamese mechanical house cat with sapphire-blue optics, warm beige and porcelain-white armor, taupe stripes on the lower legs/paws, white toes and a shorter ringed tail. The rounder skull, larger pointed ears, fuller rib cage/haunches and broader stance distinguish it from C-07. Whisker wires and the `K0 / TECH` shoulder marking are modeled in the articulated tiers.
+A lynx-point Siamese mechanical house cat with recessed blue-tinted optical lenses, warm beige and porcelain-white armor, taupe stripes on the lower legs/paws, white toes and a shorter ringed tail. The rounder skull, larger pointed ears, fuller rib cage/haunches and broader stance distinguish it from C-07. Whisker wires and the `K0 / TECH` shoulder marking are modeled in the articulated tiers.
 
 https://jelaludo.github.io/SentryTowers_A6/k0-tech-01/
 
 The viewer exposes all eight feline actions, contact diagrams, four gallop phases, seven pounce landmarks, slow motion, scrubbing, camera presets, skeleton/wireframe, plain/Meshopt selection and downloads. **Cheetah scale reference** places the original standing C-07 distance model beside K0 at true metre scale. It resets K0 to paused watch for comparison; it is a size guide, not another interacting character.
 
+## Optical assembly
+
+The face uses shallow blue-coated glass surfaces seated inside tapered titanium barrels, carbon seals and angular taupe mounting plates. The detailed tier includes retaining-ring grooves and small slotted fasteners. The game tier keeps the lens/barrel/seal shape; the distance tier reduces it to dark mounts and flat blue faces within its existing vertex-color material.
+
+`K0_Blue_coated_optical_glass` is non-emissive, with roughness 0.12, metallic 0.15 and a 0.65 clearcoat. `KHR_materials_clearcoat` supplies the outer reflection layer; the glass is rendered opaque, without transmission or transparent sorting. Highlights come from the scene lights/environment. There are no biological pupils or modeled white catchlights. The assembly is rigidly attached to `HEAD`, with no new animation controls or draw calls. `optics-detail.png` is a derived close-up from the editable master; the viewer's Head camera inspects it interactively.
+
 ## Size and family
 
 Standing detailed bounds: **0.301 m wide × 0.420 m high × 1.048 m long**, including the tail and whiskers. That is **49.6% of C-07's height**, with a broader width-to-height ratio and a substantially shorter tail. The source C-07 bounds are 0.484 × 0.847 × 2.775 m. This is an intentionally more compact house-cat shape, not a uniform miniature Cheetah. The standing plot reserves **0.40 × 1.35 m**.
 
-This is a separate D0-intact family. Damage states and LOD levels remain different concepts. The existing K9, C-07 and two-animal chase assets are preserved.
+This is a separate D0-intact family. Damage states and LOD levels remain different concepts. The shared three-animal chase uses the same K0 exports at their original scale.
 
 ## Measured exports
 
 | File | Role | Triangles | Draws / materials | Plain bytes | Derived Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `k0_tech_01_d0_lod0.glb` | Detailed animation / recording master | 74,946 | 7 / 7 | 3,742,308 | 1,017,780 |
-| `k0_tech_01_d0_lod1.glb` | Articulated game model | 15,578 | 7 / 7 | 1,821,604 | 611,560 |
-| `k0_tech_01_d0_lod2.glb` | Static standing distance / loading silhouette | 2,964 | 1 / 1 | 245,836 | 77,584 |
+| `k0_tech_01_d0_lod0.glb` | Detailed animation / recording master | 71,698 | 7 / 7 | 3,657,504 | 1,005,396 |
+| `k0_tech_01_d0_lod1.glb` | Articulated game model | 14,906 | 7 / 7 | 1,805,408 | 608,240 |
+| `k0_tech_01_d0_lod2.glb` | Static standing distance / loading silhouette | 2,972 | 1 / 1 | 244,156 | 77,080 |
 
 The game tier is within the 25k-triangle unit target. The distance tier meets the 3k triangles, one draw and 250,000-byte targets. It merges the palette into vertex colors, simplifies rounded parts, removes whiskers and tiny mechanics, and paints stripe bands into existing surfaces. Triangle/draw counts are asset-only, excluding the viewer floor, lights, overlays and optional C-07 reference. No FPS improvement is claimed.
 
-Plain GLBs are authoritative, self-contained and texture-free. Optional `derived/meshopt/` copies are compressed derivatives and are validated after decoding. `../../source/blender/a6-k0-tech-01.blend` is the editable detailed authoring master. The preview, action renders, motion/jump/social sheets and size comparison are derived review imagery.
+Plain GLBs are authoritative, self-contained and texture-free. Optional `derived/meshopt/` copies are compressed derivatives and are validated after decoding. `../../source/blender/a6-k0-tech-01.blend` is the editable detailed authoring master. The optical close-up, preview, action renders, motion/jump/social sheets and size comparison are derived review imagery.
 
 ## Runtime contract
 
@@ -56,6 +62,8 @@ Walk/stalk contacts remain HR → FR → HL → FL with duty factors 0.60 / 0.78
 
 The family validator covers plain and decoded Meshopt exports, glTF errors/warnings, finite nondegenerate geometry, stable node/socket interfaces, budgets, all eight clips, floor clearance, stance drift, loop continuity, intermediate rigid lengths, two-flight gallop, pounce travel and supported sit/roll/hand poses. The browser test covers the eight clip controls, four gait landmarks, six tier/encoding combinations, static animation disabling, actual-scale comparison and desktop/mobile layout. Generated reports record the measured results and input file hashes.
 
+`optics-revision-validation.json` compares the revised plain exports against `2f2b955d17941b5b9a3dd06ef77e6e35f3df5f4b`: all eight animation key arrays, node rest transforms and non-optical material parameters match exactly in all tiers. Standing dimensions and sockets remain unchanged.
+
 All six exports pass with zero glTF errors/warnings. Across 11,072 full-geometry samples at 120 Hz, minimum floor clearance is 0.773 mm, maximum stance drift 0.679 mm, maximum rigid segment-length error 0.030 mm, and maximum pounce support-anchor drift 0.437 mm. Loop position error is below 0.005 mm; pounce travel quantization error is below 0.168 mm. Both flight phases, forepaw-first landing and the supporting paws during sit/hand are asserted separately. Blender pose sheets and Chromium desktop/390px mobile captures were visually reviewed.
 
 Regenerate from the repository root:
@@ -65,6 +73,7 @@ blender -b --python-exit-code 1 --python tools/blender/build_k0_tech_01.py
 node tools/asset-pipeline/pack-k0-tech-01.mjs
 node tools/asset-pipeline/validate-k0-tech-01.mjs
 blender -b --python-exit-code 1 --python tools/blender/render_k0_tech_01.py
+blender -b --python-exit-code 1 --python tools/blender/render_k0_tech_01.py -- --optics
 node tools/asset-pipeline/render-k0-motion-sheet.mjs
 blender -b --python-exit-code 1 --python tools/blender/render_k0_tech_01.py -- --social-study
 node tools/asset-pipeline/render-k0-social-sheet.mjs

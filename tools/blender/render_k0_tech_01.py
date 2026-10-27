@@ -14,6 +14,7 @@ bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.003));floor=bpy.contex
 d=bpy.data.cameras.new('REVIEW_CAMERA');cam=bpy.data.objects.new('REVIEW_CAMERA',d);s.collection.objects.link(cam);d.type='ORTHO';s.camera=cam;arm=bpy.data.objects['K0_TECH_01_RIG']
 poses=[('preview','Watch_Idle',0,'hero'),('walk','Feline_Walk_Cycle',.4,'hero'),('stalk','Stalk_Cycle',.7,'hero'),('fore-support','Gallop_Cycle',.052,'side'),('gathered','Gallop_Cycle',.148,'side'),('hind-support','Gallop_Cycle',.244,'side'),('extended','Gallop_Cycle',.348,'side'),('sit','Sit_Down',2.4,'hero'),('pounce','Pounce',1.0775,'hero'),('roll','Roll_Over',2.6,'hero'),('hand','Give_Paw',2.1,'hero')]
 if '--hero' in sys.argv:poses=poses[:1]
+if '--optics' in sys.argv:poses=[('optics-detail','Watch_Idle',0,'optics')]
 if '--social-study' in sys.argv:poses=[('social-sit','Sit_Down',2.4,'hero'),('social-offer','Give_Paw',1.65,'hero'),('social-shake','Give_Paw',2.1,'hero'),('social-roll-side','Roll_Over',1.97,'hero'),('social-roll-back','Roll_Over',2.6,'hero'),('social-recover','Roll_Over',5.4,'hero')]
 if '--jump-study' in sys.argv:
  sys.path.insert(0,str(Path(__file__).resolve().parent))
@@ -25,5 +26,7 @@ for file,clip,t,view in poses:
  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!=clip
  s.frame_set(int(t*s.render.fps),subframe=t*s.render.fps%1);base=arm.pose.bones['MOTION'].head.copy()
  cam.location=base+Vector((1.8,.10,.55) if view=='side' else (1.15,-1.625,.825));aim(cam,base+Vector((0,.08,.29 if clip=='Pounce' else .23)));d.ortho_scale=1.40 if view=='side' else 1.27
+ if view=='optics':
+  cam.location=base+Vector((.14,-.75,.40));aim(cam,base+Vector((0,-.354,.326)));d.ortho_scale=.26
  s.render.filepath=str(OUT/(file+'.png'));bpy.ops.render.render(write_still=True)
 print('K0_TECH_REVIEW_COMPLETE',flush=True)

@@ -58,8 +58,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3742308,
-      "triangles": 74946,
+      "bytes": 3657504,
+      "triangles": 71698,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -203,7 +203,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
+      "sha256": "6407ef0350a835e95e21294a450339ca73d004925f8649d2d7bd522f1bbf4422",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -344,8 +344,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 1017780,
-      "meshopt_sha256": "97f0df7ef68f7785000d1fa764d27823e3f8fcf3c4f8e3e8f34465a49bbc1104"
+      "meshopt_bytes": 1005396,
+      "meshopt_sha256": "37b3b6664a43dcaf6018c775d24980fcae5cb6ad889e6227951833145d08ac09"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
@@ -353,8 +353,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1821604,
-      "triangles": 15578,
+      "bytes": 1805408,
+      "triangles": 14906,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -498,7 +498,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
+      "sha256": "884c2f43a4cd1545f245cc1dae8e885c63966617016c2dd729f3528905bd3bac",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -639,8 +639,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 611560,
-      "meshopt_sha256": "2a53f3a8080297aa18ec99b12b443e90ce77080e083c24c803b05131094877ae"
+      "meshopt_bytes": 608240,
+      "meshopt_sha256": "284a63f30022632e2d5a285f544648cbc66f4f11542e8dcd5957f466156baea9"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
@@ -648,8 +648,8 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 245836,
-      "triangles": 2964,
+      "bytes": 244156,
+      "triangles": 2972,
       "draw_calls": 1,
       "plot_m": [
         0.4,
@@ -657,7 +657,7 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "28277ccd20381f1134e51bea695b0718fbcef435b611b591bb2095acea4c2a9e",
+      "sha256": "cd9b67e9bcc70e6f1cae0aff934ccf3532f2b8f18ac8ed37aedb5149da5cc188",
       "bounds": {
         "min": [
           -0.14288169145584106,
@@ -798,10 +798,17 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 77584,
-      "meshopt_sha256": "0c750cceaee7224de4c6185185476424b97139f187dded07fae1343dc4864aa7"
+      "meshopt_bytes": 77080,
+      "meshopt_sha256": "5f7b7161170e2ccc9c15bf28a3fb8cd9bf458a7429990447da7039be899f3d41"
     }
   ],
+  "optics": {
+    "design": "Recessed blue-tinted camera lenses in tapered titanium retaining barrels, carbon seals and angular mounting plates. Detailed tier adds retaining-ring and fastener detail; static tier uses simplified coated-blue faces.",
+    "material": "K0_Blue_coated_optical_glass",
+    "emissive": false,
+    "glass_finish": "Opaque blue-coated lens surface with environment reflections and KHR_materials_clearcoat; no transparency sorting or transmission passes.",
+    "rig_binding": "Rigid HEAD attachment. No pupils, modeled white catchlights or animated eye controls."
+  },
   "budgets": {
     "game_triangles": 25000,
     "distance_triangles": 3000,
@@ -831,14 +838,14 @@
   },
   "source": {
     "file": "../../source/blender/a6-k0-tech-01.blend",
-    "bytes": 7162644,
-    "sha256": "6b7408c88a6171e040bac9917ac67f300becdd05a4304a8ba943d94dc82433d6",
+    "bytes": 7025583,
+    "sha256": "cb371b53b512f135823cfc775e845791fc492bc50d3182c9a9dabd7fd3a68d63",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   },
   "authoring_dependencies": [
     {
       "file": "tools/blender/build_k0_tech_01.py",
-      "sha256": "f6118a96135954ba17f9696b1e6ddd43a041da0f96138d5613d1d036d15c28bc"
+      "sha256": "79eb28f88427f093bb463e7c37b0ffdb5427cb490aff8d0945f963d7ce2f2906"
     },
     {
       "file": "tools/blender/k0_tech_motion.py",

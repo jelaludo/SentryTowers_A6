@@ -2,6 +2,8 @@
 
 ## K0-TECH-01 / Felis / 27 October 2026
 
+The subsequent optical revision replaces the iris, slit pupil and modeled catchlights with original recessed blue-coated camera lenses, metal retaining barrels, carbon seals and mounting fasteners. Geometry, finish and close-up render are original workshop work; no additional external references or textures are embedded.
+
 Original mechanical house-cat geometry, rigid retarget adapter, family viewer and derived review renders by jelaludo. The user-supplied `K0-TECH_01.jpeg` (SHA-256 `261f924dc2c419e0cf5bf199ea2c35928170f0fef1bdbe78fe6530564da9a407`) informed the lynx-point Siamese appearance, beige/white palette, blue eyes and striped extremities. Its creator/license were not supplied; the image remains at its original local location and is not redistributed or embedded. Existing workshop C-07 construction helpers and all eight authored motion patterns are reused, with a new face, ears, body shells, shortened tail, markings and a rigid retarget onto smaller, fuller proportions. No third-party mesh, texture, rig or animation keys are copied. Plain GLBs are authoritative; Meshopt files and review PNGs are derived.
 
 ## CHASE / K9 × C-07 × K0 / 27 October 2026
