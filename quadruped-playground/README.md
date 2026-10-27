@@ -1,6 +1,6 @@
 # CHASE / K9 × C-07 × K0-TECH-01
 
-A continuous compound animation: RECKON K9, C-07 and K0-TECH-01 follow one irregularly moving orange ball, accelerate after its bursts, give each other room and jump three low hurdles. The ball slows when the pack falls behind. The smaller K0 has the fastest catch-up pace, quickest response and quicker hurdle pounce. All three retain their own proportions, gait and landing performance. K0 uses the revised industrial face; its pursuit settings are unchanged.
+A continuous compound animation: RECKON K9, C-07 and K0-TECH-01 follow one irregularly moving orange ball, accelerate after its bursts, give each other room and jump three low hurdles. The ball slows when the pack falls behind. The smaller K0 has the fastest catch-up pace, quickest response and quicker hurdle pounce. All three retain their own proportions, gait and landing performance. K0 uses the industrial face with articulated paddle-antenna ears; its pursuit settings are unchanged.
 
 https://jelaludo.github.io/SentryTowers_A6/quadruped-playground/
 
@@ -8,7 +8,7 @@ This is a **derived procedural scene**, using original plain GLBs without modify
 
 ## Hand-off and placement
 
-Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `1be374f4a2f1a97f8737b9e21f49bca5388f4d6c`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
+Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `e58633a9d7b71deda0422c3ce71888b2277159ce`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
 
 Metres, +Y up, +Z local forward. The course is centered at world origin and reserves 16 × 32 m, with 2.5 m vertical clearance. The decorative floor is at Y = −0.01 m; paw targets use the original approximately +0.003 m sole height for K9/C-07 and +0.00141 m for K0. Each actor retains its original metre scale and ground root. The flat stadium course has 16 m straights and 5.5 m bend radius. Its three rails are 0.14, 0.18 and 0.20 m high, 4.8 m wide and 0.10 m deep; end posts extend another 0.05 m vertically.
 
@@ -43,14 +43,14 @@ The default is articulated **LOD1 / game**. **LOD0 / detailed** is available for
 | --- | --- | ---: | ---: | ---: |
 | RECKON K9 | Game LOD1 | 9,732 | 6 | 1,631,432 |
 | C-07 | Game LOD1 | 12,760 | 6 | 1,537,544 |
-| K0-TECH-01 | Game LOD1 | 14,526 | 7 | 1,824,924 |
-| All three | Game LOD1 | 37,018 | 19 | 4,993,900 |
+| K0-TECH-01 | Game LOD1 | 14,878 | 7 | 1,852,732 |
+| All three | Game LOD1 | 37,370 | 19 | 5,021,708 |
 | RECKON K9 | Detailed LOD0 | 25,884 | 6 | 2,118,904 |
 | C-07 | Detailed LOD0 | 62,720 | 6 | 2,974,820 |
-| K0-TECH-01 | Detailed LOD0 | 67,654 | 7 | 3,573,464 |
-| All three | Detailed LOD0 | 156,258 | 19 | 8,667,188 |
+| K0-TECH-01 | Detailed LOD0 | 68,102 | 7 | 3,602,548 |
+| All three | Detailed LOD0 | 156,706 | 19 | 8,696,272 |
 
-The game units individually remain within the contract's 25k-triangle unit target. The course repeats one shared box geometry for nine instanced hurdle parts and another for 66 lane marks. It uses no external textures. Sampled browser rendering with hurdles reports **38,800 triangles / 28–32 draws** at game detail and **158,040 triangles / 28 draws** in the detailed review frame. Trail draw counts depend on whether histories have enough points. These are renderer counters, including the transparent halo's passes, not GPU timings, FPS or network-transfer totals. Source Meshopt copies remain optional derivatives in the original asset folders; this scene loads authoritative plain files.
+The game units individually remain within the contract's 25k-triangle unit target. The course repeats one shared box geometry for nine instanced hurdle parts and another for 66 lane marks. It uses no external textures. Sampled browser rendering with hurdles reports **39,152 triangles / 28–32 draws** at game detail and **158,488 triangles / 28 draws** in the detailed review frame. Trail draw counts depend on whether histories have enough points. These are renderer counters, including the transparent halo's passes, not GPU timings, FPS or network-transfer totals. Source Meshopt copies remain optional derivatives in the original asset folders; this scene loads authoritative plain files.
 
 ## Viewer controls
 

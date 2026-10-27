@@ -4,7 +4,7 @@
   "code_hashes": {
     "actor.js": "66859701b0191345b8cd190e84ee77daa7203b160425fe23acdbe648696ca6fc",
     "simulation.js": "e1b9d7ecd9264959826b45524663d0ed9b5e024189d64f5a946ee497a8516597",
-    "manifest.json": "4bd3583289d5636d470bc04da3edf91c41e9e93eaf5db708d1928dddb1c6d0d1"
+    "manifest.json": "4348f3090e173fa110d4e9035cb3ecf8d88fc08547c1bd2639d661ea9e333453"
   },
   "asset_hashes": [
     {
@@ -25,11 +25,11 @@
     },
     {
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
-      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca"
+      "sha256": "254499117b31870bbebff2a9c16dfde2282f427b68c0a4a62e8ad80b5c84d1c1"
     },
     {
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
-      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8"
+      "sha256": "9c1844d47c3953f4b456190459a1ca9bcc4778effed1166a787c2ac18d937754"
     }
   ],
   "results": [
@@ -52,7 +52,7 @@
           "id": "k0",
           "floor": 0.0009395510300973374,
           "clearance": 0.17384702711736538,
-          "slab_vertices": 71832
+          "slab_vertices": 74168
         }
       ],
       "seconds": 31.999999999998824,
@@ -61,7 +61,7 @@
       "minimum_geometry_y_m": 0.0009395510300973374,
       "minimum_paw_y_m": 0.0014099920839663778,
       "minimum_expanded_hurdle_clearance_m": 0.1247167543988198,
-      "vertices_in_hurdle_slab": 318741,
+      "vertices_in_hurdle_slab": 321077,
       "collision_points": 0,
       "maximum_segment_error_m": 1.7097647653230297e-7,
       "jumps": [
@@ -95,7 +95,7 @@
           "id": "k0",
           "floor": 0.0009395510300973374,
           "clearance": 0.17384702711736538,
-          "slab_vertices": 214392
+          "slab_vertices": 216792
         }
       ],
       "seconds": 31.999999999998824,
@@ -104,7 +104,7 @@
       "minimum_geometry_y_m": 0.0009395510300973374,
       "minimum_paw_y_m": 0.0014099920839663778,
       "minimum_expanded_hurdle_clearance_m": 0.1247167543988198,
-      "vertices_in_hurdle_slab": 861252,
+      "vertices_in_hurdle_slab": 863652,
       "collision_points": 0,
       "maximum_segment_error_m": 1.7097647653230297e-7,
       "jumps": [

@@ -3,7 +3,7 @@
   "name": "Chase / K9, C-07 and K0-TECH-01",
   "baked": false,
   "seed": 27,
-  "source_commit": "1be374f4a2f1a97f8737b9e21f49bca5388f4d6c",
+  "source_commit": "e58633a9d7b71deda0422c3ce71888b2277159ce",
   "coordinate_system": {
     "units": "metres",
     "up": "+Y",
@@ -1128,10 +1128,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "triangles": 67654,
+      "triangles": 68102,
       "draw_calls": 7,
-      "bytes": 3573464,
-      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
+      "bytes": 3602548,
+      "sha256": "254499117b31870bbebff2a9c16dfde2282f427b68c0a4a62e8ad80b5c84d1c1",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1352,12 +1352,12 @@
         ],
         "max": [
           0.1504499912261963,
-          0.4206499755382538,
+          0.415010005235672,
           0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
-          0.41970997798925275,
+          0.41407000768667096,
           1.0452063381671906
         ]
       },
@@ -1369,10 +1369,10 @@
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "triangles": 14526,
+      "triangles": 14878,
       "draw_calls": 7,
-      "bytes": 1824924,
-      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
+      "bytes": 1852732,
+      "sha256": "9c1844d47c3953f4b456190459a1ca9bcc4778effed1166a787c2ac18d937754",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -1593,12 +1593,12 @@
         ],
         "max": [
           0.1504499912261963,
-          0.4206499755382538,
+          0.415010005235672,
           0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
-          0.41970997798925275,
+          0.41407000768667096,
           1.0452063381671906
         ]
       },
@@ -1746,15 +1746,15 @@
   "measured_source_totals": [
     {
       "lod": 1,
-      "triangles": 37018,
+      "triangles": 37370,
       "draw_calls": 19,
-      "plain_glb_bytes": 4993900
+      "plain_glb_bytes": 5021708
     },
     {
       "lod": 0,
-      "triangles": 156258,
+      "triangles": 156706,
       "draw_calls": 19,
-      "plain_glb_bytes": 8667188
+      "plain_glb_bytes": 8696272
     }
   ],
   "validation": {
