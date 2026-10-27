@@ -1,5 +1,13 @@
 # Asset attributions and provenance
 
+## Quadruped motion reference study / 27 October 2026
+
+The K9 gait corrections/additions and both jump revisions were independently authored by jelaludo, informed by Abiharu / Motion Zoo's canine gait diagrams and cat-jump pose study. References were observed for paw grouping, contact order and pose sequence. Durations, amplitudes and rig-specific trajectories are original authored choices, not measurements claimed from those images. No source images, videos, geometry, rigs or animation keys are redistributed. Provenance and the separation between observed and authored data are recorded in `source/motion-patterns/quadruped-patterns.json` and `docs/ANIMATION-REFERENCE-WORKFLOW.md`.
+
+https://motionzoo.net/dog_walk_gaits/
+
+https://motionzoo.net/making_cat_jump/
+
 ## C-07 / Mechanical Cheetah / 26 October 2026
 
 Original procedural feline robot geometry, rigid skin, independently authored actions and motion viewer by jelaludo. The user-supplied yellow C-07 concept and two-flight cheetah diagram informed appearance and motion direction. The local Cat walk.glb was observed for contact order, shoulder glide and head stability; no mesh, textures, rig or animation keys were copied, retargeted or redistributed. Reference creators/licenses were not supplied, and those original files remain outside this repository. The asset README records the reference hash and primary biomechanical papers consulted. Plain GLBs are the runtime source of truth; optional Meshopt copies and review images are derived. The Blender master is editable authoring material.

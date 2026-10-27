@@ -8,13 +8,13 @@ Open the local viewer at http://127.0.0.1:8788/mechanical-cheetah/ after serving
 
 | File | Role | Triangles | Mesh draws / materials | Plain bytes | Derived Meshopt bytes |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `c07_d0_lod0.glb` | Detailed animation / recording master | 62,720 | 6 / 6 | 2,671,008 | 747,812 |
-| `c07_d0_lod1.glb` | Articulated game model | 12,760 | 6 / 6 | 1,233,736 | 424,324 |
+| `c07_d0_lod0.glb` | Detailed animation / recording master | 62,720 | 6 / 6 | 2,721,968 | 764,044 |
+| `c07_d0_lod1.glb` | Articulated game model | 12,760 | 6 / 6 | 1,284,692 | 440,556 |
 | `c07_d0_lod2.glb` | Static standing distance / loading silhouette | 2,848 | 1 / 1 | 232,288 | 71,088 |
 
 These are asset mesh draws, excluding lights, shadow passes, the viewer floor and overlays. All materials use a small palette; there are no texture dependencies. The game tier meets the unit triangle target. The optional static distance tier meets the 3k triangle, one draw and 250,000 byte targets. No FPS improvement is claimed.
 
-Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optional compressed derivatives, not replacements for the originals. All PNGs here are derived Blender review renders or their composite `motion-sheet.png`. The editable detailed source is `../../source/blender/a6-mechanical-cheetah.blend`. `manifest.json` records measured sizes, SHA-256 hashes, bounds, named nodes, socket transforms and source provenance.
+Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optional compressed derivatives, not replacements for the originals. All PNGs here are derived Blender review renders or their composite `motion-sheet.png` and seven-pose `jump-study.png`. The editable detailed source is `../../source/blender/a6-mechanical-cheetah.blend`. `manifest.json` records measured sizes, SHA-256 hashes, bounds, named nodes, socket transforms and source provenance.
 
 ## Runtime contract
 
@@ -37,26 +37,39 @@ Plain GLBs are authoritative runtime exports. `derived/meshopt/` files are optio
 | `Stalk_Cycle` | 2.4 s | Yes | Lower body and low paw clearance; 0.202991 m/s, duty factor 0.78 |
 | `Gallop_Cycle` | 0.8 s | Yes | Rotary contacts and two flight phases; 3.055556 m/s, duty factor 0.18 |
 | `Sit_Down` | 2.4 s | No | Fold hindquarters and hold seated pose |
-| `Pounce` | 3.2 s | No | Anticipation, 0.42 m body lift, 1.2 m forward travel, landing recovery |
+| `Pounce` | 3.2 s | No | Crouch, hind push, tucked flight, forepaw-first landing, 1.2 m forward travel |
 
 Loop phases are normalized 0–1. Walk/stalk touchdown phases are HR 0.00, FR 0.22, HL 0.50, FL 0.72: hind foot followed by the forefoot on the same side. At least two paws remain in stance during the walk and three during stalk. Shoulder glide, narrow tracks and a relatively quiet head distinguish these clips from the canine family.
 
 Gallop touchdown order is **FL 0.00 → FR 0.08 → HR 0.48 → HL 0.56**. Gathered flight spans 0.26–0.48; extended flight spans 0.74–1.00. The phase buttons inspect 0.13, 0.37, 0.61 and 0.87. At gathered flight the chest–pelvis chord is 0.670 m; at extended flight it is 0.778 m and the fore–aft paw span reaches 1.801 m. Both landmarks have all four sole sockets over 0.19 m above the floor. These are this model's authored measurements, not biological speed claims.
 
+## 27 October pounce revision
+
+The seven-pose jump reference now drives distinct preparation, launch, apex, fore-contact, compression and recovery stages. Forepaws release at 0.650/0.675 s and hind paws finish pushing at 0.800/0.815 s. Forepaws land at 1.340/1.365 s; hind paws follow at 1.455/1.480 s. The torso follows a parabolic flight arc with constant forward airborne speed, independent paw tuck/reach paths, chest-to-hip compression delay and tail follow-through. World paw anchors hold through support while the torso travels. This remains a 3.2 s clip with 1.2 m root travel; existing names, skeleton, sockets and geometry budgets are preserved.
+
+The viewer adds four clickable contact tracks, a live sole-height readout and seven jump-pose buttons. Tracks show authored support intervals; the readout shows actual near-floor sockets. Existing gallop phase controls remain. Numeric timing and amplitudes were authored to fit this rig; the references establish pose and event order, not measured seconds or forces. The earlier revision remains at commit `a4b1e41e6a8f85fa2385f242b418edc9a2a82031`.
+
+Shared source profiles and validation evidence are in `source/motion-patterns/`. `docs/ANIMATION-REFERENCE-WORKFLOW.md` documents reference → event annotation → reusable pattern → rig adaptation → export/review, with an annotation tool proposed as a future step.
+
 ## Validation and regeneration
 
 `validation-report.json` covers all three plain files and decoded Meshopt copies: zero glTF errors/warnings; finite nondegenerate geometry; stable dot-free nodes, sockets and hashes; static tier budgets; 6,456 full-geometry pose samples at 120 Hz, plus intermediate joint checks. Across both articulated tiers and encodings: minimum floor clearance **1.59 mm**, maximum stance drift **0.516 mm**, maximum rigid segment-length error **0.059 mm**, loop position error **0.014 mm** and pounce travel quantization error **0.196 mm**. Gathered/extended flight, spine flexion and minimum support counts are asserted separately.
 
-`viewer-validation.json` records Chromium real-WebGL tests of six clips, four gallop phases, all six tier/encoding combinations, static clip disabling, inspection controls, travel, camera framing and desktop/390 px mobile layout. Blender renders and browser screenshots were visually inspected. Self-collision and arbitrary animation blends have not been physically validated. Consuming-game r160/release gltfpack, game cameras, terrain and reference-phone acceptance remain pending.
+Independent pattern checks on both animated tiers and encodings measure at most **0.606 mm** jump-anchor drift and hip compression **41 ms** after the chest, verify fore-before-hind release/landing, and compare the node/socket and clip-duration contracts to the preserved baseline.
+
+`viewer-validation.json` records Chromium real-WebGL tests of six clips, four gallop phases, all six tier/encoding combinations, static clip disabling, inspection controls, travel, camera framing and desktop/390 px mobile layout. The shared study test checks seven jump poses, contact scrubbing, sole readouts and static-tier hiding. Blender renders and browser screenshots were visually inspected. Self-collision and arbitrary animation blends have not been physically validated. Consuming-game r160/release gltfpack, game cameras, terrain and reference-phone acceptance remain pending.
 
 Regenerate from the repository root with Blender and the pinned dependencies in `tools/asset-pipeline/package.json`:
 
 ```sh
-blender -b --python tools/blender/build_mechanical_cheetah.py
+blender -b --python-exit-code 1 --python tools/blender/build_mechanical_cheetah.py
 node tools/asset-pipeline/pack-mechanical-cheetah.mjs
 node tools/asset-pipeline/validate-mechanical-cheetah.mjs
-blender -b --python tools/blender/render_mechanical_cheetah.py
+node tools/asset-pipeline/validate-quadruped-patterns.mjs
+blender -b --python-exit-code 1 --python tools/blender/render_mechanical_cheetah.py
+blender -b --python-exit-code 1 --python tools/blender/render_mechanical_cheetah.py -- --jump-study
 node tools/asset-pipeline/render-cheetah-motion-sheet.mjs
+node tools/asset-pipeline/render-quadruped-jump-sheets.mjs
 python3 tools/build-workshop-docs.py
 python3 tools/validate-workshop-navigation.py
 ```
@@ -72,5 +85,11 @@ Primary motion references consulted for the gathered/extended distinction and ro
 https://www.nature.com/articles/s41598-021-88879-0
 
 https://journals.biologists.com/jeb/article/215/14/2425/10852/High-speed-galloping-in-the-cheetah-Acinonyx
+
+Abiharu / Motion Zoo's authored gait diagrams and cat-jump animation study informed the 27 October revision. No website imagery, animation keys or rigs are embedded or redistributed:
+
+https://motionzoo.net/dog_walk_gaits/
+
+https://motionzoo.net/making_cat_jump/
 
 Credit the original workshop model and motion as **Models by jelaludo**. See the repository's `ATTRIBUTIONS.md` for reuse context.

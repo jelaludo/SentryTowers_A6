@@ -1,0 +1,603 @@
+{
+  "status": "passed",
+  "baseline_commit": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031",
+  "scope": "Existing nodes/sockets/geometry budgets and clip durations; independent contact topology checks, jump release/landing order, apex and world-space paw anchors on both animated tiers and encodings.",
+  "results": [
+    {
+      "family": "reckon-k9",
+      "file": "reckon_k9_d0_lod0.glb",
+      "jump": "Jump",
+      "push_phase_s": 0.56,
+      "push_sole_heights_m": {
+        "FL": 0.10537189164020036,
+        "FR": 0.07932735487701761,
+        "HL": 0.0029856398562289888,
+        "HR": 0.0029856398562289888
+      },
+      "landing_phase_s": 1.1475,
+      "landing_sole_heights_m": {
+        "FL": 0.0029777626271717955,
+        "FR": 0.0029777626271717955,
+        "HL": 0.07480496685643429,
+        "HR": 0.050687754427353286
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.4344092371807666,
+        "FR": 0.4344551286166255,
+        "HL": 0.38438452820681457,
+        "HR": 0.38441080282112206
+      },
+      "maximum_world_anchor_drift_m": 0.000091278403284437,
+      "compression_minima": {
+        "chest": {
+          "y": 0.3426010130692322,
+          "t": 1.2083333333333335
+        },
+        "hip": {
+          "y": 0.3900236821415956,
+          "t": 1.2596666666666667
+        }
+      },
+      "gaits": [
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "HL"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.45,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.75,
+          "grounded": [
+            "FR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.95,
+          "grounded": []
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "phase": 0.45,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.43,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.93,
+          "grounded": []
+        }
+      ]
+    },
+    {
+      "family": "reckon-k9",
+      "file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
+      "jump": "Jump",
+      "push_phase_s": 0.56,
+      "push_sole_heights_m": {
+        "FL": 0.10528559839512254,
+        "FR": 0.07924288298045182,
+        "HL": 0.003035566378721398,
+        "HR": 0.003035566378721398
+      },
+      "landing_phase_s": 1.1475,
+      "landing_sole_heights_m": {
+        "FL": 0.0029555017939430703,
+        "FR": 0.0029555017939430703,
+        "HL": 0.07481258203659444,
+        "HR": 0.05069505799431533
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.4344642561407368,
+        "FR": 0.4345085508403221,
+        "HL": 0.3845791879357618,
+        "HR": 0.384602995596124
+      },
+      "maximum_world_anchor_drift_m": 0.0003141598906141153,
+      "compression_minima": {
+        "chest": {
+          "y": 0.34264214874373317,
+          "t": 1.2083333333333335
+        },
+        "hip": {
+          "y": 0.39013671874999994,
+          "t": 1.2690000000000001
+        }
+      },
+      "gaits": [
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "HL"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.45,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.75,
+          "grounded": [
+            "FR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.95,
+          "grounded": []
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "phase": 0.45,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.43,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.93,
+          "grounded": []
+        }
+      ]
+    },
+    {
+      "family": "reckon-k9",
+      "file": "reckon_k9_d0_lod1.glb",
+      "jump": "Jump",
+      "push_phase_s": 0.56,
+      "push_sole_heights_m": {
+        "FL": 0.10537189164020036,
+        "FR": 0.07932735487701761,
+        "HL": 0.0029856398562289888,
+        "HR": 0.0029856398562289888
+      },
+      "landing_phase_s": 1.1475,
+      "landing_sole_heights_m": {
+        "FL": 0.0029777626271717955,
+        "FR": 0.0029777626271717955,
+        "HL": 0.07480496685643429,
+        "HR": 0.050687754427353286
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.4344092371807666,
+        "FR": 0.4344551286166255,
+        "HL": 0.38438452820681457,
+        "HR": 0.38441080282112206
+      },
+      "maximum_world_anchor_drift_m": 0.000091278403284437,
+      "compression_minima": {
+        "chest": {
+          "y": 0.3426010130692322,
+          "t": 1.2083333333333335
+        },
+        "hip": {
+          "y": 0.3900236821415956,
+          "t": 1.2596666666666667
+        }
+      },
+      "gaits": [
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "HL"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.45,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.75,
+          "grounded": [
+            "FR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.95,
+          "grounded": []
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "phase": 0.45,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.43,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.93,
+          "grounded": []
+        }
+      ]
+    },
+    {
+      "family": "reckon-k9",
+      "file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
+      "jump": "Jump",
+      "push_phase_s": 0.56,
+      "push_sole_heights_m": {
+        "FL": 0.10528559839512254,
+        "FR": 0.07924288298045182,
+        "HL": 0.003035566378721398,
+        "HR": 0.003035566378721398
+      },
+      "landing_phase_s": 1.1475,
+      "landing_sole_heights_m": {
+        "FL": 0.0029555017939430703,
+        "FR": 0.0029555017939430703,
+        "HL": 0.07481258203659444,
+        "HR": 0.05069505799431533
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.4344642561407368,
+        "FR": 0.4345085508403221,
+        "HL": 0.3845791879357618,
+        "HR": 0.384602995596124
+      },
+      "maximum_world_anchor_drift_m": 0.0003141598906141153,
+      "compression_minima": {
+        "chest": {
+          "y": 0.34264214874373317,
+          "t": 1.2083333333333335
+        },
+        "hip": {
+          "y": 0.39013671874999994,
+          "t": 1.2690000000000001
+        }
+      },
+      "gaits": [
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Run_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "FL",
+            "HL"
+          ]
+        },
+        {
+          "clip": "Pace_Cycle",
+          "phase": 0.65,
+          "grounded": [
+            "FR",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.15,
+          "grounded": [
+            "HL"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.45,
+          "grounded": [
+            "FL",
+            "HR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.75,
+          "grounded": [
+            "FR"
+          ]
+        },
+        {
+          "clip": "Canter_Cycle",
+          "phase": 0.95,
+          "grounded": []
+        },
+        {
+          "clip": "Gallop_Cycle",
+          "phase": 0.45,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.43,
+          "grounded": []
+        },
+        {
+          "clip": "Sprint_Cycle",
+          "phase": 0.93,
+          "grounded": []
+        }
+      ]
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "c07_d0_lod0.glb",
+      "jump": "Pounce",
+      "push_phase_s": 0.7375,
+      "push_sole_heights_m": {
+        "FL": 0.181424121905473,
+        "FR": 0.14027908124860605,
+        "HL": 0.002956683455970506,
+        "HR": 0.002956683455971061
+      },
+      "landing_phase_s": 1.4100000000000001,
+      "landing_sole_heights_m": {
+        "FL": 0.002972117549561573,
+        "FR": 0.0029721512560482582,
+        "HL": 0.12404317036803858,
+        "HR": 0.08545394837618939
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.5798129667980887,
+        "FR": 0.5798727268926936,
+        "HL": 0.47991427805171866,
+        "HR": 0.4799232979768569
+      },
+      "maximum_world_anchor_drift_m": 0.00031434837924431243,
+      "compression_minima": {
+        "chest": {
+          "y": 0.419484583713282,
+          "t": 1.49225
+        },
+        "hip": {
+          "y": 0.47504130364009906,
+          "t": 1.5333333333333334
+        }
+      },
+      "gaits": []
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
+      "jump": "Pounce",
+      "push_phase_s": 0.7375,
+      "push_sole_heights_m": {
+        "FL": 0.18157117697150943,
+        "FR": 0.1404272019246529,
+        "HL": 0.0029451803512932917,
+        "HR": 0.0029451803512932917
+      },
+      "landing_phase_s": 1.4100000000000001,
+      "landing_sole_heights_m": {
+        "FL": 0.0028920633660634368,
+        "FR": 0.0028920633660634368,
+        "HL": 0.12376423195075606,
+        "HR": 0.0851851079027192
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.5799986910244292,
+        "FR": 0.5800605398062718,
+        "HL": 0.4799295277854727,
+        "HR": 0.4799297947408223
+      },
+      "maximum_world_anchor_drift_m": 0.0006054448980534975,
+      "compression_minima": {
+        "chest": {
+          "y": 0.4196924898072572,
+          "t": 1.49225
+        },
+        "hip": {
+          "y": 0.4747805761850559,
+          "t": 1.5333333333333334
+        }
+      },
+      "gaits": []
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "c07_d0_lod1.glb",
+      "jump": "Pounce",
+      "push_phase_s": 0.7375,
+      "push_sole_heights_m": {
+        "FL": 0.181424121905473,
+        "FR": 0.14027908124860605,
+        "HL": 0.002956683455970506,
+        "HR": 0.002956683455971061
+      },
+      "landing_phase_s": 1.4100000000000001,
+      "landing_sole_heights_m": {
+        "FL": 0.002972117549561573,
+        "FR": 0.0029721512560482582,
+        "HL": 0.12404317036803858,
+        "HR": 0.08545394837618939
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.5798129667980887,
+        "FR": 0.5798727268926936,
+        "HL": 0.47991427805171866,
+        "HR": 0.4799232979768569
+      },
+      "maximum_world_anchor_drift_m": 0.00031434837924431243,
+      "compression_minima": {
+        "chest": {
+          "y": 0.419484583713282,
+          "t": 1.49225
+        },
+        "hip": {
+          "y": 0.47504130364009906,
+          "t": 1.5333333333333334
+        }
+      },
+      "gaits": []
+    },
+    {
+      "family": "mechanical-cheetah",
+      "file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
+      "jump": "Pounce",
+      "push_phase_s": 0.7375,
+      "push_sole_heights_m": {
+        "FL": 0.18157117697150943,
+        "FR": 0.1404272019246529,
+        "HL": 0.0029451803512932917,
+        "HR": 0.0029451803512932917
+      },
+      "landing_phase_s": 1.4100000000000001,
+      "landing_sole_heights_m": {
+        "FL": 0.0028920633660634368,
+        "FR": 0.0028920633660634368,
+        "HL": 0.12376423195075606,
+        "HR": 0.0851851079027192
+      },
+      "apex_sole_heights_m": {
+        "FL": 0.5799986910244292,
+        "FR": 0.5800605398062718,
+        "HL": 0.4799295277854727,
+        "HR": 0.4799297947408223
+      },
+      "maximum_world_anchor_drift_m": 0.0006054448980534975,
+      "compression_minima": {
+        "chest": {
+          "y": 0.4196924898072572,
+          "t": 1.49225
+        },
+        "hip": {
+          "y": 0.4747805761850559,
+          "t": 1.5333333333333334
+        }
+      },
+      "gaits": []
+    }
+  ]
+}

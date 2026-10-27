@@ -7,7 +7,7 @@ page.setDefaultTimeout(60000);page.on('pageerror',e=>errors.push(e.message));
 await page.goto(process.env.CHEETAH_VIEWER_URL||'http://127.0.0.1:8788/mechanical-cheetah/');await page.waitForFunction(()=>window.mechanicalCheetah?.gltf);await page.locator('#play').click();
 const results=[];
 async function frameVisible(){return page.evaluate(async()=>{const T=await import('three'),k=window.mechanicalCheetah,b=new T.Box3().setFromObject(k.gltf.scene,true);const p=[];for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])p.push(new T.Vector3(x,y,z).project(k.camera));return p.every(v=>Math.abs(v.x)<1&&Math.abs(v.y)<1);});}
-for(const [clip,t] of [['Watch_Idle',1],['Feline_Walk_Cycle',.4],['Stalk_Cycle',.7],['Gallop_Cycle',.296],['Sit_Down',2.4],['Pounce',1.275]]){
+for(const [clip,t] of [['Watch_Idle',1],['Feline_Walk_Cycle',.4],['Stalk_Cycle',.7],['Gallop_Cycle',.296],['Sit_Down',2.4],['Pounce',1.0775]]){
  await page.locator(`[data-clip="${clip}"]`).click();await page.locator('#time').evaluate((el,t)=>{el.value=t;el.dispatchEvent(new Event('input'));},t);
  await page.waitForTimeout(100);const state=await page.evaluate(()=>{const k=window.mechanicalCheetah;return {time:k.time,clips:k.gltf.animations.length,draws:k.renderer.info.render.calls,status:document.getElementById('status').textContent};});assert(Math.abs(state.time-t)<.01);assert(state.draws>6);assert(await frameVisible(),clip+' out of frame');results.push({clip,...state});console.log('CLIP',clip);await page.screenshot({path:`/tmp/cheetah-browser-${clip}.png`});
 }

@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {createMotionInspector} from '../workshop/quadruped-motion-inspector.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
@@ -16,10 +17,11 @@ const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({
 const grid=new T.GridHelper(40,160,0x74705c,0x48504c);grid.position.y=-.003;grid.material.transparent=true;grid.material.opacity=.35;scene.add(grid);
 const holder=new T.Group();scene.add(holder);
 const markers={};for(const id of ['FL','FR','HL','HR']){const marker=new T.Mesh(new T.RingGeometry(.043,.049,32),new T.MeshBasicMaterial({color:0xedbe67,side:T.DoubleSide,transparent:true,opacity:.8,depthWrite:false}));marker.rotation.x=-Math.PI/2;scene.add(marker);markers[id]=marker;}
-const manifest=await fetch('../assets/mechanical-cheetah/manifest.json').then(r=>r.json());
+const manifest=await fetch('../assets/mechanical-cheetah/manifest.json?v=motion-study-20261027').then(r=>r.json());
 const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const labels={Watch_Idle:'Watch',Feline_Walk_Cycle:'Walk',Stalk_Cycle:'Stalk',Gallop_Cycle:'Gallop',Sit_Down:'Sit',Pounce:'Pounce'};
-const notes={Watch_Idle:'A quiet watch with small head, ear and tail adjustments.',Feline_Walk_Cycle:'Hind foot, then the forefoot on the same side. Narrow steps, sliding shoulders and a quiet head. 0.54 m/s.',Stalk_Cycle:'A lower body and slower paw lift keep at least three feet in stance. 0.20 m/s.',Gallop_Cycle:'Fore contacts → gathered flight → hind contacts → extended flight. Study the spine at ¼ speed. 3.06 m/s.',Sit_Down:'Hindquarters fold down while the forepaws support the chest. Holds the seated pose.',Pounce:'Crouch, launch, tuck and land. The clip carries its own 1.2 m forward movement.'};
+const notes={Watch_Idle:'A quiet watch with small head, ear and tail adjustments.',Feline_Walk_Cycle:'Hind foot, then the forefoot on the same side. Narrow steps, sliding shoulders and a quiet head. 0.54 m/s.',Stalk_Cycle:'A lower body and slower paw lift keep at least three feet in stance. 0.20 m/s.',Gallop_Cycle:'Fore contacts → gathered flight → hind contacts → extended flight. Study the spine at ¼ speed. 3.06 m/s.',Sit_Down:'Hindquarters fold down while the forepaws support the chest. Holds the seated pose.',Pounce:'Crouch, extend from the hind legs, tuck, then reach for forepaw-first contact. The hips and tail settle afterward. Includes 1.2 m travel.'};
+const inspector=createMotionInspector($('motion-study'),{seek:t=>scrub(t),sideView:()=>setView('side')});
 let gltf,mixer,action,helper,entry,clipName='Watch_Idle',time=0,elapsed=0,playing=true,loadToken=0;
 const phaseNames={fore_support:'Fore support',gathered:'Gathered flight',hind_support:'Hind support',extended:'Extended flight'};
 for(const [name,label] of Object.entries(labels)){const button=document.createElement('button');button.innerHTML=`<span>${String(Object.keys(labels).indexOf(name)+1).padStart(2,'0')}</span>${label}`;button.onclick=()=>selectClip(name);button.dataset.clip=name;$('clips').append(button);}
@@ -29,7 +31,7 @@ function selectClip(name){
  const clip=gltf?.animations.find(c=>c.name===name);action=clip?mixer.clipAction(clip):null;
  if(action){action.reset().setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();mixer.update(0);}
  $('clip-note').textContent=entry?.static?'Static standing silhouette for distance and loading views. Choose game or master to inspect movement.':notes[name];
- $('time').max=clip?.duration||1;$('time').disabled=!clip;$('play').disabled=!clip;$('replay').disabled=!clip;$('play').textContent='Pause';
+ inspector.setClip(entry?.clips.find(c=>c.name===name));$('time').max=clip?.duration||1;$('time').disabled=!clip;$('play').disabled=!clip;$('replay').disabled=!clip;$('play').textContent='Pause';
  $('phase-panel').hidden=name!=='Gallop_Cycle'||!!entry?.static;
  document.querySelectorAll('[data-clip]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.clip===name));b.disabled=!!entry?.static;});
  updatePose();
@@ -39,7 +41,7 @@ async function load(){
  const token=++loadToken;$('status').textContent='Loading '+$('lod').selectedOptions[0].textContent+'…';
  const selected=manifest.assets.find(e=>e.lod===Number($('lod').value)),encoding=$('encoding').value,file=encoding==='meshopt'?selected.meshopt_file:selected.file;
  try{
-  const next=await loader.loadAsync('../assets/mechanical-cheetah/'+file);if(token!==loadToken){disposeAsset(next);return;}
+  const next=await loader.loadAsync('../assets/mechanical-cheetah/'+file+'?v='+(encoding==='meshopt'?selected.meshopt_sha256:selected.sha256).slice(0,12));if(token!==loadToken){disposeAsset(next);return;}
   if(gltf){mixer.stopAllAction();mixer.uncacheRoot(gltf.scene);holder.remove(gltf.scene);disposeAsset(gltf);}
   if(helper){scene.remove(helper);helper.dispose();}
   gltf=next;entry=selected;holder.add(gltf.scene);gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;}});
@@ -63,7 +65,7 @@ function updatePose(){
  const phase=clipName==='Gallop_Cycle'&&!entry.static?phaseLabel():contacts===4?'Four paws grounded':`${contacts} paws near floor`;
  $('motion-readout').textContent=`${phase} · Chest–pelvis ${(a.distanceTo(b)*100).toFixed(1)} cm`;
  document.querySelectorAll('[data-phase]').forEach(button=>button.setAttribute('aria-pressed',String(phaseNames[button.dataset.phase]===phase)));
- $('time').value=time;$('readout').value=`${time.toFixed(2)} / ${(action?.getClip().duration||0).toFixed(2)} s`;
+ inspector.update(time,gltf.scene);$('time').value=time;$('readout').value=`${time.toFixed(2)} / ${(action?.getClip().duration||0).toFixed(2)} s`;
  $('status').textContent=entry.static?'STATIC DISTANCE / STANDING':`${labels[clipName].toUpperCase()} / ${playing?'PLAYING':'PAUSED'} · ${entry.lod===0?'DETAILED MASTER':'GAME TIER'}`;
 }
 function scrub(t){time=t;elapsed=t;playing=false;$('play').textContent='Play';updatePose();}

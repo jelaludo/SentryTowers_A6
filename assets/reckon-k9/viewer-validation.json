@@ -1,11 +1,28 @@
 {
   "status": "passed",
+  "asset_hashes": [
+    {
+      "file": "reckon_k9_d0_lod0.glb",
+      "sha256": "b7466bf4bc6e57cc54cfb20bb35375a6425104b6558e59f0c018e3d706fc9712",
+      "meshopt_sha256": "c384c494ef5428aff3e86fa1328c929e189a339d55d5352a69f919afd8459b14"
+    },
+    {
+      "file": "reckon_k9_d0_lod1.glb",
+      "sha256": "0a5f7c714741c0b89f7ad3364a5411120cebba15c002ce0726e7a07df817ed17",
+      "meshopt_sha256": "dfd78b4633e8fcfd865db8f167fd44b0fba5e7e1003ca689dbd86a7221cb7153"
+    },
+    {
+      "file": "reckon_k9_d0_lod2.glb",
+      "sha256": "95eb20786426bc40796c3f3bcc40b1eb0a5bc8ad5237b1846045942f55551a3e",
+      "meshopt_sha256": "ea6111370f545c0da1d9e34c2800289501e950bf7a4100a861df9a94ebfc67a3"
+    }
+  ],
   "browser": "Chromium headless; real WebGL",
   "clip_controls": [
     {
       "clip": "Alert_Idle",
       "time": 1,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "ALERT / PAUSED · DETAILED MASTER"
@@ -13,7 +30,7 @@
     {
       "clip": "Walk_Cycle",
       "time": 0.4,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "WALK / PAUSED · DETAILED MASTER"
@@ -21,15 +38,47 @@
     {
       "clip": "Run_Cycle",
       "time": 0.2,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
-      "status": "RUN / PAUSED · DETAILED MASTER"
+      "status": "TROT / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Pace_Cycle",
+      "time": 0.2,
+      "clips": 12,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "PACE / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Canter_Cycle",
+      "time": 0.4,
+      "clips": 12,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "CANTER / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Gallop_Cycle",
+      "time": 0.36,
+      "clips": 12,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "GALLOP / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Sprint_Cycle",
+      "time": 0.3,
+      "clips": 12,
+      "draws": 8,
+      "triangles": 25886,
+      "status": "SPRINT / PAUSED · DETAILED MASTER"
     },
     {
       "clip": "Sit_Down",
       "time": 2.4,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "SIT / PAUSED · DETAILED MASTER"
@@ -37,7 +86,7 @@
     {
       "clip": "Roll_Over",
       "time": 2.2,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "ROLL / PAUSED · DETAILED MASTER"
@@ -45,7 +94,7 @@
     {
       "clip": "Fetch_Return",
       "time": 2.65,
-      "clips": 8,
+      "clips": 12,
       "draws": 9,
       "triangles": 26414,
       "status": "FETCH / PAUSED · DETAILED MASTER"
@@ -53,15 +102,15 @@
     {
       "clip": "Give_Paw",
       "time": 2,
-      "clips": 8,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "HAND / PAUSED · DETAILED MASTER"
     },
     {
       "clip": "Jump",
-      "time": 0.95,
-      "clips": 8,
+      "time": 0.855,
+      "clips": 12,
       "draws": 8,
       "triangles": 25886,
       "status": "JUMP / PAUSED · DETAILED MASTER"
@@ -69,7 +118,7 @@
   ],
   "lod_encoding_combinations": 6,
   "checks": [
-    "eight clip selectors, scrubbing and camera bounds",
+    "twelve clip selectors, scrubbing and camera bounds",
     "skeleton and wireframe",
     "plain and decoded Meshopt loading",
     "static tier disables clips",

@@ -3,13 +3,13 @@
   "asset_hashes": [
     {
       "file": "c07_d0_lod0.glb",
-      "sha256": "30d97c51badb4a00b40b16206bfbe8bc9d748fe616794b716ab5929d6b3b810b",
-      "meshopt_sha256": "8175986d90825cb724e6795f4758b3258bba954648e1e10c4d70e1000fae380c"
+      "sha256": "3081e25a71e3f51bf139fd13a6abdde5327ba0945300ef5b0bca4a43f293b4da",
+      "meshopt_sha256": "c7c0e5c743bf8a50e9ff0ad75584ac7d8ea3c8a895b44c1856ae02cfad44e5ae"
     },
     {
       "file": "c07_d0_lod1.glb",
-      "sha256": "a786604c7ca5994c4f6312ad90f8602e8d161dd0855336eca4157fc5dd96cc6a",
-      "meshopt_sha256": "ad80cf103a10e60da724bc93b5210c3527d73ab41fcf7ef5b1d69714b99511f4"
+      "sha256": "da0cc9cf37dbeeac2f9ec4e361501747e63eb60c6662610bf8c274ccef5f9bd4",
+      "meshopt_sha256": "c5baa781694bfe9289e1aa837c454f9379c2c378e4650ec5db6a06677397ff99"
     },
     {
       "file": "c07_d0_lod2.glb",
@@ -56,7 +56,7 @@
     },
     {
       "clip": "Pounce",
-      "time": 1.275,
+      "time": 1.078,
       "clips": 6,
       "draws": 16,
       "status": "POUNCE / PAUSED · DETAILED MASTER"

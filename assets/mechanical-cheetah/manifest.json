@@ -21,7 +21,18 @@
     ],
     "gallop": "Rotary contacts FL, FR, HR, HL; gathered and extended airborne phases; independently articulated lumbar, pelvis, thorax, scapulae and tail",
     "walk_reference": "Local user-supplied cat-walk inspected for phase timing and shoulder motion; all exported motion authored independently",
-    "skeleton_root": "ROOT"
+    "skeleton_root": "ROOT",
+    "patterns": {
+      "file": "../../source/motion-patterns/quadruped-patterns.json",
+      "revision": "2026-10-27-contact-study",
+      "sha256": "5383037a915ff42d0ee2fa5994e80cfb9f847be546fb3a8061636c10e3d5edd0",
+      "timing": "Original authored timing; source diagrams establish contact topology and pose order."
+    },
+    "reference_urls": [
+      "https://motionzoo.net/dog_walk_gaits/",
+      "https://motionzoo.net/making_cat_jump/"
+    ],
+    "supersedes_revision": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031"
   },
   "lod_selection": {
     "initial": 2,
@@ -38,7 +49,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2671008,
+      "bytes": 2721968,
       "triangles": 62720,
       "draw_calls": 6,
       "plot_m": [
@@ -116,11 +127,41 @@
           "duration_s": 3.2,
           "loop": false,
           "root_motion": true,
-          "travel_m": 1.2
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-contact-study",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 1.2,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "30d97c51badb4a00b40b16206bfbe8bc9d748fe616794b716ab5929d6b3b810b",
+      "sha256": "3081e25a71e3f51bf139fd13a6abdde5327ba0945300ef5b0bca4a43f293b4da",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -261,8 +302,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 747812,
-      "meshopt_sha256": "8175986d90825cb724e6795f4758b3258bba954648e1e10c4d70e1000fae380c"
+      "meshopt_bytes": 764044,
+      "meshopt_sha256": "c7c0e5c743bf8a50e9ff0ad75584ac7d8ea3c8a895b44c1856ae02cfad44e5ae"
     },
     {
       "file": "c07_d0_lod1.glb",
@@ -270,7 +311,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1233736,
+      "bytes": 1284692,
       "triangles": 12760,
       "draw_calls": 6,
       "plot_m": [
@@ -348,11 +389,41 @@
           "duration_s": 3.2,
           "loop": false,
           "root_motion": true,
-          "travel_m": 1.2
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-contact-study",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 1.2,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "a786604c7ca5994c4f6312ad90f8602e8d161dd0855336eca4157fc5dd96cc6a",
+      "sha256": "da0cc9cf37dbeeac2f9ec4e361501747e63eb60c6662610bf8c274ccef5f9bd4",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -493,8 +564,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 424324,
-      "meshopt_sha256": "ad80cf103a10e60da724bc93b5210c3527d73ab41fcf7ef5b1d69714b99511f4"
+      "meshopt_bytes": 440556,
+      "meshopt_sha256": "c5baa781694bfe9289e1aa837c454f9379c2c378e4650ec5db6a06677397ff99"
     },
     {
       "file": "c07_d0_lod2.glb",
@@ -687,8 +758,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-mechanical-cheetah.blend",
-    "bytes": 4233570,
-    "sha256": "fc4a9feb23ce23845f33dac6d1729f5485e8d39ba075ec450c82c321be8f9d6a",
+    "bytes": 4305492,
+    "sha256": "5497b193fa11295058a4a703ba851eb4065c96b8c92282f3776ea1b69b17aa7b",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   }
 }

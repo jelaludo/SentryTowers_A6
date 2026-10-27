@@ -2,7 +2,7 @@
 
 Articulated mechanical scout inspired by the supplied K9-RECON reference. Graphite and titanium armor, twin camera optics, pointed folding ears, servo housings, three digits per paw, exposed actuator rails, paired battery cassettes, a segmented tail and folding radio antennas. This is the separate ground canine family; Reckon-Guard remains the flying drone.
 
-Open the repository's `reckon-k9/` viewer. Authored Blender master: `source/blender/a6-reckon-k9.blend`. Review images: `preview.png` and `animation-review.png`. Models and animation by jelaludo; see `ATTRIBUTIONS.md` for reference provenance.
+Open the repository's `reckon-k9/` viewer. Authored Blender master: `source/blender/a6-reckon-k9.blend`. Derived review images: `preview.png`, the twelve-action `animation-review.png`, individual gait/pose renders and `jump-study.png`. Models and animation by jelaludo; see `ATTRIBUTIONS.md` for reference provenance.
 
 ## Measured export set
 
@@ -10,8 +10,8 @@ Plain GLBs are authoritative, self-contained and texture-free. The six-material 
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 / detailed | 25,884 | 6 | 1,664,712 | 449,000 | 8 |
-| LOD1 / game | 9,732 | 6 | 1,177,236 | 356,784 | 8 |
+| LOD0 / detailed | 25,884 | 6 | 2,184,100 | 600,768 | 12 |
+| LOD1 / game | 9,732 | 6 | 1,696,624 | 508,556 | 12 |
 | LOD2 / static distance | 2,484 | 1 | 190,764 | 56,072 | 0 |
 
 The articulated game tier meets the 25k unit triangle target. The static tier meets 3k triangles / one draw / 250 KB. Detailed and game files include the full animation set, so their byte counts include motion. Draw counts exclude the viewer floor, demonstration prop, skeleton, and shadow passes. No FPS claim is made.
@@ -28,20 +28,28 @@ All 36 skeleton names are stable and dot-free, including `MOTION`, `BODY`, `SPIN
 
 ## Rig and clip contract
 
-Rigid components carry a single bone weight, preserving hard armor and servo shape. The editable Blender file includes a poseable skeleton and eight separate NLA actions. The builder analytically solves canine leg targets, then samples the resulting transforms at 60 Hz; the plain exports simplify redundant keys. This is an editable baked deformation rig, with the IK authoring logic in `build_reckon_k9.py`, rather than a Blender control-widget rig.
+Rigid components carry a single bone weight, preserving hard armor and servo shape. The editable Blender file includes a poseable skeleton and twelve separate NLA actions. The builder analytically solves canine leg targets, then samples the resulting transforms at 120 Hz; the plain exports simplify redundant keys. This is an editable baked deformation rig, with the IK authoring logic in `build_reckon_k9.py`, rather than a Blender control-widget rig.
 
 | Clip | Seconds | Playback | Behavior |
 | --- | ---: | --- | --- |
 | `Alert_Idle` | 3.0 | Loop | Quiet head scan, ear adjustment and tail motion. |
 | `Walk_Cycle` | 1.4 | Loop | Four-beat walk, 68% stance, 0.34 m stance travel. |
 | `Run_Cycle` | 0.7 | Loop | Diagonal running trot, 44% stance, 0.48 m stance travel. |
+| `Pace_Cycle` | 0.9 | Loop | Same-side pairs, 52% stance, 0.90 m/s. |
+| `Canter_Cycle` | 0.9 | Loop | Three beats: HL → HR + FL → FR, then suspension; 1.12 m/s. |
+| `Gallop_Cycle` | 0.8 | Loop | Four rotary contacts and one gathered flight; 1.55 m/s. |
+| `Sprint_Cycle` | 0.7 | Loop | Rotary contacts with gathered and extended flights; 1.90 m/s. |
 | `Sit_Down` | 2.4 | One-shot, clamp | Fold hindquarters and hold seated. |
 | `Roll_Over` | 4.8 | One-shot | Crouch, fold ears/antennas, roll fully, stand. |
 | `Fetch_Return` | 8.0 | One-shot, root motion | Ease out 0.625 m, lower muzzle, pick up, turn, return and release. |
 | `Give_Paw` | 4.0 | One-shot | Sit, offer left forepaw, shake, return upright. |
-| `Jump` | 2.0 | One-shot | Anticipation, roughly 0.38 m body lift, landing compression. |
+| `Jump` | 2.0 | One-shot | Crouch, hind push, airborne tuck, forepaw landing and delayed hip compression. |
 
-Walk and run are in place. Translate the instance along +Z at **0.357142857 m/s** for walk or **1.558441558 m/s** for run, multiplied by playback rate. Both clips return continuously to their starting poses. Use normal engine crossfades for entering/exiting locomotion.
+All six gaits are in place. Translate the instance along +Z at the manifest's `clips.speed_mps`, multiplied by playback rate: **0.357142857 m/s** for walk and **1.558441558 m/s** for trot. Gaits return continuously to their starting poses. Crossfades require consuming-game review for entering/exiting locomotion.
+
+The 27 October contact study corrects the earlier walk phase sign and the same-side pairing previously mislabeled as a trot. `Run_Cycle` retains its engine-facing name and duration but now pairs **FL + HR / FR + HL**; the viewer calls it **Trot**. Walk touchdown phases are FL 0.00 → HR 0.25 → FR 0.50 → HL 0.75, so each hind paw precedes its same-side forepaw. Gallop and sprint use FL → FR → HR → HL. Sprint's gathered flight is phase 0.32–0.54; extended flight is 0.86–1.00. Full support intervals are exported in the manifest.
+
+Jump remains in place. Forepaws release at 0.480/0.505 s, hind paws at 0.615/0.630 s; forepaws land at 1.080/1.105 s, hind paws at 1.190/1.215 s. Seven pose landmarks expose preparation through recovery. A parabolic torso arc, independent paw paths, stable ground anchors, head compensation and delayed tail motion establish the performance. These seconds and amplitudes are authored for the mechanical rig, not measurements from the reference images.
 
 Only fetch contains forward/turning motion on `MOTION`; disable additional game root travel while that performance plays. The placement wrapper stays under game control. Play one-shots with `LoopOnce` and `clampWhenFinished=true`; sit intentionally holds at the endpoint. The other one-shots return upright. The viewer's repeat option restarts one-shots and is an inspection convenience.
 
@@ -60,9 +68,15 @@ LOD0 is the close-shot / recording master. LOD1 retains the complete skeleton an
 
 ## Validation and hand-off
 
-Six plain/decoded Meshopt exports pass glTF validation with zero errors and warnings. Geometry checks cover finite positions, nondegenerate triangles, names, material draws, hashes, socket parity and identical skeleton interfaces. Across 6,344 sampled animated poses, minimum mesh clearance is approximately 1.7 mm; maximum stance drift is 0.33 mm and limb-length error is below 0.08 mm. Fetch attachment events meet the prop centre within 2 mm. Jump has four airborne paws. See the full measured report for exact values.
+Six plain/decoded Meshopt exports pass glTF validation with zero errors and warnings. Geometry checks cover finite positions, nondegenerate triangles, names, material draws, hashes, socket parity and identical skeleton interfaces. Across 14,256 sampled animated poses, minimum mesh clearance is approximately 1.69 mm; maximum gait stance drift is 0.362 mm and limb-length error is below 0.073 mm. Fetch attachment events meet the prop centre within 2 mm. Jump has four airborne paws. Independent pattern checks measure at most 0.315 mm jump-anchor drift and hip compression 51–61 ms after the chest. Existing node/socket interfaces, triangle/draw budgets and original clip durations match the preserved baseline. See the full measured reports for exact values.
 
-The real Chromium/WebGL viewer test exercises all eight clip controls, scrubbers, camera framing, six tier/encoding combinations, skeleton/wireframe, ground travel, and a 390 px mobile layout. Blender review renders and browser views were visually inspected. These are repository checks, not consuming-game r160, terrain, release-gltfpack or reference-phone acceptance. Those integration checks remain pending.
+The real Chromium/WebGL viewer tests exercise all twelve clip controls, scrubbers, camera framing, six tier/encoding combinations, skeleton/wireframe, ground travel, and a 390 px mobile layout. The shared study test covers seven jump-pose buttons, contact tracks, gait labels and hiding motion controls for the static tier. Blender review renders and browser views were visually inspected. These are repository checks, not consuming-game r160, terrain, release-gltfpack or reference-phone acceptance. Those integration checks remain pending.
+
+Motion Zoo's gait/contact diagrams and cat-jump pose study by Abiharu informed the revision. No reference images, videos, geometry or keys are redistributed. Earlier exports remain preserved at commit `a4b1e41e6a8f85fa2385f242b418edc9a2a82031`. Shared source patterns, provenance and validation evidence live in `source/motion-patterns/`; the reusable authoring workflow is documented in `docs/ANIMATION-REFERENCE-WORKFLOW.md`.
+
+https://motionzoo.net/dog_walk_gaits/
+
+https://motionzoo.net/making_cat_jump/
 
 Hand off the Git commit containing this folder together with `assets/reckon-k9/`. SHA-256 hashes are in `manifest.json`; retrieve the pinned revision with `git log -1 --format=%H -- assets/reckon-k9/`. Do not hand off an unversioned loose GLB. Include the Blender source separately when editable authoring material is needed.
 
@@ -72,10 +86,14 @@ Hand off the Git commit containing this folder together with `assets/reckon-k9/`
 blender --background --python-exit-code 1 --python tools/blender/build_reckon_k9.py
 node tools/asset-pipeline/pack-reckon-k9.mjs
 node tools/asset-pipeline/validate-reckon-k9.mjs
+node tools/asset-pipeline/validate-quadruped-patterns.mjs
 blender --background --python-exit-code 1 --python tools/blender/render_reckon_k9.py
+blender --background --python-exit-code 1 --python tools/blender/render_reckon_k9.py -- --jump-study
+blender --background --python-exit-code 1 --python tools/blender/render_reckon_k9.py -- --gait-study
 node tools/asset-pipeline/render-reckon-review.mjs
+node tools/asset-pipeline/render-quadruped-jump-sheets.mjs
 python3 tools/build-workshop-docs.py
 python3 tools/validate-workshop-navigation.py
 ```
 
-Serve the repository over HTTP, then open `/reckon-k9/`. Drag to orbit, scroll to zoom, select front/side/optics views, scrub any clip, change speed, pause with Space, inspect the skeleton or wireframe, compare plain/Meshopt and download the selected export. The browser test accepts `PLAYWRIGHT_MODULE`, `CHROMIUM_EXECUTABLE` and `K9_VIEWER_URL` environment variables for a local Playwright/browser installation.
+Serve the repository over HTTP, then open `/reckon-k9/`. Drag to orbit, scroll to zoom, select front/side/optics views, scrub any clip, change speed, pause with Space, inspect the skeleton or wireframe, compare plain/Meshopt and download the selected export. Click a contact track to scrub or a jump pose to pause in side view. Tracks show authored support windows; “Near floor” reports actual sole sockets within 12 mm of the floor, not collision detection. The browser test accepts `PLAYWRIGHT_MODULE`, `CHROMIUM_EXECUTABLE` and `K9_VIEWER_URL` environment variables for a local Playwright/browser installation.

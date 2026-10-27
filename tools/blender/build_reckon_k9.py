@@ -6,7 +6,10 @@ import numpy as np
 from pathlib import Path
 from mathutils import Vector, Matrix, Euler
 P=Path(__file__).resolve().parents[2]; OUT=P/'assets/reckon-k9'; OUT.mkdir(exist_ok=True)
-FPS=60
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from quadruped_motion import GAITS,gait_foot,jump_meta,jump_body,jump_foot,jump_tail
+FPS=120
+MAX_REACH_ERROR=0.;WORST_REACH=None;POSE_TAG=None
 H={}; PAR={}
 def joint(n,p,parent): H[n]=Vector(p); PAR[n]=parent
 joint('MOTION',(0,0,0),None);joint('BODY',(0,.25,.52),'MOTION');joint('SPINE',(0,.015,.535),'BODY');joint('CHEST',(0,-.25,.55),'SPINE');joint('NECK',(0,-.32,.635),'CHEST');joint('HEAD',(0,-.425,.735),'NECK');joint('JAW',(0,-.45,.68),'HEAD')
@@ -24,7 +27,7 @@ for kind,y in [('F',-.25),('H',.26)]:
   joint('SOCKET_PAW_'+id,(x,-.325,.003) if kind=='F' else (x,.235,.003),'PAW_'+id)
 joint('ANTENNA_L',(.075,.05,.65),'SPINE');joint('ANTENNA_R',(-.075,.15,.65),'SPINE')
 joint('SOCKET_MOUTH',(0,-.686,.668),'HEAD');joint('SOCKET_PAYLOAD',(0,.035,.65),'SPINE');joint('SENSOR_YAW',(0,-.30,.69),'CHEST');joint('SOCKET_SENSOR',(0,-.32,.71),'SENSOR_YAW')
-CLIPS=[dict(name='Alert_Idle',duration_s=3,loop=True),dict(name='Walk_Cycle',duration_s=1.4,loop=True,speed_mps=.34/(.68*1.4)),dict(name='Run_Cycle',duration_s=.7,loop=True,speed_mps=.48/(.44*.7)),dict(name='Sit_Down',duration_s=2.4,loop=False),dict(name='Roll_Over',duration_s=4.8,loop=False),dict(name='Fetch_Return',duration_s=8,loop=False,root_motion=True),dict(name='Give_Paw',duration_s=4,loop=False),dict(name='Jump',duration_s=2,loop=False)]
+CLIPS=[dict(name='Alert_Idle',duration_s=3,loop=True)]+[dict(name=name,loop=True,**meta) for name,meta in GAITS.items()]+[dict(name='Sit_Down',duration_s=2.4,loop=False),dict(name='Roll_Over',duration_s=4.8,loop=False),dict(name='Fetch_Return',duration_s=8,loop=False,root_motion=True),dict(name='Give_Paw',duration_s=4,loop=False),dict(name='Jump',duration_s=2,loop=False,**jump_meta('k9'))]
 COLORS=[(.07,.085,.092),(.27,.30,.31),(.47,.50,.49),(.018,.024,.028),(.64,.25,.045),(.02,.32,.62)]
 
 def mat(i,distance=False):
@@ -166,11 +169,16 @@ def smooth(a,b,t):
  u=max(0,min(1,(t-a)/(b-a)));return u*u*(3-2*u)
 def pulse(a,b,c,d,t):return smooth(a,b,t)*(1-smooth(c,d,t))
 def ik(a,c,L1,L2,front):
- d=c-a;dist=d.length;dist=min(L1+L2-1e-5,max(abs(L1-L2)+1e-5,dist));u=d.normalized();v=Vector((0,front,0));v=(v-u*v.dot(u)).normalized();along=(L1*L1-L2*L2+dist*dist)/(2*dist);height=math.sqrt(max(0,L1*L1-along*along));return a+u*along+v*height
+ global MAX_REACH_ERROR,WORST_REACH
+ d=c-a;dist=d.length;err=max(0,dist-(L1+L2),abs(L1-L2)-dist)
+ if err>MAX_REACH_ERROR:MAX_REACH_ERROR=err;WORST_REACH=POSE_TAG
+ dist=min(L1+L2-1e-5,max(abs(L1-L2)+1e-5,dist));u=d.normalized();v=Vector((0,front,0));v=(v-u*v.dot(u)).normalized();along=(L1*L1-L2*L2+dist*dist)/(2*dist);height=math.sqrt(max(0,L1*L1-along*along));return a+u*along+v*height
 
 def pose(clip,t,g):
+ global POSE_TAG
+ POSE_TAG=(clip,t)
  pos={};ori={};base=Vector((0,0,0));heading=0.;sit=0.;crouch=0.;roll=0.;jump=0.;gait=None;phase=0.;pick=0.;paw=0.
- duration=next(c['duration_s'] for c in CLIPS if c['name']==clip)
+ duration=next(c['duration_s'] for c in CLIPS if c['name']==clip);jump_state=None
  weight=1.;turn=0.
  def travel(q):
   q=max(0,min(2,q))
@@ -178,14 +186,13 @@ def pose(clip,t,g):
    u=q/.25;return .25*(u**3-.5*u**4)*.357142857
   if q<1.75:return (q-.125)*.357142857
   u=(q-1.75)/.25;return (1.625+.25*(u-u**3+.5*u**4))*.357142857
- if clip in ['Walk_Cycle','Run_Cycle']:gait=clip;phase=t/duration
+ if clip in GAITS:gait=clip;phase=t/duration
  if clip=='Sit_Down':sit=smooth(.15,1.9,t)
  if clip=='Give_Paw':sit=smooth(0,.9,t)*(1-smooth(3.35,4,t));paw=pulse(.9,1.5,2.65,3.25,t)
  if clip=='Roll_Over':
   crouch=pulse(0,.7,4.05,4.8,t);roll=math.tau*smooth(.9,3.9,t)
  if clip=='Jump':
-  crouch=.7*pulse(0,.38,.44,.6,t)+.6*pulse(1.25,1.42,1.62,2,t)
-  if .5<t<1.4:jump=.38*math.sin(math.pi*(t-.5)/.9)
+  jump_state=jump_body('k9',t);jump=jump_state['z']
  if clip=='Fetch_Return':
   if t<2:gait='Walk_Cycle';phase=t/1.4;base.y=-travel(t);weight=pulse(0,.25,1.75,2,t)
   elif t<3.5:base.y=-.625;pick=pulse(2,2.5,2.85,3.35,t)
@@ -198,34 +205,47 @@ def pose(clip,t,g):
  pos['MOTION']=base;ori['MOTION']=rz(heading)
  body=H['BODY']+Vector((0,.035*sit,-.24*sit-.20*crouch-.06*pick+jump))
  pitch=-.52*sit+.40*pick
+ flex=jump_state['flex']*.6 if jump_state else 0
+ if jump_state:pitch=jump_state['pitch']-flex*.4
  if gait:
-  run=gait=='Run_Cycle';body.z+=weight*((-.08 if run else -.035)+(.025 if run else .008)*math.sin(phase*math.tau*2));pitch+=weight*(.045 if run else .012)*math.sin(phase*math.tau)
+  kind=GAITS[gait]['gait'];w=phase*math.tau
+  if kind=='walk':body.z+=weight*(-.035+.008*math.cos(w*2));pitch+=weight*.012*math.sin(w)
+  elif kind=='trot':body.z+=weight*(-.105+.025*math.cos(w*2));pitch+=weight*.018*math.sin(w*2)
+  elif kind=='pace':body.z+=-.06+.008*math.cos(w*2);roll=.035*math.sin(w)
+  else:
+   fast=kind=='double-suspension gallop';arch=math.cos(math.tau*(phase-(.43 if fast else .45)))
+   body.z+=-.09+(.025*math.cos(w*2) if fast else .035*arch);pitch=.08*math.sin(w);flex=(.18 if fast else .11)*arch
  pos['BODY']=body;ori['BODY']=rx(pitch)@ry(roll)
  # Roll occurs about the torso, ground correction below tracks the true geometry.
  for n in ['SPINE','CHEST','NECK','HEAD','JAW','EAR_L','EAR_R','TAIL_1','TAIL_2','TAIL_3','ANTENNA_L','ANTENNA_R','SOCKET_MOUTH','SOCKET_PAYLOAD','SENSOR_YAW','SOCKET_SENSOR']:
   parent=PAR[n];local=Matrix.Identity(3)
+  if n=='SPINE' and (flex or jump_state):local=rx(flex*.7+(jump_state['fore_response'] if jump_state else 0))
+  if n=='CHEST' and (flex or jump_state):local=rx(flex*.55)
   if n=='NECK':local=rx(.58*pick+.10*sit)
   if n=='HEAD':local=rx(.74*pick+.30*sit)@rz(.035*math.sin(t*math.tau/duration) if clip=='Alert_Idle' else 0)
   if n=='JAW':local=rx(max(.38*pick,.23*pulse(2.6,2.9,7.4,7.75,t) if clip=='Fetch_Return' else 0))
   if n.startswith('TAIL_'):local=rz(.16*math.sin(t*math.tau/duration*(2 if clip=='Alert_Idle' else 1)-int(n[-1])*.7))@rx((.75 if n=='TAIL_1' else .1)*sit)
   if n.startswith('EAR_'):local=rx(-1.3*crouch+.035*math.sin(t*math.tau/duration+(0 if n.endswith('L') else 1)))
   if n.startswith('ANTENNA_'):local=rx(1.25*crouch)
+  if jump_state:
+   if n=='NECK':local=rx(-pitch*.6)
+   if n=='HEAD':local=rx(-pitch*.4+jump_state['gaze'])
+   if n.startswith('TAIL_'):local=rx(jump_tail('k9',t,int(n[-1]))*(.7 if n=='TAIL_1' else .20))
+   if n.startswith('EAR_'):local=rx(-.10*math.sin(math.pi*min(1,t/1.22))**2)
+   if n.startswith('ANTENNA_'):local=rx(.08*jump_state['compression'])
   pos[n]=pos[parent]+ori[parent]@(H[n]-H[parent]);ori[n]=ori[parent]@local
  # Ground-frame targets keep paw soles parallel and stationary during stance.
  for id in LEGS:
+  POSE_TAG=(clip,t,id)
   upper='UPPER_'+id;lower='LOWER_'+id;foot='PAW_'+id;parent=PAR[upper]
   a=pos[parent]+ori[parent]@(H[upper]-H[parent]);target=H[foot].copy();lift=0
   if gait:
-   run=gait=='Run_Cycle';duty=.44 if run else .68;stride=.48 if run else .34
-   phases={'FL':0,'HR':.5,'FR':.5,'HL':0} if run else {'FL':0,'HR':.25,'FR':.5,'HL':.75}
-   u=(phase+phases[id])%1
-   if u<duty:target.y+=-stride/2+stride*u/duty
-   else:
-    q=(u-duty)/(1-duty);target.y+=stride/2-stride*(q*q*(3-2*q));lift=(.12 if run else .055)*math.sin(math.pi*q)**2
-   target.z+=lift;target=H[foot].lerp(target,weight)
+   dy,lift,contact=gait_foot(GAITS[gait],id,phase);target.y+=dy;target.z+=lift;target=H[foot].lerp(target,weight)
   if turn:target.z+=.06*math.sin(math.pi*turn)**2*math.sin(math.pi*turn*2+(0 if id in ['FL','HR'] else math.pi/2))**2
   if id[0]=='H':target.y-=.14*sit
-  if clip=='Jump' and jump>0:target.z+=jump+.05*math.sin(math.pi*(t-.5)/.9);target.y+=(.05 if id[0]=='F' else -.04)*math.sin(math.pi*(t-.5)/.9)
+  paw_pitch=0
+  if jump_state:
+   target,paw_pitch,contact=jump_foot('k9',id,t,H[foot]);target=Vector(target)
   if id=='FL' and paw:target+=Vector((.025,-.23,.28))*paw;target.z+=.015*math.sin((t-1.5)*10)*paw
   if clip=='Roll_Over':
    target=pos['BODY']+ori['BODY']@(H[foot]-H['BODY']+Vector((0,-.03 if id[0]=='F' else -.06,.21*crouch)))
@@ -237,7 +257,7 @@ def pose(clip,t,g):
   else:
    b=ik(a,target,(H[lower]-H[upper]).length,(H[foot]-H[lower]).length,1);segments=[(upper,a,b,H[lower]-H[upper]),(lower,b,target,H[foot]-H[lower])]
   for n,p,q,rest in segments:pos[n]=p;ori[n]=rest.rotation_difference(q-p).to_matrix()
-  pos[foot]=target;ori[foot]=ori['BODY'] if clip=='Roll_Over' else rx(-.20*paw if id=='FL' else 0)
+  pos[foot]=target;ori[foot]=ori['BODY'] if clip=='Roll_Over' else rx(paw_pitch if jump_state else -.20*paw if id=='FL' else 0)
   n='SOCKET_PAW_'+id;pos[n]=pos[foot]+ori[foot]@(H[n]-H[foot]);ori[n]=ori[foot]
  # Track actual master geometry while rolling, also prevents armor-floor penetration on pickup.
  if clip in ['Roll_Over','Fetch_Return','Give_Paw','Sit_Down']:
@@ -297,37 +317,41 @@ def animate(arm,g):
  for pb in arm.pose.bones:pb.matrix_basis=Matrix.Identity(4)
  for tr in arm.animation_data.nla_tracks:tr.mute=False
 
-bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-scene=bpy.context.scene;scene.name='RECKON_K9';scene.render.fps=FPS;scene.frame_start=0;scene.frame_end=240
-master=shape(0);master.ground={n:np.array([v-H[n] for v,b in zip(master.v,master.b) if b==n]) for n in set(master.b)}
-assets=[]
-for lod in [0,1,2]:
- col=bpy.data.collections.new('RECKON_K9_LOD'+str(lod));scene.collection.children.link(col)
- root=bpy.data.objects.new('ROOT',None);col.objects.link(root);root['units']='metres';root['forward']='+Z in glTF';root['damage_level']=0
- arm=make_arm(col);arm.parent=root
- g=master if lod==0 else shape(lod);skin=mesh(g,col,arm,lod)
- if lod==2:skin.parent=None
- if lod<2:animate(arm,master)
- bpy.ops.object.select_all(action='DESELECT')
- for o in col.objects:o.select_set(True)
- scene.frame_set(0)
- path=OUT/f'reckon_k9_d0_lod{lod}.glb'
- bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_extras=True,export_animations=lod<2,export_animation_mode='NLA_TRACKS',export_frame_range=False,export_force_sampling=True,export_cameras=False,export_lights=False,export_all_influences=False)
- raw=path.read_bytes();n=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+n]);assets.append(dict(file=path.name,lod=lod,damage_level=0,static=lod==2,derived=False,bytes=len(raw),triangles=sum(doc['accessors'][p['indices']]['count']//3 for m in doc.get('meshes',[]) for p in m['primitives']),draw_calls=sum(len(m['primitives']) for m in doc.get('meshes',[])),plot_m=[.6,1.6],clips=CLIPS if lod<2 else [],credit='Models by jelaludo'))
- print('EXPORTED',assets[-1],flush=True)
- # Save only the detailed authored source. Reduced files are rebuilt from the same recipe.
- if lod==0:
-  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!='Alert_Idle'
-  scene.frame_set(0);scene.name='RECKON_K9'
-  for screen in bpy.data.screens:
-   for area in screen.areas:
-    if area.type=='VIEW_3D':area.spaces.active.region_3d.view_location=(0,0,.45);area.spaces.active.region_3d.view_distance=2;area.spaces.active.shading.type='MATERIAL'
-  bpy.ops.wm.save_as_mainfile(filepath=str(P/'source/blender/a6-reckon-k9.blend'))
- for o in list(col.objects):bpy.data.objects.remove(o,do_unlink=True)
- bpy.data.collections.remove(col)
- # Clear unlinked armature data and actions to prevent suffixed names across tiers.
- for data in [bpy.data.armatures,bpy.data.actions,bpy.data.meshes,bpy.data.materials]:
-  for item in list(data):
-   if item.users==0:data.remove(item)
-(OUT/'manifest.json').write_text(json.dumps(dict(family='reckon-k9',label='RECKON K9 / Canine reconnaissance platform',plain_glb_source_of_truth=True,canonical_dimensions_m=[.48,.96,1.42],coordinate_system=dict(units='metres',up='+Y',forward='+Z',origin='ground at plot centre'),damage_states={'d0':'intact only; other damage states not authored'},lod_selection=dict(initial=2,lod0='Close shots and recordings',lod1='Animated gameplay; retain during movement',lod2='Static standing loading/map representation',approach_distance_m=25,hysteresis_m=5,provisional=True),animation=dict(fps=FPS,placement_node='ROOT',motion_node='MOTION',engine_driven_excluded=['SENSOR_YAW'],fetch_events=[dict(time_s=2.65,event='attach_prop',socket='SOCKET_MOUTH'),dict(time_s=7.4,event='release_prop')]),assets=assets),indent=2)+'\n')
-print('RECKON_K9_COMPLETE',flush=True)
+def build():
+ bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+ scene=bpy.context.scene;scene.name='RECKON_K9';scene.render.fps=FPS;scene.frame_start=0;scene.frame_end=round(max(c['duration_s'] for c in CLIPS)*FPS)
+ master=shape(0);master.ground={n:np.array([v-H[n] for v,b in zip(master.v,master.b) if b==n]) for n in set(master.b)}
+ assets=[]
+ for lod in [0,1,2]:
+  col=bpy.data.collections.new('RECKON_K9_LOD'+str(lod));scene.collection.children.link(col)
+  root=bpy.data.objects.new('ROOT',None);col.objects.link(root);root['units']='metres';root['forward']='+Z in glTF';root['damage_level']=0
+  arm=make_arm(col);arm.parent=root
+  g=master if lod==0 else shape(lod);skin=mesh(g,col,arm,lod)
+  if lod==2:skin.parent=None
+  if lod<2:animate(arm,master)
+  bpy.ops.object.select_all(action='DESELECT')
+  for o in col.objects:o.select_set(True)
+  scene.frame_set(0)
+  path=OUT/f'reckon_k9_d0_lod{lod}.glb'
+  bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_extras=True,export_animations=lod<2,export_animation_mode='NLA_TRACKS',export_frame_range=False,export_force_sampling=True,export_cameras=False,export_lights=False,export_all_influences=False)
+  raw=path.read_bytes();n=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+n]);assets.append(dict(file=path.name,lod=lod,damage_level=0,static=lod==2,derived=False,bytes=len(raw),triangles=sum(doc['accessors'][p['indices']]['count']//3 for m in doc.get('meshes',[]) for p in m['primitives']),draw_calls=sum(len(m['primitives']) for m in doc.get('meshes',[])),plot_m=[.6,1.6],clips=CLIPS if lod<2 else [],credit='Models by jelaludo'))
+  print('EXPORTED',assets[-1],flush=True)
+  # Save only the detailed authored source. Reduced files are rebuilt from the same recipe.
+  if lod==0:
+   for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!='Alert_Idle'
+   scene.frame_set(0);scene.name='RECKON_K9'
+   for screen in bpy.data.screens:
+    for area in screen.areas:
+     if area.type=='VIEW_3D':area.spaces.active.region_3d.view_location=(0,0,.45);area.spaces.active.region_3d.view_distance=2;area.spaces.active.shading.type='MATERIAL'
+   bpy.ops.wm.save_as_mainfile(filepath=str(P/'source/blender/a6-reckon-k9.blend'))
+  for o in list(col.objects):bpy.data.objects.remove(o,do_unlink=True)
+  bpy.data.collections.remove(col)
+  # Clear unlinked armature data and actions to prevent suffixed names across tiers.
+  for data in [bpy.data.armatures,bpy.data.actions,bpy.data.meshes,bpy.data.materials]:
+   for item in list(data):
+    if item.users==0:data.remove(item)
+ (OUT/'manifest.json').write_text(json.dumps(dict(family='reckon-k9',label='RECKON K9 / Canine reconnaissance platform',plain_glb_source_of_truth=True,canonical_dimensions_m=[.48,.96,1.42],coordinate_system=dict(units='metres',up='+Y',forward='+Z',origin='ground at plot centre'),damage_states={'d0':'intact only; other damage states not authored'},lod_selection=dict(initial=2,lod0='Close shots and recordings',lod1='Animated gameplay; retain during movement',lod2='Static standing loading/map representation',approach_distance_m=25,hysteresis_m=5,provisional=True),animation=dict(fps=FPS,placement_node='ROOT',motion_node='MOTION',engine_driven_excluded=['SENSOR_YAW'],fetch_events=[dict(time_s=2.65,event='attach_prop',socket='SOCKET_MOUTH'),dict(time_s=7.4,event='release_prop')]),assets=assets),indent=2)+'\n')
+ print('RECKON_K9_COMPLETE',flush=True)
+ print('MAX_REACH_ERROR',MAX_REACH_ERROR,WORST_REACH,flush=True)
+
+if __name__=='__main__':build()

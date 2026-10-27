@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "revision": "2026-10-27-contact-study",
+  "axes": "Blender Z up, -Y forward; exporters convert to glTF +Y/+Z.",
+  "sources": [
+    {
+      "id": "motionzoo_gaits",
+      "url": "https://motionzoo.net/dog_walk_gaits/",
+      "creator": "Abiharu / Motion Zoo",
+      "kind": "authored animation and contact diagrams",
+      "observed": [
+        "Walk follows hind then fore on each side.",
+        "Trot pairs opposite corners; pace pairs the same side.",
+        "Canter has three beats; rotary gallop four.",
+        "Double suspension has gathered and extended flight."
+      ],
+      "timing_status": "Contact topology observed; exact durations, duty factors and amplitudes below are original authored choices.",
+      "redistributed": false
+    },
+    {
+      "id": "motionzoo_jump",
+      "url": "https://motionzoo.net/making_cat_jump/",
+      "creator": "Abiharu / Motion Zoo",
+      "kind": "seven-pose jump study supplied by user",
+      "observed": [
+        "Anticipation, crouch, extension, apex tuck, fore contact, compression, recovery.",
+        "Forelegs release and land before hindlegs.",
+        "Landing response travels through the body."
+      ],
+      "timing_status": "Pose order observed; seconds, offsets and trajectories are original adaptations to these mechanical rigs.",
+      "redistributed": false
+    }
+  ],
+  "k9_gaits": {
+    "Walk_Cycle": {
+      "duration_s": 1.4,
+      "speed_mps": 0.3571428571428572,
+      "duty_factor": 0.68,
+      "touchdown_phase": {
+        "FL": 0,
+        "HR": 0.25,
+        "FR": 0.5,
+        "HL": 0.75
+      },
+      "gait": "walk",
+      "beat_count": 4,
+      "flight_intervals": {},
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    },
+    "Run_Cycle": {
+      "duration_s": 0.7,
+      "speed_mps": 1.5584415584415583,
+      "duty_factor": 0.44,
+      "touchdown_phase": {
+        "FL": 0,
+        "HR": 0,
+        "FR": 0.5,
+        "HL": 0.5
+      },
+      "gait": "trot",
+      "beat_count": 2,
+      "flight_intervals": {
+        "first": [
+          0.44,
+          0.5
+        ],
+        "second": [
+          0.94,
+          1
+        ]
+      },
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    },
+    "Pace_Cycle": {
+      "duration_s": 0.9,
+      "speed_mps": 0.9,
+      "duty_factor": 0.52,
+      "touchdown_phase": {
+        "FL": 0,
+        "HL": 0,
+        "FR": 0.5,
+        "HR": 0.5
+      },
+      "gait": "pace",
+      "beat_count": 2,
+      "flight_intervals": {},
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    },
+    "Canter_Cycle": {
+      "duration_s": 0.9,
+      "speed_mps": 1.12,
+      "duty_factor": 0.3,
+      "touchdown_phase": {
+        "HL": 0,
+        "HR": 0.3,
+        "FL": 0.3,
+        "FR": 0.6
+      },
+      "gait": "canter",
+      "beat_count": 3,
+      "flight_intervals": {
+        "suspension": [
+          0.9,
+          1
+        ]
+      },
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    },
+    "Gallop_Cycle": {
+      "duration_s": 0.8,
+      "speed_mps": 1.55,
+      "duty_factor": {
+        "FL": 0.28,
+        "FR": 0.28,
+        "HR": 0.4,
+        "HL": 0.4
+      },
+      "touchdown_phase": {
+        "FL": 0,
+        "FR": 0.1,
+        "HR": 0.52,
+        "HL": 0.64
+      },
+      "gait": "rotary gallop",
+      "beat_count": 4,
+      "flight_intervals": {
+        "gathered": [
+          0.38,
+          0.52
+        ]
+      },
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    },
+    "Sprint_Cycle": {
+      "duration_s": 0.7,
+      "speed_mps": 1.9,
+      "duty_factor": 0.22,
+      "touchdown_phase": {
+        "FL": 0,
+        "FR": 0.1,
+        "HR": 0.54,
+        "HL": 0.64
+      },
+      "gait": "double-suspension gallop",
+      "beat_count": 4,
+      "flight_intervals": {
+        "gathered": [
+          0.32,
+          0.54
+        ],
+        "extended": [
+          0.86,
+          1
+        ]
+      },
+      "source_ids": [
+        "motionzoo_gaits"
+      ]
+    }
+  },
+  "jumps": {
+    "cheetah": {
+      "clip": "Pounce",
+      "duration_s": 3.2,
+      "travel_m": 1.2,
+      "flight_height_m": 0.34,
+      "release_s": {
+        "FL": 0.65,
+        "FR": 0.675,
+        "HR": 0.8,
+        "HL": 0.815
+      },
+      "touchdown_s": {
+        "FL": 1.34,
+        "FR": 1.365,
+        "HR": 1.455,
+        "HL": 1.48
+      },
+      "landmarks_s": {
+        "ready": 0.12,
+        "crouch": 0.49,
+        "push_off": 0.79,
+        "apex": 1.0775,
+        "fore_contact": 1.35,
+        "absorb": 1.53,
+        "recover": 2.65
+      },
+      "rest_body_z": 0.7,
+      "crouch_m": 0.18,
+      "launch_offset_m": 0.13,
+      "landing_offset_m": 0.12,
+      "compression_m": 0.19,
+      "recovery_s": 2.65,
+      "launch_pitch": -0.34,
+      "landing_pitch": 0.34,
+      "fore_apex_height_m": 0.62,
+      "hind_apex_height_m": 0.52,
+      "fore_launch_height_m": 0.38,
+      "hind_forecontact_height_m": 0.28,
+      "fore_tuck_m": 0.12,
+      "hind_tuck_m": -0.16,
+      "source_ids": [
+        "motionzoo_jump"
+      ],
+      "authored_timing": true
+    },
+    "k9": {
+      "clip": "Jump",
+      "duration_s": 2.0,
+      "travel_m": 0.0,
+      "flight_height_m": 0.25,
+      "release_s": {
+        "FL": 0.48,
+        "FR": 0.505,
+        "HR": 0.615,
+        "HL": 0.63
+      },
+      "touchdown_s": {
+        "FL": 1.08,
+        "FR": 1.105,
+        "HR": 1.19,
+        "HL": 1.215
+      },
+      "landmarks_s": {
+        "ready": 0.08,
+        "crouch": 0.34,
+        "push_off": 0.61,
+        "apex": 0.855,
+        "fore_contact": 1.09,
+        "absorb": 1.26,
+        "recover": 1.9
+      },
+      "rest_body_z": 0.52,
+      "crouch_m": 0.12,
+      "launch_offset_m": 0.065,
+      "landing_offset_m": 0.08,
+      "compression_m": 0.13,
+      "recovery_s": 1.9,
+      "launch_pitch": -0.18,
+      "landing_pitch": 0.22,
+      "fore_apex_height_m": 0.48,
+      "hind_apex_height_m": 0.43,
+      "fore_launch_height_m": 0.24,
+      "hind_forecontact_height_m": 0.18,
+      "fore_tuck_m": 0.06,
+      "hind_tuck_m": -0.07,
+      "source_ids": [
+        "motionzoo_jump"
+      ],
+      "authored_timing": true
+    }
+  }
+}

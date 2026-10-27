@@ -4,6 +4,7 @@ Gallop has sequential fore contacts, gathered flight, hind contacts, extended fl
 """
 import math
 from mathutils import Vector,Matrix
+from quadruped_motion import jump_meta,jump_body,jump_foot,jump_tail
 H={};PAR={};FPS=120
 
 def joint(name,p,parent):H[name]=Vector(p);PAR[name]=parent
@@ -39,7 +40,7 @@ CLIPS=[
  {'name':'Stalk_Cycle','duration_s':2.4,'loop':True,'speed_mps':.38/(.78*2.4),'duty_factor':.78,'touchdown_phase':WALK_TOUCH},
  {'name':'Gallop_Cycle','duration_s':.8,'loop':True,'speed_mps':.44/(.18*.8),'duty_factor':.18,'touchdown_phase':GALLOP_TOUCH,'flight_intervals':{'gathered':[.26,.48],'extended':[.74,1.0]},'phase_landmarks':{'fore_support':.13,'gathered':.37,'hind_support':.61,'extended':.87}},
  {'name':'Sit_Down','duration_s':2.4,'loop':False},
- {'name':'Pounce','duration_s':3.2,'loop':False,'root_motion':True,'travel_m':1.2}
+ {'name':'Pounce','duration_s':3.2,'loop':False,'root_motion':True,**jump_meta('cheetah')}
 ]
 
 def rx(a):return Matrix.Rotation(a,3,'X')
@@ -105,44 +106,46 @@ def ik(a,c,L1,L2,pole,tag):
 
 def pose(clip,t):
  duration=next(c['duration_s'] for c in CLIPS if c['name']==clip);u=(t/duration)%1;wave=math.tau*u;pos={};ori={};flex=0;stalk=clip=='Stalk_Cycle';gallop=clip=='Gallop_Cycle';walk=clip in ['Feline_Walk_Cycle','Stalk_Cycle'];sit=smooth(.1,1.9,t) if clip=='Sit_Down' else 0
- base=Vector((0,0,0));lumbar=H['LUMBAR'].copy();bodyroll=0;bodyyaw=0;jump=0;crouch=0
+ base=Vector((0,0,0));lumbar=H['LUMBAR'].copy();bodyroll=0;bodyyaw=0;jump=0;crouch=0;jump_state=None;pitch=0
  if walk:lumbar.z-=.17 if stalk else .035;lumbar.z+=.007*math.cos(2*wave);lumbar.x=.009*math.sin(wave);bodyroll=.017*math.sin(wave);bodyyaw=.018*math.sin(wave+.5)
  if gallop:
   arch=math.cos(math.tau*(u-.37));flex=.70*arch+.30;lumbar.z=.66+.075*math.cos(2*math.tau*(u-.37))+.08*arch;lumbar.x=.004*math.sin(wave)
  if sit:lumbar+=Vector((0,.08,-.14))*sit
  if clip=='Pounce':
-  crouch=pulse(0,.5,.65,.85,t)+.65*pulse(1.65,1.85,2.1,2.7,t);lumbar.z-=.20*crouch
-  if .75<t<1.8:jump=.42*math.sin(math.pi*(t-.75)/1.05);lumbar.z+=jump
-  base.y=-1.2*smooth(.75,1.8,t)
+  jump_state=jump_body('cheetah',t);lumbar.z+=jump_state['z'];pitch=jump_state['pitch'];flex=jump_state['flex'];base.y=jump_state['root_y']
  pos['MOTION']=base;ori['MOTION']=Matrix.Identity(3);pos['LUMBAR']=lumbar;ori['LUMBAR']=ry(bodyroll)@rz(bodyyaw)
  def bone(n,r=None,offset=None):
   p=PAR[n];pos[n]=pos[p]+ori[p]@(H[n]-H[p])+(offset or Vector((0,0,0)));ori[n]=r if r is not None else ori[p]
- bone('LUMBAR_REAR_LINK',rx(-flex*.35-.35*sit)@rz(bodyyaw));bone('SPINE_REAR',rx(-flex*.65-.80*sit)@rz(bodyyaw));bone('PELVIS',rx(-flex-.80*sit)@rz(-bodyyaw))
- bone('LUMBAR_FRONT_LINK',rx(flex*.35-.30*sit)@ry(-bodyroll));bone('SPINE_FRONT',rx(flex*.65-.45*sit)@ry(-bodyroll));bone('CHEST',rx(flex-.45*sit)@rz(-bodyyaw))
+ bone('LUMBAR_REAR_LINK',rx(pitch-flex*.35-.35*sit)@rz(bodyyaw));bone('SPINE_REAR',rx(pitch-flex*.65-.80*sit)@rz(bodyyaw));bone('PELVIS',rx(pitch-flex-.80*sit)@rz(-bodyyaw))
+ bone('LUMBAR_FRONT_LINK',rx(pitch+flex*.35-.30*sit)@ry(-bodyroll));bone('SPINE_FRONT',rx(pitch+flex*.65-.45*sit+(jump_state['fore_response'] if jump_state else 0))@ry(-bodyroll));bone('CHEST',rx(pitch+flex-.45*sit)@rz(-bodyyaw))
  bone('NECK',rx((.12 if stalk else .015)-.13*sit+.08*math.sin(wave) if gallop else (.12 if stalk else .015)-.13*sit))
  bone('HEAD',rx(.025+.04*stalk)@rz(.07*math.sin(wave) if clip=='Watch_Idle' else .015*math.sin(wave)))
+ if jump_state:ori['HEAD']=rx(jump_state['gaze'])
  bone('JAW',ori['HEAD']@rx(.06 if gallop else 0))
  for side in ['L','R']:bone('EAR_'+side,ori['HEAD']@rx((.16 if gallop else 0)+.045*math.sin(wave+(0 if side=='L' else 1.3))))
  for i in range(8):
   tail_sit=[-.45,-.15,.28,.38,.40,.30,.15,0][i]
-  n='TAIL_'+str(i+1).zfill(2);bone(n,rx(.05*math.sin(wave-i*.3)+.20*max(flex,0)+tail_sit*sit)@rz(.075*math.sin(wave-i*.45)))
+  n='TAIL_'+str(i+1).zfill(2);bone(n,rx(jump_tail('cheetah',t,i) if jump_state else .05*math.sin(wave-i*.3)+.20*max(flex,0)+tail_sit*sit)@rz(.075*math.sin(wave-i*.45)))
  for n in ['SOCKET_MOUTH','SOCKET_PAYLOAD','SENSOR_YAW','SOCKET_SENSOR']:bone(n)
  for id in LEGS:
   if id[0]=='F':
    phase=wave-math.tau*WALK_TOUCH[id];offset=Vector((0,.035*math.sin(phase),.012*math.cos(phase))) if walk else Vector((0,.027*math.sin(wave),0)) if gallop else None
+   if jump_state:offset=Vector((0,.015*jump_state['compression'],.018*jump_state['compression']))
    bone('SCAPULA_'+id,ori['CHEST']@rx(.10*math.sin(phase) if walk else .10*math.sin(wave)),offset)
   upper='UPPER_'+id;lower='LOWER_'+id;ankle='ANKLE_'+id;foot='PAW_'+id
   parent=PAR[upper];a=pos[parent]+ori[parent]@(H[upper]-H[parent]);target,q,contact=foot_path(id,clip,u)
   if sit and id[0]=='H':target.y-=.05*sit
-  if clip=='Pounce' and jump>0:
-   air=(t-.75)/1.05;target.z+=jump+.035*math.sin(math.pi*air);target.y+=(-.14 if id[0]=='F' else .12)*math.sin(math.pi*air);q=air;contact=False
+  paw_pitch=None
+  if jump_state:
+   target,paw_pitch,contact=jump_foot('cheetah',id,t,H[foot]);target=Vector(target)
+   q=0 if contact else (t-CLIPS[-1]['release_s'][id])/(CLIPS[-1]['touchdown_s'][id]-CLIPS[-1]['release_s'][id])
   # Distal segment swings toward the toe on takeoff; exact length is retained.
   distal=H[ankle]-H[foot]
   ankleangle=(.28*math.sin(math.pi*q) if id[0]=='F' else -.18*math.sin(math.pi*q)) if not contact else 0
   c=target+rx(ankleangle)@distal
   b=ik(a,c,(H[lower]-H[upper]).length,(H[ankle]-H[lower]).length,1 if id[0]=='F' else -1,(clip,t,id))
   for n,p,v,rest in [(upper,a,b,H[lower]-H[upper]),(lower,b,c,H[ankle]-H[lower]),(ankle,c,target,H[foot]-H[ankle])]:pos[n]=p;ori[n]=rest.rotation_difference(v-p).to_matrix()
-  pos[foot]=target;ori[foot]=rx(-.20*math.sin(math.pi*q)**2 if not contact else 0)
+  pos[foot]=target;ori[foot]=rx(paw_pitch if paw_pitch is not None else -.20*math.sin(math.pi*q)**2 if not contact else 0)
   bone('TOES_'+id,ori[foot]@rx(.18*math.sin(math.pi*q)**2 if not contact else 0));bone('SOCKET_PAW_'+id)
  for n in pos:
   if n!='MOTION':pos[n]+=base

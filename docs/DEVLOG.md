@@ -1,5 +1,23 @@
 # Devlog
 
+## 27 October 2026 / Reference-based quadruped contacts and jump refinement
+
+Integrated the supplied Motion Zoo canine gait/contact diagrams and seven-pose cat-jump study into RECKON K9 and Mechanical Cheetah. The references establish paw grouping and pose/event order; numeric timing, speed and amplitude remain original choices fitted to these mechanical rigs. Abiharu / Motion Zoo source links and observations are recorded in `source/motion-patterns/quadruped-patterns.json`; no external images, animation keys or rigs are redistributed.
+
+Corrected two K9 contact errors found during comparison: the old walk's phase sign and `Run_Cycle`'s same-side pairing, previously described as a diagonal trot. Walk now follows hind → same-side fore contacts, and the retained `Run_Cycle` name now has true diagonal support. Added separate `Pace_Cycle`, `Canter_Cycle`, `Gallop_Cycle` and `Sprint_Cycle` clips, with same-side pairs, three beats, rotary four beats and two-flight sprint respectively. K9 now has twelve clips, sampled at 120 Hz. Existing clip names/durations, fetch events and engine-owned pivots remain intact.
+
+Reauthored K9 `Jump` and Cheetah `Pounce` around forepaw release, hind-leg push, parabolic torso flight, leg tuck/reach, forepaw-first landing and delayed hip compression. Paw targets remain fixed in world space while supporting the moving body. Head compensation and tail follow-through support the primary motion. K9 stays in place; Cheetah retains 1.2 m root travel and its 3.2 s duration. Earlier exports are preserved in Git at `a4b1e41e6a8f85fa2385f242b418edc9a2a82031`. This completes the requested jump/pounce refinement pass from the 26 October feedback; further artistic review can build on the new pose controls.
+
+Both viewers now display four scrubbable contact tracks, current sole-height readouts and seven jump-pose buttons. K9 labels the compatibility-named `Run_Cycle` as Trot. Added original seven-pose Blender review sheets, refreshed the K9 action overview and retained Cheetah's four gallop-phase controls. Updated manifests, integration notes, source attribution, cache versions and gallery descriptions.
+
+All twelve plain/decoded Meshopt files validate with zero glTF errors/warnings. Across 20,712 sampled skinned poses, minimum geometry clearance is 1.59 mm, maximum gait stance drift is 0.516 mm and rigid segment-length error stays below 0.073 mm. Additional exported-motion checks verify expected gait support groups, both sprint flights, fore-before-hind jump events and ground anchors (worst drift 0.606 mm). Hip compression follows the chest by 51–61 ms for K9 and 41 ms for Cheetah. Geometry budgets, node/socket interfaces and original clip durations match the saved baseline. Source reach/floor checks also pass. Blender sheets and Chromium WebGL desktop/mobile views were visually inspected; browser tests cover all eighteen clip controls, tier/encoding combinations, contact timelines and seven-pose controls. No FPS claim.
+
+Added `docs/ANIMATION-REFERENCE-WORKFLOW.md` and a working shared pattern evaluator: reference packet → annotated events/poses → reusable motion pattern → rig adapter → exported validation → viewer review. Interpretation is currently manual. A video frame/event annotation tool, reviewed pattern library and optional pose-estimation assistance are future work. Consuming-game terrain/collision, arbitrary blends, root-motion transfer, r160/release gltfpack, camera thresholds and reference-phone acceptance remain pending.
+
+https://motionzoo.net/dog_walk_gaits/
+
+https://motionzoo.net/making_cat_jump/
+
 ## 26 October 2026 / Quadruped animation review and pending polish
 
 User review: the Mechanical Cheetah and RECKON K9 are generally working well; the cheetah's `Pounce` and dog's `Jump` need further refinement. Record both as pending animation polish. This review does not change the exported clips or their validation results.

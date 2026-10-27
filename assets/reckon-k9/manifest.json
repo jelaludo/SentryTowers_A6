@@ -26,7 +26,7 @@
     "provisional": true
   },
   "animation": {
-    "fps": 60,
+    "fps": 120,
     "placement_node": "instance wrapper around the glTF scene",
     "motion_node": "MOTION",
     "engine_driven_excluded": [
@@ -43,7 +43,20 @@
         "event": "release_prop"
       }
     ],
-    "skeleton_root": "ROOT"
+    "skeleton_root": "ROOT",
+    "patterns": {
+      "file": "../../source/motion-patterns/quadruped-patterns.json",
+      "revision": "2026-10-27-contact-study",
+      "sha256": "5383037a915ff42d0ee2fa5994e80cfb9f847be546fb3a8061636c10e3d5edd0",
+      "timing": "Original authored timing; source diagrams establish contact topology and pose order."
+    },
+    "reference_urls": [
+      "https://motionzoo.net/dog_walk_gaits/",
+      "https://motionzoo.net/making_cat_jump/"
+    ],
+    "supersedes_revision": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031",
+    "skeleton_joints": 36,
+    "run_clip_compatibility": "Run_Cycle retains its name and duration; now correctly uses diagonal trot pairs. Pace_Cycle is the separate same-side gait."
   },
   "assets": [
     {
@@ -52,7 +65,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1664712,
+      "bytes": 2184100,
       "triangles": 25884,
       "draw_calls": 6,
       "plot_m": [
@@ -67,15 +80,150 @@
         },
         {
           "name": "Walk_Cycle",
-          "duration_s": 1.4,
           "loop": true,
-          "speed_mps": 0.3571428571428572
+          "duration_s": 1.4,
+          "speed_mps": 0.3571428571428572,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0.25,
+            "FR": 0.5,
+            "HL": 0.75
+          },
+          "gait": "walk",
+          "beat_count": 4,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
         },
         {
           "name": "Run_Cycle",
-          "duration_s": 0.7,
           "loop": true,
-          "speed_mps": 1.5584415584415583
+          "duration_s": 0.7,
+          "speed_mps": 1.5584415584415583,
+          "duty_factor": 0.44,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0,
+            "FR": 0.5,
+            "HL": 0.5
+          },
+          "gait": "trot",
+          "beat_count": 2,
+          "flight_intervals": {
+            "first": [
+              0.44,
+              0.5
+            ],
+            "second": [
+              0.94,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Pace_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 0.9,
+          "duty_factor": 0.52,
+          "touchdown_phase": {
+            "FL": 0,
+            "HL": 0,
+            "FR": 0.5,
+            "HR": 0.5
+          },
+          "gait": "pace",
+          "beat_count": 2,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Canter_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 1.12,
+          "duty_factor": 0.3,
+          "touchdown_phase": {
+            "HL": 0,
+            "HR": 0.3,
+            "FL": 0.3,
+            "FR": 0.6
+          },
+          "gait": "canter",
+          "beat_count": 3,
+          "flight_intervals": {
+            "suspension": [
+              0.9,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Gallop_Cycle",
+          "loop": true,
+          "duration_s": 0.8,
+          "speed_mps": 1.55,
+          "duty_factor": {
+            "FL": 0.28,
+            "FR": 0.28,
+            "HR": 0.4,
+            "HL": 0.4
+          },
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.52,
+            "HL": 0.64
+          },
+          "gait": "rotary gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.38,
+              0.52
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Sprint_Cycle",
+          "loop": true,
+          "duration_s": 0.7,
+          "speed_mps": 1.9,
+          "duty_factor": 0.22,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.54,
+            "HL": 0.64
+          },
+          "gait": "double-suspension gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.32,
+              0.54
+            ],
+            "extended": [
+              0.86,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
         },
         {
           "name": "Sit_Down",
@@ -101,11 +249,42 @@
         {
           "name": "Jump",
           "duration_s": 2,
-          "loop": false
+          "loop": false,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-contact-study",
+          "release_s": {
+            "FL": 0.48,
+            "FR": 0.505,
+            "HR": 0.615,
+            "HL": 0.63
+          },
+          "touchdown_s": {
+            "FL": 1.08,
+            "FR": 1.105,
+            "HR": 1.19,
+            "HL": 1.215
+          },
+          "phase_landmarks_s": {
+            "ready": 0.08,
+            "crouch": 0.34,
+            "push_off": 0.61,
+            "apex": 0.855,
+            "fore_contact": 1.09,
+            "absorb": 1.26,
+            "recover": 1.9
+          },
+          "flight_interval_s": [
+            0.63,
+            1.08
+          ],
+          "travel_m": 0,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "bf18af93fcdb5a752895ef74df74271eb62af4ed5fcbaa7566b9fceccd945c54",
+      "sha256": "b7466bf4bc6e57cc54cfb20bb35375a6425104b6558e59f0c018e3d706fc9712",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -231,8 +410,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 449000,
-      "meshopt_sha256": "ae69d7dda8a43d76e79e1feedcb6adb38969a100502d6baa9ab3e78b02ebff02"
+      "meshopt_bytes": 600768,
+      "meshopt_sha256": "c384c494ef5428aff3e86fa1328c929e189a339d55d5352a69f919afd8459b14"
     },
     {
       "file": "reckon_k9_d0_lod1.glb",
@@ -240,7 +419,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1177236,
+      "bytes": 1696624,
       "triangles": 9732,
       "draw_calls": 6,
       "plot_m": [
@@ -255,15 +434,150 @@
         },
         {
           "name": "Walk_Cycle",
-          "duration_s": 1.4,
           "loop": true,
-          "speed_mps": 0.3571428571428572
+          "duration_s": 1.4,
+          "speed_mps": 0.3571428571428572,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0.25,
+            "FR": 0.5,
+            "HL": 0.75
+          },
+          "gait": "walk",
+          "beat_count": 4,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
         },
         {
           "name": "Run_Cycle",
-          "duration_s": 0.7,
           "loop": true,
-          "speed_mps": 1.5584415584415583
+          "duration_s": 0.7,
+          "speed_mps": 1.5584415584415583,
+          "duty_factor": 0.44,
+          "touchdown_phase": {
+            "FL": 0,
+            "HR": 0,
+            "FR": 0.5,
+            "HL": 0.5
+          },
+          "gait": "trot",
+          "beat_count": 2,
+          "flight_intervals": {
+            "first": [
+              0.44,
+              0.5
+            ],
+            "second": [
+              0.94,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Pace_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 0.9,
+          "duty_factor": 0.52,
+          "touchdown_phase": {
+            "FL": 0,
+            "HL": 0,
+            "FR": 0.5,
+            "HR": 0.5
+          },
+          "gait": "pace",
+          "beat_count": 2,
+          "flight_intervals": {},
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Canter_Cycle",
+          "loop": true,
+          "duration_s": 0.9,
+          "speed_mps": 1.12,
+          "duty_factor": 0.3,
+          "touchdown_phase": {
+            "HL": 0,
+            "HR": 0.3,
+            "FL": 0.3,
+            "FR": 0.6
+          },
+          "gait": "canter",
+          "beat_count": 3,
+          "flight_intervals": {
+            "suspension": [
+              0.9,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Gallop_Cycle",
+          "loop": true,
+          "duration_s": 0.8,
+          "speed_mps": 1.55,
+          "duty_factor": {
+            "FL": 0.28,
+            "FR": 0.28,
+            "HR": 0.4,
+            "HL": 0.4
+          },
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.52,
+            "HL": 0.64
+          },
+          "gait": "rotary gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.38,
+              0.52
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
+        },
+        {
+          "name": "Sprint_Cycle",
+          "loop": true,
+          "duration_s": 0.7,
+          "speed_mps": 1.9,
+          "duty_factor": 0.22,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.1,
+            "HR": 0.54,
+            "HL": 0.64
+          },
+          "gait": "double-suspension gallop",
+          "beat_count": 4,
+          "flight_intervals": {
+            "gathered": [
+              0.32,
+              0.54
+            ],
+            "extended": [
+              0.86,
+              1
+            ]
+          },
+          "source_ids": [
+            "motionzoo_gaits"
+          ]
         },
         {
           "name": "Sit_Down",
@@ -289,11 +603,42 @@
         {
           "name": "Jump",
           "duration_s": 2,
-          "loop": false
+          "loop": false,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-contact-study",
+          "release_s": {
+            "FL": 0.48,
+            "FR": 0.505,
+            "HR": 0.615,
+            "HL": 0.63
+          },
+          "touchdown_s": {
+            "FL": 1.08,
+            "FR": 1.105,
+            "HR": 1.19,
+            "HL": 1.215
+          },
+          "phase_landmarks_s": {
+            "ready": 0.08,
+            "crouch": 0.34,
+            "push_off": 0.61,
+            "apex": 0.855,
+            "fore_contact": 1.09,
+            "absorb": 1.26,
+            "recover": 1.9
+          },
+          "flight_interval_s": [
+            0.63,
+            1.08
+          ],
+          "travel_m": 0,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "5174c896461992bf70ed6bf49f1cf1963d43c8bd104963d71d9c3f10d0e04681",
+      "sha256": "0a5f7c714741c0b89f7ad3364a5411120cebba15c002ce0726e7a07df817ed17",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -419,8 +764,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 356784,
-      "meshopt_sha256": "d96d12426a09a7bbe417907d00d8821c2e5e5f7aebc3821a454ace7103b4d231"
+      "meshopt_bytes": 508556,
+      "meshopt_sha256": "dfd78b4633e8fcfd865db8f167fd44b0fba5e7e1003ca689dbd86a7221cb7153"
     },
     {
       "file": "reckon_k9_d0_lod2.glb",
@@ -579,5 +924,10 @@
     "fetch": "MOTION contains the out-and-return path and heading. Do not also apply game locomotion during this clip. Viewer ball is separate.",
     "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
     "collision": "SOCKET_PAW_FL/FR/HL/HR are paw contact markers; game supplies collision and terrain adaptation."
+  },
+  "source": {
+    "file": "../../source/blender/a6-reckon-k9.blend",
+    "bytes": 3987451,
+    "sha256": "4b7b6fc6b39ad73799c8233a9518eb9e6f1c5d7bc4bfa985ba5f541f6b635edd"
   }
 }

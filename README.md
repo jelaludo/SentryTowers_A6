@@ -1,8 +1,10 @@
 # Model Workshop
 
-**C-07 / Mechanical Cheetah** adds a 51-joint feline with walk, stalk, rotary gallop, sit and pounce. The gallop has distinct gathered and extended flight phases. Detailed/game/static-distance GLBs, an editable Blender master and a phase-by-phase motion viewer are in `mechanical-cheetah/`. Measured hand-off: `assets/mechanical-cheetah/README.md`.
+**C-07 / Mechanical Cheetah** adds a 51-joint feline with walk, stalk, rotary gallop, sit and pounce. The gallop has distinct gathered and extended flight phases. The 27 October pounce revision adds separate paw release/landing, anchored support and delayed hip compression. Detailed/game/static-distance GLBs, an editable Blender master and a phase-by-phase motion viewer are in `mechanical-cheetah/`. Measured hand-off: `assets/mechanical-cheetah/README.md`.
 
-**RECKON K9 / Recon robot dog** adds an articulated mechanical canine with eight named clips: alert, walk, run, sit, roll, fetch, give paw and jump. Detailed/game/static-distance GLBs, decoded Meshopt copies, an editable Blender master and motion inspection controls are in `reckon-k9/`. Measured hand-off and runtime notes: `assets/reckon-k9/README.md`.
+**RECKON K9 / Recon robot dog** adds an articulated mechanical canine with twelve named clips: alert, walk, trot (`Run_Cycle`), pace, canter, gallop, sprint, sit, roll, fetch, give paw and jump. The 27 October revision corrects walk/trot contact order and refines the jump. Detailed/game/static-distance GLBs, decoded Meshopt copies, an editable Blender master and motion inspection controls are in `reckon-k9/`. Measured hand-off and runtime notes: `assets/reckon-k9/README.md`.
+
+Both quadruped viewers include paw-contact timelines and seven jump-pose controls. The first reusable reference-to-pattern workflow is documented in `docs/ANIMATION-REFERENCE-WORKFLOW.md`; source observations, authored timing and rig adapters remain separate.
 
 
 New linked asset family: `feids26/` — FEIDS-26 fusiform interplanetary delivery shells, two packed Ridgebacks per capsule, four animated shell quarters, D0–D3 and three detail tiers.

@@ -4,7 +4,7 @@
       "file": "c07_d0_lod0.glb",
       "triangles": 62720,
       "draw_calls": 6,
-      "bytes": 2671008,
+      "bytes": 2721968,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -12,7 +12,7 @@
       "file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
       "triangles": 62720,
       "draw_calls": 6,
-      "bytes": 747812,
+      "bytes": 764044,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -20,7 +20,7 @@
       "file": "c07_d0_lod1.glb",
       "triangles": 12760,
       "draw_calls": 6,
-      "bytes": 1233736,
+      "bytes": 1284692,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -28,7 +28,7 @@
       "file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
       "triangles": 12760,
       "draw_calls": 6,
-      "bytes": 424324,
+      "bytes": 440556,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -51,7 +51,7 @@
   ],
   "clip_samples": 6456,
   "sample_hz": 120,
-  "minimum_geometry_y_m": 0.0015905396981196066,
+  "minimum_geometry_y_m": 0.0015904361638388468,
   "maximum_loop_error_m": 0.000013998331446900149,
   "maximum_loop_rotation_error_rad": 0.0004139978334566912,
   "maximum_stance_slip_m": 0.0005150684457542536,
@@ -145,19 +145,19 @@
     },
     "Pounce": {
       "min": [
-        -0.23951255688134115,
-        0.001949189041363617,
-        -1.8247376691005697
+        -0.2410442471178667,
+        0.0019200994377478891,
+        -1.8327570392522836
       ],
       "max": [
-        0.23951255688134115,
-        1.2682027030975904,
-        2.1545479578904443
+        0.2410442471178667,
+        1.3015051297509166,
+        2.1546059213348188
       ],
       "dimensions_m": [
-        0.4790251137626823,
-        1.2662535140562268,
-        3.9792856269910137
+        0.4820884942357334,
+        1.2995850303131686,
+        3.9873629605871024
       ]
     }
   },

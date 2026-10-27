@@ -12,8 +12,13 @@ for name,loc,power,size,color in [('Key',(2,-3,4),370,3,(1,.92,.79)),('Fill',(-3
  d=bpy.data.lights.new(name,'AREA');o=bpy.data.objects.new(name,d);s.collection.objects.link(o);o.location=loc;d.energy=power;d.shape='DISK';d.size=size;d.color=color;aim(o,(0,.2,.45))
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.003));floor=bpy.context.object;floor.name='REVIEW_GROUND';m=bpy.data.materials.new('Warm_graphite_studio');m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.09,.10,.105,1);m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8;floor.data.materials.append(m)
 d=bpy.data.cameras.new('REVIEW_CAMERA');cam=bpy.data.objects.new('REVIEW_CAMERA',d);s.collection.objects.link(cam);d.type='ORTHO';s.camera=cam;arm=bpy.data.objects['C07_RIG']
-poses=[('preview','Watch_Idle',0,'hero'),('walk','Feline_Walk_Cycle',.4,'hero'),('stalk','Stalk_Cycle',.7,'hero'),('fore-support','Gallop_Cycle',.104,'side'),('gathered','Gallop_Cycle',.296,'side'),('hind-support','Gallop_Cycle',.488,'side'),('extended','Gallop_Cycle',.696,'side'),('sit','Sit_Down',2.4,'hero'),('pounce','Pounce',1.25,'hero')]
+poses=[('preview','Watch_Idle',0,'hero'),('walk','Feline_Walk_Cycle',.4,'hero'),('stalk','Stalk_Cycle',.7,'hero'),('fore-support','Gallop_Cycle',.104,'side'),('gathered','Gallop_Cycle',.296,'side'),('hind-support','Gallop_Cycle',.488,'side'),('extended','Gallop_Cycle',.696,'side'),('sit','Sit_Down',2.4,'hero'),('pounce','Pounce',1.0775,'hero')]
 if '--hero' in sys.argv:poses=poses[:1]
+if '--jump-study' in sys.argv:
+ sys.path.insert(0,str(Path(__file__).resolve().parent))
+ from quadruped_motion import JUMPS
+ poses=[('jump-'+name,'Pounce',t,'side') for name,t in JUMPS['cheetah']['landmarks_s'].items()]
+
 if '--pose' in sys.argv:poses=[p for p in poses if p[0]==sys.argv[sys.argv.index('--pose')+1]]
 for file,clip,t,view in poses:
  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!=clip

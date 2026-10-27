@@ -1,0 +1,976 @@
+{
+  "commit": "a4b1e41e6a8f85fa2385f242b418edc9a2a82031",
+  "families": {
+    "reckon-k9": {
+      "assets": [
+        {
+          "file": "reckon_k9_d0_lod0.glb",
+          "lod": 0,
+          "sha256": "bf18af93fcdb5a752895ef74df74271eb62af4ed5fcbaa7566b9fceccd945c54",
+          "triangles": 25884,
+          "draw_calls": 6,
+          "required_nodes": [
+            "ANTENNA_L",
+            "ANTENNA_R",
+            "BODY",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "HOCK_HL",
+            "HOCK_HR",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "RECKON_RIG",
+            "RECKON_SKIN",
+            "ROOT",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE",
+            "TAIL_1",
+            "TAIL_2",
+            "TAIL_3",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6679999232292175,
+                0.6859999895095825
+              ]
+            },
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.7099999189376831,
+                0.3199999928474426
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE",
+              "position_m": [
+                0,
+                0.6499999165534973,
+                -0.03500000014901161
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            }
+          ],
+          "clips": [
+            {
+              "name": "Alert_Idle",
+              "duration_s": 3,
+              "loop": true
+            },
+            {
+              "name": "Walk_Cycle",
+              "duration_s": 1.4,
+              "loop": true,
+              "speed_mps": 0.3571428571428572
+            },
+            {
+              "name": "Run_Cycle",
+              "duration_s": 0.7,
+              "loop": true,
+              "speed_mps": 1.5584415584415583
+            },
+            {
+              "name": "Sit_Down",
+              "duration_s": 2.4,
+              "loop": false
+            },
+            {
+              "name": "Roll_Over",
+              "duration_s": 4.8,
+              "loop": false
+            },
+            {
+              "name": "Fetch_Return",
+              "duration_s": 8,
+              "loop": false,
+              "root_motion": true
+            },
+            {
+              "name": "Give_Paw",
+              "duration_s": 4,
+              "loop": false
+            },
+            {
+              "name": "Jump",
+              "duration_s": 2,
+              "loop": false
+            }
+          ]
+        },
+        {
+          "file": "reckon_k9_d0_lod1.glb",
+          "lod": 1,
+          "sha256": "5174c896461992bf70ed6bf49f1cf1963d43c8bd104963d71d9c3f10d0e04681",
+          "triangles": 9732,
+          "draw_calls": 6,
+          "required_nodes": [
+            "ANTENNA_L",
+            "ANTENNA_R",
+            "BODY",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "HOCK_HL",
+            "HOCK_HR",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "RECKON_RIG",
+            "RECKON_SKIN",
+            "ROOT",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE",
+            "TAIL_1",
+            "TAIL_2",
+            "TAIL_3",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6679999232292175,
+                0.6859999895095825
+              ]
+            },
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.7099999189376831,
+                0.3199999928474426
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE",
+              "position_m": [
+                0,
+                0.6499999165534973,
+                -0.03500000014901161
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            }
+          ],
+          "clips": [
+            {
+              "name": "Alert_Idle",
+              "duration_s": 3,
+              "loop": true
+            },
+            {
+              "name": "Walk_Cycle",
+              "duration_s": 1.4,
+              "loop": true,
+              "speed_mps": 0.3571428571428572
+            },
+            {
+              "name": "Run_Cycle",
+              "duration_s": 0.7,
+              "loop": true,
+              "speed_mps": 1.5584415584415583
+            },
+            {
+              "name": "Sit_Down",
+              "duration_s": 2.4,
+              "loop": false
+            },
+            {
+              "name": "Roll_Over",
+              "duration_s": 4.8,
+              "loop": false
+            },
+            {
+              "name": "Fetch_Return",
+              "duration_s": 8,
+              "loop": false,
+              "root_motion": true
+            },
+            {
+              "name": "Give_Paw",
+              "duration_s": 4,
+              "loop": false
+            },
+            {
+              "name": "Jump",
+              "duration_s": 2,
+              "loop": false
+            }
+          ]
+        },
+        {
+          "file": "reckon_k9_d0_lod2.glb",
+          "lod": 2,
+          "sha256": "95eb20786426bc40796c3f3bcc40b1eb0a5bc8ad5237b1846045942f55551a3e",
+          "triangles": 2484,
+          "draw_calls": 1,
+          "required_nodes": [
+            "ANTENNA_L",
+            "ANTENNA_R",
+            "BODY",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "HOCK_HL",
+            "HOCK_HR",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "RECKON_RIG",
+            "RECKON_SKIN",
+            "ROOT",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE",
+            "TAIL_1",
+            "TAIL_2",
+            "TAIL_3",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6679999232292175,
+                0.6859999895095825
+              ]
+            },
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.7099999189376831,
+                0.3199999928474426
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.17000000178813934,
+                0.0029999390244483948,
+                0.32499998807907104
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE",
+              "position_m": [
+                0,
+                0.6499999165534973,
+                -0.03500000014901161
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.17000000178813934,
+                0.00299999862909317,
+                -0.23499999940395355
+              ]
+            }
+          ],
+          "clips": []
+        }
+      ]
+    },
+    "mechanical-cheetah": {
+      "assets": [
+        {
+          "file": "c07_d0_lod0.glb",
+          "lod": 0,
+          "sha256": "30d97c51badb4a00b40b16206bfbe8bc9d748fe616794b716ab5929d6b3b810b",
+          "triangles": 62720,
+          "draw_calls": 6,
+          "required_nodes": [
+            "ANKLE_FL",
+            "ANKLE_FR",
+            "ANKLE_HL",
+            "ANKLE_HR",
+            "C07_RIG",
+            "C07_SKIN",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "LUMBAR",
+            "LUMBAR_FRONT_LINK",
+            "LUMBAR_REAR_LINK",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "PELVIS",
+            "ROOT",
+            "SCAPULA_FL",
+            "SCAPULA_FR",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE_FRONT",
+            "SPINE_REAR",
+            "TAIL_01",
+            "TAIL_02",
+            "TAIL_03",
+            "TAIL_04",
+            "TAIL_05",
+            "TAIL_06",
+            "TAIL_07",
+            "TAIL_08",
+            "TOES_FL",
+            "TOES_FR",
+            "TOES_HL",
+            "TOES_HR",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.6949999928474426,
+                0.7799999751150608
+              ]
+            },
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6079999804496765,
+                0.9350000061094761
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE_FRONT",
+              "position_m": [
+                0,
+                0.7649999856948853,
+                0.11000000312924385
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            }
+          ],
+          "clips": [
+            {
+              "name": "Watch_Idle",
+              "duration_s": 3,
+              "loop": true
+            },
+            {
+              "name": "Feline_Walk_Cycle",
+              "duration_s": 1.6,
+              "loop": true,
+              "speed_mps": 0.5416666666666667,
+              "duty_factor": 0.6,
+              "touchdown_phase": {
+                "HR": 0,
+                "FR": 0.22,
+                "HL": 0.5,
+                "FL": 0.72
+              }
+            },
+            {
+              "name": "Stalk_Cycle",
+              "duration_s": 2.4,
+              "loop": true,
+              "speed_mps": 0.20299145299145302,
+              "duty_factor": 0.78,
+              "touchdown_phase": {
+                "HR": 0,
+                "FR": 0.22,
+                "HL": 0.5,
+                "FL": 0.72
+              }
+            },
+            {
+              "name": "Gallop_Cycle",
+              "duration_s": 0.8,
+              "loop": true,
+              "speed_mps": 3.055555555555556,
+              "duty_factor": 0.18,
+              "touchdown_phase": {
+                "FL": 0,
+                "FR": 0.08,
+                "HR": 0.48,
+                "HL": 0.56
+              },
+              "flight_intervals": {
+                "gathered": [
+                  0.26,
+                  0.48
+                ],
+                "extended": [
+                  0.74,
+                  1
+                ]
+              },
+              "phase_landmarks": {
+                "fore_support": 0.13,
+                "gathered": 0.37,
+                "hind_support": 0.61,
+                "extended": 0.87
+              }
+            },
+            {
+              "name": "Sit_Down",
+              "duration_s": 2.4,
+              "loop": false
+            },
+            {
+              "name": "Pounce",
+              "duration_s": 3.2,
+              "loop": false,
+              "root_motion": true,
+              "travel_m": 1.2
+            }
+          ]
+        },
+        {
+          "file": "c07_d0_lod1.glb",
+          "lod": 1,
+          "sha256": "a786604c7ca5994c4f6312ad90f8602e8d161dd0855336eca4157fc5dd96cc6a",
+          "triangles": 12760,
+          "draw_calls": 6,
+          "required_nodes": [
+            "ANKLE_FL",
+            "ANKLE_FR",
+            "ANKLE_HL",
+            "ANKLE_HR",
+            "C07_RIG",
+            "C07_SKIN",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "LUMBAR",
+            "LUMBAR_FRONT_LINK",
+            "LUMBAR_REAR_LINK",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "PELVIS",
+            "ROOT",
+            "SCAPULA_FL",
+            "SCAPULA_FR",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE_FRONT",
+            "SPINE_REAR",
+            "TAIL_01",
+            "TAIL_02",
+            "TAIL_03",
+            "TAIL_04",
+            "TAIL_05",
+            "TAIL_06",
+            "TAIL_07",
+            "TAIL_08",
+            "TOES_FL",
+            "TOES_FR",
+            "TOES_HL",
+            "TOES_HR",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.6949999928474426,
+                0.7799999751150608
+              ]
+            },
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6079999804496765,
+                0.9350000061094761
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE_FRONT",
+              "position_m": [
+                0,
+                0.7649999856948853,
+                0.11000000312924385
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            }
+          ],
+          "clips": [
+            {
+              "name": "Watch_Idle",
+              "duration_s": 3,
+              "loop": true
+            },
+            {
+              "name": "Feline_Walk_Cycle",
+              "duration_s": 1.6,
+              "loop": true,
+              "speed_mps": 0.5416666666666667,
+              "duty_factor": 0.6,
+              "touchdown_phase": {
+                "HR": 0,
+                "FR": 0.22,
+                "HL": 0.5,
+                "FL": 0.72
+              }
+            },
+            {
+              "name": "Stalk_Cycle",
+              "duration_s": 2.4,
+              "loop": true,
+              "speed_mps": 0.20299145299145302,
+              "duty_factor": 0.78,
+              "touchdown_phase": {
+                "HR": 0,
+                "FR": 0.22,
+                "HL": 0.5,
+                "FL": 0.72
+              }
+            },
+            {
+              "name": "Gallop_Cycle",
+              "duration_s": 0.8,
+              "loop": true,
+              "speed_mps": 3.055555555555556,
+              "duty_factor": 0.18,
+              "touchdown_phase": {
+                "FL": 0,
+                "FR": 0.08,
+                "HR": 0.48,
+                "HL": 0.56
+              },
+              "flight_intervals": {
+                "gathered": [
+                  0.26,
+                  0.48
+                ],
+                "extended": [
+                  0.74,
+                  1
+                ]
+              },
+              "phase_landmarks": {
+                "fore_support": 0.13,
+                "gathered": 0.37,
+                "hind_support": 0.61,
+                "extended": 0.87
+              }
+            },
+            {
+              "name": "Sit_Down",
+              "duration_s": 2.4,
+              "loop": false
+            },
+            {
+              "name": "Pounce",
+              "duration_s": 3.2,
+              "loop": false,
+              "root_motion": true,
+              "travel_m": 1.2
+            }
+          ]
+        },
+        {
+          "file": "c07_d0_lod2.glb",
+          "lod": 2,
+          "sha256": "64a4f6a97e3f1f285f5ba6400c9da1e02c405beae20b3e67b71019794762e6e8",
+          "triangles": 2848,
+          "draw_calls": 1,
+          "required_nodes": [
+            "ANKLE_FL",
+            "ANKLE_FR",
+            "ANKLE_HL",
+            "ANKLE_HR",
+            "C07_RIG",
+            "C07_SKIN",
+            "CHEST",
+            "EAR_L",
+            "EAR_R",
+            "HEAD",
+            "JAW",
+            "LOWER_FL",
+            "LOWER_FR",
+            "LOWER_HL",
+            "LOWER_HR",
+            "LUMBAR",
+            "LUMBAR_FRONT_LINK",
+            "LUMBAR_REAR_LINK",
+            "MOTION",
+            "NECK",
+            "PAW_FL",
+            "PAW_FR",
+            "PAW_HL",
+            "PAW_HR",
+            "PELVIS",
+            "ROOT",
+            "SCAPULA_FL",
+            "SCAPULA_FR",
+            "SENSOR_YAW",
+            "SOCKET_MOUTH",
+            "SOCKET_PAW_FL",
+            "SOCKET_PAW_FR",
+            "SOCKET_PAW_HL",
+            "SOCKET_PAW_HR",
+            "SOCKET_PAYLOAD",
+            "SOCKET_SENSOR",
+            "SPINE_FRONT",
+            "SPINE_REAR",
+            "TAIL_01",
+            "TAIL_02",
+            "TAIL_03",
+            "TAIL_04",
+            "TAIL_05",
+            "TAIL_06",
+            "TAIL_07",
+            "TAIL_08",
+            "TOES_FL",
+            "TOES_FR",
+            "TOES_HL",
+            "TOES_HR",
+            "UPPER_FL",
+            "UPPER_FR",
+            "UPPER_HL",
+            "UPPER_HR"
+          ],
+          "sockets": [
+            {
+              "node": "SOCKET_SENSOR",
+              "parent": "SENSOR_YAW",
+              "position_m": [
+                0,
+                0.6949999928474426,
+                0.7799999751150608
+              ]
+            },
+            {
+              "node": "SOCKET_MOUTH",
+              "parent": "HEAD",
+              "position_m": [
+                0,
+                0.6079999804496765,
+                0.9350000061094761
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FL",
+              "parent": "PAW_FL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_FR",
+              "parent": "PAW_FR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                0.5400000251829624
+              ]
+            },
+            {
+              "node": "SOCKET_PAYLOAD",
+              "parent": "SPINE_FRONT",
+              "position_m": [
+                0,
+                0.7649999856948853,
+                0.11000000312924385
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HL",
+              "parent": "PAW_HL",
+              "position_m": [
+                0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            },
+            {
+              "node": "SOCKET_PAW_HR",
+              "parent": "PAW_HR",
+              "position_m": [
+                -0.14000000059604645,
+                0.00299999862909317,
+                -0.31999998912215233
+              ]
+            }
+          ],
+          "clips": []
+        }
+      ]
+    }
+  }
+}
