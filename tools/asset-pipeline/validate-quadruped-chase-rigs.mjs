@@ -9,7 +9,7 @@ for(const lod of [1,0]){
  const entries=ACTORS.map(p=>manifest.assets.find(e=>e.lod===lod&&e.family===p.family)),actors=[];
  for(const e of entries){const data=await fs.readFile(new URL('../../'+e.file,import.meta.url));assert.equal(crypto.createHash('sha256').update(data).digest('hex'),e.sha256);assert.equal(data.length,e.bytes);actors.push(new ChaseActor(await new GLTFLoader().parseAsync(data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength),''),e));}
  // The chase cancels baked MOTION before owning world placement. Reconstruct
- // the actual source trajectory exactly, including K0's airborne component.
+ // the actual source trajectory exactly, including each rig's airborne component.
  let sourceRootError=0;
  for(const a of actors){
   const meta=a.metadata.clips.find(c=>c.name==='Jump'||c.name==='Pounce'),action=a.actions.get(meta.name);action.reset().setLoop(T.LoopOnce,1).play();action.clampWhenFinished=true;

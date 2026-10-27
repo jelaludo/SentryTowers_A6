@@ -2,12 +2,12 @@
   "status": "passed",
   "browser": "Chromium headless with real WebGL (software rendering); not an FPS benchmark",
   "code_hashes": {
-    "index.html": "da53074d66a2b9b3567bae022d41b9fe14f6eb01bf6b5a4c39d69a1c69a111dc",
-    "viewer.js": "1ee5947af6af609c50703a404c2d803f9b6bf433e1f2591ac42e61c7622400fc",
+    "index.html": "be2ce2fe4076320380f3189603ea9585c60b9e59d77a2c3f0a2cfe6386257e89",
+    "viewer.js": "8abaa4cb3b5586ff89bbda0efc316a5419b6fb330482b1a56e0dcb3f28b1ee0d",
     "viewer.css": "c5d7a2dea1ed6059a6ccf4e89eda3313920d53c46c535e5fce76ce00cbf709c6",
-    "simulation.js": "a2bfaed9435589f7c91ae09c76f22ffcbdc76af34f956774176c5407e95988ae",
+    "simulation.js": "e1b9d7ecd9264959826b45524663d0ed9b5e024189d64f5a946ee497a8516597",
     "actor.js": "66859701b0191345b8cd190e84ee77daa7203b160425fe23acdbe648696ca6fc",
-    "manifest.json": "580087a985e13dda7f648654b0d697a4a89790b04d4c48d2f61309fcfc43ccf2"
+    "manifest.json": "9704a574e3a63960e1d05bdcaf50a92b440550bbed15dc9fb8c8801f34315e09"
   },
   "checks": [
     "both plain animated tiers load with source clips",
@@ -74,15 +74,15 @@
     {
       "name": "k9-jump",
       "time": 4.416666666666676,
-      "maximumX": 0.5843708653088994,
-      "maximumY": 0.5893257339711301,
+      "maximumX": 0.5843708653947914,
+      "maximumY": 0.5893257338527247,
       "vertices": 14112,
       "triangles": 39180,
       "draws": 28,
       "states": [
         {
           "clip": "Jump",
-          "speed": 6.9999999999987494,
+          "speed": 7.000000000000455,
           "jumps": 0
         },
         {

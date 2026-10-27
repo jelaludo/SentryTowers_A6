@@ -42,7 +42,7 @@ export function sourceJumpTravel(meta,t){
 export function jumpTravel(meta,t,distance=3){
  const a=Math.max(...Object.values(meta.release_s)),b=Math.min(...Object.values(meta.touchdown_s));
  // The extra range is applied only while ALL paws are airborne. Before/after
- // that window the source clip's planted contacts and 1.2 m pounce are retained.
+ // that window the source clip's planted contacts and base path are retained.
  return sourceJumpTravel(meta,t)+(distance-(meta.travel_m||0))*clamp((t-a)/(b-a),0,1);
 }
 export function jumpLift(meta,t,height=0){

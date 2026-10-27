@@ -3,25 +3,25 @@
   "scope": "Actual plain GLBs in both articulated tiers; source SHA-256, source-clip blending and locomotion corrections, sampled full geometry and expanded hurdle slabs. Not a rigid-body or arbitrary-environment collision simulation.",
   "code_hashes": {
     "actor.js": "66859701b0191345b8cd190e84ee77daa7203b160425fe23acdbe648696ca6fc",
-    "simulation.js": "a2bfaed9435589f7c91ae09c76f22ffcbdc76af34f956774176c5407e95988ae",
-    "manifest.json": "580087a985e13dda7f648654b0d697a4a89790b04d4c48d2f61309fcfc43ccf2"
+    "simulation.js": "e1b9d7ecd9264959826b45524663d0ed9b5e024189d64f5a946ee497a8516597",
+    "manifest.json": "9704a574e3a63960e1d05bdcaf50a92b440550bbed15dc9fb8c8801f34315e09"
   },
   "asset_hashes": [
     {
       "file": "assets/reckon-k9/reckon_k9_d0_lod0.glb",
-      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b"
+      "sha256": "09af7a5a27023e10e8cef84122c7bcdcdaf6a7da3e61665c1de1334736073470"
     },
     {
       "file": "assets/reckon-k9/reckon_k9_d0_lod1.glb",
-      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa"
+      "sha256": "16a156da443d928f61b5658d70ad5fa7ea852d2ee3dcc6f07180b7f7efc819a3"
     },
     {
       "file": "assets/mechanical-cheetah/c07_d0_lod0.glb",
-      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a"
+      "sha256": "fe2d5a055aa5912e31b231469c14e87be4d214308dd3b21fc6fcd58c05aaffd8"
     },
     {
       "file": "assets/mechanical-cheetah/c07_d0_lod1.glb",
-      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7"
+      "sha256": "13bd05e4a4a9101d31d45c4a392fe016ef59d0124945bf1ebaf2dbc913c7eae7"
     },
     {
       "file": "assets/k0-tech-01/k0_tech_01_d0_lod0.glb",
@@ -57,7 +57,7 @@
       ],
       "seconds": 31.999999999998824,
       "sampled_rig_poses": 2880,
-      "maximum_source_root_profile_error_m": 8.764400516447779e-8,
+      "maximum_source_root_profile_error_m": 3.719329382256831e-7,
       "minimum_geometry_y_m": 0.0009395510300973374,
       "minimum_paw_y_m": 0.0014099920839663778,
       "minimum_expanded_hurdle_clearance_m": 0.1247167543988198,
@@ -100,7 +100,7 @@
       ],
       "seconds": 31.999999999998824,
       "sampled_rig_poses": 2880,
-      "maximum_source_root_profile_error_m": 8.764400516447779e-8,
+      "maximum_source_root_profile_error_m": 3.719329382256831e-7,
       "minimum_geometry_y_m": 0.0009395510300973374,
       "minimum_paw_y_m": 0.0014099920839663778,
       "minimum_expanded_hurdle_clearance_m": 0.1247167543988198,

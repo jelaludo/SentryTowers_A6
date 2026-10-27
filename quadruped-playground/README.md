@@ -1,6 +1,6 @@
 # CHASE / K9 × C-07 × K0-TECH-01
 
-A continuous compound animation: RECKON K9, C-07 and K0-TECH-01 follow one irregularly moving orange ball, accelerate after its bursts, give each other room and jump three low hurdles. The ball slows when the pack falls behind. The smaller K0 has the fastest catch-up pace, quickest response and shorter hurdle pounce. All three retain their own proportions, gait and landing performance.
+A continuous compound animation: RECKON K9, C-07 and K0-TECH-01 follow one irregularly moving orange ball, accelerate after its bursts, give each other room and jump three low hurdles. The ball slows when the pack falls behind. The smaller K0 has the fastest catch-up pace, quickest response and quicker hurdle pounce. All three retain their own proportions, gait and landing performance.
 
 https://jelaludo.github.io/SentryTowers_A6/quadruped-playground/
 
@@ -8,7 +8,7 @@ This is a **derived procedural scene**, using original plain GLBs without modify
 
 ## Hand-off and placement
 
-Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `9a1eb5695704aadbdc95682fc8dbb1bdb16fe1d4`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
+Hand off the commit containing this scene plus `quadruped-playground/`, `assets/reckon-k9/`, `assets/mechanical-cheetah/` and `assets/k0-tech-01/`. The model inputs are pinned to `5549087a70356a10f1e373c0092bdcbecfc0bd3c`; `manifest.json` records their SHA-256 hashes, exact bytes, sockets, bounds, clips and source totals. Workshop navigation is a shared presentation dependency.
 
 Metres, +Y up, +Z local forward. The course is centered at world origin and reserves 16 × 32 m, with 2.5 m vertical clearance. The decorative floor is at Y = −0.01 m; paw targets use the original approximately +0.003 m sole height for K9/C-07 and +0.00141 m for K0. Each actor retains its original metre scale and ground root. The flat stadium course has 16 m straights and 5.5 m bend radius. Its three rails are 0.14, 0.18 and 0.20 m high, 4.8 m wide and 0.10 m deep; end posts extend another 0.05 m vertically.
 
@@ -20,7 +20,7 @@ Metres, +Y up, +Z local forward. The course is centered at world origin and rese
 - All three actors pursue a preferred ball distance. K0 starts behind the others, catches up quickly and aims closest to the lure. Smoothed perception and bounded ground acceleration/braking govern the response. Every actor checks every other actor; stable passing sides keep K9 left, C-07 right and K0 in the centre, with forward-gap braking when lateral space is insufficient. This is behavior on an authored course, not navigation through arbitrary scenery.
 - Gait phase advances by actual world distance divided by the source stride (`speed_mps × duration_s`). K9 selects walk/trot/gallop/sprint; C-07 and K0 select feline walk/gallop. Faster travel therefore speeds up the feet. Existing idle clips cover stops.
 - `actor.js` blends clip changes over 0.18 s for K9/C-07 and 0.10 s for K0, and corrects ground contacts with rigid two-bone rotations. It preserves limb lengths and mechanical armor scale, releases unreachable anchors, and applies a small common lift if blended soles would pass below the floor.
-- K9 and C-07 brake 1.5 m before each hurdle and cross 3 m; K0 prepares 1.6 m before it and crosses 3.2 m. The 2.0 s K9 `Jump` plays at 1.05×, C-07's 3.2 s `Pounce` at 1.25×, and K0's 3.2 s `Pounce` at 1.8×: approximately 1.90, 2.56 and 1.78 s of scene time. Source pounce travel (C-07: 1.2 m, K0: 1.6 m) is preserved; extra range is applied only between the last paw release and first touchdown. K0 adds a smooth 0.16 m sin-squared lift only inside that all-air window to clear the same rails at its smaller scale. Position and vertical velocity return to zero at both ends. K0's `root_motion_profile` splits its baked travel into a 0.528 m push/settle component and 1.072 m of added flight travel. `sourceJumpTravel` reconstructs that profile before adding the remaining scene range, preventing doubled displacement or sliding planted paws. K9's source jump is in place. These are kinematic trajectories, not force-based jump solutions.
+- K9 and C-07 brake 1.5 m before each hurdle and cross 3 m; K0 prepares 1.6 m before it and crosses 3.2 m. The 2.0 s K9 `Jump` plays at 1.05×, C-07's 3.2 s `Pounce` at 1.25×, and K0's 3.2 s `Pounce` at 1.8×: approximately 1.90, 2.56 and 1.78 s of scene time. Source leap travel (K9: 2.4 m, C-07: 3 m, K0: 1.6 m) is preserved; extra range is applied only between the last paw release and first touchdown. K0 adds a smooth 0.16 m sin-squared lift only inside that all-air window to clear the same rails at its smaller scale. Position and vertical velocity return to zero at both ends. Each `root_motion_profile` separates the original push/settle path from the added flight travel: K9 0 + 2.4 m, C-07 1.2 + 1.8 m and K0 0.528 + 1.072 m. `sourceJumpTravel` reconstructs that profile before adding the remaining scene range, preventing doubled displacement or sliding planted paws. These are kinematic trajectories, not force-based jump solutions.
 
 | Chase tuning | K9 | C-07 | K0-TECH-01 |
 | --- | ---: | ---: | ---: |
@@ -41,14 +41,14 @@ The default is articulated **LOD1 / game**. **LOD0 / detailed** is available for
 
 | Source | Tier | Triangles | Mesh draws | Plain GLB bytes |
 | --- | --- | ---: | ---: | ---: |
-| RECKON K9 | Game LOD1 | 9,732 | 6 | 1,630,292 |
-| C-07 | Game LOD1 | 12,760 | 6 | 1,537,756 |
+| RECKON K9 | Game LOD1 | 9,732 | 6 | 1,631,432 |
+| C-07 | Game LOD1 | 12,760 | 6 | 1,537,544 |
 | K0-TECH-01 | Game LOD1 | 14,906 | 7 | 1,805,320 |
-| All three | Game LOD1 | 37,398 | 19 | 4,973,368 |
-| RECKON K9 | Detailed LOD0 | 25,884 | 6 | 2,117,768 |
-| C-07 | Detailed LOD0 | 62,720 | 6 | 2,975,032 |
+| All three | Game LOD1 | 37,398 | 19 | 4,974,296 |
+| RECKON K9 | Detailed LOD0 | 25,884 | 6 | 2,118,904 |
+| C-07 | Detailed LOD0 | 62,720 | 6 | 2,974,820 |
 | K0-TECH-01 | Detailed LOD0 | 71,698 | 7 | 3,657,412 |
-| All three | Detailed LOD0 | 160,302 | 19 | 8,750,212 |
+| All three | Detailed LOD0 | 160,302 | 19 | 8,751,136 |
 
 The game units individually remain within the contract's 25k-triangle unit target. The course repeats one shared box geometry for nine instanced hurdle parts and another for 66 lane marks. It uses no external textures. Sampled browser rendering with hurdles reports **39,180 triangles / 28–32 draws** at game detail and **162,084 triangles / 28 draws** in the detailed review frame. Trail draw counts depend on whether histories have enough points. These are renderer counters, including the transparent halo's passes, not GPU timings, FPS or network-transfer totals. Source Meshopt copies remain optional derivatives in the original asset folders; this scene loads authoritative plain files.
 

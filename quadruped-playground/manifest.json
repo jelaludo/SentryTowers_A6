@@ -3,7 +3,7 @@
   "name": "Chase / K9, C-07 and K0-TECH-01",
   "baked": false,
   "seed": 27,
-  "source_commit": "9a1eb5695704aadbdc95682fc8dbb1bdb16fe1d4",
+  "source_commit": "5549087a70356a10f1e373c0092bdcbecfc0bd3c",
   "coordinate_system": {
     "units": "metres",
     "up": "+Y",
@@ -23,8 +23,8 @@
       "damage_level": 0,
       "triangles": 25884,
       "draw_calls": 6,
-      "bytes": 2117768,
-      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
+      "bytes": 2118904,
+      "sha256": "09af7a5a27023e10e8cef84122c7bcdcdaf6a7da3e61665c1de1334736073470",
       "clips": [
         {
           "name": "Alert_Idle",
@@ -236,8 +236,14 @@
             0.63,
             1.08
           ],
-          "travel_m": 0,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 2.4,
+          "trajectory": "Forward jump: constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion": true,
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0,
+            "airborne_extra_m": 2.4
+          }
         }
       ],
       "plot_m": [
@@ -337,8 +343,8 @@
       "damage_level": 0,
       "triangles": 9732,
       "draw_calls": 6,
-      "bytes": 1630292,
-      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
+      "bytes": 1631432,
+      "sha256": "16a156da443d928f61b5658d70ad5fa7ea852d2ee3dcc6f07180b7f7efc819a3",
       "clips": [
         {
           "name": "Alert_Idle",
@@ -550,8 +556,14 @@
             0.63,
             1.08
           ],
-          "travel_m": 0,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 2.4,
+          "trajectory": "Forward jump: constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion": true,
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0,
+            "airborne_extra_m": 2.4
+          }
         }
       ],
       "plot_m": [
@@ -651,8 +663,8 @@
       "damage_level": 0,
       "triangles": 62720,
       "draw_calls": 6,
-      "bytes": 2975032,
-      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
+      "bytes": 2974820,
+      "sha256": "fe2d5a055aa5912e31b231469c14e87be4d214308dd3b21fc6fcd58c05aaffd8",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -754,8 +766,13 @@
             0.815,
             1.34
           ],
-          "travel_m": 1.2,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 3,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 1.2,
+            "airborne_extra_m": 1.8
+          }
         },
         {
           "name": "Roll_Over",
@@ -880,8 +897,8 @@
       "damage_level": 0,
       "triangles": 12760,
       "draw_calls": 6,
-      "bytes": 1537756,
-      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
+      "bytes": 1537544,
+      "sha256": "13bd05e4a4a9101d31d45c4a392fe016ef59d0124945bf1ebaf2dbc913c7eae7",
       "clips": [
         {
           "name": "Watch_Idle",
@@ -983,8 +1000,13 @@
             0.815,
             1.34
           ],
-          "travel_m": 1.2,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 3,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 1.2,
+            "airborne_extra_m": 1.8
+          }
         },
         {
           "name": "Roll_Over",
@@ -1689,7 +1711,7 @@
     "ball_wait_gap_m": 9,
     "avoidance": "All-neighbor forward-gap braking with stable passing sides: K9 left, C-07 right, K0 centre; conservative whole-animal capsules tested for every pair. Authored course, not a general collision solver.",
     "gait_phase": "Actual distance / source stride. K0 blends in 0.10 s; others 0.18 s. Rigid-joint foot correction preserves limb lengths.",
-    "jump_displacement": "Original source travel preserved, including K0 base_plus_airborne profile. Extra scene range advances only between last release and first touchdown. K0 crosses 3.2 m; its 0.16 m sin-squared vertical lift remains confined to this all-air window.",
+    "jump_displacement": "Reconstruct each source base_plus_airborne profile exactly once: K9 2.4 m, C-07 3 m and K0 1.6 m. Additional scene travel occurs only between last release and first touchdown, giving 3 / 3 / 3.2 m crossings. K0 adds 0.16 m sin-squared lift in the all-air window.",
     "speed_limits": "maxSpeed is desired world ground speed; acceleration/braking are bounded. Lane-radius transitions and airborne crossing can briefly exceed ground targets."
   },
   "course": {
@@ -1726,13 +1748,13 @@
       "lod": 1,
       "triangles": 37398,
       "draw_calls": 19,
-      "plain_glb_bytes": 4973368
+      "plain_glb_bytes": 4974296
     },
     {
       "lod": 0,
       "triangles": 160302,
       "draw_calls": 19,
-      "plain_glb_bytes": 8750212
+      "plain_glb_bytes": 8751136
     }
   ],
   "validation": {
