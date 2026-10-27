@@ -1,5 +1,13 @@
 # Devlog
 
+## 27 October 2026 / K0 antenna ears
+
+Replaced the pointed ear plates with short modem-like paddle antennas aligned with the industrial head: tapered beige frames, clipped flat tips, dark radome inserts, subtle seams, ceramic hinge shoes and exposed pivot pins. The original EAR_L/EAR_R pivots keep the idle tilts and folding performance. The industrial face, neck, body, tail and striped extremities are unchanged.
+
+Source geometry checks isolate the change to EAR_L/EAR_R at all three tiers. All 54 rest-node transforms, sockets, clip metadata, palette and 1,032 animation channels per animated tier compare exactly with `8533fbb`; the 1.6 m pounce and roll are unchanged. The shorter tips reduce standing height to 0.414 m, about 49% of C-07.
+
+Rebuilt counts are detailed 68,102 triangles / seven draws / 3,602,548 plain bytes; game 14,878 / seven / 1,852,732; static distance 2,980 / one / 241,540. Refreshed the head close-up framing to show both antennas and their mounts. All six plain/decoded files pass glTF validation and 11,072 motion samples. The standalone viewer passes its desktop/mobile controls, all tier/encoding combinations and size comparison. Action preview refresh and chase source repinning follow this export; consuming-game and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / K0 industrial face
 
 Rebuilt K0-TECH-01's face as an industrial sensor assembly aligned with C-07 and RECKON K9. The head has a faceted case, sloped ceramic hood, recessed rectangular cassette with unequal blue-coated camera/range apertures, straight protective rails, vented service panels, hex fasteners and a flat hinged lower guard. Removed rounded cheek pads, whisker wires, the animal nose, brow markings and sculpted muzzle. The body, neck, ears, tail, striped extremities and beige/white palette retain their existing geometry and proportions.

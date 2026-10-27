@@ -3,28 +3,28 @@
   "pounce_travel": {
     "start": {
       "camera": [
-        3.745194598019083,
-        0.7437652450606249,
+        3.7449827418851376,
+        0.7409292530014359,
         0.6805248290300372
       ],
       "root": 0,
-      "screen": 0.4052706003750154
+      "screen": 0.4053163348934384
     },
     "end": {
       "camera": [
-        3.745194598019083,
-        0.7437652450606249,
+        3.7449827418851376,
+        0.7409292530014359,
         0.6805248290300372
       ],
       "root": 1.600000023841858,
-      "screen": -0.5119881289347645,
+      "screen": -0.5120459064554961,
       "guide": true
     }
   },
   "size_comparison": {
     "cat": [
       0.3008999824523925,
-      0.41992838803648264,
+      0.4143316415910752,
       1.0394331448859284
     ],
     "cheetah": [
@@ -32,23 +32,23 @@
       0.846999978646636,
       2.775000035762787
     ],
-    "height_ratio": 0.495783233321278
+    "height_ratio": 0.4891755041754638
   },
   "asset_hashes": [
     {
       "file": "k0_tech_01_d0_lod0.glb",
-      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
-      "meshopt_sha256": "bd13e44b629b1695856b0e0c3043566a88db0c203b1bb4c683504f73f6a695ae"
+      "sha256": "254499117b31870bbebff2a9c16dfde2282f427b68c0a4a62e8ad80b5c84d1c1",
+      "meshopt_sha256": "b568394dd364ae1b07299ab009806d950e1f6c4f1558d037cc21beaf8553991d"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
-      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
-      "meshopt_sha256": "4da86f44488d520171d04be62ba86d4c2432eb32c4a7056e03dbce4faba4183b"
+      "sha256": "9c1844d47c3953f4b456190459a1ca9bcc4778effed1166a787c2ac18d937754",
+      "meshopt_sha256": "e44b04079cbeb1a15979c80ad5f366dc1e57990aa72639982793711e8b64506f"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
-      "sha256": "c0b99c72c034a75b010f8197bedcfdd43dbc4d88b81bedde225abd5dcb4be946",
-      "meshopt_sha256": "be160beca583d0f74e0846a5c3fa0f16790b45fc238b360991b713ee106a79c6"
+      "sha256": "8693a1d93da2b65bcd4499847d243d0ec1f02a7ca20d289732a6353f9d2649df",
+      "meshopt_sha256": "93c4bae3755bb5c738d44bf32604f8a3b9ed87645f1b8cf2847fefcb4b7d764e"
     }
   ],
   "browser": "Chromium headless, real WebGL; not a performance benchmark",
@@ -97,14 +97,14 @@
       "clip": "Pounce",
       "time": 1.078,
       "clips": 8,
-      "draws": 23,
+      "draws": 17,
       "status": "POUNCE / PAUSED · DETAILED MASTER"
     },
     {
       "clip": "Roll_Over",
       "time": 2.6,
       "clips": 8,
-      "draws": 17,
+      "draws": 23,
       "status": "ROLL / PAUSED · DETAILED MASTER"
     },
     {

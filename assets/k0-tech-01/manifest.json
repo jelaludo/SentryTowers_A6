@@ -58,8 +58,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3573464,
-      "triangles": 67654,
+      "bytes": 3602548,
+      "triangles": 68102,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -208,7 +208,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "11301b47f8f7f4a38fd3bc7e8725ba7264c9fbffb0c36676769892468c7b7aca",
+      "sha256": "254499117b31870bbebff2a9c16dfde2282f427b68c0a4a62e8ad80b5c84d1c1",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -217,12 +217,12 @@
         ],
         "max": [
           0.1504499912261963,
-          0.4206499755382538,
+          0.415010005235672,
           0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
-          0.41970997798925275,
+          0.41407000768667096,
           1.0452063381671906
         ]
       },
@@ -349,8 +349,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 988548,
-      "meshopt_sha256": "bd13e44b629b1695856b0e0c3043566a88db0c203b1bb4c683504f73f6a695ae"
+      "meshopt_bytes": 993288,
+      "meshopt_sha256": "b568394dd364ae1b07299ab009806d950e1f6c4f1558d037cc21beaf8553991d"
     },
     {
       "file": "k0_tech_01_d0_lod1.glb",
@@ -358,8 +358,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1824924,
-      "triangles": 14526,
+      "bytes": 1852732,
+      "triangles": 14878,
       "draw_calls": 7,
       "plot_m": [
         0.4,
@@ -508,7 +508,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "f4d1869f42c33741259cbc71e35708e3974bac779eda3a9db3b0e5e06ca9d8e8",
+      "sha256": "9c1844d47c3953f4b456190459a1ca9bcc4778effed1166a787c2ac18d937754",
       "bounds": {
         "min": [
           -0.1504499912261963,
@@ -517,12 +517,12 @@
         ],
         "max": [
           0.1504499912261963,
-          0.4206499755382538,
+          0.415010005235672,
           0.4031279981136322
         ],
         "dimensions_m": [
           0.3008999824523926,
-          0.41970997798925275,
+          0.41407000768667096,
           1.0452063381671906
         ]
       },
@@ -649,8 +649,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 610980,
-      "meshopt_sha256": "4da86f44488d520171d04be62ba86d4c2432eb32c4a7056e03dbce4faba4183b"
+      "meshopt_bytes": 615756,
+      "meshopt_sha256": "e44b04079cbeb1a15979c80ad5f366dc1e57990aa72639982793711e8b64506f"
     },
     {
       "file": "k0_tech_01_d0_lod2.glb",
@@ -658,8 +658,8 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 237748,
-      "triangles": 2924,
+      "bytes": 241540,
+      "triangles": 2980,
       "draw_calls": 1,
       "plot_m": [
         0.4,
@@ -667,7 +667,7 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "c0b99c72c034a75b010f8197bedcfdd43dbc4d88b81bedde225abd5dcb4be946",
+      "sha256": "8693a1d93da2b65bcd4499847d243d0ec1f02a7ca20d289732a6353f9d2649df",
       "bounds": {
         "min": [
           -0.14288169145584106,
@@ -676,12 +676,12 @@
         ],
         "max": [
           0.14288169145584106,
-          0.4206499755382538,
+          0.415010005235672,
           0.4026000201702118
         ],
         "dimensions_m": [
           0.28576338291168213,
-          0.41970997623866424,
+          0.41407000593608245,
           1.036846548318863
         ]
       },
@@ -808,8 +808,8 @@
       ],
       "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 75092,
-      "meshopt_sha256": "be160beca583d0f74e0846a5c3fa0f16790b45fc238b360991b713ee106a79c6"
+      "meshopt_bytes": 75780,
+      "meshopt_sha256": "93c4bae3755bb5c738d44bf32604f8a3b9ed87645f1b8cf2847fefcb4b7d764e"
     }
   ],
   "optics": {
@@ -825,8 +825,17 @@
       "HEAD",
       "JAW"
     ],
-    "preserved": "Body, ears, neck, tail, proportions, palette, rest transforms, sockets and all eight actions.",
+    "preserved": "Body, neck, tail, proportions, palette, rest transforms, sockets and all eight actions.",
     "baseline_commit": "b918febcfb7783550c5a2717319b7835e6b776ca"
+  },
+  "antennas": {
+    "design": "Short tapered paddle radomes with clipped flat tips, ceramic hinge shoes and exposed pivot pins; subtle modem-antenna character aligned with the industrial head.",
+    "changed_bones": [
+      "EAR_L",
+      "EAR_R"
+    ],
+    "rig": "Original EAR_L/EAR_R pivots and fold/idle articulation retained; no new engine controls.",
+    "baseline_commit": "8533fbb3433f3c34c7131b255fc645b81e83f78d"
   },
   "budgets": {
     "game_triangles": 25000,
@@ -857,14 +866,14 @@
   },
   "source": {
     "file": "../../source/blender/a6-k0-tech-01.blend",
-    "bytes": 6958854,
-    "sha256": "0ad2aa6d2be67d59e60c5937ddb8d89b971c4714079c8fb004970f3db40f1b54",
+    "bytes": 6964402,
+    "sha256": "f7868ed89ce2dda97a579f2d44370917be34ca74be1afe77c25c628f9febd213",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   },
   "authoring_dependencies": [
     {
       "file": "tools/blender/build_k0_tech_01.py",
-      "sha256": "52ccbd218e0210875fc83d246b20c299f04b1de7e62575be3d4cfbcaa5ad3550"
+      "sha256": "ab5a7f7d1a7744dccf3ee528f557674efe7e0b21b351de9d6417d6738db49730"
     },
     {
       "file": "tools/blender/k0_tech_motion.py",
@@ -891,7 +900,7 @@
     "reference": "C-07 LOD0 standing bounds",
     "dimensions_ratio_xyz": [
       0.62125166434253,
-      0.4955253681730258,
+      0.4888666073447489,
       0.3766509278187761
     ],
     "reference_dimensions_m": [

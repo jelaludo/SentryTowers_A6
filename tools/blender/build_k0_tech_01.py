@@ -151,13 +151,24 @@ def shape(lod,reference=None):
  for s in [-1,1]:
   g.tube((s*.083,-.515,.70),(s*.081,-.687,.68),.012,4,'NECK',r1=.009)
   if lod<2:g.hose([(s*.09,-.53,.638),(s*.09,-.59,.62),(s*.075,-.68,.632)],.009,0,'NECK')
- # Angular industrial sensor head. Only HEAD/JAW geometry changes; ears keep
- # their original plates, pivots and proportions.
+ # Angular industrial sensor head with articulated paddle-antenna ears.
  industrial_face(g,lod)
  for s in [-1,1]:
   ear='EAR_'+('L' if s>0 else 'R');x=s*.09
-  g.panel([(x-s*.035,-.638,.728),(x+s*.041,-.635,.735),(x+s*.057,-.615,.895),(x+s*.032,-.629,.874),(x-s*.026,-.65,.786)],.022,1,ear)
-  g.panel([(x-s*.018,-.655,.755),(x+s*.029,-.654,.761),(x+s*.044,-.638,.866)],.005,6,ear)
+  # Low hinge shoe, clipped flat tip and dark radome make the pair read as
+  # modem antennas. Keep the original EAR pivots and folding animation.
+  g.box((x,-.636,.752),(.052,.044,.030),2,ear,.003)
+  a=Vector((x,-.637,.765));axis=Vector((s*.016,.024,.118))
+  def fin(points,thickness,material,front=0):
+   g.panel([a+axis*t+Vector((u,front,0)) for u,t in points],thickness,material,ear)
+  fin([(-.021,0),(.021,0),(.023,.84),(.013,1),(-.015,1),(-.023,.92)],.020,1)
+  fin([(-.015,.13),(.015,.13),(.016,.82),(.009,.94),(-.010,.94),(-.016,.87)],.003,0,-.012)
+  if lod<2:
+   g.box((x,-.637,.770),(.038,.029,.008),3,ear,.001)
+   g.tube((x-s*.026,-.636,.753),(x+s*.031,-.636,.753),.012,4,ear,sides=12 if lod==0 else 8)
+   g.tube((x+s*.031,-.636,.753),(x+s*.033,-.636,.753),.006,3,ear,sides=6)
+   for t in [.32,.72]:
+    p=a+axis*t+Vector((0,-.014,0));g.box(p,(.028,.0015,.0018),3,ear,0)
  # Broad pale toes and repeated transverse taupe markings on lower legs/paws.
  for id in LEGS:
   s=1 if id.endswith('L') else -1

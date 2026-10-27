@@ -32,7 +32,7 @@ for file,clip,t,view in poses:
  s.frame_set(int(t*s.render.fps),subframe=t*s.render.fps%1);base=arm.pose.bones['MOTION'].head.copy()
  cam.location=base+Vector((1.8,.10,.55) if view=='side' else (1.15,-1.625,.825));aim(cam,base+Vector((0,.08,.29 if clip=='Pounce' else .23)));d.ortho_scale=1.40 if view=='side' else 1.27
  if view=='optics':
-  cam.location=base+Vector((.14,-.75,.40));aim(cam,base+Vector((0,-.354,.326)));d.ortho_scale=.26
+  cam.location=base+Vector((.16,-.75,.445));aim(cam,base+Vector((0,-.335,.349)));d.ortho_scale=.31
  if view=='travel':
   cam.location=Vector((2,-.72,.53));aim(cam,(0,-.72,.34));d.ortho_scale=3.05
  s.render.filepath=str(OUT/(file+'.png'));bpy.ops.render.render(write_still=True)

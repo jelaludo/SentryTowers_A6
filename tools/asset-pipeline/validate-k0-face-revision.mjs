@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';import {execFileSync} from 'node:child_process';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {NodeIO} from '@gltf-transform/core';import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
 import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-const project=new URL('../../',import.meta.url),folder=new URL('assets/k0-tech-01/',project),baseline='b918febcfb7783550c5a2717319b7835e6b776ca',io=new NodeIO().registerExtensions(ALL_EXTENSIONS);
+const project=new URL('../../',import.meta.url),folder=new URL('assets/k0-tech-01/',project),antennas=process.argv.includes('--antennas'),baseline=antennas?'8533fbb3433f3c34c7131b255fc645b81e83f78d':'b918febcfb7783550c5a2717319b7835e6b776ca',io=new NodeIO().registerExtensions(ALL_EXTENSIONS);
 const manifest=JSON.parse(await fs.readFile(new URL('manifest.json',folder))),oldManifest=JSON.parse(execFileSync('git',['show',baseline+':assets/k0-tech-01/manifest.json'],{cwd:project}));
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),parse=b=>new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');
 const track=c=>({node:c.getTargetNode().getName(),path:c.getTargetPath(),interpolation:c.getSampler().getInterpolation(),times:Array.from(c.getSampler().getInput().getArray()),values:Array.from(c.getSampler().getOutput().getArray())});
@@ -18,7 +18,7 @@ for(const e of manifest.assets){
   const b=old.getRoot().listAnimations().find(b=>b.getName()===a.getName());assert(b);assert.equal(a.listChannels().length,b.listChannels().length);
   for(const c of a.listChannels()){
    const previous=b.listChannels().find(x=>x.getTargetNode().getName()===c.getTargetNode().getName()&&x.getTargetPath()===c.getTargetPath());assert(previous);
-   if(a.getName()==='Roll_Over'&&c.getTargetNode().getName()==='LUMBAR'&&c.getTargetPath()==='translation')continue;
+   if(!antennas&&a.getName()==='Roll_Over'&&c.getTargetNode().getName()==='LUMBAR'&&c.getTargetPath()==='translation')continue;
    assert.deepEqual(track(c),track(previous),'unrequested motion change');unchanged++;
   }
  }
@@ -34,4 +34,4 @@ for(const e of manifest.assets){
  }
  checks.push({file:e.file,before_sha256:sha(before),after_sha256:sha(after),unchanged_rest_nodes:nodes(next).length,unchanged_animation_channels:unchanged,clip_metadata_sockets_and_palette_unchanged:true,maximum_roll_ground_settle_adjustment_m:settle});
 }
-await fs.writeFile(new URL('face-rig-validation.json',folder),JSON.stringify({status:'passed',baseline_commit:baseline,scope:'All rest transforms, sockets, clip metadata and material palette unchanged. Animation keys match except the automatic Roll_Over LUMBAR height correction for the new contact surface; sampled roll articulation and horizontal position remain unchanged.',checks},null,2)+'\n');console.log(checks);
+await fs.writeFile(new URL(antennas?'antenna-rig-validation.json':'face-rig-validation.json',folder),JSON.stringify({status:'passed',baseline_commit:baseline,scope:antennas?'All animation key arrays, rest transforms, sockets, clip metadata and material palette unchanged.':'All rest transforms, sockets, clip metadata and material palette unchanged. Animation keys match except the automatic Roll_Over LUMBAR height correction for the new contact surface; sampled roll articulation and horizontal position remain unchanged.',checks},null,2)+'\n');console.log(checks);
