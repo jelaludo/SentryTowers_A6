@@ -1,0 +1,883 @@
+{
+  "family": "k0-tech-01",
+  "label": "K0-TECH-01 / Lynx-point house cat",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at torso centre; shortened striped tail extends aft"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 120,
+    "skeleton_joints": 51,
+    "placement_node": "instance wrapper around the glTF scene",
+    "motion_node": "MOTION",
+    "engine_driven_excluded": [
+      "SENSOR_YAW"
+    ],
+    "gallop": "Rotary contacts FL, FR, HR, HL; gathered and extended airborne phases; independently articulated lumbar, pelvis, thorax, scapulae and tail",
+    "walk_reference": "Local user-supplied cat-walk inspected for phase timing and shoulder motion; all exported motion authored independently",
+    "retarget_audit": {
+      "maximum_requested_target_clamp_m": 0.0007080853589913252,
+      "worst_frame": [
+        "Roll_Over",
+        1.6,
+        "HR"
+      ],
+      "note": "Unreachable targets clamp without changing rigid chain lengths; final exports are independently validated."
+    },
+    "skeleton_root": "ROOT",
+    "patterns": {
+      "file": "../../source/motion-patterns/quadruped-patterns.json",
+      "revision": "2026-10-27-faster-gaits-social",
+      "sha256": "69d9b832fbacd1c8b2f636bf82d88c75b8bf6449ee4cae0a44056defc80b5f16",
+      "timing": "Original authored timing; source diagrams establish contact topology and pose order."
+    },
+    "reference_urls": [
+      "https://motionzoo.net/dog_walk_gaits/",
+      "https://motionzoo.net/making_cat_jump/"
+    ],
+    "source_family": "mechanical-cheetah"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 18,
+    "hysteresis_m": 5,
+    "lod0": "Detailed recording master",
+    "lod1": "All animated gameplay; retain while moving",
+    "lod2": "Static standing map/loading silhouette; no animation"
+  },
+  "assets": [
+    {
+      "file": "k0_tech_01_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3742308,
+      "triangles": 74946,
+      "draw_calls": 7,
+      "plot_m": [
+        0.4,
+        1.35
+      ],
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true,
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.2383333320418994,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.08931623883227,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.4,
+          "loop": true,
+          "speed_mps": 2.688888874318865,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false,
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 0.527999997138977,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
+      "bounds": {
+        "min": [
+          -0.1504499912261963,
+          0.000939997549001044,
+          -0.6420783400535583
+        ],
+        "max": [
+          0.1504499912261963,
+          0.4206499755382538,
+          0.40545418858528137
+        ],
+        "dimensions_m": [
+          0.3008999824523926,
+          0.41970997798925275,
+          1.0475325286388397
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "K0_TECH_01_RIG",
+        "K0_TECH_01_SKIN",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.3266499936580658,
+            0.3431999981403351
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.2904599905014038,
+            0.40171998739242554
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.35954999923706055,
+            0.04839999973773956
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 1017780,
+      "meshopt_sha256": "97f0df7ef68f7785000d1fa764d27823e3f8fcf3c4f8e3e8f34465a49bbc1104"
+    },
+    {
+      "file": "k0_tech_01_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 1821604,
+      "triangles": 15578,
+      "draw_calls": 7,
+      "plot_m": [
+        0.4,
+        1.35
+      ],
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 3,
+          "loop": true,
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Feline_Walk_Cycle",
+          "duration_s": 1.6,
+          "loop": true,
+          "speed_mps": 0.2383333320418994,
+          "duty_factor": 0.6,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Stalk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.08931623883227,
+          "duty_factor": 0.78,
+          "touchdown_phase": {
+            "HR": 0,
+            "FR": 0.22,
+            "HL": 0.5,
+            "FL": 0.72
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Gallop_Cycle",
+          "duration_s": 0.4,
+          "loop": true,
+          "speed_mps": 2.688888874318865,
+          "duty_factor": 0.18,
+          "touchdown_phase": {
+            "FL": 0,
+            "FR": 0.08,
+            "HR": 0.48,
+            "HL": 0.56
+          },
+          "flight_intervals": {
+            "gathered": [
+              0.26,
+              0.48
+            ],
+            "extended": [
+              0.74,
+              1
+            ]
+          },
+          "phase_landmarks": {
+            "fore_support": 0.13,
+            "gathered": 0.37,
+            "hind_support": 0.61,
+            "extended": 0.87
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Sit_Down",
+          "duration_s": 2.4,
+          "loop": false,
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Pounce",
+          "duration_s": 3.2,
+          "loop": false,
+          "root_motion": true,
+          "source_ids": [
+            "motionzoo_jump"
+          ],
+          "pattern_revision": "2026-10-27-faster-gaits-social",
+          "release_s": {
+            "FL": 0.65,
+            "FR": 0.675,
+            "HR": 0.8,
+            "HL": 0.815
+          },
+          "touchdown_s": {
+            "FL": 1.34,
+            "FR": 1.365,
+            "HR": 1.455,
+            "HL": 1.48
+          },
+          "phase_landmarks_s": {
+            "ready": 0.12,
+            "crouch": 0.49,
+            "push_off": 0.79,
+            "apex": 1.0775,
+            "fore_contact": 1.35,
+            "absorb": 1.53,
+            "recover": 2.65
+          },
+          "flight_interval_s": [
+            0.815,
+            1.34
+          ],
+          "travel_m": 0.527999997138977,
+          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves",
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Roll_Over",
+          "duration_s": 5.6,
+          "loop": false,
+          "phase_landmarks_s": {
+            "crouch": 0.8,
+            "side": 1.97,
+            "back": 2.6,
+            "other_side": 3.23,
+            "recover": 5.4
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        },
+        {
+          "name": "Give_Paw",
+          "duration_s": 4.4,
+          "loop": false,
+          "offered_paw": "FL",
+          "phase_landmarks_s": {
+            "sit": 1,
+            "offer": 1.65,
+            "shake": 2.1,
+            "lower": 3.15,
+            "recover": 4.4
+          },
+          "pattern_family": "C07 authored feline pattern; proportions and travel adapted for K0-TECH-01"
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
+      "bounds": {
+        "min": [
+          -0.1504499912261963,
+          0.000939997549001044,
+          -0.6420783400535583
+        ],
+        "max": [
+          0.1504499912261963,
+          0.4206499755382538,
+          0.40347999334335327
+        ],
+        "dimensions_m": [
+          0.3008999824523926,
+          0.41970997798925275,
+          1.0455583333969116
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "K0_TECH_01_RIG",
+        "K0_TECH_01_SKIN",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.3266499936580658,
+            0.3431999981403351
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.2904599905014038,
+            0.40171998739242554
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.35954999923706055,
+            0.04839999973773956
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 611560,
+      "meshopt_sha256": "2a53f3a8080297aa18ec99b12b443e90ce77080e083c24c803b05131094877ae"
+    },
+    {
+      "file": "k0_tech_01_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 245836,
+      "triangles": 2964,
+      "draw_calls": 1,
+      "plot_m": [
+        0.4,
+        1.35
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo",
+      "sha256": "28277ccd20381f1134e51bea695b0718fbcef435b611b591bb2095acea4c2a9e",
+      "bounds": {
+        "min": [
+          -0.14288169145584106,
+          0.0009399992995895445,
+          -0.6342465281486511
+        ],
+        "max": [
+          0.14288169145584106,
+          0.4206499755382538,
+          0.40347999334335327
+        ],
+        "dimensions_m": [
+          0.28576338291168213,
+          0.41970997623866424,
+          1.0377265214920044
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_FL",
+        "ANKLE_FR",
+        "ANKLE_HL",
+        "ANKLE_HR",
+        "CHEST",
+        "EAR_L",
+        "EAR_R",
+        "HEAD",
+        "JAW",
+        "K0_TECH_01_RIG",
+        "K0_TECH_01_SKIN",
+        "LOWER_FL",
+        "LOWER_FR",
+        "LOWER_HL",
+        "LOWER_HR",
+        "LUMBAR",
+        "LUMBAR_FRONT_LINK",
+        "LUMBAR_REAR_LINK",
+        "MOTION",
+        "NECK",
+        "PAW_FL",
+        "PAW_FR",
+        "PAW_HL",
+        "PAW_HR",
+        "PELVIS",
+        "ROOT",
+        "SCAPULA_FL",
+        "SCAPULA_FR",
+        "SENSOR_YAW",
+        "SOCKET_MOUTH",
+        "SOCKET_PAW_FL",
+        "SOCKET_PAW_FR",
+        "SOCKET_PAW_HL",
+        "SOCKET_PAW_HR",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SPINE_FRONT",
+        "SPINE_REAR",
+        "TAIL_01",
+        "TAIL_02",
+        "TAIL_03",
+        "TAIL_04",
+        "TAIL_05",
+        "TAIL_06",
+        "TAIL_07",
+        "TAIL_08",
+        "TOES_FL",
+        "TOES_FR",
+        "TOES_HL",
+        "TOES_HR",
+        "UPPER_FL",
+        "UPPER_FR",
+        "UPPER_HL",
+        "UPPER_HR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.3266499936580658,
+            0.3431999981403351
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            0.2904599905014038,
+            0.40171998739242554
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FL",
+          "parent": "PAW_FL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_FR",
+          "parent": "PAW_FR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            0.23760001361370087
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "SPINE_FRONT",
+          "position_m": [
+            0,
+            0.35954999923706055,
+            0.04839999973773956
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HL",
+          "parent": "PAW_HL",
+          "position_m": [
+            0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        },
+        {
+          "node": "SOCKET_PAW_HR",
+          "parent": "PAW_HR",
+          "position_m": [
+            -0.08259999752044678,
+            0.0014100000262260437,
+            -0.14079999923706055
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/k0_tech_01_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 77584,
+      "meshopt_sha256": "0c750cceaee7224de4c6185185476424b97139f187dded07fae1343dc4864aa7"
+    }
+  ],
+  "budgets": {
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the entire glTF scene in an instance group. ROOT is an unanimated skeleton lookup. Clone with SkeletonUtils.clone.",
+    "gait": "Translate the instance group along +Z at clips.speed_mps multiplied by playback rate. Keep LOD1 during animated gameplay.",
+    "pounce": "MOTION contains 0.528 m of forward travel. Do not apply additional game locomotion during Pounce.",
+    "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
+    "collision": "SOCKET_PAW_FL/FR/HL/HR mark paw soles 1.41 mm above the authored floor. Game supplies collision and terrain adaptation.",
+    "bounds": "Use validation-report.json clip envelopes for animation-aware culling. The 0.40 by 1.35 m plot reserves the standing silhouette; pounce travels beyond it.",
+    "units": "Authored kinematic mechanical gait, not a physical cat speed or ground-reaction-force simulation."
+  },
+  "provenance": {
+    "geometry": "Original K0 head, armor, ears, tail and stripe geometry, built using the repository feline construction helpers. No external geometry or textures copied.",
+    "concept": {
+      "file": "K0-TECH_01.jpeg",
+      "sha256": "261f924dc2c419e0cf5bf199ea2c35928170f0fef1bdbe78fe6530564da9a407",
+      "bytes": 267168,
+      "usage": "User-provided lynx-point Siamese robot concept; observed for appearance, not redistributed or embedded."
+    },
+    "motion": "All eight original C-07 patterns reused and solved onto K0 rest lengths. Paw trajectories, forward speeds and pounce travel adapted to the compact rig.",
+    "source_family": "mechanical-cheetah",
+    "source_commit": "d8943b5e6bc4c76f189b8eb6a86e46fbb1c0cbb2"
+  },
+  "source": {
+    "file": "../../source/blender/a6-k0-tech-01.blend",
+    "bytes": 7162644,
+    "sha256": "6b7408c88a6171e040bac9917ac67f300becdd05a4304a8ba943d94dc82433d6",
+    "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
+  },
+  "authoring_dependencies": [
+    {
+      "file": "tools/blender/build_k0_tech_01.py",
+      "sha256": "f6118a96135954ba17f9696b1e6ddd43a041da0f96138d5613d1d036d15c28bc"
+    },
+    {
+      "file": "tools/blender/k0_tech_motion.py",
+      "sha256": "1743961a618cda45664cfaadb463bc0ab9b9dab363eb3623c37a74157cd3326b"
+    },
+    {
+      "file": "tools/blender/build_mechanical_cheetah.py",
+      "sha256": "b83131d9b7aa06eee5f6ae090a5bcdda1eb217f8f76058e448ea05f4fca14658"
+    },
+    {
+      "file": "tools/blender/cheetah_motion.py",
+      "sha256": "75daeb0e5294357e21a23ac55a9192071c4f80e1fded9f289dc7ea03fac6fff8"
+    },
+    {
+      "file": "tools/blender/quadruped_geometry.py",
+      "sha256": "bdb860e8674b0dd59f141aa297e13fcc3cad25ca63bc301d0df994175a9073d4"
+    },
+    {
+      "file": "tools/blender/quadruped_motion.py",
+      "sha256": "dba74bda5a46da51ee7e8eb7546df969b6c6ea87a5dd387b7333a5e327382061"
+    }
+  ],
+  "size_comparison": {
+    "reference": "C-07 LOD0 standing bounds",
+    "dimensions_ratio_xyz": [
+      0.62125166434253,
+      0.4955253681730258,
+      0.3774891946446033
+    ],
+    "reference_dimensions_m": [
+      0.4843447506427765,
+      0.8469999821335079,
+      2.775000035762787
+    ],
+    "authoring_scale_xyz": [
+      0.59,
+      0.44,
+      0.47
+    ],
+    "tail_length_factor": 0.78
+  }
+}

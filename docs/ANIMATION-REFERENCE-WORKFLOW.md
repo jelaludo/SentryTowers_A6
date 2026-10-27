@@ -10,6 +10,8 @@ The useful reusable unit is a **motion pattern with events and constraints**: wh
 
 The follow-up `quadruped-playground/` demonstrates a composition layer above those patterns: seeded pursuit and avoidance select the existing clips, stride metadata synchronizes cadence with actual movement, and named release/touchdown events delimit added airborne jump travel. Source motions stay unchanged. Its controller and actual-rig tests check the combined behavior, including transitions, grounded feet, actor separation and hurdle clearance. This is an authored example of composing reference-informed patterns; automatic reference extraction and arbitrary-environment planning remain future work.
 
+`k0-tech-01/` demonstrates reuse across proportions: the eight C-07 performances retain their contact topology and duration while `k0_tech_motion.py` rebuilds the smaller, broader skeleton and solves new limb positions. Travel/stride metadata changes with the target size; rigid chain lengths, floor support, jump anchors and encoded exports are checked again. New concept art informs the house-cat geometry and palette, while the reference image remains separate from the exported assets. Scaling the old animated skeleton nonuniformly would not provide these rigid-length guarantees.
+
 ## 1. Assemble a reference packet
 
 Give each source an identifier, URL or local path, creator, access date, medium and intended use. Keep original files unchanged. Record redistribution rights separately from permission to observe a source; a link and notes are often sufficient for the repository. Keep hashes for local files, and preserve earlier asset revisions in Git.

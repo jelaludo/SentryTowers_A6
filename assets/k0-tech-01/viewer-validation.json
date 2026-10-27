@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "size_comparison": {
+    "cat": [
+      0.3008999824523925,
+      0.41992838803648264,
+      1.0407282369081967
+    ],
+    "cheetah": [
+      0.4843447506427765,
+      0.846999978646636,
+      2.775000035762787
+    ],
+    "height_ratio": 0.495783233321278
+  },
+  "asset_hashes": [
+    {
+      "file": "k0_tech_01_d0_lod0.glb",
+      "sha256": "951012e285559d07c8ac48d4d3a8c5d0780e58d1b00645594fda40f9bd27e976",
+      "meshopt_sha256": "97f0df7ef68f7785000d1fa764d27823e3f8fcf3c4f8e3e8f34465a49bbc1104"
+    },
+    {
+      "file": "k0_tech_01_d0_lod1.glb",
+      "sha256": "4000fbeec61de219df02b9c0e9b21c2e2006192f8b8eb1a144badfa34da1a97a",
+      "meshopt_sha256": "2a53f3a8080297aa18ec99b12b443e90ce77080e083c24c803b05131094877ae"
+    },
+    {
+      "file": "k0_tech_01_d0_lod2.glb",
+      "sha256": "28277ccd20381f1134e51bea695b0718fbcef435b611b591bb2095acea4c2a9e",
+      "meshopt_sha256": "0c750cceaee7224de4c6185185476424b97139f187dded07fae1343dc4864aa7"
+    }
+  ],
+  "browser": "Chromium headless, real WebGL; not a performance benchmark",
+  "retimed_gallop_travel": {
+    "duration": 0.4000000059604645,
+    "distance": 0.2688888874318865,
+    "speed_mps": 2.6888888889
+  },
+  "clip_controls": [
+    {
+      "clip": "Watch_Idle",
+      "time": 1,
+      "clips": 8,
+      "draws": 17,
+      "status": "WATCH / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Feline_Walk_Cycle",
+      "time": 0.4,
+      "clips": 8,
+      "draws": 17,
+      "status": "WALK / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Stalk_Cycle",
+      "time": 0.7,
+      "clips": 8,
+      "draws": 17,
+      "status": "STALK / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Gallop_Cycle",
+      "time": 0.148,
+      "clips": 8,
+      "draws": 17,
+      "status": "GALLOP / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Sit_Down",
+      "time": 2.4,
+      "clips": 8,
+      "draws": 17,
+      "status": "SIT / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Pounce",
+      "time": 1.078,
+      "clips": 8,
+      "draws": 17,
+      "status": "POUNCE / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Roll_Over",
+      "time": 2.6,
+      "clips": 8,
+      "draws": 17,
+      "status": "ROLL / PAUSED · DETAILED MASTER"
+    },
+    {
+      "clip": "Give_Paw",
+      "time": 2.1,
+      "clips": 8,
+      "draws": 17,
+      "status": "HAND / PAUSED · DETAILED MASTER"
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "actual-scale C-07 comparison and half-height measurement",
+    "eight clips and scrubbed times",
+    "four gallop phases, zero sole contacts in both flights",
+    "hero, side and mobile camera bounds",
+    "skeleton, wireframe and paw marker toggles",
+    "all plain and Meshopt tiers load",
+    "static tier disables animation",
+    "ground travel on/off",
+    "desktop and 390px mobile layout",
+    "no page errors"
+  ]
+}

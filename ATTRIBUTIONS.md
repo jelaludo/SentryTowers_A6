@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## K0-TECH-01 / Felis / 27 October 2026
+
+Original mechanical house-cat geometry, rigid retarget adapter, family viewer and derived review renders by jelaludo. The user-supplied `K0-TECH_01.jpeg` (SHA-256 `261f924dc2c419e0cf5bf199ea2c35928170f0fef1bdbe78fe6530564da9a407`) informed the lynx-point Siamese appearance, beige/white palette, blue eyes and striped extremities. Its creator/license were not supplied; the image remains at its original local location and is not redistributed or embedded. Existing workshop C-07 construction helpers and all eight authored motion patterns are reused, with a new face, ears, body shells, shortened tail, markings and a rigid retarget onto smaller, fuller proportions. No third-party mesh, texture, rig or animation keys are copied. Plain GLBs are authoritative; Meshopt files and review PNGs are derived.
+
 ## CHASE / K9 × C-07 / 27 October 2026
 
 `quadruped-playground/` reuses jelaludo’s original RECKON K9 and Mechanical Cheetah GLBs from `ab4642deb90836628ee5f7c8b0049ec9a7b5dfae`, preserved unchanged. Shared pursuit behavior, seeded ball motion, lateral avoidance, hurdle placement, runtime rig corrections and preview capture are newly authored derived presentation work by jelaludo. Source motion reference provenance remains recorded below; no additional external motion, models or images are embedded. The compound scene is procedural JavaScript, not a new baked GLB animation.

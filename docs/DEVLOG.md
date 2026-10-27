@@ -1,5 +1,17 @@
 # Devlog
 
+## 27 October 2026 / K0-TECH-01 — compact lynx-point Siamese robot
+
+Created the separate `k0-tech-01/` feline family from the supplied beige/white concept. K0 has a rounder skull, larger ears, white cheek pads and whisker wires, blue iris optics, fuller chest/haunch shells, broader paws, taupe lower-leg/paw stripes and a shorter ringed tail. The shoulder marking reads K0 / TECH. Standing detailed bounds are 0.301 × 0.420 × 1.048 m: 49.6% of C-07's height, with a broader width-to-height ratio and shorter tail. The source image stays outside the repository; its hash and reference-only use are recorded.
+
+Retained all eight C-07 action names and durations: watch, walk, stalk, gallop, sit, pounce, roll and hand. A new adapter rebuilds chains at K0's rest lengths and solves the limbs against adapted paw targets, preserving rigid plates. Gait speeds become 0.238333 / 0.089316 / 2.688889 m/s; pounce travel becomes 0.528 m. The original K9, Cheetah and compound chase exports are unchanged. Runtime collision, terrain, state blending and game acceptance remain separate.
+
+Delivered a 74,946-triangle detailed master, 15,578-triangle articulated game tier (seven materials/draws each) and a 2,964-triangle static distance tier (one material/draw, under 250 KB). Plain GLBs remain authoritative, with an editable Blender master and optional Meshopt derivatives. Static stripes are part of existing surfaces, and small details are omitted at distance. Named hierarchy, sockets, axes and origins stay consistent across tiers.
+
+The viewer includes all action controls, contact tracks, four gallop phases, seven pounce landmarks, plain/Meshopt downloads, camera presets and an actual-scale standing C-07 reference. The family validator covers six plain/decoded exports and 11,072 full-geometry clip samples, plus intermediate rigid-length, contact and jump-anchor checks. Blender action studies and Chromium WebGL desktop/mobile views are reviewed; the reports record exact measurements and file hashes. Updated the measured hand-off, gallery, attribution, reference workflow, readiness and shared navigation. Consuming-game r160/release compression, arbitrary environments, game cameras and reference-phone review remain pending.
+
+Final validation reports zero glTF errors/warnings, minimum floor clearance 0.773 mm, maximum stance drift 0.679 mm, maximum rigid segment-length error 0.030 mm and maximum pounce-anchor drift 0.437 mm. A sub-millimetre over-folded roll target was corrected by clamping both ends of the limb's reachable interval, keeping the armor and bones rigid.
+
 ## 27 October 2026 / CHASE — compound K9 and Cheetah playground
 
 Added `quadruped-playground/`, a continuous shared animation using the existing plain K9 and C-07 rigs from `ab4642d`. An orange ball alternates irregular cruise and acceleration bursts, weaves slightly and waits if the pair falls behind. Both animals respond to its speed, alternate preferred leading distance, separate laterally and give way before passing. Three low hurdles trigger braking, preparation, their distinct jump/pounce clips, landing and recovery. Original GLBs, source masters and clips remain unchanged.
