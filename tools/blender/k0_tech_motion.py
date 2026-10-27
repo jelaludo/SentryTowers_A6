@@ -20,7 +20,7 @@ TAIL=[H['TAIL_'+str(i+1).zfill(2)] for i in range(8)]
 CLIPS=copy.deepcopy(source.CLIPS)
 for c in CLIPS:
  if 'speed_mps' in c:c['speed_mps']*=SCALE.y
- if 'travel_m' in c:c['travel_m']*=SCALE.y
+ if 'travel_m' in c:c['travel_m']=c.get('root_motion_profile',{}).get('base_travel_m',c['travel_m'])*SCALE.y
  if 'retimed_from_duration_s' in c:del c['retimed_from_duration_s']
  c['pattern_family']='C07 authored feline pattern; proportions and travel adapted for K0-TECH-01'
 POUNCE=next(c for c in CLIPS if c['name']=='Pounce')
@@ -35,7 +35,8 @@ def configure_floor(geometry):
 
 def pose(clip,t):
  global MAX_REACH_ERROR,WORST_REACH
- old,rot=source.pose(clip,t);pos={};ori={n:r.copy() for n,r in rot.items()}
+ # Retarget the original articulated pose; K0 applies its own 1.6 m impulse.
+ old,rot=source.pose(clip,t,forward_travel=False);pos={};ori={n:r.copy() for n,r in rot.items()}
  legs={prefix+id for id in LEGS for prefix in ['UPPER_','LOWER_','ANKLE_','PAW_','TOES_','SOCKET_PAW_']}
  for n in H:
   if n in legs:continue

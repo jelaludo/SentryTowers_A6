@@ -49,7 +49,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2975032,
+      "bytes": 2974820,
       "triangles": 62720,
       "draw_calls": 6,
       "plot_m": [
@@ -157,8 +157,13 @@
             0.815,
             1.34
           ],
-          "travel_m": 1.2,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 3,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 1.2,
+            "airborne_extra_m": 1.8
+          }
         },
         {
           "name": "Roll_Over",
@@ -187,7 +192,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
+      "sha256": "fe2d5a055aa5912e31b231469c14e87be4d214308dd3b21fc6fcd58c05aaffd8",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -328,8 +333,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 863064,
-      "meshopt_sha256": "bbb8b63cd1064e674f30792ef659dd91dc868aaa522125642ac0f4c701ce7e81"
+      "meshopt_bytes": 862896,
+      "meshopt_sha256": "d25334a16b14c5498a8afeb7caefc624fc2e319ae25e4401cbbc88182bcb005c"
     },
     {
       "file": "c07_d0_lod1.glb",
@@ -337,7 +342,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1537756,
+      "bytes": 1537544,
       "triangles": 12760,
       "draw_calls": 6,
       "plot_m": [
@@ -445,8 +450,13 @@
             0.815,
             1.34
           ],
-          "travel_m": 1.2,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 3,
+          "trajectory": "Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 1.2,
+            "airborne_extra_m": 1.8
+          }
         },
         {
           "name": "Roll_Over",
@@ -475,7 +485,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
+      "sha256": "13bd05e4a4a9101d31d45c4a392fe016ef59d0124945bf1ebaf2dbc913c7eae7",
       "bounds": {
         "min": [
           -0.24217237532138824,
@@ -616,8 +626,8 @@
       ],
       "meshopt_file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 539572,
-      "meshopt_sha256": "3383bbcac0a5e9a594951dc2ac9694ac76d66f51a6e763813036139c77ee5086"
+      "meshopt_bytes": 539404,
+      "meshopt_sha256": "e125fcf43e8493ed374ab0bbd7918ef9502a371e911aa0ed609e3d6c20069b6f"
     },
     {
       "file": "c07_d0_lod2.glb",
@@ -788,7 +798,7 @@
   "integration": {
     "placement": "Place the entire glTF scene in an instance group. ROOT is an unanimated skeleton lookup. Clone with SkeletonUtils.clone.",
     "gait": "Translate the instance group along +Z at clips.speed_mps multiplied by playback rate. Keep LOD1 during animated gameplay.",
-    "pounce": "MOTION contains 1.2 m of forward travel. Do not apply additional game locomotion during Pounce.",
+    "pounce": "MOTION contains 3 m of forward travel (1.2 m base plus 1.8 m during flight). Do not apply additional game locomotion during Pounce.",
     "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
     "collision": "SOCKET_PAW_FL/FR/HL/HR mark paw soles 3 mm above the authored floor. Game supplies collision and terrain adaptation.",
     "bounds": "Use validation-report.json clip envelopes for animation-aware culling. The 0.65 by 3.0 m plot reserves the standing silhouette; pounce travels beyond it.",
@@ -810,8 +820,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-mechanical-cheetah.blend",
-    "bytes": 6746243,
-    "sha256": "bfb21aa06430bd7303abf380cdae63b2a3dac52871fae1767112a5af64502b3d",
+    "bytes": 6735482,
+    "sha256": "c4f0c7cce4c0397c8f8468d896f4e2b9d8b53bcd8e87ca0de46ab68782e2fe19",
     "role": "Editable LOD0 authoring master; plain GLBs are runtime source of truth"
   }
 }

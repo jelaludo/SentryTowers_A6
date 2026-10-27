@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "baseline_commit": "284a65d5a41311a312b52f307c485fd8c1f8bd1d",
+  "scope": "Plain exports: geometry, skin and rest transforms unchanged; all other clips unchanged; added forward travel only during all-air interval; articulated poses compared after removing MOTION.",
+  "checks": [
+    {
+      "file": "assets/reckon-k9/reckon_k9_d0_lod0.glb",
+      "before_sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
+      "after_sha256": "09af7a5a27023e10e8cef84122c7bcdcdaf6a7da3e61665c1de1334736073470",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [
+        "Alert_Idle",
+        "Walk_Cycle",
+        "Run_Cycle",
+        "Pace_Cycle",
+        "Canter_Cycle",
+        "Gallop_Cycle",
+        "Sprint_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Fetch_Return",
+        "Give_Paw"
+      ],
+      "maximum_relative_pose_difference_m": 9.43689570931383e-16,
+      "maximum_added_travel_error_m": 3.719329382256831e-7
+    },
+    {
+      "file": "assets/reckon-k9/reckon_k9_d0_lod1.glb",
+      "before_sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
+      "after_sha256": "16a156da443d928f61b5658d70ad5fa7ea852d2ee3dcc6f07180b7f7efc819a3",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [
+        "Alert_Idle",
+        "Walk_Cycle",
+        "Run_Cycle",
+        "Pace_Cycle",
+        "Canter_Cycle",
+        "Gallop_Cycle",
+        "Sprint_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Fetch_Return",
+        "Give_Paw"
+      ],
+      "maximum_relative_pose_difference_m": 9.43689570931383e-16,
+      "maximum_added_travel_error_m": 3.719329382256831e-7
+    },
+    {
+      "file": "assets/reckon-k9/reckon_k9_d0_lod2.glb",
+      "before_sha256": "95eb20786426bc40796c3f3bcc40b1eb0a5bc8ad5237b1846045942f55551a3e",
+      "after_sha256": "95eb20786426bc40796c3f3bcc40b1eb0a5bc8ad5237b1846045942f55551a3e",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [],
+      "maximum_relative_pose_difference_m": 0,
+      "maximum_added_travel_error_m": 0
+    }
+  ]
+}

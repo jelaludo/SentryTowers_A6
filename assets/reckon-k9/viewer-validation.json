@@ -1,15 +1,36 @@
 {
   "status": "passed",
+  "forward_leap": {
+    "start": {
+      "camera": [
+        5.774153912192506,
+        1.1736656775364445,
+        1.1939991831779484
+      ],
+      "root": 0,
+      "screen": 0.5857231298213452
+    },
+    "end": {
+      "camera": [
+        5.774153912192506,
+        1.1736656775364445,
+        1.1939991831779484
+      ],
+      "root": 2.4000000953674316,
+      "screen": -0.38777850633360267,
+      "guide": true
+    }
+  },
   "asset_hashes": [
     {
       "file": "reckon_k9_d0_lod0.glb",
-      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
-      "meshopt_sha256": "d6400a6eae28834e8a79c81f271609b1408ba99252d29ce5b1bfe9bea0d3fe1b"
+      "sha256": "09af7a5a27023e10e8cef84122c7bcdcdaf6a7da3e61665c1de1334736073470",
+      "meshopt_sha256": "7193ac3e4e67179c3943e05302af6b00ccc704f80e5d9785ac348a2542944e0b"
     },
     {
       "file": "reckon_k9_d0_lod1.glb",
-      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
-      "meshopt_sha256": "765357846923c362505d4ce6bbfd422fd8e582d2419543a2f6dc6500ccc97377"
+      "sha256": "16a156da443d928f61b5658d70ad5fa7ea852d2ee3dcc6f07180b7f7efc819a3",
+      "meshopt_sha256": "fe73c5f77698168ab4702a5be17f99e09f30576eae06c147fd3bcbd86502f95a"
     },
     {
       "file": "reckon_k9_d0_lod2.glb",
@@ -137,8 +158,8 @@
       "clip": "Jump",
       "time": 0.855,
       "clips": 12,
-      "draws": 8,
-      "triangles": 25886,
+      "draws": 14,
+      "triangles": 25958,
       "status": "JUMP / PAUSED · DETAILED MASTER"
     }
   ],

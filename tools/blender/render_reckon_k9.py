@@ -21,10 +21,20 @@ if '--jump-study' in sys.argv:
  poses=[('jump-'+name,'Jump',t) for name,t in JUMPS['k9']['landmarks_s'].items()]
 
 if '--gait-study' in sys.argv:poses=[('gait-walk','Walk_Cycle',.32),('gait-trot','Run_Cycle',.20*.5/.7),('gait-pace','Pace_Cycle',.2),('gait-canter','Canter_Cycle',.2025),('gait-gallop','Gallop_Cycle',.18),('gait-sprint','Sprint_Cycle',.279)]
+if '--jump-study' in sys.argv:
+ marks=bpy.data.materials.new('Review_distance_marks');marks.diffuse_color=(.18,.30,.36,1)
+ for i in range(5):
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(0,-2.4*i/4,-.001))
+  o=bpy.context.object;o.name='REVIEW_DISTANCE_'+str(i);o.dimensions=(.65 if i%4==0 else .35,.012,.002);o.data.materials.append(marks)
+ # Broad lighting covers the fixed takeoff-to-landing frame.
+ for o in s.objects:
+  if o.type=='LIGHT':o.location.y+=-1.2;o.data.size*=1.5;o.data.energy*=1.5;aim(o,(0,-1.2,.5))
+
 if '--pose' in sys.argv:poses=[p for p in poses if p[0]==sys.argv[sys.argv.index('--pose')+1]]
 for file,clip,t in poses:
  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!=clip
  s.frame_set(int(t*s.render.fps),subframe=t*s.render.fps%1);offset=arm.pose.bones['MOTION'].head.copy();cam.location=Vector((1.55,-2.05,1.25))+offset;aim(cam,offset+Vector((0,-.01,.70 if clip=='Jump' else .53)));
  if '--jump-study' in sys.argv or '--gait-study' in sys.argv:cam.location=Vector((3.2,0,1))+offset;aim(cam,offset+Vector((0,0,.57)));d.ortho_scale=2.0
+ if '--jump-study' in sys.argv:cam.location=Vector((5,-1.2,1.1));aim(cam,(0,-1.2,.70));d.ortho_scale=4.5
  s.render.filepath=str(OUT/(file+'.png'));bpy.ops.render.render(write_still=True)
 print('RENDER_COMPLETE',flush=True)

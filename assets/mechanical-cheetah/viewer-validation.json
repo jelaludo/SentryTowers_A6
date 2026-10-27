@@ -1,15 +1,36 @@
 {
   "status": "passed",
+  "forward_leap": {
+    "start": {
+      "camera": [
+        7.769137750874714,
+        1.2145830136567766,
+        1.0674999691545968
+      ],
+      "root": 0,
+      "screen": 0.3126254357714408
+    },
+    "end": {
+      "camera": [
+        7.769137750874722,
+        1.2145830136567772,
+        1.0674999691545968
+      ],
+      "root": 3,
+      "screen": -0.5191939292730655,
+      "guide": true
+    }
+  },
   "asset_hashes": [
     {
       "file": "c07_d0_lod0.glb",
-      "sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
-      "meshopt_sha256": "bbb8b63cd1064e674f30792ef659dd91dc868aaa522125642ac0f4c701ce7e81"
+      "sha256": "fe2d5a055aa5912e31b231469c14e87be4d214308dd3b21fc6fcd58c05aaffd8",
+      "meshopt_sha256": "d25334a16b14c5498a8afeb7caefc624fc2e319ae25e4401cbbc88182bcb005c"
     },
     {
       "file": "c07_d0_lod1.glb",
-      "sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
-      "meshopt_sha256": "3383bbcac0a5e9a594951dc2ac9694ac76d66f51a6e763813036139c77ee5086"
+      "sha256": "13bd05e4a4a9101d31d45c4a392fe016ef59d0124945bf1ebaf2dbc913c7eae7",
+      "meshopt_sha256": "e125fcf43e8493ed374ab0bbd7918ef9502a371e911aa0ed609e3d6c20069b6f"
     },
     {
       "file": "c07_d0_lod2.glb",

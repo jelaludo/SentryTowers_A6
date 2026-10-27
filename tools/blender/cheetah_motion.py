@@ -46,6 +46,10 @@ CLIPS=[
  {'name':'Give_Paw','duration_s':4.4,'loop':False,'offered_paw':'FL','phase_landmarks_s':{'sit':1.0,'offer':1.65,'shake':2.1,'lower':3.15,'recover':4.4}}
 ]
 FLOOR_POINTS=None
+POUNCE=next(c for c in CLIPS if c['name']=='Pounce')
+POUNCE['root_motion_profile']={'kind':'base_plus_airborne','base_travel_m':POUNCE['travel_m'],'airborne_extra_m':3.0-POUNCE['travel_m']}
+POUNCE['travel_m']=3.0
+POUNCE['trajectory']='Forward pounce: original push/landing travel plus constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.'
 
 def configure_floor(geometry):
  """Use the detailed master's rigid geometry to support the rolling body."""
@@ -113,7 +117,7 @@ def ik(a,c,L1,L2,pole,tag):
  if err>MAX_REACH_ERROR:MAX_REACH_ERROR=err;WORST_REACH=tag
  dist=min(L1+L2-1e-6,max(abs(L1-L2)+1e-6,raw));u=d.normalized();v=Vector((0,pole,0));v=(v-u*v.dot(u)).normalized();along=(L1*L1-L2*L2+dist*dist)/(2*dist);height=math.sqrt(max(0,L1*L1-along*along));return a+u*along+v*height
 
-def pose(clip,t):
+def pose(clip,t,forward_travel=True):
  duration=next(c['duration_s'] for c in CLIPS if c['name']==clip);u=(t/duration)%1;wave=math.tau*u;pos={};ori={};flex=0;stalk=clip=='Stalk_Cycle';gallop=clip=='Gallop_Cycle';walk=clip in ['Feline_Walk_Cycle','Stalk_Cycle'];sit=smooth(.1,1.9,t) if clip=='Sit_Down' else 0
  base=Vector((0,0,0));lumbar=H['LUMBAR'].copy();bodyroll=0;bodyyaw=0;jump=0;crouch=0;jump_state=None;pitch=0
  offering=clip=='Give_Paw';rolling=clip=='Roll_Over';paw=0
@@ -178,4 +182,10 @@ def pose(clip,t):
   delta=.003-minimum;lift=max(0,delta)+min(0,delta)*pulse(.2,.9,4.3,5.4,t)
   for n in pos:
    if n!='MOTION':pos[n].z+=lift
+ if clip=='Pounce' and forward_travel:
+  # Apply the forward impulse only while every paw is airborne. Translating
+  # the complete world pose preserves local articulation and landing anchors.
+  a=max(POUNCE['release_s'].values());b=min(POUNCE['touchdown_s'].values())
+  travel=POUNCE['root_motion_profile']['airborne_extra_m']*max(0.,min(1.,(t-a)/(b-a)))
+  for n in pos:pos[n].y-=travel
  return pos,ori

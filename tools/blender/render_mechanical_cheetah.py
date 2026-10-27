@@ -20,10 +20,20 @@ if '--jump-study' in sys.argv:
  from quadruped_motion import JUMPS
  poses=[('jump-'+name,'Pounce',t,'side') for name,t in JUMPS['cheetah']['landmarks_s'].items()]
 
+if '--jump-study' in sys.argv:
+ marks=bpy.data.materials.new('Review_distance_marks');marks.diffuse_color=(.18,.30,.36,1)
+ for i in range(5):
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(0,-3*i/4,-.001))
+  o=bpy.context.object;o.name='REVIEW_DISTANCE_'+str(i);o.dimensions=(.65 if i%4==0 else .35,.012,.002);o.data.materials.append(marks)
+ # Broad lighting covers the fixed takeoff-to-landing frame.
+ for o in s.objects:
+  if o.type=='LIGHT':o.location.y+=-1.2;o.data.size*=1.5;o.data.energy*=1.5;aim(o,(0,-1.2,.5))
+
 if '--pose' in sys.argv:poses=[p for p in poses if p[0]==sys.argv[sys.argv.index('--pose')+1]]
 for file,clip,t,view in poses:
  for tr in arm.animation_data.nla_tracks:tr.mute=tr.name!=clip
  s.frame_set(int(t*s.render.fps),subframe=t*s.render.fps%1);base=arm.pose.bones['MOTION'].head.copy()
  cam.location=base+Vector((3.6,.30,1.0) if view=='side' else (2.3,-3.25,1.65));aim(cam,base+Vector((0,.30,.58 if clip=='Pounce' else .47)));d.ortho_scale=3.15 if view=='side' else 2.85
+ if '--jump-study' in sys.argv:cam.location=Vector((5,-1.2,1.1));aim(cam,(0,-1.2,.70));d.ortho_scale=6.2
  s.render.filepath=str(OUT/(file+'.png'));bpy.ops.render.render(write_still=True)
 print('CHEETAH_REVIEW_COMPLETE',flush=True)

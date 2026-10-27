@@ -28,6 +28,8 @@ for kind,y in [('F',-.25),('H',.26)]:
 joint('ANTENNA_L',(.075,.05,.65),'SPINE');joint('ANTENNA_R',(-.075,.15,.65),'SPINE')
 joint('SOCKET_MOUTH',(0,-.686,.668),'HEAD');joint('SOCKET_PAYLOAD',(0,.035,.65),'SPINE');joint('SENSOR_YAW',(0,-.30,.69),'CHEST');joint('SOCKET_SENSOR',(0,-.32,.71),'SENSOR_YAW')
 CLIPS=[dict(name='Alert_Idle',duration_s=3,loop=True)]+[dict(name=name,loop=True,**meta) for name,meta in GAITS.items()]+[dict(name='Sit_Down',duration_s=2.4,loop=False),dict(name='Roll_Over',duration_s=4.8,loop=False),dict(name='Fetch_Return',duration_s=8,loop=False,root_motion=True),dict(name='Give_Paw',duration_s=4,loop=False),dict(name='Jump',duration_s=2,loop=False,**jump_meta('k9'))]
+JUMP=next(c for c in CLIPS if c['name']=='Jump')
+JUMP.update(root_motion=True,travel_m=2.4,root_motion_profile={'kind':'base_plus_airborne','base_travel_m':0.,'airborne_extra_m':2.4},trajectory='Forward jump: constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.')
 COLORS=[(.07,.085,.092),(.27,.30,.31),(.47,.50,.49),(.018,.024,.028),(.64,.25,.045),(.02,.32,.62)]
 
 def mat(i,distance=False):
@@ -193,6 +195,9 @@ def pose(clip,t,g):
   crouch=pulse(0,.7,4.05,4.8,t);roll=math.tau*smooth(.9,3.9,t)
  if clip=='Jump':
   jump_state=jump_body('k9',t);jump=jump_state['z']
+  meta=next(c for c in CLIPS if c['name']=='Jump')
+  a=max(meta['release_s'].values());b=min(meta['touchdown_s'].values())
+  base.y=-meta['root_motion_profile']['airborne_extra_m']*max(0.,min(1.,(t-a)/(b-a)))
  if clip=='Fetch_Return':
   if t<2:gait='Walk_Cycle';phase=t/1.4;base.y=-travel(t);weight=pulse(0,.25,1.75,2,t)
   elif t<3.5:base.y=-.625;pick=pulse(2,2.5,2.85,3.35,t)

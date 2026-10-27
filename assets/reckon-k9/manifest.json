@@ -65,7 +65,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2117768,
+      "bytes": 2118904,
       "triangles": 25884,
       "draw_calls": 6,
       "plot_m": [
@@ -283,12 +283,18 @@
             0.63,
             1.08
           ],
-          "travel_m": 0,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 2.4,
+          "trajectory": "Forward jump: constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion": true,
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0,
+            "airborne_extra_m": 2.4
+          }
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "994bb29f8f59802d8bc4b5e06d4e3cf84a9db5a5cdf2449a9e455f9e82712d2b",
+      "sha256": "09af7a5a27023e10e8cef84122c7bcdcdaf6a7da3e61665c1de1334736073470",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -414,8 +420,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 586848,
-      "meshopt_sha256": "d6400a6eae28834e8a79c81f271609b1408ba99252d29ce5b1bfe9bea0d3fe1b"
+      "meshopt_bytes": 588020,
+      "meshopt_sha256": "7193ac3e4e67179c3943e05302af6b00ccc704f80e5d9785ac348a2542944e0b"
     },
     {
       "file": "reckon_k9_d0_lod1.glb",
@@ -423,7 +429,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1630292,
+      "bytes": 1631432,
       "triangles": 9732,
       "draw_calls": 6,
       "plot_m": [
@@ -641,12 +647,18 @@
             0.63,
             1.08
           ],
-          "travel_m": 0,
-          "trajectory": "Authored ballistic-style torso arc; separate paw anchors and articulated pose curves"
+          "travel_m": 2.4,
+          "trajectory": "Forward jump: constant horizontal flight travel between last release and first touchdown; planted paw anchors preserved.",
+          "root_motion": true,
+          "root_motion_profile": {
+            "kind": "base_plus_airborne",
+            "base_travel_m": 0,
+            "airborne_extra_m": 2.4
+          }
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "ff120abd7ff1db5d40e137aba17696cf980f97be968e62ef165571723a99c0fa",
+      "sha256": "16a156da443d928f61b5658d70ad5fa7ea852d2ee3dcc6f07180b7f7efc819a3",
       "bounds": {
         "min": [
           -0.23899999260902405,
@@ -772,8 +784,8 @@
       ],
       "meshopt_file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 494640,
-      "meshopt_sha256": "765357846923c362505d4ce6bbfd422fd8e582d2419543a2f6dc6500ccc97377"
+      "meshopt_bytes": 495812,
+      "meshopt_sha256": "fe73c5f77698168ab4702a5be17f99e09f30576eae06c147fd3bcbd86502f95a"
     },
     {
       "file": "reckon_k9_d0_lod2.glb",
@@ -929,13 +941,14 @@
   "integration": {
     "placement": "Place the entire glTF scene in an instance group. ROOT is an unanimated skeleton lookup. Clone with SkeletonUtils.clone.",
     "gait": "Translate the instance group along +Z at clips.speed_mps multiplied by playback rate. Keep LOD1 during animated gameplay.",
+    "jump": "MOTION contains 2.4 m of forward travel during the all-airborne interval. Do not also apply game locomotion during Jump.",
     "fetch": "MOTION contains the out-and-return path and heading. Do not also apply game locomotion during this clip. Viewer ball is separate.",
     "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine.",
     "collision": "SOCKET_PAW_FL/FR/HL/HR are paw contact markers; game supplies collision and terrain adaptation."
   },
   "source": {
     "file": "../../source/blender/a6-reckon-k9.blend",
-    "bytes": 3715407,
-    "sha256": "5261e6d4dd878e7ca02c094652420b01a25d5e66a0c858d58cdc577ad9d553fb"
+    "bytes": 3714203,
+    "sha256": "a0647afbb176c353005963364bd8720d15f013528bb1c3f55fcc58fe6b26d27d"
   }
 }

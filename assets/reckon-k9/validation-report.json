@@ -4,7 +4,7 @@
       "file": "reckon_k9_d0_lod0.glb",
       "triangles": 25884,
       "draw_calls": 6,
-      "bytes": 2117768,
+      "bytes": 2118904,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -12,7 +12,7 @@
       "file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
       "triangles": 25884,
       "draw_calls": 6,
-      "bytes": 586848,
+      "bytes": 588020,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -20,7 +20,7 @@
       "file": "reckon_k9_d0_lod1.glb",
       "triangles": 9732,
       "draw_calls": 6,
-      "bytes": 1630292,
+      "bytes": 1631432,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -28,7 +28,7 @@
       "file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
       "triangles": 9732,
       "draw_calls": 6,
-      "bytes": 494640,
+      "bytes": 495812,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -246,17 +246,17 @@
       "min": [
         -0.23923894402262064,
         0.0039534118105782265,
-        -0.7702198244312876
+        -0.7130148037046993
       ],
       "max": [
         0.23924403538989122,
         1.27526815032749,
-        0.7360582099725611
+        3.131537390782034
       ],
       "dimensions_m": [
         0.47848297941251183,
         1.271314738516912,
-        1.5062780344038487
+        3.8445521944867336
       ]
     }
   },

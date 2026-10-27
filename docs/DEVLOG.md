@@ -1,5 +1,13 @@
 # Devlog
 
+## 27 October 2026 / C-07 and K9 — forward leaps
+
+Applied K0's forward-leap approach to C-07 `Pounce` (3 m, previously 1.2 m) and RECKON K9 `Jump` (2.4 m, previously in place). Extra horizontal travel occurs only between the last hind release and first fore touchdown, preserving preparation and grounded landing anchors. Durations remain 3.2 / 2.0 s. Forward displacement is 6.45 / 7.44 times the measured torso rise. Explicit root-motion metadata prevents consumers from applying the trajectory twice.
+
+Both standalone viewers now frame the full trajectory with a fixed camera and ground ruler; refreshed seven-pose Blender studies show the same takeoff-to-landing frame. Plain GLBs, optional Meshopt derivatives, editable masters and manifests are rebuilt. Geometry, skin, rest transforms, all other clip keys and static LOD2 files are unchanged against `284a65d5`. K0's source adapter explicitly retains its own original pose and 1.6 m trajectory; 2,768 source poses and its clip metadata compare exactly with the previous revision.
+
+All twelve plain/decoded exports pass validation, covering 24,632 full-geometry poses. Independent release/landing checks measure maximum grounded anchor drift of 1.463 mm for C-07 and 0.315 mm for K9. Desktop and 390 px mobile checks pass for clip controls, all tier/encoding combinations, visible forward travel and fixed-camera containment. Source-revision comparisons preserve every other animation. Detailed/game counts remain C-07 62,720 / 12,760 triangles and K9 25,884 / 9,732, with six mesh draws each. Updated plain bytes are C-07 2,974,820 / 1,537,544 and K9 2,118,904 / 1,631,432. Chase source repinning and integration checks follow this source export; consuming-game and reference-phone acceptance remain pending.
+
 ## 27 October 2026 / K0 pounce — longer forward flight
 
 Extended K0-TECH-01's exported `Pounce` from 0.528 m to 1.6 m of forward travel. An additional 1.072 m is applied during the existing all-air window, preserving the preparation, separate paw release/contact events and translated landing anchors. The measured torso rise remains 0.219 m: forward displacement is 7.32 times that rise. Duration remains 3.2 s. Geometry, skin, rest transforms and the other seven clips are unchanged; relative pounce articulation differs by less than 0.045 mm after removing root translation.

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "baseline_commit": "284a65d5a41311a312b52f307c485fd8c1f8bd1d",
+  "scope": "Plain exports: geometry, skin and rest transforms unchanged; all other clips unchanged; added forward travel only during all-air interval; articulated poses compared after removing MOTION.",
+  "checks": [
+    {
+      "file": "assets/mechanical-cheetah/c07_d0_lod0.glb",
+      "before_sha256": "5029cfb6b605128aeee4607dfd96bcb317b1ddda2a850e1a0932e7c4bf86349a",
+      "after_sha256": "fe2d5a055aa5912e31b231469c14e87be4d214308dd3b21fc6fcd58c05aaffd8",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "maximum_relative_pose_difference_m": 0.000012918997057107945,
+      "maximum_added_travel_error_m": 1.3487660166511262e-7
+    },
+    {
+      "file": "assets/mechanical-cheetah/c07_d0_lod1.glb",
+      "before_sha256": "6b93f1efb2e888499666106438b268bb53af88de8e2657f5efb664a8099c83e7",
+      "after_sha256": "13bd05e4a4a9101d31d45c4a392fe016ef59d0124945bf1ebaf2dbc913c7eae7",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [
+        "Watch_Idle",
+        "Feline_Walk_Cycle",
+        "Stalk_Cycle",
+        "Gallop_Cycle",
+        "Sit_Down",
+        "Roll_Over",
+        "Give_Paw"
+      ],
+      "maximum_relative_pose_difference_m": 0.000012918997057107945,
+      "maximum_added_travel_error_m": 1.3487660166511262e-7
+    },
+    {
+      "file": "assets/mechanical-cheetah/c07_d0_lod2.glb",
+      "before_sha256": "64a4f6a97e3f1f285f5ba6400c9da1e02c405beae20b3e67b71019794762e6e8",
+      "after_sha256": "64a4f6a97e3f1f285f5ba6400c9da1e02c405beae20b3e67b71019794762e6e8",
+      "geometry_skin_rest_unchanged": true,
+      "unchanged_clips": [],
+      "maximum_relative_pose_difference_m": 0,
+      "maximum_added_travel_error_m": 0
+    }
+  ]
+}

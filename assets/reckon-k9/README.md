@@ -10,8 +10,8 @@ Plain GLBs are authoritative, self-contained and texture-free. The six-material 
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LOD0 / detailed | 25,884 | 6 | 2,117,768 | 586,848 | 12 |
-| LOD1 / game | 9,732 | 6 | 1,630,292 | 494,640 | 12 |
+| LOD0 / detailed | 25,884 | 6 | 2,118,904 | 588,020 | 12 |
+| LOD1 / game | 9,732 | 6 | 1,631,432 | 495,812 | 12 |
 | LOD2 / static distance | 2,484 | 1 | 190,764 | 56,072 | 0 |
 
 The articulated game tier meets the 25k unit triangle target. The static tier meets 3k triangles / one draw / 250 KB. Detailed and game files include the full animation set, so their byte counts include motion. Draw counts exclude the viewer floor, demonstration prop, skeleton, and shadow passes. No FPS claim is made.
@@ -43,17 +43,17 @@ Rigid components carry a single bone weight, preserving hard armor and servo sha
 | `Roll_Over` | 4.8 | One-shot | Crouch, fold ears/antennas, roll fully, stand. |
 | `Fetch_Return` | 8.0 | One-shot, root motion | Ease out 0.625 m, lower muzzle, pick up, turn, return and release. |
 | `Give_Paw` | 4.0 | One-shot | Sit, offer left forepaw, shake, return upright. |
-| `Jump` | 2.0 | One-shot | Crouch, hind push, airborne tuck, forepaw landing and delayed hip compression. |
+| `Jump` | 2.0 | One-shot, root motion | Crouch, hind push, airborne tuck, forepaw landing and delayed hip compression. |
 
 All six gaits are in place. Translate the instance along +Z at the manifest's `clips.speed_mps`, multiplied by playback rate: **0.357142857 m/s** for walk and **2.181818182 m/s** for trot. Gaits return continuously to their starting poses. Crossfades require consuming-game review for entering/exiting locomotion.
 
 The 27 October contact study corrects the earlier walk phase sign and the same-side pairing previously mislabeled as a trot. `Run_Cycle` retains its engine-facing name and now pairs **FL + HR / FR + HL**; the viewer calls it **Trot**. Walk touchdown phases are FL 0.00 → HR 0.25 → FR 0.50 → HL 0.75, so each hind paw precedes its same-side forepaw. Gallop and sprint use FL → FR → HR → HL. Sprint's gathered flight is phase 0.32–0.54; extended flight is 0.86–1.00. Full support intervals are exported in the manifest.
 
-Jump remains in place. Forepaws release at 0.480/0.505 s, hind paws at 0.615/0.630 s; forepaws land at 1.080/1.105 s, hind paws at 1.190/1.215 s. Seven pose landmarks expose preparation through recovery. A parabolic torso arc, independent paw paths, stable ground anchors, head compensation and delayed tail motion establish the performance. These seconds and amplitudes are authored for the mechanical rig, not measurements from the reference images.
+Jump now travels 2.4 m forward on `MOTION`, entirely between the last hind release and first fore touchdown (0.630–1.080 s). `root_motion_profile` records a zero base and 2.4 m airborne component. The viewer and seven-pose study hold a fixed world camera with ground marks. Forepaws release at 0.480/0.505 s, hind paws at 0.615/0.630 s; forepaws land at 1.080/1.105 s, hind paws at 1.190/1.215 s. Seven pose landmarks expose preparation through recovery. A parabolic torso arc, independent paw paths, stable ground anchors, head compensation and delayed tail motion establish the performance. These seconds and amplitudes are authored for the mechanical rig, not measurements from the reference images.
 
 The faster-motion follow-up shortens trot from 0.70 to 0.50 s, canter from 0.90 to 0.45 s, gallop from 0.80 to 0.40 s and sprint from 0.70 to 0.30 s. These durations are baked into both animated exports at normal playback speed. Matching travel speeds preserve each stride length and contact phase; no viewer-only speed multiplier is required. `retimed_from_duration_s` records the previous cadence. Walk and pace are unchanged. The complete previous revision remains at `3847df11c149220c6996ae940e78371ccbe2e2d5`.
 
-Only fetch contains forward/turning motion on `MOTION`; disable additional game root travel while that performance plays. The placement wrapper stays under game control. Play one-shots with `LoopOnce` and `clampWhenFinished=true`; sit intentionally holds at the endpoint. The other one-shots return upright. The viewer's repeat option restarts one-shots and is an inspection convenience.
+Fetch contains its out-and-return path and heading on `MOTION`; Jump contains 2.4 m forward travel. Disable additional game root travel during either clip. Transfer Jump displacement to the instance before returning to idle. The placement wrapper stays under game control. Play one-shots with `LoopOnce` and `clampWhenFinished=true`; sit intentionally holds at the endpoint. The other one-shots return upright. The viewer's repeat option restarts one-shots and is an inspection convenience.
 
 ## Sockets and engine control
 
@@ -62,7 +62,7 @@ Only fetch contains forward/turning motion on `MOTION`; disable additional game 
 - `SENSOR_YAW` and `SOCKET_SENSOR`: reserved independently aimable sensor mount/socket. No animation channels target `SENSOR_YAW` or the sockets.
 - `SOCKET_PAW_FL/FR/HL/HR`: ground contact markers. The game supplies terrain adaptation, articulated collision and navigation; these clips assume a flat floor.
 
-Reserve about 1.6 m square for roll and social performances, 1.4 m vertical clearance for jump, and additional forward space for fetch. `validation-report.json` contains measured world-space envelopes for every clip. General locomotion needs clearance along the game's path.
+Reserve about 1.6 m square for roll and social performances, 1.4 m vertical clearance for jump, and the measured forward envelopes for jump and fetch. `validation-report.json` contains measured world-space envelopes for every clip. General locomotion needs clearance along the game's path.
 
 ## LOD selection and damage
 
@@ -99,3 +99,5 @@ python3 tools/validate-workshop-navigation.py
 ```
 
 Serve the repository over HTTP, then open `/reckon-k9/`. Drag to orbit, scroll to zoom, select front/side/optics views, scrub any clip, change speed, pause with Space, inspect the skeleton or wireframe, compare plain/Meshopt and download the selected export. Click a contact track to scrub or a jump pose to pause in side view. Tracks show authored support windows; “Near floor” reports actual sole sockets within 12 mm of the floor, not collision detection. The browser test accepts `PLAYWRIGHT_MODULE`, `CHROMIUM_EXECUTABLE` and `K9_VIEWER_URL` environment variables for a local Playwright/browser installation.
+
+The forward-leap revision preserves geometry, skin, rest transforms and all other clip keys against commit `284a65d5a41311a312b52f307c485fd8c1f8bd1d`. See `forward-leap-validation.json` and `source/motion-patterns/runtime-validation.json` for root travel, relative pose and planted-paw checks. The static tier is byte-identical. Regenerate the revision comparison with `node tools/asset-pipeline/validate-forward-leap-revision.mjs`.

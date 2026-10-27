@@ -7,6 +7,11 @@
       "family": "reckon-k9",
       "file": "reckon_k9_d0_lod0.glb",
       "jump": "Jump",
+      "trajectory": {
+        "forward_travel_m": 2.4000000953674316,
+        "maximum_torso_rise_m": 0.32255625658717624,
+        "forward_to_rise_ratio": 7.440562836265404
+      },
       "push_phase_s": 0.56,
       "push_sole_heights_m": {
         "FL": 0.10537189164020036,
@@ -27,7 +32,7 @@
         "HL": 0.38438452820681457,
         "HR": 0.38441080282112206
       },
-      "maximum_world_anchor_drift_m": 0.000091278403284437,
+      "maximum_world_anchor_drift_m": 0.0000912784032842223,
       "compression_minima": {
         "chest": {
           "y": 0.3426010130692322,
@@ -145,6 +150,11 @@
       "family": "reckon-k9",
       "file": "derived/meshopt/reckon_k9_d0_lod0.meshopt.glb",
       "jump": "Jump",
+      "trajectory": {
+        "forward_travel_m": 2.400390625,
+        "maximum_torso_rise_m": 0.32275390531867654,
+        "forward_to_rise_ratio": 7.437216360340965
+      },
       "push_phase_s": 0.56,
       "push_sole_heights_m": {
         "FL": 0.10528559839512254,
@@ -165,7 +175,7 @@
         "HL": 0.3845791879357618,
         "HR": 0.384602995596124
       },
-      "maximum_world_anchor_drift_m": 0.0003141598906141153,
+      "maximum_world_anchor_drift_m": 0.0003141598906141105,
       "compression_minima": {
         "chest": {
           "y": 0.34264214874373317,
@@ -283,6 +293,11 @@
       "family": "reckon-k9",
       "file": "reckon_k9_d0_lod1.glb",
       "jump": "Jump",
+      "trajectory": {
+        "forward_travel_m": 2.4000000953674316,
+        "maximum_torso_rise_m": 0.32255625658717624,
+        "forward_to_rise_ratio": 7.440562836265404
+      },
       "push_phase_s": 0.56,
       "push_sole_heights_m": {
         "FL": 0.10537189164020036,
@@ -303,7 +318,7 @@
         "HL": 0.38438452820681457,
         "HR": 0.38441080282112206
       },
-      "maximum_world_anchor_drift_m": 0.000091278403284437,
+      "maximum_world_anchor_drift_m": 0.0000912784032842223,
       "compression_minima": {
         "chest": {
           "y": 0.3426010130692322,
@@ -421,6 +436,11 @@
       "family": "reckon-k9",
       "file": "derived/meshopt/reckon_k9_d0_lod1.meshopt.glb",
       "jump": "Jump",
+      "trajectory": {
+        "forward_travel_m": 2.400390625,
+        "maximum_torso_rise_m": 0.32275390531867654,
+        "forward_to_rise_ratio": 7.437216360340965
+      },
       "push_phase_s": 0.56,
       "push_sole_heights_m": {
         "FL": 0.10528559839512254,
@@ -441,7 +461,7 @@
         "HL": 0.3845791879357618,
         "HR": 0.384602995596124
       },
-      "maximum_world_anchor_drift_m": 0.0003141598906141153,
+      "maximum_world_anchor_drift_m": 0.0003141598906141105,
       "compression_minima": {
         "chest": {
           "y": 0.34264214874373317,
@@ -559,27 +579,32 @@
       "family": "mechanical-cheetah",
       "file": "c07_d0_lod0.glb",
       "jump": "Pounce",
+      "trajectory": {
+        "forward_travel_m": 3,
+        "maximum_torso_rise_m": 0.46501678005460945,
+        "forward_to_rise_ratio": 6.451380097827209
+      },
       "push_phase_s": 0.7375,
       "push_sole_heights_m": {
-        "FL": 0.181424121905473,
-        "FR": 0.14027908124860605,
+        "FL": 0.18142401217896723,
+        "FR": 0.14027897152210028,
         "HL": 0.002956683455970506,
         "HR": 0.002956683455971061
       },
       "landing_phase_s": 1.4100000000000001,
       "landing_sole_heights_m": {
-        "FL": 0.002972117549561573,
-        "FR": 0.0029721512560482582,
+        "FL": 0.0029719454274686613,
+        "FR": 0.0029719791339553464,
         "HL": 0.12404317036803858,
         "HR": 0.08545394837618939
       },
       "apex_sole_heights_m": {
-        "FL": 0.5798129667980887,
-        "FR": 0.5798727268926936,
+        "FL": 0.5798128361140431,
+        "FR": 0.5798725962086481,
         "HL": 0.47991427805171866,
         "HR": 0.4799232979768569
       },
-      "maximum_world_anchor_drift_m": 0.00031434837924431243,
+      "maximum_world_anchor_drift_m": 0.0003147312932745143,
       "compression_minima": {
         "chest": {
           "y": 0.419484583713282,
@@ -604,6 +629,11 @@
       "family": "mechanical-cheetah",
       "file": "derived/meshopt/c07_d0_lod0.meshopt.glb",
       "jump": "Pounce",
+      "trajectory": {
+        "forward_travel_m": 3,
+        "maximum_torso_rise_m": 0.46484375,
+        "forward_to_rise_ratio": 6.453781512605042
+      },
       "push_phase_s": 0.7375,
       "push_sole_heights_m": {
         "FL": 0.18157117697150943,
@@ -624,7 +654,7 @@
         "HL": 0.4799295277854727,
         "HR": 0.4799297947408223
       },
-      "maximum_world_anchor_drift_m": 0.0006054448980534975,
+      "maximum_world_anchor_drift_m": 0.0014623107003819739,
       "compression_minima": {
         "chest": {
           "y": 0.4196924898072572,
@@ -649,27 +679,32 @@
       "family": "mechanical-cheetah",
       "file": "c07_d0_lod1.glb",
       "jump": "Pounce",
+      "trajectory": {
+        "forward_travel_m": 3,
+        "maximum_torso_rise_m": 0.46501678005460945,
+        "forward_to_rise_ratio": 6.451380097827209
+      },
       "push_phase_s": 0.7375,
       "push_sole_heights_m": {
-        "FL": 0.181424121905473,
-        "FR": 0.14027908124860605,
+        "FL": 0.18142401217896723,
+        "FR": 0.14027897152210028,
         "HL": 0.002956683455970506,
         "HR": 0.002956683455971061
       },
       "landing_phase_s": 1.4100000000000001,
       "landing_sole_heights_m": {
-        "FL": 0.002972117549561573,
-        "FR": 0.0029721512560482582,
+        "FL": 0.0029719454274686613,
+        "FR": 0.0029719791339553464,
         "HL": 0.12404317036803858,
         "HR": 0.08545394837618939
       },
       "apex_sole_heights_m": {
-        "FL": 0.5798129667980887,
-        "FR": 0.5798727268926936,
+        "FL": 0.5798128361140431,
+        "FR": 0.5798725962086481,
         "HL": 0.47991427805171866,
         "HR": 0.4799232979768569
       },
-      "maximum_world_anchor_drift_m": 0.00031434837924431243,
+      "maximum_world_anchor_drift_m": 0.0003147312932745143,
       "compression_minima": {
         "chest": {
           "y": 0.419484583713282,
@@ -694,6 +729,11 @@
       "family": "mechanical-cheetah",
       "file": "derived/meshopt/c07_d0_lod1.meshopt.glb",
       "jump": "Pounce",
+      "trajectory": {
+        "forward_travel_m": 3,
+        "maximum_torso_rise_m": 0.46484375,
+        "forward_to_rise_ratio": 6.453781512605042
+      },
       "push_phase_s": 0.7375,
       "push_sole_heights_m": {
         "FL": 0.18157117697150943,
@@ -714,7 +754,7 @@
         "HL": 0.4799295277854727,
         "HR": 0.4799297947408223
       },
-      "maximum_world_anchor_drift_m": 0.0006054448980534975,
+      "maximum_world_anchor_drift_m": 0.0014623107003819739,
       "compression_minima": {
         "chest": {
           "y": 0.4196924898072572,

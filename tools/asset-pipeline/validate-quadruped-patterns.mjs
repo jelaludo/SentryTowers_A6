@@ -20,6 +20,17 @@ for(const family of ['reckon-k9','mechanical-cheetah']){
    function use(name){mixer.stopAllAction();const clip=gltf.animations.find(c=>c.name===name);assert(clip,name);action=mixer.clipAction(clip);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.reset().play();return e.clips.find(c=>c.name===name);}
    function sample(t){action.enabled=true;action.paused=false;action.time=Math.min(t,action.getClip().duration-1e-7);mixer.update(0);root.updateMatrixWorld(true);return Object.fromEntries(ids.map(id=>[id,position('SOCKET_PAW_'+id)]));}
    const jump=use(family==='reckon-k9'?'Jump':'Pounce');
+   sample(0);const startRoot=position('MOTION'),torso=family==='reckon-k9'?'BODY':'LUMBAR',startHeight=position(torso).y;
+   let previousTravel=0,maximumRise=0;
+   for(let f=0;f<=Math.round(jump.duration_s*120);f++){
+    sample(f/120);const travel=position('MOTION').z-startRoot.z;
+    assert(travel>=previousTravel-.001,'forward leap reverses');previousTravel=travel;
+    maximumRise=Math.max(maximumRise,position(torso).y-startHeight);
+   }
+   assert(jump.root_motion,'jump must declare root motion');
+   assert(Math.abs(previousTravel-jump.travel_m)<.001,'forward distance differs from manifest');
+   assert(previousTravel/maximumRise>4,'leap should travel predominantly forward');
+   const trajectory={forward_travel_m:previousTravel,maximum_torso_rise_m:maximumRise,forward_to_rise_ratio:previousTravel/maximumRise};
    const pushTime=(Math.max(jump.release_s.FL,jump.release_s.FR)+Math.min(jump.release_s.HL,jump.release_s.HR))/2;
    const push=sample(pushTime);for(const id of ['FL','FR'])assert(push[id].y>.04,'forepaws must release first');for(const id of ['HL','HR'])assert(Math.abs(push[id].y-.003)<.001,'hind push anchors');
    const landTime=(Math.max(jump.touchdown_s.FL,jump.touchdown_s.FR)+Math.min(jump.touchdown_s.HL,jump.touchdown_s.HR))/2;
@@ -33,7 +44,7 @@ for(const family of ['reckon-k9','mechanical-cheetah']){
    const chestNode='CHEST',hipNode=family==='reckon-k9'?'BODY':'PELVIS',min={chest:{y:Infinity,t:0},hip:{y:Infinity,t:0}};
    for(let i=0;i<=120;i++){const t=jump.touchdown_s.FL+(jump.phase_landmarks_s.absorb+.1-jump.touchdown_s.FL)*i/120;sample(t);for(const [part,node] of [['chest',chestNode],['hip',hipNode]]){const y=position(node).y;if(y<min[part].y)min[part]={y,t};}}
    assert(min.chest.t+.015<min.hip.t,'landing compression must reach hips after chest');
-   const r={family,file,jump:jump.name,push_phase_s:pushTime,push_sole_heights_m:Object.fromEntries(ids.map(id=>[id,push[id].y])),landing_phase_s:landTime,landing_sole_heights_m:Object.fromEntries(ids.map(id=>[id,landing[id].y])),apex_sole_heights_m:Object.fromEntries(ids.map(id=>[id,apex[id].y])),maximum_world_anchor_drift_m:maxAnchorDrift,compression_minima:min,retimed_clips:e.clips.filter(c=>c.retimed_from_duration_s).map(c=>({name:c.name,previous_duration_s:c.retimed_from_duration_s,duration_s:c.duration_s,speed_mps:c.speed_mps})),gaits:[]};
+   const r={family,file,jump:jump.name,trajectory,push_phase_s:pushTime,push_sole_heights_m:Object.fromEntries(ids.map(id=>[id,push[id].y])),landing_phase_s:landTime,landing_sole_heights_m:Object.fromEntries(ids.map(id=>[id,landing[id].y])),apex_sole_heights_m:Object.fromEntries(ids.map(id=>[id,apex[id].y])),maximum_world_anchor_drift_m:maxAnchorDrift,compression_minima:min,retimed_clips:e.clips.filter(c=>c.retimed_from_duration_s).map(c=>({name:c.name,previous_duration_s:c.retimed_from_duration_s,duration_s:c.duration_s,speed_mps:c.speed_mps})),gaits:[]};
    if(family==='reckon-k9'){
     const checks={Run_Cycle:[[.15,['FL','HR']],[.65,['FR','HL']]],Pace_Cycle:[[.15,['FL','HL']],[.65,['FR','HR']]],Canter_Cycle:[[.15,['HL']],[.45,['FL','HR']],[.75,['FR']],[.95,[]]],Gallop_Cycle:[[.45,[]]],Sprint_Cycle:[[.43,[]],[.93,[]]]};
     for(const [name,cases] of Object.entries(checks)){const meta=use(name);for(const [u,expected] of cases){const paws=sample(u*meta.duration_s),actual=ids.filter(id=>paws[id].y<.008);assert.deepEqual(actual.sort(),expected.sort(),name+' contact topology at '+u);r.gaits.push({clip:name,phase:u,grounded:actual});}}
