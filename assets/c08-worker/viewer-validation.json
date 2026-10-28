@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless with real WebGL; no performance benchmark",
+  "clips": [
+    {
+      "clip": "Standby_Idle",
+      "time": 1,
+      "draws": 12
+    },
+    {
+      "clip": "Heavy_Walk_Cycle",
+      "time": 0.56,
+      "draws": 12
+    },
+    {
+      "clip": "Carry_Walk_Cycle",
+      "time": 0.76,
+      "draws": 12
+    },
+    {
+      "clip": "Work_Inspect",
+      "time": 2.4,
+      "draws": 12
+    },
+    {
+      "clip": "Crouch_Service",
+      "time": 2.4,
+      "draws": 12
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "five clips and timeline controls",
+    "heel, double support, single support, swing indicators",
+    "hero/front/side/rear bounds and optical close-up",
+    "skeleton/wireframe/foot-marker toggles",
+    "all plain and Meshopt tiers",
+    "static tier disables actions",
+    "ground travel and real playback",
+    "actual-scale C-07 comparison",
+    "desktop and 390px mobile layout/bounds",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "c08_d0_lod0.glb",
+      "sha256": "acc8bc2592b4541b6becd4fec093d7877ea8568756e23b312a058ec736443c75",
+      "meshopt_sha256": "98eeb23acb1f37bd1009f59f50adc65bde842da137518c020b1bafc1f79c55e1"
+    },
+    {
+      "file": "c08_d0_lod1.glb",
+      "sha256": "44714a9ea5cea3ac797e670dc8aba57930e618f3a78809077a0b19597007a368",
+      "meshopt_sha256": "5330d9d47cc48d3b8db57bd9555ccb256aaa33b4c0882321d5b2627a6ac6dd8a"
+    },
+    {
+      "file": "c08_d0_lod2.glb",
+      "sha256": "809234357768619935c585d5dd03b147de819541b468f098e6737e58f0182514",
+      "meshopt_sha256": "fd7489dfc66f8a14a366a96778a987d247b806b6f87001d7868af5b578098a48"
+    }
+  ]
+}

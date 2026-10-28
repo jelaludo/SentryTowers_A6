@@ -129,3 +129,10 @@ Original rabbit, circuit, camouflage and stroke-lettering artwork by jelaludo, p
 ## FEIDS-26 / Interplanetary Delivery System
 
 Original fusiform shell, quadrant separation rig, procedural re-entry scene and generated preview by jelaludo. `assets/feids26/` plain GLBs are the source of truth; Meshopt files and `source/blender/feids26-review.blend` are derived. Cargo references the existing MX-06 Ridgeback family; landing VFX reuse the linked Heavy Rain scene.
+
+
+## C-08 / Industrial Worker
+
+Original procedural hard-surface humanoid, 55-joint rigid rig, five authored actions, palette materials and review renders by jelaludo. Shares the C-07 manufacturer design language and low-level geometry helpers; no reference mesh or captured animation is redistributed. `assets/c08-worker/` plain GLBs are authoritative, `derived/meshopt/` files and review images are derived, and `source/blender/a6-c08-worker.blend` is the editable detailed master.
+
+User-provided visual reference: `photo_2026-10-28 10.24.53.jpeg`, SHA-256 `60fb8ad29f4150ac9a6beefd0998bdc1a05ccf55281eaac5b30973df8a9e2cee`. Used to interpret broad shoulder armor, rectangular optical mast, backpack cage, actuators and heavy feet. The image remains outside the repository; no external creator or license was supplied and no additional rights are claimed. The optional viewer comparison loads the existing C-07 plain game GLB separately, unchanged.

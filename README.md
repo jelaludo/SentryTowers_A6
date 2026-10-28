@@ -1,5 +1,7 @@
 # Model Workshop
 
+**C-08 / Industrial Worker** adds a roughly 2.3 m industrial humanoid from the C-07 manufacturer family: ochre/ivory armor, blue-coated optical mast, exposed actuators, replaceable backpack packs and articulated hands. Five clips include a planted-foot heavy walk (0.55 m/s), braced carry walk (0.36 m/s), standby, hand inspection and service crouch. Detailed, animated game and static distance tiers, Blender source, motion studies and a C-07 scale comparison are in `c08-worker/`. Measured hand-off: `assets/c08-worker/README.md`.
+
 **K0-TECH-01 / Felis** is a separate lynx-point Siamese mechanical house cat: an angular industrial sensor head, modem-like antenna ears, blue-coated optics, beige/porcelain armor, striped feet and a shorter ringed tail. It stands 0.414 m tall, about half C-07’s height, with fuller proportions and the same eight actions, including a 1.6 m forward pounce. Three detail tiers, an editable master, plain/Meshopt downloads, motion studies and an actual-scale Cheetah reference are in `k0-tech-01/`. Measured hand-off: `assets/k0-tech-01/README.md`.
 
 **CHASE / K9 × C-07 × K0** brings all three rigs into `quadruped-playground/`: an irregularly accelerating ball, responsive pursuit, lateral avoidance and three low hurdles. K0 catches up at 6.8 m/s with quicker acceleration, steering and pounces. Continuous seeded replay, slow motion, follow/ground/free cameras, and game/detailed tiers. The procedural scene reuses the pinned original GLBs unchanged. Hand-off and measured checks: `quadruped-playground/README.md`.

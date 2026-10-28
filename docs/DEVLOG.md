@@ -1,5 +1,15 @@
 # Devlog
 
+## 28 October 2026 / C-08 industrial worker
+
+Created a new approximately 2.3 m humanoid worker in the C-07 manufacturer family: ochre and ivory armor, blue-coated optical cassette, articulated mechanical hands, exposed waist/limb actuators, replaceable rear power packs and broad segmented feet. Original geometry follows the user-supplied industrial reference; the reference image remains outside the repository.
+
+The 55-joint rigid rig includes standby, heavy walk (0.55 m/s; 1.8 s cycle), braced carry walk (0.36 m/s; 2.4 s), hand inspection and service crouch. Heavy movement uses heel placement, long planted support, toe roll, lateral weight shift, chest counter-rotation and delayed arms. In-place loops declare their engine translation speed. Sensor yaw remains engine-driven, with hand/tool, backpack, optical and heel/sole/toe sockets.
+
+Measured master: 70,696 triangles / six draws / 3,380,960 plain bytes. Game: 15,828 / six / 1,387,476. Static distance: 1,896 / one / 154,448. All six plain/decoded files pass glTF validation; 8,756 full-geometry pose samples give at least 4.635 mm floor clearance, at most 0.967 mm support-anchor drift and 0.069 mm rigid-segment deviation. Desktop/mobile WebGL review passes all five actions, support phase controls, all six tier/encoding combinations, camera bounds, ground travel and actual-scale C-07 comparison. Added Blender source, review stills, design/gait sheets, manifest, integration notes and shared Workshop navigation.
+
+Completed as a repository contract candidate. Consuming-game r160/release packing, animation transitions, general self-collision, terrain/cargo behavior, camera thresholds and reference-phone acceptance remain pending. No FPS claim. Existing quadrupeds and chase exports are unchanged.
+
 ## 27 October 2026 / K0 antenna ears
 
 Replaced the pointed ear plates with short modem-like paddle antennas aligned with the industrial head: tapered beige frames, clipped flat tips, dark radome inserts, subtle seams, ceramic hinge shoes and exposed pivot pins. The original EAR_L/EAR_R pivots keep the idle tilts and folding performance. The industrial face, neck, body, tail and striped extremities are unchanged.

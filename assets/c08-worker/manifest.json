@@ -1,0 +1,804 @@
+{
+  "family": "c08-worker",
+  "label": "C-08 / Industrial Worker",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at standing hip centre"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 120,
+    "skeleton_joints": 55,
+    "placement_node": "instance wrapper around the glTF scene",
+    "motion_node": "MOTION",
+    "engine_driven_excluded": [
+      "SENSOR_YAW"
+    ],
+    "gait": "Original alternating biped gait: heel contact, flat support, toe roll and swing; double support, lateral weight transfer, counter-rotation and delayed arms; not a force simulation",
+    "skeleton_root": "ROOT"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 30,
+    "hysteresis_m": 8,
+    "lod0": "Detailed recording master",
+    "lod1": "All animated gameplay; retain while moving",
+    "lod2": "Static standing map/loading silhouette; no animation"
+  },
+  "assets": [
+    {
+      "file": "c08_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3380960,
+      "triangles": 70696,
+      "draw_calls": 6,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [
+        {
+          "name": "Standby_Idle",
+          "label": "Standby",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Quiet hydraulic corrections; both feet planted."
+        },
+        {
+          "name": "Heavy_Walk_Cycle",
+          "label": "Heavy walk",
+          "duration_s": 1.8,
+          "loop": true,
+          "speed_mps": 0.55,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.57
+          ],
+          "note": "66.7 steps/min \u00b7 0.55 m/s \u00b7 heel placement, long support and delayed arm swing."
+        },
+        {
+          "name": "Carry_Walk_Cycle",
+          "label": "Carry walk",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.36,
+          "duty_factor": 0.74,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.63
+          ],
+          "note": "50 steps/min \u00b7 0.36 m/s \u00b7 forearms braced for a load; attach cargo at the hand sockets."
+        },
+        {
+          "name": "Work_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Plant both feet, raise the right hand for a sensor check, then return to standby."
+        },
+        {
+          "name": "Crouch_Service",
+          "label": "Service crouch",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Lower the center of mass with both soles anchored, hold, then stand."
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "acc8bc2592b4541b6becd4fec093d7877ea8568756e23b312a058ec736443c75",
+      "bounds": {
+        "min": [
+          -0.7670000195503235,
+          0.006000000983476639,
+          -0.4350000023841858
+        ],
+        "max": [
+          0.7670000195503235,
+          2.2920000553131104,
+          0.3109999895095825
+        ],
+        "dimensions_m": [
+          1.534000039100647,
+          2.2860000543296337,
+          0.7459999918937683
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 783524,
+      "meshopt_sha256": "98eeb23acb1f37bd1009f59f50adc65bde842da137518c020b1bafc1f79c55e1"
+    },
+    {
+      "file": "c08_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 1387476,
+      "triangles": 15828,
+      "draw_calls": 6,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [
+        {
+          "name": "Standby_Idle",
+          "label": "Standby",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Quiet hydraulic corrections; both feet planted."
+        },
+        {
+          "name": "Heavy_Walk_Cycle",
+          "label": "Heavy walk",
+          "duration_s": 1.8,
+          "loop": true,
+          "speed_mps": 0.55,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.57
+          ],
+          "note": "66.7 steps/min \u00b7 0.55 m/s \u00b7 heel placement, long support and delayed arm swing."
+        },
+        {
+          "name": "Carry_Walk_Cycle",
+          "label": "Carry walk",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.36,
+          "duty_factor": 0.74,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.63
+          ],
+          "note": "50 steps/min \u00b7 0.36 m/s \u00b7 forearms braced for a load; attach cargo at the hand sockets."
+        },
+        {
+          "name": "Work_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Plant both feet, raise the right hand for a sensor check, then return to standby."
+        },
+        {
+          "name": "Crouch_Service",
+          "label": "Service crouch",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Lower the center of mass with both soles anchored, hold, then stand."
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "44714a9ea5cea3ac797e670dc8aba57930e618f3a78809077a0b19597007a368",
+      "bounds": {
+        "min": [
+          -0.7670000195503235,
+          0.006000000983476639,
+          -0.4244999885559082
+        ],
+        "max": [
+          0.7670000195503235,
+          2.291412591934204,
+          0.3109999895095825
+        ],
+        "dimensions_m": [
+          1.534000039100647,
+          2.2854125909507275,
+          0.7354999780654907
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 385084,
+      "meshopt_sha256": "5330d9d47cc48d3b8db57bd9555ccb256aaa33b4c0882321d5b2627a6ac6dd8a"
+    },
+    {
+      "file": "c08_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 154448,
+      "triangles": 1896,
+      "draw_calls": 1,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo",
+      "sha256": "809234357768619935c585d5dd03b147de819541b468f098e6737e58f0182514",
+      "bounds": {
+        "min": [
+          -0.7450000047683716,
+          0.006000000983476639,
+          -0.40149998664855957
+        ],
+        "max": [
+          0.7450000047683716,
+          2.2909998893737793,
+          0.30300000309944153
+        ],
+        "dimensions_m": [
+          1.4900000095367432,
+          2.2849998883903027,
+          0.7044999897480011
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 48664,
+      "meshopt_sha256": "fd7489dfc66f8a14a366a96778a987d247b806b6f87001d7868af5b578098a48"
+    }
+  ],
+  "budgets": {
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the complete glTF scene in an instance group; ROOT is a skeleton lookup. Use SkeletonUtils.clone for skinned instances.",
+    "gait": "In-place clips. Move the instance along +Z at clips.speed_mps times playback rate. Keep LOD1 during animated gameplay. No root motion is baked.",
+    "sensor": "SENSOR_YAW is excluded from clips and remains engine-driven. Its local Y axis is the glTF up axis.",
+    "hands": "SOCKET_HAND_L/R are grasp references; SOCKET_TOOL_L/R are forward accessory mounts. Carry_Walk_Cycle braces both forearms. Cargo is not included in the model.",
+    "feet": "SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
+    "bounds": "Use validation-report.json clip_envelopes for animated culling. Standing plot is 1.6 by 1.3 metres.",
+    "damage": "D0 intact only; D1-D3 are not authored. Distance is a static map/loading stand-in, never an animated gameplay replacement.",
+    "review": "Repository contract candidate only after validation. Consuming-game r160/release gltfpack, transitions, self-collision, phone performance and camera acceptance remain pending."
+  },
+  "provenance": {
+    "geometry": "Original procedural geometry and animation, following the user-supplied industrial robot design reference and the existing C-07 palette/joint design. No reference mesh, texture or captured animation is copied.",
+    "reference": {
+      "file": "photo_2026-10-28 10.24.53.jpeg",
+      "sha256": "60fb8ad29f4150ac9a6beefd0998bdc1a05ccf55281eaac5b30973df8a9e2cee",
+      "bytes": 236207,
+      "usage": "User-provided visual design reference; image is not redistributed; no third-party license assertion."
+    },
+    "manufacturer_family": "C-series; C-07 Mechanical Cheetah and C-08 Industrial Worker share ochre ceramic, ivory inserts, graphite mechanisms, titanium axle caps and blue-coated optics.",
+    "motion": "Independently authored timing and poses; no biomechanical or force-validation claim."
+  },
+  "source": {
+    "file": "../../source/blender/a6-c08-worker.blend",
+    "bytes": 4135775,
+    "sha256": "b3ce73a1cade9916f8726e1805e46c40bd142e30faf29fb4d43c8beb643aadaa",
+    "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
+  }
+}
