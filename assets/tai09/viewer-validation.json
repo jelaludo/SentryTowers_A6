@@ -3,6 +3,8 @@
   "designation": "09-TAI-01",
   "browser": "Chromium real WebGL via SwiftShader; not a performance benchmark",
   "checks": [
+    "automatic floor rolling above 5 m/s",
+    "safe leg stow after 2 seconds airborne and feet-first redeployment",
     "12 percent minimum shell separation",
     "eye independently follows actual motion",
     "three presets and live custom physics controls",

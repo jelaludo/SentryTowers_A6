@@ -1,8 +1,8 @@
 # Roadmap
 
-## 28 October 2026 / 09-TAI-01 torque and optical tracking
+## 28 October 2026 / 09-TAI-01 automatic mobility
 
-Completed the requested tuning revision: enforced 12% shell separation with measured closed clearance, independent eye tracking during rolling, stronger sustained momentum and impact charge loss, Control/Torque/Overdrive profiles plus live variables, a spring-damper reel with gravity and lateral motion, and impact-scaled leg compression up to 34 cm. The arena is now 180 × 218 m. Current detailed/game/static assets and derived Blender review preserve earlier exports. Plain/decoded validation, 90 approaches, 200 recoil mesh samples and browser/mobile controls accompany the hand-off.
+Completed automatic floor rolling at 5 m/s and safe leg retraction after two seconds airborne, with continuous airtime tracking and pre-contact redeployment. New moving-fold geometry and browser checks pass; the previous tuning revision includes: enforced 12% shell separation with measured closed clearance, independent eye tracking during rolling, stronger sustained momentum and impact charge loss, Control/Torque/Overdrive profiles plus live variables, a spring-damper reel with gravity and lateral motion, and impact-scaled leg compression up to 34 cm. The arena is now 180 × 218 m. Current detailed/game/static assets and derived Blender review preserve earlier exports. Plain/decoded validation, 90 approaches, 200 recoil mesh samples and browser/mobile controls accompany the hand-off.
 
 Next integration work: independent support anchors while turning, multi-surface corner contacts, general self-collision, terrain/rigid-body collisions, flexible rope and adhesion forces, consuming-game release checks and reference-phone measurements. D1–D3 and simultaneous tethers remain future scope. See `assets/tai09/README.md` for current parameters and assisted-controller limits.
 

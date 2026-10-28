@@ -2,9 +2,9 @@
   "family": "tai09",
   "label": "09-TAI-01",
   "name_origin": "球体 (kyuutai): 9 = kyuu, TAI = tai",
-  "revision": 3,
-  "previous_commit": "64df65ebf9a63a7299ac08342565c71da06e008a",
-  "status": "Torque tuning, tracked optics and spring-winch prototype; consuming-game integration pending",
+  "revision": 4,
+  "previous_commit": "37bee4d1a2badac03f2a308e65f1fca64b4794d7",
+  "status": "Automatic rolling and flight-leg stow prototype; consuming-game integration pending",
   "plain_glb_source_of_truth": true,
   "units": "metres",
   "axes": "+Y up, +Z forward",
@@ -127,7 +127,14 @@
       218
     ],
     "collision": "Deterministic tension-only spring-damper reel with full flight gravity, final-approach assistance, ballistic release and planar adhesion. General rigid-body collisions and dynamic rope physics remain pending.",
-    "scale_note": "1.6 m nominal diameter assumed for this first interpretation"
+    "scale_note": "1.6 m nominal diameter assumed for this first interpretation",
+    "automatic_mobility": {
+      "roll_speed_m_s": 5,
+      "airborne_delay_s": 2,
+      "fold_duration_s": 0.55,
+      "minimum_contact_time_s": 2,
+      "landing_window_s": 1.25
+    }
   },
   "references": [
     {

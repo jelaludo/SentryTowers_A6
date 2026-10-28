@@ -1,0 +1,108 @@
+{
+  "status": "passed",
+  "policy": {
+    "roll_speed_m_s": 5,
+    "airborne_delay_s": 2,
+    "fold_duration_s": 0.55,
+    "minimum_contact_time_s": 2,
+    "landing_window_s": 1.25
+  },
+  "ground_profiles": [
+    {
+      "preset": "control",
+      "ground_transition": {
+        "speed": 5.00042362263878,
+        "time": 1.9166666666666623,
+        "oldSpeed": 4.976988164950867
+      },
+      "fully_folded": {
+        "speed": 11.337474136252824,
+        "time": 2.774999999999993
+      }
+    },
+    {
+      "preset": "torque",
+      "ground_transition": {
+        "speed": 5.00042362263878,
+        "time": 1.9166666666666623,
+        "oldSpeed": 4.976988164950867
+      },
+      "fully_folded": {
+        "speed": 15.847719885664194,
+        "time": 2.774999999999993
+      }
+    },
+    {
+      "preset": "overdrive",
+      "ground_transition": {
+        "speed": 5.00042362263878,
+        "time": 1.9166666666666623,
+        "oldSpeed": 4.976988164950867
+      },
+      "fully_folded": {
+        "speed": 21.646607277764534,
+        "time": 2.774999999999993
+      }
+    }
+  ],
+  "flights": [
+    {
+      "id": "sky_06",
+      "first_fold": {
+        "airtime": 2.008333333333329,
+        "contact_time": 4.469119062867656
+      },
+      "fully_stowed": true,
+      "release_airtime": 0.8833333333333326,
+      "landing": "floor"
+    },
+    {
+      "id": "sky_11",
+      "first_fold": {
+        "airtime": 2.008333333333329,
+        "contact_time": 5.617740959331125
+      },
+      "fully_stowed": true,
+      "release_airtime": 1.058333333333332,
+      "landing": "floor"
+    },
+    {
+      "id": "sky_16",
+      "first_fold": {
+        "airtime": 2.008333333333329,
+        "contact_time": 6.295717260968898
+      },
+      "fully_stowed": true,
+      "release_airtime": 1.1999999999999982,
+      "landing": "floor"
+    },
+    {
+      "id": "wall_18",
+      "first_fold": null,
+      "fully_stowed": false,
+      "release_airtime": null,
+      "landing": "wall"
+    },
+    {
+      "id": "ceiling_24",
+      "first_fold": null,
+      "fully_stowed": false,
+      "release_airtime": null,
+      "landing": "ceiling"
+    }
+  ],
+  "checks": [
+    "below-threshold gecko stance",
+    "5 m/s automatic floor fold without lost speed",
+    "shell rolling after folding",
+    "wall and ceiling adhesion retained",
+    "continuous airtime across sky-ring release",
+    "retract after 2 seconds with sufficient landing time",
+    "imminent landings keep feet deployed",
+    "changed landing plan interrupts retraction",
+    "feet deployed and aligned before impact",
+    "actual detailed/game geometry through moving folds"
+  ],
+  "moving_fold_geometry_samples": 102,
+  "minimum_moving_fold_clearance_m": 0.003240780061256627
+}

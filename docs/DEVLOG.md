@@ -1,5 +1,11 @@
 # Devlog
 
+## 28 October 2026 / 09-TAI-01 — automatic rolling and airborne leg stow
+
+Floor walking now begins folding into rolling drive at 5 m/s without losing momentum. Wall/ceiling adhesion and landing recovery retain their feet. After more than two seconds of continuous airtime, legs retract over 0.55 s when predicted contact is still over two seconds away. The timer continues across tether release. Landing preparation interrupts retraction and deploys the feet before impact; short flights and imminent arrivals keep the legs extended. The viewer shows folding/stowed flight state and automatically selects Ball during these transitions.
+
+Validated threshold behavior across all three drive profiles, five directed flight cases, continuous release timing, near-landing exceptions and changed approach timing. 102 actual detailed/game mesh samples during moving ground folds have at least 3.24 mm floor clearance. The existing 90-approach dynamics suite, pose/export validation and desktop/mobile browser review also pass. Updated controls, manifest policy, integration notes and shared website Devlog. This revision changes the runtime and documentation; all GLBs, derived compressed files, source geometry and Blender masters retain their previous hashes. General terrain, rigid-body/flexible-rope physics and consuming-game acceptance remain pending as previously documented.
+
 ## 28 October 2026 / 09-TAI-01 — torque, tracking eye and deep impact response
 
 Applied the requested 12% minimum shell separation in both the pose adapter and UI. Detailed/game geometry checks measure at least 20.43 mm between folded internals and the outer ceramic; the controller accounts for the resulting 0.8336 m rolling support radius. Replaced the old eye-bearing armor face with a closed panel and added `EYE_GIMBAL`, allowing the optical pod to follow actual travel smoothly while the shell rolls. All earlier node names remain; the sensor socket now belongs to the eye, consistently across 96-node tier interfaces.

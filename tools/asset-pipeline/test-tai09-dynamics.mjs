@@ -35,7 +35,7 @@ for(const id of ['wall_18','ceiling_24']){const c=new TAIController(),t=TARGETS.
 // Jump, slow manual release and near-target launch cannot leave a ball landing on its shell.
 for(const releaseTime of [.35,1,2,3]){const c=new TAIController(),t=TARGETS.find(t=>t.id==='wall_18');c.attach(t.point,t.normal,t.kind);advance(c,releaseTime);const before=c.landingCount;c.release();for(let i=0;i<1600&&c.landingCount===before;i++)c.step(step);assert(c.lastLanding?.surface==='floor');assert(c.lastLanding.deploy===1&&c.lastLanding.alignment>.999);}
 const jump=new TAIController();assert(jump.jump());advance(jump,2);assert(jump.lastLanding?.surface==='floor'&&jump.lastLanding.alignment>.999);
-const climb=new TAIController();climb.setMode('gecko');advance(climb,25,{forward:true});assert.equal(climb.surface,'ceiling');advance(climb,30,{back:true});assert.equal(climb.surface,'floor');
+const climb=new TAIController();climb.setMode('gecko');climb.center[2]=climb.wall+STAND_HEIGHT+1;advance(climb,25,{forward:true});assert.equal(climb.surface,'ceiling');advance(climb,30,{back:true});assert.equal(climb.surface,'floor');
 // Actual loaded vertices and sockets through each contact-normal recoil, both animated LODs.
 let geometrySamples=0,minMeshClearance=Infinity,maxSocketPlaneError=0;
 for(const e of manifest.assets.filter(e=>!e.static)){
