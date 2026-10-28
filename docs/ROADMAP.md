@@ -1,6 +1,10 @@
 # Roadmap
 
 
+## 28 October 2026 / B-REK43 hand orientation — corrected
+
+Completed the thumb and flexion correction: palms inward, thumbs forward, fingers curling toward the palm and an upright palm-forward halt signal. Hand/tool sockets, all three tiers, source and review images are updated. New orientation checks and a pinned comparison prove the body geometry and non-hand motion are unchanged. Remaining integration work is listed with the original B-REK43 delivery below.
+
 ## 28 October 2026 / B-REK43 — non-human recon variant delivered
 
 Completed the requested longer legs, compact mechanical hooves, two small spherical hips on a tube, long curved fingers, faceted hexagonal chest depth and small radio backpack. B-REK43 is separate from preserved B-REK37. Detailed/game/static exports, 63-joint rig with six adapted actions, measured proportions, plain/decoded validation, Blender review sheets and a desktop/mobile viewer with close-ups and true-scale comparison are delivered in `assets/b-rek43/` and `b-rek43/`.

@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "7f9598bee3ecd702908a2f3e9f4ddf2478475219",
+  "scope": "B-REK43 hand orientation correction only. Compare non-hand bind transforms, animation tracks, and bind-space body geometry/material assignments against the pinned original.",
+  "assets": [
+    {
+      "file": "assets/b-rek43/b_rek43_d0_lod0.glb",
+      "baseline_sha256": "fcd0802f39228647751fe6d613a5c95b7a4f9e036d3d09fa20c97d9563ea3d75",
+      "sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
+      "unchanged_non_hand_nodes": 33,
+      "unchanged_body_tracks": 360,
+      "unchanged_body_vertices": 64180
+    },
+    {
+      "file": "assets/b-rek43/b_rek43_d0_lod1.glb",
+      "baseline_sha256": "00fabc3e5fdbd78d28e117ca05115a6836b5b22e18c9e2a01347c2d3abb6f63f",
+      "sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
+      "unchanged_non_hand_nodes": 33,
+      "unchanged_body_tracks": 360,
+      "unchanged_body_vertices": 15816
+    }
+  ],
+  "status": "passed"
+}

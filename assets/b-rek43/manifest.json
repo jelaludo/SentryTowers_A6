@@ -37,7 +37,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 4813228,
+      "bytes": 4817368,
       "triangles": 114942,
       "draw_calls": 6,
       "plot_m": [
@@ -109,20 +109,20 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "fcd0802f39228647751fe6d613a5c95b7a4f9e036d3d09fa20c97d9563ea3d75",
+      "sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
       "bounds": {
         "min": [
-          -0.534000039100647,
+          -0.49900001287460327,
           0.006000000052154064,
           -0.2280000001192093
         ],
         "max": [
-          0.534000039100647,
+          0.49900001287460327,
           2.7149999141693115,
           0.25050002336502075
         ],
         "dimensions_m": [
-          1.068000078201294,
+          0.9980000257492065,
           2.7089999141171575,
           0.47850002348423004
         ]
@@ -263,36 +263,36 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999549239874
           ]
         },
         {
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999176710844
           ]
         },
         {
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999921768904
           ]
         },
         {
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999921768904
           ]
         },
         {
@@ -307,8 +307,8 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 1134024,
-      "meshopt_sha256": "6d5a07684a41735f05af15356f300db35469621d1cac654c078238b7bb813fd8"
+      "meshopt_bytes": 1141808,
+      "meshopt_sha256": "73674d9f620a189ead21419fada91ffdd609d267d62efe772b7ab2b777894a45"
     },
     {
       "file": "b_rek43_d0_lod1.glb",
@@ -316,7 +316,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1568244,
+      "bytes": 1571988,
       "triangles": 21238,
       "draw_calls": 6,
       "plot_m": [
@@ -388,20 +388,20 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "00fabc3e5fdbd78d28e117ca05115a6836b5b22e18c9e2a01347c2d3abb6f63f",
+      "sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
       "bounds": {
         "min": [
-          -0.534000039100647,
+          -0.49900001287460327,
           0.006000000052154064,
           -0.2280000001192093
         ],
         "max": [
-          0.534000039100647,
+          0.49900001287460327,
           2.7149999141693115,
           0.25003108382225037
         ],
         "dimensions_m": [
-          1.068000078201294,
+          0.9980000257492065,
           2.7089999141171575,
           0.47803108394145966
         ]
@@ -542,36 +542,36 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999549239874
           ]
         },
         {
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999176710844
           ]
         },
         {
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999921768904
           ]
         },
         {
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999921768904
           ]
         },
         {
@@ -586,8 +586,8 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 460448,
-      "meshopt_sha256": "eb4d8ca78ea8c820e2b6a045ad52bf066a3fa8b5ea5e1ee7423fc8e0350b03eb"
+      "meshopt_bytes": 463992,
+      "meshopt_sha256": "3e03869280743d28c2be83ab70d74e49c9cba753b32505fdab23d9bd5ff7132a"
     },
     {
       "file": "b_rek43_d0_lod2.glb",
@@ -595,7 +595,7 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 220524,
+      "bytes": 220748,
       "triangles": 2806,
       "draw_calls": 1,
       "plot_m": [
@@ -604,20 +604,20 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "04e80d639e0b98c3598627412987ae525391f0578a190a695065fa442f29c3f3",
+      "sha256": "bd0f31ca29c4abcc2c732c2e9927aed4c1390c915e60f6197cb1dda7bab31e2a",
       "bounds": {
         "min": [
-          -0.5174999833106995,
+          -0.49900001287460327,
           0.006000000052154064,
           -0.21650001406669617
         ],
         "max": [
-          0.5189999938011169,
+          0.49900001287460327,
           2.7149999141693115,
           0.23349998891353607
         ],
         "dimensions_m": [
-          1.0364999771118164,
+          0.9980000257492065,
           2.7089999141171575,
           0.45000000298023224
         ]
@@ -758,36 +758,36 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999549239874
           ]
         },
         {
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.46000000834465027,
+            0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999176710844
           ]
         },
         {
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.38499999046325684,
             1.399999976158142,
-            0.11000000219792128
+            0.03499999921768904
           ]
         },
         {
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.46000000834465027,
+            -0.375,
             1.4600000381469727,
-            0.11999999266117811
+            0.03499999921768904
           ]
         },
         {
@@ -802,8 +802,8 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 66016,
-      "meshopt_sha256": "6d59c39a410c61c1f2a965d8a77a2d6742fd9c1eaffeb537108cf16cdc9815de"
+      "meshopt_bytes": 66824,
+      "meshopt_sha256": "49a6516700438e349b9abcc9e3d947e5ab2a814f539dc17c4dd63c8a7bc15f4c"
     }
   ],
   "design": {
@@ -812,6 +812,11 @@
     "role": "Bipedal reconnaissance",
     "proportions": "Small compound sensor head, raised hexagonal chest, open paired spherical hips on a cross tube, longer splayed legs, split mechanical hooves and long three-link curved fingers",
     "finish": "Navy ceramic with ivory service inserts, graphite mechanisms and blue optics"
+  },
+  "revision": {
+    "label": "Corrected hand opposition",
+    "previous_commit": "7f9598bee3ecd702908a2f3e9f4ddf2478475219",
+    "scope": "Hands and hand/tool socket placements only: palms inward, thumbs forward, flexion toward palm, palm-forward halt gesture. Previous exports/source remain available at the pinned commit."
   },
   "budgets": {
     "game_triangles": 25000,
@@ -823,7 +828,7 @@
     "placement": "Place the complete glTF scene in an instance group; ROOT is a skeleton lookup. Use SkeletonUtils.clone for skinned instances.",
     "gait": "In-place clips. Move the instance along +Z at clips.speed_mps times playback rate. Keep LOD1 during animated gameplay. No root motion is baked.",
     "sensor": "SENSOR_YAW is excluded from clips and remains engine-driven. Its local Y axis is the glTF up axis.",
-    "hands": "SOCKET_HAND_L/R are grasp references; SOCKET_TOOL_L/R are forward accessory mounts. Signal_Halt opens the right hand. No accessories are included.",
+    "hands": "Neutral palms face inward and thumbs forward. Palm normals in the HAND node rest frame are -X for L and +X for R; transform these normals with the hand pose for attachments. Fingers curl toward that palm normal. Hand/tool socket positions follow the corrected palm side. Signal_Halt rolls the raised right palm toward +Z and opens the fingers. No accessories are included.",
     "feet": "SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
     "bounds": "Use validation-report.json clip_envelopes for animated culling. Standing plot is 1.3 by 1.0 metres.",
     "damage": "D0 intact only; D1-D3 are not authored. Distance is a static map/loading stand-in, never an animated gameplay replacement.",
@@ -842,8 +847,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-b-rek43.blend",
-    "bytes": 6119239,
-    "sha256": "b435665bed17a1c2d0e3b792deeeadc47b81c82c01cd8b0764536a4c2f7cbe57",
+    "bytes": 7315407,
+    "sha256": "387bf6c71c02aa1aaff7a97d2964179bace019fa1d4bce20133cd078ccb5050c",
     "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
   }
 }

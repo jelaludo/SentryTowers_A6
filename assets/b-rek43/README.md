@@ -8,9 +8,17 @@ Open the viewer:
 
 http://localhost:8788/b-rek43/
 
+## Hand orientation correction / 28 October 2026
+
+Neutral palms now face inward, thumbs point forward and fingers curl into the palm. The armor stays on the outside of each hand. The raised right hand rolls and straightens for a palm-forward halt signal. This corrects the earlier finger flexion toward the dorsal armor.
+
+Hand and tool socket positions follow the corrected palm side; names and parent relationships are preserved across all tiers. For attachment orientation, the palm normal in the HAND node's rest frame is −X on the left and +X on the right. Transform that vector by the posed hand rotation. Bone lookup names remain unchanged.
+
+`hand-scope-validation.json` compares the corrected detailed/game exports with original commit `7f9598bee3ecd702908a2f3e9f4ddf2478475219`. Per tier, 33 non-hand bind nodes and 360 non-hand animation tracks are unchanged; 64,180 detailed and 15,816 game body vertices retain their positions, normals and material assignments. Original source and exports remain available at that pinned commit. `validation-report.json` additionally checks both thumbs forward, relaxed finger curl into the palms throughout motion, and the raised palm forward.
+
 ## Proportions and scale
 
-Nominal height is a provisional 2.7 m authoring choice; the reference has no scale annotation. Measured master dimensions are 1.068 m wide × 2.709 m high × 0.479 m deep, from a 6 mm ground clearance to the 2.715 m antenna tip.
+Nominal height is a provisional 2.7 m authoring choice; the reference has no scale annotation. Measured master dimensions are 0.998 m wide × 2.709 m high × 0.479 m deep, from a 6 mm ground clearance to the 2.715 m antenna tip.
 
 | Bind-pose measurement | B-REK37 | B-REK43 |
 | --- | ---: | ---: |
@@ -28,9 +36,9 @@ Plain self-contained GLBs are authoritative. Optional Meshopt copies in `derived
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 114,942 | 6 | 4,813,228 | 1,134,024 | 6 |
-| Game / LOD1 | 21,238 | 6 | 1,568,244 | 460,448 | 6 |
-| Static distance / LOD2 | 2,806 | 1 | 220,524 | 66,016 | 0 |
+| Detailed / LOD0 | 114,942 | 6 | 4,817,368 | 1,141,808 | 6 |
+| Game / LOD1 | 21,238 | 6 | 1,571,988 | 463,992 | 6 |
+| Static distance / LOD2 | 2,806 | 1 | 220,748 | 66,824 | 0 |
 
 LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 3k triangles, one draw and 250 KB. Use LOD0 for close inspection and recordings, LOD1 throughout animated gameplay. LOD2 is an unskinned static map/loading silhouette with the same named lookup hierarchy, no clips. Initial LOD2, 30 m approach and 8 m hysteresis are suggested inspection values awaiting game-camera review; never swap a moving character to static distance.
 
@@ -75,6 +83,7 @@ From the repository root:
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/build_b_rek43.py
 node tools/asset-pipeline/pack-b-rek43.mjs
 node tools/asset-pipeline/validate-b-rek43.mjs
+node tools/asset-pipeline/validate-b-rek43-hand-scope.mjs
 node tools/asset-pipeline/measure-b-rek43-proportions.mjs
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/render_b_rek43.py
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/render_b_rek43.py -- --gait-study

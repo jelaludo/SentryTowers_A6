@@ -1,5 +1,13 @@
 # Devlog
 
+## 28 October 2026 / B-REK43 — corrected thumb and finger orientation
+
+Corrected both grippers from forward-facing backs and reversed flexion to a neutral palms-inward pose: thumbs forward, finger hooks curling into the palm, dorsal armor outward. The right halt signal now rotates the wrist to present an upright palm and extends all three finger links. Hand/tool socket locations follow the corrected palm side across all three tiers; node names and hierarchy remain consistent.
+
+Rebuilt source, plain exports, optional Meshopt derivatives and derived studio/gait/detail images. Triangle/draw budgets remain unchanged. Current detailed/game/static plain bytes: 4,817,368 / 1,571,988 / 220,748. Six plain/decoded files and 11,016 geometry samples pass, including new thumb direction, inward flexion and palm-forward halt checks. Desktop/mobile review covers the corrected gripper close-up and all clip/tier combinations.
+
+Pinned comparison against `7f9598bee3ecd702908a2f3e9f4ddf2478475219` proves unchanged non-hand geometry, material assignments, 33 bind nodes and 360 animation tracks per animated tier. Earlier exports/source remain in that commit. The requested hand correction is complete. Previously documented game integration, terrain/physics, self-collision and phone acceptance remain pending; the received collaboration contract is unchanged.
+
 ## 28 October 2026 / B-REK43 — long-legged non-human recon variant
 
 Created a separate B-REK43 following the requested more elegant, visibly non-human silhouette. Hip centers move from 1.38 to 1.70 m; the hip-knee-ankle chain is 24.2% longer than B-REK37, while support length falls from 34 to 24 cm. Long splayed legs terminate in twin mechanical hoof shells. Two small exposed spherical hips sit on a thin cross tube. Four three-link curved fingers per hand, hooked tips, a deep faceted hexagonal thorax, curved mounted shoulder armor and a compact radio receiver/whip complete the requested changes. Provisional nominal scale is 2.7 m; antenna height is 2.715 m.

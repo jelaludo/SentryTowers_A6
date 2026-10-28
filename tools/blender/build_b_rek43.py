@@ -5,7 +5,7 @@ from mathutils import Vector,Matrix,Euler
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from build_mechanical_cheetah import CheetahGeometry
 import b_rek43_motion as motion
-from b_rek43_motion import H,PAR,CLIPS,FPS,pose
+from b_rek43_motion import H,PAR,CLIPS,FPS,pose,CANONICAL_HAND,hand_point
 P=Path(__file__).resolve().parents[2];OUT=P/'assets/b-rek43';OUT.mkdir(exist_ok=True)
 
 COLORS=[(.025,.036,.042),(.026,.047,.082),(.62,.65,.61),(.009,.014,.018),(.26,.31,.33),(.035,.40,.76)]
@@ -179,18 +179,24 @@ def shape(lod):
      g.hose([a+Vector((0,.035,-.035)),a.lerp(c,.48)+Vector((0,.049,0)),c+Vector((0,.023,.026))],.007,3,bone)
      for u in [.15,.81]:
       point,normal=armor(u,-s*.992);g.bolt(point+normal*.001,bone,axis=normal)
-  b='HAND_'+side;a=H[b];joint(a,.029,.085,b,s)
+  hand_start=len(g.v)
+  b='HAND_'+side;a=CANONICAL_HAND[b];joint(a,.029,.085,b,s)
   g.strut(a,a+Vector((0,0,-.095)),.048,0,b)
   plate([(a.x-.052,a.z-.02),(a.x+.052,a.z-.02),(a.x+.059,a.z-.095),(a.x+.037,a.z-.115),(a.x-.045,a.z-.11)],-.046,-.074,1,b)
   for i in range(4):
-   names=[f'FINGER_{side}{i+1}_{j:02}' for j in [1,2,3]];points=[H[n] for n in names];points.append(points[-1]+Vector((0,-.066,-.019)))
+   names=[f'FINGER_{side}{i+1}_{j:02}' for j in [1,2,3]];points=[CANONICAL_HAND[n] for n in names];points.append(points[-1]+Vector((0,-.066,-.019)))
    for j,(n,p,q) in enumerate(zip(names,points,points[1:])):
     joint(p,.0135-j*.001,.021-j*.002,n,s)
     g.strut(p if lod==2 else p.lerp(q,.13),q if lod==2 else p.lerp(q,.93),.016-j*.002,0,n)
     if lod<2:
      for sign in [-1,1]:g.tube(p.lerp(q,.14)+Vector((sign*.008,0,0)),p.lerp(q,.88)+Vector((sign*.007,0,0)),.0035,4,n,sides=8 if lod==0 else 6)
     if j==2:g.tube(p.lerp(q,.43),q,.011,1,n,r1=.005,sides=10 if lod<2 else 6);g.tube(q,q+Vector((0,-.010,.007)),.005,4,n,r1=.002,sides=8 if lod<2 else 4)
-  n='THUMB_'+side+'_01';nn='THUMB_'+side+'_02';a,c=H[n],H[nn];joint(a,.018,.025,n,s);g.strut(a,c,.023,4,n);joint(c,.015,.023,nn,s);g.tube(c,c+Vector((s*.006,-.057,-.052)),.016,0,nn,r1=.005)
+  n='THUMB_'+side+'_01';nn='THUMB_'+side+'_02';a,c=CANONICAL_HAND[n],CANONICAL_HAND[nn];joint(a,.018,.025,n,s);g.strut(a,c,.023,4,n);joint(c,.015,.023,nn,s);g.tube(c,c+Vector((s*.006,-.057,-.052)),.016,0,nn,r1=.005)
+  # Correct the entire wrist/hand assembly once; only digits reverse their
+  # flexion side, so the protective back plate stays opposite the palm.
+  for i in range(hand_start,len(g.v)):
+   digit=g.b[i].startswith('FINGER_') or g.b[i].startswith('THUMB_')
+   g.v[i]=hand_point(g.v[i],side,mirror=digit)
   # Long, slightly splayed legs. Thighs taper into small exposed knees.
   for j,(bone,end) in enumerate([('HIP_'+side,'KNEE_'+side),('KNEE_'+side,'ANKLE_'+side)]):
    a,c=H[bone],H[end]

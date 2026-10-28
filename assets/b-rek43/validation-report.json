@@ -4,7 +4,7 @@
       "file": "b_rek43_d0_lod0.glb",
       "triangles": 114942,
       "draw_calls": 6,
-      "bytes": 4813228,
+      "bytes": 4817368,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -12,7 +12,7 @@
       "file": "derived/meshopt/b_rek43_d0_lod0.meshopt.glb",
       "triangles": 114942,
       "draw_calls": 6,
-      "bytes": 1134024,
+      "bytes": 1141808,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -20,7 +20,7 @@
       "file": "b_rek43_d0_lod1.glb",
       "triangles": 21238,
       "draw_calls": 6,
-      "bytes": 1568244,
+      "bytes": 1571988,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -28,7 +28,7 @@
       "file": "derived/meshopt/b_rek43_d0_lod1.meshopt.glb",
       "triangles": 21238,
       "draw_calls": 6,
-      "bytes": 460448,
+      "bytes": 463992,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -36,7 +36,7 @@
       "file": "b_rek43_d0_lod2.glb",
       "triangles": 2806,
       "draw_calls": 1,
-      "bytes": 220524,
+      "bytes": 220748,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -44,7 +44,7 @@
       "file": "derived/meshopt/b_rek43_d0_lod2.meshopt.glb",
       "triangles": 2806,
       "draw_calls": 1,
-      "bytes": 66016,
+      "bytes": 66824,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
@@ -53,111 +53,111 @@
   "sample_hz": 120,
   "minimum_geometry_y_m": 0.005070558587404279,
   "maximum_loop_error_m": 0.000013537532020555451,
-  "maximum_loop_rotation_error_rad": 0.00014041960593341664,
+  "maximum_loop_rotation_error_rad": 0.00008061931987475468,
   "maximum_stance_slip_m": 0.0016153584639689558,
   "maximum_segment_length_error_m": 0.00012795462884368503,
   "maximum_decoded_pose_error_m": 0.000903056791189627,
   "clip_envelopes": {
     "Recon_Idle": {
       "min": [
-        -0.5498987527793152,
+        -0.5148987377684429,
         0.005473851852942263,
         -0.2280000001192093
       ],
       "max": [
-        0.5572893507360727,
+        0.5222892782562003,
         2.716467142091648,
         0.25050002336502075
       ],
       "dimensions_m": [
-        1.1071881035153879,
+        1.0371880160246432,
         2.7109932902387057,
         0.47850002348423004
       ]
     },
     "Patrol_Walk_Cycle": {
       "min": [
-        -0.5824485552587804,
+        -0.5474500465932453,
         0.0059934503863434165,
         -0.4201864461426017
       ],
       "max": [
-        0.5898400870559664,
+        0.5548401193028072,
         2.6222658928180484,
         0.5119508981823893
       ],
       "dimensions_m": [
-        1.1722886423147467,
+        1.1022901658960524,
         2.616272442431705,
         0.932137344324991
       ]
     },
     "Stealth_Walk_Cycle": {
       "min": [
-        -0.5824099817397429,
+        -0.5474101611340765,
         0.005976778255859324,
         -0.3400549239362845
       ],
       "max": [
-        0.5897713333655002,
+        0.5547732840548066,
         2.5231119989919923,
         0.5294331019557148
       ],
       "dimensions_m": [
-        1.1721813151052431,
+        1.1021834451888832,
         2.517135220736133,
         0.8694880258919992
       ]
     },
     "Survey_Scan": {
       "min": [
-        -0.5499224162088359,
+        -0.5149341957462468,
         0.005534959795196475,
         -0.23587857281186372
       ],
       "max": [
-        0.5573056408079391,
+        0.5223073120095623,
         2.7164644002573786,
-        0.2943770837643465
+        0.25050002336502075
       ],
       "dimensions_m": [
-        1.107228057016775,
+        1.037241507755809,
         2.710929440462182,
-        0.5302556565762102
+        0.4863785961768845
       ]
     },
     "Crouch_Observe": {
       "min": [
-        -0.5498987614520483,
+        -0.5148987467356592,
         0.0059071647880579205,
         -0.36682397819297047
       ],
       "max": [
-        0.557289359193755,
+        0.5222892868534026,
         2.71547902566835,
-        0.582573922607317
+        0.5140275255781731
       ],
       "dimensions_m": [
-        1.1071881206458034,
+        1.0371880335890618,
         2.709571860880292,
-        0.9493979008002875
+        0.8808515037711435
       ]
     },
     "Signal_Halt": {
       "min": [
-        -0.6763915210766525,
+        -0.6763895967073337,
         0.005473851852942263,
         -0.2280000001192093
       ],
       "max": [
-        0.5572893507360727,
+        0.5222892782562003,
         2.716467142091648,
-        0.8257967025088058
+        0.7954919882526171
       ],
       "dimensions_m": [
-        1.2336808718127252,
+        1.198678874963534,
         2.7109932902387057,
-        1.053796702628015
+        1.0234919883718265
       ]
     }
   },
@@ -168,6 +168,11 @@
     "Survey_Scan": 2,
     "Crouch_Observe": 2,
     "Signal_Halt": 2
+  },
+  "hand_orientation": {
+    "minimum_thumb_forward_m": 0.06499994773615235,
+    "minimum_relaxed_inward_curl_m": 0.09084085463843532,
+    "halt_palm_forward_dot": 0.9999999779766877
   },
   "scope": "Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance.",
   "status": "passed"

@@ -32,6 +32,18 @@ for side,s in [('L',1),('R',-1)]:
  for name,p,parent in [('HAND',(s*.46,-.11,1.40),'HAND'),('TOOL',(s*.46,-.12,1.46),'HAND'),('SOLE',(s*.275,-.025,.006),'ANKLE'),('HEEL',(s*.275,.095,.006),'ANKLE'),('TOE',(s*.275,-.145,.006),'ANKLE')]:joint('SOCKET_'+name+'_'+side,p,parent+'_'+side)
 joint('SOCKET_BACK',(0,.205,2.135),'CHEST')
 joint('SOCKET_SENSOR',(0,-.235,2.515),'SENSOR_YAW')
+# Canonical construction coordinates remain available to the mesh author.
+# The neutral grippers face inward: thumbs forward, dorsal armor outward.
+CANONICAL_HAND={n:p.copy() for n,p in H.items()}
+HAND_TURN={side:Quaternion((0,0,1),sign*math.pi/2) for side,sign in [('L',1),('R',-1)]}
+def hand_point(point,side,mirror=False):
+ origin=CANONICAL_HAND['HAND_'+side];v=Vector(point)-origin
+ if mirror:v.y=-v.y
+ return origin+HAND_TURN[side]@v
+for side in ['L','R']:
+ for n in H:
+  if n.startswith('FINGER_'+side) or n.startswith('THUMB_'+side) or n in ['SOCKET_HAND_'+side,'SOCKET_TOOL_'+side]:H[n]=hand_point(H[n],side,True)
+
 CLIPS=[
  dict(name='Recon_Idle',label='Recon idle',duration_s=4.,loop=True,note='Planted stance, quiet balance corrections and a slow optical check.'),
  dict(name='Patrol_Walk_Cycle',label='Patrol',duration_s=1.5,loop=True,speed_mps=.70,duty_factor=.66,touchdown_phase={'L':0,'R':.5},flat_support_phase=[.08,.55],note='80 steps/min · 0.70 m/s. Heel placement, weight transfer and opposing arm swing.'),
@@ -83,13 +95,14 @@ def pose(name,t):
   swing=(.10 if stealth else .24)*math.cos(math.tau*q-.18) if walking else .008*math.sin(w)
   upper=.045+swing-.22*crouch;fore=upper-(.40 if stealth else .13)-.55*crouch
   if side=='R':upper-=.55*signal;fore-=2.55*signal
-  put('UPPER_ARM_'+side,q=rx(upper)@ry(-s*(.045+.20*signal if side=='R' else .045)));put('FOREARM_'+side,q=rx(fore)@ry(-s*(.16*signal if side=='R' else .02)));put('HAND_'+side,q=rx(fore+.06))
+  put('UPPER_ARM_'+side,q=rx(upper)@ry(-s*(.045+.20*signal if side=='R' else .045)));put('FOREARM_'+side,q=rx(fore)@ry(-s*(.16*signal if side=='R' else .02)));put('HAND_'+side,q=rx((fore+.06)*(1-signal)-math.pi*signal if side=='R' else fore+.06)@rz(-s*math.pi/2*signal if side=='R' else 0))
+  turn=HAND_TURN[side];unturn=turn.conjugated()
   for i in range(4):
    n=f'FINGER_{side}{i+1}_01';opened=signal if side=='R' else 0
-   put(n,q=ori['HAND_'+side]@rx(-.035+.20*opened))
-   put(f'FINGER_{side}{i+1}_02',q=ori['HAND_'+side]@rx(-.06+.50*opened))
-   put(f'FINGER_{side}{i+1}_03',q=ori['HAND_'+side]@rx(-.08+.80*opened))
-  put('THUMB_'+side+'_01');put('THUMB_'+side+'_02',q=ori['HAND_'+side]@ry(-s*.18))
+   put(n,q=ori['HAND_'+side]@turn@rx(.035-.212*opened)@unturn)
+   put(f'FINGER_{side}{i+1}_02',q=ori['HAND_'+side]@turn@rx(.06-.74*opened)@unturn)
+   put(f'FINGER_{side}{i+1}_03',q=ori['HAND_'+side]@turn@rx(.08-1.37*opened)@unturn)
+  put('THUMB_'+side+'_01');put('THUMB_'+side+'_02',q=ori['HAND_'+side]@turn@ry(-s*.18)@unturn)
  for n in H:
   if n.startswith('SOCKET_'):put(n)
  return pos,ori

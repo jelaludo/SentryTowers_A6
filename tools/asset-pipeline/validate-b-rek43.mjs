@@ -12,7 +12,7 @@ import validator from 'gltf-validator';
 const out=new URL('../../assets/b-rek43/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));
 await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
-const report={assets:[],clip_samples:0,sample_hz:120,minimum_geometry_y_m:Infinity,maximum_loop_error_m:0,maximum_loop_rotation_error_rad:0,maximum_stance_slip_m:0,maximum_segment_length_error_m:0,maximum_decoded_pose_error_m:0,clip_envelopes:{},minimum_support_contacts:{},scope:'Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance.'};
+const report={assets:[],clip_samples:0,sample_hz:120,minimum_geometry_y_m:Infinity,maximum_loop_error_m:0,maximum_loop_rotation_error_rad:0,maximum_stance_slip_m:0,maximum_segment_length_error_m:0,maximum_decoded_pose_error_m:0,clip_envelopes:{},minimum_support_contacts:{},hand_orientation:{minimum_thumb_forward_m:Infinity,minimum_relaxed_inward_curl_m:Infinity,halt_palm_forward_dot:1},scope:'Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance.'};
 const wp=(root,n)=>root.getObjectByName(n).getWorldPosition(new T.Vector3());
 const wq=(root,n)=>root.getObjectByName(n).getWorldQuaternion(new T.Quaternion());
 let baselineNames,baselineSockets;const decodedPoses={};
@@ -32,6 +32,11 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  const leg=wp(root,'HIP_L').distanceTo(wp(root,'KNEE_L'))+wp(root,'KNEE_L').distanceTo(wp(root,'ANKLE_L'));assert(leg>1.46,'long leg proportions');
  assert(wp(root,'ANKLE_L').x-wp(root,'HIP_L').x>.11,'splayed non-human stance');
  assert(wp(root,'SOCKET_TOE_L').distanceTo(wp(root,'SOCKET_HEEL_L'))<.241,'compact hoof support');
+ // Neutral anatomy: thumbs lead forward, fingers curve into the palm.
+ for(const [id,sign] of [['L',1],['R',-1]]){
+  const thumb=wp(root,'THUMB_'+id+'_01').sub(wp(root,'HAND_'+id));assert(thumb.z>.055,'thumb must occupy the forward edge '+file+' '+id);
+  for(let digit=1;digit<=4;digit++){const curl=wp(root,`FINGER_${id}${digit}_03`).sub(wp(root,`FINGER_${id}${digit}_01`));assert(-sign*curl.x>.08,'finger curled away from inward-facing palm '+file+' '+id);}
+ }
  const sockets=e.sockets.map(s=>{const p=wp(root,s.node);assert(p.distanceTo(new T.Vector3(...s.position_m))<.0001);return p;});if(baselineSockets)sockets.forEach((p,i)=>assert(p.distanceTo(baselineSockets[i])<.0001,'socket mismatch'));else baselineSockets=sockets;
  if(e.static){assert(triangles<=3000&&meshes.length===1&&e.bytes<=250000,'distance budget');assert(meshes.every(o=>!o.isSkinnedMesh),'distance must be static');}
  else{
@@ -48,6 +53,10 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
    for(let i=0;i<=frames;i++){
     sample(i/120);report.clip_samples++;const box=new T.Box3().setFromObject(root,true);envelope.union(box);minimum=Math.min(minimum,box.min.y);assert(Number.isFinite(box.max.y));
     for(const [a,b,l] of segments)report.maximum_segment_length_error_m=Math.max(report.maximum_segment_length_error_m,Math.abs(wp(root,a).distanceTo(wp(root,b))-l));
+    for(const [id,sign] of [['L',1],['R',-1]]){
+     const inverse=wq(root,'HAND_'+id).invert();const thumb=wp(root,'THUMB_'+id+'_01').sub(wp(root,'HAND_'+id)).applyQuaternion(inverse);report.hand_orientation.minimum_thumb_forward_m=Math.min(report.hand_orientation.minimum_thumb_forward_m,thumb.z);
+     if(clip.name!=='Signal_Halt')for(let digit=1;digit<=4;digit++){const curl=wp(root,`FINGER_${id}${digit}_03`).sub(wp(root,`FINGER_${id}${digit}_01`)).applyQuaternion(inverse);report.hand_orientation.minimum_relaxed_inward_curl_m=Math.min(report.hand_orientation.minimum_relaxed_inward_curl_m,-sign*curl.x);}
+    }
     const phase=i/frames;let support=0;
     for(const id of ['L','R']){
      const q=(phase-(meta.touchdown_phase?.[id]||0)+1)%1,expected=!meta.duty_factor||q<meta.duty_factor;
@@ -69,7 +78,7 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
     }
    }
    if(clip.name==='Crouch_Observe'){sample(2.4);assert(wp(root,'PELVIS').y<1.30,'crouch needs hip drop');}
-   if(clip.name==='Signal_Halt'){sample(2.4);assert(wp(root,'SOCKET_HAND_R').y>1.65,'halt signal hand must be raised');}
+   if(clip.name==='Signal_Halt'){sample(2.4);assert(wp(root,'SOCKET_HAND_R').y>1.65,'halt signal hand must be raised');const palm=new T.Vector3(1,0,0).applyQuaternion(wq(root,'HAND_R'));report.hand_orientation.halt_palm_forward_dot=Math.min(report.hand_orientation.halt_palm_forward_dot,palm.z);assert(palm.z>.95,'halt gesture must present the palm forward');}
    if(meta.speed_mps){assert.equal(supportMin,1,'gait requires both single and double support');sample(.15*clip.duration);for(const id of ['L','R'])assert(Math.min(...['HEEL','SOLE','TOE'].map(s=>wp(root,'SOCKET_'+s+'_'+id).y))<.008,'double support');}
    if(!compressed&&e.lod===0){report.clip_envelopes[clip.name]={min:envelope.min.toArray(),max:envelope.max.toArray(),dimensions_m:envelope.getSize(new T.Vector3()).toArray()};report.minimum_support_contacts[clip.name]=supportMin;}
    const k=e.lod+'_'+clip.name;if(!compressed)decodedPoses[k]=checked;else for(let i=0;i<checked.length;i++)report.maximum_decoded_pose_error_m=Math.max(report.maximum_decoded_pose_error_m,Math.abs(checked[i]-decodedPoses[k][i]));
@@ -78,5 +87,5 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  }
  report.assets.push({file,triangles,draw_calls:meshes.length,bytes:bytes.length,gltf_errors:validation.issues.numErrors,gltf_warnings:validation.issues.numWarnings});
 }
-assert(report.minimum_geometry_y_m>=-.001,'floor penetration '+report.minimum_geometry_y_m);assert(report.maximum_loop_error_m<.002,'loop/return seam '+report.maximum_loop_error_m);assert(report.maximum_loop_rotation_error_rad<.002,'rotation seam');assert(report.maximum_stance_slip_m<.002,'support slip '+report.maximum_stance_slip_m);assert(report.maximum_segment_length_error_m<.001,'rigid segment stretch '+report.maximum_segment_length_error_m);assert(report.maximum_decoded_pose_error_m<.002,'Meshopt motion drift');report.status='passed';
+assert(report.minimum_geometry_y_m>=-.001,'floor penetration '+report.minimum_geometry_y_m);assert(report.maximum_loop_error_m<.002,'loop/return seam '+report.maximum_loop_error_m);assert(report.maximum_loop_rotation_error_rad<.002,'rotation seam');assert(report.maximum_stance_slip_m<.002,'support slip '+report.maximum_stance_slip_m);assert(report.maximum_segment_length_error_m<.001,'rigid segment stretch '+report.maximum_segment_length_error_m);assert(report.maximum_decoded_pose_error_m<.002,'Meshopt motion drift');assert(report.hand_orientation.minimum_thumb_forward_m>.055,'thumb direction through motion');assert(report.hand_orientation.minimum_relaxed_inward_curl_m>.08,'relaxed finger opposition through motion');report.status='passed';
 await fs.writeFile(new URL('validation-report.json',out),JSON.stringify(report,null,2)+'\n');console.log('PASS',report.clip_samples,'samples; floor',report.minimum_geometry_y_m,'slip',report.maximum_stance_slip_m,'rigid error',report.maximum_segment_length_error_m);

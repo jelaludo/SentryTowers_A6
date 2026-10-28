@@ -49,18 +49,18 @@
   "asset_hashes": [
     {
       "file": "b_rek43_d0_lod0.glb",
-      "sha256": "fcd0802f39228647751fe6d613a5c95b7a4f9e036d3d09fa20c97d9563ea3d75",
-      "meshopt_sha256": "6d5a07684a41735f05af15356f300db35469621d1cac654c078238b7bb813fd8"
+      "sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
+      "meshopt_sha256": "73674d9f620a189ead21419fada91ffdd609d267d62efe772b7ab2b777894a45"
     },
     {
       "file": "b_rek43_d0_lod1.glb",
-      "sha256": "00fabc3e5fdbd78d28e117ca05115a6836b5b22e18c9e2a01347c2d3abb6f63f",
-      "meshopt_sha256": "eb4d8ca78ea8c820e2b6a045ad52bf066a3fa8b5ea5e1ee7423fc8e0350b03eb"
+      "sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
+      "meshopt_sha256": "3e03869280743d28c2be83ab70d74e49c9cba753b32505fdab23d9bd5ff7132a"
     },
     {
       "file": "b_rek43_d0_lod2.glb",
-      "sha256": "04e80d639e0b98c3598627412987ae525391f0578a190a695065fa442f29c3f3",
-      "meshopt_sha256": "6d59c39a410c61c1f2a965d8a77a2d6742fd9c1eaffeb537108cf16cdc9815de"
+      "sha256": "bd0f31ca29c4abcc2c732c2e9927aed4c1390c915e60f6197cb1dda7bab31e2a",
+      "meshopt_sha256": "49a6516700438e349b9abcc9e3d947e5ab2a814f539dc17c4dd63c8a7bc15f4c"
     }
   ]
 }
