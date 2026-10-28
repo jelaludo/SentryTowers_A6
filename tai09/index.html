@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>09-TAI-01 / 球体 — Model Workshop</title><link rel="stylesheet" href="viewer.css"><link rel="stylesheet" href="../workshop/navigation.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>09-TAI-01 / 球体 — Model Workshop</title><link rel="stylesheet" href="viewer.css?v=torque3"><link rel="stylesheet" href="../workshop/navigation.css"></head>
 <body class="workshop-viewer"><header class="workshop-header"><a class="workshop-home" href="../">← Back to Workshop</a><nav class="workshop-tabs" aria-label="Workshop navigation"><a href="../" aria-current="page">Workshop</a><a href="../devlog/">Devlog</a><a href="../roadmap/">Roadmap</a><a href="../readiness/">Readiness</a><a href="../best-practices/">Best Practices</a></nav></header>
 <main>
  <section class="viewport" id="stage" tabindex="0" aria-label="09-TAI-01 momentum arena. WASD accelerates, X brakes, 1 is ball mode, 2 uses gecko feet, G grapples, space jumps or drops.">
   <div class="heading"><span class="eyebrow">球体 / KYUUTAI · ADAPTIVE SPHERE</span><h1>09-TAI<span>-01</span></h1><p>Build speed. Catch the landing.</p></div>
   <div class="scene-tools"><button id="camera">Arena view</button><button id="reset" title="Reset (R)">↺ Reset</button></div>
-  <div class="telemetry"><span id="surface">GROUND</span><strong id="speed">0.00 <small>m/s</small></strong><div id="feet" aria-label="Leg contact indicators"></div><p id="dynamics"></p></div>
+  <div class="telemetry"><span id="surface">GROUND</span><strong id="speed">0.00 <small>m/s</small></strong><div id="feet" aria-label="Leg contact indicators"></div><p id="dynamics"></p><progress id="charge" max="1" value="0" aria-label="Uninterrupted drive momentum"></progress></div>
   <div id="crosshair" aria-hidden="true">+</div>
   <div class="status"><span class="status-dot"></span><span id="status" role="status">Loading the machine…</span></div>
   <div class="keys"><kbd>W A S D</kbd> Move <kbd>⇧</kbd> Boost <kbd>X</kbd> Brake <kbd>G</kbd> Grapple <kbd>Space</kbd> Jump <span>Drag to orbit · Scroll to zoom</span></div>
@@ -21,13 +21,23 @@
   <label for="anchor">Grapple destination</label><select id="anchor" aria-label="Grapple destination"></select>
   <div class="actions"><button id="grapple">Launch grapple <kbd>G</kbd></button><button id="jump">Jump / drop <kbd>Space</kbd></button></div>
   <p class="instruction" id="instruction">Click the arena, then use WASD. The inner mechanism stays level while the armor shell rolls.</p>
+  <div class="tuning">
+   <label for="preset">Drive profile</label><select id="preset"><option value="control">Control</option><option value="torque" selected>Torque</option><option value="overdrive">Overdrive</option><option value="custom" disabled>Custom</option></select>
+   <details id="tuning-controls"><summary>Tune speed, pull & landing</summary>
+    <label for="tune-drive">Drive acceleration <output id="value-drive"></output></label><input id="tune-drive" type="range" min="3" max="16" step=".5" value="8.5">
+    <label for="tune-speed">Top speed <output id="value-speed"></output></label><input id="tune-speed" type="range" min="24" max="64" step="1" value="42">
+    <label for="tune-winch">Winch acceleration <output id="value-winch"></output></label><input id="tune-winch" type="range" min="30" max="130" step="2" value="78">
+    <label for="tune-recoil">Landing response <output id="value-recoil"></output></label><input id="tune-recoil" type="range" min=".6" max="1.25" step=".05" value="1">
+    <p>Changes apply live. Open ground builds torque; impacts break the run-up. Hold S from the start for the long runway.</p>
+   </details>
+  </div>
   <div class="divider"></div><div class="title-line"><span class="eyebrow">MECHANICAL INSPECTION</span><button id="pause" class="text-button">Pause</button></div>
-  <label for="explode">Shell separation <output id="explodeValue">0%</output></label><input id="explode" type="range" min="0" max="1" step=".01" value="0">
+  <label for="explode">Shell separation <output id="explodeValue">12%</output></label><input id="explode" type="range" min=".12" max="1" step=".01" value=".12">
   <div class="checks"><label><input id="wire" type="checkbox"> Wireframe</label><label><input id="follow" type="checkbox" checked> Follow</label></div>
   <div class="selectors"><label>Detail<select id="lod"><option value="0">Detailed master</option><option value="1" selected>Articulated game</option><option value="2">Static distance</option></select></label><label>Encoding<select id="encoding"><option value="plain">Plain GLB</option><option value="meshopt">Meshopt</option></select></label></div>
   <div id="stats" class="stats"></div>
   <a class="download" id="download" download>↓ Download GLB</a>
-  <div class="notes"><a href="../assets/tai09/README.md">Rig & integration notes ↗</a><p>32 shell controls · 6 folding limbs · 18 adhesive toes · 3 grapple jaws</p><p>84 × 86 m arena · anchors up to 24 m. Guided winch and planar adhesion prototype.</p></div>
+  <div class="notes"><a href="../assets/tai09/README.md">Rig & integration notes ↗</a><p>32 shell controls · 6 folding limbs · 18 adhesive toes · 3 grapple jaws</p><p>180 × 218 m arena · anchors up to 24 m. Guided winch and planar adhesion prototype.</p></div>
  </aside>
 </main>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type="module" src="viewer.js?v=09-tai-01-v2"></script></body><script type="module" src="../workshop/navigation.js"></script></html>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type="module" src="viewer.js?v=09-tai-01-torque3"></script></body><script type="module" src="../workshop/navigation.js"></script></html>

@@ -4,7 +4,7 @@ import bpy
 from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'assets/tai09/derived/review-09-tai-01'
+OUT=ROOT/'assets/tai09/derived/review-09-tai-01-torque'
 OUT.mkdir(parents=True,exist_ok=True)
 def aim(o,p): o.rotation_euler=(Vector(p)-o.location).to_track_quat('-Z','Y').to_euler()
 for mode in ['closed','walk','grapple']:
@@ -29,5 +29,5 @@ for mode in ['closed','walk','grapple']:
         for i,p in enumerate(s.points):t=i/16;p.co=(0,-(.95+1.65*t),.8-.035*(4*t*(1-t)),1)
         obj=bpy.data.objects.new('REVIEW_TETHER_NOT_EXPORTED',curve);scene.collection.objects.link(obj);curve.materials.append(mat)
     aim(camera,target)
-    if mode=='closed':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/09-tai-01-review-derived.blend'))
+    if mode=='closed':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/09-tai-01-torque-review-derived.blend'))
     scene.render.filepath=str(OUT/f'{mode}.png');bpy.ops.render.render(write_still=True)

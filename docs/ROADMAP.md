@@ -1,10 +1,10 @@
 # Roadmap
 
-## 28 October 2026 / 09-TAI-01 momentum and feet-first landings
+## 28 October 2026 / 09-TAI-01 torque and optical tracking
 
-Completed the requested second prototype: correct 09-TAI-<number> designation and 球体 wordplay, one lower-mounted gecko leg set for floor/wall/ceiling, sustained acceleration and coasting, an 84 × 86 m arena with nine anchors up to 24 m, accelerating winch pulls, timed airborne rotation/deployment from both starting modes, automatic floor righting, and planted-leg impact recoil. Detailed/game/static-distance exports, decoded validation, dynamics and desktop/mobile browser review accompany the change. Previous exports remain preserved.
+Completed the requested tuning revision: enforced 12% shell separation with measured closed clearance, independent eye tracking during rolling, stronger sustained momentum and impact charge loss, Control/Torque/Overdrive profiles plus live variables, a spring-damper reel with gravity and lateral motion, and impact-scaled leg compression up to 34 cm. The arena is now 180 × 218 m. Current detailed/game/static assets and derived Blender review preserve earlier exports. Plain/decoded validation, 90 approaches, 200 recoil mesh samples and browser/mobile controls accompany the hand-off.
 
-Next integration work: independent support anchors while turning, multi-surface corner contacts, self-collision/internal deployment clearance, general terrain/rigid-body collisions, force-based tether and adhesion, consuming-game integration and reference-phone measurements. D1–D3 and simultaneous tethers remain future scope. See `assets/tai09/README.md` for measured hand-off and the limits of the assisted controller.
+Next integration work: independent support anchors while turning, multi-surface corner contacts, general self-collision, terrain/rigid-body collisions, flexible rope and adhesion forces, consuming-game release checks and reference-phone measurements. D1–D3 and simultaneous tethers remain future scope. See `assets/tai09/README.md` for current parameters and assisted-controller limits.
 
 This is the ordered delivery plan for the model library and Workshop. It translates game-design goals and the asset collaboration contract into reviewable work. An item moves to **completed** only when its files, measurements, validation, documentation and hand-off are present; visual or reference-phone review may remain explicitly pending.
 

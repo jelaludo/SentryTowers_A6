@@ -1,5 +1,17 @@
 # Devlog
 
+## 28 October 2026 / 09-TAI-01 — torque, tracking eye and deep impact response
+
+Applied the requested 12% minimum shell separation in both the pose adapter and UI. Detailed/game geometry checks measure at least 20.43 mm between folded internals and the outer ceramic; the controller accounts for the resulting 0.8336 m rolling support radius. Replaced the old eye-bearing armor face with a closed panel and added `EYE_GIMBAL`, allowing the optical pod to follow actual travel smoothly while the shell rolls. All earlier node names remain; the sensor socket now belongs to the eye, consistently across 96-node tier interfaces.
+
+Added live Control/Torque/Overdrive profiles and four sliders for drive acceleration, top speed, reel acceleration and landing response. Default rolling samples reach 9.33/20.28/32.80 m/s after 1/2/3 s; normal speed caps are 28/42/60 m/s by profile. Coasting retains more momentum, sustained input builds torque, and boundary impacts drain the run-up with a small rebound. The 180 × 218 m arena includes a long southern runway; sky anchors now throw into the open area.
+
+Replaced the direct pull with a tension-only spring-damper reel, full flight gravity, lateral momentum, tightening/vibrating cable and final-approach assistance. Default/Overdrive preset winches reach 35.7/51 m/s. Shell and rotor motion respond to drive/reel load while feet-first registration remains timed before impact. Standing height is 1.20 m to allow up to 34 cm of planted-leg compression; response scales with squared impact speed and damps over 1.65 s. Tested low/high drops compress 12.1/33.8 cm. A pure vertical fall also turns the eye tangent to the floor before crouching.
+
+Current authoritative exports are in `assets/tai09/torque/`, with optional Meshopt copies in `derived/meshopt/torque/`. Detailed: 74,448 triangles / four draws / 4,107,500 plain bytes; game: 12,596 / four / 984,648; static distance: 672 / one / 84,448. Earlier exports and review sources remain unchanged. Added a separate derived Blender scene and current review captures. Six plain/decoded files, 180 pose samples, 200 recoil mesh samples, 90 target approaches, eye tracking, collision/coast/brake behavior, presets/custom controls and desktop/mobile browser checks pass. Minimum sampled recoil mesh clearance is 4 mm. No FPS claim.
+
+The requested tuning, eye tracking, clearance floor and deeper recoil are complete. General rigid-body/terrain collisions, flexible rope, self-collision, turning/corner contacts, consuming-game release integration and reference-phone acceptance remain pending. The received collaboration contract is unchanged.
+
 ## 28 October 2026 / 09-TAI-01 — momentum, gecko feet and landing recoil
 
 Renamed the first unit **09-TAI-01**, following the 09-TAI-<number> family and 球体 (*kyuutai*) wordplay. Unified walking and adhesion into six gecko legs, mounted lower at −0.40 m below the core when deployed. Removed the separate multipod control. The folded sphere retains its 1.6 m envelope, with 32 panel controls and the same 95 engine-facing names across tiers.

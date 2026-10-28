@@ -48,7 +48,7 @@ export function buildTAI(lod=0){
  }
  for(const f of faces){
   const b=bone('PANEL_'+f.id,shell,new T.Vector3(...f.n).multiplyScalar(.63).toArray());b.quaternion.fromArray(f.q);b.userData={...b.userData,normal:f.n,base_position:b.position.toArray(),base_quaternion:f.q,sides:f.sides,front_port:f.front};
-  if(f.front){ring(b,.20,.037,[0,.105,0],C.edge,1,[Math.PI/2,0,0]);ring(b,.154,.018,[0,.126,0],C.gold,1,[Math.PI/2,0,0]);ring(b,.112,.010,[0,.142,0],C.amber,3,[Math.PI/2,0,0]);cyl(b,.107,.03,[0,.10,0],C.dark,2);cyl(b,.057,.035,[0,.12,0],C.blue,1);cyl(b,.018,.04,[0,.12,0],C.amber,3);if(detail)for(let i=0;i<8;i++){const a=i*Math.PI/4;cyl(b,.009,.014,[Math.sin(a)*.20,.133,Math.cos(a)*.20],C.steel,1,undefined,6);}continue;}
+
   if(lod<2){cyl(b,.035,.15,[0,-.015,0],C.steel);cyl(b,.065,.05,[0,.018,0],C.dark,2);add(b,patch(f.points,.762,.98,1,1),2,C.dark);}
   add(b,patch(f.points,.783,.88,1,detail?3:1),1,C.edge);
   add(b,patch(f.points,.8,.79,lod===0?4:lod===1?2:1,detail?3:1),0,Number(f.id)%5===0?C.white:C.ivory);
@@ -58,10 +58,18 @@ export function buildTAI(lod=0){
    if(detail){for(const p of f.points){const a=Y.clone().lerp(new T.Vector3(...p),.69).normalize().multiplyScalar(.793).addScaledVector(Y,-.63);cyl(b,.010,.009,a.toArray(),C.edge,1,undefined,6);cyl(b,.004,.0105,a.toArray(),C.black,2,undefined,6);}}
   }
  }
+ // The optical pod tracks independently of the rolling armor; its old face is closed.
+ const eye=bone('EYE_GIMBAL',body);eye.userData.role='Engine-driven optical tracking, +Z forward';
+ cyl(eye,.238,.065,[0,0,.844],C.dark,2,[Math.PI/2,0,0]);
+ ring(eye,.20,.037,[0,0,.86],C.edge,1);ring(eye,.154,.018,[0,0,.879],C.gold,1);
+ ring(eye,.112,.010,[0,0,.895],C.amber,3);cyl(eye,.107,.03,[0,0,.874],C.dark,2,[Math.PI/2,0,0]);
+ cyl(eye,.057,.035,[0,0,.892],C.blue,1,[Math.PI/2,0,0]);cyl(eye,.018,.04,[0,0,.892],C.amber,3,[Math.PI/2,0,0]);
+ if(detail)for(let i=0;i<8;i++){const a=i*Math.PI/4;cyl(eye,.009,.014,[Math.sin(a)*.20,Math.cos(a)*.20,.888],C.steel,1,[Math.PI/2,0,0],6);}
+ socket('SOCKET_SENSOR',eye,[0,0,.912]);
  // A recessed axial iris replaces the forward panel; a telescoping launcher sits behind it.
  const aim=bone('LAUNCHER_AIM',core),barrel=bone('LAUNCHER_SLIDE',aim,[0,0,.46]),hook=bone('HOOK_HEAD',aim,[0,0,.395]);
  if(lod<2){cyl(barrel,.108,.32,[0,0,0],C.steel,1,[Math.PI/2,0,0]);for(const z of [-.13,-.055,.055,.13])ring(barrel,.111,.011,[0,0,z],C.dark,2);cyl(hook,.063,.19,[0,0,-.02],C.dark,2,[Math.PI/2,0,0]);ring(hook,.07,.012,[0,0,.075],C.gold);}
- if(lod<2)cyl(hook,.045,.015,[0,0,.082],C.amber,3,[Math.PI/2,0,0]);socket('SOCKET_CABLE',barrel,[0,0,.17]);socket('SOCKET_HOOK',hook,[0,0,-.1]);socket('SOCKET_SENSOR',aim,[0,0,.78]);socket('SOCKET_CORE',core);
+ if(lod<2)cyl(hook,.045,.015,[0,0,.082],C.amber,3,[Math.PI/2,0,0]);socket('SOCKET_CABLE',barrel,[0,0,.17]);socket('SOCKET_HOOK',hook,[0,0,-.1]);socket('SOCKET_CORE',core);
  for(let i=0;i<3;i++){const base=bone('HOOK_JAW_'+String(i+1).padStart(2,'0'),hook);base.rotation.z=i*2*Math.PI/3;base.position.set(Math.cos(i*2*Math.PI/3)*.055,Math.sin(i*2*Math.PI/3)*.055,.02);base.userData.base_quaternion=base.quaternion.toArray();
   if(lod<2){const shape=new T.Shape();[[0,0],[.08,.03],[.17,.16],[.18,.29],[.12,.36],[.13,.24],[.075,.12],[0,.08]].forEach(([x,z],j)=>j?shape.lineTo(x,z):shape.moveTo(x,z));shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:.044,bevelEnabled:detail,bevelSegments:1,bevelSize:.004,bevelThickness:.004,steps:1});g.rotateX(Math.PI/2);g.translate(0,.022,0);add(base,g,1,C.steel);armor(base,.15,.064,.022,[.075,0,.12]);cyl(base,.032,.075,[0,0,0],C.gold);}
  }

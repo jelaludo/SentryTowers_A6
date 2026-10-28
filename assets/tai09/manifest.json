@@ -2,9 +2,9 @@
   "family": "tai09",
   "label": "09-TAI-01",
   "name_origin": "球体 (kyuutai): 9 = kyuu, TAI = tai",
-  "revision": 2,
-  "previous_commit": "6c2c22cd7d1c46fd1ec83384418203f26e8a6052",
-  "status": "Momentum and feet-first landing prototype; consuming-game integration pending",
+  "revision": 3,
+  "previous_commit": "64df65ebf9a63a7299ac08342565c71da06e008a",
+  "status": "Torque tuning, tracked optics and spring-winch prototype; consuming-game integration pending",
   "plain_glb_source_of_truth": true,
   "units": "metres",
   "axes": "+Y up, +Z forward",
@@ -31,7 +31,10 @@
     "automatic_distance_m": null
   },
   "mechanics": {
-    "shell": "20 hexagons + 12 pentagonal closure faces; forward hex face is launcher port",
+    "shell": "20 hexagons + 12 pentagonal closure faces; independent EYE_GIMBAL optical pod",
+    "minimum_shell_separation": 0.12,
+    "runtime_rolling_radius_m": 0.8336,
+    "eye": "World-velocity tracking; convert eyeOrientation into body-local EYE_GIMBAL rotation. SOCKET_SENSOR now belongs to EYE_GIMBAL.",
     "panel_count": 32,
     "limbs": 6,
     "adhesive_toes_per_limb": 3,
@@ -58,27 +61,72 @@
       "stowed_y": -0.22,
       "deployed_y": -0.4
     },
-    "stance_height_m": 1.04,
+    "stance_height_m": 1.2,
     "landing": {
       "righting_window_s": 1.25,
       "recoil_peak_m": [
-        0.075,
-        0.18
+        0.07,
+        0.34
       ],
-      "recovery_s": 1.26
+      "recovery_s": 1.65
+    },
+    "tuning": {
+      "default": "torque",
+      "presets": {
+        "control": {
+          "drive": 5,
+          "speed": 28,
+          "winch": 42,
+          "recoil": 0.8
+        },
+        "torque": {
+          "drive": 8.5,
+          "speed": 42,
+          "winch": 78,
+          "recoil": 1
+        },
+        "overdrive": {
+          "drive": 13,
+          "speed": 60,
+          "winch": 120,
+          "recoil": 1.15
+        }
+      },
+      "limits": {
+        "drive": [
+          3,
+          16
+        ],
+        "speed": [
+          24,
+          64
+        ],
+        "winch": [
+          30,
+          130
+        ],
+        "recoil": [
+          0.6,
+          1.25
+        ]
+      }
     },
     "winch": {
-      "initial_acceleration_m_s2": 6,
-      "maximum_acceleration_m_s2": 30,
-      "ramp_s": 1.8,
-      "speed_limit_m_s": 18
+      "initial_acceleration_m_s2": 10,
+      "ramp_s": 0.95,
+      "speed_limit_fraction": 0.85,
+      "spring_s2": 105,
+      "damper_s": 13,
+      "nominal_mass_kg": 85,
+      "gravity_m_s2": 9.81,
+      "arrival_assistance_distance_m": 7
     },
     "arena_m": [
-      84,
+      180,
       24,
-      86
+      218
     ],
-    "collision": "Deterministic assisted winch, ballistic release and planar adhesion. General rigid-body collisions and dynamic rope physics remain pending.",
+    "collision": "Deterministic tension-only spring-damper reel with full flight gravity, final-approach assistance, ballistic release and planar adhesion. General rigid-body collisions and dynamic rope physics remain pending.",
     "scale_note": "1.6 m nominal diameter assumed for this first interpretation"
   },
   "references": [
@@ -100,19 +148,19 @@
   ],
   "assets": [
     {
-      "file": "09_tai_01_d0_lod0.glb",
+      "file": "torque/09_tai_01_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 4049612,
-      "triangles": 73602,
+      "bytes": 4107500,
+      "triangles": 74448,
       "draw_calls": 4,
       "materials": 4,
-      "sha256": "9f22e91123a6edc2502de02d48a2ea64a0509f5a19472dbd225ba69c6f975e7b",
-      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 779244,
-      "meshopt_sha256": "6b7e36e5298b4b6590cb972358ebf037c87b76f3ff7e2f1eef8c209f3d94ac46",
+      "sha256": "80cc37058f3bfa507eac6a4cb0e22abc94b726dcb57f6675566f5da7310fcc78",
+      "meshopt_file": "derived/meshopt/torque/09_tai_01_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 788868,
+      "meshopt_sha256": "ea3e26b5a1a964a1b76e3d0802118c83d68dc1db539b23cc60ef9f8574817c16",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -127,12 +175,12 @@
         "max": [
           0.800000011920929,
           1.600000023841858,
-          0.800000011920929
+          0.9120000004768372
         ],
         "dimensions_m": [
           1.600000023841858,
           1.600000035762787,
-          1.600000023841858
+          1.7120000123977661
         ]
       },
       "required_nodes": [
@@ -181,8 +229,9 @@
         "HOOK_JAW_01",
         "HOOK_JAW_02",
         "HOOK_JAW_03",
-        "SOCKET_SENSOR",
         "SOCKET_CORE",
+        "EYE_GIMBAL",
+        "SOCKET_SENSOR",
         "LEG_01_MOUNT",
         "LEG_01_HIP",
         "LEG_01_KNEE",
@@ -252,21 +301,21 @@
           ]
         },
         {
-          "node": "SOCKET_SENSOR",
-          "parent": "LAUNCHER_AIM",
-          "position_m": [
-            0,
-            0.8,
-            0.78
-          ]
-        },
-        {
           "node": "SOCKET_CORE",
           "parent": "CORE_GIMBAL",
           "position_m": [
             0,
             0.8,
             0
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "EYE_GIMBAL",
+          "position_m": [
+            0,
+            0.8,
+            0.912
           ]
         },
         {
@@ -328,19 +377,19 @@
       "credit": "Models by jelaludo"
     },
     {
-      "file": "09_tai_01_d0_lod1.glb",
+      "file": "torque/09_tai_01_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 967944,
-      "triangles": 12374,
+      "bytes": 984648,
+      "triangles": 12596,
       "draw_calls": 4,
       "materials": 4,
-      "sha256": "35cf2d5e9ed0c1d743307f9a085a75c827c6254769dc77d548c5155fcbdebc84",
-      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 223368,
-      "meshopt_sha256": "fb5f34cf5f986613fe6a2cec1ba92454a229361e3709b05f363a144073561eb8",
+      "sha256": "241e3445080dcf24652f05a36d0fca456415d415c3af2b939ea29a5315e24674",
+      "meshopt_file": "derived/meshopt/torque/09_tai_01_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 226548,
+      "meshopt_sha256": "6030cfcd94ca5f30b5b7f70f996d98dd27e451c1c14995777071f3e8f2282df1",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -355,12 +404,12 @@
         "max": [
           0.800000011920929,
           1.600000023841858,
-          0.800000011920929
+          0.9120000004768372
         ],
         "dimensions_m": [
           1.600000023841858,
           1.600000035762787,
-          1.600000023841858
+          1.7120000123977661
         ]
       },
       "required_nodes": [
@@ -409,8 +458,9 @@
         "HOOK_JAW_01",
         "HOOK_JAW_02",
         "HOOK_JAW_03",
-        "SOCKET_SENSOR",
         "SOCKET_CORE",
+        "EYE_GIMBAL",
+        "SOCKET_SENSOR",
         "LEG_01_MOUNT",
         "LEG_01_HIP",
         "LEG_01_KNEE",
@@ -480,21 +530,21 @@
           ]
         },
         {
-          "node": "SOCKET_SENSOR",
-          "parent": "LAUNCHER_AIM",
-          "position_m": [
-            0,
-            0.8,
-            0.78
-          ]
-        },
-        {
           "node": "SOCKET_CORE",
           "parent": "CORE_GIMBAL",
           "position_m": [
             0,
             0.8,
             0
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "EYE_GIMBAL",
+          "position_m": [
+            0,
+            0.8,
+            0.912
           ]
         },
         {
@@ -556,19 +606,19 @@
       "credit": "Models by jelaludo"
     },
     {
-      "file": "09_tai_01_d0_lod2.glb",
+      "file": "torque/09_tai_01_d0_lod2.glb",
       "lod": 2,
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 81848,
-      "triangles": 636,
+      "bytes": 84448,
+      "triangles": 672,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "a9bff7865a86a63ad1edab9d8ef9d170b39d6546bd7f3fc3b0861535583c94f9",
-      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 48204,
-      "meshopt_sha256": "5e623fc3746aa7e67edeb20245caba9e4940b70685a2c4e6301953fb9722a78d",
+      "sha256": "c9517b1a0409dcd5637f72e56562e5809761345dfd11242ccce342e16b19427e",
+      "meshopt_file": "derived/meshopt/torque/09_tai_01_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 48968,
+      "meshopt_sha256": "e65c3f08fe3f422c10ab2b6350fff6bc92ad1b99adce81c23414138dcd7975a4",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -583,12 +633,12 @@
         "max": [
           0.800000011920929,
           1.600000023841858,
-          0.800000011920929
+          0.9120000004768372
         ],
         "dimensions_m": [
           1.600000023841858,
           1.600000035762787,
-          1.600000023841858
+          1.7120000123977661
         ]
       },
       "required_nodes": [
@@ -637,8 +687,9 @@
         "HOOK_JAW_01",
         "HOOK_JAW_02",
         "HOOK_JAW_03",
-        "SOCKET_SENSOR",
         "SOCKET_CORE",
+        "EYE_GIMBAL",
+        "SOCKET_SENSOR",
         "LEG_01_MOUNT",
         "LEG_01_HIP",
         "LEG_01_KNEE",
@@ -708,21 +759,21 @@
           ]
         },
         {
-          "node": "SOCKET_SENSOR",
-          "parent": "LAUNCHER_AIM",
-          "position_m": [
-            0,
-            0.8,
-            0.78
-          ]
-        },
-        {
           "node": "SOCKET_CORE",
           "parent": "CORE_GIMBAL",
           "position_m": [
             0,
             0.8,
             0
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "EYE_GIMBAL",
+          "position_m": [
+            0,
+            0.8,
+            0.912
           ]
         },
         {

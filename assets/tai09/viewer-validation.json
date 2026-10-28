@@ -3,6 +3,9 @@
   "designation": "09-TAI-01",
   "browser": "Chromium real WebGL via SwiftShader; not a performance benchmark",
   "checks": [
+    "12 percent minimum shell separation",
+    "eye independently follows actual motion",
+    "three presets and live custom physics controls",
     "correct name and two modes sharing gecko feet",
     "lowered mounts and planted sockets",
     "nine selectable anchors",
@@ -21,19 +24,19 @@
   ],
   "asset_hashes": [
     {
-      "file": "09_tai_01_d0_lod0.glb",
-      "sha256": "9f22e91123a6edc2502de02d48a2ea64a0509f5a19472dbd225ba69c6f975e7b",
-      "meshopt_sha256": "6b7e36e5298b4b6590cb972358ebf037c87b76f3ff7e2f1eef8c209f3d94ac46"
+      "file": "torque/09_tai_01_d0_lod0.glb",
+      "sha256": "80cc37058f3bfa507eac6a4cb0e22abc94b726dcb57f6675566f5da7310fcc78",
+      "meshopt_sha256": "ea3e26b5a1a964a1b76e3d0802118c83d68dc1db539b23cc60ef9f8574817c16"
     },
     {
-      "file": "09_tai_01_d0_lod1.glb",
-      "sha256": "35cf2d5e9ed0c1d743307f9a085a75c827c6254769dc77d548c5155fcbdebc84",
-      "meshopt_sha256": "fb5f34cf5f986613fe6a2cec1ba92454a229361e3709b05f363a144073561eb8"
+      "file": "torque/09_tai_01_d0_lod1.glb",
+      "sha256": "241e3445080dcf24652f05a36d0fca456415d415c3af2b939ea29a5315e24674",
+      "meshopt_sha256": "6030cfcd94ca5f30b5b7f70f996d98dd27e451c1c14995777071f3e8f2282df1"
     },
     {
-      "file": "09_tai_01_d0_lod2.glb",
-      "sha256": "a9bff7865a86a63ad1edab9d8ef9d170b39d6546bd7f3fc3b0861535583c94f9",
-      "meshopt_sha256": "5e623fc3746aa7e67edeb20245caba9e4940b70685a2c4e6301953fb9722a78d"
+      "file": "torque/09_tai_01_d0_lod2.glb",
+      "sha256": "c9517b1a0409dcd5637f72e56562e5809761345dfd11242ccce342e16b19427e",
+      "meshopt_sha256": "e65c3f08fe3f422c10ab2b6350fff6bc92ad1b99adce81c23414138dcd7975a4"
     }
   ]
 }

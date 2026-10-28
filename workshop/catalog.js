@@ -30,7 +30,7 @@ const collectionImages={
 };
 
 export const collections=[
-['tai09','09-TAI-01 / 球体','Characters','Build momentum in a segmented sphere. One low gecko leg set walks, climbs and hangs; accelerating grapples and midair righting bring it onto its feet with a cushioned landing.','Momentum · Nine anchors · Gecko · Feet-first · 3 LODs','Playable prototype'],
+['tai09','09-TAI-01 / 球体','Characters','A tracking eye on a fast rolling sphere. Tune drive torque, momentum and spring-winch pulls, then catch high falls with deep gecko-leg recoil.','Live tuning · Overdrive · Tracking eye · Gecko · 3 LODs','Playable prototype'],
 ['c08-worker','C-08 / Industrial Worker','Characters','C-07-family industrial humanoid with ochre and ivory armor, recessed blue optics, hydraulic limbs and articulated hands. Heavy planted-foot walk, braced carry, inspection and service crouch.','5 clips · 55 joints · 2.3 m · 3 LODs','Contract candidate'],
 ['k0-tech-01','K0-TECH-01 / Felis','Characters','A compact feline robot with an angular industrial sensor head, modem-like antenna ears, blue-coated optics, beige and white armor, striped feet and a ringed tail. Full feline actions, a 1.6 m forward pounce and a C-07 size comparison.','8 clips · 41 cm tall · 3 LODs','Animated prototype'],
 ['quadruped-playground','CHASE / K9 × C-07 × K0','Presentation','Three mechanical animals follow one unpredictable ball. Little K0 accelerates harder, reacts faster and darts ahead, with passing space and low-hurdle pounces.','3 animated rigs · Faster K0 · Seeded replay','Interaction study'],
