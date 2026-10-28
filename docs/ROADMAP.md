@@ -1,5 +1,9 @@
 # Roadmap
 
+## 28 October 2026 / 09-TAI adaptive sphere
+
+First playable kinematic prototype delivered: segmented rolling shell, stabilized core, grappling head, six folding multipod/gecko limbs, jump and cushioned landing, with a wall/ceiling test fixture and three export tiers. Next review: silhouette and assumed 1.6 m scale, independent support anchors while turning, multi-surface corner contacts, self-collision and internal deployment clearance, force-based tether/adhesion and swing, consuming-game integration and phone measurements. D1–D3 and simultaneous multiple tethers remain future requests. See `assets/tai09/README.md` for the measured hand-off.
+
 This is the ordered delivery plan for the model library and Workshop. It translates game-design goals and the asset collaboration contract into reviewable work. An item moves to **completed** only when its files, measurements, validation, documentation and hand-off are present; visual or reference-phone review may remain explicitly pending.
 
 ## Active

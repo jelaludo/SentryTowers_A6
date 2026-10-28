@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "browser": "Chromium real WebGL via SwiftShader; not a performance benchmark",
+  "checks": [
+    "desktop and 390px mobile bounds",
+    "keyboard roll, deploy and jump",
+    "six foot contacts and symmetric imported leg yaw",
+    "ground to wall to ceiling and back",
+    "ceiling camera clears roof",
+    "grapple fire, pull, latch and release",
+    "all six tier/encoding combinations",
+    "static controls disabled",
+    "wireframe and shell separation",
+    "zero page errors",
+    "support sockets meet wall and ceiling after orientation settles",
+    "Shift-click raycast chooses a surface anchor",
+    "full-height stage with shared header only",
+    "searchable Workshop card and loaded thumbnail"
+  ],
+  "asset_hashes": [
+    {
+      "file": "tai09_d0_lod0.glb",
+      "sha256": "891692921cca1ee692673a212a272bbe897f683ea439efd4da6954935003c4ac",
+      "meshopt_sha256": "809b83eba1f054f784d44535afcb85c42204f2fed1533e6b57333a417ed3e028"
+    },
+    {
+      "file": "tai09_d0_lod1.glb",
+      "sha256": "da02cfe8f90609b5d0e9417743c8a20c538fdb9949e81deb45044f577fadc32e",
+      "meshopt_sha256": "2dbe791f5a6255dd493ed265a58b3998c66deaa125496b2a29ed2f440ff35bb4"
+    },
+    {
+      "file": "tai09_d0_lod2.glb",
+      "sha256": "29def1109a6f81588ac90f4495236b351bd6af0bd484ae5f55287c1e4c7fb454",
+      "meshopt_sha256": "b37d73c0d5ce487e8d64fedc8bd41f29cf543fc31c5597f6e97cdcddfc3d1ce2"
+    }
+  ]
+}

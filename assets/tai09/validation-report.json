@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "reports": [
+    {
+      "file": "tai09_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 73602,
+      "draw_calls": 4,
+      "bytes": 4049568,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/tai09_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 73602,
+      "draw_calls": 4,
+      "bytes": 780460,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "tai09_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 12374,
+      "draw_calls": 4,
+      "bytes": 967900,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/tai09_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 12374,
+      "draw_calls": 4,
+      "bytes": 223688,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "tai09_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 636,
+      "draw_calls": 1,
+      "bytes": 81804,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/tai09_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 636,
+      "draw_calls": 1,
+      "bytes": 48160,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 180,
+  "min_sampled_mesh_floor_clearance_m": 0.003999979071642956,
+  "min_deploy_floor_clearance_m": -2.3841858043383013e-8,
+  "max_closed_radius_m": 0.8001949033813309,
+  "max_rigid_segment_error_m": 2.220446049250313e-16,
+  "max_foot_contact_height_error_m": 3.3306690738754696e-16,
+  "max_straight_stance_drift_m": 6.036438896220727e-16,
+  "controller_checks": [
+    "rolling displacement",
+    "ground to wall to ceiling and back",
+    "ballistic jump and landing",
+    "tether latch, pull and release"
+  ],
+  "limitations": [
+    "No general self-collision certification",
+    "Procedural planar fixture; no force-based adhesion or tether physics",
+    "No FPS measurement"
+  ]
+}

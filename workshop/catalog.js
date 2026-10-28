@@ -1,4 +1,5 @@
 const collectionImages={
+'tai09':'assets/tai09/preview.png',
 'c08-worker':'assets/c08-worker/preview.png',
 'k0-tech-01':'assets/k0-tech-01/preview.png',
 'quadruped-playground':'quadruped-playground/preview.png',
@@ -29,6 +30,7 @@ const collectionImages={
 };
 
 export const collections=[
+['tai09','09-TAI / Gyro','Characters','An ivory and graphite sphere with independent armor panels, a stabilized core, grappling claws and six folding limbs. Drive, walk, jump, climb the wall and traverse the ceiling.','WASD · Grapple · Gecko · Multipod · 3 LODs','Playable prototype'],
 ['c08-worker','C-08 / Industrial Worker','Characters','C-07-family industrial humanoid with ochre and ivory armor, recessed blue optics, hydraulic limbs and articulated hands. Heavy planted-foot walk, braced carry, inspection and service crouch.','5 clips · 55 joints · 2.3 m · 3 LODs','Contract candidate'],
 ['k0-tech-01','K0-TECH-01 / Felis','Characters','A compact feline robot with an angular industrial sensor head, modem-like antenna ears, blue-coated optics, beige and white armor, striped feet and a ringed tail. Full feline actions, a 1.6 m forward pounce and a C-07 size comparison.','8 clips · 41 cm tall · 3 LODs','Animated prototype'],
 ['quadruped-playground','CHASE / K9 × C-07 × K0','Presentation','Three mechanical animals follow one unpredictable ball. Little K0 accelerates harder, reacts faster and darts ahead, with passing space and low-hurdle pounces.','3 animated rigs · Faster K0 · Seeded replay','Interaction study'],

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>09-TAI / Gyro — Model Workshop</title><link rel="stylesheet" href="viewer.css"><link rel="stylesheet" href="../workshop/navigation.css"></head>
+<body class="workshop-viewer"><header class="workshop-header"><a class="workshop-home" href="../">← Back to Workshop</a><nav class="workshop-tabs" aria-label="Workshop navigation"><a href="../" aria-current="page">Workshop</a><a href="../devlog/">Devlog</a><a href="../roadmap/">Roadmap</a><a href="../readiness/">Readiness</a><a href="../best-practices/">Best Practices</a></nav></header>
+<main>
+ <section class="viewport" id="stage" tabindex="0" aria-label="09-TAI interactive test arena. WASD moves, 1 rolls, 2 walks, 3 climbs, G grapples, space jumps.">
+  <div class="heading"><span class="eyebrow">ADAPTIVE MOBILITY PLATFORM / 09</span><h1>TAI<span> / GYRO</span></h1><p>One shell. Every surface.</p></div>
+  <div class="scene-tools"><button id="camera">Arena view</button><button id="reset" title="Reset (R)">↺ Reset</button></div>
+  <div class="telemetry"><span id="surface">GROUND</span><strong id="speed">0.00 <small>m/s</small></strong><div id="feet" aria-label="Leg contact indicators"></div></div>
+  <div id="crosshair" aria-hidden="true">+</div>
+  <div class="status"><span class="status-dot"></span><span id="status" role="status">Loading the machine…</span></div>
+  <div class="keys"><kbd>W A S D</kbd> Move <kbd>⇧</kbd> Boost <kbd>G</kbd> Grapple <kbd>Space</kbd> Jump <span>Drag to orbit · Scroll to zoom</span></div>
+  <div class="touch-drive" aria-label="Touch movement"><button data-key="KeyW" aria-label="Move forward">↑</button><div><button data-key="KeyA" aria-label="Move left">←</button><button data-key="KeyS" aria-label="Move backward">↓</button><button data-key="KeyD" aria-label="Move right">→</button></div></div>
+ </section>
+ <aside>
+  <div class="title-line"><span class="eyebrow">MOBILITY LAB</span><span class="badge">D0 / PROTOTYPE</span></div>
+  <h2>Choose your footing.</h2><p class="intro">A segmented sphere that rolls, unfolds, climbs and pulls itself through the world.</p>
+  <div class="modes" role="group" aria-label="Mobility mode">
+   <button class="mode active" data-mode="roll"><b>01</b><span><strong>Roll</strong><small>Sealed shell · gyroscopic drive</small></span><kbd>1</kbd></button>
+   <button class="mode" data-mode="walk"><b>02</b><span><strong>Multipod</strong><small>Six limbs · jump & cushion</small></span><kbd>2</kbd></button>
+   <button class="mode" data-mode="gecko"><b>03</b><span><strong>Gecko</strong><small>Adhesive toes · walls & ceilings</small></span><kbd>3</kbd></button>
+  </div>
+  <div class="actions"><button id="grapple">Launch grapple <kbd>G</kbd></button><button id="jump">Jump <kbd>Space</kbd></button></div>
+  <p class="instruction" id="instruction">Click the arena, then use WASD. The inner mechanism stays level while the armor shell rolls.</p>
+  <div class="divider"></div><div class="title-line"><span class="eyebrow">MECHANICAL INSPECTION</span><button id="pause" class="text-button">Pause</button></div>
+  <label for="explode">Shell separation <output id="explodeValue">0%</output></label><input id="explode" type="range" min="0" max="1" step=".01" value="0">
+  <div class="checks"><label><input id="wire" type="checkbox"> Wireframe</label><label><input id="follow" type="checkbox" checked> Follow</label></div>
+  <div class="selectors"><label>Detail<select id="lod"><option value="0">Detailed master</option><option value="1" selected>Articulated game</option><option value="2">Static distance</option></select></label><label>Encoding<select id="encoding"><option value="plain">Plain GLB</option><option value="meshopt">Meshopt</option></select></label></div>
+  <div id="stats" class="stats"></div>
+  <a class="download" id="download" download>↓ Download GLB</a>
+  <div class="notes"><a href="../assets/tai09/README.md">Rig & integration notes ↗</a><p>32 shell controls · 6 folding limbs · 18 adhesive toes · 3 grapple jaws</p><p>1.6 m nominal diameter. Planar test fixture and kinematic abilities; game physics remain to be integrated.</p></div>
+ </aside>
+</main>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type="module" src="viewer.js"></script></body><script type="module" src="../workshop/navigation.js"></script></html>
