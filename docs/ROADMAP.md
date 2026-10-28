@@ -1,5 +1,12 @@
 # Roadmap
 
+
+## 28 October 2026 / B-REK37 recon biped — candidate delivered
+
+Completed the requested Cheetah-manufacturer humanoid with the reference's compact head, narrow waist and long legs. Navy/ivory mechanical design, six reconnaissance actions, detailed/game/static tiers, editable Blender source, measured manifest, plain/decoded validation, studio motion studies and a desktop/mobile viewer with C-07 comparison are delivered in `assets/b-rek37/` and `b-rek37/`.
+
+Next integration work: animation transitions, terrain IK and general self-collision, consuming-game r160/release compression, game cameras/selection thresholds and reference-phone acceptance. D1–D3 and gameplay AI are future scope. The static distance tier remains a loading/map stand-in; retain LOD1 for moving characters.
+
 ## 28 October 2026 / 09-TAI-01 automatic mobility
 
 Completed automatic floor rolling at 5 m/s and safe leg retraction after two seconds airborne, with continuous airtime tracking and pre-contact redeployment. New moving-fold geometry and browser checks pass; the previous tuning revision includes: enforced 12% shell separation with measured closed clearance, independent eye tracking during rolling, stronger sustained momentum and impact charge loss, Control/Torque/Overdrive profiles plus live variables, a spring-damper reel with gravity and lateral motion, and impact-scaled leg compression up to 34 cm. The arena is now 180 × 218 m. Current detailed/game/static assets and derived Blender review preserve earlier exports. Plain/decoded validation, 90 approaches, 200 recoil mesh samples and browser/mobile controls accompany the hand-off.

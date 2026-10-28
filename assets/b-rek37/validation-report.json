@@ -1,0 +1,174 @@
+{
+  "assets": [
+    {
+      "file": "b_rek37_d0_lod0.glb",
+      "triangles": 119082,
+      "draw_calls": 6,
+      "bytes": 5250964,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/b_rek37_d0_lod0.meshopt.glb",
+      "triangles": 119082,
+      "draw_calls": 6,
+      "bytes": 1177156,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "b_rek37_d0_lod1.glb",
+      "triangles": 19438,
+      "draw_calls": 6,
+      "bytes": 1519136,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/b_rek37_d0_lod1.meshopt.glb",
+      "triangles": 19438,
+      "draw_calls": 6,
+      "bytes": 431252,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "b_rek37_d0_lod2.glb",
+      "triangles": 2092,
+      "draw_calls": 1,
+      "bytes": 170048,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/b_rek37_d0_lod2.meshopt.glb",
+      "triangles": 2092,
+      "draw_calls": 1,
+      "bytes": 52176,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "clip_samples": 11016,
+  "sample_hz": 120,
+  "minimum_geometry_y_m": 0.005383323927813423,
+  "maximum_loop_error_m": 0.00002077165520247484,
+  "maximum_loop_rotation_error_rad": 0.00014041960593341664,
+  "maximum_stance_slip_m": 0.001136038344692017,
+  "maximum_segment_length_error_m": 0.0001763181437688388,
+  "maximum_decoded_pose_error_m": 0.0008163407425141322,
+  "clip_envelopes": {
+    "Recon_Idle": {
+      "min": [
+        -0.5468086009269255,
+        0.005478456016193064,
+        -0.2459999918937683
+      ],
+      "max": [
+        0.5538011738992447,
+        2.4264671802386206,
+        0.24808077418489294
+      ],
+      "dimensions_m": [
+        1.1006097748261703,
+        2.4209887242224277,
+        0.49408076607866125
+      ]
+    },
+    "Patrol_Walk_Cycle": {
+      "min": [
+        -0.5806111138975982,
+        0.005990722149357819,
+        -0.4314118398779585
+      ],
+      "max": [
+        0.587604119756117,
+        2.3472653837355386,
+        0.588580797665272
+      ],
+      "dimensions_m": [
+        1.1682152336537153,
+        2.341274661586181,
+        1.0199926375432304
+      ]
+    },
+    "Stealth_Walk_Cycle": {
+      "min": [
+        -0.580576339632488,
+        0.005973187138476293,
+        -0.3535637380178471
+      ],
+      "max": [
+        0.5875394378726315,
+        2.263650525936022,
+        0.505972169206041
+      ],
+      "dimensions_m": [
+        1.1681157775051196,
+        2.2576773387975457,
+        0.8595359072238882
+      ]
+    },
+    "Survey_Scan": {
+      "min": [
+        -0.5468373646616367,
+        0.005531131183281427,
+        -0.25457105201656716
+      ],
+      "max": [
+        0.5538184288774175,
+        2.426464438404351,
+        0.26013761038468763
+      ],
+      "dimensions_m": [
+        1.1006557935390542,
+        2.4209333072210697,
+        0.5147086624012548
+      ]
+    },
+    "Crouch_Observe": {
+      "min": [
+        -0.5468086090762415,
+        0.0059364822058013385,
+        -0.37884660236653145
+      ],
+      "max": [
+        0.5538011820335413,
+        2.4254799192528353,
+        0.44596206649354087
+      ],
+      "dimensions_m": [
+        1.100609791109783,
+        2.419543437047034,
+        0.8248086688600723
+      ]
+    },
+    "Signal_Halt": {
+      "min": [
+        -0.6744824214082816,
+        0.005478456016193064,
+        -0.2459999918937683
+      ],
+      "max": [
+        0.5538011738992447,
+        2.4264671802386206,
+        0.6531065920152912
+      ],
+      "dimensions_m": [
+        1.2282835953075262,
+        2.4209887242224277,
+        0.8991065839090595
+      ]
+    }
+  },
+  "minimum_support_contacts": {
+    "Recon_Idle": 2,
+    "Patrol_Walk_Cycle": 1,
+    "Stealth_Walk_Cycle": 1,
+    "Survey_Scan": 2,
+    "Crouch_Observe": 2,
+    "Signal_Halt": 2
+  },
+  "scope": "Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance.",
+  "status": "passed"
+}

@@ -1,4 +1,5 @@
 const collectionImages={
+'b-rek37':'assets/b-rek37/preview.png',
 'tai09':'assets/tai09/preview.png',
 'c08-worker':'assets/c08-worker/preview.png',
 'k0-tech-01':'assets/k0-tech-01/preview.png',
@@ -30,6 +31,7 @@ const collectionImages={
 };
 
 export const collections=[
+['b-rek37','B-REK37 / Recon Biped','Characters','A lean reconnaissance humanoid from the Cheetah manufacturer: navy floating armor, ivory service inserts, compound blue optics and long exposed leg actuators. Patrol, stealth, survey, observation crouch and silent signaling.','6 clips · 55 joints · 2.4 m · 3 LODs','Contract candidate'],
 ['tai09','09-TAI-01 / 球体','Characters','A tracking eye on a fast rolling sphere. Tune drive torque, momentum and spring-winch pulls, then catch high falls with deep gecko-leg recoil.','Live tuning · Overdrive · Tracking eye · Gecko · 3 LODs','Playable prototype'],
 ['c08-worker','C-08 / Industrial Worker','Characters','C-07-family industrial humanoid with ochre and ivory armor, recessed blue optics, hydraulic limbs and articulated hands. Heavy planted-foot walk, braced carry, inspection and service crouch.','5 clips · 55 joints · 2.3 m · 3 LODs','Contract candidate'],
 ['k0-tech-01','K0-TECH-01 / Felis','Characters','A compact feline robot with an angular industrial sensor head, modem-like antenna ears, blue-coated optics, beige and white armor, striped feet and a ringed tail. Full feline actions, a 1.6 m forward pounce and a C-07 size comparison.','8 clips · 41 cm tall · 3 LODs','Animated prototype'],
