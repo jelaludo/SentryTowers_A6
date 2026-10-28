@@ -1,7 +1,10 @@
 {
   "family": "tai09",
-  "label": "09-TAI / Gyro",
-  "status": "Playable kinematic prototype; consuming-game integration pending",
+  "label": "09-TAI-01",
+  "name_origin": "球体 (kyuutai): 9 = kyuu, TAI = tai",
+  "revision": 2,
+  "previous_commit": "6c2c22cd7d1c46fd1ec83384418203f26e8a6052",
+  "status": "Momentum and feet-first landing prototype; consuming-game integration pending",
   "plain_glb_source_of_truth": true,
   "units": "metres",
   "axes": "+Y up, +Z forward",
@@ -39,19 +42,43 @@
     "preview_sequences": [
       {
         "name": "Deploy",
-        "duration_s": 1.1
+        "duration_s": 0.85
       },
       {
         "name": "Hook_Fire",
-        "duration_s": 0.45
+        "duration_s": 0.3
       },
       {
         "name": "Jump",
-        "launch_speed_m_s": 5.8,
+        "launch_speed_m_s": 6.4,
         "gravity_m_s2": 9.81
       }
     ],
-    "collision": "Viewer confines movement to its planar wall/ceiling fixture. General rigid-body, surface adhesion, self-collision and tether forces are pending.",
+    "leg_mount_m": {
+      "stowed_y": -0.22,
+      "deployed_y": -0.4
+    },
+    "stance_height_m": 1.04,
+    "landing": {
+      "righting_window_s": 1.25,
+      "recoil_peak_m": [
+        0.075,
+        0.18
+      ],
+      "recovery_s": 1.26
+    },
+    "winch": {
+      "initial_acceleration_m_s2": 6,
+      "maximum_acceleration_m_s2": 30,
+      "ramp_s": 1.8,
+      "speed_limit_m_s": 18
+    },
+    "arena_m": [
+      84,
+      24,
+      86
+    ],
+    "collision": "Deterministic assisted winch, ballistic release and planar adhesion. General rigid-body collisions and dynamic rope physics remain pending.",
     "scale_note": "1.6 m nominal diameter assumed for this first interpretation"
   },
   "references": [
@@ -73,19 +100,19 @@
   ],
   "assets": [
     {
-      "file": "tai09_d0_lod0.glb",
+      "file": "09_tai_01_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 4049568,
+      "bytes": 4049612,
       "triangles": 73602,
       "draw_calls": 4,
       "materials": 4,
-      "sha256": "891692921cca1ee692673a212a272bbe897f683ea439efd4da6954935003c4ac",
-      "meshopt_file": "derived/meshopt/tai09_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 780460,
-      "meshopt_sha256": "809b83eba1f054f784d44535afcb85c42204f2fed1533e6b57333a417ed3e028",
+      "sha256": "9f22e91123a6edc2502de02d48a2ea64a0509f5a19472dbd225ba69c6f975e7b",
+      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 779244,
+      "meshopt_sha256": "6b7e36e5298b4b6590cb972358ebf037c87b76f3ff7e2f1eef8c209f3d94ac46",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -246,17 +273,17 @@
           "node": "SOCKET_FOOT_01",
           "parent": "LEG_01_ANKLE",
           "position_m": [
-            0.22296183640125478,
-            0.16375475475227474,
-            0.3861812287958333
+            0.21212702208852902,
+            0.18887938599826776,
+            0.36741477991561783
           ]
         },
         {
           "node": "SOCKET_FOOT_02",
           "parent": "LEG_02_ANKLE",
           "position_m": [
-            0.4459236728025096,
-            0.16375475475227474,
+            0.4242540441770581,
+            0.18887938599826776,
             1.959434878635765e-17
           ]
         },
@@ -264,36 +291,36 @@
           "node": "SOCKET_FOOT_03",
           "parent": "LEG_03_ANKLE",
           "position_m": [
-            0.22296183640125497,
-            0.16375475475227474,
-            -0.3861812287958332
+            0.21212702208852918,
+            0.18887938599826776,
+            -0.36741477991561766
           ]
         },
         {
           "node": "SOCKET_FOOT_04",
           "parent": "LEG_04_ANKLE",
           "position_m": [
-            -0.2229618364012547,
-            0.16375475475227474,
-            -0.38618122879583344
+            -0.21212702208852896,
+            0.18887938599826776,
+            -0.36741477991561794
           ]
         },
         {
           "node": "SOCKET_FOOT_05",
           "parent": "LEG_05_ANKLE",
           "position_m": [
-            -0.4459236728025096,
-            0.16375475475227474,
-            -7.420424864252014e-17
+            -0.4242540441770581,
+            0.18887938599826776,
+            -7.155048450903302e-17
           ]
         },
         {
           "node": "SOCKET_FOOT_06",
           "parent": "LEG_06_ANKLE",
           "position_m": [
-            -0.22296183640125466,
-            0.16375475475227474,
-            0.3861812287958334
+            -0.21212702208852893,
+            0.18887938599826776,
+            0.3674147799156179
           ]
         }
       ],
@@ -301,19 +328,19 @@
       "credit": "Models by jelaludo"
     },
     {
-      "file": "tai09_d0_lod1.glb",
+      "file": "09_tai_01_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 967900,
+      "bytes": 967944,
       "triangles": 12374,
       "draw_calls": 4,
       "materials": 4,
-      "sha256": "da02cfe8f90609b5d0e9417743c8a20c538fdb9949e81deb45044f577fadc32e",
-      "meshopt_file": "derived/meshopt/tai09_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 223688,
-      "meshopt_sha256": "2dbe791f5a6255dd493ed265a58b3998c66deaa125496b2a29ed2f440ff35bb4",
+      "sha256": "35cf2d5e9ed0c1d743307f9a085a75c827c6254769dc77d548c5155fcbdebc84",
+      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 223368,
+      "meshopt_sha256": "fb5f34cf5f986613fe6a2cec1ba92454a229361e3709b05f363a144073561eb8",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -474,17 +501,17 @@
           "node": "SOCKET_FOOT_01",
           "parent": "LEG_01_ANKLE",
           "position_m": [
-            0.22296183640125478,
-            0.16375475475227474,
-            0.3861812287958333
+            0.21212702208852902,
+            0.18887938599826776,
+            0.36741477991561783
           ]
         },
         {
           "node": "SOCKET_FOOT_02",
           "parent": "LEG_02_ANKLE",
           "position_m": [
-            0.4459236728025096,
-            0.16375475475227474,
+            0.4242540441770581,
+            0.18887938599826776,
             1.959434878635765e-17
           ]
         },
@@ -492,36 +519,36 @@
           "node": "SOCKET_FOOT_03",
           "parent": "LEG_03_ANKLE",
           "position_m": [
-            0.22296183640125497,
-            0.16375475475227474,
-            -0.3861812287958332
+            0.21212702208852918,
+            0.18887938599826776,
+            -0.36741477991561766
           ]
         },
         {
           "node": "SOCKET_FOOT_04",
           "parent": "LEG_04_ANKLE",
           "position_m": [
-            -0.2229618364012547,
-            0.16375475475227474,
-            -0.38618122879583344
+            -0.21212702208852896,
+            0.18887938599826776,
+            -0.36741477991561794
           ]
         },
         {
           "node": "SOCKET_FOOT_05",
           "parent": "LEG_05_ANKLE",
           "position_m": [
-            -0.4459236728025096,
-            0.16375475475227474,
-            -7.420424864252014e-17
+            -0.4242540441770581,
+            0.18887938599826776,
+            -7.155048450903302e-17
           ]
         },
         {
           "node": "SOCKET_FOOT_06",
           "parent": "LEG_06_ANKLE",
           "position_m": [
-            -0.22296183640125466,
-            0.16375475475227474,
-            0.3861812287958334
+            -0.21212702208852893,
+            0.18887938599826776,
+            0.3674147799156179
           ]
         }
       ],
@@ -529,19 +556,19 @@
       "credit": "Models by jelaludo"
     },
     {
-      "file": "tai09_d0_lod2.glb",
+      "file": "09_tai_01_d0_lod2.glb",
       "lod": 2,
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 81804,
+      "bytes": 81848,
       "triangles": 636,
       "draw_calls": 1,
       "materials": 1,
-      "sha256": "29def1109a6f81588ac90f4495236b351bd6af0bd484ae5f55287c1e4c7fb454",
-      "meshopt_file": "derived/meshopt/tai09_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 48160,
-      "meshopt_sha256": "b37d73c0d5ce487e8d64fedc8bd41f29cf543fc31c5597f6e97cdcddfc3d1ce2",
+      "sha256": "a9bff7865a86a63ad1edab9d8ef9d170b39d6546bd7f3fc3b0861535583c94f9",
+      "meshopt_file": "derived/meshopt/09_tai_01_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 48204,
+      "meshopt_sha256": "5e623fc3746aa7e67edeb20245caba9e4940b70685a2c4e6301953fb9722a78d",
       "meshopt_derived": true,
       "plot_m": [
         3,
@@ -702,17 +729,17 @@
           "node": "SOCKET_FOOT_01",
           "parent": "LEG_01_ANKLE",
           "position_m": [
-            0.22296183640125478,
-            0.16375475475227474,
-            0.3861812287958333
+            0.21212702208852902,
+            0.18887938599826776,
+            0.36741477991561783
           ]
         },
         {
           "node": "SOCKET_FOOT_02",
           "parent": "LEG_02_ANKLE",
           "position_m": [
-            0.4459236728025096,
-            0.16375475475227474,
+            0.4242540441770581,
+            0.18887938599826776,
             1.959434878635765e-17
           ]
         },
@@ -720,36 +747,36 @@
           "node": "SOCKET_FOOT_03",
           "parent": "LEG_03_ANKLE",
           "position_m": [
-            0.22296183640125497,
-            0.16375475475227474,
-            -0.3861812287958332
+            0.21212702208852918,
+            0.18887938599826776,
+            -0.36741477991561766
           ]
         },
         {
           "node": "SOCKET_FOOT_04",
           "parent": "LEG_04_ANKLE",
           "position_m": [
-            -0.2229618364012547,
-            0.16375475475227474,
-            -0.38618122879583344
+            -0.21212702208852896,
+            0.18887938599826776,
+            -0.36741477991561794
           ]
         },
         {
           "node": "SOCKET_FOOT_05",
           "parent": "LEG_05_ANKLE",
           "position_m": [
-            -0.4459236728025096,
-            0.16375475475227474,
-            -7.420424864252014e-17
+            -0.4242540441770581,
+            0.18887938599826776,
+            -7.155048450903302e-17
           ]
         },
         {
           "node": "SOCKET_FOOT_06",
           "parent": "LEG_06_ANKLE",
           "position_m": [
-            -0.22296183640125466,
-            0.16375475475227474,
-            0.3861812287958334
+            -0.21212702208852893,
+            0.18887938599826776,
+            0.3674147799156179
           ]
         }
       ],

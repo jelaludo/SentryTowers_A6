@@ -18,7 +18,7 @@ export function shellFaces(){
 }
 
 export function buildTAI(lod=0){
- let root=new T.Group();root.name='TAI09_ROOT';root.userData={family:'tai09',lod,damage_level:0,static:lod===2,nominal_diameter_m:1.6};
+ let root=new T.Group();root.name='TAI09_ROOT';root.userData={family:'tai09',designation:'09-TAI-01',lod,damage_level:0,static:lod===2,nominal_diameter_m:1.6};
  const bones=[],parts=[[],[],[],[]],detail=lod===0,n=detail?24:lod===1?10:6;
  const mats=[new T.MeshStandardMaterial({name:'TAI_CERAMIC',vertexColors:true,metalness:.3,roughness:.32}),new T.MeshStandardMaterial({name:'TAI_ALLOY',vertexColors:true,metalness:.8,roughness:.3}),new T.MeshStandardMaterial({name:'TAI_CARBON',vertexColors:true,metalness:.45,roughness:.49}),new T.MeshStandardMaterial({name:'TAI_AMBER',vertexColors:true,emissive:C.amber,emissiveIntensity:1.7,metalness:.3,roughness:.3})];
  function bone(name,parent,pos=[0,0,0]){const b=new T.Bone();b.name=name;b.position.fromArray(pos);b.userData={engine_driven:true};parent.add(b);bones.push(b);return b;}
@@ -66,9 +66,9 @@ export function buildTAI(lod=0){
   if(lod<2){const shape=new T.Shape();[[0,0],[.08,.03],[.17,.16],[.18,.29],[.12,.36],[.13,.24],[.075,.12],[0,.08]].forEach(([x,z],j)=>j?shape.lineTo(x,z):shape.moveTo(x,z));shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:.044,bevelEnabled:detail,bevelSegments:1,bevelSize:.004,bevelThickness:.004,steps:1});g.rotateX(Math.PI/2);g.translate(0,.022,0);add(base,g,1,C.steel);armor(base,.15,.064,.022,[.075,0,.12]);cyl(base,.032,.075,[0,0,0],C.gold);}
  }
  // Six limbs share segment geometry and named hinges. The three adhesive toes fold separately.
- LEG_ANGLES.forEach((a,i)=>{const id=String(i+1).padStart(2,'0'),mount=bone('LEG_'+id+'_MOUNT',body,[Math.sin(a)*.32,-.1,Math.cos(a)*.32]);mount.rotation.y=a-Math.PI/2;mount.userData.angle=a;
+ LEG_ANGLES.forEach((a,i)=>{const id=String(i+1).padStart(2,'0'),mount=bone('LEG_'+id+'_MOUNT',body,[Math.sin(a)*.32,-.22,Math.cos(a)*.32]);mount.rotation.y=a-Math.PI/2;mount.userData.angle=a;
   const hip=bone('LEG_'+id+'_HIP',mount),knee=bone('LEG_'+id+'_KNEE',hip,[UPPER,0,0]),ankle=bone('LEG_'+id+'_ANKLE',knee,[LOWER,0,0]);
-  hip.rotation.z=-2.62;knee.rotation.z=2.18;ankle.rotation.z=.44;
+  hip.rotation.z=-2.85;knee.rotation.z=2.50;ankle.rotation.z=.35;
   if(lod<2){
    for(const [b,len,w] of [[hip,UPPER,.12],[knee,LOWER,.105]]){
     beam(b,[0,0,-w/2],[len,0,-w/2],.029,C.edge,2);beam(b,[0,0,w/2],[len,0,w/2],.029,C.edge,2);armor(b,len*.74,w*1.4,.064,[len*.48,.047,0]);cyl(b,.066,w*1.9,[0,0,0],C.dark,2,[Math.PI/2,0,0]);cyl(b,.038,w*2,[0,0,0],C.steel,1,[Math.PI/2,0,0]);cyl(b,.015,w*2.02,[0,0,0],C.amber,3,[Math.PI/2,0,0]);

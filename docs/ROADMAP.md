@@ -1,8 +1,10 @@
 # Roadmap
 
-## 28 October 2026 / 09-TAI adaptive sphere
+## 28 October 2026 / 09-TAI-01 momentum and feet-first landings
 
-First playable kinematic prototype delivered: segmented rolling shell, stabilized core, grappling head, six folding multipod/gecko limbs, jump and cushioned landing, with a wall/ceiling test fixture and three export tiers. Next review: silhouette and assumed 1.6 m scale, independent support anchors while turning, multi-surface corner contacts, self-collision and internal deployment clearance, force-based tether/adhesion and swing, consuming-game integration and phone measurements. D1–D3 and simultaneous multiple tethers remain future requests. See `assets/tai09/README.md` for the measured hand-off.
+Completed the requested second prototype: correct 09-TAI-<number> designation and 球体 wordplay, one lower-mounted gecko leg set for floor/wall/ceiling, sustained acceleration and coasting, an 84 × 86 m arena with nine anchors up to 24 m, accelerating winch pulls, timed airborne rotation/deployment from both starting modes, automatic floor righting, and planted-leg impact recoil. Detailed/game/static-distance exports, decoded validation, dynamics and desktop/mobile browser review accompany the change. Previous exports remain preserved.
+
+Next integration work: independent support anchors while turning, multi-surface corner contacts, self-collision/internal deployment clearance, general terrain/rigid-body collisions, force-based tether and adhesion, consuming-game integration and reference-phone measurements. D1–D3 and simultaneous tethers remain future scope. See `assets/tai09/README.md` for measured hand-off and the limits of the assisted controller.
 
 This is the ordered delivery plan for the model library and Workshop. It translates game-design goals and the asset collaboration contract into reviewable work. An item moves to **completed** only when its files, measurements, validation, documentation and hand-off are present; visual or reference-phone review may remain explicitly pending.
 

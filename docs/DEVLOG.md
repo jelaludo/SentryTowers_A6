@@ -1,5 +1,17 @@
 # Devlog
 
+## 28 October 2026 / 09-TAI-01 — momentum, gecko feet and landing recoil
+
+Renamed the first unit **09-TAI-01**, following the 09-TAI-<number> family and 球体 (*kyuutai*) wordplay. Unified walking and adhesion into six gecko legs, mounted lower at −0.40 m below the core when deployed. Removed the separate multipod control. The folded sphere retains its 1.6 m envelope, with 32 panel controls and the same 95 engine-facing names across tiers.
+
+Expanded the playtest to 84 × 86 m with nine selectable grapple targets: walls at 3/7/12/18 m, suspended rings at 6/11/16 m, a 24 m ceiling anchor and a ground pad. Ball movement now builds momentum, coasts on release and brakes with X. Winch pull ramps from 6 to 30 m/s² and brakes before contact. Both folded and deployed launches rotate in midair using predicted contact time; wall/ceiling arrivals align the feet before contact, while released flights right for the floor. Sky rings automatically release into free flight. Ground/wall/ceiling impacts compress the legs 7.5–18 cm with planted initial contacts and damped recovery.
+
+Preserved the original GLBs, compressed copies, Blender scene and review images from `6c2c22cd7d1c46fd1ec83384418203f26e8a6052`. Current files use `09_tai_01_d0_lod*.glb`: master 73,602 triangles / four draws / 4,049,612 plain bytes; game 12,374 / four / 967,944; static distance 636 / one / 81,848. Rebuilt optional Meshopt derivatives and a separate current Blender review scene. No baked engine pivots or new damage states.
+
+Six plain/decoded exports pass validation. 180 geometry-pose samples plus 114 detailed/game recoil samples check clearance and rigid contacts. Eighteen directed approaches cover all anchors from both starting modes; releases, wall/ceiling drops, jumping, acceleration/coasting/braking and traversal are checked. Feet align before contact; sampled winch speed remains at or below 18 m/s, sampled mesh clearance is 4 mm and recoil foot-plane error is below 0.001 mm. Real WebGL browser review covers controls, high-anchor righting/recoil, six tier/encoding combinations, and desktop/mobile framing. Refreshed documentation, gallery and generated shared navigation.
+
+All eight requested prototype changes are implemented. General terrain/rigid-body collisions, dynamic rope/adhesion physics, turning-foot anchors, corner contacts, self-collision, consuming-game release packing and reference-phone acceptance remain pending integration. The assisted winch and planar fixture do not claim those capabilities or measured FPS. The received collaboration contract is unchanged.
+
 ## 28 October 2026 / 09-TAI spherical mobility prototype
 
 Created a new spherical robot from the supplied grappling, gecko and multipod references: ivory ceramic armor, graphite mechanisms, amber seams, a stabilized core, 32 panel controls, six folding limbs with eighteen adhesive toes, and a retractable three-jaw grappling head. The shell has twenty hexagonal regions and twelve pentagonal closure regions; the forward hex region is the launcher/optical port. Assumed nominal diameter is 1.6 m, with a shared rolling envelope and 95 stable lookup nodes across all three tiers.
