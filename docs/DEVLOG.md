@@ -1,5 +1,15 @@
 # Devlog
 
+## 28 October 2026 / B-REK43 — long-legged non-human recon variant
+
+Created a separate B-REK43 following the requested more elegant, visibly non-human silhouette. Hip centers move from 1.38 to 1.70 m; the hip-knee-ankle chain is 24.2% longer than B-REK37, while support length falls from 34 to 24 cm. Long splayed legs terminate in twin mechanical hoof shells. Two small exposed spherical hips sit on a thin cross tube. Four three-link curved fingers per hand, hooked tips, a deep faceted hexagonal thorax, curved mounted shoulder armor and a compact radio receiver/whip complete the requested changes. Provisional nominal scale is 2.7 m; antenna height is 2.715 m.
+
+Adapted all six reconnaissance actions to the 63-joint rig and compact hoof contact pivots, including a 43 cm observation crouch. The optical yaw stays engine-driven. All tiers preserve 66 unique node names and twelve sockets. Detailed: 114,942 triangles / six draws / 4,813,228 plain bytes; game: 21,238 / six / 1,568,244; static distance: 2,806 / one / 220,524. Plain GLBs, decoded optional Meshopt, Blender source, measured proportion comparison and studio design/detail/gait sheets are delivered.
+
+Six exports and 11,016 geometry samples pass. Minimum sampled floor clearance is 5.07 mm; maximum contact drift 1.62 mm; rigid arm/leg/finger length error 0.128 mm. Desktop/mobile WebGL checks cover all encodings, six actions, eight views including hip/gripper/hoof close-ups, contact controls and a true-scale B-REK37 comparison. Gallery, shared navigation and hand-off notes include the new family. Original B-REK37 and all earlier asset exports remain unchanged.
+
+Requested geometry and motion-viewer variant are complete as a repository contract candidate. Pending: consuming-game r160/release packing, transitions, general self-collision, terrain/physics, game-camera thresholds and reference-phone acceptance. D1–D3 and gameplay AI are future scope. No FPS claim; the received collaboration contract remains verbatim.
+
 ## 28 October 2026 / B-REK37 reconnaissance humanoid
 
 Created a separate C-07-manufacturer biped from the supplied B-REK37 reference, preserving the compact sensor head, long exposed neck, broad shoulders, narrow waist and long legs. Navy ceramic panels, ivory service inserts, blue multi-aperture optics, exposed hydraulic rods, articulated hands and a compact antenna backpack establish its recon role. Scale is an explicit 2.4 m authoring assumption; antenna height is 2.425 m.

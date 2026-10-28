@@ -1,6 +1,12 @@
 # Roadmap
 
 
+## 28 October 2026 / B-REK43 — non-human recon variant delivered
+
+Completed the requested longer legs, compact mechanical hooves, two small spherical hips on a tube, long curved fingers, faceted hexagonal chest depth and small radio backpack. B-REK43 is separate from preserved B-REK37. Detailed/game/static exports, 63-joint rig with six adapted actions, measured proportions, plain/decoded validation, Blender review sheets and a desktop/mobile viewer with close-ups and true-scale comparison are delivered in `assets/b-rek43/` and `b-rek43/`.
+
+Next integration: animation transitions, terrain IK/hoof compliance, general self-collision, r160/release compression, camera/LOD thresholds and reference-phone acceptance. D1–D3 and gameplay AI remain future scope. Retain the articulated game tier for moving characters; distance is a static map/loading silhouette.
+
 ## 28 October 2026 / B-REK37 recon biped — candidate delivered
 
 Completed the requested Cheetah-manufacturer humanoid with the reference's compact head, narrow waist and long legs. Navy/ivory mechanical design, six reconnaissance actions, detailed/game/static tiers, editable Blender source, measured manifest, plain/decoded validation, studio motion studies and a desktop/mobile viewer with C-07 comparison are delivered in `assets/b-rek37/` and `b-rek37/`.

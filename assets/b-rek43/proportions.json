@@ -1,0 +1,30 @@
+{
+  "scope": "Measured glTF bind-pose landmarks; height includes the antenna. Current game-tier files pinned by SHA-256. No performance or aesthetics claim.",
+  "models": {
+    "B-REK37": {
+      "file": "../b-rek37/b_rek37_d0_lod1.glb",
+      "sha256": "58b72e238532e8ca0a0bbaac8e3d41b7e1bc12e12bbd117d72acaafc01734fc0",
+      "maximum_height_m": 2.424999952316284,
+      "hip_center_height_m": 1.3799999952316284,
+      "hip_to_ankle_chain_m": 1.1844048443826414,
+      "ankle_spacing_m": 0.4099999964237213,
+      "support_length_m": 0.3400000035762787,
+      "hip_height_fraction": 0.5690721741720017
+    },
+    "B-REK43": {
+      "file": "../b-rek43/b_rek43_d0_lod1.glb",
+      "sha256": "00fabc3e5fdbd78d28e117ca05115a6836b5b22e18c9e2a01347c2d3abb6f63f",
+      "maximum_height_m": 2.7149999141693115,
+      "hip_center_height_m": 1.7000000476837158,
+      "hip_to_ankle_chain_m": 1.4706468950941867,
+      "ankle_spacing_m": 0.550000011920929,
+      "support_length_m": 0.23999999463558197,
+      "hip_height_fraction": 0.6261510502492418
+    }
+  },
+  "comparison": {
+    "leg_chain_increase_percent": 24.167585270283666,
+    "hip_height_increase_percent": 23.18840967810123,
+    "support_length_reduction_percent": 29.411767026132342
+  }
+}

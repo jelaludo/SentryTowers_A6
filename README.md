@@ -1,5 +1,8 @@
 # Model Workshop
 
+
+**B-REK43 / Long-stride Recon** pushes the B-REK design toward an elegant non-human silhouette: 24% longer leg chains, split mechanical hooves, paired spherical hips on a tube, long curved three-link fingers, a deep hexagonal chest and a compact radio pack. Six adapted recon motions, three tiers, Blender source, hip/gripper/hoof close-ups and a true-scale B-REK37 comparison are in `b-rek43/`. Measured hand-off: `assets/b-rek43/README.md`.
+
 **B-REK37 / Recon Biped** is a lean 2.4 m humanoid from the Cheetah manufacturer family: navy floating armor, ivory inserts, blue compound optics, a narrow open waist and long mechanical legs. Six actions cover recon idle, patrol, stealth, survey, observation crouch and a silent halt signal. Detailed/game/static tiers, Blender source, motion studies and an actual-scale C-07 comparison are in `b-rek37/`. Measured hand-off: `assets/b-rek37/README.md`.
 
 **09-TAI-01 / 球体** automatically rolls above 5 m/s and retracts its legs after two seconds airborne when landing time permits. It offers Control/Torque/Overdrive profiles with live drive, speed, winch and recoil tuning. The eye follows travel independently of the rolling shell, shell separation has a 12% clearance floor, and high drops compress the gecko legs up to 34 cm. An assisted spring winch, retained momentum and a 180 × 218 m arena support faster tests. Open `tai09/`; current detailed/game/static exports are in `assets/tai09/torque/`, with measured hand-off in `assets/tai09/README.md`. Previous exports remain preserved. General terrain, rigid-body and flexible rope integration remain pending.

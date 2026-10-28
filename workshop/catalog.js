@@ -1,4 +1,5 @@
 const collectionImages={
+'b-rek43':'assets/b-rek43/preview.png',
 'b-rek37':'assets/b-rek37/preview.png',
 'tai09':'assets/tai09/preview.png',
 'c08-worker':'assets/c08-worker/preview.png',
@@ -31,6 +32,7 @@ const collectionImages={
 };
 
 export const collections=[
+['b-rek43','B-REK43 / Long-stride Recon','Characters','An elegant non-human biped: longer splayed legs, split mechanical hooves, paired spherical hips on an exposed tube, long curved grippers and a raised hexagonal thorax. Compact radio pack and a true-scale B-REK37 comparison.','6 clips · 63 joints · 2.7 m · 3 LODs','Contract candidate'],
 ['b-rek37','B-REK37 / Recon Biped','Characters','A lean reconnaissance humanoid from the Cheetah manufacturer: navy floating armor, ivory service inserts, compound blue optics and long exposed leg actuators. Patrol, stealth, survey, observation crouch and silent signaling.','6 clips · 55 joints · 2.4 m · 3 LODs','Contract candidate'],
 ['tai09','09-TAI-01 / 球体','Characters','A tracking eye on a fast rolling sphere. Tune drive torque, momentum and spring-winch pulls, then catch high falls with deep gecko-leg recoil.','Live tuning · Overdrive · Tracking eye · Gecko · 3 LODs','Playable prototype'],
 ['c08-worker','C-08 / Industrial Worker','Characters','C-07-family industrial humanoid with ochre and ivory armor, recessed blue optics, hydraulic limbs and articulated hands. Heavy planted-foot walk, braced carry, inspection and service crouch.','5 clips · 55 joints · 2.3 m · 3 LODs','Contract candidate'],
