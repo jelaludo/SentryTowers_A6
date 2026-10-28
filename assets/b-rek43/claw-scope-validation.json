@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "2699ab12da480c06b07dc42e927ae4ad9b1b76c6",
+  "scope": "B-REK43 foot geometry refinement only. Compare ALL bind transforms and animation tracks, plus non-foot geometry/material assignments including the corrected hands, against the pinned hand correction.",
+  "assets": [
+    {
+      "file": "assets/b-rek43/b_rek43_d0_lod0.glb",
+      "baseline_sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
+      "sha256": "8f57381439e99464b120208b11893abca33bb2ae3da4c17d9cc451a79b53a789",
+      "unchanged_bind_nodes": 67,
+      "unchanged_animation_tracks": 900,
+      "unchanged_non_foot_vertices": 78296
+    },
+    {
+      "file": "assets/b-rek43/b_rek43_d0_lod1.glb",
+      "baseline_sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
+      "sha256": "59a461ef42f5c9e3abe81af5bd6a6bfdf100fa040482fce6ce2b66110354a798",
+      "unchanged_bind_nodes": 67,
+      "unchanged_animation_tracks": 900,
+      "unchanged_non_foot_vertices": 23188
+    }
+  ],
+  "status": "passed"
+}

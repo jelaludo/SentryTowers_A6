@@ -37,7 +37,7 @@
   "checks": [
     "six clips and timeline controls",
     "heel, double support, single support, swing indicators",
-    "hero/front/side/rear bounds and optical/hip/gripper/hoof close-ups",
+    "hero/front/side/rear bounds and optical/hip/gripper/claw close-ups",
     "skeleton/wireframe/foot-marker toggles",
     "all plain and Meshopt tiers",
     "static tier disables actions",
@@ -49,18 +49,18 @@
   "asset_hashes": [
     {
       "file": "b_rek43_d0_lod0.glb",
-      "sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
-      "meshopt_sha256": "73674d9f620a189ead21419fada91ffdd609d267d62efe772b7ab2b777894a45"
+      "sha256": "8f57381439e99464b120208b11893abca33bb2ae3da4c17d9cc451a79b53a789",
+      "meshopt_sha256": "7c5b06be8d55d81544b04239c42fe2c1c8cffe96acb2b1c14320f71f7ccc1045"
     },
     {
       "file": "b_rek43_d0_lod1.glb",
-      "sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
-      "meshopt_sha256": "3e03869280743d28c2be83ab70d74e49c9cba753b32505fdab23d9bd5ff7132a"
+      "sha256": "59a461ef42f5c9e3abe81af5bd6a6bfdf100fa040482fce6ce2b66110354a798",
+      "meshopt_sha256": "5cdc12c14441ca2d2923a831e910ad02f4e681be5609a3282a2931955d68914b"
     },
     {
       "file": "b_rek43_d0_lod2.glb",
-      "sha256": "bd0f31ca29c4abcc2c732c2e9927aed4c1390c915e60f6197cb1dda7bab31e2a",
-      "meshopt_sha256": "49a6516700438e349b9abcc9e3d947e5ab2a814f539dc17c4dd63c8a7bc15f4c"
+      "sha256": "0083477c46a113d7bce985a3d80359a63032b85af0485e9ee39a7f66ae0ae72f",
+      "meshopt_sha256": "5dc96443c43c408778006963b918342a4e889964540c3734d5c0a8a917346629"
     }
   ]
 }

@@ -32,13 +32,13 @@ function updatePose(){if(!gltf)return;holder.position.z=action&&$('travel').chec
 function scrub(t){time=elapsed=t;playing=false;$('play').textContent='Play';updatePose();follow();}
 function follow(){const next=new T.Vector3(0,0,holder.position.z),delta=next.clone().sub(lastFollow);camera.position.add(delta);controls.target.add(delta);lastFollow.copy(next);grid.position.z=Math.floor(next.z/.5)*.5;floor.position.z=next.z;key.position.z=next.z+4;key.target.position.z=next.z;key.target.updateMatrixWorld();controls.update();camera.updateMatrixWorld(true);}
 function setView(view){
- activeView=view;stage.classList.toggle('is-detail',['head','hips','hands','hooves'].includes(view));const directions={hero:[3,1.5,5],front:[0,.15,6],side:[6,.15,.10],rear:[-3,1.6,-5],head:[1.5,.15,4],hips:[3,.6,5],hands:[2,.3,5],hooves:[3,2,5]},back=new T.Vector3(...directions[view]).normalize();
+ activeView=view;stage.classList.toggle('is-detail',['head','hips','hands','claws'].includes(view));const directions={hero:[3,1.5,5],front:[0,.15,6],side:[6,.15,.10],rear:[-3,1.6,-5],head:[1.5,.15,4],hips:[3,.6,5],hands:[2,.3,5],claws:[3,2,5]},back=new T.Vector3(...directions[view]).normalize();
  const bounds=motionBounds.clone().translate(new T.Vector3(0,0,holder.position.z));
  if(view==='head'){bounds.min.set(-.29,2.21,holder.position.z-.27);bounds.max.set(.29,2.74,holder.position.z+.3)}
  if(view==='hips'){const p=gltf.scene.getObjectByName('PELVIS').getWorldPosition(new T.Vector3());bounds.min.copy(p).add(new T.Vector3(-.32,-.19,-.2));bounds.max.copy(p).add(new T.Vector3(.32,.26,.24))}
  if(view==='hands'){const p=gltf.scene.getObjectByName('HAND_L').getWorldPosition(new T.Vector3());bounds.min.copy(p).add(new T.Vector3(-.17,-.36,-.16));bounds.max.copy(p).add(new T.Vector3(.17,.08,.26))}
- if(view==='hooves'){bounds.makeEmpty();for(const n of ['ANKLE_L','ANKLE_R','SOCKET_TOE_L','SOCKET_TOE_R'])bounds.expandByPoint(gltf.scene.getObjectByName(n).getWorldPosition(new T.Vector3()));bounds.expandByScalar(.12)}
- if($('compare').checked&&comparison&&!['head','hips','hands','hooves'].includes(view)){comparison.updateMatrixWorld(true);bounds.union(new T.Box3().setFromObject(comparison,true))}
+ if(view==='claws'){bounds.makeEmpty();for(const n of ['ANKLE_L','ANKLE_R','SOCKET_TOE_L','SOCKET_TOE_R'])bounds.expandByPoint(gltf.scene.getObjectByName(n).getWorldPosition(new T.Vector3()));bounds.expandByScalar(.12)}
+ if($('compare').checked&&comparison&&!['head','hips','hands','claws'].includes(view)){comparison.updateMatrixWorld(true);bounds.union(new T.Box3().setFromObject(comparison,true))}
  const center=bounds.getCenter(new T.Vector3()),right=new T.Vector3(back.z,0,-back.x).normalize(),up=new T.Vector3().crossVectors(back,right),tanV=Math.tan(camera.fov*Math.PI/360),tanH=tanV*camera.aspect;let distance=.5;
  for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){const p=new T.Vector3(x,y,z).sub(center);distance=Math.max(distance,p.dot(back)+(Math.abs(p.dot(right))+.10)/(tanH*.83),p.dot(back)+(Math.abs(p.dot(up))+.12)/(tanV*.78))}
  controls.target.copy(center);camera.position.copy(center).addScaledVector(back,distance);lastFollow.set(0,0,holder.position.z);controls.update();camera.updateMatrixWorld(true);

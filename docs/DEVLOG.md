@@ -1,5 +1,13 @@
 # Devlog
 
+## 28 October 2026 / B-REK43 — mechanical claw feet
+
+Replaced the twin hoof shells with three separated toes, exposed knuckles, tapered titanium tips and a compact rear stabilizer, following the supplied foot crop. The center claw extends slightly beyond the side toes. Existing ankle/toe carriers, contact locations, corrected hands and all six performances are preserved.
+
+Rebuilt the Blender master, all three plain GLBs, optional Meshopt derivatives and studio/design/detail/gait previews. Detailed: 125,838 triangles / six draws / 5,241,784 plain bytes; game: 24,102 / six / 1,714,488; static: 2,926 / one / 231,260. Game and static tiers stay within their triangle targets; static also meets the one-draw / 250 KB target. Viewer close-up is now labeled Claws.
+
+Six plain/decoded exports and 11,016 geometry samples pass with zero glTF errors/warnings, minimum 5.11 mm floor clearance and maximum 1.62 mm support drift. A comparison against `2699ab12da480c06b07dc42e927ae4ad9b1b76c6` proves all bind transforms, 900 animation tracks per tier and non-foot geometry/material assignments unchanged. Prior source and hoof exports remain pinned there. Desktop/mobile WebGL checks cover the six clips, all encodings/tiers and updated claw close-up. The foot refinement is complete; independent toe flexion, terrain compliance and previously listed consuming-game acceptance remain future work. The received collaboration contract is unchanged.
+
 ## 28 October 2026 / B-REK43 — corrected thumb and finger orientation
 
 Corrected both grippers from forward-facing backs and reversed flexion to a neutral palms-inward pose: thumbs forward, finger hooks curling into the palm, dorsal armor outward. The right halt signal now rotates the wrist to present an upright palm and extends all three finger links. Hand/tool socket locations follow the corrected palm side across all three tiers; node names and hierarchy remain consistent.

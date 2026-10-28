@@ -1,5 +1,10 @@
 # Roadmap
 
+## 28 October 2026 / B-REK43 claw feet — completed
+
+Replaced split hooves with three separated, knuckled mechanical toes and tapered claws, plus a compact rear stabilizer. Detailed/game/static exports, source, review sheets and viewer are updated. The corrected hands, full rig and all motion tracks are unchanged. Plain/decoded validation and the comparison against the previous hand-corrected revision pass. Individual toe flexion and terrain compliance are not authored; existing game integration requirements remain pending.
+
+
 
 ## 28 October 2026 / B-REK43 hand orientation — corrected
 

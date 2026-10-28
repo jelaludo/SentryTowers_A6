@@ -1,6 +1,6 @@
 # B-REK43 / Long-stride Recon
 
-A separate B-REK variant from the C-07 Mechanical Cheetah manufacturer, developed from the same user-supplied B-REK37 image. The requested direction is elegant and clearly non-human despite being bipedal: longer splayed legs, compact split mechanical hooves, two small spherical hips on a thin cross tube, long curved grippers, a raised hexagonal thorax and a small radio backpack. B-REK37 and all earlier families remain unchanged.
+A separate B-REK variant from the C-07 Mechanical Cheetah manufacturer, developed from the same user-supplied B-REK37 image. The requested direction is elegant and clearly non-human despite being bipedal: longer splayed legs, compact three-toed mechanical claw feet, two small spherical hips on a thin cross tube, long curved grippers, a raised hexagonal thorax and a small radio backpack. B-REK37 and all earlier families remain unchanged.
 
 Navy ceramic, graphite mechanisms, ivory service panels, titanium bearings and blue compound optics retain the manufacturer language. The shoulders have curved double-skin armor mounted on radial brackets. Finger links taper into hooked mechanical tips. The radio receiver has controls, a status window, protected antenna root and whip.
 
@@ -8,13 +8,19 @@ Open the viewer:
 
 http://localhost:8788/b-rek43/
 
+## Claw-foot refinement / 28 October 2026
+
+Replaced the twin hoof shells with three separated toes per foot. Each has a narrow navy upper link, exposed axle knuckles and a down-curved titanium claw tip. The center claw projects slightly farther than the side digits. A small rear stabilizer completes the support footprint. The lower instep, visible gaps and individual tips follow the supplied foot crop.
+
+This revision changes foot geometry only. `claw-scope-validation.json` compares both animated tiers against the corrected-hand commit `2699ab12da480c06b07dc42e927ae4ad9b1b76c6`: all bind transforms and 900 animation tracks per tier are unchanged. The 78,296 detailed and 23,188 game non-foot vertices retain their positions, normals and materials, including the corrected hands. Previous hoof exports and Blender source remain available at that pinned commit. `claws-detail.png` shows the new feet.
+
 ## Hand orientation correction / 28 October 2026
 
 Neutral palms now face inward, thumbs point forward and fingers curl into the palm. The armor stays on the outside of each hand. The raised right hand rolls and straightens for a palm-forward halt signal. This corrects the earlier finger flexion toward the dorsal armor.
 
 Hand and tool socket positions follow the corrected palm side; names and parent relationships are preserved across all tiers. For attachment orientation, the palm normal in the HAND node's rest frame is −X on the left and +X on the right. Transform that vector by the posed hand rotation. Bone lookup names remain unchanged.
 
-`hand-scope-validation.json` compares the corrected detailed/game exports with original commit `7f9598bee3ecd702908a2f3e9f4ddf2478475219`. Per tier, 33 non-hand bind nodes and 360 non-hand animation tracks are unchanged; 64,180 detailed and 15,816 game body vertices retain their positions, normals and material assignments. Original source and exports remain available at that pinned commit. `validation-report.json` additionally checks both thumbs forward, relaxed finger curl into the palms throughout motion, and the raised palm forward.
+`hand-scope-validation.json` is historical evidence from the hand-only revision `2699ab1`, comparing that revision’s detailed/game exports with original commit `7f9598bee3ecd702908a2f3e9f4ddf2478475219`. Per tier, 33 non-hand bind nodes and 360 non-hand animation tracks are unchanged; 64,180 detailed and 15,816 game body vertices retain their positions, normals and material assignments. Original source and exports remain available at that pinned commit. `validation-report.json` additionally checks both thumbs forward, relaxed finger curl into the palms throughout motion, and the raised palm forward.
 
 ## Proportions and scale
 
@@ -24,11 +30,11 @@ Nominal height is a provisional 2.7 m authoring choice; the reference has no sca
 | --- | ---: | ---: |
 | Hip center above ground | 1.38 m | 1.70 m |
 | Hip → knee → ankle chain | 1.184 m | 1.471 m |
-| Foot/hoof support length | 0.34 m | 0.24 m |
+| Foot support length | 0.34 m | 0.24 m |
 | Ankle spacing | 0.41 m | 0.55 m |
 | Hip height / antenna height | 56.9% | 62.6% |
 
-The leg chain is 24.2% longer, while the hoof support is 29.4% shorter. `proportions.json` measures the actual game GLBs and pins both file hashes. The B-REK37 scale checkbox shows the earlier robot standing beside this one at true size.
+The leg chain is 24.2% longer, while the foot support is 29.4% shorter. `proportions.json` measures the actual game GLBs and pins both file hashes. The B-REK37 scale checkbox shows the earlier robot standing beside this one at true size.
 
 ## Exports and measured budgets
 
@@ -36,9 +42,9 @@ Plain self-contained GLBs are authoritative. Optional Meshopt copies in `derived
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 114,942 | 6 | 4,817,368 | 1,141,808 | 6 |
-| Game / LOD1 | 21,238 | 6 | 1,571,988 | 463,992 | 6 |
-| Static distance / LOD2 | 2,806 | 1 | 220,748 | 66,824 | 0 |
+| Detailed / LOD0 | 125,838 | 6 | 5,241,784 | 1,229,744 | 6 |
+| Game / LOD1 | 24,102 | 6 | 1,714,488 | 494,892 | 6 |
+| Static distance / LOD2 | 2,926 | 1 | 231,260 | 69,552 | 0 |
 
 LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 3k triangles, one draw and 250 KB. Use LOD0 for close inspection and recordings, LOD1 throughout animated gameplay. LOD2 is an unskinned static map/loading silhouette with the same named lookup hierarchy, no clips. Initial LOD2, 30 m approach and 8 m hysteresis are suggested inspection values awaiting game-camera review; never swap a moving character to static distance.
 
@@ -46,15 +52,15 @@ LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 
 
 Metres, +Y up, +Z forward, origin on ground beneath the standing pelvis. Standing plot: 1.3 × 1.0 m. Use per-clip envelopes from `validation-report.json` for animated culling. D0 intact only; D1–D3 are not authored and are independent of LOD.
 
-63 rigid joints and 66 unique dot-free nodes, consistent across all three tiers. Every vertex has a single bone weight. Main path: `ROOT` → `BREK43_RIG` → `MOTION` → `PELVIS` → `WAIST` → `CHEST` → `NECK` → `HEAD` → `SENSOR_YAW`. Each hand has four three-link fingers (`FINGER_L1_01` through `_03`, and corresponding left/right digits), plus a two-link opposed thumb. The spherical hips belong to `HIP_L/R`; the transverse tube belongs to `PELVIS`. Each cloven pair shares its ankle/toe carrier; its halves do not have independent terrain compliance.
+63 rigid joints and 66 unique dot-free nodes, consistent across all three tiers. Every vertex has a single bone weight. Main path: `ROOT` → `BREK43_RIG` → `MOTION` → `PELVIS` → `WAIST` → `CHEST` → `NECK` → `HEAD` → `SENSOR_YAW`. Each hand has four three-link fingers (`FINGER_L1_01` through `_03`, and corresponding left/right digits), plus a two-link opposed thumb. The spherical hips belong to `HIP_L/R`; the transverse tube belongs to `PELVIS`. The three front claws share `TOE_L/R`; the instep and rear stabilizer follow `ANKLE_L/R`. Toe knuckles are modeled geometry: individual digits have no separate animation or terrain compliance.
 
 Place the complete glTF scene inside an instance wrapper. `ROOT` is a skeleton lookup, while the skin is a scene sibling. Use `SkeletonUtils.clone` for skinned instances. All locomotion clips are in place; move the wrapper along +Z at the declared `speed_mps` times playback rate. No root displacement is baked.
 
-`SENSOR_YAW` is excluded from clips and remains engine-driven about local Y (glTF up). Survey animates `HEAD` and the torso. Twelve sockets retain names, parents and bind positions across tiers: `SOCKET_SENSOR`, `SOCKET_BACK`, `SOCKET_HAND_L/R`, `SOCKET_TOOL_L/R`, `SOCKET_SOLE_L/R`, `SOCKET_HEEL_L/R`, `SOCKET_TOE_L/R`. They have no redundant animation tracks. The hoof sockets mark the centerline of the paired contact plane at 6 mm above ground; heel/sole/toe names preserve the contact convention despite the compact cloven shape.
+`SENSOR_YAW` is excluded from clips and remains engine-driven about local Y (glTF up). Survey animates `HEAD` and the torso. Twelve sockets retain names, parents and bind positions across tiers: `SOCKET_SENSOR`, `SOCKET_BACK`, `SOCKET_HAND_L/R`, `SOCKET_TOOL_L/R`, `SOCKET_SOLE_L/R`, `SOCKET_HEEL_L/R`, `SOCKET_TOE_L/R`. They have no redundant animation tracks. The foot sockets retain the original heel/sole/toe contact convention and 6 mm contact plane. The center claw reaches the front toe-off point; the rear stabilizer reaches the heel point.
 
 ## Recon motion
 
-The six B-REK37 performances are adapted to the longer leg chain, new hoof pivot locations and third finger joints. Analytic two-bone IK preserves leg lengths. Heel placement, flat support and toe roll remain anchored; patrol uses 66% stance, stealth 78%. Arms counter-swing, the torso counter-rotates and the pelvis transfers weight laterally. These are authored flat-floor kinematics, not captured motion or a force simulation.
+The six B-REK37 performances are adapted to the longer leg chain, compact foot pivot locations and third finger joints. Analytic two-bone IK preserves leg lengths. Heel placement, flat support and toe roll remain anchored; patrol uses 66% stance, stealth 78%. Arms counter-swing, the torso counter-rotates and the pelvis transfers weight laterally. These are authored flat-floor kinematics, not captured motion or a force simulation.
 
 | Clip | Duration | Mode | Behavior |
 | --- | ---: | --- | --- |
@@ -67,9 +73,9 @@ The six B-REK37 performances are adapted to the longer leg chain, new hoof pivot
 
 ## Viewer and verification
 
-Eight views: three-quarter, front, side, rear, optics, hips, grippers and hooves. Six motion controls, playback speed, replay, scrub, contact timelines and phase jumps, ground travel, skeleton, wireframe, contact markers, repeated one-shots, fullscreen and B-REK37 comparison. Drag to orbit, scroll to zoom, Space to pause. Grid: 50 cm. Selected plain/Meshopt GLB and Blender source downloads are available. `design-sheet.png`, `detail-sheet.png` and `gait-study.png` are derived studio reviews; `review-images.json` lists their source and generators.
+Eight views: three-quarter, front, side, rear, optics, hips, grippers and claws. Six motion controls, playback speed, replay, scrub, contact timelines and phase jumps, ground travel, skeleton, wireframe, contact markers, repeated one-shots, fullscreen and B-REK37 comparison. Drag to orbit, scroll to zoom, Space to pause. Grid: 50 cm. Selected plain/Meshopt GLB and Blender source downloads are available. `design-sheet.png`, `detail-sheet.png` and `gait-study.png` are derived studio reviews; `review-images.json` lists their source and generators.
 
-Six plain/decoded exports and 11,016 geometry samples at 120 Hz pass validation: no glTF errors or warnings, finite/nondegenerate geometry, unique naming and cross-tier socket parity, explicit durations, unbaked sensor control, loop/return seams, intermediate-key rigid arm/leg/finger lengths, compact hoof support, world-space contact anchors and decoded pose agreement. Minimum sampled floor clearance: 5.07 mm. Maximum contact drift: 1.62 mm. Maximum rigid-segment length error: 0.128 mm. Reports: `validation-report.json` and `viewer-validation.json`.
+Six plain/decoded exports and 11,016 geometry samples at 120 Hz pass validation: no glTF errors or warnings, finite/nondegenerate geometry, unique naming and cross-tier socket parity, explicit durations, unbaked sensor control, loop/return seams, intermediate-key rigid arm/leg/finger lengths, compact foot support, world-space contact anchors and decoded pose agreement. Minimum sampled floor clearance: 5.11 mm. Maximum contact drift: 1.62 mm. Maximum rigid-segment length error: 0.128 mm. Reports: `validation-report.json` and `viewer-validation.json`.
 
 Chromium WebGL checks cover all six clips and tier/encoding combinations, desktop/390 px mobile framing, close-ups, controls, travel and true-scale comparison with zero page errors. No FPS claim. Repository status: **Contract candidate**. Consuming-game r160/release gltfpack, transitions, general self-collision, terrain/physics, game cameras and reference-phone acceptance remain pending. The received collaboration contract is unchanged.
 
@@ -83,7 +89,7 @@ From the repository root:
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/build_b_rek43.py
 node tools/asset-pipeline/pack-b-rek43.mjs
 node tools/asset-pipeline/validate-b-rek43.mjs
-node tools/asset-pipeline/validate-b-rek43-hand-scope.mjs
+node tools/asset-pipeline/validate-b-rek43-claw-scope.mjs
 node tools/asset-pipeline/measure-b-rek43-proportions.mjs
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/render_b_rek43.py
 /Applications/Blender.app/Contents/MacOS/Blender -b -t 2 --python-exit-code 1 --python tools/blender/render_b_rek43.py -- --gait-study

@@ -216,20 +216,35 @@ def shape(lod):
      if j==1:
       for f in [.47,.67,.91]:g.box(a.lerp(c,f)+Vector((0,.02,0)),(.086,.046,.013),0,bone,.003)
       joint(a.lerp(c,.86)+Vector((s*.019,0,0)),.027,.071,bone,s)
-  # Two tall cloven hoof shells, with no shoe-like extended toe or flat heel block.
+  # Three separated claw digits, carried by the existing ankle/toe pivots.
+  # Preserve the 6 mm sole and the original heel/toe roll contact extrema.
   b='ANKLE_'+side;a=H[b];joint(a,.037,.089,b,s)
-  for k in [-1,1]:
-   xx=a.x+k*.050
-   rail(a+Vector((k*.027,0,-.012)),(xx,-.005,.105),.014,b)
-   start=len(g.v);g.hull([(.095,.022,.051,.045),(.055,.039,.078,.072),(-.025,.041,.088,.082),(-.120,.032,.043,.037),(-.145,.023,.023,.017)],1,'TOE_'+side)
-   for v in g.v[start:]:v.x+=xx
+  def claw_piece(stations,m,bone):
+   # Closed chamfered sections; static LOD keeps the separate toe silhouettes.
+   section=[(-1,-1),(1,-1),(1,.35),(.6,1),(-.6,1),(-1,.35)] if lod<2 else [(-1,-1),(1,-1),(1,1),(-1,1)]
+   n=len(section);vs=[(a.x+x+u*w,y,z+v*h) for x,y,z,w,h in stations for u,v in section];fs=[tuple(range(n-1,-1,-1)),tuple(range((len(stations)-1)*n,len(stations)*n))]
+   for j in range(len(stations)-1):
+    for i in range(n):fs.append((j*n+i,j*n+(i+1)%n,(j+1)*n+(i+1)%n,(j+1)*n+i))
+   g.add(vs,fs,m,bone)
+  for k in [-1,1]:rail(a+Vector((k*.027,0,-.012)),(a.x+k*.035,.006,.139),.013,b)
+  g.box((a.x,.012,.137),(.115,.072,.043),0,b,.006)
+  # Short rear stabilizer: a narrow heel claw, not a full-length boot sole.
+  claw_piece([(0,.025,.099,.026,.021),(0,.067,.036,.029,.030),(0,.095,.014,.018,.008)],0,b)
+  if lod<2:joint((a.x,.038,.082),.021,.058,b,s)
+  toe='TOE_'+side
+  for k in [-1,0,1]:
+   x=k*.045;tipx=k*.069;end=-.145 if k==0 else -.130
+   root=Vector((a.x+x,-.011,.121));knuckle=Vector((a.x+k*.059,-.072,.058))
    if lod<2:
-    # Narrow titanium wear rim follows the same six-millimetre contact plane.
-    start=len(g.v);g.hull([(.094,.020,.017,.010),(.045,.037,.018,.011),(-.12,.030,.018,.011),(-.144,.021,.017,.010)],4,'TOE_'+side)
-    for v in g.v[start:]:v.x+=xx
-    g.tube((xx,-.005,.112),(xx,-.005,.144),.022,0,b)
-    if lod==0:
-     for yy,z in [(-.075,.101),(.044,.144)]:g.bolt((xx,yy,z),'TOE_'+side,axis=(0,0,1))
+    joint(root,.020,.045,toe,s);joint(knuckle,.019,.043,toe,s)
+    g.strut(root,knuckle,.026,0,toe)
+   else:g.tube(knuckle-Vector((.022,0,0)),knuckle+Vector((.022,0,0)),.019,0,toe,sides=6)
+   claw_piece([(x,-.015,.136,.019,.014),(k*.052,-.039,.113,.022,.020),(k*.058,-.061,.079,.016,.012)],1,toe)
+   # Down-curved, replaceable titanium tips leave daylight between all digits.
+   claw_piece([(k*.060,-.080,.054,.018,.020),(k*.065,end+.022,.028,.017,.022),(tipx,end,.012,.009,.006)],4,toe)
+   if lod<2:
+    g.tube(root+Vector((0,.009,-.010)),knuckle+Vector((0,.013,-.007)),.007,4,toe,sides=10 if lod==0 else 6)
+    if lod==0:g.bolt((a.x+k*.052,-.037,.135),toe,axis=(0,-.65,.76))
  return g
 
 def make_arm(col):

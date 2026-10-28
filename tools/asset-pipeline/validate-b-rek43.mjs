@@ -31,7 +31,7 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  assert(Math.abs(wp(root,'PELVIS').y-1.70)<.0001,'raised paired hip center');
  const leg=wp(root,'HIP_L').distanceTo(wp(root,'KNEE_L'))+wp(root,'KNEE_L').distanceTo(wp(root,'ANKLE_L'));assert(leg>1.46,'long leg proportions');
  assert(wp(root,'ANKLE_L').x-wp(root,'HIP_L').x>.11,'splayed non-human stance');
- assert(wp(root,'SOCKET_TOE_L').distanceTo(wp(root,'SOCKET_HEEL_L'))<.241,'compact hoof support');
+ assert(wp(root,'SOCKET_TOE_L').distanceTo(wp(root,'SOCKET_HEEL_L'))<.241,'compact claw support');
  // Neutral anatomy: thumbs lead forward, fingers curve into the palm.
  for(const [id,sign] of [['L',1],['R',-1]]){
   const thumb=wp(root,'THUMB_'+id+'_01').sub(wp(root,'HAND_'+id));assert(thumb.z>.055,'thumb must occupy the forward edge '+file+' '+id);

@@ -37,8 +37,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 4817368,
-      "triangles": 114942,
+      "bytes": 5241784,
+      "triangles": 125838,
       "draw_calls": 6,
       "plot_m": [
         1.3,
@@ -109,7 +109,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "8b946cd00d521084d4c6cdeda017c2a7d3d70edd62c320fafcc876cbcad9d2cf",
+      "sha256": "8f57381439e99464b120208b11893abca33bb2ae3da4c17d9cc451a79b53a789",
       "bounds": {
         "min": [
           -0.49900001287460327,
@@ -307,8 +307,8 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 1141808,
-      "meshopt_sha256": "73674d9f620a189ead21419fada91ffdd609d267d62efe772b7ab2b777894a45"
+      "meshopt_bytes": 1229744,
+      "meshopt_sha256": "7c5b06be8d55d81544b04239c42fe2c1c8cffe96acb2b1c14320f71f7ccc1045"
     },
     {
       "file": "b_rek43_d0_lod1.glb",
@@ -316,8 +316,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1571988,
-      "triangles": 21238,
+      "bytes": 1714488,
+      "triangles": 24102,
       "draw_calls": 6,
       "plot_m": [
         1.3,
@@ -388,7 +388,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "f965324af23cc4ff2290f50b1bb407cb6246722318e52bf2cc949e21c34efde6",
+      "sha256": "59a461ef42f5c9e3abe81af5bd6a6bfdf100fa040482fce6ce2b66110354a798",
       "bounds": {
         "min": [
           -0.49900001287460327,
@@ -586,8 +586,8 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 463992,
-      "meshopt_sha256": "3e03869280743d28c2be83ab70d74e49c9cba753b32505fdab23d9bd5ff7132a"
+      "meshopt_bytes": 494892,
+      "meshopt_sha256": "5cdc12c14441ca2d2923a831e910ad02f4e681be5609a3282a2931955d68914b"
     },
     {
       "file": "b_rek43_d0_lod2.glb",
@@ -595,8 +595,8 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 220748,
-      "triangles": 2806,
+      "bytes": 231260,
+      "triangles": 2926,
       "draw_calls": 1,
       "plot_m": [
         1.3,
@@ -604,7 +604,7 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "bd0f31ca29c4abcc2c732c2e9927aed4c1390c915e60f6197cb1dda7bab31e2a",
+      "sha256": "0083477c46a113d7bce985a3d80359a63032b85af0485e9ee39a7f66ae0ae72f",
       "bounds": {
         "min": [
           -0.49900001287460327,
@@ -802,21 +802,21 @@
       ],
       "meshopt_file": "derived/meshopt/b_rek43_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 66824,
-      "meshopt_sha256": "49a6516700438e349b9abcc9e3d947e5ab2a814f539dc17c4dd63c8a7bc15f4c"
+      "meshopt_bytes": 69552,
+      "meshopt_sha256": "5dc96443c43c408778006963b918342a4e889964540c3734d5c0a8a917346629"
     }
   ],
   "design": {
     "nominal_height_m": 2.7,
     "scale_basis": "Authoring assumption; reference has no dimension annotation",
     "role": "Bipedal reconnaissance",
-    "proportions": "Small compound sensor head, raised hexagonal chest, open paired spherical hips on a cross tube, longer splayed legs, split mechanical hooves and long three-link curved fingers",
+    "proportions": "Small compound sensor head, raised hexagonal chest, open paired spherical hips on a cross tube, longer splayed legs, three separated mechanical claws per foot and long three-link curved fingers",
     "finish": "Navy ceramic with ivory service inserts, graphite mechanisms and blue optics"
   },
   "revision": {
-    "label": "Corrected hand opposition",
-    "previous_commit": "7f9598bee3ecd702908a2f3e9f4ddf2478475219",
-    "scope": "Hands and hand/tool socket placements only: palms inward, thumbs forward, flexion toward palm, palm-forward halt gesture. Previous exports/source remain available at the pinned commit."
+    "label": "Mechanical claw feet",
+    "previous_commit": "2699ab12da480c06b07dc42e927ae4ad9b1b76c6",
+    "scope": "Foot geometry only: three separated knuckled toes with tapered titanium claws and a compact rear stabilizer. Body, corrected hands, bind transforms, sockets and animation tracks remain unchanged. Previous exports/source remain available at the pinned commit."
   },
   "budgets": {
     "game_triangles": 25000,
@@ -829,7 +829,7 @@
     "gait": "In-place clips. Move the instance along +Z at clips.speed_mps times playback rate. Keep LOD1 during animated gameplay. No root motion is baked.",
     "sensor": "SENSOR_YAW is excluded from clips and remains engine-driven. Its local Y axis is the glTF up axis.",
     "hands": "Neutral palms face inward and thumbs forward. Palm normals in the HAND node rest frame are -X for L and +X for R; transform these normals with the hand pose for attachments. Fingers curl toward that palm normal. Hand/tool socket positions follow the corrected palm side. Signal_Halt rolls the raised right palm toward +Z and opens the fingers. No accessories are included.",
-    "feet": "SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
+    "feet": "Three front digits share the existing TOE carrier; knuckles are modeled, with no independent toe flexion or terrain compliance. The compact rear stabilizer follows ANKLE. SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
     "bounds": "Use validation-report.json clip_envelopes for animated culling. Standing plot is 1.3 by 1.0 metres.",
     "damage": "D0 intact only; D1-D3 are not authored. Distance is a static map/loading stand-in, never an animated gameplay replacement.",
     "review": "Repository contract candidate only after validation. Consuming-game r160/release gltfpack, transitions, self-collision, phone performance and camera acceptance remain pending."
@@ -847,8 +847,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-b-rek43.blend",
-    "bytes": 7315407,
-    "sha256": "387bf6c71c02aa1aaff7a97d2964179bace019fa1d4bce20133cd078ccb5050c",
+    "bytes": 7291767,
+    "sha256": "71286dcf99c68cc1194a41473e2d6c4af6a4dad77bd66c8ac25fba206e3c53d9",
     "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
   }
 }

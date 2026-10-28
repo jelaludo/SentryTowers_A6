@@ -1,7 +1,7 @@
 # Model Workshop
 
 
-**B-REK43 / Long-stride Recon** pushes the B-REK design toward an elegant non-human silhouette: 24% longer leg chains, split mechanical hooves, paired spherical hips on a tube, long curved three-link fingers with corrected inward-facing palms and forward thumbs, a deep hexagonal chest and a compact radio pack. Six adapted recon motions, three tiers, Blender source, hip/gripper/hoof close-ups and a true-scale B-REK37 comparison are in `b-rek43/`. Measured hand-off: `assets/b-rek43/README.md`.
+**B-REK43 / Long-stride Recon** pushes the B-REK design toward an elegant non-human silhouette: 24% longer leg chains, three-toed mechanical claw feet, paired spherical hips on a tube, long curved three-link fingers with corrected inward-facing palms and forward thumbs, a deep hexagonal chest and a compact radio pack. Six adapted recon motions, three tiers, Blender source, hip/gripper/claw close-ups and a true-scale B-REK37 comparison are in `b-rek43/`. Measured hand-off: `assets/b-rek43/README.md`.
 
 **B-REK37 / Recon Biped** is a lean 2.4 m humanoid from the Cheetah manufacturer family: navy floating armor, ivory inserts, blue compound optics, a narrow open waist and long mechanical legs. Six actions cover recon idle, patrol, stealth, survey, observation crouch and a silent halt signal. Detailed/game/static tiers, Blender source, motion studies and an actual-scale C-07 comparison are in `b-rek37/`. Measured hand-off: `assets/b-rek37/README.md`.
 
