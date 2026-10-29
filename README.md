@@ -1,7 +1,7 @@
 # Model Workshop
 
 
-**EVA-K8 / Heavy Hardsuit** is version two of the hardsuit as a separate family: 1.35× shoulders, a deeper chest, a smaller angular five-face visor helmet, bevelled and bolted plates over a wrinkled quilted garment, a tank-and-unit backpack with two ribbed hoses, lugged boots and a contrapposto hero stance beside the six v1 actions. The GLBs stay palette-only; the viewer in `eva-k8/` generates the worn surfaces at runtime and shows EVA-K7 beside it at the same angle. Measured hand-off: `assets/eva-k8/README.md`.
+**EVA-K8 / Heavy Hardsuit** is version two of the hardsuit as a separate family: 1.35× shoulders, a deeper chest, a smaller angular five-face visor helmet, bevelled and bolted plates over a wrinkled quilted garment, a tank-and-unit backpack with two ribbed hoses, lugged boots and a contrapposto hero stance beside the six v1 actions. The GLBs stay palette-only; the viewer in `eva-k8/` generates the worn surfaces at runtime and shows EVA-K7 beside it at the same angle. Measured hand-off and findings: `assets/eva-k8/README.md`; working notes for the whole library: `docs/WORKSHOP-PRACTICES.md`.
 
 **EVA-K7 / Hardsuit Astronaut** is a 1.98 m military-exploration EVA suit built to the game-optimised contract: a domed helmet with an opaque bronze-black visor, carbon reinforcements over a quilted pressure garment, brass seals and buckles, heavy strapped boots and one small air tank on the back. Six actions cover suit idle, walk, cautious walk, survey, inspection crouch and a halt signal. Detailed/game/static tiers, Blender source, helmet/chest/glove/boot/tank close-ups and a true-scale B-REK37 comparison are in `eva-k7/`. Measured hand-off: `assets/eva-k7/README.md`.
 

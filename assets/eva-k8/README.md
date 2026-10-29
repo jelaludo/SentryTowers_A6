@@ -28,7 +28,7 @@ http://localhost:8788/eva-k8/
 | Clips | 6 | 7: `Hero_Stance` contrapposto plus the six carried over |
 | Materials | 6 palette | 7 palette in the GLB; worn PBR generated in the viewer |
 
-Measured master: 1.210 × 1.955 × 0.598 m (ground clearance 6 mm, helmet top 1.961 m). Standing plot 1.1 × 0.8 m.
+Measured master: 1.108 × 1.955 × 0.598 m (ground clearance 6 mm, helmet top 1.961 m). Standing plot 1.1 × 0.8 m.
 
 ## Exports and measured budgets
 
@@ -36,9 +36,9 @@ Plain self-contained GLBs are authoritative. Optional Meshopt copies in `derived
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 74,804 | 7 | 3,910,108 | 969,744 | 7 |
-| Game / LOD1 | 23,516 | 7 | 1,936,568 | 564,988 | 7 |
-| Static distance / LOD2 | 2,804 | 1 | 226,180 | 70,240 | 0 |
+| Detailed / LOD0 | 76,724 | 7 | 3,961,848 | 979,532 | 7 |
+| Game / LOD1 | 23,852 | 7 | 1,945,892 | 567,112 | 7 |
+| Static distance / LOD2 | 2,900 | 1 | 234,680 | 72,648 | 0 |
 
 LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 3k triangles, one draw and 250 KB. Use LOD0 for close inspection and recordings, LOD1 throughout animated gameplay. LOD2 is an unskinned static silhouette with the same 65 named nodes and no clips. Initial LOD2, 30 m approach and 8 m hysteresis remain suggested values awaiting game-camera review; never swap a moving character to static distance.
 
@@ -85,9 +85,21 @@ Nine views (three-quarter at chest height from a slight low angle, 40° FOV; fro
 
 Six plain/decoded exports and 12,748 geometry samples at 120 Hz pass validation: no glTF errors or warnings, finite/nondegenerate geometry, unique naming and cross-tier socket parity, explicit durations, unbaked sockets, loop/return seams, intermediate-key rigid arm/leg/finger lengths, human stance, 35 cm support, 1.35× shoulder span, helmet narrower than the chest, hero-stance asymmetry (hip shift, knee difference, heel rise, torso lean, elbow range, helmet turn, no mirror), thumb-forward and inward finger curl through motion, the raised palm-forward halt, the survey yaw range, world-space contact anchors and decoded pose agreement. Minimum sampled floor clearance: 1.46 mm. Maximum contact drift: 0.69 mm. Maximum rigid-segment length error: 0.063 mm. Reports: `validation-report.json` and `viewer-validation.json`.
 
-Chromium WebGL checks cover all seven clips and tier/encoding combinations, desktop/390 px mobile framing, five close-ups, every toggle, travel, the v1 comparison and same-angle captures of both viewers with zero page errors; the v1 viewer still loads unchanged. `comparison-sheet.png` puts v1 beside v2 at the same camera direction, `detail-sheet.png` collects the close-ups; `review-images.json` lists their source. Frame cost: `viewer-validation.json` records a matched software-rasterizer probe of both viewers (SwiftShader, headless, 1130 × 935 stage, 16 synced frames each): v1 111.0 ms, v2 123.2 ms with half-resolution GTAO (1.11×) and 87.4 ms without (0.79×). That is a relative CPU measurement of the two render paths, not a GPU frame rate; no FPS claim is made and the reference-phone number is still owed.
+Chromium WebGL checks cover all seven clips and tier/encoding combinations, desktop/390 px mobile framing, five close-ups, every toggle, travel, the v1 comparison and same-angle captures of both viewers with zero page errors; the v1 viewer still loads unchanged. `comparison-sheet.png` puts v1 beside v2 at the same camera direction, `detail-sheet.png` collects the close-ups; `review-images.json` lists their source. Frame cost: `viewer-validation.json` records a matched software-rasterizer probe of both viewers (SwiftShader, headless, 1130 × 935 stage, best of five rounds of eight synced frames). Across four runs on the same machine v1 measured 74 to 131 ms per frame, v2 119 to 127 ms with half-resolution GTAO and 81 to 91 ms without; the latest run gives 0.94× with occlusion and 0.70× without. The run-to-run spread on v1 is wider than the difference between the viewers, so this supports only "v2 with half-resolution occlusion costs about the same as v1 in a CPU rasterizer"; it is not a GPU frame rate, no FPS claim is made and the reference-phone number is still owed. Full-resolution occlusion, measured at about twice v1, was cut.
 
 Repository status: **Contract candidate**. Consuming-game r160/release gltfpack, transitions, general self-collision, terrain/physics, game cameras, phone acceptance and the decision on runtime versus baked textures remain pending. The received collaboration contract is unchanged.
+
+## Findings and limits
+
+- The 1.35× shoulders first left a hollow between each arm and the torso: the forearm and hand joints had been splayed with the shoulders, and the chest fabric stopped at the old width. Pulling the forearm to 0.435 m and the hand to 0.455 m from centre, widening the upper chest to 0.25 m and adding an underarm fabric volume under each pauldron closed it. Overlapping shells still do not make an armpit.
+- Primitive assembly gives repeatable tiers, stable node names and clean budgets, but the organic transitions of a pressure suit (underarms, crotch, fabric gathering under plates) are where it runs out. A better next pipeline is to scan or sculpt the torso and each limb separately, clean and decimate those meshes, and assemble them on this joint table and node names, keeping the procedural tools for plates, hardware, hoses and the distance tier.
+- Everything worn is viewer-side. The GLB renders as a flat palette elsewhere; the game has to adopt `materials.js` or ask for baked textures before the look travels.
+- Texture scale decides whether the suit reads as a suit: 2.5 mm weave and 3 cm quilting work at review distance; 7 mm and 6 cm read as a basket and a duvet.
+- Edge wear from per-vertex curvature is free and convincing on bevels and tube caps, but a faceted shell gets it on every facet edge; it has to be dimmed with noise.
+- Hero-stance numbers were only right once they were asserted: absolute bone orientations meant the waist and chest leans did not add, and a world-space yaw on the free leg pulled the thigh skin off the knee until it became a twist about the bone.
+- The frame-cost figure is a software-rasterizer comparison of two render paths. Full-resolution GTAO doubled it; half resolution with six samples brought v2 inside v1's own run-to-run spread. No FPS claim is made.
+
+Shared working notes for all families are in `docs/WORKSHOP-PRACTICES.md`, shown at the end of the Best Practices page.
 
 ## Rebuild and hand-off
 

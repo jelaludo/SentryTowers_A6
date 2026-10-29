@@ -225,7 +225,7 @@ def shape(lod):
  # ---- Torso: quilted pressure garment in three skinned sections, deeper chest, reduced waist pinch.
  g.vhull([(.885,.155,.140,.010),(.95,.180,.155,0),(1.03,.185,.160,0)],1,'PELVIS')
  g.vhull([(1.02,.185,.160,0),(1.13,.182,.158,0),(1.25,.188,.162,0)],1,'WAIST')
- g.vhull([(1.24,.188,.162,0),(1.36,.212,.175,-.005),(1.47,.235,.185,-.010),(1.55,.225,.172,-.010),(1.61,.150,.128,0)],1,'CHEST')
+ g.vhull([(1.24,.188,.162,0),(1.36,.218,.175,-.005),(1.47,.250,.185,-.010),(1.55,.238,.172,-.010),(1.61,.150,.128,0)],1,'CHEST')
  if lod<2:
   for z,w,d,bone in [(1.19,.184,.160,'WAIST'),(1.41,.228,.181,'CHEST'),(.925,.172,.150,'PELVIS')]:g.vhull([(z-.006,w+.002,d+.002,-.004 if z>1.3 else 0),(z+.006,w+.002,d+.002,-.004 if z>1.3 else 0)],3,bone)
  # Layered chest: lower breastplate, upper yoke, central control block; shoulder caps overlap the yoke.
@@ -291,7 +291,7 @@ def shape(lod):
     e=.95;d=Vector((s*math.cos(e)*math.cos(ang),math.cos(e)*math.sin(ang)*(-1 if s<0 else 1),math.sin(e)))
     p=a+Vector((0,0,.025))+Vector((s*.138*math.cos(e)*math.cos(ang),.158*math.cos(e)*math.sin(ang),.160*math.sin(e)));pts.append((p,d))
    stripe(pts,'SHOULDER_'+side)
-  g.tube(sh,a+Vector((s*.03,0,0)),.062,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.01)),(.095,.100,.094),1,'SHOULDER_'+side)
+  g.tube(sh,a+Vector((s*.03,0,0)),.074,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.01)),(.095,.100,.094),1,'SHOULDER_'+side);g.ellipsoid(a+Vector((-s*.07,.0,-.045)),(.075,.095,.070),1,'SHOULDER_'+side)   # underarm fill
   g.fabric(a.lerp(c,.03),c.lerp(a,.04),.084,.070,1,'UPPER_ARM_'+side,(.9,1.0),seed=1.1+s)
   for u in [.36,.62]:band(a,c,u,(.084+(.070-.084)*u)*1.02,'UPPER_ARM_'+side)
   g.carapace(a.lerp(c,.24)+Vector((s*.058,0,0)),a.lerp(c,.88)+Vector((s*.050,0,0)),.066,.040,0,'UPPER_ARM_'+side,(s,0,0),bolts=[(.2,0),(.8,0)] if lod==0 else [],slab=True)

@@ -19,8 +19,8 @@ joint('HEAD',(0,-.02,1.67),'NECK')
 for side,s in [('L',1),('R',-1)]:
  joint('SHOULDER_'+side,(s*.21*SHOULDER_SCALE,0,1.53),'CHEST')
  joint('UPPER_ARM_'+side,(s*.30*SHOULDER_SCALE,0,1.505),'SHOULDER_'+side)
- joint('FOREARM_'+side,(s*.465,-.03,1.215),'UPPER_ARM_'+side)
- hand=Vector((s*.51,-.075,.945));joint('HAND_'+side,hand,'FOREARM_'+side)
+ joint('FOREARM_'+side,(s*.435,-.035,1.215),'UPPER_ARM_'+side)
+ hand=Vector((s*.455,-.085,.945));joint('HAND_'+side,hand,'FOREARM_'+side)
  k7hand=Vector((s*.405,-.075,.945))
  def glove(p):return hand+(Vector(p)-k7hand)*GLOVE_SCALE
  for i in range(4):

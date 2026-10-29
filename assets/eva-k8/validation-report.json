@@ -2,49 +2,49 @@
   "assets": [
     {
       "file": "eva_k8_d0_lod0.glb",
-      "triangles": 74804,
+      "triangles": 76724,
       "draw_calls": 7,
-      "bytes": 3910108,
+      "bytes": 3961848,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
-      "triangles": 74804,
+      "triangles": 76724,
       "draw_calls": 7,
-      "bytes": 969744,
+      "bytes": 979532,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "eva_k8_d0_lod1.glb",
-      "triangles": 23516,
+      "triangles": 23852,
       "draw_calls": 7,
-      "bytes": 1936568,
+      "bytes": 1945892,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
-      "triangles": 23516,
+      "triangles": 23852,
       "draw_calls": 7,
-      "bytes": 564988,
+      "bytes": 567112,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "eva_k8_d0_lod2.glb",
-      "triangles": 2804,
+      "triangles": 2900,
       "draw_calls": 1,
-      "bytes": 226180,
+      "bytes": 234680,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
-      "triangles": 2804,
+      "triangles": 2900,
       "draw_calls": 1,
-      "bytes": 70240,
+      "bytes": 72648,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
@@ -56,125 +56,125 @@
   "maximum_loop_rotation_error_rad": 0.0004937308218415316,
   "maximum_stance_slip_m": 0.0006896166072790324,
   "maximum_segment_length_error_m": 0.00006264471602435151,
-  "maximum_decoded_pose_error_m": 0.0006423037559586398,
+  "maximum_decoded_pose_error_m": 0.0006222298291456152,
   "clip_envelopes": {
     "Hero_Stance": {
       "min": [
-        -0.6017862870789296,
+        -0.5510255850314152,
         0.0028354677937841057,
         -0.32953309041927753
       ],
       "max": [
-        0.656589715015159,
+        0.6057705237747364,
         1.9513168038367157,
-        0.3558713340831976
+        0.3637287467133973
       ],
       "dimensions_m": [
-        1.2583760020940886,
+        1.1567961088061516,
         1.9484813360429316,
-        0.6854044245024751
+        0.6932618371326749
       ]
     },
     "Suit_Idle": {
       "min": [
-        -0.6253141682373085,
+        -0.5744455239298776,
         0.005843102935720425,
         -0.3386295073624671
       ],
       "max": [
-        0.6357315738045974,
+        0.584994182064978,
         1.9626112283068662,
-        0.26173695091564314
+        0.2625985343679788
       ],
       "dimensions_m": [
-        1.261045742041906,
+        1.1594397059948556,
         1.9567681253711458,
-        0.6003664582781103
+        0.6012280417304459
       ]
     },
     "Walk_Cycle": {
       "min": [
-        -0.65137143720631,
+        -0.600502458982181,
         0.0016325927386218256,
         -0.44912828919810965
       ],
       "max": [
-        0.6578993941095237,
+        0.6071618011153812,
         1.8961627890580768,
         0.5672103707358498
       ],
       "dimensions_m": [
-        1.3092708313158337,
+        1.2076642600975622,
         1.894530196319455,
         1.0163386599339594
       ]
     },
     "Cautious_Walk_Cycle": {
       "min": [
-        -0.6513029427036098,
+        -0.600433712551852,
         0.0035792561506640223,
         -0.40998477370386577
       ],
       "max": [
-        0.6578314143016544,
+        0.6070936561127958,
         1.8462611580516648,
         0.5254951101715172
       ],
       "dimensions_m": [
-        1.3091343570052643,
+        1.2075273686646477,
         1.8426819019010008,
         0.935479883875383
       ]
     },
     "Survey_Scan": {
       "min": [
-        -0.6253229534719837,
+        -0.5744561237698844,
         0.005830247858279806,
         -0.3580114396592557
       ],
       "max": [
-        0.6318514573099215,
+        0.5811159269402733,
         1.9625083838948438,
-        0.3076339537672027
+        0.3175642814408166
       ],
       "dimensions_m": [
-        1.2571744107819054,
+        1.1555720507101577,
         1.956678136036564,
-        0.6656453934264583
+        0.6755757211000724
       ]
     },
     "Kneel_Inspect": {
       "min": [
-        -0.6260120936461167,
+        -0.5751434600302925,
         0.0058001128665520025,
         -0.43936828765635727
       ],
       "max": [
-        0.6325399800461109,
+        0.5818026027029048,
         1.9620531683420233,
-        0.4770709168234482
+        0.48552189839217974
       ],
       "dimensions_m": [
-        1.2585520736922275,
+        1.1569460627331973,
         1.9562530554754713,
-        0.9164392044798055
+        0.924890186048537
       ]
     },
     "Signal_Halt": {
       "min": [
-        -0.7135730221846405,
+        -0.6646322803530069,
         0.005847272368471481,
         -0.3386295073624671
       ],
       "max": [
-        0.6318421178920166,
+        0.5811047264596791,
         1.9626112067291355,
-        0.6458399543941059
+        0.6549091263153449
       ],
       "dimensions_m": [
-        1.345415140076657,
+        1.245737006812686,
         1.956763934360664,
-        0.984469461756573
+        0.993538633677812
       ]
     }
   },
@@ -188,18 +188,18 @@
     "Signal_Halt": 2
   },
   "hand_orientation": {
-    "minimum_thumb_forward_m": 0.07419994339312867,
+    "minimum_thumb_forward_m": 0.07419996178248169,
     "minimum_relaxed_inward_curl_m": 0.07964095805091255,
     "halt_palm_forward_dot": 0.9999999333107699
   },
   "scope": "Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance. Hero_Stance asymmetry, 1.35x shoulder span, helmet narrower than chest and 35 cm boot support are checked.",
   "silhouette_helmet": {
     "helmet_half_width_m": 0.1145610585808754,
-    "chest_half_width_m": 0.2570500075817108
+    "chest_half_width_m": 0.25999999046325684
   },
   "silhouette": {
     "shoulder_joint_span_m": 0.8100000023841858,
-    "width_m": 1.1937216520309448,
+    "width_m": 1.1005440950393677,
     "height_m": 1.9480000734329224
   },
   "hero_stance": {
