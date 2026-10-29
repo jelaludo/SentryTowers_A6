@@ -1,5 +1,11 @@
 # Roadmap
 
+## 29 October 2026 / EVA-K7 hardsuit astronaut — candidate delivered
+
+Completed the requested game-optimised futuristic astronaut: opaque helmet, carbon reinforcements over a quilted garment, gritty military-exploration finish and a small air tank on the back. Detailed/game/static exports, a 50-joint rig with six actions, plain/decoded validation, Blender review sheets and a desktop/mobile viewer with close-ups and true-scale comparison are delivered in `assets/eva-k7/` and `eva-k7/`.
+
+Next integration: animation transitions, terrain IK and general self-collision, consuming-game r160/release compression, camera/LOD thresholds and reference-phone acceptance. Optional follow-ups: emissive helmet lamps, tool and pack accessories on the hand/back sockets, D1–D3 damage states. Retain the articulated game tier for moving characters; distance is a static map/loading silhouette.
+
 ## 28 October 2026 / B-REK43 claw feet — completed
 
 Replaced split hooves with three separated, knuckled mechanical toes and tapered claws, plus a compact rear stabilizer. Detailed/game/static exports, source, review sheets and viewer are updated. The corrected hands, full rig and all motion tracks are unchanged. Plain/decoded validation and the comparison against the previous hand-corrected revision pass. Individual toe flexion and terrain compliance are not authored; existing game integration requirements remain pending.

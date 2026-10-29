@@ -1,4 +1,5 @@
 const collectionImages={
+'eva-k7':'assets/eva-k7/preview.png',
 'b-rek43':'assets/b-rek43/preview.png',
 'b-rek37':'assets/b-rek37/preview.png',
 'tai09':'assets/tai09/preview.png',
@@ -32,6 +33,7 @@ const collectionImages={
 };
 
 export const collections=[
+['eva-k7','EVA-K7 / Hardsuit Astronaut','Characters','A gritty military-exploration hardsuit: opaque visor helmet, layered carbon plates over a quilted pressure garment, brass hardware, heavy boots and a small air tank on the back. Walk, cautious walk, survey, inspection crouch and halt signal.','6 clips · 50 joints · 1.98 m · 3 LODs','Contract candidate'],
 ['b-rek43','B-REK43 / Long-stride Recon','Characters','An elegant non-human biped: longer splayed legs, three-toed mechanical claw feet, paired spherical hips on an exposed tube, long curved grippers and a raised hexagonal thorax. Compact radio pack and a true-scale B-REK37 comparison.','6 clips · 63 joints · 2.7 m · 3 LODs','Contract candidate'],
 ['b-rek37','B-REK37 / Recon Biped','Characters','A lean reconnaissance humanoid from the Cheetah manufacturer: navy floating armor, ivory service inserts, compound blue optics and long exposed leg actuators. Patrol, stealth, survey, observation crouch and silent signaling.','6 clips · 55 joints · 2.4 m · 3 LODs','Contract candidate'],
 ['tai09','09-TAI-01 / 球体','Characters','A tracking eye on a fast rolling sphere. Tune drive torque, momentum and spring-winch pulls, then catch high falls with deep gecko-leg recoil.','Live tuning · Overdrive · Tracking eye · Gecko · 3 LODs','Playable prototype'],

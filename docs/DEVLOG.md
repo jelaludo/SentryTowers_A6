@@ -1,5 +1,15 @@
 # Devlog
 
+## 29 October 2026 / EVA-K7 — hardsuit astronaut
+
+Created EVA-K7, an original military-exploration hardsuit astronaut from the supplied futuristic astronaut reference: domed carbon helmet with an opaque bronze-black visor, bellows collar with brass locking rings, layered carbon chest/abdomen/pelvis plates with a central control module over a mid-grey quilted pressure garment, brass harness and belt hardware, pauldrons, gauntlets, thigh and shin guards, cupped kneecaps, heavy strapped boots and one small steel air tank on the upper back feeding the helmet through a hose. Nominal scale is an explicit 1.98 m authoring assumption; measured helmet top is 1.966 m.
+
+Added a 50-joint rigid suit rig with articulated gloves and twelve sockets, plus six original actions on the workshop biped IK adapted to human leg lengths: suit idle, 0.75 m/s walk, 0.32 m/s cautious walk, planted survey scan, 30 cm inspection crouch and an open-glove halt signal. Heel placement, flat support and toe roll stay anchored on 27 cm boot pivots. The helmet is clip-animated within ±36° and may take an additive engine look-at. All tiers preserve 65 unique node names. Detailed: 75,711 triangles / six draws / 3,253,588 plain bytes; game: 20,331 / six / 1,462,292; static distance: 2,742 / one / 221,352. Plain GLBs, decoded optional Meshopt, Blender source and studio design/detail/gait sheets are delivered.
+
+Six exports and 10,824 geometry samples pass. Minimum sampled floor clearance is 2.49 mm; maximum contact drift 0.69 mm; rigid arm/leg/finger length error 0.063 mm. Desktop/mobile WebGL checks cover all encodings, six actions, nine views including helmet/chest/glove/boot/tank close-ups, contact controls and a true-scale B-REK37 comparison. Gallery, shared navigation and hand-off notes include the new family. KESTREL and all earlier asset exports remain unchanged.
+
+Requested asset is complete as a repository contract candidate. Pending: consuming-game r160/release packing, transitions, general self-collision, terrain/physics, game-camera thresholds and reference-phone acceptance. D1–D3, helmet lamp emission and accessories are future scope. No FPS claim; the received collaboration contract remains verbatim.
+
 ## 28 October 2026 / B-REK43 — mechanical claw feet
 
 Replaced the twin hoof shells with three separated toes, exposed knuckles, tapered titanium tips and a compact rear stabilizer, following the supplied foot crop. The center claw extends slightly beyond the side toes. Existing ankle/toe carriers, contact locations, corrected hands and all six performances are preserved.

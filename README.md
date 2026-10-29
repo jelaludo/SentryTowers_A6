@@ -1,6 +1,8 @@
 # Model Workshop
 
 
+**EVA-K7 / Hardsuit Astronaut** is a 1.98 m military-exploration EVA suit built to the game-optimised contract: a domed helmet with an opaque bronze-black visor, carbon reinforcements over a quilted pressure garment, brass seals and buckles, heavy strapped boots and one small air tank on the back. Six actions cover suit idle, walk, cautious walk, survey, inspection crouch and a halt signal. Detailed/game/static tiers, Blender source, helmet/chest/glove/boot/tank close-ups and a true-scale B-REK37 comparison are in `eva-k7/`. Measured hand-off: `assets/eva-k7/README.md`.
+
 **B-REK43 / Long-stride Recon** pushes the B-REK design toward an elegant non-human silhouette: 24% longer leg chains, three-toed mechanical claw feet, paired spherical hips on a tube, long curved three-link fingers with corrected inward-facing palms and forward thumbs, a deep hexagonal chest and a compact radio pack. Six adapted recon motions, three tiers, Blender source, hip/gripper/claw close-ups and a true-scale B-REK37 comparison are in `b-rek43/`. Measured hand-off: `assets/b-rek43/README.md`.
 
 **B-REK37 / Recon Biped** is a lean 2.4 m humanoid from the Cheetah manufacturer family: navy floating armor, ivory inserts, blue compound optics, a narrow open waist and long mechanical legs. Six actions cover recon idle, patrol, stealth, survey, observation crouch and a silent halt signal. Detailed/game/static tiers, Blender source, motion studies and an actual-scale C-07 comparison are in `b-rek37/`. Measured hand-off: `assets/b-rek37/README.md`.

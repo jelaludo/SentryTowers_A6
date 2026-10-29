@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless with real WebGL; no performance benchmark",
+  "clips": [
+    {
+      "clip": "Survey_Scan",
+      "time": 1.8,
+      "draws": 12
+    },
+    {
+      "clip": "Suit_Idle",
+      "time": 1,
+      "draws": 12
+    },
+    {
+      "clip": "Walk_Cycle",
+      "time": 0.49,
+      "draws": 12
+    },
+    {
+      "clip": "Cautious_Walk_Cycle",
+      "time": 0.7,
+      "draws": 12
+    },
+    {
+      "clip": "Signal_Halt",
+      "time": 2.4,
+      "draws": 12
+    },
+    {
+      "clip": "Kneel_Inspect",
+      "time": 2.4,
+      "draws": 12
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "six clips and timeline controls",
+    "heel, double support, single support, swing indicators",
+    "hero/front/side/rear bounds and helmet/chest/glove/boot/tank close-ups",
+    "skeleton/wireframe/boot-marker toggles",
+    "all plain and Meshopt tiers",
+    "static tier disables actions",
+    "ground travel and real playback",
+    "actual-scale B-REK37 comparison",
+    "desktop and 390px mobile layout/bounds",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "eva_k7_d0_lod0.glb",
+      "sha256": "708f57faffceffb9b71cf33ec0c4dc5194e0fb8d842f01f4f591766dd2820744",
+      "meshopt_sha256": "3b27f0c5d3c357bfc0d97fabd99d60e57b438baf04e2d82ccb594b6bd8493cf9"
+    },
+    {
+      "file": "eva_k7_d0_lod1.glb",
+      "sha256": "17b210d3586a21f669f1de66926867a143d99b5106770064bedd211b79279ac2",
+      "meshopt_sha256": "2bbb94a4700734d58fd54872b1af818f87ab0b185640ee466322f990fb7934be"
+    },
+    {
+      "file": "eva_k7_d0_lod2.glb",
+      "sha256": "5b606daa830be459f963b3927080a4f45aef86b96f3626818e24de703972c804",
+      "meshopt_sha256": "a4528bf6892861ed3f273516cd306ef31bde8c682395de57b2458b7f72c91e10"
+    }
+  ]
+}
