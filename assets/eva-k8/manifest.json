@@ -49,8 +49,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3961848,
-      "triangles": 76724,
+      "bytes": 3948788,
+      "triangles": 76492,
       "draw_calls": 7,
       "plot_m": [
         1.1,
@@ -128,20 +128,20 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "dc22227829d7aeedd6b299d0692a9dd147032de1be828fbf4b45f9fe283abaf3",
+      "sha256": "3005e3c49c5b66ca41a0a9bd3ca48a359d9087ddd6c1fab5876049bc4b8e5328",
       "bounds": {
         "min": [
-          -0.554235577583313,
+          -0.549500048160553,
           0.006000000052154064,
           -0.3370000123977661
         ],
         "max": [
-          0.554235577583313,
+          0.549500048160553,
           1.9610000848770142,
           0.26100000739097595
         ],
         "dimensions_m": [
-          1.108471155166626,
+          1.099000096321106,
           1.95500008482486,
           0.5980000197887421
         ]
@@ -281,7 +281,7 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3710000216960907,
+            0.3310000002384186,
             0.7979999780654907,
             0.08499999344348907
           ]
@@ -290,7 +290,7 @@
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3569999933242798,
+            0.31699997186660767,
             0.8819999694824219,
             0.08499999344348907
           ]
@@ -299,7 +299,7 @@
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3710000216960907,
+            -0.3310000002384186,
             0.7979999780654907,
             0.08500000089406967
           ]
@@ -308,7 +308,7 @@
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3570000231266022,
+            -0.31700000166893005,
             0.8819999694824219,
             0.08500000089406967
           ]
@@ -325,8 +325,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 979532,
-      "meshopt_sha256": "9d7f7e1035d97430c040f697e18af4ff7d788bb62be012df704ce2ebb32e0483"
+      "meshopt_bytes": 975932,
+      "meshopt_sha256": "14fb114d87290f751664230673643362db9862b1d26f34c8cabef727ed325db2"
     },
     {
       "file": "eva_k8_d0_lod1.glb",
@@ -334,8 +334,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1945892,
-      "triangles": 23852,
+      "bytes": 1940044,
+      "triangles": 23780,
       "draw_calls": 7,
       "plot_m": [
         1.1,
@@ -413,20 +413,20 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "3487de2aeaec0a2ba0c1d2ede4ec9cbd35394b74ad92c29f9672c9c4b340db1e",
+      "sha256": "db26cc5fc69a0aad381e5464d604593ea9fb429954ca058731f2c8e7674f3c95",
       "bounds": {
         "min": [
-          -0.5527307987213135,
+          -0.5486035943031311,
           0.006000000052154064,
           -0.3370000123977661
         ],
         "max": [
-          0.5527307987213135,
+          0.5486035943031311,
           1.9610000848770142,
           0.26100000739097595
         ],
         "dimensions_m": [
-          1.105461597442627,
+          1.0972071886062622,
           1.95500008482486,
           0.5980000197887421
         ]
@@ -566,7 +566,7 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3710000216960907,
+            0.3310000002384186,
             0.7979999780654907,
             0.08499999344348907
           ]
@@ -575,7 +575,7 @@
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3569999933242798,
+            0.31699997186660767,
             0.8819999694824219,
             0.08499999344348907
           ]
@@ -584,7 +584,7 @@
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3710000216960907,
+            -0.3310000002384186,
             0.7979999780654907,
             0.08500000089406967
           ]
@@ -593,7 +593,7 @@
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3570000231266022,
+            -0.31700000166893005,
             0.8819999694824219,
             0.08500000089406967
           ]
@@ -610,8 +610,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 567112,
-      "meshopt_sha256": "42d39917a13767bda703d60e0bcc7c4168e70e926041dcae228773fa6fb30976"
+      "meshopt_bytes": 565028,
+      "meshopt_sha256": "1784f3c8ba9891b1f61b681e1f8ceaa208defb846d08c2d2fc0f1bb3485e9790"
     },
     {
       "file": "eva_k8_d0_lod2.glb",
@@ -619,7 +619,7 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 234680,
+      "bytes": 234516,
       "triangles": 2900,
       "draw_calls": 1,
       "plot_m": [
@@ -628,20 +628,20 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "6f5c93e136070a220a4dc722f28ef629fac50b93059d5351f8b9427cf6be4ffc",
+      "sha256": "f85f0e4d6292bd68dab88e73b4a41a27bd5383e4ca076a785acff3747510682b",
       "bounds": {
         "min": [
-          -0.5502720475196838,
+          -0.5428497791290283,
           0.017999999225139618,
           -0.3319999873638153
         ],
         "max": [
-          0.5502720475196838,
+          0.5428497791290283,
           1.9480000734329224,
           0.257999986410141
         ],
         "dimensions_m": [
-          1.1005440950393677,
+          1.0856995582580566,
           1.9300000742077827,
           0.5899999737739563
         ]
@@ -781,7 +781,7 @@
           "node": "SOCKET_HAND_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3710000216960907,
+            0.3310000002384186,
             0.7979999780654907,
             0.08499999344348907
           ]
@@ -790,7 +790,7 @@
           "node": "SOCKET_TOOL_L",
           "parent": "HAND_L",
           "position_m": [
-            0.3569999933242798,
+            0.31699997186660767,
             0.8819999694824219,
             0.08499999344348907
           ]
@@ -799,7 +799,7 @@
           "node": "SOCKET_HAND_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3710000216960907,
+            -0.3310000002384186,
             0.7979999780654907,
             0.08500000089406967
           ]
@@ -808,7 +808,7 @@
           "node": "SOCKET_TOOL_R",
           "parent": "HAND_R",
           "position_m": [
-            -0.3570000231266022,
+            -0.31700000166893005,
             0.8819999694824219,
             0.08500000089406967
           ]
@@ -825,8 +825,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 72648,
-      "meshopt_sha256": "32bca0b32699519794867b8279857e1340724c4db1b6e561a023201814d15000"
+      "meshopt_bytes": 72456,
+      "meshopt_sha256": "2a0f6e65ba2d66ad37572c583f2fd1adbdb2f3049dea4babeaa9bcab46b6410c"
     }
   ],
   "design": {
@@ -870,8 +870,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-eva-k8.blend",
-    "bytes": 8140654,
-    "sha256": "39130c351d68b2d1e0f5bb638b4fd8c5e8a03268f7ecddf4b139c9e4f43be52a",
+    "bytes": 8130958,
+    "sha256": "ae8ea383fc628b1432417d335b1171bc6c2033e7348727688509cde1372102b6",
     "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
   }
 }

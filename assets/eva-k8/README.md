@@ -12,7 +12,7 @@ http://localhost:8788/eva-k8/
 | --- | --- | --- |
 | Shoulder joint span | 0.60 m | 0.81 m (1.35×) |
 | Chest half depth | 0.14 m | 0.185 m (1.3×) |
-| Helmet shell radius | 0.150 m dome | 0.124 m faceted shell (0.75×); helmet half width 0.115 m vs chest 0.257 m |
+| Helmet shell radius | 0.150 m dome | 0.124 m faceted shell (0.75×); helmet half width 0.115 m vs chest 0.292 m |
 | Gloves | 1× | 1.4× joint offsets and geometry |
 | Boots | 0.27 m support, flat sole | 0.35 m support, 1.5× hull, 24 mm sole over 18 mm lugs |
 | Forearms / shins | taper toward the wrist / ankle | thicker at the wrist (0.062 → 0.076 m) and ankle (0.072 → 0.086 m) |
@@ -28,7 +28,7 @@ http://localhost:8788/eva-k8/
 | Clips | 6 | 7: `Hero_Stance` contrapposto plus the six carried over |
 | Materials | 6 palette | 7 palette in the GLB; worn PBR generated in the viewer |
 
-Measured master: 1.108 × 1.955 × 0.598 m (ground clearance 6 mm, helmet top 1.961 m). Standing plot 1.1 × 0.8 m.
+Measured master: 1.099 × 1.955 × 0.598 m (ground clearance 6 mm, helmet top 1.961 m). Standing plot 1.1 × 0.8 m.
 
 ## Exports and measured budgets
 
@@ -36,9 +36,9 @@ Plain self-contained GLBs are authoritative. Optional Meshopt copies in `derived
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 76,724 | 7 | 3,961,848 | 979,532 | 7 |
-| Game / LOD1 | 23,852 | 7 | 1,945,892 | 567,112 | 7 |
-| Static distance / LOD2 | 2,900 | 1 | 234,680 | 72,648 | 0 |
+| Detailed / LOD0 | 76,492 | 7 | 3,948,788 | 975,932 | 7 |
+| Game / LOD1 | 23,780 | 7 | 1,940,044 | 565,028 | 7 |
+| Static distance / LOD2 | 2,900 | 1 | 234,516 | 72,456 | 0 |
 
 LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 3k triangles, one draw and 250 KB. Use LOD0 for close inspection and recordings, LOD1 throughout animated gameplay. LOD2 is an unskinned static silhouette with the same 65 named nodes and no clips. Initial LOD2, 30 m approach and 8 m hysteresis remain suggested values awaiting game-camera review; never swap a moving character to static distance.
 
@@ -91,7 +91,7 @@ Repository status: **Contract candidate**. Consuming-game r160/release gltfpack,
 
 ## Findings and limits
 
-- The 1.35× shoulders first left a hollow between each arm and the torso: the forearm and hand joints had been splayed with the shoulders, and the chest fabric stopped at the old width. Pulling the forearm to 0.435 m and the hand to 0.455 m from centre, widening the upper chest to 0.25 m and adding an underarm fabric volume under each pauldron closed it. Overlapping shells still do not make an armpit.
+- The 1.35× shoulders left a hollow between each arm and the torso, and a first pass (joints 3 to 5 cm inward, chest 1.5 cm wider, a small underarm ellipsoid) was not enough: the sleeve still hung clear of the chest flank. What closed it was treating the garment as the wide part and the plates as sitting on it: the chest half width now runs to 0.292 m at the ribs, the forearm and hand joints hang at 0.400 m and 0.415 m from centre with no outward abduction in the idle and walk clips, and a 20 × 22 × 26 cm quilted underarm volume on each shoulder bone bridges the flank and the sleeve. The flat side-armor plates were dropped because that volume engulfed them. Overlapping shells still do not make an armpit, but the arm now rests on the bust from the front, side and three-quarter views.
 - Primitive assembly gives repeatable tiers, stable node names and clean budgets, but the organic transitions of a pressure suit (underarms, crotch, fabric gathering under plates) are where it runs out. A better next pipeline is to scan or sculpt the torso and each limb separately, clean and decimate those meshes, and assemble them on this joint table and node names, keeping the procedural tools for plates, hardware, hoses and the distance tier.
 - Everything worn is viewer-side. The GLB renders as a flat palette elsewhere; the game has to adopt `materials.js` or ask for baked textures before the look travels.
 - Texture scale decides whether the suit reads as a suit: 2.5 mm weave and 3 cm quilting work at review distance; 7 mm and 6 cm read as a basket and a duvet.

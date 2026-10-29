@@ -225,15 +225,15 @@ def shape(lod):
  # ---- Torso: quilted pressure garment in three skinned sections, deeper chest, reduced waist pinch.
  g.vhull([(.885,.155,.140,.010),(.95,.180,.155,0),(1.03,.185,.160,0)],1,'PELVIS')
  g.vhull([(1.02,.185,.160,0),(1.13,.182,.158,0),(1.25,.188,.162,0)],1,'WAIST')
- g.vhull([(1.24,.188,.162,0),(1.36,.218,.175,-.005),(1.47,.250,.185,-.010),(1.55,.238,.172,-.010),(1.61,.150,.128,0)],1,'CHEST')
+ g.vhull([(1.24,.198,.165,0),(1.36,.252,.180,-.005),(1.47,.292,.190,-.010),(1.55,.278,.178,-.010),(1.61,.150,.128,0)],1,'CHEST')
  if lod<2:
-  for z,w,d,bone in [(1.19,.184,.160,'WAIST'),(1.41,.228,.181,'CHEST'),(.925,.172,.150,'PELVIS')]:g.vhull([(z-.006,w+.002,d+.002,-.004 if z>1.3 else 0),(z+.006,w+.002,d+.002,-.004 if z>1.3 else 0)],3,bone)
+  for z,w,d,bone in [(1.19,.184,.160,'WAIST'),(1.41,.272,.186,'CHEST'),(.925,.172,.150,'PELVIS')]:g.vhull([(z-.006,w+.002,d+.002,-.004 if z>1.3 else 0),(z+.006,w+.002,d+.002,-.004 if z>1.3 else 0)],3,bone)
  # Layered chest: lower breastplate, upper yoke, central control block; shoulder caps overlap the yoke.
- g.plate([(-.19,1.27),(.19,1.27),(.215,1.40),(.20,1.50),(-.20,1.50),(-.215,1.40)],-.186,-.222,0,'CHEST',bolts=[(-.17,1.31),(.17,1.31),(-.165,1.46),(.165,1.46)],game_bolts=True)
- g.plate([(-.265,1.485),(.265,1.485),(.255,1.565),(.125,1.605),(-.125,1.605),(-.255,1.565)],-.170,-.206,0,'CHEST',bolts=[(-.235,1.52),(.235,1.52),(0,1.585)],game_bolts=True)
+ g.plate([(-.20,1.27),(.20,1.27),(.245,1.40),(.23,1.50),(-.23,1.50),(-.245,1.40)],-.186,-.222,0,'CHEST',bolts=[(-.18,1.31),(.18,1.31),(-.19,1.46),(.19,1.46)],game_bolts=True)
+ g.plate([(-.30,1.485),(.30,1.485),(.29,1.565),(.125,1.605),(-.125,1.605),(-.29,1.565)],-.170,-.206,0,'CHEST',bolts=[(-.265,1.52),(.265,1.52),(0,1.585)],game_bolts=True)
  g.plate([(-.165,1.165),(.165,1.165),(.18,1.262),(-.18,1.262)],-.160,-.192,0,'WAIST',bolts=[(-.15,1.19),(.15,1.19)],game_bolts=True)
  g.plate([(-.115,.925),(.115,.925),(.13,1.03),(.115,1.075),(-.115,1.075),(-.13,1.03)],-.142,-.172,0,'PELVIS',bolts=[(-.10,.95),(.10,.95)])
- g.plate([(-.205,1.26),(.205,1.26),(.225,1.50),(.105,1.585),(-.105,1.585),(-.225,1.50)],.158,.192,0,'CHEST',bolts=[(-.18,1.30),(.18,1.30),(-.17,1.50),(.17,1.50)])
+ g.plate([(-.215,1.26),(.215,1.26),(.26,1.50),(.105,1.585),(-.105,1.585),(-.26,1.50)],.158,.192,0,'CHEST',bolts=[(-.19,1.30),(.19,1.30),(-.20,1.50),(.20,1.50)])
  g.box((0,-.236,1.425),(.112,.036,.094),4,'CHEST',.005);g.box((0,-.255,1.438),(.070,.006,.038),5,'CHEST',.002)       # control block and display
  if lod<2:
   for i,x in enumerate([-.034,-.012,.010]):g.box((x,-.256,1.397),(.016,.006,.012),2 if i!=1 else 6,'CHEST',.001)
@@ -242,7 +242,6 @@ def shape(lod):
   g.text('EVA-K8',(0,-.1925,1.213),Matrix(((1,0,0),(0,0,-1),(0,1,0))),.028,'WAIST')
   g.text('K8-0088',(.12,-.2225,1.33),Matrix(((1,0,0),(0,0,-1),(0,1,0))),.012,'CHEST')
   for s in [-1,1]:
-   g.side_armor([(-.11,1.30),(.07,1.30),(.10,1.46),(-.05,1.53),(-.14,1.42)],s*.238,.014,0,'CHEST',bolts=[(-.08,1.33),(.06,1.47)])
    g.box((s*.175,-.035,1.600),(.11,.10,.020),0,'CHEST',.004,(0,s*.30,0))                           # clavicle guards
    # Webbing harness: rubber straps with a brass buckle each, asymmetric buckle heights.
    g.strut((s*.10,-.21,1.29),(s*.15,-.17,1.58),.036,3,'CHEST');buckle((s*.12,-.215,1.40 if s>0 else 1.47),(s*.14,-.11,1),'CHEST')
@@ -291,7 +290,7 @@ def shape(lod):
     e=.95;d=Vector((s*math.cos(e)*math.cos(ang),math.cos(e)*math.sin(ang)*(-1 if s<0 else 1),math.sin(e)))
     p=a+Vector((0,0,.025))+Vector((s*.138*math.cos(e)*math.cos(ang),.158*math.cos(e)*math.sin(ang),.160*math.sin(e)));pts.append((p,d))
    stripe(pts,'SHOULDER_'+side)
-  g.tube(sh,a+Vector((s*.03,0,0)),.074,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.01)),(.095,.100,.094),1,'SHOULDER_'+side);g.ellipsoid(a+Vector((-s*.07,.0,-.045)),(.075,.095,.070),1,'SHOULDER_'+side)   # underarm fill
+  g.tube(sh,a+Vector((s*.03,0,0)),.074,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.01)),(.095,.100,.094),1,'SHOULDER_'+side);g.ellipsoid(a+Vector((-s*.09,.0,-.075)),(.100,.108,.130),1,'SHOULDER_'+side)   # underarm volume: bridges the chest flank and the sleeve so the arm rests on the bust
   g.fabric(a.lerp(c,.03),c.lerp(a,.04),.084,.070,1,'UPPER_ARM_'+side,(.9,1.0),seed=1.1+s)
   for u in [.36,.62]:band(a,c,u,(.084+(.070-.084)*u)*1.02,'UPPER_ARM_'+side)
   g.carapace(a.lerp(c,.24)+Vector((s*.058,0,0)),a.lerp(c,.88)+Vector((s*.050,0,0)),.066,.040,0,'UPPER_ARM_'+side,(s,0,0),bolts=[(.2,0),(.8,0)] if lod==0 else [],slab=True)

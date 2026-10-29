@@ -60,17 +60,17 @@
     "images_in_glb": 0
   },
   "silhouette": {
-    "shoulder_span_screen": 0.40892632846609006,
+    "shoulder_span_screen": 0.40868801934772203,
     "helmet_half_width_m": 0.15000000596046448,
-    "body_half_width_m": 0.6056501762128039,
-    "hand_depth_difference_m": 0.11312776863699515
+    "body_half_width_m": 0.5831071195909862,
+    "hand_depth_difference_m": 0.11362228842763851
   },
   "frame_cost_ms": {
-    "v1_eva_k7": 130.94999998807907,
-    "v2_eva_k8_ao_on": 123.33750003576279,
-    "v2_eva_k8_ao_off": 91.125,
-    "v2_over_v1_ao_on": 0.9418671252156603,
-    "v2_over_v1_ao_off": 0.6958762887231423
+    "v1_eva_k7": 77.26250004768372,
+    "v2_eva_k8_ao_on": 120.42499995231628,
+    "v2_eva_k8_ao_off": 89.01249998807907,
+    "v2_over_v1_ao_on": 1.5586474664681338,
+    "v2_over_v1_ao_off": 1.1520789507606364
   },
   "checks": [
     "seven clips and timeline controls",
@@ -90,18 +90,18 @@
   "asset_hashes": [
     {
       "file": "eva_k8_d0_lod0.glb",
-      "sha256": "dc22227829d7aeedd6b299d0692a9dd147032de1be828fbf4b45f9fe283abaf3",
-      "meshopt_sha256": "9d7f7e1035d97430c040f697e18af4ff7d788bb62be012df704ce2ebb32e0483"
+      "sha256": "3005e3c49c5b66ca41a0a9bd3ca48a359d9087ddd6c1fab5876049bc4b8e5328",
+      "meshopt_sha256": "14fb114d87290f751664230673643362db9862b1d26f34c8cabef727ed325db2"
     },
     {
       "file": "eva_k8_d0_lod1.glb",
-      "sha256": "3487de2aeaec0a2ba0c1d2ede4ec9cbd35394b74ad92c29f9672c9c4b340db1e",
-      "meshopt_sha256": "42d39917a13767bda703d60e0bcc7c4168e70e926041dcae228773fa6fb30976"
+      "sha256": "db26cc5fc69a0aad381e5464d604593ea9fb429954ca058731f2c8e7674f3c95",
+      "meshopt_sha256": "1784f3c8ba9891b1f61b681e1f8ceaa208defb846d08c2d2fc0f1bb3485e9790"
     },
     {
       "file": "eva_k8_d0_lod2.glb",
-      "sha256": "6f5c93e136070a220a4dc722f28ef629fac50b93059d5351f8b9427cf6be4ffc",
-      "meshopt_sha256": "32bca0b32699519794867b8279857e1340724c4db1b6e561a023201814d15000"
+      "sha256": "f85f0e4d6292bd68dab88e73b4a41a27bd5383e4ca076a785acff3747510682b",
+      "meshopt_sha256": "2a0f6e65ba2d66ad37572c583f2fd1adbdb2f3049dea4babeaa9bcab46b6410c"
     }
   ]
 }

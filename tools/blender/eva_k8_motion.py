@@ -19,8 +19,8 @@ joint('HEAD',(0,-.02,1.67),'NECK')
 for side,s in [('L',1),('R',-1)]:
  joint('SHOULDER_'+side,(s*.21*SHOULDER_SCALE,0,1.53),'CHEST')
  joint('UPPER_ARM_'+side,(s*.30*SHOULDER_SCALE,0,1.505),'SHOULDER_'+side)
- joint('FOREARM_'+side,(s*.435,-.035,1.215),'UPPER_ARM_'+side)
- hand=Vector((s*.455,-.085,.945));joint('HAND_'+side,hand,'FOREARM_'+side)
+ joint('FOREARM_'+side,(s*.400,-.035,1.215),'UPPER_ARM_'+side)
+ hand=Vector((s*.415,-.085,.945));joint('HAND_'+side,hand,'FOREARM_'+side)
  k7hand=Vector((s*.405,-.075,.945))
  def glove(p):return hand+(Vector(p)-k7hand)*GLOVE_SCALE
  for i in range(4):
@@ -115,10 +115,10 @@ def pose(name,t):
   put('HIP_'+side,hip,aim(H['KNEE_'+side]-H['HIP_'+side],knee-hip));put('KNEE_'+side,knee,aim(H['ANKLE_'+side]-H['KNEE_'+side],foot-knee));put('ANKLE_'+side,foot,footq);put('TOE_'+side)
   put('SHOULDER_'+side,q=ori['CHEST']@ry(-s*.03*crouch))
   swing=(.08 if cautious else .20)*math.cos(math.tau*q-.18) if walking else .006*math.sin(w)
-  upper=.06+swing-.30*crouch;fore=upper-(.42 if cautious else .16)-.50*crouch;abduct=.07;twist=.03
+  upper=.06+swing-.30*crouch;fore=upper-(.42 if cautious else .16)-.50*crouch;abduct=.02;twist=.03
   if hero:
    # Elbows bent 11 and 14 degrees; the right arm hangs a little wider and further back.
-   upper=(.03 if side=='L' else .11)+.004*breath;fore=upper-(.24 if side=='L' else .19);abduct=.05 if side=='L' else .11;twist=.02 if side=='L' else .07
+   upper=(.03 if side=='L' else .11)+.004*breath;fore=upper-(.24 if side=='L' else .19);abduct=.0 if side=='L' else .06;twist=.02 if side=='L' else .07
   if side=='R':upper-=.50*signal;fore-=2.50*signal
   put('UPPER_ARM_'+side,q=rx(upper)@ry(-s*(abduct+.20*signal if side=='R' else abduct)));put('FOREARM_'+side,q=rx(fore)@ry(-s*(.16*signal if side=='R' else twist)));put('HAND_'+side,q=rx((fore+.05)*(1-signal)-math.pi*signal if side=='R' else fore+.05)@rz(-s*math.pi/2*signal if side=='R' else 0))
   turn=HAND_TURN[side];unturn=turn.conjugated()
