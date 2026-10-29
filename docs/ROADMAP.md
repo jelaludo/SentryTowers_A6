@@ -1,5 +1,11 @@
 # Roadmap
 
+## 29 October 2026 / EVA-K8 heavy hardsuit — version two delivered
+
+Delivered the separate v2 family from the written brief: heavier proportions, bevelled bolted plates, wrinkled quilting, angular visor helmet, tank-and-unit backpack with hoses, lugged boots, a contrapposto hero stance plus the six v1 actions, and a viewer that generates worn PBR surfaces at runtime over palette-only GLBs. Delivered in `assets/eva-k8/` and `eva-k8/`; EVA-K7 is unchanged.
+
+Next integration: decide with the game between adopting `eva-k8/materials.js` and agreeing on baked textures; then the usual transitions, terrain IK, self-collision, r160/release compression, camera/LOD thresholds and reference-phone acceptance. Optional follow-ups: emissive helmet lamps, accessories on the hand/back sockets, D1–D3 damage states.
+
 ## 29 October 2026 / EVA-K7 hardsuit astronaut — candidate delivered
 
 Completed the requested game-optimised futuristic astronaut: opaque helmet, carbon reinforcements over a quilted garment, gritty military-exploration finish and a small air tank on the back. Detailed/game/static exports, a 50-joint rig with six actions, plain/decoded validation, Blender review sheets and a desktop/mobile viewer with close-ups and true-scale comparison are delivered in `assets/eva-k7/` and `eva-k7/`.

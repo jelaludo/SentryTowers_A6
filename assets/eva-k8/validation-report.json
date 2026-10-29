@@ -1,0 +1,219 @@
+{
+  "assets": [
+    {
+      "file": "eva_k8_d0_lod0.glb",
+      "triangles": 74804,
+      "draw_calls": 7,
+      "bytes": 3910108,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
+      "triangles": 74804,
+      "draw_calls": 7,
+      "bytes": 969744,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "eva_k8_d0_lod1.glb",
+      "triangles": 23516,
+      "draw_calls": 7,
+      "bytes": 1936568,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
+      "triangles": 23516,
+      "draw_calls": 7,
+      "bytes": 564988,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "eva_k8_d0_lod2.glb",
+      "triangles": 2804,
+      "draw_calls": 1,
+      "bytes": 226180,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
+      "triangles": 2804,
+      "draw_calls": 1,
+      "bytes": 70240,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "clip_samples": 12748,
+  "sample_hz": 120,
+  "minimum_geometry_y_m": 0.0014605704474198872,
+  "maximum_loop_error_m": 0.00000764837044897707,
+  "maximum_loop_rotation_error_rad": 0.0004937308218415316,
+  "maximum_stance_slip_m": 0.0006896166072790324,
+  "maximum_segment_length_error_m": 0.00006264471602435151,
+  "maximum_decoded_pose_error_m": 0.0006423037559586398,
+  "clip_envelopes": {
+    "Hero_Stance": {
+      "min": [
+        -0.6017862870789296,
+        0.0028354677937841057,
+        -0.32953309041927753
+      ],
+      "max": [
+        0.656589715015159,
+        1.9513168038367157,
+        0.3558713340831976
+      ],
+      "dimensions_m": [
+        1.2583760020940886,
+        1.9484813360429316,
+        0.6854044245024751
+      ]
+    },
+    "Suit_Idle": {
+      "min": [
+        -0.6253141682373085,
+        0.005843102935720425,
+        -0.3386295073624671
+      ],
+      "max": [
+        0.6357315738045974,
+        1.9626112283068662,
+        0.26173695091564314
+      ],
+      "dimensions_m": [
+        1.261045742041906,
+        1.9567681253711458,
+        0.6003664582781103
+      ]
+    },
+    "Walk_Cycle": {
+      "min": [
+        -0.65137143720631,
+        0.0016325927386218256,
+        -0.44912828919810965
+      ],
+      "max": [
+        0.6578993941095237,
+        1.8961627890580768,
+        0.5672103707358498
+      ],
+      "dimensions_m": [
+        1.3092708313158337,
+        1.894530196319455,
+        1.0163386599339594
+      ]
+    },
+    "Cautious_Walk_Cycle": {
+      "min": [
+        -0.6513029427036098,
+        0.0035792561506640223,
+        -0.40998477370386577
+      ],
+      "max": [
+        0.6578314143016544,
+        1.8462611580516648,
+        0.5254951101715172
+      ],
+      "dimensions_m": [
+        1.3091343570052643,
+        1.8426819019010008,
+        0.935479883875383
+      ]
+    },
+    "Survey_Scan": {
+      "min": [
+        -0.6253229534719837,
+        0.005830247858279806,
+        -0.3580114396592557
+      ],
+      "max": [
+        0.6318514573099215,
+        1.9625083838948438,
+        0.3076339537672027
+      ],
+      "dimensions_m": [
+        1.2571744107819054,
+        1.956678136036564,
+        0.6656453934264583
+      ]
+    },
+    "Kneel_Inspect": {
+      "min": [
+        -0.6260120936461167,
+        0.0058001128665520025,
+        -0.43936828765635727
+      ],
+      "max": [
+        0.6325399800461109,
+        1.9620531683420233,
+        0.4770709168234482
+      ],
+      "dimensions_m": [
+        1.2585520736922275,
+        1.9562530554754713,
+        0.9164392044798055
+      ]
+    },
+    "Signal_Halt": {
+      "min": [
+        -0.7135730221846405,
+        0.005847272368471481,
+        -0.3386295073624671
+      ],
+      "max": [
+        0.6318421178920166,
+        1.9626112067291355,
+        0.6458399543941059
+      ],
+      "dimensions_m": [
+        1.345415140076657,
+        1.956763934360664,
+        0.984469461756573
+      ]
+    }
+  },
+  "minimum_support_contacts": {
+    "Hero_Stance": 2,
+    "Suit_Idle": 2,
+    "Walk_Cycle": 1,
+    "Cautious_Walk_Cycle": 1,
+    "Survey_Scan": 2,
+    "Kneel_Inspect": 2,
+    "Signal_Halt": 2
+  },
+  "hand_orientation": {
+    "minimum_thumb_forward_m": 0.07419994339312867,
+    "minimum_relaxed_inward_curl_m": 0.07964095805091255,
+    "halt_palm_forward_dot": 0.9999999333107699
+  },
+  "scope": "Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance. Hero_Stance asymmetry, 1.35x shoulder span, helmet narrower than chest and 35 cm boot support are checked.",
+  "silhouette_helmet": {
+    "helmet_half_width_m": 0.1145610585808754,
+    "chest_half_width_m": 0.2570500075817108
+  },
+  "silhouette": {
+    "shoulder_joint_span_m": 0.8100000023841858,
+    "width_m": 1.1937216520309448,
+    "height_m": 1.9480000734329224
+  },
+  "hero_stance": {
+    "pelvis_offset_x_m": 0.02978515625,
+    "knee_flexion_deg": {
+      "L": 14.273875612805984,
+      "R": 33.9449445698333
+    },
+    "elbow_deg": {
+      "L": 13.848496726826612,
+      "R": 12.558184738442367
+    },
+    "right_heel_rise_m": 0.05506754352324296,
+    "torso_lean_deg": 5.168493231299493
+  },
+  "status": "passed"
+}

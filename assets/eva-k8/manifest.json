@@ -1,0 +1,877 @@
+{
+  "family": "eva-k8",
+  "label": "EVA-K8 / Heavy Hardsuit",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground beneath the standing hip centre"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 120,
+    "skeleton_joints": 50,
+    "placement_node": "instance wrapper around the glTF scene",
+    "motion_node": "MOTION",
+    "engine_driven_excluded": [],
+    "head_override": "HEAD may be overridden additively by an engine look-at; clips keep it within ±36° yaw",
+    "gait": "Original alternating human walk in a heavy suit: heel contact, flat support, toe roll and swing; double support, lateral weight transfer and restrained arm swing; not a force simulation",
+    "skeleton_root": "ROOT"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 30,
+    "hysteresis_m": 8,
+    "lod0": "Detailed recording master",
+    "lod1": "All animated gameplay; retain while moving",
+    "lod2": "Static standing map/loading silhouette; no animation"
+  },
+  "materials": {
+    "palette_only": true,
+    "names": [
+      "EVAK8_Carbon_plate",
+      "EVAK8_Quilted_suit",
+      "EVAK8_Brass_fittings",
+      "EVAK8_Rubber_seals",
+      "EVAK8_Steel",
+      "EVAK8_Visor_glass",
+      "EVAK8_Decal_stencil"
+    ],
+    "runtime_textures": "eva-k8/materials.js generates worn PBR maps procedurally at load; the GLB carries no images, per the collaboration contract"
+  },
+  "assets": [
+    {
+      "file": "eva_k8_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3910108,
+      "triangles": 74804,
+      "draw_calls": 7,
+      "plot_m": [
+        1.1,
+        0.8
+      ],
+      "clips": [
+        {
+          "name": "Hero_Stance",
+          "label": "Hero stance",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Weight over the left boot, hips shifted, torso leaned five degrees forward, elbows bent, slight helmet tilt. Asymmetric presentation pose with slow breathing."
+        },
+        {
+          "name": "Suit_Idle",
+          "label": "Suit idle",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Planted stance, slow pressurised-suit breathing, weight shifts and a helmet glance."
+        },
+        {
+          "name": "Walk_Cycle",
+          "label": "Walk",
+          "duration_s": 1.3,
+          "loop": true,
+          "speed_mps": 0.75,
+          "duty_factor": 0.64,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.53
+          ],
+          "note": "92 steps/min · 0.75 m/s. Heavy-boot heel placement, weight transfer and restrained arm swing."
+        },
+        {
+          "name": "Cautious_Walk_Cycle",
+          "label": "Cautious",
+          "duration_s": 2.2,
+          "loop": true,
+          "speed_mps": 0.32,
+          "duty_factor": 0.76,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.65
+          ],
+          "note": "55 steps/min · 0.32 m/s. Lowered stance, short careful steps and long double support."
+        },
+        {
+          "name": "Survey_Scan",
+          "label": "Survey",
+          "duration_s": 6,
+          "loop": false,
+          "note": "Boots stay planted while the helmet and upper torso sweep the horizon."
+        },
+        {
+          "name": "Kneel_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Drop the hips 30 cm into a braced inspection crouch, hold, then stand."
+        },
+        {
+          "name": "Signal_Halt",
+          "label": "Halt signal",
+          "duration_s": 4,
+          "loop": false,
+          "note": "Raise an open right glove, hold a silent halt signal, then lower it."
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "d6891741d084cf766940988a1b89c9c9aeaa74329cbfbb192b0255a849ee8b43",
+      "bounds": {
+        "min": [
+          -0.6051777005195618,
+          0.006000000052154064,
+          -0.3370000123977661
+        ],
+        "max": [
+          0.6051777005195618,
+          1.9610000848770142,
+          0.26100000739097595
+        ],
+        "dimensions_m": [
+          1.2103554010391235,
+          1.95500008482486,
+          0.5980000197887421
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "CHEST",
+        "EVAK8_RIG",
+        "EVAK8_SKIN",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L1_03",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L2_03",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L3_03",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_L4_03",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R1_03",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R2_03",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R3_03",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FINGER_R4_03",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "SOCKET_VISOR",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_VISOR",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            0.14499999955296516
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.4259999692440033,
+            0.7979999780654907,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.41200000047683716,
+            0.8819999694824219,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.4259999990463257,
+            0.7979999780654907,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.41200000047683716,
+            0.8819999694824219,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.399999976158142,
+            -0.1899999976158142
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 969744,
+      "meshopt_sha256": "99daeb9256f96e7c06c1279326b3968750690a467ca99e9dccc22aadb15db24e"
+    },
+    {
+      "file": "eva_k8_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 1936568,
+      "triangles": 23516,
+      "draw_calls": 7,
+      "plot_m": [
+        1.1,
+        0.8
+      ],
+      "clips": [
+        {
+          "name": "Hero_Stance",
+          "label": "Hero stance",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Weight over the left boot, hips shifted, torso leaned five degrees forward, elbows bent, slight helmet tilt. Asymmetric presentation pose with slow breathing."
+        },
+        {
+          "name": "Suit_Idle",
+          "label": "Suit idle",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Planted stance, slow pressurised-suit breathing, weight shifts and a helmet glance."
+        },
+        {
+          "name": "Walk_Cycle",
+          "label": "Walk",
+          "duration_s": 1.3,
+          "loop": true,
+          "speed_mps": 0.75,
+          "duty_factor": 0.64,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.53
+          ],
+          "note": "92 steps/min · 0.75 m/s. Heavy-boot heel placement, weight transfer and restrained arm swing."
+        },
+        {
+          "name": "Cautious_Walk_Cycle",
+          "label": "Cautious",
+          "duration_s": 2.2,
+          "loop": true,
+          "speed_mps": 0.32,
+          "duty_factor": 0.76,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.65
+          ],
+          "note": "55 steps/min · 0.32 m/s. Lowered stance, short careful steps and long double support."
+        },
+        {
+          "name": "Survey_Scan",
+          "label": "Survey",
+          "duration_s": 6,
+          "loop": false,
+          "note": "Boots stay planted while the helmet and upper torso sweep the horizon."
+        },
+        {
+          "name": "Kneel_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Drop the hips 30 cm into a braced inspection crouch, hold, then stand."
+        },
+        {
+          "name": "Signal_Halt",
+          "label": "Halt signal",
+          "duration_s": 4,
+          "loop": false,
+          "note": "Raise an open right glove, hold a silent halt signal, then lower it."
+        }
+      ],
+      "credit": "Models by jelaludo",
+      "sha256": "b7f884f0d928030559ebb01c43d2580c3f87364293f78c25921039729cf1d7a6",
+      "bounds": {
+        "min": [
+          -0.6037294864654541,
+          0.006000000052154064,
+          -0.3370000123977661
+        ],
+        "max": [
+          0.6037294864654541,
+          1.9610000848770142,
+          0.26100000739097595
+        ],
+        "dimensions_m": [
+          1.2074589729309082,
+          1.95500008482486,
+          0.5980000197887421
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "CHEST",
+        "EVAK8_RIG",
+        "EVAK8_SKIN",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L1_03",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L2_03",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L3_03",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_L4_03",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R1_03",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R2_03",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R3_03",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FINGER_R4_03",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "SOCKET_VISOR",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_VISOR",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            0.14499999955296516
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.4259999692440033,
+            0.7979999780654907,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.41200000047683716,
+            0.8819999694824219,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.4259999990463257,
+            0.7979999780654907,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.41200000047683716,
+            0.8819999694824219,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.399999976158142,
+            -0.1899999976158142
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 564988,
+      "meshopt_sha256": "f2e9f7d8705d538d5981b371e3c32d6efc5e4df6035e376e04305216c169faff"
+    },
+    {
+      "file": "eva_k8_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 226180,
+      "triangles": 2804,
+      "draw_calls": 1,
+      "plot_m": [
+        1.1,
+        0.8
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo",
+      "sha256": "0e750b9219dd357c3454dbcacc5fde4ad3243028e909fe6d3d0ab8270490f702",
+      "bounds": {
+        "min": [
+          -0.5968608260154724,
+          0.017999999225139618,
+          -0.3319999873638153
+        ],
+        "max": [
+          0.5968608260154724,
+          1.9480000734329224,
+          0.257999986410141
+        ],
+        "dimensions_m": [
+          1.1937216520309448,
+          1.9300000742077827,
+          0.5899999737739563
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "CHEST",
+        "EVAK8_RIG",
+        "EVAK8_SKIN",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L1_03",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L2_03",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L3_03",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_L4_03",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R1_03",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R2_03",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R3_03",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FINGER_R4_03",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "SOCKET_VISOR",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            -0.14499999582767487
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.029999997466802597
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.15000000596046448,
+            0.00599999725818634,
+            0.20499999821186066
+          ]
+        },
+        {
+          "node": "SOCKET_VISOR",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            0.14499999955296516
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.4259999692440033,
+            0.7979999780654907,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.41200000047683716,
+            0.8819999694824219,
+            0.07499999366700649
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.4259999990463257,
+            0.7979999780654907,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.41200000047683716,
+            0.8819999694824219,
+            0.07500000111758709
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.399999976158142,
+            -0.1899999976158142
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 70240,
+      "meshopt_sha256": "567741239e7b0c0a79f4c92e6b789e416a3d54f44de25f5a2a1d46b4152f4fcd"
+    }
+  ],
+  "design": {
+    "nominal_height_m": 1.98,
+    "scale_basis": "Same 1.00 m hip centre and leg chain as EVA-K7; the reference has no dimension annotation",
+    "role": "Heavy military-exploration EVA hardsuit, version two of EVA-K7",
+    "proportions": "Shoulders 1.35x, chest depth 1.3x, helmet 0.75x and narrower than the chest, gloves 1.4x, boots 1.5x with 35 cm lugged support, forearms and shins thicker at wrist and ankle, reduced waist pinch with a thick belt ring",
+    "finish": "Charcoal bevelled plates with panel lines and bolt heads, warm light-grey wrinkled quilted garment, brushed steel hardware, sparse muted brass on buckles, rings and bolt heads, near-black rubber hoses and seals, dark gold-tinted visor glass; pale stencils EVA-K8 / K8-0088 / SN 0088 and a worn warning stripe on the right shoulder",
+    "asymmetry": "Tool holster on the right hip only, wrist panel on the left forearm only, harness buckles at different heights, tank left and secondary unit right on the back, warning stripe on the right shoulder; Hero_Stance is a contrapposto pose with no mirror symmetry",
+    "surfaces": "The GLB carries seven palette materials and no images. eva-k8/materials.js generates carbon weave, quilting and wrinkle normals plus grime, scratches, brushed streaks and dust at load time, mapped triplanar in bind-pose space with per-vertex height, edge and cavity masks."
+  },
+  "budgets": {
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the complete glTF scene in an instance group; ROOT is a skeleton lookup. Use SkeletonUtils.clone for skinned instances.",
+    "gait": "In-place clips. Move the instance along +Z at clips.speed_mps times playback rate. Keep LOD1 during animated gameplay. No root motion is baked.",
+    "head": "HEAD is animated inside clips (idle glance, survey sweep, hero tilt). An engine look-at may be layered on HEAD additively; SOCKET_VISOR marks the visor centre and forward normal (+Z in the HEAD rest frame).",
+    "hands": "Neutral palms face inward and thumbs forward. Palm normals in the HAND node rest frame are -X for L and +X for R; transform these normals with the hand pose for attachments. Fingers curl toward that palm normal. Signal_Halt rolls the raised right palm toward +Z and opens the fingers. Glove joints sit 1.4x further from HAND than EVA-K7.",
+    "feet": "Rigid boots on ANKLE; TOE exists as a lookup for future flex. SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground with a 35 cm heel-to-toe support. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Hero_Stance keeps the right heel 5 cm up on the toe socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
+    "back": "SOCKET_BACK marks the backpack bracket on CHEST for alternative packs; the authored tank, secondary unit, webbing and both hoses are part of the CHEST skin, with one hose coupling on NECK.",
+    "bounds": "Use validation-report.json clip_envelopes for animated culling. Standing plot is 1.1 by 0.8 metres.",
+    "materials": "Seven palette materials, no textures, per the contract. The worn look in eva-k8/ is viewer-side (materials.js, three.js r180 onBeforeCompile). If the game wants the same look, adopt that module or agree on baked textures; the palette renders as a clean flat suit otherwise.",
+    "damage": "D0 intact only; D1-D3 are not authored. Distance is a static map/loading stand-in, never an animated gameplay replacement.",
+    "review": "Repository contract candidate only after validation. Consuming-game r160/release gltfpack, transitions, self-collision, phone performance and camera acceptance remain pending."
+  },
+  "provenance": {
+    "geometry": "Original procedural geometry and animation, version two of the EVA-K7 family after the same user-supplied futuristic astronaut design reference and a written v2 brief. No reference mesh, texture or captured animation is copied. EVA-K7 files are unchanged.",
+    "reference": {
+      "file": "photo_2026-10-29 18.56.07.jpeg",
+      "sha256": "541dadbb11ce6a63ab83b33d701c1f7b4fe91fa6d4f0a32fedf3a9b966f8eca6",
+      "bytes": 183549,
+      "usage": "User-provided visual design reference; image is not redistributed; no third-party license assertion."
+    },
+    "design_language": "Heavy worn EVA suit: grey/black bevelled plates over quilted fabric, sparse muted brass, backpack tank with hoses.",
+    "motion": "Independently authored timing and poses on the workshop biped IK; hero stance added; no biomechanical or force-validation claim.",
+    "textures": "Generated at runtime from seeded tileable noise in eva-k8/materials.js; no image files."
+  },
+  "source": {
+    "file": "../../source/blender/a6-eva-k8.blend",
+    "bytes": 8056617,
+    "sha256": "7635248d4f0ca92934c4b81d208e91681a5a773184629c004a7762ec850840a4",
+    "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
+  }
+}

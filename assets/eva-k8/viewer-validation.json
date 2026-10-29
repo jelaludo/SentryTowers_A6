@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless, SwiftShader software WebGL; frame costs are relative CPU-rasterizer measurements, not GPU frame rates",
+  "clips": [
+    {
+      "clip": "Hero_Stance",
+      "time": 0,
+      "draws": 45
+    },
+    {
+      "clip": "Survey_Scan",
+      "time": 1.8,
+      "draws": 45
+    },
+    {
+      "clip": "Suit_Idle",
+      "time": 1,
+      "draws": 45
+    },
+    {
+      "clip": "Walk_Cycle",
+      "time": 0.49,
+      "draws": 45
+    },
+    {
+      "clip": "Cautious_Walk_Cycle",
+      "time": 0.7,
+      "draws": 45
+    },
+    {
+      "clip": "Signal_Halt",
+      "time": 2.4,
+      "draws": 45
+    },
+    {
+      "clip": "Kneel_Inspect",
+      "time": 2.4,
+      "draws": 45
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "materials": {
+    "materials": [
+      "EVAK8_Brass_fittings",
+      "EVAK8_Carbon_plate",
+      "EVAK8_Decal_stencil",
+      "EVAK8_Quilted_suit",
+      "EVAK8_Rubber_seals",
+      "EVAK8_Steel",
+      "EVAK8_Visor_glass"
+    ],
+    "masks": true,
+    "patched": 6,
+    "roughness_variation": true,
+    "textures": [
+      "carbon",
+      "quilt",
+      "detail"
+    ],
+    "images_in_glb": 0
+  },
+  "silhouette": {
+    "shoulder_span_screen": 0.40975954421834826,
+    "helmet_half_width_m": 0.15000000596046448,
+    "body_half_width_m": 0.6564693663861383,
+    "hand_depth_difference_m": 0.11277284089101794
+  },
+  "frame_cost_ms": {
+    "v1_eva_k7": 111,
+    "v2_eva_k8_ao_on": 123.21875,
+    "v2_eva_k8_ao_off": 87.4187500178814,
+    "v2_over_v1_ao_on": 1.1100788288288288,
+    "v2_over_v1_ao_off": 0.7875563064673999
+  },
+  "checks": [
+    "seven clips and timeline controls",
+    "heel, double support, single support, swing indicators",
+    "hero/front/side/rear bounds and helmet/chest/glove/boot/tank close-ups",
+    "helmet narrower than shoulders; asymmetric hero stance",
+    "skeleton/wireframe/boot-marker/AO/runtime-wear toggles",
+    "all plain and Meshopt tiers",
+    "static tier disables actions",
+    "ground travel and real playback",
+    "actual-scale EVA-K7 v1 comparison",
+    "same-angle v1/v2 captures",
+    "desktop and 390px mobile layout/bounds",
+    "v1 viewer still loads with zero errors",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "eva_k8_d0_lod0.glb",
+      "sha256": "d6891741d084cf766940988a1b89c9c9aeaa74329cbfbb192b0255a849ee8b43",
+      "meshopt_sha256": "99daeb9256f96e7c06c1279326b3968750690a467ca99e9dccc22aadb15db24e"
+    },
+    {
+      "file": "eva_k8_d0_lod1.glb",
+      "sha256": "b7f884f0d928030559ebb01c43d2580c3f87364293f78c25921039729cf1d7a6",
+      "meshopt_sha256": "f2e9f7d8705d538d5981b371e3c32d6efc5e4df6035e376e04305216c169faff"
+    },
+    {
+      "file": "eva_k8_d0_lod2.glb",
+      "sha256": "0e750b9219dd357c3454dbcacc5fde4ad3243028e909fe6d3d0ab8270490f702",
+      "meshopt_sha256": "567741239e7b0c0a79f4c92e6b789e416a3d54f44de25f5a2a1d46b4152f4fcd"
+    }
+  ]
+}

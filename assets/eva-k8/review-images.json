@@ -1,0 +1,18 @@
+{
+  "derived": true,
+  "source": "eva-k8/ viewer in headless Chromium (SwiftShader) and eva-k7/ for the v1 panel",
+  "generator": "../../tools/asset-pipeline/test-eva-k8-viewer.mjs",
+  "assembler": "../../tools/asset-pipeline/render-eva-k8-sheets.mjs",
+  "images": [
+    "comparison-sheet.png",
+    "detail-sheet.png",
+    "preview.png",
+    "flat-palette.png",
+    "comparison-in-scene.png",
+    "distance-tier.png",
+    "mobile.png",
+    "v1-desktop.png",
+    "desktop.png"
+  ],
+  "scope": "Review-only captures of the viewer; lighting, post-processing and runtime textures are viewer-side. No changes to authoritative geometry; EVA-K7 files untouched."
+}

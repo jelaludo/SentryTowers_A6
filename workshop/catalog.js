@@ -1,4 +1,5 @@
 const collectionImages={
+'eva-k8':'assets/eva-k8/preview.png',
 'eva-k7':'assets/eva-k7/preview.png',
 'b-rek43':'assets/b-rek43/preview.png',
 'b-rek37':'assets/b-rek37/preview.png',
@@ -33,6 +34,7 @@ const collectionImages={
 };
 
 export const collections=[
+['eva-k8','EVA-K8 / Heavy Hardsuit','Characters','Version two of the hardsuit: 1.35× shoulders, bevelled bolted plates over wrinkled quilting, angular tinted-visor helmet, tank-and-unit backpack with hoses, lugged boots and a contrapposto hero stance. Worn PBR surfaces generated at runtime over palette-only GLBs; EVA-K7 shown beside it.','7 clips · 50 joints · 1.96 m · 3 LODs · runtime wear','Contract candidate'],
 ['eva-k7','EVA-K7 / Hardsuit Astronaut','Characters','A gritty military-exploration hardsuit: opaque visor helmet, layered carbon plates over a quilted pressure garment, brass hardware, heavy boots and a small air tank on the back. Walk, cautious walk, survey, inspection crouch and halt signal.','6 clips · 50 joints · 1.98 m · 3 LODs','Contract candidate'],
 ['b-rek43','B-REK43 / Long-stride Recon','Characters','An elegant non-human biped: longer splayed legs, three-toed mechanical claw feet, paired spherical hips on an exposed tube, long curved grippers and a raised hexagonal thorax. Compact radio pack and a true-scale B-REK37 comparison.','6 clips · 63 joints · 2.7 m · 3 LODs','Contract candidate'],
 ['b-rek37','B-REK37 / Recon Biped','Characters','A lean reconnaissance humanoid from the Cheetah manufacturer: navy floating armor, ivory service inserts, compound blue optics and long exposed leg actuators. Patrol, stealth, survey, observation crouch and silent signaling.','6 clips · 55 joints · 2.4 m · 3 LODs','Contract candidate'],
