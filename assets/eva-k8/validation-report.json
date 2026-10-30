@@ -2,49 +2,49 @@
   "assets": [
     {
       "file": "eva_k8_d0_lod0.glb",
-      "triangles": 76492,
+      "triangles": 78412,
       "draw_calls": 7,
-      "bytes": 3948788,
+      "bytes": 4002756,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
-      "triangles": 76492,
+      "triangles": 78412,
       "draw_calls": 7,
-      "bytes": 975932,
+      "bytes": 987264,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "eva_k8_d0_lod1.glb",
-      "triangles": 23780,
+      "triangles": 24116,
       "draw_calls": 7,
-      "bytes": 1940044,
+      "bytes": 1949660,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
-      "triangles": 23780,
+      "triangles": 24116,
       "draw_calls": 7,
-      "bytes": 565028,
+      "bytes": 567252,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "eva_k8_d0_lod2.glb",
-      "triangles": 2900,
+      "triangles": 2996,
       "draw_calls": 1,
-      "bytes": 234516,
+      "bytes": 243156,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
-      "triangles": 2900,
+      "triangles": 2996,
       "draw_calls": 1,
-      "bytes": 72456,
+      "bytes": 74940,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }

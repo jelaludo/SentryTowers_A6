@@ -66,11 +66,11 @@
     "hand_depth_difference_m": 0.11362228842763851
   },
   "frame_cost_ms": {
-    "v1_eva_k7": 77.26250004768372,
-    "v2_eva_k8_ao_on": 120.42499995231628,
-    "v2_eva_k8_ao_off": 89.01249998807907,
-    "v2_over_v1_ao_on": 1.5586474664681338,
-    "v2_over_v1_ao_off": 1.1520789507606364
+    "v1_eva_k7": 76.72499996423721,
+    "v2_eva_k8_ao_on": 134.02499997615814,
+    "v2_eva_k8_ao_off": 98.9375,
+    "v2_over_v1_ao_on": 1.7468230699071932,
+    "v2_over_v1_ao_off": 1.289507983657431
   },
   "checks": [
     "seven clips and timeline controls",
@@ -90,18 +90,18 @@
   "asset_hashes": [
     {
       "file": "eva_k8_d0_lod0.glb",
-      "sha256": "3005e3c49c5b66ca41a0a9bd3ca48a359d9087ddd6c1fab5876049bc4b8e5328",
-      "meshopt_sha256": "14fb114d87290f751664230673643362db9862b1d26f34c8cabef727ed325db2"
+      "sha256": "8107edbbc32f5c8751ff6c70417aec8d366f6ad37879d8d9832bb4b1fc95a3ca",
+      "meshopt_sha256": "da5af2f41b848eed32cfe46813da353c1c4a2176365edb2cdf35b0918dfa90da"
     },
     {
       "file": "eva_k8_d0_lod1.glb",
-      "sha256": "db26cc5fc69a0aad381e5464d604593ea9fb429954ca058731f2c8e7674f3c95",
-      "meshopt_sha256": "1784f3c8ba9891b1f61b681e1f8ceaa208defb846d08c2d2fc0f1bb3485e9790"
+      "sha256": "c66b9aafa2cc12a054197e41f35076325201766158d015594fd2e5e425bf8c11",
+      "meshopt_sha256": "21987c81b84a596128b7a89aa09d9f96717d47f1160dd7638f53cc9a5e1bef85"
     },
     {
       "file": "eva_k8_d0_lod2.glb",
-      "sha256": "f85f0e4d6292bd68dab88e73b4a41a27bd5383e4ca076a785acff3747510682b",
-      "meshopt_sha256": "2a0f6e65ba2d66ad37572c583f2fd1adbdb2f3049dea4babeaa9bcab46b6410c"
+      "sha256": "02afa43a2561c9fa3f465ed2b9efa9a8f1ecd4b17b7d21afe909a8ee3e97a19b",
+      "meshopt_sha256": "66a1691b13e56d3e5d9488296ecf5f6d066f8b7bf01eac36d9d07175c27b6a71"
     }
   ]
 }

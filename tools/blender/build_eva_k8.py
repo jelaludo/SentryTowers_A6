@@ -242,7 +242,7 @@ def shape(lod):
   g.text('EVA-K8',(0,-.1925,1.213),Matrix(((1,0,0),(0,0,-1),(0,1,0))),.028,'WAIST')
   g.text('K8-0088',(.12,-.2225,1.33),Matrix(((1,0,0),(0,0,-1),(0,1,0))),.012,'CHEST')
   for s in [-1,1]:
-   g.box((s*.175,-.035,1.600),(.11,.10,.020),0,'CHEST',.004,(0,s*.30,0))                           # clavicle guards
+   g.box((s*.175,-.035,1.652),(.11,.10,.020),0,'CHEST',.004,(0,s*.30,0))                           # clavicle guards
    # Webbing harness: rubber straps with a brass buckle each, asymmetric buckle heights.
    g.strut((s*.10,-.21,1.29),(s*.15,-.17,1.58),.036,3,'CHEST');buckle((s*.12,-.215,1.40 if s>0 else 1.47),(s*.14,-.11,1),'CHEST')
    g.strut((s*.11,.19,1.29),(s*.14,.18,1.57),.032,3,'CHEST')
@@ -273,7 +273,7 @@ def shape(lod):
   g.bolt((-.17,.302,1.27),'CHEST',axis=(0,1,0));g.bolt((-.04,.302,1.52),'CHEST',axis=(0,1,0))
   g.text('SN 0088',(-.105,.3012,1.465),Matrix(((-1,0,0),(0,0,1),(0,1,0))),.012,'CHEST')
   g.hose([(tank.x,tank.y,1.660),(tank.x+.01,tank.y+.02,1.72),(.06,.17,1.76),(.0,.118,1.705)],.013,3,'CHEST')
-  g.hose([(-.105,.252,1.535),(-.19,.23,1.60),(-.245,.09,1.615),(-.21,-.14,1.545),(-.11,-.22,1.465),(-.062,-.236,1.44)],.012,3,'CHEST')
+  g.hose([(-.105,.252,1.535),(-.19,.23,1.60),(-.245,.09,1.648),(-.21,-.14,1.545),(-.11,-.22,1.465),(-.062,-.236,1.44)],.012,3,'CHEST')
   g.tube((0,.118,1.705),(0,.098,1.705),.016,4,'NECK',sides=8)
  # ---- Arms: wrinkled sleeves, layered plates, hinge elbows, thicker gauntlets at the wrist, 1.4x gloves.
  for side,s in [('L',1),('R',-1)]:
@@ -290,7 +290,8 @@ def shape(lod):
     e=.95;d=Vector((s*math.cos(e)*math.cos(ang),math.cos(e)*math.sin(ang)*(-1 if s<0 else 1),math.sin(e)))
     p=a+Vector((0,0,.025))+Vector((s*.138*math.cos(e)*math.cos(ang),.158*math.cos(e)*math.sin(ang),.160*math.sin(e)));pts.append((p,d))
    stripe(pts,'SHOULDER_'+side)
-  g.tube(sh,a+Vector((s*.03,0,0)),.074,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.01)),(.095,.100,.094),1,'SHOULDER_'+side);g.ellipsoid(a+Vector((-s*.09,.0,-.075)),(.100,.108,.130),1,'SHOULDER_'+side)   # underarm volume: bridges the chest flank and the sleeve so the arm rests on the bust
+  g.tube(Vector((s*.13,0,1.565)),a+Vector((s*.02,0,.01)),.100,1,'SHOULDER_'+side);g.ellipsoid(a+Vector((0,0,.02)),(.122,.142,.142),1,'SHOULDER_'+side);g.ellipsoid((s*.20,.01,1.575),(.14,.12,.07),1,'CHEST');   # shoulder girdle: thick deltoid tube, pauldron filled to its inner skin, trapezius slope from the collar
+  g.ellipsoid(a+Vector((-s*.09,.0,-.075)),(.100,.108,.130),1,'SHOULDER_'+side)   # underarm volume: bridges the chest flank and the sleeve so the arm rests on the bust
   g.fabric(a.lerp(c,.03),c.lerp(a,.04),.084,.070,1,'UPPER_ARM_'+side,(.9,1.0),seed=1.1+s)
   for u in [.36,.62]:band(a,c,u,(.084+(.070-.084)*u)*1.02,'UPPER_ARM_'+side)
   g.carapace(a.lerp(c,.24)+Vector((s*.058,0,0)),a.lerp(c,.88)+Vector((s*.050,0,0)),.066,.040,0,'UPPER_ARM_'+side,(s,0,0),bolts=[(.2,0),(.8,0)] if lod==0 else [],slab=True)

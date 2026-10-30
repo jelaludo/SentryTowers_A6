@@ -36,9 +36,9 @@ Plain self-contained GLBs are authoritative. Optional Meshopt copies in `derived
 
 | Tier | Triangles | Mesh draws | Plain bytes | Meshopt bytes | Clips |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Detailed / LOD0 | 76,492 | 7 | 3,948,788 | 975,932 | 7 |
-| Game / LOD1 | 23,780 | 7 | 1,940,044 | 565,028 | 7 |
-| Static distance / LOD2 | 2,900 | 1 | 234,516 | 72,456 | 0 |
+| Detailed / LOD0 | 78,412 | 7 | 4,002,756 | 987,264 | 7 |
+| Game / LOD1 | 24,116 | 7 | 1,949,660 | 567,252 | 7 |
+| Static distance / LOD2 | 2,996 | 1 | 243,156 | 74,940 | 0 |
 
 LOD1 meets the unit target of 25k triangles with articulated pivots. LOD2 meets 3k triangles, one draw and 250 KB. Use LOD0 for close inspection and recordings, LOD1 throughout animated gameplay. LOD2 is an unskinned static silhouette with the same 65 named nodes and no clips. Initial LOD2, 30 m approach and 8 m hysteresis remain suggested values awaiting game-camera review; never swap a moving character to static distance.
 
@@ -91,7 +91,7 @@ Repository status: **Contract candidate**. Consuming-game r160/release gltfpack,
 
 ## Findings and limits
 
-- The 1.35× shoulders left a hollow between each arm and the torso, and a first pass (joints 3 to 5 cm inward, chest 1.5 cm wider, a small underarm ellipsoid) was not enough: the sleeve still hung clear of the chest flank. What closed it was treating the garment as the wide part and the plates as sitting on it: the chest half width now runs to 0.292 m at the ribs, the forearm and hand joints hang at 0.400 m and 0.415 m from centre with no outward abduction in the idle and walk clips, and a 20 × 22 × 26 cm quilted underarm volume on each shoulder bone bridges the flank and the sleeve. The flat side-armor plates were dropped because that volume engulfed them. Overlapping shells still do not make an armpit, but the arm now rests on the bust from the front, side and three-quarter views.
+- The 1.35× shoulders left a hollow between each arm and the torso, and a first pass (joints 3 to 5 cm inward, chest 1.5 cm wider, a small underarm ellipsoid) was not enough: the sleeve still hung clear of the chest flank. What closed it was treating the garment as the wide part and the plates as sitting on it: the chest half width now runs to 0.292 m at the ribs, the forearm and hand joints hang at 0.400 m and 0.415 m from centre with no outward abduction in the idle and walk clips, and a 20 × 22 × 26 cm quilted underarm volume on each shoulder bone bridges the flank and the sleeve. The flat side-armor plates were dropped because that volume engulfed them. The shoulder girdle needed the same treatment: a 7 cm shoulder tube and a hollow pauldron read as an arm pinned beside the body, so the pauldron is now filled to its inner skin, the deltoid tube is 10 cm thick and a trapezius slope runs from the collar to each cap. Overlapping shells still do not make an armpit, but the arm now hangs from one continuous shoulder mass in the front, rear, side and three-quarter views.
 - Primitive assembly gives repeatable tiers, stable node names and clean budgets, but the organic transitions of a pressure suit (underarms, crotch, fabric gathering under plates) are where it runs out. A better next pipeline is to scan or sculpt the torso and each limb separately, clean and decimate those meshes, and assemble them on this joint table and node names, keeping the procedural tools for plates, hardware, hoses and the distance tier.
 - Everything worn is viewer-side. The GLB renders as a flat palette elsewhere; the game has to adopt `materials.js` or ask for baked textures before the look travels.
 - Texture scale decides whether the suit reads as a suit: 2.5 mm weave and 3 cm quilting work at review distance; 7 mm and 6 cm read as a basket and a duvet.

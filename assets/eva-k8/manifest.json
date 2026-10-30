@@ -49,8 +49,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 3948788,
-      "triangles": 76492,
+      "bytes": 4002756,
+      "triangles": 78412,
       "draw_calls": 7,
       "plot_m": [
         1.1,
@@ -128,7 +128,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "3005e3c49c5b66ca41a0a9bd3ca48a359d9087ddd6c1fab5876049bc4b8e5328",
+      "sha256": "8107edbbc32f5c8751ff6c70417aec8d366f6ad37879d8d9832bb4b1fc95a3ca",
       "bounds": {
         "min": [
           -0.549500048160553,
@@ -325,8 +325,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 975932,
-      "meshopt_sha256": "14fb114d87290f751664230673643362db9862b1d26f34c8cabef727ed325db2"
+      "meshopt_bytes": 987264,
+      "meshopt_sha256": "da5af2f41b848eed32cfe46813da353c1c4a2176365edb2cdf35b0918dfa90da"
     },
     {
       "file": "eva_k8_d0_lod1.glb",
@@ -334,8 +334,8 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1940044,
-      "triangles": 23780,
+      "bytes": 1949660,
+      "triangles": 24116,
       "draw_calls": 7,
       "plot_m": [
         1.1,
@@ -413,7 +413,7 @@
         }
       ],
       "credit": "Models by jelaludo",
-      "sha256": "db26cc5fc69a0aad381e5464d604593ea9fb429954ca058731f2c8e7674f3c95",
+      "sha256": "c66b9aafa2cc12a054197e41f35076325201766158d015594fd2e5e425bf8c11",
       "bounds": {
         "min": [
           -0.5486035943031311,
@@ -610,8 +610,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 565028,
-      "meshopt_sha256": "1784f3c8ba9891b1f61b681e1f8ceaa208defb846d08c2d2fc0f1bb3485e9790"
+      "meshopt_bytes": 567252,
+      "meshopt_sha256": "21987c81b84a596128b7a89aa09d9f96717d47f1160dd7638f53cc9a5e1bef85"
     },
     {
       "file": "eva_k8_d0_lod2.glb",
@@ -619,8 +619,8 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 234516,
-      "triangles": 2900,
+      "bytes": 243156,
+      "triangles": 2996,
       "draw_calls": 1,
       "plot_m": [
         1.1,
@@ -628,7 +628,7 @@
       ],
       "clips": [],
       "credit": "Models by jelaludo",
-      "sha256": "f85f0e4d6292bd68dab88e73b4a41a27bd5383e4ca076a785acff3747510682b",
+      "sha256": "02afa43a2561c9fa3f465ed2b9efa9a8f1ecd4b17b7d21afe909a8ee3e97a19b",
       "bounds": {
         "min": [
           -0.5428497791290283,
@@ -825,8 +825,8 @@
       ],
       "meshopt_file": "derived/meshopt/eva_k8_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 72456,
-      "meshopt_sha256": "2a0f6e65ba2d66ad37572c583f2fd1adbdb2f3049dea4babeaa9bcab46b6410c"
+      "meshopt_bytes": 74940,
+      "meshopt_sha256": "66a1691b13e56d3e5d9488296ecf5f6d066f8b7bf01eac36d9d07175c27b6a71"
     }
   ],
   "design": {
@@ -870,8 +870,8 @@
   },
   "source": {
     "file": "../../source/blender/a6-eva-k8.blend",
-    "bytes": 8130958,
-    "sha256": "ae8ea383fc628b1432417d335b1171bc6c2033e7348727688509cde1372102b6",
+    "bytes": 8155701,
+    "sha256": "b52ec66c08e199d1057b7bb4e150e218c7604211459faecfc73e6726efd5a878",
     "role": "Editable LOD0 authoring master; authoritative plain GLBs for runtime"
   }
 }
