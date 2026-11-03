@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader WebGL, functional inspection only; no performance claim",
+  "checks": [
+    "four behaviors / six-leg contacts",
+    "six camera presets",
+    "six tier/encoding combinations",
+    "static-tier motion lockout",
+    "selected download",
+    "wireframe / rig / contacts",
+    "full hydraulic extension",
+    "play / pause",
+    "one-shot terminal hold",
+    "desktop and 390px mobile framing",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "lod0/nih_dairia_mech_d0_lod0.glb",
+      "sha256": "2970ee44c8f71fe62857e5f2529924776e4fc6feea4c82f976db54cce3649a83",
+      "meshopt_sha256": "f0e5300f47a4b7331ec1fab8fb341d79fad27cf90c54d8c241f968775975b9e1"
+    },
+    {
+      "file": "lod1/nih_dairia_mech_d0_lod1.glb",
+      "sha256": "8a872b23b4692ab1de9bf22ec4a7fec0006d173e7f5c02c3bdb950bd534c9387",
+      "meshopt_sha256": "668980b9f508adba8bf5fa99460227828e3925b35548baefc9d1d271285a4739"
+    },
+    {
+      "file": "lod2/nih_dairia_mech_d0_lod2.glb",
+      "sha256": "874990adc999e171c6673b414bd52ef8d5606f840b808c10c665e5e8a7752f6b",
+      "meshopt_sha256": "f3cc9c745f26a3a8b9bc2cd74d98e12cc966fb1b981e2ba414b223f9790f3024"
+    }
+  ]
+}

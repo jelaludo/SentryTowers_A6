@@ -1,0 +1,1860 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "nih-dairia-mech",
+  "version": 1,
+  "category": "unit_with_optional_static_distance",
+  "label": "Nih-Dairia / Isao mechanical study",
+  "status": "v1_contract_candidate_pending_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 are not authored in v1; damage is independent of detail.",
+  "budgets": {
+    "lod1": {
+      "triangles": 25000
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Manual close shots / recording",
+    "distance": "Static observation pose. Swap to articulated game tier before movement."
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "baked_clips": [],
+    "demonstrations": [
+      {
+        "name": "Observation_Idle",
+        "duration_s": 6,
+        "loop": true
+      },
+      {
+        "name": "Tripod_Walk_Cycle",
+        "duration_s": 3,
+        "loop": true,
+        "speed_m_s": 0.3
+      },
+      {
+        "name": "Reach_Cycle",
+        "duration_s": 8,
+        "loop": true
+      },
+      {
+        "name": "Anchor_Deploy",
+        "duration_s": 8,
+        "loop": false
+      }
+    ],
+    "telescopic_stroke_m": 0.58,
+    "scope": "Kinematic planar prototype; anchoring is a visual planted-foot deployment, not terrain penetration or force simulation."
+  },
+  "lore": "After encountering a Nih-Dairia, Isao studied its six-limbed locomotion and built a mechanical analogue: hydraulic carbon sleeves replace muscle, and retractable titanium claws replace the living grip.",
+  "references": {
+    "creature": "https://kai-denrei.github.io/lab-creatures/?specimen=nih-dairia",
+    "images": [
+      {
+        "file": "Hexapod2.png",
+        "sha256": "253cae9848434c717fabf2ceb174222bde0762d37184464bfec667a6781d9de3",
+        "redistributed": false
+      },
+      {
+        "file": "NiDaira_.png",
+        "sha256": "e738573fc8be4cd23838ea72149645a506b68d9a2fb7dd2657b3a4980bbea365",
+        "redistributed": false
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "nih_dairia_mech_d0_lod0",
+      "family": "nih_dairia_mech",
+      "label": "Nih-Dairia / Isao mechanical study",
+      "file": "lod0/nih_dairia_mech_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 2812128,
+      "sha256": "2970ee44c8f71fe62857e5f2529924776e4fc6feea4c82f976db54cce3649a83",
+      "triangles": 58952,
+      "draw_calls": 3,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/nih_dairia_mech_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 542860,
+      "meshopt_sha256": "f0e5300f47a4b7331ec1fab8fb341d79fad27cf90c54d8c241f968775975b9e1",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -2.9952516555786137,
+          0.007000003010034533,
+          -3.4554255008697505
+        ],
+        "max": [
+          2.9952516555786133,
+          1.8165277242660525,
+          3.4554255008697505
+        ],
+        "dimensions_m": [
+          5.990503311157227,
+          1.809527721256018,
+          6.910851001739501
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -4.5,
+          0,
+          -4.5
+        ],
+        "max": [
+          4.5,
+          2.6,
+          4.5
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CLAW_1_TIP",
+          "node": "LEG_01_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944165,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            -0.336724357770387,
+            -0.8525245220595057,
+            0.3997732434409934
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_2_TIP",
+          "node": "LEG_01_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            6.295909201369434e-16,
+            0.19621332314037515,
+            3.4554254333245855
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -0.8525245220595057,
+            0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_3_TIP",
+          "node": "LEG_01_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944285,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            0.3367243577703868,
+            -0.8525245220595057,
+            0.3997732434409937
+          ]
+        },
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            5.861977570020826e-16,
+            0,
+            3.2599999999999993
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_1_TIP",
+          "node": "LEG_02_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.1962133231403755,
+            1.8062017302296565
+          ],
+          "normal": [
+            0.17785160568800734,
+            -0.8525245220595056,
+            0.49149846962265215
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_2_TIP",
+          "node": "LEG_02_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037554,
+            1.7277127166622939
+          ],
+          "normal": [
+            0.4526604184876434,
+            -0.8525245220595056,
+            0.26134361446533017
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_3_TIP",
+          "node": "LEG_02_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.1962133231403755,
+            1.5679942137380138
+          ],
+          "normal": [
+            0.5145759634583946,
+            -0.8525245220595058,
+            -0.09172522618165826
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            3.0531133177191805e-16,
+            1.6300000000000008
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            3.191891195797325e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_1_TIP",
+          "node": "LEG_03_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.19621332314037512,
+            -1.5679942137380123
+          ],
+          "normal": [
+            0.5145759634583945,
+            -0.8525245220595058,
+            0.0917252261816584
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_2_TIP",
+          "node": "LEG_03_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037515,
+            -1.7277127166622925
+          ],
+          "normal": [
+            0.45266041848764366,
+            -0.8525245220595057,
+            -0.2613436144653292
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_3_TIP",
+          "node": "LEG_03_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.19621332314037512,
+            -1.8062017302296551
+          ],
+          "normal": [
+            0.177851605688008,
+            -0.8525245220595059,
+            -0.49149846962265165
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            0,
+            -1.6299999999999994
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            4.163336342344337e-17
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_1_TIP",
+          "node": "LEG_04_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944293,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            0.33672435777038706,
+            -0.8525245220595058,
+            -0.39977324344099346
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_2_TIP",
+          "node": "LEG_04_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            7.055190216840792e-16,
+            0.19621332314037515,
+            -3.4554254333245855
+          ],
+          "normal": [
+            4.440892098500626e-16,
+            -0.8525245220595058,
+            -0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_3_TIP",
+          "node": "LEG_04_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944157,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            -0.33672435777038656,
+            -0.8525245220595057,
+            -0.39977324344099385
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            6.621258585492185e-16,
+            0,
+            -3.2599999999999993
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_1_TIP",
+          "node": "LEG_05_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.853374817937693,
+            0.19621332314037512,
+            -1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800717,
+            -0.8525245220595059,
+            -0.4914984696226522
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_2_TIP",
+          "node": "LEG_05_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037515,
+            -1.727712716662294
+          ],
+          "normal": [
+            -0.45266041848764316,
+            -0.8525245220595057,
+            -0.26134361446533005
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_3_TIP",
+          "node": "LEG_05_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.990903991707136,
+            0.19621332314037512,
+            -1.567994213738014
+          ],
+          "normal": [
+            -0.5145759634583946,
+            -0.8525245220595059,
+            0.09172522618165746
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.823242816337269,
+            0,
+            -1.630000000000001
+          ],
+          "normal": [
+            1.6653345369377348e-16,
+            -1,
+            -3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_1_TIP",
+          "node": "LEG_06_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.9909039917071363,
+            0.1962133231403755,
+            1.5679942137380143
+          ],
+          "normal": [
+            -0.5145759634583947,
+            -0.8525245220595057,
+            -0.09172522618165824
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_2_TIP",
+          "node": "LEG_06_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037554,
+            1.7277127166622943
+          ],
+          "normal": [
+            -0.45266041848764366,
+            -0.8525245220595057,
+            0.2613436144653296
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_3_TIP",
+          "node": "LEG_06_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.8533748179376937,
+            0.1962133231403755,
+            1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800795,
+            -0.8525245220595056,
+            0.49149846962265187
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.8232428163372694,
+            3.0531133177191805e-16,
+            1.6300000000000012
+          ],
+          "normal": [
+            -2.7755575615628914e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "DORSAL_TOOL",
+          "node": "SOCKET_DORSAL_TOOL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            1.71,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            1.29,
+            -0.53
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "FRONT",
+          "node": "SOCKET_FRONT",
+          "kind": "forward_sensor",
+          "position_m": [
+            0,
+            1.45,
+            0.7
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3"
+      ],
+      "required_nodes": [
+        "NIH_DAIRIA_MECH_ROOT",
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3",
+        "LEG_01_CLAW_1_TIP",
+        "LEG_01_CLAW_2_TIP",
+        "LEG_01_CLAW_3_TIP",
+        "LEG_01_CONTACT",
+        "LEG_02_CLAW_1_TIP",
+        "LEG_02_CLAW_2_TIP",
+        "LEG_02_CLAW_3_TIP",
+        "LEG_02_CONTACT",
+        "LEG_03_CLAW_1_TIP",
+        "LEG_03_CLAW_2_TIP",
+        "LEG_03_CLAW_3_TIP",
+        "LEG_03_CONTACT",
+        "LEG_04_CLAW_1_TIP",
+        "LEG_04_CLAW_2_TIP",
+        "LEG_04_CLAW_3_TIP",
+        "LEG_04_CONTACT",
+        "LEG_05_CLAW_1_TIP",
+        "LEG_05_CLAW_2_TIP",
+        "LEG_05_CLAW_3_TIP",
+        "LEG_05_CONTACT",
+        "LEG_06_CLAW_1_TIP",
+        "LEG_06_CLAW_2_TIP",
+        "LEG_06_CLAW_3_TIP",
+        "LEG_06_CONTACT",
+        "SOCKET_DORSAL_TOOL",
+        "SOCKET_POWER",
+        "SOCKET_FRONT"
+      ],
+      "credit": "Mechanical model by jelaludo; Nih-Dairia creature concept referenced from kai-denrei/lab-creatures and user-supplied images"
+    },
+    {
+      "id": "nih_dairia_mech_d0_lod1",
+      "family": "nih_dairia_mech",
+      "label": "Nih-Dairia / Isao mechanical study",
+      "file": "lod1/nih_dairia_mech_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 886548,
+      "sha256": "8a872b23b4692ab1de9bf22ec4a7fec0006d173e7f5c02c3bdb950bd534c9387",
+      "triangles": 17784,
+      "draw_calls": 3,
+      "materials": 3,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/nih_dairia_mech_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 196540,
+      "meshopt_sha256": "668980b9f508adba8bf5fa99460227828e3925b35548baefc9d1d271285a4739",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -2.995005369186402,
+          0.007000003010034533,
+          -3.4554255008697505
+        ],
+        "max": [
+          2.9950053691864014,
+          1.8150304555892947,
+          3.4554255008697505
+        ],
+        "dimensions_m": [
+          5.990010738372803,
+          1.80803045257926,
+          6.910851001739501
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -4.5,
+          0,
+          -4.5
+        ],
+        "max": [
+          4.5,
+          2.6,
+          4.5
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CLAW_1_TIP",
+          "node": "LEG_01_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944165,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            -0.336724357770387,
+            -0.8525245220595057,
+            0.3997732434409934
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_2_TIP",
+          "node": "LEG_01_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            6.295909201369434e-16,
+            0.19621332314037515,
+            3.4554254333245855
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -0.8525245220595057,
+            0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_3_TIP",
+          "node": "LEG_01_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944285,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            0.3367243577703868,
+            -0.8525245220595057,
+            0.3997732434409937
+          ]
+        },
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            5.861977570020826e-16,
+            0,
+            3.2599999999999993
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_1_TIP",
+          "node": "LEG_02_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.1962133231403755,
+            1.8062017302296565
+          ],
+          "normal": [
+            0.17785160568800734,
+            -0.8525245220595056,
+            0.49149846962265215
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_2_TIP",
+          "node": "LEG_02_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037554,
+            1.7277127166622939
+          ],
+          "normal": [
+            0.4526604184876434,
+            -0.8525245220595056,
+            0.26134361446533017
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_3_TIP",
+          "node": "LEG_02_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.1962133231403755,
+            1.5679942137380138
+          ],
+          "normal": [
+            0.5145759634583946,
+            -0.8525245220595058,
+            -0.09172522618165826
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            3.0531133177191805e-16,
+            1.6300000000000008
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            3.191891195797325e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_1_TIP",
+          "node": "LEG_03_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.19621332314037512,
+            -1.5679942137380123
+          ],
+          "normal": [
+            0.5145759634583945,
+            -0.8525245220595058,
+            0.0917252261816584
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_2_TIP",
+          "node": "LEG_03_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037515,
+            -1.7277127166622925
+          ],
+          "normal": [
+            0.45266041848764366,
+            -0.8525245220595057,
+            -0.2613436144653292
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_3_TIP",
+          "node": "LEG_03_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.19621332314037512,
+            -1.8062017302296551
+          ],
+          "normal": [
+            0.177851605688008,
+            -0.8525245220595059,
+            -0.49149846962265165
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            0,
+            -1.6299999999999994
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            4.163336342344337e-17
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_1_TIP",
+          "node": "LEG_04_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944293,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            0.33672435777038706,
+            -0.8525245220595058,
+            -0.39977324344099346
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_2_TIP",
+          "node": "LEG_04_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            7.055190216840792e-16,
+            0.19621332314037515,
+            -3.4554254333245855
+          ],
+          "normal": [
+            4.440892098500626e-16,
+            -0.8525245220595058,
+            -0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_3_TIP",
+          "node": "LEG_04_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944157,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            -0.33672435777038656,
+            -0.8525245220595057,
+            -0.39977324344099385
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            6.621258585492185e-16,
+            0,
+            -3.2599999999999993
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_1_TIP",
+          "node": "LEG_05_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.853374817937693,
+            0.19621332314037512,
+            -1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800717,
+            -0.8525245220595059,
+            -0.4914984696226522
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_2_TIP",
+          "node": "LEG_05_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037515,
+            -1.727712716662294
+          ],
+          "normal": [
+            -0.45266041848764316,
+            -0.8525245220595057,
+            -0.26134361446533005
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_3_TIP",
+          "node": "LEG_05_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.990903991707136,
+            0.19621332314037512,
+            -1.567994213738014
+          ],
+          "normal": [
+            -0.5145759634583946,
+            -0.8525245220595059,
+            0.09172522618165746
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.823242816337269,
+            0,
+            -1.630000000000001
+          ],
+          "normal": [
+            1.6653345369377348e-16,
+            -1,
+            -3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_1_TIP",
+          "node": "LEG_06_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.9909039917071363,
+            0.1962133231403755,
+            1.5679942137380143
+          ],
+          "normal": [
+            -0.5145759634583947,
+            -0.8525245220595057,
+            -0.09172522618165824
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_2_TIP",
+          "node": "LEG_06_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037554,
+            1.7277127166622943
+          ],
+          "normal": [
+            -0.45266041848764366,
+            -0.8525245220595057,
+            0.2613436144653296
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_3_TIP",
+          "node": "LEG_06_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.8533748179376937,
+            0.1962133231403755,
+            1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800795,
+            -0.8525245220595056,
+            0.49149846962265187
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.8232428163372694,
+            3.0531133177191805e-16,
+            1.6300000000000012
+          ],
+          "normal": [
+            -2.7755575615628914e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "DORSAL_TOOL",
+          "node": "SOCKET_DORSAL_TOOL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            1.71,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            1.29,
+            -0.53
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "FRONT",
+          "node": "SOCKET_FRONT",
+          "kind": "forward_sensor",
+          "position_m": [
+            0,
+            1.45,
+            0.7
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3"
+      ],
+      "required_nodes": [
+        "NIH_DAIRIA_MECH_ROOT",
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3",
+        "LEG_01_CLAW_1_TIP",
+        "LEG_01_CLAW_2_TIP",
+        "LEG_01_CLAW_3_TIP",
+        "LEG_01_CONTACT",
+        "LEG_02_CLAW_1_TIP",
+        "LEG_02_CLAW_2_TIP",
+        "LEG_02_CLAW_3_TIP",
+        "LEG_02_CONTACT",
+        "LEG_03_CLAW_1_TIP",
+        "LEG_03_CLAW_2_TIP",
+        "LEG_03_CLAW_3_TIP",
+        "LEG_03_CONTACT",
+        "LEG_04_CLAW_1_TIP",
+        "LEG_04_CLAW_2_TIP",
+        "LEG_04_CLAW_3_TIP",
+        "LEG_04_CONTACT",
+        "LEG_05_CLAW_1_TIP",
+        "LEG_05_CLAW_2_TIP",
+        "LEG_05_CLAW_3_TIP",
+        "LEG_05_CONTACT",
+        "LEG_06_CLAW_1_TIP",
+        "LEG_06_CLAW_2_TIP",
+        "LEG_06_CLAW_3_TIP",
+        "LEG_06_CONTACT",
+        "SOCKET_DORSAL_TOOL",
+        "SOCKET_POWER",
+        "SOCKET_FRONT"
+      ],
+      "credit": "Mechanical model by jelaludo; Nih-Dairia creature concept referenced from kai-denrei/lab-creatures and user-supplied images"
+    },
+    {
+      "id": "nih_dairia_mech_d0_lod2",
+      "family": "nih_dairia_mech",
+      "label": "Nih-Dairia / Isao mechanical study",
+      "file": "lod2/nih_dairia_mech_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 64016,
+      "sha256": "874990adc999e171c6673b414bd52ef8d5606f840b808c10c665e5e8a7752f6b",
+      "triangles": 1776,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/nih_dairia_mech_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 33856,
+      "meshopt_sha256": "f3cc9c745f26a3a8b9bc2cd74d98e12cc966fb1b981e2ba414b223f9790f3024",
+      "meshopt_derived": true,
+      "plot_m": [
+        9,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -2.994722843170166,
+          0.008000005036592484,
+          -3.455425500869751
+        ],
+        "max": [
+          2.994722843170166,
+          1.8150304555892944,
+          3.455425500869751
+        ],
+        "dimensions_m": [
+          5.989445686340332,
+          1.807030450552702,
+          6.910851001739502
+        ]
+      },
+      "swept_envelope_m": {
+        "min": [
+          -4.5,
+          0,
+          -4.5
+        ],
+        "max": [
+          4.5,
+          2.6,
+          4.5
+        ]
+      },
+      "sockets": [
+        {
+          "id": "LEG_01_CLAW_1_TIP",
+          "node": "LEG_01_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944165,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            -0.336724357770387,
+            -0.8525245220595057,
+            0.3997732434409934
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_2_TIP",
+          "node": "LEG_01_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            6.295909201369434e-16,
+            0.19621332314037515,
+            3.4554254333245855
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -0.8525245220595057,
+            0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_01_CLAW_3_TIP",
+          "node": "LEG_01_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944285,
+            0.19621332314037512,
+            3.3741959439676683
+          ],
+          "normal": [
+            0.3367243577703868,
+            -0.8525245220595057,
+            0.3997732434409937
+          ]
+        },
+        {
+          "id": "LEG_01_CONTACT",
+          "node": "LEG_01_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            5.861977570020826e-16,
+            0,
+            3.2599999999999993
+          ],
+          "normal": [
+            -2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_1_TIP",
+          "node": "LEG_02_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.1962133231403755,
+            1.8062017302296565
+          ],
+          "normal": [
+            0.17785160568800734,
+            -0.8525245220595056,
+            0.49149846962265215
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_2_TIP",
+          "node": "LEG_02_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037554,
+            1.7277127166622939
+          ],
+          "normal": [
+            0.4526604184876434,
+            -0.8525245220595056,
+            0.26134361446533017
+          ]
+        },
+        {
+          "id": "LEG_02_CLAW_3_TIP",
+          "node": "LEG_02_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.1962133231403755,
+            1.5679942137380138
+          ],
+          "normal": [
+            0.5145759634583946,
+            -0.8525245220595058,
+            -0.09172522618165826
+          ]
+        },
+        {
+          "id": "LEG_02_CONTACT",
+          "node": "LEG_02_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            3.0531133177191805e-16,
+            1.6300000000000008
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            3.191891195797325e-16
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_1_TIP",
+          "node": "LEG_03_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.9909039917071367,
+            0.19621332314037512,
+            -1.5679942137380123
+          ],
+          "normal": [
+            0.5145759634583945,
+            -0.8525245220595058,
+            0.0917252261816584
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_2_TIP",
+          "node": "LEG_03_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.992486206141944,
+            0.19621332314037515,
+            -1.7277127166622925
+          ],
+          "normal": [
+            0.45266041848764366,
+            -0.8525245220595057,
+            -0.2613436144653292
+          ]
+        },
+        {
+          "id": "LEG_03_CLAW_3_TIP",
+          "node": "LEG_03_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            2.8533748179376945,
+            0.19621332314037512,
+            -1.8062017302296551
+          ],
+          "normal": [
+            0.177851605688008,
+            -0.8525245220595059,
+            -0.49149846962265165
+          ]
+        },
+        {
+          "id": "LEG_03_CONTACT",
+          "node": "LEG_03_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            2.8232428163372703,
+            0,
+            -1.6299999999999994
+          ],
+          "normal": [
+            5.551115123125783e-17,
+            -1,
+            4.163336342344337e-17
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_1_TIP",
+          "node": "LEG_04_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            0.13752917376944293,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            0.33672435777038706,
+            -0.8525245220595058,
+            -0.39977324344099346
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_2_TIP",
+          "node": "LEG_04_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            7.055190216840792e-16,
+            0.19621332314037515,
+            -3.4554254333245855
+          ],
+          "normal": [
+            4.440892098500626e-16,
+            -0.8525245220595058,
+            -0.5226872289306592
+          ]
+        },
+        {
+          "id": "LEG_04_CLAW_3_TIP",
+          "node": "LEG_04_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -0.13752917376944157,
+            0.19621332314037512,
+            -3.3741959439676683
+          ],
+          "normal": [
+            -0.33672435777038656,
+            -0.8525245220595057,
+            -0.39977324344099385
+          ]
+        },
+        {
+          "id": "LEG_04_CONTACT",
+          "node": "LEG_04_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            6.621258585492185e-16,
+            0,
+            -3.2599999999999993
+          ],
+          "normal": [
+            2.220446049250313e-16,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_1_TIP",
+          "node": "LEG_05_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.853374817937693,
+            0.19621332314037512,
+            -1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800717,
+            -0.8525245220595059,
+            -0.4914984696226522
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_2_TIP",
+          "node": "LEG_05_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037515,
+            -1.727712716662294
+          ],
+          "normal": [
+            -0.45266041848764316,
+            -0.8525245220595057,
+            -0.26134361446533005
+          ]
+        },
+        {
+          "id": "LEG_05_CLAW_3_TIP",
+          "node": "LEG_05_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.990903991707136,
+            0.19621332314037512,
+            -1.567994213738014
+          ],
+          "normal": [
+            -0.5145759634583946,
+            -0.8525245220595059,
+            0.09172522618165746
+          ]
+        },
+        {
+          "id": "LEG_05_CONTACT",
+          "node": "LEG_05_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.823242816337269,
+            0,
+            -1.630000000000001
+          ],
+          "normal": [
+            1.6653345369377348e-16,
+            -1,
+            -3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_1_TIP",
+          "node": "LEG_06_CLAW_1_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.9909039917071363,
+            0.1962133231403755,
+            1.5679942137380143
+          ],
+          "normal": [
+            -0.5145759634583947,
+            -0.8525245220595057,
+            -0.09172522618165824
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_2_TIP",
+          "node": "LEG_06_CLAW_2_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.992486206141943,
+            0.19621332314037554,
+            1.7277127166622943
+          ],
+          "normal": [
+            -0.45266041848764366,
+            -0.8525245220595057,
+            0.2613436144653296
+          ]
+        },
+        {
+          "id": "LEG_06_CLAW_3_TIP",
+          "node": "LEG_06_CLAW_3_TIP",
+          "kind": "anchor_tip",
+          "position_m": [
+            -2.8533748179376937,
+            0.1962133231403755,
+            1.806201730229657
+          ],
+          "normal": [
+            -0.17785160568800795,
+            -0.8525245220595056,
+            0.49149846962265187
+          ]
+        },
+        {
+          "id": "LEG_06_CONTACT",
+          "node": "LEG_06_CONTACT",
+          "kind": "ground_contact",
+          "position_m": [
+            -2.8232428163372694,
+            3.0531133177191805e-16,
+            1.6300000000000012
+          ],
+          "normal": [
+            -2.7755575615628914e-16,
+            -1,
+            -2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "DORSAL_TOOL",
+          "node": "SOCKET_DORSAL_TOOL",
+          "kind": "utility",
+          "position_m": [
+            0,
+            1.71,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "POWER",
+          "node": "SOCKET_POWER",
+          "kind": "power",
+          "position_m": [
+            0,
+            1.29,
+            -0.53
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "FRONT",
+          "node": "SOCKET_FRONT",
+          "kind": "forward_sensor",
+          "position_m": [
+            0,
+            1.45,
+            0.7
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3"
+      ],
+      "required_nodes": [
+        "NIH_DAIRIA_MECH_ROOT",
+        "BODY_HEAVE",
+        "LEG_01_YAW",
+        "LEG_01_HIP",
+        "LEG_01_KNEE",
+        "LEG_01_SLIDE",
+        "LEG_01_ANKLE",
+        "LEG_01_CLAW_1",
+        "LEG_01_CLAW_2",
+        "LEG_01_CLAW_3",
+        "LEG_02_YAW",
+        "LEG_02_HIP",
+        "LEG_02_KNEE",
+        "LEG_02_SLIDE",
+        "LEG_02_ANKLE",
+        "LEG_02_CLAW_1",
+        "LEG_02_CLAW_2",
+        "LEG_02_CLAW_3",
+        "LEG_03_YAW",
+        "LEG_03_HIP",
+        "LEG_03_KNEE",
+        "LEG_03_SLIDE",
+        "LEG_03_ANKLE",
+        "LEG_03_CLAW_1",
+        "LEG_03_CLAW_2",
+        "LEG_03_CLAW_3",
+        "LEG_04_YAW",
+        "LEG_04_HIP",
+        "LEG_04_KNEE",
+        "LEG_04_SLIDE",
+        "LEG_04_ANKLE",
+        "LEG_04_CLAW_1",
+        "LEG_04_CLAW_2",
+        "LEG_04_CLAW_3",
+        "LEG_05_YAW",
+        "LEG_05_HIP",
+        "LEG_05_KNEE",
+        "LEG_05_SLIDE",
+        "LEG_05_ANKLE",
+        "LEG_05_CLAW_1",
+        "LEG_05_CLAW_2",
+        "LEG_05_CLAW_3",
+        "LEG_06_YAW",
+        "LEG_06_HIP",
+        "LEG_06_KNEE",
+        "LEG_06_SLIDE",
+        "LEG_06_ANKLE",
+        "LEG_06_CLAW_1",
+        "LEG_06_CLAW_2",
+        "LEG_06_CLAW_3",
+        "LEG_01_CLAW_1_TIP",
+        "LEG_01_CLAW_2_TIP",
+        "LEG_01_CLAW_3_TIP",
+        "LEG_01_CONTACT",
+        "LEG_02_CLAW_1_TIP",
+        "LEG_02_CLAW_2_TIP",
+        "LEG_02_CLAW_3_TIP",
+        "LEG_02_CONTACT",
+        "LEG_03_CLAW_1_TIP",
+        "LEG_03_CLAW_2_TIP",
+        "LEG_03_CLAW_3_TIP",
+        "LEG_03_CONTACT",
+        "LEG_04_CLAW_1_TIP",
+        "LEG_04_CLAW_2_TIP",
+        "LEG_04_CLAW_3_TIP",
+        "LEG_04_CONTACT",
+        "LEG_05_CLAW_1_TIP",
+        "LEG_05_CLAW_2_TIP",
+        "LEG_05_CLAW_3_TIP",
+        "LEG_05_CONTACT",
+        "LEG_06_CLAW_1_TIP",
+        "LEG_06_CLAW_2_TIP",
+        "LEG_06_CLAW_3_TIP",
+        "LEG_06_CONTACT",
+        "SOCKET_DORSAL_TOOL",
+        "SOCKET_POWER",
+        "SOCKET_FRONT"
+      ],
+      "credit": "Mechanical model by jelaludo; Nih-Dairia creature concept referenced from kai-denrei/lab-creatures and user-supplied images"
+    }
+  ]
+}
