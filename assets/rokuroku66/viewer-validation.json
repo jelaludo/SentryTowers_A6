@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader WebGL, functional checks only; no performance claim",
+  "checks": [
+    "six curvature modes",
+    "independent limb selection / six pole positions",
+    "manual yaw and pitch / other limbs unchanged",
+    "six cameras / gimbal and scale close-ups",
+    "armor visibility / wireframe / joint rig",
+    "six tier and encoding combinations / download paths",
+    "static tier lockout",
+    "coil amount / scrub / play and pause",
+    "desktop and 390px mobile framing / no horizontal overflow",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "sha256": "91e11788d63e40e4052bee9e9893190762e703782ec4a701b90d9d7364df1785",
+      "meshopt_sha256": "251e190475c63f16daf4021c2b14c0d274993b5e3e0d16214219dad498c32621"
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "sha256": "32597b03aa284b7318c1c7a95933a5b4eaffed229262e04d97eea6d6dfb499be",
+      "meshopt_sha256": "b9f5c6615ff862cb94c34451bf685cb7769b9f459281b056ee75813545634472"
+    },
+    {
+      "file": "lod2/rokuroku66_d0_lod2.glb",
+      "sha256": "820ee7354711858623e09f03678556a717ce66ea73870ba87df16f4f16b97822",
+      "meshopt_sha256": "cd9ccf1f3af5ec7ea89c7f844efeeb63f0196ce1ef299fa8f8ed3f2226daaced"
+    }
+  ]
+}

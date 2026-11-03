@@ -1,4 +1,5 @@
 const collectionImages={
+'rokuroku66':'assets/rokuroku66/preview.png',
 'nih-dairia-mech':'assets/nih-dairia-mech/preview.png',
 'eva-k8':'assets/eva-k8/preview.png',
 'eva-k7':'assets/eva-k7/preview.png',
@@ -35,6 +36,7 @@ const collectionImages={
 };
 
 export const collections=[
+['rokuroku66','RokuRoku-66 / Serpentine Limbs','Characters','Isao’s second biomimetic creature: six independent chains of short geared vertebrae. Two-axis gimbals, sliding ivory scales and flexible service loops form arcs, spirals and a helix around a pole.','6 limbs · 132 vertebrae · Two-axis coils · 3 LODs','Kinematic study'],
 ['nih-dairia-mech','Nih-Dairia / Isao Mechanical Study','Characters','Isao’s mechanical interpretation of an alien creature: six radial limbs, ivory armor, telescoping carbon hydraulics and three ivory pads per foot. Two legs reach ahead and plant anchors that pull the body forward.','3 pads per foot · Two-leg reach · Anchored step · 3 LODs','Kinematic prototype'],
 ['eva-k8','EVA-K8 / Heavy Hardsuit','Characters','Version two of the hardsuit: 1.35× shoulders, bevelled bolted plates over wrinkled quilting, angular tinted-visor helmet, tank-and-unit backpack with hoses, lugged boots and a contrapposto hero stance. Worn PBR surfaces generated at runtime over palette-only GLBs; EVA-K7 shown beside it.','7 clips · 50 joints · 1.96 m · 3 LODs · runtime wear','Contract candidate'],
 ['eva-k7','EVA-K7 / Hardsuit Astronaut','Characters','A gritty military-exploration hardsuit: opaque visor helmet, layered carbon plates over a quilted pressure garment, brass hardware, heavy boots and a small air tank on the back. Walk, cautious walk, survey, inspection crouch and halt signal.','6 clips · 50 joints · 1.98 m · 3 LODs','Contract candidate'],

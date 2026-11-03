@@ -1,5 +1,7 @@
 # Model Workshop
 
+**RokuRoku-66 / Six independent serpentine limbs** is Isao’s second Nih-Dairia-derived creature: 22 short two-axis vertebrae per limb, sliding ivory scales, central service loops, circular arcs, tightening spirals and a selectable limb that coils around a pole. Open `rokuroku66/`; detailed, articulated game and static distance GLBs, measured integration notes and review sheets are in `assets/rokuroku66/`.
+
 **Nih-Dairia / Isao mechanical study v1.1** now has three reused ivory tip pads at each foot. Reach lifts the two front diagonal legs and extends them ahead while four legs support the body; Anchor plants the pair and pulls the body forward. Current detailed/game/static GLBs are in `assets/nih-dairia-mech/tripad/`, with the original v1 exports preserved. Open `nih-dairia-mech/`; integration notes and design/motion/anchor-sequence sheets are in `assets/nih-dairia-mech/`.
 
 

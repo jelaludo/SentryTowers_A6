@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "reports": [
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 143864,
+      "draw_calls": 3,
+      "bytes": 7198676,
+      "flexible_cable_vertices": 55440,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 143864,
+      "draw_calls": 3,
+      "bytes": 1452304,
+      "flexible_cable_vertices": 18480,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 24888,
+      "draw_calls": 3,
+      "bytes": 1644860,
+      "flexible_cable_vertices": 3744,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 24888,
+      "draw_calls": 3,
+      "bytes": 474436,
+      "flexible_cable_vertices": 1248,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/rokuroku66_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2976,
+      "draw_calls": 1,
+      "bytes": 242796,
+      "flexible_cable_vertices": 0,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/rokuroku66_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2976,
+      "draw_calls": 1,
+      "bytes": 177728,
+      "flexible_cable_vertices": 0,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 484,
+  "min_mesh_clearance_m": 0.009999976158142077,
+  "min_sampled_pole_clearance_m": 0.10644554715494686,
+  "max_segment_length_error_m": 5.273559366969494e-16,
+  "max_sampled_joint_angle_rad": 0.6799999999999999,
+  "sampled_swept_bounds_m": {
+    "min": [
+      -4.9703579869792,
+      0.009999976158142077,
+      -5.321000295499841
+    ],
+    "max": [
+      4.9703578799992805,
+      2.726450859213642,
+      5.321000295499841
+    ]
+  },
+  "scope": "Full deformed vertices against floor and pole; rigid segment lengths, both axes, cable skinning, limb selection and loop closure. General arbitrary-pose self-collision and cable tension remain outside this certification."
+}
