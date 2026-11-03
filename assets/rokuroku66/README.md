@@ -1,4 +1,4 @@
-# RokuRoku-66 / Six independent serpentine limbs / v1
+# RokuRoku-66 / Six independent serpentine limbs / v1.1
 
 Isao’s second biomimetic study grows out of the Nih-Dairia mech: a low hexagonal hub with six long, tapering limbs made from short geared vertebrae. Each joint has two perpendicular motor housings, a central cable passage and short ivory armor scales. Equal sideways bends form arcs; increasing bends produce spirals; coordinated sideways and vertical bends wind a limb around a pole. The supplied RokuRoku-66 concept defines the new silhouette. All mechanical geometry is procedurally authored; reference images are external and recorded by hash.
 
@@ -7,6 +7,8 @@ Viewer:
 http://127.0.0.1:8791/rokuroku66/
 
 Start a local server at the repository root before opening that address. The separate Nih-Dairia family remains at revision `0697a7f2e023043fcc6298f18029608d46b12824`; this family does not replace its geometry or behavior.
+
+Revision 1.1 adds an organic six-limb walk and a four-limb sensor walk. Geometry and all six original GLB files remain byte-for-byte unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; movement uses the existing engine-driven pivots.
 
 ## Measured exports
 
@@ -48,6 +50,8 @@ Import `applyPose`, `motions` and `limbs` from `runtime.js`. Call `applyPose(glt
 
 | Mode | Runtime name | Duration | Behavior |
 | --- | --- | --- | --- |
+| `walk` | `Organic_Walk_Cycle` | 4.8 s loop | Staggered six-limb ripple, 0.34 m/s, 74% stance duty, four or five tips planted |
+| `scout` | `Sensor_Walk_Cycle` | 5.6 s loop | Four walking limbs, 0.25 m/s, 80% stance duty; front 01/02 scan independently |
 | `mixed` | `Mixed_Curvature_Idle` | 10 s loop | 01/03/05 extend toward the floor; 02/04/06 form upright coils with slight side motion |
 | `extended` | `Extended_Idle` | 8 s loop | Six extended, gently sinuous limbs; deliberately static inspection pose |
 | `arc` | `Arc_Cycle` | 10 s loop | Same yaw on the last 18 joints; up to 0.24 rad per joint |
@@ -55,35 +59,50 @@ Import `applyPose`, `motions` and `limbs` from `runtime.js`. Call `applyPose(glt
 | `wrap` | `Pole_Wrap_Cycle` | 12 s loop | Selected limb makes a rising helix using both axes; other five retain their extended pose |
 | `manual` | `Joint_Inspection` | Untimed inspection | Selected limb receives uniform yaw ±0.24 and pitch ±0.18 rad after four straight lead joints |
 
-These names/durations describe the runtime adapter; GLB `clips: []` is intentional. No engine-driven pivots are baked. Arc/spiral/wrap use a cosine strength cycle: straight at time 0, fully bent at half-duration, straight at the end. The manual UI uses a narrower range than the motor limit because a uniform sharp bend would loop into itself. It raises the whole specimen when needed to inspect downward bends above the floor. Switching modes directly selects a study pose; this is not a locomotion/transition solver.
+These names/durations describe the runtime adapter; GLB `clips: []` is intentional. No engine-driven pivots are baked. Arc/spiral/wrap use a cosine strength cycle: straight at time 0, fully bent at half-duration, straight at the end. The manual UI uses a narrower range than the motor limit because a uniform sharp bend would loop into itself. It raises the whole specimen when needed to inspect downward bends above the floor. Switching modes directly selects a study pose; transitions between gaits and curvature studies are not blended.
 
 The separate viewer pole has radius 0.25 m and height 3.6 m. The chosen limb uses four straight lead links, then a chord-length-preserving helix with centreline radius 0.47 m and rise 0.10 m per radian. The fixture moves with limb selection. Minimum sampled limb-to-pole clearance is 0.106 m: the wrap illustrates 3D curvature around an object, not a force-bearing grip. Only the selected limb departs from its extended pose. Changing selection returns the previous limb and wraps the new one; the other four stay unchanged.
 
 LOD selection is provisional: static LOD2 loads first, switch to LOD1 around 150 m with 20 m hysteresis, and use LOD0 for close shots/recording. Switch to an articulated tier before running any demonstration. Tune distances in the consuming game; unit LOD swapping is optional.
 
+## Walking and forward sensors
+
+`walk` uses all six limbs in a staggered ripple. `scout` walks on 03/04/05/06 and holds 01/02 ahead as feelers. Both modes yaw `BODY_HEAVE` by −30° so 01 and 02 form a symmetric front pair while root forward remains +Z. The four-limb gait rearranges the supporting tips into a quadrilateral. Body sway, slight roll/pitch, soft heave and anticipatory weight shifts accompany each step. Leaving either gait resets the body orientation and offsets for the original studies.
+
+A distributed smooth bend solves each walking tip onto its requested target; a small side wave travels along the vertebrae. During stance, the target moves backwards relative to the body at exactly the stated travel speed. During swing, a quintic forward trajectory matches that velocity at release/landing, while a smooth lift reaches 0.43 m above the 0.08 m tip-frame height. The surrounding distal geometry sits about 3.3 mm above the flat floor in the closest sampled pose. The two sensor limbs use separate phased yaw/pitch curves and never enter the foot schedule; their tips stay at least 1.338 m high in the sampled cycle.
+
+Translate an **outer parent** continuously along +Z at `gaits[mode].speed_m_s`. Do not wrap world displacement at the clip boundary. For example, `applyPose(model, elapsedSeconds, 'scout')` pairs with `actor.position.z = startZ + 0.25 * elapsedSeconds`. The adapter itself returns a periodic local pose; `travel_m` is the suggested continuous outer travel. Returned state also includes `feet` (IDs, stance, phase, lift, targets), `contacts`, `sensors`, `speed_m_s`, `bodyPosition` and `bodyRotation`. `gaits` is exported alongside `motions`.
+
+The viewer follows the creature in place and scrolls the ground grid at matching speed. **Ground travel** switches that cue off for an in-place study. Travel continues across loop boundaries; scrubbing resets it to the selected time. Green indicators mean planted tips, amber means swing, blue means sensor. The default Walk is paused for inspection; select Walk or Sensor walk and press Play.
+
+The projected body origin remains inside the sampled support polygon (minimum 0.157 m margin), with four/five stance tips for Walk and three/four for Sensor walk. This checks the geometric support arrangement, not centre-of-mass distribution or contact forces. Terrain, turning and gait transitions remain integration work.
+
 ## Viewer and review artifacts
 
-Modes: Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, time scrub, coil strength, independent limb selection, manual sideways/vertical bending, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
+Modes: Walk, Sensor walk, Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, time scrub, coil strength, independent limb selection, manual sideways/vertical bending, ground travel, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
 
-`preview.png`, `previews/`, `design-sheet.jpg` and `motion-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus `runtime.js`.
+`preview.png`, `previews/`, `design-sheet.jpg`, `motion-sheet.jpg` and `walking-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus `runtime.js`.
 
 Reproduce from repository root, with the asset-pipeline dependencies installed:
 
 ```sh
 node tools/asset-pipeline/build-rokuroku66.mjs
 node tools/asset-pipeline/validate-rokuroku66.mjs
+node tools/asset-pipeline/validate-rokuroku66-walk.mjs
 node tools/asset-pipeline/check-rokuroku66-scales.mjs
 node tools/asset-pipeline/prepare-rokuroku66-poses.mjs
 blender --background --python-exit-code 1 --python tools/blender/render_rokuroku66.py
 python3 -m http.server 8791
 ```
 
-With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.mjs` (set `PLAYWRIGHT_MODULE` to the installed Playwright module if needed), then `node tools/asset-pipeline/prepare-rokuroku66-review.mjs`. Browser captures use the OS temporary `rokuroku66-review` directory or `ROKU_SHOT_DIR`. Temporary posed GLBs use `/tmp/rokuroku66-review` or `ROKU_REVIEW_DIR`. Rebuild shared navigation with `python3 tools/build-workshop-docs.py`.
+With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.mjs` (set `PLAYWRIGHT_MODULE` to the installed Playwright module if needed), then `node tools/asset-pipeline/prepare-rokuroku66-review.mjs` and `node tools/asset-pipeline/prepare-rokuroku66-walk-review.mjs`. Browser captures use the OS temporary `rokuroku66-review` directory or `ROKU_SHOT_DIR`. Temporary posed GLBs use `/tmp/rokuroku66-review` or `ROKU_REVIEW_DIR`. Rebuild shared navigation with `python3 tools/build-workshop-docs.py`.
 
-`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in sixteen poses per articulated tier, including both manual axes and intermediate coils. All 32 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
+`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in forty poses per articulated tier, including both manual axes, intermediate coils and twelve phases of each gait. All 80 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
 
-`viewer-validation.json` records desktop/390 px mobile controls, six camera presets, all six tier/encoding combinations, downloads, static lockout, independent limbs, both manual axes, coil amount, scrub/play/pause, framing and zero page errors. SwiftShader was used for functional checks, not FPS measurement.
+`walk-validation.json` adds 776 full-geometry samples across both gaits and the four plain/decoded articulated files. All samples pass floor clearance, exact tip targets, world-space planted-tip drift, joint limits before clamping, fixed link lengths, forward sensor separation/height and loop closure for every required node. Numerical stance drift is below 0.001 mm; minimum sampled floor clearance is 3.31 mm.
 
-Completed v1: separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, transition solving, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
+`viewer-validation.json` records desktop/390 px mobile controls, eight modes, six camera presets, all six tier/encoding combinations, downloads, static lockout, independent limbs, both manual axes, coil amount, scrub/play/pause, continuous ground travel across the walk loop, sensor/contact indicators, six-phase gait captures, framing and zero page errors. SwiftShader was used for functional checks, not FPS measurement.
+
+Completed v1.1: separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, two planted-tip walking gaits, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, transition solving, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
 
 Credit: Mechanical model by jelaludo; Nih-Dairia lineage and user-supplied RokuRoku-66 concept. Hand off the commit containing this README plus folder `assets/rokuroku66/`; keep the plain exports and identify derived files as such.

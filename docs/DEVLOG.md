@@ -1,5 +1,15 @@
 # Devlog
 
+## 3 November 2026 / RokuRoku-66 — organic walk and forward sensor walk
+
+Added two runtime walking animations on the existing 132-vertebra rig. Organic Walk is a 4.8-second six-limb ripple at 0.34 m/s, with 74% stance duty and four or five tips planted. Sensor Walk is a 5.6-second four-limb crawl at 0.25 m/s and 80% stance duty, keeping three or four tips planted while limbs 01 and 02 scan ahead with separate phased yaw/pitch motion. The body turns internally by −30° to place the two feelers symmetrically in front; root forward remains +Z.
+
+Both gaits use smooth distributed curvature to solve exact tip targets, small traveling side waves, soft body heave/roll, and weight transfer before foot lift. Swing reaches 0.43 m above the tip-frame stance height. A quintic swing trajectory matches stance velocity at release and landing. An outer game parent travels continuously at the stated speed; world-space planted tip drift stays below 0.001 mm in the checks. The viewer follows the creature with matching ground-grid travel across loop boundaries, offers an in-place toggle, and distinguishes planted, lifted and sensor limbs.
+
+All original GLB geometry, node names, sockets, tiers, hashes and measured budgets are unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; the pivots remain engine-driven with no baked clips. The new walking validator passes 776 full-geometry samples across both gaits and all four plain/decoded articulated files. Minimum sampled floor clearance is 3.31 mm; the projected body origin stays at least 0.157 m inside the support polygon. Sensor tips remain at least 1.338 m high. Rigid lengths, unclamped motor angles, exact targets and every required node’s loop closure pass. The original 484-sample regression also passes; armor checks now cover 80 master/game pose cases without scale crossings.
+
+Completed both requested gaits, viewer controls, desktop/mobile checks, walking review sheet, runtime/manifest notes and gallery/Devlog updates. Viewer checks include both gaits on each articulated tier/encoding, contact indicators, frame coverage and continuous ground travel. Handoff: `assets/rokuroku66/`, viewer `rokuroku66/`. Pending: terrain adaptation, turning and gait-transition blending, mass/contact-force simulation, broader self-collision and cable mechanics, consuming-game r160/release packing and reference-phone acceptance. No FPS claim; the received collaboration contract remains verbatim.
+
 ## 3 November 2026 / RokuRoku-66 — six independent serpentine limbs
 
 Created a separate second creature from the Nih-Dairia mechanical lineage and the supplied RokuRoku-66 reference. Six limbs each contain 22 short, tapering vertebrae, with orthogonal geared yaw/pitch motors, graphite internal links, ivory armor and flexible central service loops. Short recessed armor bases retract under curvature; separate dorsal and ventral overlap lips follow the next joint to clear vertical bends. The master carries two cable loops per joint, the game tier a simplified visual loop. Nih-Dairia files remain unchanged.

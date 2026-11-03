@@ -1,7 +1,7 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "rokuroku66",
-  "version": 1,
+  "version": 1.1,
   "label": "RokuRoku-66 / Six independent serpentine limbs",
   "status": "kinematic_contract_candidate",
   "plain_glb_source_of_truth": true,
@@ -74,10 +74,51 @@
         "name": "Pole_Wrap_Cycle",
         "duration_s": 12,
         "loop": true
+      },
+      {
+        "name": "Organic_Walk_Cycle",
+        "duration_s": 4.8,
+        "loop": true
+      },
+      {
+        "name": "Sensor_Walk_Cycle",
+        "duration_s": 5.6,
+        "loop": true
       }
     ],
     "cables": "Two-bone blended slack loops near the joint centre; visual flexibility, not an inextensible cable simulation.",
-    "scope": "Joint-driven shape and clearance study. Pole is a separate viewer fixture. No force-based grasping, terrain locomotion or general collision response."
+    "scope": "Joint-driven curvature and planar planted-tip locomotion. Pole is a separate viewer fixture. No force-based grasping, terrain adaptation or general collision response.",
+    "locomotion": {
+      "gaits": {
+        "walk": {
+          "name": "Organic_Walk_Cycle",
+          "duration_s": 4.8,
+          "speed_m_s": 0.34,
+          "duty": 0.74,
+          "sensors": []
+        },
+        "scout": {
+          "name": "Sensor_Walk_Cycle",
+          "duration_s": 5.6,
+          "speed_m_s": 0.25,
+          "duty": 0.8,
+          "sensors": [
+            "01",
+            "02"
+          ]
+        }
+      },
+      "forward_axis": "+Z",
+      "body_heading_rad": -0.5235987755982988,
+      "contact_tip_height_m": 0.08,
+      "swing_lift_m": 0.43,
+      "world_motion": "Translate an outer parent by speed_m_s times continuous time; do not wrap travel at clip boundaries.",
+      "sensor_pair": [
+        "01",
+        "02"
+      ],
+      "scope": "Planar planted-tip kinematics; body-origin support polygon, not force or mass simulation."
+    }
   },
   "lineage": {
     "family": "nih-dairia-mech",

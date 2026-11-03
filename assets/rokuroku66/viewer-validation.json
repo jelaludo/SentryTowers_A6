@@ -2,7 +2,11 @@
   "status": "passed",
   "browser": "Chromium / SwiftShader WebGL, functional checks only; no performance claim",
   "checks": [
-    "six curvature modes",
+    "eight modes including six-limb walk and four-limb sensor walk",
+    "two raised front sensors and contact indicators",
+    "both walks on plain and decoded articulated tiers",
+    "continuous ground travel across loop boundary / in-place toggle",
+    "six-phase gait captures",
     "independent limb selection / six pole positions",
     "manual yaw and pitch / other limbs unchanged",
     "six cameras / gimbal and scale close-ups",

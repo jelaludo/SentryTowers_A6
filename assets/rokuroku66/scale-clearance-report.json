@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "Triangle-edge crossings between separate ivory scales in sixteen sampled poses, master and game. Not a continuous or all-component collision solver.",
+  "scope": "Triangle-edge crossings between separate ivory scales in forty sampled poses, master and game. Not a continuous or all-component collision solver.",
   "report": [
     {
       "lod": 0,
@@ -167,6 +167,222 @@
       "pairs": []
     },
     {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 0,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 0.39999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 0.7999999999999999,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 1.2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 1.5999999999999999,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 2.4,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 2.8000000000000003,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 3.1999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 3.5999999999999996,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 4,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "walk",
+      "time_s": 4.3999999999999995,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 0,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 0.4666666666666666,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 0.9333333333333332,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 1.3999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 1.8666666666666665,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 2.3333333333333335,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 2.7999999999999994,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 3.266666666666666,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 3.733333333333333,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 4.2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 4.666666666666667,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "scout",
+      "time_s": 5.133333333333333,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
       "lod": 1,
       "mode": "extended",
       "time_s": 0,
@@ -326,6 +542,222 @@
       "options": {
         "amount": 0.75
       },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 0,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 0.39999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 0.7999999999999999,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 1.2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 1.5999999999999999,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 2.4,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 2.8000000000000003,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 3.1999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 3.5999999999999996,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 4,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "walk",
+      "time_s": 4.3999999999999995,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 0,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 0.4666666666666666,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 0.9333333333333332,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 1.3999999999999997,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 1.8666666666666665,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 2.3333333333333335,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 2.7999999999999994,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 3.266666666666666,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 3.733333333333333,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 4.2,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 4.666666666666667,
+      "options": {},
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "scout",
+      "time_s": 5.133333333333333,
+      "options": {},
       "scale_assemblies": 396,
       "scale_pair_intersections": 0,
       "pairs": []
