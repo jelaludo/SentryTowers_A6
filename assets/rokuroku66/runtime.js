@@ -1,10 +1,11 @@
 // RokuRoku-66: six independent two-axis chains. Engine-driven, no baked pivots.
+import {behaviors} from './behavior.js';
 export const COUNT=22,ROOT_HEIGHT=1.08,MAX_YAW=.72,MAX_PITCH=.72;
 export const limbs=Array.from({length:6},(_,i)=>({id:String(i+1).padStart(2,'0'),angle:i*Math.PI/3}));
 export const lengths=Array.from({length:COUNT},(_,i)=>.235-.054*i/(COUNT-1));
 export const widths=Array.from({length:COUNT},(_,i)=>.115-.073*i/(COUNT-1));
 export const gaits={walk:{name:'Organic_Walk_Cycle',duration_s:4.8,speed_m_s:.34,duty:.74,sensors:[]},scout:{name:'Sensor_Walk_Cycle',duration_s:5.6,speed_m_s:.25,duty:.80,sensors:['01','02']}};
-export const motions={mixed:{name:'Mixed_Curvature_Idle',duration_s:10,loop:true},extended:{name:'Extended_Idle',duration_s:8,loop:true},arc:{name:'Arc_Cycle',duration_s:10,loop:true},spiral:{name:'Spiral_Cycle',duration_s:12,loop:true},wrap:{name:'Pole_Wrap_Cycle',duration_s:12,loop:true},manual:{name:'Joint_Inspection',duration_s:1,loop:false},...Object.fromEntries(Object.entries(gaits).map(([k,g])=>[k,{name:g.name,duration_s:g.duration_s,loop:true}]))};
+export const motions={...behaviors,mixed:{name:'Mixed_Curvature_Idle',duration_s:10,loop:true},extended:{name:'Extended_Idle',duration_s:8,loop:true},arc:{name:'Arc_Cycle',duration_s:10,loop:true},spiral:{name:'Spiral_Cycle',duration_s:12,loop:true},wrap:{name:'Pole_Wrap_Cycle',duration_s:12,loop:true},manual:{name:'Joint_Inspection',duration_s:1,loop:false},...Object.fromEntries(Object.entries(gaits).map(([k,g])=>[k,{name:g.name,duration_s:g.duration_s,loop:true}]))};
 const clamp=(x,a=-1,b=1)=>Math.max(a,Math.min(b,x)),smooth=x=>{x=clamp(x,0,1);return x*x*(3-2*x);};
 const mul=(a,b)=>[a[3]*b[0]+a[0]*b[3]+a[1]*b[2]-a[2]*b[1],a[3]*b[1]-a[0]*b[2]+a[1]*b[3]+a[2]*b[0],a[3]*b[2]+a[0]*b[1]-a[1]*b[0]+a[2]*b[3],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2]];
 const rotate=(v,q)=>{const p=mul(mul(q,[...v,0]),[-q[0],-q[1],-q[2],q[3]]);return p.slice(0,3);};
@@ -33,12 +34,12 @@ const tau=Math.PI*2,mod=x=>((x%1)+1)%1,smoother=x=>x*x*x*(10+x*(-15+6*x));
 const xq=a=>[Math.sin(a/2),0,0,Math.cos(a/2)];
 // A distributed bend supplies the slack. Root yaw/pitch orient its endpoint
 // exactly onto the requested contact; no iterative per-frame pose history.
-function contactAngles(target,phase,id){
- const distance=Math.hypot(...target),side=Number(id)>3?-1:1,turn=-Math.atan2(target[2],target[0])*.4;
+function contactAngles(target,phase,id,turnShare=.4,arch=0){
+ const distance=Math.hypot(...target),side=Number(id)>3?-1:1,turn=-Math.atan2(target[2],target[0])*turnShare;
  function curve(bend){return lengths.map((_,i)=>{
   const u=i/(COUNT-1),prev=Math.max(0,(i-1)/(COUNT-1));
   const yaw=i?turn*(smooth(Math.min(i/5,1))-smooth(Math.min((i-1)/5,1)))+side*.028*(Math.sin(tau*phase-u*5)-Math.sin(tau*phase-prev*5)):0;
-  return [yaw,i?-bend*(u*u-prev*prev):0];
+  return [yaw,i?-bend*(u*u-prev*prev)+arch*(Math.sin(Math.PI*u)-Math.sin(Math.PI*prev)):0];
  });}
  let lo=.05,hi=3.6;
  for(let k=0;k<28;k++){const b=(lo+hi)/2,d=forward(curve(b)).points.at(-1);if(Math.hypot(...d)>distance)lo=b;else hi=b;}
@@ -85,7 +86,7 @@ export function applyPose(root,time=0,mode='mixed',options={}){
  const n=refs(root),body=n.BODY_HEAVE;if(!body||root.getObjectByName('DISTANCE_GEOMETRY'))return {phase:'Static extended silhouette',active:[],max_yaw:0,max_pitch:0};
  const selected=options.selected||'01',amount=clamp(options.amount??1,0,1),t=Math.max(0,time),duration=motions[mode]?.duration_s||10;
  const cycle=.5-.5*Math.cos(t/duration*Math.PI*2),strength=options.animate===false?amount:amount*(mode==='mixed'||mode==='extended'?1:cycle);
- const gait=gaits[mode]?gaitPose(t,mode):null;
+ const gait=options.pose||(gaits[mode]?gaitPose(t,mode):null);
  const planar=mode==='arc'||mode==='spiral';body.position.set(0,planar?.235:ROOT_HEIGHT,0);body.rotation.set(0,0,0);
  if(gait){body.position.fromArray(gait.bodyPosition);body.rotation.set(...gait.bodyRotation);}
  let maxYaw=0,maxPitch=0;const active=[],poses={};
@@ -111,5 +112,24 @@ export function applyPose(root,time=0,mode='mixed',options={}){
  // test specimen, retaining the joint angles, rather than clipping geometry.
  if(mode==='manual'){let low=0;for(const l of limbs)for(const p of forward(poses[l.id]).points)low=Math.min(low,p[1]);body.position.y=Math.max(ROOT_HEIGHT,.18-low);}
  root.updateMatrixWorld(true);
- return {...gait,phase:gait?`${mode==='scout'?'Four walking limbs / front sensors 01 + 02':'Six-limb ripple walk'} · ${gait.contacts} planted · ${gait.speed_m_s.toFixed(2)} m/s`:{mixed:'Three supporting limbs / three upright spirals',extended:'Six independent serpentine limbs',arc:'Equal side bends / circular arcs',spiral:'Increasing side bends / tightening spirals',wrap:'Two-axis helix / selected limb '+selected,manual:'Independent yaw + pitch / limb '+selected}[mode],active,max_yaw:maxYaw,max_pitch:maxPitch,strength,body_height:body.position.y,poses,pole:mode==='wrap'?polePosition(selected):null};
+ return {...gait,phase:gait?gait.phase||`${mode==='scout'?'Four walking limbs / front sensors 01 + 02':'Six-limb ripple walk'} · ${gait.contacts} planted · ${gait.speed_m_s.toFixed(2)} m/s`:{mixed:'Three supporting limbs / three upright spirals',extended:'Six independent serpentine limbs',arc:'Equal side bends / circular arcs',spiral:'Increasing side bends / tightening spirals',wrap:'Two-axis helix / selected limb '+selected,manual:'Independent yaw + pitch / limb '+selected}[mode],active,max_yaw:maxYaw,max_pitch:maxPitch,strength,body_height:body.position.y,poses,pole:mode==='wrap'?polePosition(selected):null};
+}
+
+// The caller places an outer actor at frame.position and frame.heading.
+// World-space contacts are converted into that actor frame before solving.
+export function applyBehaviorPose(root,frame){
+ const feet=frame.feet.map(f=>({...f,world_target:f.target,target:rotate(f.target.map((x,i)=>x-frame.position[i]),yq(-frame.heading))}));
+ const poses={},bq=mul(mul(xq(frame.bodyRotation[0]),yq(frame.bodyRotation[1])),zq(frame.bodyRotation[2])),inv=[-bq[0],-bq[1],-bq[2],bq[3]];
+ for(const l of limbs){
+  if(frame.sensors.includes(l.id)){
+   const side=l.id==='01'?1:-1,t=frame.time,s=frame.sense,energy=frame.energy;
+   const yawAt=u=>side*.25*Math.sin(Math.PI*u/2)+(frame.look*.3+(.09+s*.16)*Math.sin(t*.9-u*2.8+side*.75))*Math.sin(Math.PI*u/2);
+   const pitchAt=u=>.32+s*.13-energy*.12+(.13+s*.2)*Math.sin(t*1.15-u*3+side*.7)*u-(.4-s*.1)*u*u+s*.45*Math.pow(Math.max(0,(u-.65)/.35),2);
+   poses[l.id]=lengths.map((_,i)=>{const u=i/(COUNT-1),p=Math.max(0,(i-1)/(COUNT-1));return [i?yawAt(u)-yawAt(p):0,i?pitchAt(u)-pitchAt(p):pitchAt(0)];});
+  }else{
+   const f=feet.find(f=>f.id===l.id),local=rotate(f.target.map((x,i)=>x-frame.bodyPosition[i]),inv);local[0]-=Math.sin(l.angle)*.7;local[2]-=Math.cos(l.angle)*.7;
+   poses[l.id]=contactAngles(rotate(local,yq(-(l.angle-Math.PI/2))),frame.gait_phase,l.id,.65,.24);
+  }
+ }
+ return applyPose(root,frame.time,'roam',{pose:{...frame,feet,poses,phase:frame.phase+' · '+frame.speed_m_s.toFixed(2)+' m/s'}});
 }

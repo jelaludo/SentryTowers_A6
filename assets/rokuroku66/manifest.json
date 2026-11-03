@@ -1,7 +1,7 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "rokuroku66",
-  "version": 1.1,
+  "version": 1.2,
   "label": "RokuRoku-66 / Six independent serpentine limbs",
   "status": "kinematic_contract_candidate",
   "plain_glb_source_of_truth": true,
@@ -118,6 +118,50 @@
         "02"
       ],
       "scope": "Planar planted-tip kinematics; body-origin support polygon, not force or mass simulation."
+    },
+    "behavior": {
+      "adapter": "behavior.js",
+      "pose_adapter": "applyBehaviorPose",
+      "profiles": {
+        "roam": {
+          "name": "Seeded_Roaming",
+          "duration_s": 90,
+          "loop": false,
+          "continuous": true
+        },
+        "hesitate": {
+          "name": "Hesitate_And_Test",
+          "duration_s": 12,
+          "loop": false
+        },
+        "sense": {
+          "name": "Tentacle_Survey",
+          "duration_s": 14,
+          "loop": false
+        },
+        "rush": {
+          "name": "Rush_And_Settle",
+          "duration_s": 18,
+          "loop": false
+        }
+      },
+      "fixed_step_s": 0.016666666666666666,
+      "default_seed": 6601,
+      "contact_tip_height_m": 0.1,
+      "commanded_rush_speed_m_s": [
+        1.9,
+        2.55
+      ],
+      "body_height_targets_m": [
+        0.91,
+        1.53
+      ],
+      "review_area_m": [
+        48,
+        48
+      ],
+      "world_motion": "Controller owns position, heading and world contact targets. Place an outer actor, update its world matrices, then applyBehaviorPose. Do not add gait travel a second time.",
+      "scope": "Four support limbs, two sensors; one-foot crawl and diagonal-pair rush. Planar kinematics, no force or obstacle solver."
     }
   },
   "lineage": {

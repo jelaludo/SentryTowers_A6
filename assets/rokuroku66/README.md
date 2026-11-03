@@ -1,4 +1,4 @@
-# RokuRoku-66 / Six independent serpentine limbs / v1.1
+# RokuRoku-66 / Six independent serpentine limbs / v1.2
 
 Isao’s second biomimetic study grows out of the Nih-Dairia mech: a low hexagonal hub with six long, tapering limbs made from short geared vertebrae. Each joint has two perpendicular motor housings, a central cable passage and short ivory armor scales. Equal sideways bends form arcs; increasing bends produce spirals; coordinated sideways and vertical bends wind a limb around a pole. The supplied RokuRoku-66 concept defines the new silhouette. All mechanical geometry is procedurally authored; reference images are external and recorded by hash.
 
@@ -8,7 +8,7 @@ http://127.0.0.1:8791/rokuroku66/
 
 Start a local server at the repository root before opening that address. The separate Nih-Dairia family remains at revision `0697a7f2e023043fcc6298f18029608d46b12824`; this family does not replace its geometry or behavior.
 
-Revision 1.1 adds an organic six-limb walk and a four-limb sensor walk. Geometry and all six original GLB files remain byte-for-byte unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; movement uses the existing engine-driven pivots.
+Revision 1.2 adds seeded roaming, hesitation, tentacle surveying and a rush/arrival performance to the two existing walks. Geometry and all six original GLB files remain byte-for-byte unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; movement uses the existing engine-driven pivots.
 
 ## Measured exports
 
@@ -73,15 +73,48 @@ A distributed smooth bend solves each walking tip onto its requested target; a s
 
 Translate an **outer parent** continuously along +Z at `gaits[mode].speed_m_s`. Do not wrap world displacement at the clip boundary. For example, `applyPose(model, elapsedSeconds, 'scout')` pairs with `actor.position.z = startZ + 0.25 * elapsedSeconds`. The adapter itself returns a periodic local pose; `travel_m` is the suggested continuous outer travel. Returned state also includes `feet` (IDs, stance, phase, lift, targets), `contacts`, `sensors`, `speed_m_s`, `bodyPosition` and `bodyRotation`. `gaits` is exported alongside `motions`.
 
-The viewer follows the creature in place and scrolls the ground grid at matching speed. **Ground travel** switches that cue off for an in-place study. Travel continues across loop boundaries; scrubbing resets it to the selected time. Green indicators mean planted tips, amber means swing, blue means sensor. The default Walk is paused for inspection; select Walk or Sensor walk and press Play.
+The viewer follows the creature in place and scrolls the ground grid at matching speed. **Ground travel** switches that cue off for an in-place study. Travel continues across loop boundaries; scrubbing resets it to the selected time. Green indicators mean planted tips, amber means swing, blue means sensor. Select Walk or Sensor walk and press Play. The viewer now opens on Roam, also paused for inspection.
 
-The projected body origin remains inside the sampled support polygon (minimum 0.157 m margin), with four/five stance tips for Walk and three/four for Sensor walk. This checks the geometric support arrangement, not centre-of-mass distribution or contact forces. Terrain, turning and gait transitions remain integration work.
+The projected body origin remains inside the sampled support polygon (minimum 0.157 m margin), with four/five stance tips for Walk and three/four for Sensor walk. This checks the geometric support arrangement, not centre-of-mass distribution or contact forces. These two original loops cover straight walking. The separate seeded behavior below adds changing position, heading, speed and posture; terrain and transitions between study buttons remain integration work.
+
+## Seeded organic behavior
+
+The four new controls use `behavior.js`, with `applyBehaviorPose` from `runtime.js`. They move the actual creature through a 48 × 48 m review clearing. The local rig still uses its original 12 × 12 m reserve; the outer actor changes world position and heading. Ground marks, destination and trail belong to the viewer and are not exported geometry.
+
+| Mode | Runtime name | Duration | Behavior |
+| --- | --- | --- | --- |
+| `roam` | `Seeded_Roaming` | Continuous; initial 90 s scrub window | Repeat wander → hesitate → sense → gather → rush → brake → settle, with seeded destinations, timings, cruise/burst speeds and step timing |
+| `hesitate` | `Hesitate_And_Test` | 12 s one-shot | Short tentative advance, stop, test a step without committing, probe and settle |
+| `sense` | `Tentacle_Survey` | 14 s one-shot | Four tips stay planted; body rises and two front feelers search with separate traveling curves, then the body lowers |
+| `rush` | `Rush_And_Settle` | 18 s one-shot | Compress the body, accelerate toward a new point, brake and settle; terminal pose holds |
+
+Roaming cruise commands are 0.35–0.60 m/s; rush commands are 1.90–2.55 m/s. Acceleration is capped at 2.4 m/s², braking at 1.7 m/s², with a 5 m/s³ acceleration-change limit. The body height target rises to 1.53 m for sensing, lowers to 0.91 m before a burst, and rebounds to 1.32 m while braking. Breathing and gait bounce add smaller continuous motion. The sampled body-height range is 0.876–1.593 m, with peak measured speed 2.415 m/s in the validation routes.
+
+Four limbs carry the body and 01/02 remain sensors. Walking steps are selected by placement error, with one limb lifted at a time. Rushes use alternating diagonal pairs, leaving two tips planted during each swing. Landing targets anticipate acceleration. Turns spread across several proximal vertebrae, while body heading follows the destination more slowly; the radial creature can scuttle sideways or backwards before its hub finishes turning. Planted tips keep their world coordinates during both translation and rotation. The contact-frame height is 0.10 m; the minimum sampled visible-geometry clearance is 9.08 mm. Foot orientation and contact forces are not constrained.
+
+Create one controller per actor. It uses a deterministic 1/60 s simulation step and interpolates between frames. It retains two frame snapshots and replays from the seed when seeking backwards; playback frame rate does not change the random sequence. The seed controls route choices, durations and step timing. The same seed and time produce the same pose. New route chooses a new seed and starts playback. Roam continues beyond 90 seconds without teleporting or wrapping its position; the timeline grows. Other profiles stop at their named durations.
+
+```js
+const controller = createBehavior(6601, 'roam');
+// Each frame, using elapsed seconds since this controller started:
+const frame = controller.sample(elapsedSeconds);
+actor.position.fromArray(frame.position);
+actor.rotation.y = frame.heading;
+actor.updateMatrixWorld(true);
+const state = applyBehaviorPose(model, frame);
+```
+
+`model` is the loaded articulated GLB scene inside `actor`. Do not also add the constant-speed Walk/Scout travel when using this controller. The controller's `feet[].target` values are in the clearing's world frame; the pose adapter converts them into actor-local coordinates and preserves them as `world_target` in its returned state. `stance`, `step`, `contacts`, `speed_m_s`, `behavior`, `goal`, `bodyPosition`, `bodyRotation`, `sense` and `energy` support game integration and inspection. Keep the actor transform and adapter frame together. Do not animate static LOD2.
+
+The viewer follows translation while preserving the orbit angle; **Follow creature** can be disabled. **Clearing** frames the whole area, including scattered ground markers, the current amber destination and a short trail. Unlike the in-place Walk/Scout studies, this mode keeps the grid fixed. Selecting an earlier study restores its origin/orientation and hides the clearing elements. Switching study buttons is a direct selection; within Roam, speed, posture and sensor activation change continuously across behavior states.
+
+The new performance is a flat-ground kinematic prototype. Two-tip rush support is not a static-balance or force simulation. Markers are visual references, not obstacles. Terrain, collision avoidance, physical toe contact and arbitrary-pose self-collision remain integration work.
 
 ## Viewer and review artifacts
 
-Modes: Walk, Sensor walk, Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, time scrub, coil strength, independent limb selection, manual sideways/vertical bending, ground travel, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
+Modes: Roam, Hesitate, Sense, Rush, Walk, Sensor walk, Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, time scrub, coil strength, independent limb selection, manual sideways/vertical bending, ground travel, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, clearing, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
 
-`preview.png`, `previews/`, `design-sheet.jpg`, `motion-sheet.jpg` and `walking-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus `runtime.js`.
+`preview.png`, `previews/`, `design-sheet.jpg`, `motion-sheet.jpg`, `walking-sheet.jpg` and `behavior-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus the motion adapters `runtime.js` and `behavior.js`.
 
 Reproduce from repository root, with the asset-pipeline dependencies installed:
 
@@ -89,20 +122,23 @@ Reproduce from repository root, with the asset-pipeline dependencies installed:
 node tools/asset-pipeline/build-rokuroku66.mjs
 node tools/asset-pipeline/validate-rokuroku66.mjs
 node tools/asset-pipeline/validate-rokuroku66-walk.mjs
+node tools/asset-pipeline/validate-rokuroku66-behavior.mjs
 node tools/asset-pipeline/check-rokuroku66-scales.mjs
 node tools/asset-pipeline/prepare-rokuroku66-poses.mjs
 blender --background --python-exit-code 1 --python tools/blender/render_rokuroku66.py
 python3 -m http.server 8791
 ```
 
-With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.mjs` (set `PLAYWRIGHT_MODULE` to the installed Playwright module if needed), then `node tools/asset-pipeline/prepare-rokuroku66-review.mjs` and `node tools/asset-pipeline/prepare-rokuroku66-walk-review.mjs`. Browser captures use the OS temporary `rokuroku66-review` directory or `ROKU_SHOT_DIR`. Temporary posed GLBs use `/tmp/rokuroku66-review` or `ROKU_REVIEW_DIR`. Rebuild shared navigation with `python3 tools/build-workshop-docs.py`.
+With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.mjs` (set `PLAYWRIGHT_MODULE` to the installed Playwright module if needed), then `node tools/asset-pipeline/prepare-rokuroku66-review.mjs` and `node tools/asset-pipeline/prepare-rokuroku66-walk-review.mjs`. Browser captures use the OS temporary `rokuroku66-review` directory or `ROKU_SHOT_DIR`. Temporary posed GLBs use `/tmp/rokuroku66-review` or `ROKU_REVIEW_DIR`. Run `tools/asset-pipeline/test-rokuroku66-behavior-viewer.mjs` for the four new modes, then `tools/asset-pipeline/prepare-rokuroku66-behavior-review.mjs` for their review sheet. Rebuild shared navigation with `python3 tools/build-workshop-docs.py`.
 
-`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in forty poses per articulated tier, including both manual axes, intermediate coils and twelve phases of each gait. All 80 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
+`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in fifty-four poses per articulated tier, including the original curves, both walking gaits and fourteen behavior poses. All 108 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
 
 `walk-validation.json` adds 776 full-geometry samples across both gaits and the four plain/decoded articulated files. All samples pass floor clearance, exact tip targets, world-space planted-tip drift, joint limits before clamping, fixed link lengths, forward sensor separation/height and loop closure for every required node. Numerical stance drift is below 0.001 mm; minimum sampled floor clearance is 3.31 mm.
 
 `viewer-validation.json` records desktop/390 px mobile controls, eight modes, six camera presets, all six tier/encoding combinations, downloads, static lockout, independent limbs, both manual axes, coil amount, scrub/play/pause, continuous ground travel across the walk loop, sensor/contact indicators, six-phase gait captures, framing and zero page errors. SwiftShader was used for functional checks, not FPS measurement.
 
-Completed v1.1: separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, two planted-tip walking gaits, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, transition solving, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
+`behavior-validation.json` adds 14,188 kinematic samples and 2,860 full-geometry samples across four seeds, all four profiles, and plain/decoded master/game files. World-space planted tip drift stays below 0.001 mm; raw motor angles stay below 0.622 rad; sensor tips remain at least 0.904 m high. Full-mesh samples pass the floor and 48 m area checks. Seed replay, backward seeking, state sequence, speed changes and body-height excursion pass. `behavior-viewer-validation.json` covers the new modes on desktop/mobile, seeds/replay, camera follow, clearing view, file combinations, static lockout, one-shot holds, continuous play beyond 90 s and return to the original studies. These finite checks do not certify every possible seed or general collision clearance.
+
+Completed v1.2: separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, two planted-tip walking gaits, four seeded behavior profiles with real travel and variable posture, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, transition solving, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
 
 Credit: Mechanical model by jelaludo; Nih-Dairia lineage and user-supplied RokuRoku-66 concept. Hand off the commit containing this README plus folder `assets/rokuroku66/`; keep the plain exports and identify derived files as such.

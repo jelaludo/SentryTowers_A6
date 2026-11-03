@@ -1,0 +1,782 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "10cbfc8c152c28a069e949872c889e9c5909ab79a94d4dc0782256fcbeda7660",
+    "behavior.js": "6b4322b93526db1908417f09e3678d3d0a9ec3449ea1522cf9c0c622a8df9511"
+  },
+  "scope": "Fixed-step deterministic planar behavior, four seeds and four profiles on plain/decoded master and game. World-space planted tip continuity, raw joint limits, sensor height, state sequence, speed and body excursion; full mesh floor/area sampled every 0.5 seconds. Not force, terrain or general collision certification.",
+  "reports": [
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "roam",
+      "seed": 6601,
+      "samples": 1001,
+      "full_geometry_samples": 201,
+      "min_mesh_clearance_m": 0.02332173929858694,
+      "max_tip_error_m": 5.9482624219001e-9,
+      "max_stance_drift_m": 1.1206801001779236e-8,
+      "max_joint_angle_rad": 0.5961058382820987,
+      "body_height_range_m": [
+        0.8794555583806616,
+        1.5863779715209085
+      ],
+      "max_speed_m_s": 2.256771997956122,
+      "min_sensor_tip_height_m": 1.0403693034661166,
+      "min_contacts": 2,
+      "steps": 272,
+      "max_actor_radius_m": 11.900349058820455,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "roam",
+      "seed": 1,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023352501161475914,
+      "max_tip_error_m": 5.871630973025579e-9,
+      "max_stance_drift_m": 1.1358851895035007e-8,
+      "max_joint_angle_rad": 0.586563246312243,
+      "body_height_range_m": [
+        0.8810634120337647,
+        1.5800340704567741
+      ],
+      "max_speed_m_s": 2.328043806957066,
+      "min_sensor_tip_height_m": 1.014547892900983,
+      "min_contacts": 2,
+      "steps": 204,
+      "max_actor_radius_m": 9.958197787759692,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "roam",
+      "seed": 42,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.02329211823684485,
+      "max_tip_error_m": 5.979444810365666e-9,
+      "max_stance_drift_m": 1.140706698665847e-8,
+      "max_joint_angle_rad": 0.6215146879905888,
+      "body_height_range_m": [
+        0.8760790160327251,
+        1.5861575509737353
+      ],
+      "max_speed_m_s": 2.414857941642284,
+      "min_sensor_tip_height_m": 0.9233016853664024,
+      "min_contacts": 2,
+      "steps": 196,
+      "max_actor_radius_m": 12.921230729425828,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "roam",
+      "seed": 2026,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.009077357901142058,
+      "max_tip_error_m": 5.919854099705353e-9,
+      "max_stance_drift_m": 1.1205567890340407e-8,
+      "max_joint_angle_rad": 0.5977863248476438,
+      "body_height_range_m": [
+        0.8828730442092132,
+        1.5821620726045598
+      ],
+      "max_speed_m_s": 2.3828329751787534,
+      "min_sensor_tip_height_m": 0.904668126512078,
+      "min_contacts": 2,
+      "steps": 202,
+      "max_actor_radius_m": 11.736576357391947,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "hesitate",
+      "seed": 66,
+      "samples": 121,
+      "full_geometry_samples": 25,
+      "min_mesh_clearance_m": 0.023281918344562058,
+      "max_tip_error_m": 5.884265168179718e-9,
+      "max_stance_drift_m": 1.1160679106226903e-8,
+      "max_joint_angle_rad": 0.5277187893591031,
+      "body_height_range_m": [
+        1.1254535021583172,
+        1.5776976301354544
+      ],
+      "max_speed_m_s": 0.4693245833455683,
+      "min_sensor_tip_height_m": 1.7220029646529629,
+      "min_contacts": 3,
+      "steps": 6,
+      "max_actor_radius_m": 0.5319801936073261,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "sense",
+      "seed": 66,
+      "samples": 141,
+      "full_geometry_samples": 29,
+      "min_mesh_clearance_m": 0.023827235135592595,
+      "max_tip_error_m": 5.9305339391901455e-9,
+      "max_stance_drift_m": 1.1353785713445726e-8,
+      "max_joint_angle_rad": 0.44999999999991014,
+      "body_height_range_m": [
+        1.0673717564531076,
+        1.5928005560500345
+      ],
+      "max_speed_m_s": 0,
+      "min_sensor_tip_height_m": 1.7812338810222843,
+      "min_contacts": 4,
+      "steps": 0,
+      "max_actor_radius_m": 0,
+      "states": [
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "lod0/rokuroku66_d0_lod0.glb",
+      "profile": "rush",
+      "seed": 66,
+      "samples": 181,
+      "full_geometry_samples": 37,
+      "min_mesh_clearance_m": 0.02359551728153697,
+      "max_tip_error_m": 5.765705878148044e-9,
+      "max_stance_drift_m": 1.1243532408237931e-8,
+      "max_joint_angle_rad": 0.5443536872679069,
+      "body_height_range_m": [
+        0.8962140934100933,
+        1.3434167776630095
+      ],
+      "max_speed_m_s": 2.2821760804827886,
+      "min_sensor_tip_height_m": 0.9041787653448842,
+      "min_contacts": 2,
+      "steps": 49,
+      "max_actor_radius_m": 13.06793914973677,
+      "states": [
+        "gather",
+        "rush",
+        "brake",
+        "settle",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "roam",
+      "seed": 6601,
+      "samples": 1001,
+      "full_geometry_samples": 201,
+      "min_mesh_clearance_m": 0.02332173929858694,
+      "max_tip_error_m": 5.9482624219001e-9,
+      "max_stance_drift_m": 1.1206801001779236e-8,
+      "max_joint_angle_rad": 0.5961058382820987,
+      "body_height_range_m": [
+        0.8794555583806616,
+        1.5863779715209085
+      ],
+      "max_speed_m_s": 2.256771997956122,
+      "min_sensor_tip_height_m": 1.0403693034661166,
+      "min_contacts": 2,
+      "steps": 272,
+      "max_actor_radius_m": 11.900349058820455,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "roam",
+      "seed": 1,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023352501161475914,
+      "max_tip_error_m": 5.871630973025579e-9,
+      "max_stance_drift_m": 1.1358851895035007e-8,
+      "max_joint_angle_rad": 0.586563246312243,
+      "body_height_range_m": [
+        0.8810634120337647,
+        1.5800340704567741
+      ],
+      "max_speed_m_s": 2.328043806957066,
+      "min_sensor_tip_height_m": 1.014547892900983,
+      "min_contacts": 2,
+      "steps": 204,
+      "max_actor_radius_m": 9.958197787759692,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "roam",
+      "seed": 42,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.02329211823684485,
+      "max_tip_error_m": 5.979444810365666e-9,
+      "max_stance_drift_m": 1.140706698665847e-8,
+      "max_joint_angle_rad": 0.6215146879905888,
+      "body_height_range_m": [
+        0.8760790160327251,
+        1.5861575509737353
+      ],
+      "max_speed_m_s": 2.414857941642284,
+      "min_sensor_tip_height_m": 0.9233016853664024,
+      "min_contacts": 2,
+      "steps": 196,
+      "max_actor_radius_m": 12.921230729425828,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "roam",
+      "seed": 2026,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.009077357901142058,
+      "max_tip_error_m": 5.919854099705353e-9,
+      "max_stance_drift_m": 1.1205567890340407e-8,
+      "max_joint_angle_rad": 0.5977863248476438,
+      "body_height_range_m": [
+        0.8828730442092132,
+        1.5821620726045598
+      ],
+      "max_speed_m_s": 2.3828329751787534,
+      "min_sensor_tip_height_m": 0.904668126512078,
+      "min_contacts": 2,
+      "steps": 202,
+      "max_actor_radius_m": 11.736576357391947,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "hesitate",
+      "seed": 66,
+      "samples": 121,
+      "full_geometry_samples": 25,
+      "min_mesh_clearance_m": 0.023281918344562058,
+      "max_tip_error_m": 5.884265168179718e-9,
+      "max_stance_drift_m": 1.1160679106226903e-8,
+      "max_joint_angle_rad": 0.5277187893591031,
+      "body_height_range_m": [
+        1.1254535021583172,
+        1.5776976301354544
+      ],
+      "max_speed_m_s": 0.4693245833455683,
+      "min_sensor_tip_height_m": 1.7220029646529629,
+      "min_contacts": 3,
+      "steps": 6,
+      "max_actor_radius_m": 0.5319801936073261,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "sense",
+      "seed": 66,
+      "samples": 141,
+      "full_geometry_samples": 29,
+      "min_mesh_clearance_m": 0.023827235135592595,
+      "max_tip_error_m": 5.9305339391901455e-9,
+      "max_stance_drift_m": 1.1353785713445726e-8,
+      "max_joint_angle_rad": 0.44999999999991014,
+      "body_height_range_m": [
+        1.0673717564531076,
+        1.5928005560500345
+      ],
+      "max_speed_m_s": 0,
+      "min_sensor_tip_height_m": 1.7812338810222843,
+      "min_contacts": 4,
+      "steps": 0,
+      "max_actor_radius_m": 0,
+      "states": [
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
+      "profile": "rush",
+      "seed": 66,
+      "samples": 181,
+      "full_geometry_samples": 37,
+      "min_mesh_clearance_m": 0.02359551728153697,
+      "max_tip_error_m": 5.765705878148044e-9,
+      "max_stance_drift_m": 1.1243532408237931e-8,
+      "max_joint_angle_rad": 0.5443536872679069,
+      "body_height_range_m": [
+        0.8962140934100933,
+        1.3434167776630095
+      ],
+      "max_speed_m_s": 2.2821760804827886,
+      "min_sensor_tip_height_m": 0.9041787653448842,
+      "min_contacts": 2,
+      "steps": 49,
+      "max_actor_radius_m": 13.06793914973677,
+      "states": [
+        "gather",
+        "rush",
+        "brake",
+        "settle",
+        "rest"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "roam",
+      "seed": 6601,
+      "samples": 1001,
+      "full_geometry_samples": 201,
+      "min_mesh_clearance_m": 0.023608208666062502,
+      "max_tip_error_m": 5.9482624219001e-9,
+      "max_stance_drift_m": 1.1206801001779236e-8,
+      "max_joint_angle_rad": 0.5961058382820987,
+      "body_height_range_m": [
+        0.8794555583806616,
+        1.5863779715209085
+      ],
+      "max_speed_m_s": 2.256771997956122,
+      "min_sensor_tip_height_m": 1.0403693034661166,
+      "min_contacts": 2,
+      "steps": 272,
+      "max_actor_radius_m": 11.900349058820455,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "roam",
+      "seed": 1,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023609387518226832,
+      "max_tip_error_m": 5.871630973025579e-9,
+      "max_stance_drift_m": 1.1358851895035007e-8,
+      "max_joint_angle_rad": 0.586563246312243,
+      "body_height_range_m": [
+        0.8810634120337647,
+        1.5800340704567741
+      ],
+      "max_speed_m_s": 2.328043806957066,
+      "min_sensor_tip_height_m": 1.014547892900983,
+      "min_contacts": 2,
+      "steps": 204,
+      "max_actor_radius_m": 9.958197787759692,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "roam",
+      "seed": 42,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023608479068533583,
+      "max_tip_error_m": 5.979444810365666e-9,
+      "max_stance_drift_m": 1.140706698665847e-8,
+      "max_joint_angle_rad": 0.6215146879905888,
+      "body_height_range_m": [
+        0.8760790160327251,
+        1.5861575509737353
+      ],
+      "max_speed_m_s": 2.414857941642284,
+      "min_sensor_tip_height_m": 0.9233016853664024,
+      "min_contacts": 2,
+      "steps": 196,
+      "max_actor_radius_m": 12.921230729425828,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "roam",
+      "seed": 2026,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.009077357901142058,
+      "max_tip_error_m": 5.919854099705353e-9,
+      "max_stance_drift_m": 1.1205567890340407e-8,
+      "max_joint_angle_rad": 0.5977863248476438,
+      "body_height_range_m": [
+        0.8828730442092132,
+        1.5821620726045598
+      ],
+      "max_speed_m_s": 2.3828329751787534,
+      "min_sensor_tip_height_m": 0.904668126512078,
+      "min_contacts": 2,
+      "steps": 202,
+      "max_actor_radius_m": 11.736576357391947,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "hesitate",
+      "seed": 66,
+      "samples": 121,
+      "full_geometry_samples": 25,
+      "min_mesh_clearance_m": 0.02360909750120932,
+      "max_tip_error_m": 5.884265168179718e-9,
+      "max_stance_drift_m": 1.1160679106226903e-8,
+      "max_joint_angle_rad": 0.5277187893591031,
+      "body_height_range_m": [
+        1.1254535021583172,
+        1.5776976301354544
+      ],
+      "max_speed_m_s": 0.4693245833455683,
+      "min_sensor_tip_height_m": 1.7220029646529629,
+      "min_contacts": 3,
+      "steps": 6,
+      "max_actor_radius_m": 0.5319801936073261,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "sense",
+      "seed": 66,
+      "samples": 141,
+      "full_geometry_samples": 29,
+      "min_mesh_clearance_m": 0.023988519816993126,
+      "max_tip_error_m": 5.9305339391901455e-9,
+      "max_stance_drift_m": 1.1353785713445726e-8,
+      "max_joint_angle_rad": 0.44999999999991014,
+      "body_height_range_m": [
+        1.0673717564531076,
+        1.5928005560500345
+      ],
+      "max_speed_m_s": 0,
+      "min_sensor_tip_height_m": 1.7812338810222843,
+      "min_contacts": 4,
+      "steps": 0,
+      "max_actor_radius_m": 0,
+      "states": [
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "lod1/rokuroku66_d0_lod1.glb",
+      "profile": "rush",
+      "seed": 66,
+      "samples": 181,
+      "full_geometry_samples": 37,
+      "min_mesh_clearance_m": 0.023704906577296292,
+      "max_tip_error_m": 5.765705878148044e-9,
+      "max_stance_drift_m": 1.1243532408237931e-8,
+      "max_joint_angle_rad": 0.5443536872679069,
+      "body_height_range_m": [
+        0.8962140934100933,
+        1.3434167776630095
+      ],
+      "max_speed_m_s": 2.2821760804827886,
+      "min_sensor_tip_height_m": 0.9041787653448842,
+      "min_contacts": 2,
+      "steps": 49,
+      "max_actor_radius_m": 13.06793914973677,
+      "states": [
+        "gather",
+        "rush",
+        "brake",
+        "settle",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "roam",
+      "seed": 6601,
+      "samples": 1001,
+      "full_geometry_samples": 201,
+      "min_mesh_clearance_m": 0.023608208666062502,
+      "max_tip_error_m": 5.9482624219001e-9,
+      "max_stance_drift_m": 1.1206801001779236e-8,
+      "max_joint_angle_rad": 0.5961058382820987,
+      "body_height_range_m": [
+        0.8794555583806616,
+        1.5863779715209085
+      ],
+      "max_speed_m_s": 2.256771997956122,
+      "min_sensor_tip_height_m": 1.0403693034661166,
+      "min_contacts": 2,
+      "steps": 272,
+      "max_actor_radius_m": 11.900349058820455,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "roam",
+      "seed": 1,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023609387518226832,
+      "max_tip_error_m": 5.871630973025579e-9,
+      "max_stance_drift_m": 1.1358851895035007e-8,
+      "max_joint_angle_rad": 0.586563246312243,
+      "body_height_range_m": [
+        0.8810634120337647,
+        1.5800340704567741
+      ],
+      "max_speed_m_s": 2.328043806957066,
+      "min_sensor_tip_height_m": 1.014547892900983,
+      "min_contacts": 2,
+      "steps": 204,
+      "max_actor_radius_m": 9.958197787759692,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "roam",
+      "seed": 42,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.023608479068533583,
+      "max_tip_error_m": 5.979444810365666e-9,
+      "max_stance_drift_m": 1.140706698665847e-8,
+      "max_joint_angle_rad": 0.6215146879905888,
+      "body_height_range_m": [
+        0.8760790160327251,
+        1.5861575509737353
+      ],
+      "max_speed_m_s": 2.414857941642284,
+      "min_sensor_tip_height_m": 0.9233016853664024,
+      "min_contacts": 2,
+      "steps": 196,
+      "max_actor_radius_m": 12.921230729425828,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "roam",
+      "seed": 2026,
+      "samples": 701,
+      "full_geometry_samples": 141,
+      "min_mesh_clearance_m": 0.009077357901142058,
+      "max_tip_error_m": 5.919854099705353e-9,
+      "max_stance_drift_m": 1.1205567890340407e-8,
+      "max_joint_angle_rad": 0.5977863248476438,
+      "body_height_range_m": [
+        0.8828730442092132,
+        1.5821620726045598
+      ],
+      "max_speed_m_s": 2.3828329751787534,
+      "min_sensor_tip_height_m": 0.904668126512078,
+      "min_contacts": 2,
+      "steps": 202,
+      "max_actor_radius_m": 11.736576357391947,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "gather",
+        "rush",
+        "brake",
+        "settle"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "hesitate",
+      "seed": 66,
+      "samples": 121,
+      "full_geometry_samples": 25,
+      "min_mesh_clearance_m": 0.02360909750120932,
+      "max_tip_error_m": 5.884265168179718e-9,
+      "max_stance_drift_m": 1.1160679106226903e-8,
+      "max_joint_angle_rad": 0.5277187893591031,
+      "body_height_range_m": [
+        1.1254535021583172,
+        1.5776976301354544
+      ],
+      "max_speed_m_s": 0.4693245833455683,
+      "min_sensor_tip_height_m": 1.7220029646529629,
+      "min_contacts": 3,
+      "steps": 6,
+      "max_actor_radius_m": 0.5319801936073261,
+      "states": [
+        "amble",
+        "hesitate",
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "sense",
+      "seed": 66,
+      "samples": 141,
+      "full_geometry_samples": 29,
+      "min_mesh_clearance_m": 0.023988519816993126,
+      "max_tip_error_m": 5.9305339391901455e-9,
+      "max_stance_drift_m": 1.1353785713445726e-8,
+      "max_joint_angle_rad": 0.44999999999991014,
+      "body_height_range_m": [
+        1.0673717564531076,
+        1.5928005560500345
+      ],
+      "max_speed_m_s": 0,
+      "min_sensor_tip_height_m": 1.7812338810222843,
+      "min_contacts": 4,
+      "steps": 0,
+      "max_actor_radius_m": 0,
+      "states": [
+        "sense",
+        "rest"
+      ]
+    },
+    {
+      "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
+      "profile": "rush",
+      "seed": 66,
+      "samples": 181,
+      "full_geometry_samples": 37,
+      "min_mesh_clearance_m": 0.023704906577296292,
+      "max_tip_error_m": 5.765705878148044e-9,
+      "max_stance_drift_m": 1.1243532408237931e-8,
+      "max_joint_angle_rad": 0.5443536872679069,
+      "body_height_range_m": [
+        0.8962140934100933,
+        1.3434167776630095
+      ],
+      "max_speed_m_s": 2.2821760804827886,
+      "min_sensor_tip_height_m": 0.9041787653448842,
+      "min_contacts": 2,
+      "steps": 49,
+      "max_actor_radius_m": 13.06793914973677,
+      "states": [
+        "gather",
+        "rush",
+        "brake",
+        "settle",
+        "rest"
+      ]
+    }
+  ]
+}

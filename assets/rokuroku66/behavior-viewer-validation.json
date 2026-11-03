@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "10cbfc8c152c28a069e949872c889e9c5909ab79a94d4dc0782256fcbeda7660",
+    "behavior.js": "6b4322b93526db1908417f09e3678d3d0a9ec3449ea1522cf9c0c622a8df9511"
+  },
+  "browser": "Chromium / SwiftShader; functional checks, no FPS claim",
+  "checks": [
+    "four behavior modes",
+    "world-space travel and camera follow",
+    "clearing view / destination / trail",
+    "seed variation / exact replay / new route",
+    "four articulated plain/decoded files",
+    "static lockout and return to original gaits",
+    "one-shot hold / continuous roaming beyond 90 seconds",
+    "desktop / mobile framing",
+    "zero page errors"
+  ]
+}
