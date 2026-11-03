@@ -8,7 +8,8 @@
     "static-tier motion lockout",
     "selected download",
     "wireframe / rig / contacts",
-    "full hydraulic extension",
+    "two-leg reach / adjustable forward distance",
+    "four fixed supports / 0.55 m anchored body pull",
     "play / pause",
     "one-shot terminal hold",
     "desktop and 390px mobile framing",
@@ -16,19 +17,19 @@
   ],
   "asset_hashes": [
     {
-      "file": "lod0/nih_dairia_mech_d0_lod0.glb",
-      "sha256": "2970ee44c8f71fe62857e5f2529924776e4fc6feea4c82f976db54cce3649a83",
-      "meshopt_sha256": "f0e5300f47a4b7331ec1fab8fb341d79fad27cf90c54d8c241f968775975b9e1"
+      "file": "tripad/lod0/nih_dairia_mech_tripad_d0_lod0.glb",
+      "sha256": "d9b7212ca83754d89beaab8c8fb11c0eeb470006088c8d4ed59215bd53d5356d",
+      "meshopt_sha256": "2ac7d45f660b3fc65b3a23b9b65dcee0ee1fb963ac93112adca65148c0955450"
     },
     {
-      "file": "lod1/nih_dairia_mech_d0_lod1.glb",
-      "sha256": "8a872b23b4692ab1de9bf22ec4a7fec0006d173e7f5c02c3bdb950bd534c9387",
-      "meshopt_sha256": "668980b9f508adba8bf5fa99460227828e3925b35548baefc9d1d271285a4739"
+      "file": "tripad/lod1/nih_dairia_mech_tripad_d0_lod1.glb",
+      "sha256": "c4ebc598274064f41023a07a6537d6a9a6c2a6a8cfd9a00750b49ab81b1f77aa",
+      "meshopt_sha256": "3ab37f685d2132fb6bdceb2e8d466c715e83ff49b7921d4ee1a5e80ce637bd4d"
     },
     {
-      "file": "lod2/nih_dairia_mech_d0_lod2.glb",
-      "sha256": "874990adc999e171c6673b414bd52ef8d5606f840b808c10c665e5e8a7752f6b",
-      "meshopt_sha256": "f3cc9c745f26a3a8b9bc2cd74d98e12cc966fb1b981e2ba414b223f9790f3024"
+      "file": "tripad/lod2/nih_dairia_mech_tripad_d0_lod2.glb",
+      "sha256": "b5f88cba9c9b5762e4c7fc450ed6cb5327a10bc8355c9e69fdf01150eabfae59",
+      "meshopt_sha256": "8f8013b8a1c2550707d810e594c06527963f3a64f6705c97200594130b8497c6"
     }
   ]
 }

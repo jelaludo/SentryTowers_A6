@@ -7,9 +7,9 @@ ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'assets/nih-dairia-mech/previews'
 OUT.mkdir(parents=True,exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-bpy.ops.import_scene.gltf(filepath=str(ROOT/'assets/nih-dairia-mech/lod0/nih_dairia_mech_d0_lod0.glb'))
+bpy.ops.import_scene.gltf(filepath=str(ROOT/'assets/nih-dairia-mech/tripad/lod0/nih_dairia_mech_tripad_d0_lod0.glb'))
 scene=bpy.context.scene
-scene.name='Nih-Dairia mechanical v1 / derived review'
+scene.name='Nih-Dairia mechanical v1.1 / derived review'
 scene['provenance']='Derived from plain LOD0 GLB. Authoring source: tools/asset-pipeline/nih-dairia-mech-shape.mjs'
 world=scene.world;world.use_nodes=True
 world.node_tree.nodes['Background'].inputs[0].default_value=(.10,.15,.20,1)
@@ -26,10 +26,10 @@ scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=
 scene.render.resolution_x=1600;scene.render.resolution_y=1100;scene.render.resolution_percentage=100
 scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast'
 scene.render.image_settings.file_format='PNG'
-shots=[('hero',(7.8,-9,6.1),(0,0,.8),9.1),('top',(0,0,12),(0,0,0),11.2),('side',(10,0,2.5),(0,0,.9),8.5),('actuator',(2.5,-4.5,3.1),(0,-1.8,1.15),2.8),('claws',(1.3,-4.5,1.0),(0,-3.1,.16),1.45)]
+shots=[('hero',(7.8,-9,6.1),(0,0,.8),9.1),('top',(0,0,12),(0,0,0),12.3),('side',(10,0,2.5),(0,0,.9),8.5),('actuator',(2.5,-4.5,3.1),(0,-1.8,1.15),2.8),('claws',(.05,-4.6,1.5),(0,-3.28,.16),1.8)]
 for name,pos,aim,scale in shots:
  if os.environ.get('NIH_RENDER_SHOTS') and name not in os.environ['NIH_RENDER_SHOTS'].split(','):continue
  cam.location=pos;cam.rotation_euler=(Vector(aim)-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=scale
- if name=='hero':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/nih-dairia-mech-review.blend'))
+ if name=='hero':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'source/blender/nih-dairia-mech-tripad-review.blend'))
  scene.render.filepath=str(OUT/(name+'.png'));bpy.ops.render.render(write_still=True)
  if name=='hero':bpy.data.images['Render Result'].save_render(str(ROOT/'assets/nih-dairia-mech/preview.png'))

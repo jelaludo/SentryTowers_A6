@@ -8,7 +8,7 @@ import {NodeIO} from '@gltf-transform/core';
 import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {dequantize} from '@gltf-transform/functions';
 import validator from 'gltf-validator';
-import {applyPose,motions,legs,UPPER,BASE_LOWER,MAX_LOWER} from '../../assets/nih-dairia-mech/runtime.js';
+import {applyPose,motions,legs,UPPER,BASE_LOWER,MAX_LOWER,REACH_PAIR,BODY_ADVANCE,FOOT_RADIUS} from '../../assets/nih-dairia-mech/runtime.js';
 const base=new URL('../../assets/nih-dairia-mech/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',base))),reports=[];
 await MeshoptDecoder.ready;
 const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
@@ -35,20 +35,33 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  const bounds=new T.Box3().setFromObject(root,true);assert(Math.abs(bounds.min.y)<.012);if(!baselineBounds)baselineBounds=bounds;else{assert(bounds.min.distanceTo(baselineBounds.min)<.01);assert(bounds.max.distanceTo(baselineBounds.max)<.01);}
  if(e.lod){const budget=manifest.budgets['lod'+e.lod];assert(triangles<=budget.triangles);if(budget.draw_calls)assert(draws<=budget.draw_calls);if(budget.bytes)assert(e.bytes<=budget.bytes);}
  if(e.lod<2){
-  for(const mode of Object.keys(motions))for(const extension of [0,1])for(let k=0;k<=32;k++){
+  for(const mode of Object.keys(motions))for(const extension of [.35,1])for(let k=0;k<=32;k++){
    const t=motions[mode].duration_s*k/32,state=applyPose(root,t,mode,extension);poseSamples++;
    for(const f of state.feet){const pre='LEG_'+f.id,foot=root.getObjectByName(pre+'_CONTACT').getWorldPosition(new T.Vector3()),error=foot.distanceTo(new T.Vector3(...f.target));maxContactError=Math.max(maxContactError,error);assert(error<.0002,`${file} ${mode} ${t} ${pre} target error ${error}`);
     const hp=root.getObjectByName(pre+'_HIP').getWorldPosition(new T.Vector3()),kn=root.getObjectByName(pre+'_KNEE').getWorldPosition(new T.Vector3()),an=root.getObjectByName(pre+'_ANKLE').getWorldPosition(new T.Vector3());maxRigidError=Math.max(maxRigidError,Math.abs(hp.distanceTo(kn)-UPPER));assert(Math.abs(hp.distanceTo(kn)-UPPER)<.0001);assert(kn.distanceTo(an)>=BASE_LOWER-.0001&&kn.distanceTo(an)<=MAX_LOWER+.0001);
    }
    // Full deformed geometry, not only contact sockets, against the plane.
-   const v=new T.Vector3();for(const o of meshes){for(let j=0;j<o.geometry.attributes.position.count;j++){o.getVertexPosition(j,v);v.applyMatrix4(o.matrixWorld);sweptBounds.expandByPoint(v);minClearance=Math.min(minClearance,v.y);assert(v.y>=-.0015,`${file} ${mode} ${t}: below ground ${v.y}`);assert(Math.abs(v.x)<4.5&&Math.abs(v.z)<4.5&&v.y<2.6,'Reserved envelope');}}
+   const v=new T.Vector3();for(const o of meshes){for(let j=0;j<o.geometry.attributes.position.count;j++){o.getVertexPosition(j,v);v.applyMatrix4(o.matrixWorld);sweptBounds.expandByPoint(v);minClearance=Math.min(minClearance,v.y);assert(v.y>=-.0015,`${file} ${mode} ${t}: below ground ${v.y}`);assert(Math.abs(v.x)<4.5&&Math.abs(v.z)<4.5&&v.y<2.8,'Reserved envelope');}}
   }
   // Translate the in-place gait at its declared speed: stance contacts stay fixed.
   for(const leg of legs){let previous=null;for(let k=0;k<300;k++){const t=k*.01,s=applyPose(root,t,'walk',0),f=s.feet.find(x=>x.id===leg.id);const p=root.getObjectByName('LEG_'+leg.id+'_CONTACT').getWorldPosition(new T.Vector3());p.z+=t*.3;if(f.stance&&previous&&previous.stance){const drift=p.distanceTo(previous.p);maxStanceDrift=Math.max(maxStanceDrift,drift);assert(drift<.0001);}previous={p,stance:f.stance};}}
+  // Exactly two feet leave the ground; four supporting feet and their pads remain fixed.
+  for(const mode of ['extend','anchor']){
+   const rest=applyPose(root,0,mode,1),fixed=new Map();
+   for(const leg of legs)for(let j=1;j<=3;j++)fixed.set(leg.id+'_'+j,root.getObjectByName('LEG_'+leg.id+'_CLAW_'+j+'_TIP').getWorldPosition(new T.Vector3()));
+   for(let t=.05;t<=8;t+=.05){const state=applyPose(root,t,mode,1);
+    const airborne=state.feet.filter(f=>!f.stance).map(f=>f.id);assert(airborne.every(id=>REACH_PAIR.includes(id)));if(t>.85&&t<2.75)assert.deepEqual(airborne,REACH_PAIR);
+    for(const leg of legs)if(!REACH_PAIR.includes(leg.id))for(let j=1;j<=3;j++){const p=root.getObjectByName('LEG_'+leg.id+'_CLAW_'+j+'_TIP').getWorldPosition(new T.Vector3());assert(p.distanceTo(fixed.get(leg.id+'_'+j))<.0001,'Support pad drift');}
+   }
+  }
+  applyPose(root,4.2,'anchor',1);const anchored=new Map();
+  for(const leg of legs)for(let j=1;j<=3;j++)anchored.set(leg.id+'_'+j,root.getObjectByName('LEG_'+leg.id+'_CLAW_'+j+'_TIP').getWorldPosition(new T.Vector3()));
+  for(let t=4.2;t<=8;t+=.05){const state=applyPose(root,t,'anchor',1);assert.equal(state.contacts,6);for(const leg of legs)for(let j=1;j<=3;j++)assert(root.getObjectByName('LEG_'+leg.id+'_CLAW_'+j+'_TIP').getWorldPosition(new T.Vector3()).distanceTo(anchored.get(leg.id+'_'+j))<.0001,'Anchor pad slides during pull');}
+  const held=applyPose(root,8,'anchor',1);assert(Math.abs(held.body_advance_m-BODY_ADVANCE)<1e-8);for(const f of held.feet)if(REACH_PAIR.includes(f.id))assert(Math.abs(f.target[2]-(Math.cos(legs.find(l=>l.id===f.id).angle)*FOOT_RADIUS+1.15))<1e-8);
   // A one-shot must hold its terminal brace pose.
   applyPose(root,8,'anchor');const q=root.getObjectByName('LEG_01_CONTACT').getWorldPosition(new T.Vector3());applyPose(root,40,'anchor');assert(q.distanceTo(root.getObjectByName('LEG_01_CONTACT').getWorldPosition(new T.Vector3()))<1e-8);
  }
  reports.push({file,decoded:compressed,triangles,draw_calls:draws,bytes:bytes.length,gltf_errors:0,gltf_warnings:0});console.log('PASS',file);
 }
-await fs.writeFile(new URL('validation-report.json',base),JSON.stringify({status:'passed',reports,pose_samples:poseSamples,sampled_swept_bounds_m:{min:sweptBounds.min.toArray(),max:sweptBounds.max.toArray()},min_mesh_clearance_m:minClearance,max_contact_target_error_m:maxContactError,max_upper_rigid_error_m:maxRigidError,max_stance_step_drift_m:maxStanceDrift,scope:'All vertices sampled in four behaviors and zero/full hydraulic extension, plain and decoded. Flat support plane; no self-collision or force-based terrain certification.'},null,2)+'\n');
+await fs.writeFile(new URL('validation-report.json',base),JSON.stringify({status:'passed',reports,pose_samples:poseSamples,sampled_swept_bounds_m:{min:sweptBounds.min.toArray(),max:sweptBounds.max.toArray()},min_mesh_clearance_m:minClearance,max_contact_target_error_m:maxContactError,max_upper_rigid_error_m:maxRigidError,max_stance_step_drift_m:maxStanceDrift,scope:'All vertices sampled in four behaviors and 35%/100% reach distance, plain and decoded. Flat support plane; two-leg reach, fixed supporting pads and fixed forward anchors during the 0.55 m body pull. No self-collision or force-based terrain certification.'},null,2)+'\n');
 console.log({poseSamples,minClearance,maxContactError,maxRigidError,maxStanceDrift});

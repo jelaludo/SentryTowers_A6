@@ -2,56 +2,56 @@
   "status": "passed",
   "reports": [
     {
-      "file": "lod0/nih_dairia_mech_d0_lod0.glb",
+      "file": "tripad/lod0/nih_dairia_mech_tripad_d0_lod0.glb",
       "decoded": false,
-      "triangles": 58952,
+      "triangles": 61952,
       "draw_calls": 3,
-      "bytes": 2812128,
+      "bytes": 2970796,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
-      "file": "derived/meshopt/lod0/nih_dairia_mech_d0_lod0.meshopt.glb",
+      "file": "derived/meshopt/tripad/lod0/nih_dairia_mech_tripad_d0_lod0.meshopt.glb",
       "decoded": true,
-      "triangles": 58952,
+      "triangles": 61952,
       "draw_calls": 3,
-      "bytes": 542860,
+      "bytes": 568888,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
-      "file": "lod1/nih_dairia_mech_d0_lod1.glb",
+      "file": "tripad/lod1/nih_dairia_mech_tripad_d0_lod1.glb",
       "decoded": false,
-      "triangles": 17784,
+      "triangles": 19104,
       "draw_calls": 3,
-      "bytes": 886548,
+      "bytes": 954016,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
-      "file": "derived/meshopt/lod1/nih_dairia_mech_d0_lod1.meshopt.glb",
+      "file": "derived/meshopt/tripad/lod1/nih_dairia_mech_tripad_d0_lod1.meshopt.glb",
       "decoded": true,
-      "triangles": 17784,
+      "triangles": 19104,
       "draw_calls": 3,
-      "bytes": 196540,
+      "bytes": 208784,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
-      "file": "lod2/nih_dairia_mech_d0_lod2.glb",
+      "file": "tripad/lod2/nih_dairia_mech_tripad_d0_lod2.glb",
       "decoded": false,
-      "triangles": 1776,
+      "triangles": 2256,
       "draw_calls": 1,
-      "bytes": 64016,
+      "bytes": 76908,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
-      "file": "derived/meshopt/lod2/nih_dairia_mech_d0_lod2.meshopt.glb",
+      "file": "derived/meshopt/tripad/lod2/nih_dairia_mech_tripad_d0_lod2.meshopt.glb",
       "decoded": true,
-      "triangles": 1776,
+      "triangles": 2256,
       "draw_calls": 1,
-      "bytes": 33856,
+      "bytes": 38772,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
@@ -59,19 +59,19 @@
   "pose_samples": 1056,
   "sampled_swept_bounds_m": {
     "min": [
-      -3.5378232674662122,
-      -1.7601455981619551e-7,
-      -4.357299061497413
+      -3.316278582984394,
+      0.0010000092117099088,
+      -4.087046978251976
     ],
     "max": [
-      3.537823267466212,
-      2.3097456254076656,
-      4.357925575050787
+      3.3162785829843937,
+      2.3329754712823245,
+      4.087500057220458
     ]
   },
-  "min_mesh_clearance_m": -1.7601455981619551e-7,
-  "max_contact_target_error_m": 2.278491145438498e-15,
+  "min_mesh_clearance_m": 0.0010000092117099088,
+  "max_contact_target_error_m": 1.9984014443252818e-15,
   "max_upper_rigid_error_m": 4.440892098500626e-16,
-  "max_stance_step_drift_m": 2.622718320630992e-15,
-  "scope": "All vertices sampled in four behaviors and zero/full hydraulic extension, plain and decoded. Flat support plane; no self-collision or force-based terrain certification."
+  "max_stance_step_drift_m": 2.808666774861361e-15,
+  "scope": "All vertices sampled in four behaviors and 35%/100% reach distance, plain and decoded. Flat support plane; two-leg reach, fixed supporting pads and fixed forward anchors during the 0.55 m body pull. No self-collision or force-based terrain certification."
 }

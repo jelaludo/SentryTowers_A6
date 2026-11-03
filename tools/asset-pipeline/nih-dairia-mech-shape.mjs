@@ -2,7 +2,7 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {box,cyl,ring,beam,armor,prep,merged,socket} from './settlement-industry-shape.mjs';
-import {legs,UPPER,applyPose} from '../../assets/nih-dairia-mech/runtime.js';
+import {legs,UPPER,applyPose,FOOT_OFFSET} from '../../assets/nih-dairia-mech/runtime.js';
 const C={ivory:0xc9c5b6,edge:0xe5e1d4,carbon:0x202c32,dark:0x101a20,steel:0x74818a,gold:0xb98b44,amber:0xffb841,blue:0x8ed6df};
 // A swept, chamfered armor section. Cross-sections vary in width and camber.
 function blade(stations,color,lod){
@@ -16,8 +16,11 @@ function blade(stations,color,lod){
 }
 function tube(a,b,r,n,color){const va=new T.Vector3(...a),vb=new T.Vector3(...b),d=vb.clone().sub(va);const g=cyl(r,d.length(),n,[0,0,0],color);return g.applyMatrix4(new T.Matrix4().compose(va.add(vb).multiplyScalar(.5),new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),d.normalize()),new T.Vector3(1,1,1)));}
 function curve(points,r,n,color,segments){const g=new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),segments,r,n,false);return prep(g,color);}
+// The original ivory distal tip, reused three times around each foot hub.
+function whiteTip(lod){return blade([[.02,.035,.13,.055],[.15,-.015,.14,.055],[.35,-.10,.09,.032],[.44,-.135,.025,.017]],C.ivory,lod);}
+function tipSole(lod){return blade([[.04,-.03,.11,.025],[.15,-.06,.12,.028],[.34,-.125,.075,.018],[.44,-.15,.023,.009]],C.dark,lod);}
 export function buildModel(lod){
- let root=new T.Group();root.name='NIH_DAIRIA_MECH_ROOT';root.userData={family:'nih-dairia-mech',version:1,lod,damage_level:0,static:lod===2,leg_count:6,plot_m:[9,9],swept_envelope_m:{min:[-4.5,0,-4.5],max:[4.5,2.6,4.5]},creator_in_lore:'Isao / Builder Robot'};
+ let root=new T.Group();root.name='NIH_DAIRIA_MECH_ROOT';root.userData={family:'nih-dairia-mech',version:1.1,revision:'tripad',lod,damage_level:0,static:lod===2,leg_count:6,plot_m:[9,9],swept_envelope_m:{min:[-4.5,0,-4.5],max:[4.5,2.8,4.5]},creator_in_lore:'Isao / Builder Robot'};
  const mats=[new T.MeshStandardMaterial({name:'CERAMIC_PALETTE',vertexColors:true,metalness:.28,roughness:.34}),new T.MeshStandardMaterial({name:'CARBON_TITANIUM',vertexColors:true,metalness:.76,roughness:.31}),new T.MeshStandardMaterial({name:'AMBER_STATUS',vertexColors:true,emissive:0xffa326,emissiveIntensity:.8,metalness:.45,roughness:.26})];
  const bones=[],parts=[[],[],[]];
  function bone(parent,name,pos=[0,0,0],role='engine_pivot'){const o=new T.Bone();o.name=name;o.position.fromArray(pos);o.userData={role};parent.add(o);bones.push(o);return o;}
@@ -53,15 +56,17 @@ export function buildModel(lod){
   add(knee,2,tube([.30,-.09,.094],[.68,-.09,.094],.021,n,C.amber));
   add(slide,1,tube([-1.03,0,0],[.35,0,0],.067,n,C.steel),cyl(.10,.06,n,[.11,0,0],C.gold,[0,0,Math.PI/2]));
   add(slide,0,blade([[-.10,.09,.115,.045],[.09,.10,.13,.055],[.33,.03,.085,.045]],C.ivory,lod));
-  add(ankle,1,blade([[0,-.04,.115,.07],[.16,-.09,.10,.045],[.36,-.135,.065,.018]],C.dark,lod));
-  add(ankle,0,blade([[.02,.035,.13,.055],[.15,-.015,.14,.055],[.35,-.10,.09,.032],[.44,-.135,.025,.017]],C.ivory,lod));
+  add(ankle,1,tube([0,0,0],[FOOT_OFFSET,-.04,0],.065,n,C.carbon),cyl(.11,.09,n,[FOOT_OFFSET,-.035,0],C.dark));
+  add(ankle,2,cyl(.042,.014,n,[FOOT_OFFSET,.019,0],C.amber));
   for(let j=0;j<3;j++){
-    const claw=bone(ankle,pre+'_CLAW_'+(j+1),[.21,-.07,(j-1)*.085]);claw.rotation.y=(j-1)*.7;
-    add(claw,1,blade([[0,0,.032,.035],[.13,.015,.030,.032],[.28,-.04,.024,.023],[.35,-.085,.009,.005]],C.steel,lod));
-    if(lod<2)add(claw,1,cyl(.047,.075,n,[0,0,0],C.gold,[Math.PI/2,0,0]));
-    socket(claw,pre+'_CLAW_'+(j+1)+'_TIP',[.35,-.09,0],'anchor_tip',[0,-1,0]);
+    const angle=j*Math.PI*2/3;
+    const claw=bone(ankle,pre+'_CLAW_'+(j+1),[FOOT_OFFSET+Math.cos(angle)*.075,0,-Math.sin(angle)*.075]);claw.rotation.y=angle;
+    claw.userData.part='ivory_pad';claw.userData.legacy_name=true;
+    add(claw,0,whiteTip(lod));add(claw,1,tipSole(lod));
+    if(lod<2)add(claw,1,cyl(.046,.17,n,[.04,.02,0],C.gold,[Math.PI/2,0,0]));
+    socket(claw,pre+'_CLAW_'+(j+1)+'_TIP',[.44,-.159,0],'pad_contact',[0,-1,0]);
   }
-  socket(ankle,pre+'_CONTACT',[.36,-.16,0],'ground_contact',[0,-1,0]);
+  socket(ankle,pre+'_CONTACT',[FOOT_OFFSET,-.16,0],'ground_contact',[0,-1,0]);
   if(lod<2){
    add(hip,1,curve([[.16,-.1,.17],[.40,-.21,.17],[.83,-.15,.15],[1.05,-.06,.15]],.023,6,C.dark,lod===0?18:8));
    for(const x of [.25,.75])for(const s of [-1,1])add(hip,1,cyl(.022,.018,6,[x,.24-x*.07,s*.10],C.dark));
@@ -85,8 +90,8 @@ export function buildModel(lod){
    low(hip,blade([[0,0,.15,.12],[.30,.15,.215,.13],[.70,.11,.16,.10],[1.15,0,.16,.13]],C.ivory,2),cyl(.18,.37,6,[0,0,0],C.gold,[Math.PI/2,0,0]));
    low(knee,blade([[.10,.13,.17,.065],[.33,.18,.20,.09],[.72,.14,.155,.065],[.91,.10,.11,.04]],C.edge,2),tube([.12,0,0],[1.02,0,0],.112,6,C.carbon),cyl(.205,.37,6,[0,0,0],C.gold,[Math.PI/2,0,0]));
    low(slide,tube([-1.03,0,0],[.35,0,0],.067,6,C.steel),blade([[-.1,.09,.115,.045],[.09,.10,.13,.055],[.33,.03,.085,.045]],C.ivory,2));
-   low(ankle,blade([[.02,.035,.13,.055],[.15,-.015,.14,.055],[.35,-.10,.09,.032],[.44,-.135,.025,.017]],C.ivory,2));
-   for(let j=1;j<=3;j++)low(find('_CLAW_'+j),blade([[0,0,.032,.035],[.13,.015,.030,.032],[.28,-.04,.024,.023],[.35,-.085,.009,.005]],C.steel,2));
+   low(ankle,cyl(.11,.09,6,[FOOT_OFFSET,-.035,0],C.gold));
+   for(let j=1;j<=3;j++)low(find('_CLAW_'+j),whiteTip(2),tipSole(2));
   }
  }
  const staticParts=[],skinParts=[];

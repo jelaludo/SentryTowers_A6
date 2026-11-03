@@ -10,11 +10,12 @@ async function sheet(file,title,subtitle,panels){
  for(let i=0;i<panels.length;i++){const [label,input]=panels[i],x=40+i%2*940,y=120+Math.floor(i/2)*660;items.push({input:await sharp(input instanceof URL?fileURLToPath(input):input).resize(900,590,{fit:'contain',background:'#172a35'}).toBuffer(),left:x,top:y});items.push({input:Buffer.from(`<svg width="900" height="40" xmlns="http://www.w3.org/2000/svg"><text x="0" y="28" font-family="sans-serif" font-size="18" fill="#d6c29e">${escape(label)}</text></svg>`),left:x,top:y+594});}
  await sharp({create:{width:w,height:h,channels:3,background:'#11212c'}}).composite(items).jpeg({quality:93}).toFile(fileURLToPath(new URL(file,out)));
 }
-await sheet('design-sheet.jpg','NIH-DAIRIA / MECHANICAL STUDY V1','Isao biomimetic series 001 · 6 legs · 18 folding claws · 580 mm hydraulic stroke',[
- ['01 / Perspective — detailed master',new URL('preview.png',out)],['02 / Radial silhouette — top',new URL('previews/top.png',out)],['03 / Low suspended body — side',new URL('previews/side.png',out)],['04 / Folding titanium ground claws',new URL('previews/claws.png',out)]
+await sheet('design-sheet.jpg','NIH-DAIRIA / MECHANICAL STUDY V1.1','Isao biomimetic series 001 · 6 legs · 18 ivory contact pads · 580 mm hydraulic stroke',[
+ ['01 / Perspective — detailed master',new URL('preview.png',out)],['02 / Radial silhouette — top',new URL('previews/top.png',out)],['03 / Low suspended body — side',new URL('previews/side.png',out)],['04 / Three reused ivory tips / one foot',new URL('previews/claws.png',out)]
 ]);
-await sheet('motion-sheet.jpg','NIH-DAIRIA / MOVEMENT STUDY','Engine-driven planar kinematics · tripod walk at 0.30 m/s · one-shot anchor deployment',[
- ['Observe / pressure regulation',path.join(shots,'idle.png')],['Walk / alternating support',path.join(shots,'walk.png')],['Reach / full hydraulic stroke',path.join(shots,'extend.png')],['Anchor / spread, deploy, lower, hold',path.join(shots,'anchor.png')]
+await sheet('motion-sheet.jpg','NIH-DAIRIA / MOVEMENT STUDY','Engine-driven planar kinematics · tripod walk at 0.30 m/s · two-leg forward reach and anchored body pull',[
+ ['Observe / pressure regulation',path.join(shots,'idle.png')],['Walk / alternating support',path.join(shots,'walk.png')],['Reach / pair 02 + 06 lifted ahead',path.join(shots,'extend.png')],['Anchor / plant ahead and pull body forward',path.join(shots,'anchor.png')]
 ]);
+await sheet('anchor-sequence.jpg','NIH-DAIRIA / TWO-LEG ANCHOR STEP','Four legs support the body · the front diagonal pair reaches 1.15 m ahead · planted anchors pull the body 0.55 m forward',[['01 / Lift the two front diagonal legs',path.join(shots,'anchor-1.2.png')],['02 / Extend and lower the pair ahead',path.join(shots,'anchor-3.2.png')],['03 / Plant both anchors',path.join(shots,'anchor-4.2.png')],['04 / Pull body forward; all pads stay fixed',path.join(shots,'anchor-6.8.png')]]);
 for(const name of ['anchor','extend'])await sharp(path.join(shots,name+'.png')).png().toFile(fileURLToPath(new URL('previews/'+name+'.png',out)));
 console.log('Prepared design and motion review sheets.');

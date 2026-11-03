@@ -1,5 +1,15 @@
 # Devlog
 
+## 3 November 2026 / Nih-Dairia — three-pad feet and two-leg anchor step
+
+Removed the grey spike claws and reused the original white distal-tip geometry three times per foot, arranged at 120° with dark soles and amber hinges. The six foot ends now have eighteen ivory contact pads. Existing CLAW lookup names remain as compatibility names for the revised pad pivots; current sockets and local pad transforms are documented in the manifest and README.
+
+Reach now lifts only the two front diagonal legs (02 and 06), extends them up to 1.15 m ahead, holds them aloft, retracts them and returns them to the ground. Anchor uses the same pair, plants them ahead, then pulls the body forward 0.55 m while all six feet and all eighteen pad tips remain fixed. The other four legs support the entire reach. Both demonstrations last 8 seconds; Anchor holds its final pose. The reach-distance slider affects this pair only, with 0.40–1.15 m travel. No engine-driven pivots are baked.
+
+Current exports are under `assets/nih-dairia-mech/tripad/`, with optional packed derivatives in `derived/meshopt/tripad/`. Detailed: 61,952 triangles / three draws / 2,970,796 plain bytes; game: 19,104 / three / 954,016; static distance: 2,256 / one / 76,908. Original v1 exports and Blender scene remain unchanged, with its manifest/adapter archived and complete revision pinned at `b17dc9ee7bb7bd0866f8d1ea583609518fd0501b`.
+
+Six plain/decoded exports pass geometry validation, including 1,056 full-geometry pose samples, exactly two reaching legs, four fixed supports, fixed pad orientations during the body pull, floor clearance and LOD interface parity. Minimum sampled clearance is 1 mm. Desktop/mobile viewer checks cover updated behaviors, footprint framing, reach distance, downloads, six tier/encoding combinations and inspection controls. Refreshed the derived Blender scene, studio renders, foot close-up, design/motion/anchor-sequence sheets, gallery, integration notes and shared navigation. Both requested tweaks are complete as a planar kinematic prototype. General terrain forces, continuous anchor-step transitions, collision/self-collision and consuming-game acceptance remain pending; no FPS claim. The received collaboration contract is unchanged.
+
 ## 3 November 2026 / Nih-Dairia — Isao’s mechanical study v1
 
 Created Isao’s mechanical interpretation of the referenced Nih-Dairia: a low radial body, six multi-jointed limbs with ivory armor over carbon hydraulic sleeves, amber bearing rings, 580 mm telescopic travel and eighteen folding titanium ground claws. The diegetic story follows Isao observing the creature, reverse-engineering its movement and building this analogue. Scale is assumed: roughly 5.99 × 6.91 × 1.82 m in the observation pose, with a 9 × 9 m reserved plot.
