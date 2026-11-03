@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "story.js": "7de4172e604ab4422775923f35c305fe2b12ac52e3deb52ab736f36f2a902a09",
+    "runtime.js": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9",
+    "behavior.js": "6b4322b93526db1908417f09e3678d3d0a9ec3449ea1522cf9c0c622a8df9511"
+  },
+  "viewer_sha256": "91ea5b13501e4318ead8c19461d01118f1509cbf6651692d791b031848db9b8f",
+  "browser": "Chromium / SwiftShader; functional checks, no FPS claim",
+  "checks": [
+    "default sleeping spiral / 22 chapters / 200 s story",
+    "09-tai rolling shell / eye aim / matching articulated tiers and encodings",
+    "both characters framed during pursuits; close pole camera",
+    "fixed pole throughout story",
+    "exact backward seek for both rigs",
+    "whole clearing view / camera follow / manual framing",
+    "chapter selection / restart / playback speed / terminal hold",
+    "seed variation and return to original studies",
+    "static tier lockout",
+    "desktop and mobile framing / zero page errors"
+  ]
+}

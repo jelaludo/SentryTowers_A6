@@ -34,14 +34,14 @@ const tau=Math.PI*2,mod=x=>((x%1)+1)%1,smoother=x=>x*x*x*(10+x*(-15+6*x));
 const xq=a=>[Math.sin(a/2),0,0,Math.cos(a/2)];
 // A distributed bend supplies the slack. Root yaw/pitch orient its endpoint
 // exactly onto the requested contact; no iterative per-frame pose history.
-function contactAngles(target,phase,id,turnShare=.4,arch=0){
+function contactAngles(target,phase,id,turnShare=.4,arch=0,maxBend=3.6){
  const distance=Math.hypot(...target),side=Number(id)>3?-1:1,turn=-Math.atan2(target[2],target[0])*turnShare;
  function curve(bend){return lengths.map((_,i)=>{
   const u=i/(COUNT-1),prev=Math.max(0,(i-1)/(COUNT-1));
   const yaw=i?turn*(smooth(Math.min(i/5,1))-smooth(Math.min((i-1)/5,1)))+side*.028*(Math.sin(tau*phase-u*5)-Math.sin(tau*phase-prev*5)):0;
   return [yaw,i?-bend*(u*u-prev*prev)+arch*(Math.sin(Math.PI*u)-Math.sin(Math.PI*prev)):0];
  });}
- let lo=.05,hi=3.6;
+ let lo=.05,hi=maxBend;
  for(let k=0;k<28;k++){const b=(lo+hi)/2,d=forward(curve(b)).points.at(-1);if(Math.hypot(...d)>distance)lo=b;else hi=b;}
  const angles=curve((lo+hi)/2),d=forward(angles).points.at(-1),r=Math.hypot(d[0],d[1]);
  angles[0][1]=Math.asin(clamp(target[1]/r))-Math.atan2(d[1],d[0]);
@@ -128,7 +128,7 @@ export function applyBehaviorPose(root,frame){
    poses[l.id]=lengths.map((_,i)=>{const u=i/(COUNT-1),p=Math.max(0,(i-1)/(COUNT-1));return [i?yawAt(u)-yawAt(p):0,i?pitchAt(u)-pitchAt(p):pitchAt(0)];});
   }else{
    const f=feet.find(f=>f.id===l.id),local=rotate(f.target.map((x,i)=>x-frame.bodyPosition[i]),inv);local[0]-=Math.sin(l.angle)*.7;local[2]-=Math.cos(l.angle)*.7;
-   poses[l.id]=contactAngles(rotate(local,yq(-(l.angle-Math.PI/2))),frame.gait_phase,l.id,.65,.24);
+   poses[l.id]=contactAngles(rotate(local,yq(-(l.angle-Math.PI/2))),frame.gait_phase,l.id,.65,.24,frame.curve_max_bend??3.6);
   }
  }
  return applyPose(root,frame.time,'roam',{pose:{...frame,feet,poses,phase:frame.phase+' · '+frame.speed_m_s.toFixed(2)+' m/s'}});

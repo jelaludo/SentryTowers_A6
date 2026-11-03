@@ -1,7 +1,7 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "rokuroku66",
-  "version": 1.2,
+  "version": 1.3,
   "label": "RokuRoku-66 / Six independent serpentine limbs",
   "status": "kinematic_contract_candidate",
   "plain_glb_source_of_truth": true,
@@ -162,6 +162,215 @@
       ],
       "world_motion": "Controller owns position, heading and world contact targets. Place an outer actor, update its world matrices, then applyBehaviorPose. Do not add gait travel a second time.",
       "scope": "Four support limbs, two sensors; one-foot crawl and diagonal-pair rush. Planar kinematics, no force or obstacle solver."
+    },
+    "story": {
+      "adapter": "story.js",
+      "pose_adapter": "applyStoryPose",
+      "lure_pose_adapter": "applyStoryLure",
+      "name": "09TAI_Field_Encounter",
+      "duration_s": 200,
+      "loop": false,
+      "step_s": 0.016666666666666666,
+      "rush_multiplier": 2,
+      "pole": [
+        8,
+        0,
+        10
+      ],
+      "lure_file": "../tai09/torque/09_tai_01_d0_lod1.glb",
+      "lure_radius_m": 0.8336,
+      "chapters": [
+        {
+          "start": 0,
+          "end": 7,
+          "id": "sleep",
+          "title": "Sleeping spiral",
+          "description": "Six curled limbs. A small visitor approaches."
+        },
+        {
+          "start": 7,
+          "end": 21,
+          "id": "wake",
+          "title": "Something nearby",
+          "description": "Uncoil, stretch and lift into a standing posture."
+        },
+        {
+          "start": 21,
+          "end": 33,
+          "id": "walk",
+          "title": "First steps",
+          "description": "Follow the rolling visitor at a tentative walking pace."
+        },
+        {
+          "start": 33,
+          "end": 38,
+          "id": "hesitate",
+          "title": "Where did it go?",
+          "description": "Pause, test the ground and listen."
+        },
+        {
+          "start": 38,
+          "end": 44,
+          "id": "sense",
+          "title": "A signal ahead",
+          "description": "Raise the body; both feelers search toward 09-tai."
+        },
+        {
+          "start": 44,
+          "end": 46,
+          "id": "gather",
+          "title": "Found you",
+          "description": "Lower the body as the lure begins to escape."
+        },
+        {
+          "start": 46,
+          "end": 60,
+          "id": "chase",
+          "title": "The first pursuit",
+          "description": "A double-speed rush, steered toward the moving lure."
+        },
+        {
+          "start": 60,
+          "end": 65,
+          "id": "brake",
+          "title": "Almost close enough",
+          "description": "Brake, rebound and let the visitor draw ahead."
+        },
+        {
+          "start": 65,
+          "end": 78,
+          "id": "stalk",
+          "title": "Keep it in sight",
+          "description": "Resume a deliberate walk with searching feelers."
+        },
+        {
+          "start": 78,
+          "end": 85,
+          "id": "extend",
+          "title": "A long stretch",
+          "description": "Spread all six limbs before drawing them inward."
+        },
+        {
+          "start": 85,
+          "end": 99,
+          "id": "spiral",
+          "title": "A curious curl",
+          "description": "Coil into a spiral, then reopen and rise."
+        },
+        {
+          "start": 99,
+          "end": 118,
+          "id": "approach",
+          "title": "Another discovery",
+          "description": "A pole catches RokuRoku’s attention."
+        },
+        {
+          "start": 118,
+          "end": 124,
+          "id": "inspect",
+          "title": "Feel the surface",
+          "description": "Settle beside the fixed pole and reach toward it."
+        },
+        {
+          "start": 124,
+          "end": 134,
+          "id": "wrap",
+          "title": "Around the pole",
+          "description": "One limb winds upward around the pole."
+        },
+        {
+          "start": 134,
+          "end": 141,
+          "id": "hold",
+          "title": "A moment of stillness",
+          "description": "Hold the coil while 09-tai waits nearby."
+        },
+        {
+          "start": 141,
+          "end": 150,
+          "id": "unfurl",
+          "title": "Let go",
+          "description": "Unwind the same limb without moving the pole."
+        },
+        {
+          "start": 150,
+          "end": 158,
+          "id": "depart",
+          "title": "Back to the visitor",
+          "description": "Replant, lift the feelers and walk away."
+        },
+        {
+          "start": 158,
+          "end": 164,
+          "id": "sense_again",
+          "title": "There it is again",
+          "description": "Stop and track the lure as it picks up speed."
+        },
+        {
+          "start": 164,
+          "end": 166,
+          "id": "gather_again",
+          "title": "One more try",
+          "description": "Gather low for another burst."
+        },
+        {
+          "start": 166,
+          "end": 182,
+          "id": "chase_again",
+          "title": "The second pursuit",
+          "description": "Chase the live lure at twice the normal rush speed."
+        },
+        {
+          "start": 182,
+          "end": 190,
+          "id": "slow",
+          "title": "The visitor wins this round",
+          "description": "Ease down into a walk, then a quiet stop."
+        },
+        {
+          "start": 190,
+          "end": 200,
+          "id": "rest",
+          "title": "Still curious",
+          "description": "Keep breathing and watching. The encounter settles."
+        }
+      ],
+      "default_seed": 6601,
+      "contact_tip_height_m": 0.13,
+      "commanded_rush_speed_m_s": [
+        3.8,
+        5.1
+      ],
+      "review_area_m": [
+        64,
+        64
+      ],
+      "lure_assets": [
+        {
+          "file": "../tai09/torque/09_tai_01_d0_lod0.glb",
+          "meshopt_file": "../tai09/derived/meshopt/torque/09_tai_01_d0_lod0.meshopt.glb",
+          "lod": 0,
+          "bytes": 4107500,
+          "meshopt_bytes": 788868,
+          "triangles": 74448,
+          "draw_calls": 4,
+          "sha256": "80cc37058f3bfa507eac6a4cb0e22abc94b726dcb57f6675566f5da7310fcc78",
+          "meshopt_sha256": "ea3e26b5a1a964a1b76e3d0802118c83d68dc1db539b23cc60ef9f8574817c16"
+        },
+        {
+          "file": "../tai09/torque/09_tai_01_d0_lod1.glb",
+          "meshopt_file": "../tai09/derived/meshopt/torque/09_tai_01_d0_lod1.meshopt.glb",
+          "lod": 1,
+          "bytes": 984648,
+          "meshopt_bytes": 226548,
+          "triangles": 12596,
+          "draw_calls": 4,
+          "sha256": "241e3445080dcf24652f05a36d0fca456415d415c3af2b939ea29a5315e24674",
+          "meshopt_sha256": "6030cfcd94ca5f30b5b7f70f996d98dd27e451c1c14995777071f3e8f2282df1"
+        }
+      ],
+      "world_motion": "Place an outer actor from the story frame, update its world matrices, then applyStoryPose. Place a separate 09-tai carrier with its GLB scene offset by -0.8 m in Y and call applyStoryLure. The pole stays fixed at story.pole.",
+      "scope": "Authored chapter order with reactive lure pacing and pursuit steering. Planar kinematics, world contact locking during locomotion; authored whole-body morphs temporarily release contacts. No force-based grip or general obstacle solver."
     }
   },
   "lineage": {

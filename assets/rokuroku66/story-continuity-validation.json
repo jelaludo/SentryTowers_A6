@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "story.js": "7de4172e604ab4422775923f35c305fe2b12ac52e3deb52ab736f36f2a902a09",
+    "runtime.js": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9"
+  },
+  "scope": "Named-node and lure continuity across chapter and morph boundaries, sampled 1 ms on either side, four seeds. Does not certify all frames.",
+  "reports": [
+    {
+      "seed": 6601,
+      "boundaries": 32,
+      "named_nodes": 677,
+      "comparison_interval_s": 0.002,
+      "max_node_displacement_m": 0.011646990942856365,
+      "max_node_rotation_rad": 0.009376743376181726,
+      "max_lure_displacement_m": 0.011349268948167795,
+      "max_lure_rotation_rad": 0.013608725742287914,
+      "worst": {
+        "t": 154,
+        "node": "LIMB_06_V22_DORSAL_LIP"
+      }
+    },
+    {
+      "seed": 1,
+      "boundaries": 32,
+      "named_nodes": 677,
+      "comparison_interval_s": 0.002,
+      "max_node_displacement_m": 0.03388117043349437,
+      "max_node_rotation_rad": 0.010336874030660694,
+      "max_lure_displacement_m": 0.011349284486567957,
+      "max_lure_rotation_rad": 0.013608744357829768,
+      "worst": {
+        "t": 170,
+        "node": "LIMB_03_V17_DORSAL_LIP"
+      }
+    },
+    {
+      "seed": 42,
+      "boundaries": 32,
+      "named_nodes": 677,
+      "comparison_interval_s": 0.002,
+      "max_node_displacement_m": 0.0251793443602778,
+      "max_node_rotation_rad": 0.016295545293629164,
+      "max_lure_displacement_m": 0.011349284486567957,
+      "max_lure_rotation_rad": 0.013608744357829768,
+      "worst": {
+        "t": 60,
+        "node": "LIMB_04_V17_DORSAL_LIP"
+      }
+    },
+    {
+      "seed": 2026,
+      "boundaries": 32,
+      "named_nodes": 677,
+      "comparison_interval_s": 0.002,
+      "max_node_displacement_m": 0.017491515077141258,
+      "max_node_rotation_rad": 0.008361234929951191,
+      "max_lure_displacement_m": 0.011349284486567957,
+      "max_lure_rotation_rad": 0.013608744357829768,
+      "worst": {
+        "t": 170,
+        "node": "SOCKET_LIMB_04_TIP"
+      }
+    }
+  ]
+}
