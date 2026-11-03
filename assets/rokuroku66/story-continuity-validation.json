@@ -1,65 +1,65 @@
 {
   "status": "passed",
   "source_sha256": {
-    "story.js": "7de4172e604ab4422775923f35c305fe2b12ac52e3deb52ab736f36f2a902a09",
-    "runtime.js": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9"
+    "story.js": "63ee219d04a00142cf62243cd5df11fdb100026329edbc0fddba765b6bf1140e",
+    "runtime.js": "80d3e27090dbf54cc139a1f51e84da1d162c8ea220504ae0d1c8fe43fa8e5ddc"
   },
   "scope": "Named-node and lure continuity across chapter and morph boundaries, sampled 1 ms on either side, four seeds. Does not certify all frames.",
   "reports": [
     {
       "seed": 6601,
-      "boundaries": 32,
+      "boundaries": 88,
       "named_nodes": 677,
       "comparison_interval_s": 0.002,
-      "max_node_displacement_m": 0.011646990942856365,
-      "max_node_rotation_rad": 0.009376743376181726,
-      "max_lure_displacement_m": 0.011349268948167795,
-      "max_lure_rotation_rad": 0.013608725742287914,
+      "max_node_displacement_m": 0.03752591224073437,
+      "max_node_rotation_rad": 0.030513290621170256,
+      "max_lure_displacement_m": 0.011386687132305536,
+      "max_lure_rotation_rad": 0.013653553304676913,
       "worst": {
-        "t": 154,
-        "node": "LIMB_06_V22_DORSAL_LIP"
+        "t": 60,
+        "node": "LIMB_06_V20_DORSAL_LIP"
       }
     },
     {
       "seed": 1,
-      "boundaries": 32,
+      "boundaries": 88,
       "named_nodes": 677,
       "comparison_interval_s": 0.002,
-      "max_node_displacement_m": 0.03388117043349437,
-      "max_node_rotation_rad": 0.010336874030660694,
-      "max_lure_displacement_m": 0.011349284486567957,
-      "max_lure_rotation_rad": 0.013608744357829768,
+      "max_node_displacement_m": 0.03314272960459113,
+      "max_node_rotation_rad": 0.02446924153622941,
+      "max_lure_displacement_m": 0.011384859580471572,
+      "max_lure_rotation_rad": 0.013651363878128554,
       "worst": {
-        "t": 170,
-        "node": "LIMB_03_V17_DORSAL_LIP"
+        "t": 60,
+        "node": "LIMB_06_V22_DORSAL_LIP"
       }
     },
     {
       "seed": 42,
-      "boundaries": 32,
+      "boundaries": 92,
       "named_nodes": 677,
       "comparison_interval_s": 0.002,
-      "max_node_displacement_m": 0.0251793443602778,
-      "max_node_rotation_rad": 0.016295545293629164,
-      "max_lure_displacement_m": 0.011349284486567957,
-      "max_lure_rotation_rad": 0.013608744357829768,
+      "max_node_displacement_m": 0.019841986600616687,
+      "max_node_rotation_rad": 0.015540809171397446,
+      "max_lure_displacement_m": 0.011395640407409533,
+      "max_lure_rotation_rad": 0.013664279419116845,
       "worst": {
         "t": 60,
-        "node": "LIMB_04_V17_DORSAL_LIP"
+        "node": "LIMB_06_V19_DORSAL_LIP"
       }
     },
     {
       "seed": 2026,
-      "boundaries": 32,
+      "boundaries": 92,
       "named_nodes": 677,
       "comparison_interval_s": 0.002,
-      "max_node_displacement_m": 0.017491515077141258,
-      "max_node_rotation_rad": 0.008361234929951191,
-      "max_lure_displacement_m": 0.011349284486567957,
-      "max_lure_rotation_rad": 0.013608744357829768,
+      "max_node_displacement_m": 0.017966331869342312,
+      "max_node_rotation_rad": 0.015540809171397446,
+      "max_lure_displacement_m": 0.011382866083512242,
+      "max_lure_rotation_rad": 0.013648975645612009,
       "worst": {
-        "t": 170,
-        "node": "SOCKET_LIMB_04_TIP"
+        "t": 46,
+        "node": "SOCKET_LIMB_01_TIP"
       }
     }
   ]

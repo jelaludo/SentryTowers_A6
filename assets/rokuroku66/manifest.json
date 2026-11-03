@@ -1,7 +1,7 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "rokuroku66",
-  "version": 1.3,
+  "version": 1.4,
   "label": "RokuRoku-66 / Six independent serpentine limbs",
   "status": "kinematic_contract_candidate",
   "plain_glb_source_of_truth": true,
@@ -370,8 +370,26 @@
         }
       ],
       "world_motion": "Place an outer actor from the story frame, update its world matrices, then applyStoryPose. Place a separate 09-tai carrier with its GLB scene offset by -0.8 m in Y and call applyStoryLure. The pole stays fixed at story.pole.",
-      "scope": "Authored chapter order with reactive lure pacing and pursuit steering. Planar kinematics, world contact locking during locomotion; authored whole-body morphs temporarily release contacts. No force-based grip or general obstacle solver."
-    }
+      "scope": "Authored chapter order with reactive lure pacing and pursuit steering. Planar kinematics, world contact locking during locomotion; authored whole-body morphs temporarily release contacts. No force-based grip or general obstacle solver.",
+      "default_playback_rate": 3,
+      "viewer_default_duration_s": 66.66666666666667,
+      "sensing": {
+        "hysteresis_rad": 0.12,
+        "confirmation_s": 0.3,
+        "plant_s": 0.55,
+        "lift_s": 0.55,
+        "cooldown_s": 0.4,
+        "travel_speed_m_s": 0.65,
+        "selection": "Nearest adjacent limb pair to the lure bearing, with angular hysteresis and confirmation. Plant outgoing sensor before lifting incoming leg. Adjacent pair handoffs can chain around the body.",
+        "walking_tip_radius_m": 3.8,
+        "near_sensor_support_bias_rad": 0.2617993877991494,
+        "minimum_contacts_during_role_morph": 3,
+        "curve_max_bend_rad": 4.3,
+        "scope": "Adaptive in lure-tracking chapters. Sleeping/coiling and the fixed-pole study retain their authored choreography; the pole approach restores pair 01/02."
+      }
+    },
+    "default_playback_rate": 3,
+    "time_contract": "Runtime times and speed fields use authored seconds. The viewer defaults to elapsed wall seconds multiplied by 3 for every animation. Multiply speed fields by the selected rate for displayed world speed."
   },
   "lineage": {
     "family": "nih-dairia-mech",

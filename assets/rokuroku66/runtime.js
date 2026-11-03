@@ -1,5 +1,6 @@
 // RokuRoku-66: six independent two-axis chains. Engine-driven, no baked pivots.
 import {behaviors} from './behavior.js';
+export const DEFAULT_PLAYBACK_RATE=3;
 export const COUNT=22,ROOT_HEIGHT=1.08,MAX_YAW=.72,MAX_PITCH=.72;
 export const limbs=Array.from({length:6},(_,i)=>({id:String(i+1).padStart(2,'0'),angle:i*Math.PI/3}));
 export const lengths=Array.from({length:COUNT},(_,i)=>.235-.054*i/(COUNT-1));
@@ -121,15 +122,19 @@ export function applyBehaviorPose(root,frame){
  const feet=frame.feet.map(f=>({...f,world_target:f.target,target:rotate(f.target.map((x,i)=>x-frame.position[i]),yq(-frame.heading))}));
  const poses={},bq=mul(mul(xq(frame.bodyRotation[0]),yq(frame.bodyRotation[1])),zq(frame.bodyRotation[2])),inv=[-bq[0],-bq[1],-bq[2],bq[3]];
  for(const l of limbs){
-  if(frame.sensors.includes(l.id)){
-   const side=l.id==='01'?1:-1,t=frame.time,s=frame.sense,energy=frame.energy;
-   const yawAt=u=>side*.25*Math.sin(Math.PI*u/2)+(frame.look*.3+(.09+s*.16)*Math.sin(t*.9-u*2.8+side*.75))*Math.sin(Math.PI*u/2);
+  const sensorWeight=clamp(frame.sensor_weights?.[l.id]??Number(frame.sensors.includes(l.id)),0,1);let sensor=null,support=null;
+  if(sensorWeight>0){
+   const side=frame.sensor_aim?(Number(l.id)%2?1:-1):l.id==='01'?1:-1,t=frame.time,s=frame.sense,energy=frame.energy,aim=clamp(frame.sensor_aim?.[l.id]??0,-1.15,1.15);
+   const yawAt=u=>frame.sensor_aim?aim*smooth(Math.min(1,u/.55))+(.07+s*.12)*Math.sin(t*.9-u*2.8+side*.75)*Math.sin(Math.PI*u/2):side*.25*Math.sin(Math.PI*u/2)+(frame.look*.3+(.09+s*.16)*Math.sin(t*.9-u*2.8+side*.75))*Math.sin(Math.PI*u/2);
    const pitchAt=u=>.32+s*.13-energy*.12+(.13+s*.2)*Math.sin(t*1.15-u*3+side*.7)*u-(.4-s*.1)*u*u+s*.45*Math.pow(Math.max(0,(u-.65)/.35),2);
-   poses[l.id]=lengths.map((_,i)=>{const u=i/(COUNT-1),p=Math.max(0,(i-1)/(COUNT-1));return [i?yawAt(u)-yawAt(p):0,i?pitchAt(u)-pitchAt(p):pitchAt(0)];});
-  }else{
-   const f=feet.find(f=>f.id===l.id),local=rotate(f.target.map((x,i)=>x-frame.bodyPosition[i]),inv);local[0]-=Math.sin(l.angle)*.7;local[2]-=Math.cos(l.angle)*.7;
-   poses[l.id]=contactAngles(rotate(local,yq(-(l.angle-Math.PI/2))),frame.gait_phase,l.id,.65,.24,frame.curve_max_bend??3.6);
+   sensor=lengths.map((_,i)=>{const u=i/(COUNT-1),p=Math.max(0,(i-1)/(COUNT-1));return [i?yawAt(u)-yawAt(p):0,i?pitchAt(u)-pitchAt(p):pitchAt(0)];});
   }
+  if(sensorWeight<1){
+   const f=feet.find(f=>f.id===l.id),local=rotate(f.target.map((x,i)=>x-frame.bodyPosition[i]),inv);local[0]-=Math.sin(l.angle)*.7;local[2]-=Math.cos(l.angle)*.7;
+   support=contactAngles(rotate(local,yq(-(l.angle-Math.PI/2))),frame.gait_phase,l.id,.65,.24,frame.curve_max_bend??3.6);
+  }
+  poses[l.id]=sensorWeight===1?sensor:sensorWeight===0?support:support.map((a,i)=>a.map((x,k)=>x+(sensor[i][k]-x)*sensorWeight));
  }
+
  return applyPose(root,frame.time,'roam',{pose:{...frame,feet,poses,phase:frame.phase+' · '+frame.speed_m_s.toFixed(2)+' m/s'}});
 }

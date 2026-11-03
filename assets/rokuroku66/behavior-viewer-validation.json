@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "source_sha256": {
-    "runtime.js": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9",
+    "runtime.js": "80d3e27090dbf54cc139a1f51e84da1d162c8ea220504ae0d1c8fe43fa8e5ddc",
     "behavior.js": "6b4322b93526db1908417f09e3678d3d0a9ec3449ea1522cf9c0c622a8df9511"
   },
   "browser": "Chromium / SwiftShader; functional checks, no FPS claim",

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "Triangle-edge crossings between separate ivory scales in seventy-seven sampled poses, master and game. Not a continuous or all-component collision solver.",
+  "scope": "Triangle-edge crossings between separate ivory scales in eighty-nine sampled poses, master and game. Not a continuous or all-component collision solver.",
   "report": [
     {
       "lod": 0,
@@ -790,6 +790,138 @@
       "pairs": []
     },
     {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 46.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 47,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 53,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 58,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 62,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 69,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 73,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 160.4,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 162.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 168.1,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 170.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 0,
+      "mode": "story",
+      "time_s": 174,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
       "lod": 1,
       "mode": "extended",
       "time_s": 0,
@@ -1569,6 +1701,138 @@
       "lod": 1,
       "mode": "story",
       "time_s": 178,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 46.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 47,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 53,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 58,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 62,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 69,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 73,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 160.4,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 162.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 168.1,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 170.5,
+      "options": {
+        "story": true
+      },
+      "scale_assemblies": 396,
+      "scale_pair_intersections": 0,
+      "pairs": []
+    },
+    {
+      "lod": 1,
+      "mode": "story",
+      "time_s": 174,
       "options": {
         "story": true
       },

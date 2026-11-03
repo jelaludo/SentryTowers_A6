@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "runtime_sha256": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9",
+  "runtime_sha256": "80d3e27090dbf54cc139a1f51e84da1d162c8ea220504ae0d1c8fe43fa8e5ddc",
   "pose_samples": 776,
   "scope": "Two planar kinematic gaits on plain and decoded articulated tiers. Planted socket positions include continuous +Z body travel. Support margin checks the projected body origin, not a mass-distribution/force simulation. Full mesh floor clearance, motor limits, rigid links, loop closure and two forward sensors are sampled.",
   "reports": [

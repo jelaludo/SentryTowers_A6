@@ -1,8 +1,8 @@
 {
   "status": "passed",
   "source_sha256": {
-    "story.js": "7de4172e604ab4422775923f35c305fe2b12ac52e3deb52ab736f36f2a902a09",
-    "runtime.js": "958cc077e9fb837af4e9a00ff09cb173414fd593743bdbe0a7ac8a13b55e74b9",
+    "story.js": "63ee219d04a00142cf62243cd5df11fdb100026329edbc0fddba765b6bf1140e",
+    "runtime.js": "80d3e27090dbf54cc139a1f51e84da1d162c8ea220504ae0d1c8fe43fa8e5ddc",
     "behavior.js": "6b4322b93526db1908417f09e3678d3d0a9ec3449ea1522cf9c0c622a8df9511"
   },
   "scope": "200 s seed 6601, master/game plain and decoded exports. Full geometry every 0.5 s; kinematics every 0.1 s. Contacts checked outside authored whole-body shape transitions. Kinematic performance, not force simulation or general collision certification.",
@@ -10,18 +10,18 @@
     {
       "file": "lod0/rokuroku66_d0_lod0.glb",
       "lure_file": "torque/09_tai_01_d0_lod0.glb",
-      "min_lure_floor_m": 0.0006904670428951043,
-      "min_lure_separation_m": 0.7366000751261005,
+      "min_lure_floor_m": 0.0006000293145516089,
+      "min_lure_separation_m": 0.6276128932217678,
       "samples": 2001,
       "full_geometry_samples": 401,
       "min_floor_m": 0.002140355257147397,
-      "min_pole_clearance_m": 0.08269630563520763,
+      "min_pole_clearance_m": 0.011272345929783767,
       "max_raw_angle_rad": 0.6799999999999999,
-      "max_contact_error_m": 6.371819684388695e-9,
-      "max_stance_drift_m": 1.2465992168007105e-8,
-      "max_speed_m_s": 4.800119903047845,
+      "max_contact_error_m": 7.12764450387448e-9,
+      "max_stance_drift_m": 1.3233698438613914e-8,
+      "max_speed_m_s": 4.6345811801283014,
       "rush_command_m_s": 4.805625585070811,
-      "max_translation_per_100ms_m": 0.47995637195567836,
+      "max_translation_per_100ms_m": 0.46355373207719286,
       "morph_samples": 757,
       "chapters": [
         "sleep",
@@ -50,26 +50,26 @@
       "poleChapters": {
         "sleep": 10.000950517137372,
         "wake": 7.2808571042463415,
-        "walk": 4.650339450321339,
-        "hesitate": 4.468503898592521,
-        "sense": 4.689764984889803,
-        "gather": 5.131472868950718,
-        "chase": 5.037544044594236,
-        "brake": 7.095020412808886,
-        "stalk": 3.547565946861004,
-        "extend": 2.823753972980443,
-        "spiral": 3.585148898664177,
-        "approach": 0.12340377745854492,
-        "inspect": 0.08269630563520763,
+        "walk": 5.338420591791659,
+        "hesitate": 5.28642159215211,
+        "sense": 5.959061749857015,
+        "gather": 5.971254483711629,
+        "chase": 5.7932629489692165,
+        "brake": 7.459170440044229,
+        "stalk": 4.13524555024846,
+        "extend": 3.5501211006883184,
+        "spiral": 4.975358288028775,
+        "approach": 0.02611206159888063,
+        "inspect": 0.011272345929783767,
         "wrap": 0.10733339985423995,
         "hold": 0.10644562035243194,
         "unfurl": 0.10644562035243194,
         "depart": 0.1322070123978059,
-        "sense_again": 3.743817636753176,
-        "gather_again": 3.8037137847554066,
-        "chase_again": 2.6802201550860247,
-        "slow": 10.494550188942249,
-        "rest": 14.987010906247026
+        "sense_again": 3.743687187926926,
+        "gather_again": 4.564517813211876,
+        "chase_again": 4.572444533200525,
+        "slow": 9.597075852178055,
+        "rest": 11.72359824893794
       },
       "worst": {
         "angle": {
@@ -77,8 +77,8 @@
           "x": 0.6799999999999999
         },
         "lure": {
-          "t": 76.5,
-          "separation": 0.7366000751261005
+          "t": 183,
+          "separation": 0.6276128932217678
         },
         "floor": {
           "t": 3.5,
@@ -87,30 +87,30 @@
         },
         "pole": {
           "t": 118,
-          "d": 0.08269630563520763
+          "d": 0.011272345929783767
         },
         "error": {
-          "t": 159.5,
-          "leg": "04",
-          "error": 6.371819684388695e-9
+          "t": 42.2,
+          "leg": "03",
+          "error": 7.12764450387448e-9
         }
       }
     },
     {
       "file": "derived/meshopt/lod0/rokuroku66_d0_lod0.meshopt.glb",
       "lure_file": "derived/meshopt/torque/09_tai_01_d0_lod0.meshopt.glb",
-      "min_lure_floor_m": 0.0006904670428951043,
-      "min_lure_separation_m": 0.7366000751261005,
+      "min_lure_floor_m": 0.0006000293145516089,
+      "min_lure_separation_m": 0.6276128932217678,
       "samples": 2001,
       "full_geometry_samples": 401,
       "min_floor_m": 0.002140355257147397,
-      "min_pole_clearance_m": 0.08269630563520763,
+      "min_pole_clearance_m": 0.011272345929783767,
       "max_raw_angle_rad": 0.6799999999999999,
-      "max_contact_error_m": 6.371819684388695e-9,
-      "max_stance_drift_m": 1.2465992168007105e-8,
-      "max_speed_m_s": 4.800119903047845,
+      "max_contact_error_m": 7.12764450387448e-9,
+      "max_stance_drift_m": 1.3233698438613914e-8,
+      "max_speed_m_s": 4.6345811801283014,
       "rush_command_m_s": 4.805625585070811,
-      "max_translation_per_100ms_m": 0.47995637195567836,
+      "max_translation_per_100ms_m": 0.46355373207719286,
       "morph_samples": 757,
       "chapters": [
         "sleep",
@@ -139,26 +139,26 @@
       "poleChapters": {
         "sleep": 10.000950517137372,
         "wake": 7.2808571042463415,
-        "walk": 4.650339450321339,
-        "hesitate": 4.468503898592521,
-        "sense": 4.689764984889803,
-        "gather": 5.131472868950718,
-        "chase": 5.037544044594236,
-        "brake": 7.095020412808886,
-        "stalk": 3.547565946861004,
-        "extend": 2.823753972980443,
-        "spiral": 3.585148898664177,
-        "approach": 0.12340377745854492,
-        "inspect": 0.08269630563520763,
+        "walk": 5.338420591791659,
+        "hesitate": 5.28642159215211,
+        "sense": 5.959061749857015,
+        "gather": 5.971254483711629,
+        "chase": 5.7932629489692165,
+        "brake": 7.459170440044229,
+        "stalk": 4.13524555024846,
+        "extend": 3.5501211006883184,
+        "spiral": 4.975358288028775,
+        "approach": 0.02611206159888063,
+        "inspect": 0.011272345929783767,
         "wrap": 0.10733339985423995,
         "hold": 0.10644562035243194,
         "unfurl": 0.10644562035243194,
         "depart": 0.1322070123978059,
-        "sense_again": 3.743817636753176,
-        "gather_again": 3.8037137847554066,
-        "chase_again": 2.6802201550860247,
-        "slow": 10.494550188942249,
-        "rest": 14.987010906247026
+        "sense_again": 3.743687187926926,
+        "gather_again": 4.564517813211876,
+        "chase_again": 4.572444533200525,
+        "slow": 9.597075852178055,
+        "rest": 11.72359824893794
       },
       "worst": {
         "angle": {
@@ -166,8 +166,8 @@
           "x": 0.6799999999999999
         },
         "lure": {
-          "t": 76.5,
-          "separation": 0.7366000751261005
+          "t": 183,
+          "separation": 0.6276128932217678
         },
         "floor": {
           "t": 3.5,
@@ -176,30 +176,30 @@
         },
         "pole": {
           "t": 118,
-          "d": 0.08269630563520763
+          "d": 0.011272345929783767
         },
         "error": {
-          "t": 159.5,
-          "leg": "04",
-          "error": 6.371819684388695e-9
+          "t": 42.2,
+          "leg": "03",
+          "error": 7.12764450387448e-9
         }
       }
     },
     {
       "file": "lod1/rokuroku66_d0_lod1.glb",
       "lure_file": "torque/09_tai_01_d0_lod1.glb",
-      "min_lure_floor_m": 0.0006904670428951043,
-      "min_lure_separation_m": 0.7367050686903757,
+      "min_lure_floor_m": 0.0006000293145516089,
+      "min_lure_separation_m": 0.6276128932217678,
       "samples": 2001,
       "full_geometry_samples": 401,
       "min_floor_m": 0.002140355257147397,
-      "min_pole_clearance_m": 0.08269630563520763,
+      "min_pole_clearance_m": 0.011272345929783767,
       "max_raw_angle_rad": 0.6799999999999999,
-      "max_contact_error_m": 6.371819684388695e-9,
-      "max_stance_drift_m": 1.2465992168007105e-8,
-      "max_speed_m_s": 4.800119903047845,
+      "max_contact_error_m": 7.12764450387448e-9,
+      "max_stance_drift_m": 1.3233698438613914e-8,
+      "max_speed_m_s": 4.6345811801283014,
       "rush_command_m_s": 4.805625585070811,
-      "max_translation_per_100ms_m": 0.47995637195567836,
+      "max_translation_per_100ms_m": 0.46355373207719286,
       "morph_samples": 757,
       "chapters": [
         "sleep",
@@ -228,26 +228,26 @@
       "poleChapters": {
         "sleep": 10.00381088051987,
         "wake": 7.2808571042463415,
-        "walk": 4.650568512624958,
-        "hesitate": 4.468961050458268,
-        "sense": 4.69263218581428,
-        "gather": 5.132045044994108,
-        "chase": 5.037544044594236,
-        "brake": 7.095020412808886,
-        "stalk": 3.5489532157923596,
-        "extend": 2.823753972980443,
-        "spiral": 3.586894416106117,
-        "approach": 0.12340377745854492,
-        "inspect": 0.08269630563520763,
+        "walk": 5.338892987225844,
+        "hesitate": 5.286919540361542,
+        "sense": 5.962169580310739,
+        "gather": 5.97202678566552,
+        "chase": 5.7932629489692165,
+        "brake": 7.459170440044229,
+        "stalk": 4.13524555024846,
+        "extend": 3.5507676793845637,
+        "spiral": 4.976677115415102,
+        "approach": 0.027535305640742636,
+        "inspect": 0.011272345929783767,
         "wrap": 0.10733339985423995,
         "hold": 0.10644562035243194,
         "unfurl": 0.10644562035243194,
         "depart": 0.1322070123978059,
-        "sense_again": 3.743961742019999,
-        "gather_again": 3.8038692749780587,
-        "chase_again": 2.6802201550860247,
-        "slow": 10.494550188942249,
-        "rest": 14.987010906247026
+        "sense_again": 3.743819018278546,
+        "gather_again": 4.564908237488766,
+        "chase_again": 4.572444533200525,
+        "slow": 9.597670407845039,
+        "rest": 11.72359824893794
       },
       "worst": {
         "angle": {
@@ -255,8 +255,8 @@
           "x": 0.6799999999999999
         },
         "lure": {
-          "t": 76.5,
-          "separation": 0.7367050686903757
+          "t": 183,
+          "separation": 0.6276128932217678
         },
         "floor": {
           "t": 3.5,
@@ -265,30 +265,30 @@
         },
         "pole": {
           "t": 118,
-          "d": 0.08269630563520763
+          "d": 0.011272345929783767
         },
         "error": {
-          "t": 159.5,
-          "leg": "04",
-          "error": 6.371819684388695e-9
+          "t": 42.2,
+          "leg": "03",
+          "error": 7.12764450387448e-9
         }
       }
     },
     {
       "file": "derived/meshopt/lod1/rokuroku66_d0_lod1.meshopt.glb",
       "lure_file": "derived/meshopt/torque/09_tai_01_d0_lod1.meshopt.glb",
-      "min_lure_floor_m": 0.0006904670428951043,
-      "min_lure_separation_m": 0.7367050686903757,
+      "min_lure_floor_m": 0.0006000293145516089,
+      "min_lure_separation_m": 0.6276128932217678,
       "samples": 2001,
       "full_geometry_samples": 401,
       "min_floor_m": 0.002140355257147397,
-      "min_pole_clearance_m": 0.08269630563520763,
+      "min_pole_clearance_m": 0.011272345929783767,
       "max_raw_angle_rad": 0.6799999999999999,
-      "max_contact_error_m": 6.371819684388695e-9,
-      "max_stance_drift_m": 1.2465992168007105e-8,
-      "max_speed_m_s": 4.800119903047845,
+      "max_contact_error_m": 7.12764450387448e-9,
+      "max_stance_drift_m": 1.3233698438613914e-8,
+      "max_speed_m_s": 4.6345811801283014,
       "rush_command_m_s": 4.805625585070811,
-      "max_translation_per_100ms_m": 0.47995637195567836,
+      "max_translation_per_100ms_m": 0.46355373207719286,
       "morph_samples": 757,
       "chapters": [
         "sleep",
@@ -317,26 +317,26 @@
       "poleChapters": {
         "sleep": 10.00381088051987,
         "wake": 7.2808571042463415,
-        "walk": 4.650568512624958,
-        "hesitate": 4.468961050458268,
-        "sense": 4.69263218581428,
-        "gather": 5.132045044994108,
-        "chase": 5.037544044594236,
-        "brake": 7.095020412808886,
-        "stalk": 3.5489532157923596,
-        "extend": 2.823753972980443,
-        "spiral": 3.586894416106117,
-        "approach": 0.12340377745854492,
-        "inspect": 0.08269630563520763,
+        "walk": 5.338892987225844,
+        "hesitate": 5.286919540361542,
+        "sense": 5.962169580310739,
+        "gather": 5.97202678566552,
+        "chase": 5.7932629489692165,
+        "brake": 7.459170440044229,
+        "stalk": 4.13524555024846,
+        "extend": 3.5507676793845637,
+        "spiral": 4.976677115415102,
+        "approach": 0.027535305640742636,
+        "inspect": 0.011272345929783767,
         "wrap": 0.10733339985423995,
         "hold": 0.10644562035243194,
         "unfurl": 0.10644562035243194,
         "depart": 0.1322070123978059,
-        "sense_again": 3.743961742019999,
-        "gather_again": 3.8038692749780587,
-        "chase_again": 2.6802201550860247,
-        "slow": 10.494550188942249,
-        "rest": 14.987010906247026
+        "sense_again": 3.743819018278546,
+        "gather_again": 4.564908237488766,
+        "chase_again": 4.572444533200525,
+        "slow": 9.597670407845039,
+        "rest": 11.72359824893794
       },
       "worst": {
         "angle": {
@@ -344,8 +344,8 @@
           "x": 0.6799999999999999
         },
         "lure": {
-          "t": 76.5,
-          "separation": 0.7367050686903757
+          "t": 183,
+          "separation": 0.6276128932217678
         },
         "floor": {
           "t": 3.5,
@@ -354,12 +354,12 @@
         },
         "pole": {
           "t": 118,
-          "d": 0.08269630563520763
+          "d": 0.011272345929783767
         },
         "error": {
-          "t": 159.5,
-          "leg": "04",
-          "error": 6.371819684388695e-9
+          "t": 42.2,
+          "leg": "03",
+          "error": 7.12764450387448e-9
         }
       }
     }

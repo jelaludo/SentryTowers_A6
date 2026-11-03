@@ -1,4 +1,4 @@
-# RokuRoku-66 / Six independent serpentine limbs / v1.3
+# RokuRoku-66 / Six independent serpentine limbs / v1.4
 
 Isao’s second biomimetic study grows out of the Nih-Dairia mech: a low hexagonal hub with six long, tapering limbs made from short geared vertebrae. Each joint has two perpendicular motor housings, a central cable passage and short ivory armor scales. Equal sideways bends form arcs; increasing bends produce spirals; coordinated sideways and vertical bends wind a limb around a pole. The supplied RokuRoku-66 concept defines the new silhouette. All mechanical geometry is procedurally authored; reference images are external and recorded by hash.
 
@@ -8,7 +8,7 @@ http://127.0.0.1:8791/rokuroku66/
 
 Start a local server at the repository root before opening that address. The separate Nih-Dairia family remains at revision `0697a7f2e023043fcc6298f18029608d46b12824`; this family does not replace its geometry or behavior.
 
-Revision 1.3 adds a continuous 09-tai encounter to the existing walks, seeded roaming and curvature studies. Geometry and all six original GLB files remain byte-for-byte unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; movement uses the existing engine-driven pivots.
+Revision 1.4 makes every animation run at a 3× default pace and lets the sensing pair move around the body toward 09-tai. Former feelers plant before new ones rise; the creature slows during that exchange. The continuous encounter, individual walks, seeded roaming and curvature studies remain available. Geometry and all six original GLB files remain byte-for-byte unchanged from `aef140cf025b45026daac3e3a37ccbe30127cc10`; movement uses the existing engine-driven pivots.
 
 ## Measured exports
 
@@ -46,6 +46,8 @@ Sockets: `SOCKET_LIMB_01_TIP` through `SOCKET_LIMB_06_TIP`, `SOCKET_DORSAL_TOOL`
 
 ## Runtime demonstrations
 
+All durations and speeds below use **authored seconds**. The viewer advances this clock at `DEFAULT_PLAYBACK_RATE = 3`, exported by `runtime.js`, so a 200-second story takes about 66.67 wall seconds. Apply the same scaled clock to pose, body travel and lure motion; multiply reported speed by the playback rate for metres per wall second. The global speed selector offers ½×, 1× (original timing), 2×, 3× (default) and 6×.
+
 Import `applyPose`, `motions` and `limbs` from `runtime.js`. Call `applyPose(gltf.scene, timeSeconds, mode, options)` after loading an articulated plain or decoded GLB. Options are `selected: '01'` through `'06'`, `amount: 0–1`, and optional manual `yaw`/`pitch` in radians. `animate: false` applies full requested amount independently of cycle time. The adapter returns per-limb angle arrays, active limb IDs, maximum yaw/pitch, body height, strength and the pole fixture position. Static LOD2 returns a static status without changing the geometry.
 
 | Mode | Runtime name | Duration | Behavior |
@@ -71,7 +73,7 @@ LOD selection is provisional: static LOD2 loads first, switch to LOD1 around 150
 
 A distributed smooth bend solves each walking tip onto its requested target; a small side wave travels along the vertebrae. During stance, the target moves backwards relative to the body at exactly the stated travel speed. During swing, a quintic forward trajectory matches that velocity at release/landing, while a smooth lift reaches 0.43 m above the 0.08 m tip-frame height. The surrounding distal geometry sits about 3.3 mm above the flat floor in the closest sampled pose. The two sensor limbs use separate phased yaw/pitch curves and never enter the foot schedule; their tips stay at least 1.338 m high in the sampled cycle.
 
-Translate an **outer parent** continuously along +Z at `gaits[mode].speed_m_s`. Do not wrap world displacement at the clip boundary. For example, `applyPose(model, elapsedSeconds, 'scout')` pairs with `actor.position.z = startZ + 0.25 * elapsedSeconds`. The adapter itself returns a periodic local pose; `travel_m` is the suggested continuous outer travel. Returned state also includes `feet` (IDs, stance, phase, lift, targets), `contacts`, `sensors`, `speed_m_s`, `bodyPosition` and `bodyRotation`. `gaits` is exported alongside `motions`.
+Translate an **outer parent** continuously along +Z at `gaits[mode].speed_m_s`. Do not wrap world displacement at the clip boundary. For example, set `motionTime = elapsedSeconds * DEFAULT_PLAYBACK_RATE`, call `applyPose(model, motionTime, 'scout')`, and set `actor.position.z = startZ + 0.25 * motionTime`. The adapter itself returns a periodic local pose; `travel_m` is the suggested continuous outer travel. Returned state also includes `feet` (IDs, stance, phase, lift, targets), `contacts`, `sensors`, `speed_m_s`, `bodyPosition` and `bodyRotation`. `gaits` is exported alongside `motions`.
 
 The viewer follows the creature in place and scrolls the ground grid at matching speed. **Ground travel** switches that cue off for an in-place study. Travel continues across loop boundaries; scrubbing resets it to the selected time. Green indicators mean planted tips, amber means swing, blue means sensor. Select Walk or Sensor walk and press Play. The viewer now opens on Story, paused on its sleeping spiral.
 
@@ -79,9 +81,9 @@ The projected body origin remains inside the sampled support polygon (minimum 0.
 
 ## Story / The rolling visitor
 
-Select **Story / The rolling visitor** and press **Play** for a continuous 200-second (3:20) encounter. It starts with six sleeping spirals, wakes by uncoiling and rising, then walks after the actual 09-tai robot. Chapters flow through hesitation, sensing, a double-speed chase, braking, stalking, an extended stretch, another spiral, a fixed pole encounter, release, departure, another search and pursuit, and a quiet ending. There are no clip cuts or position resets between chapters. The final pose holds; Restart story replays from sleep.
+Select **Story / The rolling visitor** and press **Play** for a continuous 200-authored-second encounter (about 67 seconds at the 3× default). It starts with six sleeping spirals, wakes by uncoiling and rising, then walks after the actual 09-tai robot. Chapters flow through hesitation, sensing, a double-speed chase, braking, stalking, an extended stretch, another spiral, a fixed pole encounter, release, departure, another search and pursuit, and a quiet ending. There are no clip cuts or position resets between chapters. The final pose holds; Restart story replays from sleep.
 
-| Time | Performance |
+| Authored time | Performance |
 | --- | --- |
 | 0–21 s | Sleeping spiral, gradual unfurl and rise |
 | 21–46 s | Tentative walk, hesitation, tentacle survey and crouch |
@@ -94,17 +96,22 @@ Select **Story / The rolling visitor** and press **Play** for a continuous 200-s
 
 The chapter order is authored for comparison. Within it, RokuRoku steers toward 09-tai's **current position** and slows as it closes the gap. Sensor curvature follows the lure bearing. 09-tai travels around an oval, alternating rests, slow rolls and escape bursts; its pace also responds to the pursuer's distance. Its shell rotation accumulates from actual travelled arc length, while the core stays level and the independent eye faces RokuRoku. A fixed 60 Hz step and seed make both characters reproducible when scrubbing backwards or playing at different frame rates.
 
-Story rush commands are **3.8–5.1 m/s**, exactly twice the existing 1.9–2.55 m/s command range. Faster alternating diagonal steps shorten their duration as speed increases. Slow motion, faster playback and the 200-second scrubber change playback time, not the underlying movement speeds. Four limbs carry the body, while two feelers search ahead during pursuit. World-space tip locking remains active during locomotion. Deliberate whole-body shape morphs release that lock while limbs curl, unfold and replant; the viewer marks those transitions as lifted. These are authored kinematics, not a contact-force simulation.
+Story rush commands are **3.8–5.1 m per authored second**, exactly twice the existing 1.9–2.55 command range. At the default 3× rate these correspond to 11.4–15.3 m per wall second; the measured default route peaks at 4.635 authored m/s (13.90 m/s at 3×), with braking for sensor handoffs. Faster alternating diagonal steps shorten their duration as speed increases. Playback scales the entire scene clock, including travel, lure, steps and body motion. Four limbs normally carry the body, while the adjacent pair nearest the lure becomes feelers. World-space tip locking remains active during locomotion. Deliberate whole-body shape morphs release that lock while limbs curl, unfold and replant; the viewer marks those transitions as lifted. These are authored kinematics, not a contact-force simulation.
+
+As the lure crosses a sector, sensing transfers one limb at a time around the six mounts. A 0.12 rad (6.9°) hysteresis and 0.30-second confirmation prevent rapid switching near a boundary. The creature slows toward 0.65 authored m/s, waits for support feet to settle, lowers the outgoing feeler over 0.55 seconds, then lifts the incoming limb over another 0.55 seconds. At least three tips stay planted through the lowering/lifting phases in the four-seed checks. Large direction changes chain adjacent handoffs; all six physical limbs can serve as sensors. Individual feelers bend toward the current lure bearing. Sleeping, whole-body coiling and the fixed-pole sequence retain their authored choreography; the pole approach restores pair 01/02.
+
+Story frames expose `sensor_weights` (0 = support, 1 = feeler), `sensor_aim`, `sensor_pair`, `desired_sensors`, `handoff` and `role_events`. All six limbs now appear in `feet`; use `sensor_weight === 0` to identify support targets. `applyBehaviorPose` blends each limb between its planted-tip solution and sensor curvature. Story support homes use a 3.8 m radius and a 15° bias toward the sensor gap for its neighboring feet. The solver permits up to 4.3 rad of distributed chain curvature; individual motors retain the ±0.72 rad limit.
 
 The pole is a separate fixed fixture at **[8, 0, 10] m**, radius 0.25 m, height 3.6 m. The creature aligns before approaching, carries a feeler clear to the side, wraps the existing two-axis helix, unwinds, then retreats along the approach axis before resuming pursuit. The pole never follows the limb. The scene reserves 64 × 64 m; the creature's original local rig reserve remains 12 × 12 m.
 
-The camera follows both characters during the encounter, smoothly moves closer to the pole interaction, then widens to reacquire 09-tai. Clearing shows the whole scene; orbit and inspection views remain available. Disable **Automatic story framing** to keep your own zoom while Follow creature continues tracking translation. Chapter selection jumps to the complete deterministic scene state and pauses. Playback supports ½×, 1×, 1.5× and 2×. Seed and New route keep the authored chapter order but vary burst speed and step timing, which also changes the pursuit trajectory and the lure's distance response.
+The camera follows both characters during the encounter, smoothly moves closer to the pole interaction, then widens to reacquire 09-tai. Clearing shows the whole scene; orbit and inspection views remain available. Disable **Automatic story framing** to keep your own zoom while Follow creature continues tracking translation. Chapter selection jumps to the complete deterministic scene state and pauses. The global playback selector applies to every animation, with 3× selected by default; 1× restores the original timing. The scrubber and chapter clock retain authored seconds. Seed and New route keep the authored chapter order but vary burst speed and step timing, which also changes the pursuit trajectory and the lure's distance response.
 
 `story.js` exports `STORY`, `chapters`, `createStory`, `applyStoryPose` and `applyStoryLure`. The actor-placement contract matches the behavior controller:
 
 ```js
+import {DEFAULT_PLAYBACK_RATE} from './runtime.js';
 const story = createStory(6601);
-const frame = story.sample(elapsedSeconds);
+const frame = story.sample(elapsedSeconds * DEFAULT_PLAYBACK_RATE);
 actor.position.fromArray(frame.position);
 actor.rotation.y = frame.heading;
 actor.updateMatrixWorld(true);
@@ -142,8 +149,8 @@ Create one controller per actor. It uses a deterministic 1/60 s simulation step 
 
 ```js
 const controller = createBehavior(6601, 'roam');
-// Each frame, using elapsed seconds since this controller started:
-const frame = controller.sample(elapsedSeconds);
+// Each frame, using the same scaled clock as every other motion:
+const frame = controller.sample(elapsedSeconds * DEFAULT_PLAYBACK_RATE);
 actor.position.fromArray(frame.position);
 actor.rotation.y = frame.heading;
 actor.updateMatrixWorld(true);
@@ -158,9 +165,9 @@ The new performance is a flat-ground kinematic prototype. Two-tip rush support i
 
 ## Viewer and review artifacts
 
-Modes: Story, Roam, Hesitate, Sense, Rush, Walk, Sensor walk, Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, time scrub, coil strength, independent limb selection, manual sideways/vertical bending, ground travel, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, clearing, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
+Modes: Story, Roam, Hesitate, Sense, Rush, Walk, Sensor walk, Mixed, Extended, Arc, Spiral, Pole wrap and Joint lab. Controls include play/pause, global playback speed (3× default), time scrub, coil strength, independent limb selection, manual sideways/vertical bending, ground travel, tier/encoding, armor visibility, wireframe, joint rig and the selected GLB download. Camera presets cover perspective, clearing, top, front, side, exposed gimbal and armor scales. Orbit/zoom remains available. Static selection disables motion controls. Camera framing adapts to pose and viewport.
 
-`preview.png`, `previews/`, `design-sheet.jpg`, `motion-sheet.jpg`, `walking-sheet.jpg` and `behavior-sheet.jpg` and `story-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus the motion adapters `runtime.js`, `behavior.js` and `story.js`.
+`preview.png`, `previews/`, `design-sheet.jpg`, `motion-sheet.jpg`, `walking-sheet.jpg`, `behavior-sheet.jpg`, `story-sheet.jpg` and `handoff-sheet.jpg` are derived review images. Studio images show master poses produced by the actual runtime. Browser captures show the same controls and separate pole fixture. `source/blender/rokuroku66-review.blend` is an editable derived mixed-pose studio import, not the authoritative model or animation source. The authoring source is `tools/asset-pipeline/rokuroku66-shape.mjs` plus the motion adapters `runtime.js`, `behavior.js` and `story.js`.
 
 Reproduce from repository root, with the asset-pipeline dependencies installed:
 
@@ -171,6 +178,7 @@ node tools/asset-pipeline/validate-rokuroku66-walk.mjs
 node tools/asset-pipeline/validate-rokuroku66-behavior.mjs
 node tools/asset-pipeline/validate-rokuroku66-story.mjs
 node tools/asset-pipeline/validate-rokuroku66-story-continuity.mjs
+node tools/asset-pipeline/validate-rokuroku66-sensors.mjs
 node tools/asset-pipeline/check-rokuroku66-scales.mjs
 node tools/asset-pipeline/prepare-rokuroku66-poses.mjs
 blender --background --python-exit-code 1 --python tools/blender/render_rokuroku66.py
@@ -179,7 +187,7 @@ python3 -m http.server 8791
 
 With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.mjs` (set `PLAYWRIGHT_MODULE` to the installed Playwright module if needed), then `node tools/asset-pipeline/prepare-rokuroku66-review.mjs` and `node tools/asset-pipeline/prepare-rokuroku66-walk-review.mjs`. Browser captures use the OS temporary `rokuroku66-review` directory or `ROKU_SHOT_DIR`. Temporary posed GLBs use `/tmp/rokuroku66-review` or `ROKU_REVIEW_DIR`. Run `tools/asset-pipeline/test-rokuroku66-behavior-viewer.mjs` for the four new modes, then `tools/asset-pipeline/prepare-rokuroku66-behavior-review.mjs` for their review sheet. Run `tools/asset-pipeline/test-rokuroku66-story-viewer.mjs` for the continuous scene, then `tools/asset-pipeline/prepare-rokuroku66-story-review.mjs` for its sheet. Rebuild shared navigation with `python3 tools/build-workshop-docs.py`.
 
-`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in seventy-seven poses per articulated tier, including the original curves, both walking gaits and fourteen behavior poses and twenty-three story poses. All 154 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
+`validation-report.json` records six plain/decoded exports with zero glTF errors/warnings, file hashes, hierarchy/socket parity, triangle/draw budgets, normalized weights, nondegenerate geometry and 484 full-geometry motion samples. Those samples check floor and pole clearance, rigid segment lengths, joint limits, independent limb selection and loop closure. Minimum sampled floor clearance is 10 mm; segment-length numerical error is below 0.001 mm. `scale-clearance-report.json` checks actual triangle-edge crossings between different ivory scale assemblies in eighty-nine poses per articulated tier, including the original curves, both walking gaits, fourteen behavior poses and thirty-five story poses (twelve during sensor exchanges). All 178 sampled cases pass. This finite test does not certify arbitrary-pose, continuous or all-component collision clearance.
 
 `walk-validation.json` adds 776 full-geometry samples across both gaits and the four plain/decoded articulated files. All samples pass floor clearance, exact tip targets, world-space planted-tip drift, joint limits before clamping, fixed link lengths, forward sensor separation/height and loop closure for every required node. Numerical stance drift is below 0.001 mm; minimum sampled floor clearance is 3.31 mm.
 
@@ -187,10 +195,10 @@ With that server running, run `node tools/asset-pipeline/test-rokuroku66-viewer.
 
 `behavior-validation.json` adds 14,188 kinematic samples and 2,860 full-geometry samples across four seeds, all four profiles, and plain/decoded master/game files. World-space planted tip drift stays below 0.001 mm; raw motor angles stay below 0.622 rad; sensor tips remain at least 0.904 m high. Full-mesh samples pass the floor and 48 m area checks. Seed replay, backward seeking, state sequence, speed changes and body-height excursion pass. `behavior-viewer-validation.json` covers the new modes on desktop/mobile, seeds/replay, camera follow, clearing view, file combinations, static lockout, one-shot holds, continuous play beyond 90 s and return to the original studies. These finite checks do not certify every possible seed or general collision clearance.
 
-`story-validation.json` records 8,004 kinematic samples and 1,604 paired full-geometry frames over the complete 200-second default-seed story, on both detailed/game pairs in plain and decoded form. Minimum sampled RokuRoku floor clearance is 2.14 mm; 09-tai's rolling shell remains 0.69 mm above the plane. Pole clearance stays at least 82.7 mm; RokuRoku remains at least 0.737 m outside the lure's conservative 0.92 m sphere. Raw motor angles stay within 0.68 rad, and locked-tip numerical drift remains below 0.001 mm. Peak sampled speed is 4.80 m/s. All 22 chapters, exact backward seeking and continuous actor travel pass.
+`story-validation.json` records 8,004 kinematic samples and 1,604 paired full-geometry frames over the complete 200-second default-seed story, on both detailed/game pairs in plain and decoded form. Minimum sampled RokuRoku floor clearance is 2.14 mm; 09-tai's rolling shell remains 0.60 mm above the plane. Pole clearance stays at least 11.27 mm; RokuRoku remains at least 0.627 m outside the lure's conservative 0.92 m sphere. Raw motor angles stay within 0.68 rad, and locked-tip numerical drift remains below 0.001 mm. Peak sampled speed is 4.635 authored m/s (13.90 m/s at the default rate). All 22 chapters, exact backward seeking and continuous actor travel pass.
 
-`story-continuity-validation.json` checks 677 named hierarchy objects plus the lure on either side of 32 chapter/morph boundaries, using seeds 6601, 1, 42 and 2026. The 2 ms comparisons pass positional and angular continuity thresholds. Additional game-tier kinematic checks for seeds 1, 42 and 2026 can be repeated with `ROKU_QUICK=1 ROKU_SEED=42 node tools/asset-pipeline/validate-rokuroku66-story.mjs` (substitute the seed). Full geometry/clearance checks remain limited to the sampled default-seed route. `story-viewer-validation.json` covers the two-character scene, all four articulated tier/encoding pairs, chapter selection, speed/restart/hold, camera framing, mobile, static lockout and regression into the individual studies.
+`story-continuity-validation.json` checks 677 named hierarchy objects plus the lure on either side of chapter/morph and sensor-handoff boundaries, using seeds 6601, 1, 42 and 2026: 88–92 boundaries per seed. The 2 ms comparisons pass positional and angular continuity thresholds. Additional game-tier kinematic checks for seeds 1, 42 and 2026 can be repeated with `ROKU_QUICK=1 ROKU_SEED=42 node tools/asset-pipeline/validate-rokuroku66-story.mjs` (substitute the seed). Full geometry/clearance checks remain limited to the sampled default-seed route. `sensor-handoff-validation.json` covers 48,004 frames over four seeds at 60 Hz, with 14–15 complete handoffs per route. Every physical limb becomes a sensor; lowering/lifting retains at least three planted tips, and each outgoing feeler plants before the incoming one lifts. Selection follows the nearest adjacent pair within the angular hysteresis. `story-viewer-validation.json` covers the two-character scene, all four articulated tier/encoding pairs, chapter selection, speed/restart/hold, camera framing, mobile, static lockout, handoff screenshots and regression into the individual studies. Wall-clock checks verify approximately 3× progression for Walk, Roam and Story; these are playback-clock checks, not rendering-performance measurements.
 
-Completed v1.3: separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, two planted-tip walking gaits, four seeded behavior profiles with real travel and variable posture, a continuous two-character story, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, arbitrary transitions between individual studies, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
+Completed v1.4: 3× default playback across all animations, adaptive lure-facing sensors with staged planting/lifting, separate creature, compact two-axis vertebrae, sliding/lifting scales, flexible service loops, six curvature studies, two planted-tip walking gaits, four seeded behavior profiles with real travel and variable posture, a continuous two-character story, detailed/game/static exports, decoded validation, viewer, derived review scene and sheets. Pending: terrain locomotion, force-based gripping, arbitrary transitions between individual studies, general self-collision and cable mechanics; consuming-game r160/release gltfpack acceptance, game-camera tuning and reference-phone measurements. The received collaboration contract is unchanged.
 
 Credit: Mechanical model by jelaludo; Nih-Dairia lineage and user-supplied RokuRoku-66 concept. Hand off the commit containing this README plus folder `assets/rokuroku66/`; keep the plain exports and identify derived files as such.
