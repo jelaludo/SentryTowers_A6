@@ -2,7 +2,7 @@
 
 ## NISOKU-03 / Refined enclosure / 4 November 2026
 
-Original duplicate and refinement of our NISOKU-02 chassis by jelaludo / Model Workshop. Curved enclosure geometry, comparison viewer, frame audit, preservation checks and review renders are original Workshop work. Existing AUREL hand and foot digit geometry is reused unchanged; no third-party hand reference geometry or code is included. The original NISOKU-02 family and component sources remain preserved. Reference-image fingerprints and parent commit are in `assets/nisoku03/manifest.json`. Original Workshop reuse terms apply.
+Original duplicate and refinement of our NISOKU-02 chassis by jelaludo / Model Workshop. Curved enclosure geometry, the revision 2 aerodynamic helmet and spherical elbows, comparison viewer, frame audit, preservation checks and review renders are original Workshop work. Revision 1 exports are archived under `assets/nisoku03/revisions/r1/`. Existing AUREL hand and foot digit geometry is reused unchanged; no third-party hand reference geometry or code is included. The original NISOKU-02 family and component sources remain preserved. Reference-image fingerprints and parent commit are in `assets/nisoku03/manifest.json`. Original Workshop reuse terms apply.
 
 ## NISOKU-02 humanoid / 4 November 2026
 

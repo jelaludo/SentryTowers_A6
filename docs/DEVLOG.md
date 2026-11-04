@@ -1,5 +1,17 @@
 # Devlog
 
+## 4 November 2026 / NISOKU-03 — aerodynamic helmet and spherical elbows
+
+Reworked NISOKU-03’s head into a motorcycle/military hybrid: a swept satin-charcoal enclosure, forward chin guard, shallow brow lip and wraparound glossy visor with a narrow rim. Retained the brass side sensors, original head pivot, vision socket and crown height; front/rear helmet depth intentionally changes. Smooth profile interpolation removes the coarse crown silhouette in the detailed master.
+
+Replaced both barrel elbow housings with 39 mm-radius metallic graphite spheres and small brass axis markers. Their centres and original local-X hinge motion remain unchanged. The new surface does not add joint axes. Reviewed resting and bent elbows, helmet profile, three-quarter head and full-body views. Added Helmet profile and Elbows viewer controls, direct view URLs and a four-panel detail sheet. Refreshed the matched NISOKU-02/03 front, side and three-quarter renders.
+
+Preserved the previous NISOKU-03 exports byte-for-byte in `assets/nisoku03/revisions/r1/` from commit `260cc9322e26208c5b9fe4ca70d7ffcf31e63fce`. Checks compare all 176 master/game skin bones and inverse binds, original hands and five foot digits, unchanged r1 geometry outside head/elbow bones, crown height, both sphere radii and archive hashes. NISOKU-02 and shared component sources remain untouched.
+
+Measured detailed master: 364,112 triangles / six material draws / 17,704,688 plain bytes. Game: 24,988 / three / 1,098,448. Static distance: 2,406 / one / 164,924. Optional derived Meshopt files accompany all tiers. Six plain/decoded exports pass glTF validation; 3,168 sampled motion poses pass existing floor/rail and rig checks. Browser tests cover all six exports, eight studies, comparison cameras, new detail views and desktop/mobile layouts. Game and static remain within their triangle/draw targets; no FPS claim is made.
+
+Completed: both requested NISOKU-03 changes, preserved r1 exports, updated review images, source, runtime documentation and measured handoff. Pending: user visual review, arbitrary self-collision/force solving, consuming-game release packing/r160 and reference-phone acceptance. Handoff: the containing commit plus `assets/nisoku03/`; shared Hand Lab `runtime.js` / `biped.js` and Foot Lab `runtime.js` support optional motion. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / NISOKU-03 — curved enclosure and matched before/after review
 
 Created a separate NISOKU-03 family from NISOKU-02, leaving the original collection, exports and runtime unchanged. Inspected source transforms and local axes first: anatomical forward is +Z, hands have rotated adapters, feet have positive 1.15× module scale, and the standing leg transforms already contain IK. New geometry is authored in local bind frames. A saved frame audit records the evidence.

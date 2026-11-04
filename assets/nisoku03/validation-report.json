@@ -2,66 +2,66 @@
   "status": "passed",
   "source_sha256": {
     "runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
-    "manifest.json": "9e7cce3ceded16ac0b02f1ef0dc317f3145e465366741274141a8e3b75b0ec29"
+    "manifest.json": "88d44f0fac17d6dd3f9940aef0b9747d0e6c77303bfaf638619a1b47ec6da7e2"
   },
   "reports": [
     {
       "file": "nisoku03_d0_lod1.glb",
-      "sha256": "517f5c73538017e7de802922b3e0bf278cd0d47ab8076aa9072317b20185faeb",
+      "sha256": "848c64e5b9e2d03fb7fbd86ef2fc517c1c703a8e70886a63b1ebdac4eb0d43ca",
       "decoded": false,
-      "triangles": 24604,
+      "triangles": 24988,
       "draw_calls": 3,
-      "bytes": 1089440,
+      "bytes": 1098448,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
-      "sha256": "a8ff8d97742a0710b1ba50318f1d474786fa2fa3ff9d7d63370bcd21043a2e10",
+      "sha256": "32ba120e7e167fb1cfac42d5ec1ed79fe3e991efe02cb6c88c78fa7f02d8c22b",
       "decoded": true,
-      "triangles": 24604,
+      "triangles": 24988,
       "draw_calls": 3,
-      "bytes": 249972,
+      "bytes": 252192,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "nisoku03_d0_lod0.glb",
-      "sha256": "1b6cf0b4e5818cdcd6c4ab3f537d390d7fca4ddf8b46674e0d63f5fbfd4116fe",
+      "sha256": "cd96fa936bec16a5c6b3dc646d9bf452549fa4b3a70dedd48f1d246eb2d80060",
       "decoded": false,
-      "triangles": 359256,
+      "triangles": 364112,
       "draw_calls": 6,
-      "bytes": 17529104,
+      "bytes": 17704688,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
-      "sha256": "ac0cff03f45705a5ea20cbcc6e49417080e368d1bba073eb9b6f3b47c91e2690",
+      "sha256": "43008f028b2c7627e982d36f3f15f12aaa8c4971fef3e2e122f59a1a05cc5410",
       "decoded": true,
-      "triangles": 359256,
+      "triangles": 364112,
       "draw_calls": 6,
-      "bytes": 2686184,
+      "bytes": 2713520,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "nisoku03_d0_lod2.glb",
-      "sha256": "43977a786c9f92e320eb9970b07b1947a74c8ee63367431da23106b90b12de4a",
+      "sha256": "24d061a1490f3898ef442102ee145e7978a671325f67c58161d8e98809e07463",
       "decoded": false,
-      "triangles": 2402,
+      "triangles": 2406,
       "draw_calls": 1,
-      "bytes": 164788,
+      "bytes": 164924,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
-      "sha256": "fece9d5f0bd9ffca52b0dc3d50125f78b65355b370cc7584ece2bb5f1bcb65df",
+      "sha256": "db3e3ff20f8ef48703f87b870b40d6441c37544970a1cf51aa61411f070ed2d7",
       "decoded": true,
-      "triangles": 2402,
+      "triangles": 2406,
       "draw_calls": 1,
-      "bytes": 82388,
+      "bytes": 82328,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
@@ -110,7 +110,7 @@
     }
   },
   "min_floor_clearance_m": 0.007633999585903161,
-  "min_rail_clearance_m": 1.1552980677516367e-05,
+  "min_rail_clearance_m": 0.000011552980677516367,
   "max_ik_reach_error_m": 0,
   "max_rigid_link_error_m": 2.7755575615628914e-16,
   "max_walk_stance_drift_m": 3.1401849173675503e-16,
@@ -119,7 +119,7 @@
       "min": [
         -0.36243534427810414,
         0.00802499952355392,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.36243534427810414,
@@ -131,11 +131,11 @@
       "min": [
         -0.2941418437508957,
         0.008024999523553832,
-        -0.10883256304271934
+        -0.14904201241041978
       ],
       "max": [
         0.2941418437508957,
-        1.9124785862822014,
+        1.9125582616491845,
         0.23687377371327337
       ]
     },
@@ -147,7 +147,7 @@
       ],
       "max": [
         0.31214404045428423,
-        1.8757903811394616,
+        1.8760403550930214,
         0.47247315669696377
       ]
     },
@@ -155,7 +155,7 @@
       "min": [
         -0.3649601140808476,
         0.008024999523553978,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.2941418437508957,
@@ -167,11 +167,11 @@
       "min": [
         -0.294144148402282,
         0.008024999523553978,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.2941418437508957,
-        1.9110000581741333,
+        1.9114295361374254,
         0.6247481422848237
       ]
     },
@@ -179,7 +179,7 @@
       "min": [
         -0.29414416794246956,
         0.008024999523553827,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.29414416794246956,
@@ -191,7 +191,7 @@
       "min": [
         -0.2941418437508957,
         0.008024999523553723,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.34914184375089574,
@@ -203,7 +203,7 @@
       "min": [
         -0.2941418437508957,
         0.008024999523553806,
-        -0.10700000077486038
+        -0.14431875944137573
       ],
       "max": [
         0.34914184375089574,

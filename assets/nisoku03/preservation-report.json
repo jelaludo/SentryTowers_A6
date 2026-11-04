@@ -52,7 +52,49 @@
         "triangles": 83936,
         "sha256": "0666689659bb47e7f7e1659096367db042555be52f7c59e1bb325d1b7c89972d"
       },
-      "head_bounds_unchanged": true
+      "head_crown_height_unchanged": true,
+      "head_bounds_before": {
+        "min": [
+          -0.11800000071525574,
+          1.63100004196167,
+          -0.10171478986740112
+        ],
+        "max": [
+          0.11800000071525574,
+          1.9190000295639038,
+          0.10899999737739563
+        ]
+      },
+      "head_bounds_after": {
+        "min": [
+          -0.12371227145195007,
+          1.659999966621399,
+          -0.1449931412935257
+        ],
+        "max": [
+          0.12371227145195007,
+          1.9190000295639038,
+          0.1562872678041458
+        ]
+      },
+      "unchanged_r1_body_except_head_and_elbows": {
+        "triangles": 342248,
+        "sha256": "7c318eb03a57ccbb4dfcaf9dac3b5153d7d0a5f04e1f9b9b741bf6715f2fb716"
+      },
+      "elbow_spheres": [
+        {
+          "side": "L",
+          "radius_m": 0.039,
+          "vertices": 3852,
+          "max_radial_error_m": 8.643852535822338e-8
+        },
+        {
+          "side": "R",
+          "radius_m": 0.039,
+          "vertices": 3852,
+          "max_radial_error_m": 8.643852535822338e-8
+        }
+      ]
     },
     {
       "lod": 1,
@@ -66,8 +108,50 @@
         "triangles": 3440,
         "sha256": "05d41509a888080ed29506c11e01535bd49a4971307c4ec01dc488f5bdac9893"
       },
-      "head_bounds_unchanged": true
+      "head_crown_height_unchanged": true,
+      "head_bounds_before": {
+        "min": [
+          -0.11800000071525574,
+          1.63100004196167,
+          -0.10199999809265137
+        ],
+        "max": [
+          0.11800000071525574,
+          1.9190000295639038,
+          0.10899999737739563
+        ]
+      },
+      "head_bounds_after": {
+        "min": [
+          -0.12392114847898483,
+          1.659999966621399,
+          -0.14431875944137573
+        ],
+        "max": [
+          0.12392114847898483,
+          1.9190000295639038,
+          0.15613777935504913
+        ]
+      },
+      "unchanged_r1_body_except_head_and_elbows": {
+        "triangles": 21148,
+        "sha256": "7885a90c41ecfbecf172944e1ee6b1ba42cbad75c370a9e8cd3e44b302e7ce0b"
+      },
+      "elbow_spheres": [
+        {
+          "side": "L",
+          "radius_m": 0.039,
+          "vertices": 342,
+          "max_radial_error_m": 9.437115087301828e-8
+        },
+        {
+          "side": "R",
+          "radius_m": 0.039,
+          "vertices": 342,
+          "max_radial_error_m": 9.437115087301828e-8
+        }
+      ]
     }
   ],
-  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged head bounds. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
+  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged crown height with intentionally swept helmet depth; exact unchanged r1 body geometry outside HEAD/ELBOW bones; spherical 39 mm elbow surfaces at the original pivots; all r1 exports archived byte-for-byte. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
 }

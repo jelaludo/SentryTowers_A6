@@ -1,4 +1,5 @@
 // Original Isao humanoid chassis; source AUREL hands/feet are assembled, not approximated.
+import {helmetShell,helmetVisor,helmetBrow,helmetSurface} from './nisoku03-helmet.mjs';
 import {enclosure,limbShell} from './nisoku03-shells.mjs';
 import * as T from 'three';import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {prep,cyl,ring,box,socket} from './settlement-industry-shape.mjs';
@@ -48,11 +49,11 @@ export function buildHumanoid(lod){
   for(const sign of (side?[side]:[-1,1])){const face=sign*(width/2+.001);add(b,0,ring(r*.91,r*.095,n,[face,0,0],C.ivory,[0,Math.PI/2,0]));add(b,2,ring(r*.70,r*.065,n,[face-sign*.004,0,0],C.gold,[0,Math.PI/2,0]));if(lod<2)add(b,1,cyl(r*.83,.004,n,[face-sign*.009,0,0],C.dark,[0,0,Math.PI/2]));}
  }
  function bolt(b,p){if(lod===0)add(b,2,cyl(.0023,.0014,8,p,C.steel,[Math.PI/2,0,0]));}
- // Ellipsoid helmet, broad uninterrupted visor and recessed ear bearings.
- add(head,1,ellipsoid([.105,.144,.102],[0,.12,0],0x30383e,n));add(head,5,visor(lod===0?64:lod===1?24:12));
- const rimPath=[];for(let i=0;i<=64;i++){const t=i/64*Math.PI*2;rimPath.push(new T.Vector3(.109*Math.sin(1.18)*Math.cos(t),.12+.144*Math.sin(1.18)*Math.sin(t),.109*Math.cos(1.18)));}const rimCurve=new T.CatmullRomCurve3(rimPath);add(head,1,prep(new T.TubeGeometry(rimCurve,lod===0?64:lod===1?24:12,.0015,4,false),0x647279));
+ // Revision 2: swept crown, tucked rear, wraparound eye opening and projecting chin bar.
+ add(head,1,helmetShell(lod));const lens=helmetVisor(lod);add(head,5,lens.glass);add(head,1,lens.rim);add(head,1,helmetBrow(lod));
  for(const s of [-1,1]){add(head,1,cyl(.043,.016,n,[s*.102,.12,-.012],C.dark,[0,0,Math.PI/2]));add(head,2,ring(.034,.0035,n,[s*.112,.12,-.012],C.gold,[0,Math.PI/2,0]));add(head,1,cyl(.024,.004,n,[s*.116,.12,-.012],C.carbon,[0,0,Math.PI/2]));}
- if(lod<2){add(head,1,roundBox([.009,.025,.006],[0,0,0],C.dark,lod,.002).rotateZ(.38).translate(-.057,.213,.054));add(head,4,roundBox([.003,.018,.007],[0,0,0],C.light,lod,.001).rotateZ(.38).translate(-.057,.213,.058));}
+ if(lod<2)for(const sign of [-1,1])for(let i=0;i<2;i++){const theta=sign*.64,p=helmetSurface(.050+i*.009,theta,.0015);add(head,1,roundBox([.024,.003,.002],[0,0,0],C.dark,lod,.001).rotateY(theta).rotateZ(sign*-.16).translate(...p.toArray()));}
+ if(lod<2){const p=helmetSurface(.216,0,.002);add(head,4,roundBox([.017,.0025,.002],p.toArray(),C.light,lod,.001));}
  add(neck,1,cyl(.041,.10,n,[0,.04,0],C.carbon));for(let i=0;i<(lod===2?2:lod===1?4:7);i++)add(neck,1,ring(.042,.005,n,[0,.008+i*(lod===2?.034:lod===1?.018:.010),0],C.dark));
  // Steps 1–3: curved ribcage with a 34 mm crown (~11% width) and 65 mm side returns.
  add(chest,1,coreLoft([[.275,.108,.074],[.17,.152,.084],[.035,.127,.071],[-.068,.073,.055]],n,C.dark));
@@ -82,7 +83,10 @@ export function buildHumanoid(lod){
    add(b,0,limbShell(stations,-1.515,1.515,C.ivory,lod));add(b,0,limbShell(stations,Math.PI-1.515,Math.PI+1.515,C.edge,lod));
 
   }
-  joint(el,.028,.076,s);joint(hip,.052,.128,s);joint(knee,.040,.105,s);
+  // True spherical bearing cover centred on the unchanged single-axis elbow hinge.
+  add(el,2,ellipsoid([.039,.039,.039],[0,0,0],0x53666a,lod===0?32:lod===1?14:8));
+  if(lod<2)add(el,2,ring(.011,.0012,n,[s*.037,0,0],C.gold,[0,Math.PI/2,0]));
+  joint(hip,.052,.128,s);joint(knee,.040,.105,s);
   const ankle=nodes['ANKLE_'+side],wrist=nodes['WRIST_'+side];add(ankle,1,cyl(.023,.075,n,[0,.020,0],C.carbon));add(wrist,1,cyl(.019,.047,n,[0,.013,0],C.carbon));
   for(let i=0;i<(lod===0?5:lod===1?3:1);i++){add(ankle,1,ring(.027,.003,n,[0,.005+i*.009,0],C.dark));add(wrist,1,ring(.020,.0025,n,[0,.004+i*.007,0],C.dark));}
   add(knee,0,panel([[-.032,.026],[.032,.026],[.040,-.016],[.022,-.054],[-.022,-.054],[-.040,-.016]],.019,[0,0,.043],C.ivory,lod));
