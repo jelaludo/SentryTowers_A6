@@ -1,4 +1,5 @@
 const collectionImages={
+'foot-lab':'assets/foot-lab/preview.png',
 'hand-lab':'assets/hand-lab/preview.png',
 'rokuroku66':'assets/rokuroku66/preview.png',
 'nih-dairia-mech':'assets/nih-dairia-mech/preview.png',
@@ -37,6 +38,7 @@ const collectionImages={
 };
 
 export const collections=[
+['foot-lab','Foot Lab / NISOKU-02','Characters','Isao’s tactile prehensile foot: a broad heel, recessed arch, short gripping toes and an opposable great toe. Explore heel-to-toe stepping, independent toe agility, ankle balance and a calibrated metal-pipe capture with its ivory-and-graphite mechanism.','22 axes · 6 motion studies · Metal-pipe grip · 3 LODs','Kinematic design study'],
 ['hand-lab','Hand Lab / AUREL-01','Characters','An original ivory-and-graphite robotic hand with 23 joint axes, tactile fingertips, thumb opposition and an inspectable shell. Explore poses and continuous motion, then compare with attributed LiberHand CAD and LibHand anatomy references.','23 axes · 5 motion studies · 2 source imports · 3 LODs','Kinematic design study'],
 ['rokuroku66','RokuRoku-66 / Serpentine Limbs','Characters','Isao’s second biomimetic creature: six independent chains of short geared vertebrae. A continuous story at a 3× default pace wakes from a sleeping spiral, hands sensing to the limbs nearest the rolling 09-tai lure, pursues it, wraps a fixed pole and resumes the chase. Seeded roaming and individual motion studies remain available. Short two-axis gimbals carry sliding ivory scales and flexible service loops.','3× story · Adaptive feelers · Pole wrap · 3 LODs','Kinematic study'],
 ['nih-dairia-mech','Nih-Dairia / Isao Mechanical Study','Characters','Isao’s mechanical interpretation of an alien creature: six radial limbs, ivory armor, telescoping carbon hydraulics and three ivory pads per foot. Two legs reach ahead and plant anchors that pull the body forward.','3 pads per foot · Two-leg reach · Anchored step · 3 LODs','Kinematic prototype'],

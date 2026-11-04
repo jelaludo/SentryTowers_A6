@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Foot Lab / NISOKU-02 / 4 November 2026
+
+Original foot geometry, 22-axis rig, demonstrations, rail fixture, viewer and derived review images by jelaludo / Model Workshop. Isao / Mechanism Atelier is the same fictional manufacturer as AUREL-01; the foot reuses our own palette and procedural construction approach, without importing third-party hand meshes or code. Guided by the user-supplied `nisoku-02.png`; the concept remains external and its SHA-256 is recorded in `assets/foot-lab/manifest.json`. No humanoid body is included in this standalone foot study. Original workshop reuse terms apply.
+
 ## Hand Lab / AUREL-01 / 4 November 2026
 
 AUREL-01 geometry, 23-axis rig, runtime poses, viewer and derived review images are original work by jelaludo / Model Workshop, guided by the user-supplied `handmodel.png`. That concept image remains external; its hash is recorded in `assets/hand-lab/manifest.json`. No third-party geometry or source implementation is incorporated into AUREL-01.

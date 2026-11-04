@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01",
+    "manifest.json": "6e67f798c8e08e71cbac3b46aa74f7c92317dfd2e66ddbce43337daef65bee86"
+  },
+  "reports": [
+    {
+      "file": "lod0/nisoku02foot_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 63560,
+      "draw_calls": 5,
+      "bytes": 2899364,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/nisoku02foot_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 63560,
+      "draw_calls": 5,
+      "bytes": 536288,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/nisoku02foot_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 12792,
+      "draw_calls": 5,
+      "bytes": 522632,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/nisoku02foot_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 12792,
+      "draw_calls": 5,
+      "bytes": 123816,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/nisoku02foot_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2376,
+      "draw_calls": 1,
+      "bytes": 85060,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/nisoku02foot_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2376,
+      "draw_calls": 1,
+      "bytes": 35396,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 3104,
+  "min_sampled_floor_clearance_m": 0.003160000080242753,
+  "min_sampled_pipe_clearance_m": 0.0000100462441866081,
+  "max_toe_link_length_error_m": 1.9949319973733282e-17,
+  "rail_contact_frames": {
+    "TOE_02": {
+      "radial_gap_m": 0.0013000011217292502,
+      "normal_dot": -0.9999999999998899,
+      "side": "front"
+    },
+    "TOE_03": {
+      "radial_gap_m": 0.0012999993593679308,
+      "normal_dot": -0.999999999999878,
+      "side": "front"
+    },
+    "TOE_04": {
+      "radial_gap_m": 0.0013000021008189727,
+      "normal_dot": -0.9999999999998924,
+      "side": "front"
+    },
+    "TOE_05": {
+      "radial_gap_m": 0.0013000073354549127,
+      "normal_dot": -0.9999999999999701,
+      "side": "front"
+    },
+    "HALLUX": {
+      "radial_gap_m": 0.0013009314320490892,
+      "normal_dot": -0.9958196531999173,
+      "side": "rear"
+    }
+  },
+  "swept_bounds_m": {
+    "min": [
+      -0.13499949576925785,
+      0.003160000080242753,
+      -0.13142248255315703
+    ],
+    "max": [
+      0.08593109170493572,
+      0.37050001078844075,
+      0.14796648662624262
+    ]
+  },
+  "scope": "Plain and decoded exports, hierarchy/socket parity, budgets, finite rigid geometry, 120 intervals per cycle, floor and pipe clearance at every sampled vertex, five opposed tactile frames, joint limits, independent toes and static lockout. Kinematic study; not force simulation or an arbitrary-pose self-collision guarantee."
+}

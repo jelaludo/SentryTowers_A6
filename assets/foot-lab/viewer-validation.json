@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader WebGL; functional checks only, no FPS claim",
+  "source_sha256": {
+    "foot-lab/viewer.js": "69ccdb27b0509034c0e9424099cca4187fa7819bc939372114dabbeccfcb271c",
+    "foot-lab/index.html": "b7a660493575ca870d623a3c1f0587559fcac1dad96ab4b76429a9affdcffb0d",
+    "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01"
+  },
+  "checks": [
+    "six poses / six cycles / 30 timeline samples",
+    "22 axes / independent toe curl / pose JSON with placement",
+    "shell separation, material toggles, wireframe, skeleton",
+    "instep / sole / medial side / great-toe close-up",
+    "six tier and encoding combinations / downloads / static lockout",
+    "pipe fixture timing and visibility",
+    "play / pause / scrubbing",
+    "desktop and 390px mobile framing without horizontal overflow",
+    "zero page errors"
+  ]
+}
