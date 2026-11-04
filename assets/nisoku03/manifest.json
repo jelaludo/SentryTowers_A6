@@ -3,9 +3,11 @@
   "family": "nisoku03",
   "label": "NISOKU-03 / Refined humanoid",
   "manufacturer": "Isao / Mechanism Atelier",
-  "version": 3,
+  "version": 4,
   "proportions": {
     "target_heads": 8.25,
+    "leg_extension_m": 0.032,
+    "neck_reduction_m": 0.032,
     "helmet_scale": 0.8907762061954977,
     "crown_local_y_m": 0.264,
     "shoulder_outer_extension_m": 0.018,
@@ -15,15 +17,16 @@
     "report": "proportions-report.json"
   },
   "previous_revision": {
-    "commit": "2c4d4a18c7698fef22e6882bdc49438337b547f1",
-    "folder": "revisions/r2/",
+    "commit": "7336271c17a3e4f851e8cc4f47aad6614c93d383",
+    "folder": "revisions/r3/",
     "geometry_preserved": true
   },
   "helmet": {
     "style": "Aerodynamic motorcycle / military hybrid",
     "crown_height_local_m": 0.264,
-    "head_pivot_unchanged": true,
-    "vision_socket_unchanged": true
+    "head_bind_world_position_unchanged": true,
+    "head_mount_shortened_m": 0.032,
+    "vision_socket_local_unchanged": true
   },
   "elbow": {
     "surface": "sphere",
@@ -53,7 +56,7 @@
       "shoulder_abduction_rad": 0.18,
       "original_hallux_opposition_rad": -0.55,
       "refined_hallux_opposition_rad": -0.92,
-      "note": "Common wider stance is a runtime pose on both robots; no bind-frame or joint-center edits. Existing authored action cycles and exported standby retain the original targets."
+      "note": "Common wider stance is a runtime pose. Revision 4 lengthens thigh/shin bind offsets by 16 mm each, raises the pelvis/upper body 32 mm, and shortens the head mount 32 mm. Foot trajectories remain unchanged."
     },
     "inspected_stage123": true,
     "frame_audit": "source-frame-audit.json",
@@ -77,16 +80,17 @@
     "hand_scale": 1
   },
   "dimensions": {
-    "pelvisY": 0.965,
+    "pelvisY": 0.997,
     "hipX": 0.108,
-    "thigh": 0.395,
-    "shin": 0.405,
+    "thigh": 0.411,
+    "shin": 0.421,
     "ankleY": 0.165,
     "footScale": 1.15,
     "shoulderX": 0.225,
-    "shoulderY": 1.49,
+    "shoulderY": 1.522,
     "upperArm": 0.29,
-    "forearm": 0.265
+    "forearm": 0.265,
+    "headOffset": 0.043
   },
   "budgets": {
     "game_triangles": 25000,
@@ -175,13 +179,13 @@
     "hands": "tools/asset-pipeline/hand-lab-shape.mjs",
     "feet": "tools/asset-pipeline/foot-lab-shape.mjs",
     "module_sha256": {
-      "tools/asset-pipeline/nisoku03-shape.mjs": "89f3b06bfeadc05e574adf1c4b646dc82f93df67ba160aab5d0be7021ebaee9a",
+      "tools/asset-pipeline/nisoku03-shape.mjs": "857f0ee8f8fb4859e75cf810a6982b872f1ad0b3a54fe5f1508b7fbc52ddc68a",
       "tools/asset-pipeline/nisoku03-shells.mjs": "4516c1d0f16c5e0e4a0373907cc20691beada27809a8bfd3b86e20f80766ab1a",
       "tools/asset-pipeline/nisoku03-helmet.mjs": "79397c53be735bd65849332fe6ab36a6f860a08aa071a23df3b98e88b271da73",
-      "tools/asset-pipeline/nisoku03-proportions.mjs": "38218a252e04ec7d109d461aef3c2c60f55e48ed215c509a41b873d59c3c4336",
+      "tools/asset-pipeline/nisoku03-proportions.mjs": "418f1492693153bee2655e2123c193514e1446a5f7770341d26dd00c8f9a907c",
       "tools/asset-pipeline/hand-lab-shape.mjs": "d0a652799947fabf92cff8b7d685a52005ef851a64cb1b2797e3262e46b3bab7",
       "tools/asset-pipeline/foot-lab-shape.mjs": "ca31163ea6f068120323935d39bfd3dd687b0b2703952231b7e9ac7b4035f79f",
-      "assets/nisoku03/runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
+      "assets/nisoku03/runtime.js": "ffa5dfcddcc4015164c0ef690297cf091aa2319e0a0c9a1977a3c600d57cdba7",
       "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
       "assets/hand-lab/biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
       "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01"
@@ -226,9 +230,9 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 17728476,
-      "sha256": "f6b9518f78ecc65d15756fead2c32289029a728712a5e92d23a4f9dfef7e90e2",
-      "triangles": 364708,
+      "bytes": 17709204,
+      "sha256": "130ad66c98a5d21b91bd505495eaba1cfc28a90113b42eaec28a9fa7956aa6af",
+      "triangles": 364196,
       "draw_calls": 6,
       "plot_m": [
         1.2,
@@ -236,17 +240,17 @@
       ],
       "bounds": {
         "min": [
-          -0.30127245506504585,
+          -0.301272452085124,
           0.007633999585903415,
           -0.1291564404964447
         ],
         "max": [
-          0.3022761219740341,
+          0.3022761189941122,
           1.9110000581741333,
           0.23687377371327317
         ],
         "dimensions_m": [
-          0.6035485770390799,
+          0.6035485710792362,
           1.90336605858823,
           0.3660302142097179
         ]
@@ -520,7 +524,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -534,7 +538,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -548,7 +552,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -562,7 +566,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -576,7 +580,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -590,7 +594,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -604,7 +608,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -618,7 +622,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -632,7 +636,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -646,7 +650,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -660,7 +664,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -674,7 +678,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -688,7 +692,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -702,7 +706,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -716,7 +720,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -730,7 +734,7 @@
           "parent": "HAND_L_PALM_FRAME",
           "position_m": [
             0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -744,7 +748,7 @@
           "parent": "HAND_L_WRIST_MOUNT",
           "position_m": [
             0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -758,7 +762,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -772,7 +776,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -786,7 +790,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -800,7 +804,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -814,7 +818,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -828,7 +832,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -842,7 +846,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -856,7 +860,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -870,7 +874,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -884,7 +888,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -898,7 +902,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -912,7 +916,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -926,7 +930,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -940,7 +944,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -954,7 +958,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -968,7 +972,7 @@
           "parent": "HAND_R_PALM_FRAME",
           "position_m": [
             -0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -982,7 +986,7 @@
           "parent": "HAND_R_WRIST_MOUNT",
           "position_m": [
             -0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -996,7 +1000,7 @@
           "parent": "CHEST",
           "position_m": [
             0,
-            1.372,
+            1.4040000000000001,
             -0.125
           ],
           "normal": [
@@ -1415,8 +1419,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 2718328,
-      "meshopt_sha256": "043438c05e112a09d5832d764054847cade6ca3e680a8cc573337c78e7c5fcc5",
+      "meshopt_bytes": 2715368,
+      "meshopt_sha256": "ac0acc8fb5f1a3f272f287b147b50c2f1c979ae78635c6f79c545ea61b5a366c",
       "meshopt_derived": true
     },
     {
@@ -1425,9 +1429,9 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1099848,
-      "sha256": "98527349c1b1ce3148690cbd3f285e9274ca0be5892e4c71c165a8d582c1c5cc",
-      "triangles": 24996,
+      "bytes": 1096960,
+      "sha256": "10712558de761e1a665f60c3c4adf5335b6492f15f227091f27b14a7d972ec5f",
+      "triangles": 24900,
       "draw_calls": 3,
       "plot_m": [
         1.2,
@@ -1435,17 +1439,17 @@
       ],
       "bounds": {
         "min": [
-          -0.30127245506504585,
+          -0.301272452085124,
           0.008024999523553978,
           -0.12855571508407593
         ],
         "max": [
-          0.3022761219740341,
+          0.3022761189941122,
           1.9110000581741333,
           0.23687377371327317
         ],
         "dimensions_m": [
-          0.6035485770390799,
+          0.6035485710792362,
           1.9029750586505794,
           0.3654294887973491
         ]
@@ -1719,7 +1723,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -1733,7 +1737,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -1747,7 +1751,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -1761,7 +1765,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -1775,7 +1779,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -1789,7 +1793,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -1803,7 +1807,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -1817,7 +1821,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -1831,7 +1835,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -1845,7 +1849,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -1859,7 +1863,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -1873,7 +1877,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -1887,7 +1891,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -1901,7 +1905,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -1915,7 +1919,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -1929,7 +1933,7 @@
           "parent": "HAND_L_PALM_FRAME",
           "position_m": [
             0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -1943,7 +1947,7 @@
           "parent": "HAND_L_WRIST_MOUNT",
           "position_m": [
             0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -1957,7 +1961,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -1971,7 +1975,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -1985,7 +1989,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -1999,7 +2003,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -2013,7 +2017,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -2027,7 +2031,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -2041,7 +2045,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -2055,7 +2059,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -2069,7 +2073,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -2083,7 +2087,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -2097,7 +2101,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -2111,7 +2115,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -2125,7 +2129,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -2139,7 +2143,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -2153,7 +2157,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -2167,7 +2171,7 @@
           "parent": "HAND_R_PALM_FRAME",
           "position_m": [
             -0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -2181,7 +2185,7 @@
           "parent": "HAND_R_WRIST_MOUNT",
           "position_m": [
             -0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -2195,7 +2199,7 @@
           "parent": "CHEST",
           "position_m": [
             0,
-            1.372,
+            1.4040000000000001,
             -0.125
           ],
           "normal": [
@@ -2614,8 +2618,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 253004,
-      "meshopt_sha256": "3243c161b8ab07cbc54d22d3c7471157e7fdfe0cf1775c3b55dc727959860c12",
+      "meshopt_bytes": 252476,
+      "meshopt_sha256": "1c08a4968e465177316226dc7676b8b14dc979015cd3e8db808ae6bd3c5e8097",
       "meshopt_derived": true
     },
     {
@@ -2624,9 +2628,9 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "bytes": 165240,
-      "sha256": "bb3bde0f67c5194ada739cec613f57ba4f1237c26676ad8ffba08f6501ebac92",
-      "triangles": 2408,
+      "bytes": 165096,
+      "sha256": "ebe74ba9e123ab3dcb601220247d7a23dc8e2e5327c53bed48ca41628d727dd8",
+      "triangles": 2400,
       "draw_calls": 1,
       "plot_m": [
         1.2,
@@ -2918,7 +2922,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -2932,7 +2936,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -2946,7 +2950,7 @@
           "parent": "HAND_L_INDEX_DIP_FLEX",
           "position_m": [
             0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -2960,7 +2964,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -2974,7 +2978,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -2988,7 +2992,7 @@
           "parent": "HAND_L_MIDDLE_DIP_FLEX",
           "position_m": [
             0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -3002,7 +3006,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -3016,7 +3020,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -3030,7 +3034,7 @@
           "parent": "HAND_L_RING_DIP_FLEX",
           "position_m": [
             0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -3044,7 +3048,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -3058,7 +3062,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -3072,7 +3076,7 @@
           "parent": "HAND_L_LITTLE_DIP_FLEX",
           "position_m": [
             0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -3086,7 +3090,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -3100,7 +3104,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -3114,7 +3118,7 @@
           "parent": "HAND_L_THUMB_IP_FLEX",
           "position_m": [
             0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -3128,7 +3132,7 @@
           "parent": "HAND_L_PALM_FRAME",
           "position_m": [
             0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -3142,7 +3146,7 @@
           "parent": "HAND_L_WRIST_MOUNT",
           "position_m": [
             0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -3156,7 +3160,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19310239006496102,
-            0.7437141620179784,
+            0.7757141620179784,
             0.006135870096536829
           ],
           "normal": [
@@ -3170,7 +3174,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.19010038821511605,
-            0.7457108365929048,
+            0.7777108365929049,
             0.006171584734566034
           ],
           "normal": [
@@ -3184,7 +3188,7 @@
           "parent": "HAND_R_INDEX_DIP_FLEX",
           "position_m": [
             -0.1994026903326582,
-            0.7547792132457495,
+            0.7867792132457495,
             0.006343252891522408
           ],
           "normal": [
@@ -3198,7 +3202,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1797242464104292,
-            0.7434998255181469,
+            0.7754998255181469,
             -0.015851937551552276
           ],
           "normal": [
@@ -3212,7 +3216,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.1773636558467211,
-            0.7462235210004549,
+            0.7782235210004549,
             -0.015756569264440284
           ],
           "normal": [
@@ -3226,7 +3230,7 @@
           "parent": "HAND_R_MIDDLE_DIP_FLEX",
           "position_m": [
             -0.18918554081707856,
-            0.7528470633660292,
+            0.7848470633660293,
             -0.01552465057377842
           ],
           "normal": [
@@ -3240,7 +3244,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.1773900096015103,
-            0.7605811131702221,
+            0.7925811131702222,
             -0.03768634196610213
           ],
           "normal": [
@@ -3254,7 +3258,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.17568107501270425,
-            0.7637526369679412,
+            0.7957526369679412,
             -0.0375414993905787
           ],
           "normal": [
@@ -3268,7 +3272,7 @@
           "parent": "HAND_R_RING_DIP_FLEX",
           "position_m": [
             -0.18862068211230343,
-            0.767174861645099,
+            0.799174861645099,
             -0.03738909162484935
           ],
           "normal": [
@@ -3282,7 +3286,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.18655659835476215,
-            0.7892720603589349,
+            0.821272060358935,
             -0.05646837162711356
           ],
           "normal": [
@@ -3296,7 +3300,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.1855817297613757,
-            0.7927359423448217,
+            0.8247359423448217,
             -0.05624220174963652
           ],
           "normal": [
@@ -3310,7 +3314,7 @@
           "parent": "HAND_R_LITTLE_DIP_FLEX",
           "position_m": [
             -0.19734831551514048,
-            0.7929641014258006,
+            0.8249641014258007,
             -0.05623619399904898
           ],
           "normal": [
@@ -3324,7 +3328,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19496741297745634,
-            0.7837178268854096,
+            0.8157178268854096,
             0.053336898667508924
           ],
           "normal": [
@@ -3338,7 +3342,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19170091532506905,
-            0.7844439307626196,
+            0.8164439307626197,
             0.05199422735760143
           ],
           "normal": [
@@ -3352,7 +3356,7 @@
           "parent": "HAND_R_THUMB_IP_FLEX",
           "position_m": [
             -0.19953603798621602,
-            0.7954622569376603,
+            0.8274622569376603,
             0.046294425502694796
           ],
           "normal": [
@@ -3366,7 +3370,7 @@
           "parent": "HAND_R_PALM_FRAME",
           "position_m": [
             -0.22302895548836796,
-            0.8411430742589183,
+            0.8731430742589184,
             -0.022439155804595563
           ],
           "normal": [
@@ -3380,7 +3384,7 @@
           "parent": "HAND_R_WRIST_MOUNT",
           "position_m": [
             -0.2383736068143711,
-            0.947494730455875,
+            0.979494730455875,
             -0.018715327150141018
           ],
           "normal": [
@@ -3394,7 +3398,7 @@
           "parent": "CHEST",
           "position_m": [
             0,
-            1.372,
+            1.4040000000000001,
             -0.125
           ],
           "normal": [
@@ -3813,8 +3817,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 82624,
-      "meshopt_sha256": "4a615207efa3d654d13bf06b75d4b2529dbe4d6fd9a3bf943f0327166c67fc27",
+      "meshopt_bytes": 82640,
+      "meshopt_sha256": "d3ee9f64002a570fc383ee4358223c741301efa66e4f5559a887755d9ab5249d",
       "meshopt_derived": true
     }
   ]

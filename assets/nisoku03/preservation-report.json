@@ -1,7 +1,7 @@
 {
   "status": "passed",
-  "source_commit": "f7bf276955762f0dda94332da03a7049326c2e60",
-  "unchanged_dimensions": {
+  "previous_commit": "7336271c17a3e4f851e8cc4f47aad6614c93d383",
+  "dimensions_before": {
     "pelvisY": 0.965,
     "hipX": 0.108,
     "thigh": 0.395,
@@ -12,6 +12,29 @@
     "shoulderY": 1.49,
     "upperArm": 0.29,
     "forearm": 0.265
+  },
+  "dimensions_after": {
+    "pelvisY": 0.997,
+    "hipX": 0.108,
+    "thigh": 0.411,
+    "shin": 0.421,
+    "ankleY": 0.165,
+    "footScale": 1.15,
+    "shoulderX": 0.225,
+    "shoulderY": 1.522,
+    "upperArm": 0.29,
+    "forearm": 0.265,
+    "headOffset": 0.043
+  },
+  "intended_bind_changes_m": {
+    "pelvis": 0.032,
+    "upper_body": 0.032,
+    "knee_world": 0.016,
+    "ankle_world": 0,
+    "head_world": 0,
+    "head_local": -0.032,
+    "thigh_length": 0.016,
+    "shin_length": 0.016
   },
   "original_exports": [
     {
@@ -37,121 +60,151 @@
     {
       "file": "nisoku02/derived/meshopt/nisoku02_d0_lod2.meshopt.glb",
       "sha256": "fa5cb2416152e074b18a7e1dd7f013406854d95579a484a8d1551570ec17f5e1"
+    },
+    {
+      "file": "nisoku03/revisions/r1/nisoku03_d0_lod0.glb",
+      "sha256": "1b6cf0b4e5818cdcd6c4ab3f537d390d7fca4ddf8b46674e0d63f5fbfd4116fe"
+    },
+    {
+      "file": "nisoku03/revisions/r1/derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
+      "sha256": "ac0cff03f45705a5ea20cbcc6e49417080e368d1bba073eb9b6f3b47c91e2690"
+    },
+    {
+      "file": "nisoku03/revisions/r1/nisoku03_d0_lod1.glb",
+      "sha256": "517f5c73538017e7de802922b3e0bf278cd0d47ab8076aa9072317b20185faeb"
+    },
+    {
+      "file": "nisoku03/revisions/r1/derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
+      "sha256": "a8ff8d97742a0710b1ba50318f1d474786fa2fa3ff9d7d63370bcd21043a2e10"
+    },
+    {
+      "file": "nisoku03/revisions/r1/nisoku03_d0_lod2.glb",
+      "sha256": "43977a786c9f92e320eb9970b07b1947a74c8ee63367431da23106b90b12de4a"
+    },
+    {
+      "file": "nisoku03/revisions/r1/derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
+      "sha256": "fece9d5f0bd9ffca52b0dc3d50125f78b65355b370cc7584ece2bb5f1bcb65df"
+    },
+    {
+      "file": "nisoku03/revisions/r2/nisoku03_d0_lod0.glb",
+      "sha256": "cd96fa936bec16a5c6b3dc646d9bf452549fa4b3a70dedd48f1d246eb2d80060"
+    },
+    {
+      "file": "nisoku03/revisions/r2/derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
+      "sha256": "43008f028b2c7627e982d36f3f15f12aaa8c4971fef3e2e122f59a1a05cc5410"
+    },
+    {
+      "file": "nisoku03/revisions/r2/nisoku03_d0_lod1.glb",
+      "sha256": "848c64e5b9e2d03fb7fbd86ef2fc517c1c703a8e70886a63b1ebdac4eb0d43ca"
+    },
+    {
+      "file": "nisoku03/revisions/r2/derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
+      "sha256": "32ba120e7e167fb1cfac42d5ec1ed79fe3e991efe02cb6c88c78fa7f02d8c22b"
+    },
+    {
+      "file": "nisoku03/revisions/r2/nisoku03_d0_lod2.glb",
+      "sha256": "24d061a1490f3898ef442102ee145e7978a671325f67c58161d8e98809e07463"
+    },
+    {
+      "file": "nisoku03/revisions/r2/derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
+      "sha256": "db3e3ff20f8ef48703f87b870b40d6441c37544970a1cf51aa61411f070ed2d7"
+    },
+    {
+      "file": "nisoku03/revisions/r3/nisoku03_d0_lod0.glb",
+      "sha256": "f6b9518f78ecc65d15756fead2c32289029a728712a5e92d23a4f9dfef7e90e2"
+    },
+    {
+      "file": "nisoku03/revisions/r3/derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
+      "sha256": "043438c05e112a09d5832d764054847cade6ca3e680a8cc573337c78e7c5fcc5"
+    },
+    {
+      "file": "nisoku03/revisions/r3/nisoku03_d0_lod1.glb",
+      "sha256": "98527349c1b1ce3148690cbd3f285e9274ca0be5892e4c71c165a8d582c1c5cc"
+    },
+    {
+      "file": "nisoku03/revisions/r3/derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
+      "sha256": "3243c161b8ab07cbc54d22d3c7471157e7fdfe0cf1775c3b55dc727959860c12"
+    },
+    {
+      "file": "nisoku03/revisions/r3/nisoku03_d0_lod2.glb",
+      "sha256": "bb3bde0f67c5194ada739cec613f57ba4f1237c26676ad8ffba08f6501ebac92"
+    },
+    {
+      "file": "nisoku03/revisions/r3/derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
+      "sha256": "4a615207efa3d654d13bf06b75d4b2529dbe4d6fd9a3bf943f0327166c67fc27"
     }
   ],
   "reports": [
     {
       "lod": 0,
-      "matched_skin_bones": 176,
-      "max_inverse_bind_error": 0,
+      "skin_bones": 176,
+      "max_expected_bind_error_m": 6.484985348720329e-8,
+      "unchanged_local_surfaces_except_neck_thigh_shin": {
+        "triangles": 353356,
+        "checked_vertices": 1494774,
+        "max_local_vertex_error_m": 1.1920928955078125e-7,
+        "tolerance_m": 0.000002
+      },
       "hands": {
         "triangles": 174432,
-        "sha256": "fbe02ded2f8b6dc8d7a369dfbfbb2e20ebb6deb2460cfc9190b5e7f5cc5459b8"
+        "checked_vertices": 752712,
+        "max_local_vertex_error_m": 8.804460473729993e-8,
+        "tolerance_m": 0.000002
       },
-      "foot_digits": {
-        "triangles": 83936,
-        "sha256": "0666689659bb47e7f7e1659096367db042555be52f7c59e1bb325d1b7c89972d"
-      },
-      "head_crown_height_unchanged": true,
-      "head_bounds_before": {
-        "min": [
-          -0.11800000071525574,
-          1.63100004196167,
-          -0.10171478986740112
-        ],
-        "max": [
-          0.11800000071525574,
-          1.9190000295639038,
-          0.10899999737739563
-        ]
-      },
-      "head_bounds_after": {
-        "min": [
-          -0.1101999506354332,
-          1.688288927078247,
-          -0.1291564404964447
-        ],
-        "max": [
-          0.1101999506354332,
-          1.9190000295639038,
-          0.13921697437763214
-        ]
-      },
-      "unchanged_r2_body_except_head_neck_chest_shoulders": {
-        "triangles": 337648,
-        "sha256": "487a61622f96c49f852a2a856220b419db056458e0969a7926176867bc94ca59"
+      "feet": {
+        "triangles": 129880,
+        "checked_vertices": 586560,
+        "max_local_vertex_error_m": 0,
+        "tolerance_m": 0.000002
       },
       "elbow_spheres": [
         {
           "side": "L",
           "radius_m": 0.039,
-          "vertices": 3852,
-          "max_radial_error_m": 8.643852535822338e-8
+          "max_radial_error_m": 4.266178273149013e-8
         },
         {
           "side": "R",
           "radius_m": 0.039,
-          "vertices": 3852,
-          "max_radial_error_m": 8.643852535822338e-8
+          "max_radial_error_m": 4.266178273149013e-8
         }
       ]
     },
     {
       "lod": 1,
-      "matched_skin_bones": 176,
-      "max_inverse_bind_error": 0,
+      "skin_bones": 176,
+      "max_expected_bind_error_m": 6.484985348720329e-8,
+      "unchanged_local_surfaces_except_neck_thigh_shin": {
+        "triangles": 21404,
+        "checked_vertices": 45420,
+        "max_local_vertex_error_m": 1.1920928955078125e-7,
+        "tolerance_m": 0.000002
+      },
       "hands": {
         "triangles": 5416,
-        "sha256": "651e91acac5e99dadd9898c947f7fcc586e47e82985b2d118ce455be735380b5"
+        "checked_vertices": 14904,
+        "max_local_vertex_error_m": 8.804460473729993e-8,
+        "tolerance_m": 0.000002
       },
-      "foot_digits": {
-        "triangles": 3440,
-        "sha256": "05d41509a888080ed29506c11e01535bd49a4971307c4ec01dc488f5bdac9893"
-      },
-      "head_crown_height_unchanged": true,
-      "head_bounds_before": {
-        "min": [
-          -0.11800000071525574,
-          1.63100004196167,
-          -0.10199999809265137
-        ],
-        "max": [
-          0.11800000071525574,
-          1.9190000295639038,
-          0.10899999737739563
-        ]
-      },
-      "head_bounds_after": {
-        "min": [
-          -0.11038601398468018,
-          1.688288927078247,
-          -0.12855571508407593
-        ],
-        "max": [
-          0.11038601398468018,
-          1.9190000295639038,
-          0.1393452137708664
-        ]
-      },
-      "unchanged_r2_body_except_head_neck_chest_shoulders": {
-        "triangles": 19296,
-        "sha256": "30e722df2231f82e06cd4a6e4c01b5f83551441ec41983479381611da31b2965"
+      "feet": {
+        "triangles": 5576,
+        "checked_vertices": 13056,
+        "max_local_vertex_error_m": 0,
+        "tolerance_m": 0.000002
       },
       "elbow_spheres": [
         {
           "side": "L",
           "radius_m": 0.039,
-          "vertices": 342,
-          "max_radial_error_m": 9.437115087301828e-8
+          "max_radial_error_m": 3.433227539068051e-8
         },
         {
           "side": "R",
           "radius_m": 0.039,
-          "vertices": 342,
-          "max_radial_error_m": 9.437115087301828e-8
+          "max_radial_error_m": 3.433227539068051e-8
         }
       ]
     }
   ],
-  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged crown height; exact unchanged r2 body geometry outside HEAD/NECK/CHEST/SHOULDER bones; spherical 39 mm elbow surfaces at the original pivots; all r1/r2 exports archived byte-for-byte. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
+  "scope": "Stable bone names and parents; precisely expected local translations and inverse-bind world shifts; unchanged local geometry/normals/topology outside neck and leg shells within float-export tolerance; complete hand/foot surfaces and 39 mm elbows preserved. Legacy archives remain byte-for-byte; longer-leg IK checked by the separate motion validator."
 }

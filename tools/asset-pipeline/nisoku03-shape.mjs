@@ -35,13 +35,13 @@ function visor(n){
 }
 function reflectGeometry(g){g.applyMatrix4(new T.Matrix4().makeScale(-1,1,1));if(g.index){const a=g.index.array;for(let i=0;i<a.length;i+=3)[a[i+1],a[i+2]]=[a[i+2],a[i+1]];}else for(const attr of Object.values(g.attributes))for(let i=0;i<attr.count;i+=3)for(let k=0;k<attr.itemSize;k++){const a=(i+1)*attr.itemSize+k,b=(i+2)*attr.itemSize+k;[attr.array[a],attr.array[b]]=[attr.array[b],attr.array[a]];}}
 export function buildHumanoid(lod){
- const root=new T.Group();root.name='NISOKU_03_ROOT';root.userData={family:'nisoku03',manufacturer:'Isao / Mechanism Atelier',designation:'NISOKU-03',lod,damage_level:0,static:false,units:'metres',forward:'+Z',up:'+Y'};
+ const root=new T.Group();root.name='NISOKU_03_ROOT';root.userData={family:'nisoku03',manufacturer:'Isao / Mechanism Atelier',designation:'NISOKU-03',lod,damage_level:0,static:false,dimensions:{...DIM},units:'metres',forward:'+Z',up:'+Y'};
  const mats=lod===0?[
   new T.MeshStandardMaterial({name:'CERAMIC_IVORY',vertexColors:true,metalness:.18,roughness:.43}),new T.MeshStandardMaterial({name:'GRAPHITE_STRUCTURE',vertexColors:true,metalness:.18,roughness:.67}),new T.MeshStandardMaterial({name:'GOLD_TITANIUM',vertexColors:true,metalness:.8,roughness:.25}),new T.MeshStandardMaterial({name:'TACTILE_ELASTOMER',vertexColors:true,metalness:.05,roughness:.85}),new T.MeshStandardMaterial({name:'AMBER_STATUS',vertexColors:true,metalness:.25,roughness:.25,emissive:C.light,emissiveIntensity:.3}),new T.MeshStandardMaterial({name:'OPTICAL_VISOR',vertexColors:true,metalness:.65,roughness:.12})
  ]:[new T.MeshStandardMaterial({name:'ISAO_GAME_PALETTE',vertexColors:true,metalness:.25,roughness:.45}),new T.MeshStandardMaterial({name:'OPTICAL_VISOR',vertexColors:true,metalness:.65,roughness:.12}),new T.MeshStandardMaterial({name:'GRAPHITE_GAME_SEALS',vertexColors:true,metalness:.15,roughness:.68})];
  const parts=mats.map(()=>[]),bones=[],nodes={};
  function bone(parent,name,pos){const b=new T.Bone();b.name=name;b.position.fromArray(pos);b.userData={role:'engine_pivot'};parent.add(b);bones.push(b);nodes[name]=b;return b;}
- const base=bone(root,'BODY_ROOT',[0,0,0]),pelvis=bone(base,'PELVIS',[0,DIM.pelvisY,0]),waist=bone(pelvis,'WAIST',[0,.115,0]),chest=bone(waist,'CHEST',[0,.20,0]),neck=bone(chest,'NECK',[0,.30,0]),head=bone(neck,'HEAD',[0,.075,0]);
+ const base=bone(root,'BODY_ROOT',[0,0,0]),pelvis=bone(base,'PELVIS',[0,DIM.pelvisY,0]),waist=bone(pelvis,'WAIST',[0,.115,0]),chest=bone(waist,'CHEST',[0,.20,0]),neck=bone(chest,'NECK',[0,.30,0]),head=bone(neck,'HEAD',[0,DIM.headOffset,0]);
  for(const side of ['L','R']){const s=side==='L'?1:-1,shoulder=bone(chest,'SHOULDER_'+side,[s*DIM.shoulderX,DIM.shoulderY-(DIM.pelvisY+.315),0]),elbow=bone(shoulder,'ELBOW_'+side,[0,-DIM.upperArm,0]);bone(elbow,'WRIST_'+side,[0,-DIM.forearm,0]);const hip=bone(pelvis,'HIP_'+side,[s*DIM.hipX,0,0]),knee=bone(hip,'KNEE_'+side,[0,-DIM.thigh,0]);bone(knee,'ANKLE_'+side,[0,-DIM.shin,0]);}
  function add(b,m,g){if(b===head)proportionHelmet(g);const n=g.attributes.position.count,ii=new Uint16Array(n*4),ww=new Float32Array(n*4);for(let i=0;i<n;i++){ii[i*4]=bones.indexOf(b);ww[i*4]=1;}g.setAttribute('skinIndex',new T.Uint16BufferAttribute(ii,4));g.setAttribute('skinWeight',new T.Float32BufferAttribute(ww,4));root.updateMatrixWorld(true);g.applyMatrix4(b.matrixWorld);parts[lod===0?m:m===5?1:m===1||m===3?2:0].push(g);}
  const n=lod===0?32:lod===1?12:6,seg=lod===0?24:lod===1?10:4;
@@ -55,7 +55,7 @@ export function buildHumanoid(lod){
  for(const s of [-1,1]){add(head,1,cyl(.043,.016,n,[s*.102,.12,-.012],C.dark,[0,0,Math.PI/2]));add(head,2,ring(.034,.0035,n,[s*.112,.12,-.012],C.gold,[0,Math.PI/2,0]));add(head,1,cyl(.024,.004,n,[s*.116,.12,-.012],C.carbon,[0,0,Math.PI/2]));}
  if(lod<2)for(const sign of [-1,1])for(let i=0;i<2;i++){const theta=sign*.64,p=helmetSurface(.050+i*.009,theta,.0015);add(head,1,roundBox([.024,.003,.002],[0,0,0],C.dark,lod,.001).rotateY(theta).rotateZ(sign*-.16).translate(...p.toArray()));}
  if(lod<2){const p=helmetSurface(.216,0,.002);add(head,4,roundBox([.017,.0025,.002],p.toArray(),C.light,lod,.001));}
- add(neck,1,cyl(.039,.134,n,[0,.054,0],C.carbon));for(let i=0;i<(lod===2?2:lod===1?4:7);i++)add(neck,1,ring(.039,.005,n,[0,.029+i*(lod===2?.066:lod===1?.024:.012),0],C.dark));
+ add(neck,1,cyl(.039,.102,n,[0,.038,0],C.carbon));for(let i=0;i<(lod===2?2:lod===1?3:5);i++)add(neck,1,ring(.039,.005,n,[0,.029+i*(lod===2?.040:lod===1?.020:.010),0],C.dark));
  // Steps 1–3: curved ribcage with a 34 mm crown (~11% width) and 65 mm side returns.
  add(chest,1,coreLoft([[.275,.108,.074],[.17,.152,.084],[.035,.127,.071],[-.068,.073,.055]],n,C.dark));
  add(chest,0,enclosure([[.267,.112,.071,.025,.058],[.186,.153,.096,.034,.066],[.057,.143,.069,.032,.062],[-.064,.062,.049,.022,.044]],C.ivory,lod,{thickness:.008}));

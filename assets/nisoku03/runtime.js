@@ -3,7 +3,8 @@ import {JOINTS as HAND_JOINTS,POSES as HAND_POSES,controlsPose as handPose} from
 import {BIPED_REST as HAND_REST} from '../hand-lab/biped.js';
 import {JOINTS as FOOT_JOINTS,POSES as FOOT_POSES,blend as blendFoot} from '../foot-lab/runtime.js';
 export {HAND_JOINTS,FOOT_JOINTS,HAND_REST};
-export const DIM={pelvisY:.965,hipX:.108,thigh:.395,shin:.405,ankleY:.165,footScale:1.15,shoulderX:.225,shoulderY:1.49,upperArm:.29,forearm:.265};
+export const LEGACY_DIM={pelvisY:.965,hipX:.108,thigh:.395,shin:.405,ankleY:.165,footScale:1.15,shoulderX:.225,shoulderY:1.49,upperArm:.29,forearm:.265};
+export const DIM={...LEGACY_DIM,pelvisY:.997,thigh:.411,shin:.421,shoulderY:1.522,headOffset:.043};
 export const MOTIONS={
  neutral:{name:'Neutral_Review_Idle',label:'Neutral / review',duration_s:5,loop:true},
  idle:{name:'Quiet_Standby_Idle',label:'Standby',duration_s:5,loop:true},
@@ -56,19 +57,19 @@ export function sampleMotion(time,mode='idle'){
 }
 const rigs=new WeakMap();
 export function createRig(root){
- if(rigs.has(root))return rigs.get(root);const nodes={};root.traverse(o=>{if(o.name)nodes[o.name]=o});const frame=nodes.NISOKU_03_ROOT||root,staticTier=frame.userData.static;
+ if(rigs.has(root))return rigs.get(root);const nodes={};root.traverse(o=>{if(o.name)nodes[o.name]=o});const frame=nodes.NISOKU_03_ROOT||root,staticTier=frame.userData.static,dimensions=frame.userData.dimensions||LEGACY_DIM;
  const vector=(x=0,y=0,z=0)=>root.position.clone().set(x,y,z),quat=()=>root.quaternion.clone().identity(),down=vector(0,-1,0);
  function solve(side,target){
   const hip=nodes['HIP_'+side],knee=nodes['KNEE_'+side],ankle=nodes['ANKLE_'+side];frame.updateMatrixWorld(true);
-  const origin=hip.getWorldPosition(vector()),end=frame.localToWorld(vector(target.x,target.y,target.z)),delta=end.clone().sub(origin),distance=delta.length(),scale=frame.getWorldScale(vector()).x,a=DIM.thigh*scale,b=DIM.shin*scale,d=Math.min(distance,a+b-.000001),axis=delta.clone().normalize(),pole=vector(0,0,1).applyQuaternion(frame.getWorldQuaternion(quat()));pole.addScaledVector(axis,-pole.dot(axis)).normalize();
+  const origin=hip.getWorldPosition(vector()),end=frame.localToWorld(vector(target.x,target.y,target.z)),delta=end.clone().sub(origin),distance=delta.length(),scale=frame.getWorldScale(vector()).x,a=dimensions.thigh*scale,b=dimensions.shin*scale,d=Math.min(distance,a+b-.000001),axis=delta.clone().normalize(),pole=vector(0,0,1).applyQuaternion(frame.getWorldQuaternion(quat()));pole.addScaledVector(axis,-pole.dot(axis)).normalize();
   const along=(a*a-b*b+d*d)/(2*d),bend=origin.clone().addScaledVector(axis,along).addScaledVector(pole,Math.sqrt(Math.max(0,a*a-along*along)));
   const upper=quat().setFromUnitVectors(down,bend.clone().sub(origin).normalize()),lower=quat().setFromUnitVectors(down,end.clone().sub(bend).normalize());
   hip.quaternion.copy(hip.parent.getWorldQuaternion(quat()).invert().multiply(upper));knee.quaternion.copy(upper.clone().invert().multiply(lower));
   const desired=frame.getWorldQuaternion(quat()).multiply(quat().setFromAxisAngle(vector(1,0,0),target.pitch||0));ankle.quaternion.copy(lower.clone().invert().multiply(desired));
   return Math.max(0,distance-a-b);
  }
- const rig={root,frame,nodes,static:staticTier,pose(p=sampleMotion(0)){
-  if(staticTier)return {static:true};nodes.PELVIS.position.set(p.body.x,DIM.pelvisY+p.body.dy,0);nodes.PELVIS.quaternion.identity();nodes.WAIST.rotation.set(p.body.chest*.4,0,0);nodes.CHEST.rotation.set(p.body.chest*.6,0,0);nodes.HEAD.rotation.set(p.body.headPitch,p.body.headYaw,0);
+ const rig={root,frame,nodes,dimensions,static:staticTier,pose(p=sampleMotion(0)){
+  if(staticTier)return {static:true};nodes.PELVIS.position.set(p.body.x,dimensions.pelvisY+p.body.dy,0);nodes.PELVIS.quaternion.identity();nodes.WAIST.rotation.set(p.body.chest*.4,0,0);nodes.CHEST.rotation.set(p.body.chest*.6,0,0);nodes.HEAD.rotation.set(p.body.headPitch,p.body.headYaw,0);
   for(const side of ['L','R']){
    nodes['SHOULDER_'+side].rotation.set(p.arms[side][0],0,(side==='L'?1:-1)*(p.armSpread??.025));nodes['ELBOW_'+side].rotation.set(p.arms[side][1],0,0);nodes['WRIST_'+side].quaternion.identity();
    const yaw=p.handYaw[side];nodes['HAND_'+side+'_ROOT'].quaternion.set(Math.sin(yaw/2),0,Math.cos(yaw/2),0);

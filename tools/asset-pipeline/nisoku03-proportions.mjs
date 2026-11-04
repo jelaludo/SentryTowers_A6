@@ -1,8 +1,8 @@
 import * as T from 'three';
 import {prep} from './settlement-industry-shape.mjs';
 // Revision 3: proportions are measured sole-to-crown / chin-to-crown, excluding the neck.
-// Preserve the crown, all pivots and limb lengths; author changes into the rigid surfaces.
-export const PROPORTIONS={target_heads:8.25,helmet_scale:.8907762061954977,crown_local_y_m:.264,shoulder_outer_extension_m:.018,collar_inner_y_m:.327,collar_side_y_m:.274};
+// Revision 4 adds 16 mm to each leg link and subtracts 32 mm from the head mount; crown height is retained.
+export const PROPORTIONS={target_heads:8.25,leg_extension_m:.032,neck_reduction_m:.032,helmet_scale:.8907762061954977,crown_local_y_m:.264,shoulder_outer_extension_m:.018,collar_inner_y_m:.327,collar_side_y_m:.274};
 export function proportionHelmet(g){const s=PROPORTIONS.helmet_scale;return g.translate(0,-PROPORTIONS.crown_local_y_m,0).scale(s,s,s).translate(0,PROPORTIONS.crown_local_y_m,0)}
 export function broadenCap(g,side){const a=g.attributes.position;for(let i=0;i<a.count;i++){const x=a.getX(i),u=T.MathUtils.clamp((side*x+.058)/.116,0,1),ease=u*u*(3-2*u);a.setX(i,x+side*PROPORTIONS.shoulder_outer_extension_m*ease)}a.needsUpdate=true;g.computeVertexNormals();return g}
 // Closed annular collar. Inner neck edge rises gently above the outer shoulder edges.

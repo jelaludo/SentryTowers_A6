@@ -1,5 +1,15 @@
 # Devlog
 
+## 4 November 2026 / NISOKU-03 — longer legs and shorter neck
+
+Added 16 mm to each thigh and shin, increasing the hip-to-ankle chain from 800 to 832 mm (+4%). Raised the pelvis and upper body by 32 mm and shortened the head mount from 75 to 43 mm. This retains the 1.903 m overall height, 230.7 mm helmet and 8.25-head proportion while bringing the helmet closer to the shoulders. Measured chin-to-collar clearance falls from 81.3 to 49.3 mm. Shortened and repitched the neck bellows; leg clamshells follow the new link lengths.
+
+Updated the rig and IK dimensions without changing node names or hierarchy. New exports store their dimensions on the root; the current runtime reads these and uses legacy dimensions for older NISOKU-03 exports. The former revision is preserved byte-for-byte under `assets/nisoku03/revisions/r3/` from `7336271c17a3e4f851e8cc4f47aad6614c93d383`, including reports and the original runtime source for provenance. The viewer compares r3/current by default and retains older references. Foot paths, rail contact frames, arm lengths, complete hands/feet, helmet shape, shoulder width and spherical elbow geometry remain intact.
+
+Measured detailed master: 364,196 triangles / six material draws / 17,709,204 plain bytes. Game: 24,900 / three / 1,096,960. Static: 2,400 / one / 165,096. All six plain/decoded exports pass glTF validation. The 3,168 sampled motion poses pass floor/rail clearance, revised IK, rigid links, stance anchoring and loop closure. Preservation checks verify precisely intended bind shifts, unchanged local surfaces outside neck/leg shells within 2 μm export tolerance, unchanged hand/foot topology and all original/archive hashes. The proportion report verifies the leg/neck deltas and retained height, head size and shoulder span. Browser checks cover current and legacy dimensions, all exports/motions, expected body-landmark offsets, comparison views and desktop/mobile layouts.
+
+Completed: the requested proportion tweak, three-tier exports, measured comparison images, integration notes and updated runtime. Pending: user visual review, arbitrary self-collision/force solving, consuming-game release packing/r160 and reference-phone acceptance. Handoff: the containing commit plus `assets/nisoku03/`, using the current runtime and its shared Hand Lab / Foot Lab dependencies. No FPS claim; the received collaboration contract remains verbatim.
+
 ## 4 November 2026 / NISOKU-03 — measured head proportions and restrained shoulder shaping
 
 Measured NISOKU-03 against the supplied ideal/heroic proportion charts. The previous master was 7.3489 heads tall: 1.903366 m from sole to crown, divided by a 259.0 mm helmet from chin to crown, excluding the neck. Revision 3 targets 8.25 heads with a 230.711 mm helmet (8.2483 heads in game geometry). A uniform 10.92% helmet reduction anchored at the crown preserves overall height, limb lengths, joint centres and articulation. The helmet silhouette and spherical elbows remain recognizable.

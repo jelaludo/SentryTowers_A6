@@ -1,0 +1,207 @@
+{
+  "status": "passed",
+  "reference": "User supplied 8 / 8.5 head figure charts; used as a visual canon, not an anatomical standard.",
+  "method": "Measured posed master/game vertices in identical upright neutral pose. Body unit is sole-to-crown; head unit is helmet chin-to-crown, excluding neck. Shoulder span uses upper shoulder housing vertices within 65 mm below each pivot in local bind space.",
+  "target_heads": [
+    8,
+    8.5
+  ],
+  "selected_target_heads": 8.25,
+  "collar_centerline_slope_deg": 22.180344302017236,
+  "tiers": [
+    {
+      "lod": 0,
+      "before": {
+        "file": "revisions/r2/nisoku03_d0_lod0.glb",
+        "sha256": "cd96fa936bec16a5c6b3dc646d9bf452549fa4b3a70dedd48f1d246eb2d80060",
+        "total_height_m": 1.90336605858823,
+        "helmet_height_m": 0.2590000629425049,
+        "head_units": 7.348901915173495,
+        "crown_y_m": 1.9110000581741333,
+        "chin_y_m": 1.6519999952316284,
+        "sole_y_m": 0.0076339995859033595,
+        "head_width_m": 0.24742454290390015,
+        "shoulder_span_m": 0.5943789569169556,
+        "landmarks": {
+          "SOCKET_VISION": {
+            "height_m": 1.767,
+            "heads_below_crown": 0.5559846454790237
+          },
+          "SHOULDER_L": {
+            "height_m": 1.482,
+            "heads_below_crown": 1.6563704784479785
+          },
+          "ELBOW_L": {
+            "height_m": 1.1966853290914448,
+            "heads_below_crown": 2.757971256714553
+          },
+          "WRIST_L": {
+            "height_m": 0.9361264243309432,
+            "heads_below_crown": 3.7639899495298623
+          },
+          "PELVIS": {
+            "height_m": 0.957,
+            "heads_below_crown": 3.6833970128644746
+          },
+          "HIP_L": {
+            "height_m": 0.957,
+            "heads_below_crown": 3.6833970128644746
+          },
+          "KNEE_L": {
+            "height_m": 0.5660327813901469,
+            "heads_below_crown": 5.192922586596259
+          },
+          "ANKLE_L": {
+            "height_m": 0.16499999999999992,
+            "heads_below_crown": 6.741311327641361
+          }
+        }
+      },
+      "after": {
+        "file": "nisoku03_d0_lod0.glb",
+        "sha256": "f6b9518f78ecc65d15756fead2c32289029a728712a5e92d23a4f9dfef7e90e2",
+        "total_height_m": 1.90336605858823,
+        "helmet_height_m": 0.23071110248565674,
+        "head_units": 8.249997672767229,
+        "crown_y_m": 1.9110000581741333,
+        "chin_y_m": 1.6802889556884766,
+        "sole_y_m": 0.0076339995859033595,
+        "head_width_m": 0.2203999012708664,
+        "shoulder_span_m": 0.6171755831655279,
+        "landmarks": {
+          "SOCKET_VISION": {
+            "height_m": 1.767,
+            "heads_below_crown": 0.6241574706318517
+          },
+          "SHOULDER_L": {
+            "height_m": 1.482,
+            "heads_below_crown": 1.8594686322076943
+          },
+          "ELBOW_L": {
+            "height_m": 1.1966853290914448,
+            "heads_below_crown": 3.096143711276736
+          },
+          "WRIST_L": {
+            "height_m": 0.9361264243309432,
+            "heads_below_crown": 4.225516775482436
+          },
+          "PELVIS": {
+            "height_m": 0.957,
+            "heads_below_crown": 4.135041824584247
+          },
+          "HIP_L": {
+            "height_m": 0.957,
+            "heads_below_crown": 4.135041824584247
+          },
+          "KNEE_L": {
+            "height_m": 0.5660327813901469,
+            "heads_below_crown": 5.829659961282543
+          },
+          "ANKLE_L": {
+            "height_m": 0.16499999999999992,
+            "heads_below_crown": 7.567906526226591
+          }
+        }
+      },
+      "shoulder_growth_percent": 3.8353689987307815,
+      "helmet_reduction_percent": 10.92237938045023
+    },
+    {
+      "lod": 1,
+      "before": {
+        "file": "revisions/r2/nisoku03_d0_lod1.glb",
+        "sha256": "848c64e5b9e2d03fb7fbd86ef2fc517c1c703a8e70886a63b1ebdac4eb0d43ca",
+        "total_height_m": 1.9029750586505794,
+        "helmet_height_m": 0.2590000629425049,
+        "head_units": 7.347392263271452,
+        "crown_y_m": 1.9110000581741333,
+        "chin_y_m": 1.6519999952316284,
+        "sole_y_m": 0.00802499952355392,
+        "head_width_m": 0.24784229695796967,
+        "shoulder_span_m": 0.5943789569169556,
+        "landmarks": {
+          "SOCKET_VISION": {
+            "height_m": 1.767,
+            "heads_below_crown": 0.5559846454790237
+          },
+          "SHOULDER_L": {
+            "height_m": 1.482,
+            "heads_below_crown": 1.6563704784479785
+          },
+          "ELBOW_L": {
+            "height_m": 1.1966853290914448,
+            "heads_below_crown": 2.757971256714553
+          },
+          "WRIST_L": {
+            "height_m": 0.9361264243309432,
+            "heads_below_crown": 3.7639899495298623
+          },
+          "PELVIS": {
+            "height_m": 0.957,
+            "heads_below_crown": 3.6833970128644746
+          },
+          "HIP_L": {
+            "height_m": 0.957,
+            "heads_below_crown": 3.6833970128644746
+          },
+          "KNEE_L": {
+            "height_m": 0.5660327813901469,
+            "heads_below_crown": 5.192922586596259
+          },
+          "ANKLE_L": {
+            "height_m": 0.16499999999999992,
+            "heads_below_crown": 6.741311327641361
+          }
+        }
+      },
+      "after": {
+        "file": "nisoku03_d0_lod1.glb",
+        "sha256": "98527349c1b1ce3148690cbd3f285e9274ca0be5892e4c71c165a8d582c1c5cc",
+        "total_height_m": 1.9029750586505794,
+        "helmet_height_m": 0.23071110248565674,
+        "head_units": 8.2483029128123,
+        "crown_y_m": 1.9110000581741333,
+        "chin_y_m": 1.6802889556884766,
+        "sole_y_m": 0.00802499952355392,
+        "head_width_m": 0.22077202796936035,
+        "shoulder_span_m": 0.6171755831655279,
+        "landmarks": {
+          "SOCKET_VISION": {
+            "height_m": 1.767,
+            "heads_below_crown": 0.6241574706318517
+          },
+          "SHOULDER_L": {
+            "height_m": 1.482,
+            "heads_below_crown": 1.8594686322076943
+          },
+          "ELBOW_L": {
+            "height_m": 1.1966853290914448,
+            "heads_below_crown": 3.096143711276736
+          },
+          "WRIST_L": {
+            "height_m": 0.9361264243309432,
+            "heads_below_crown": 4.225516775482436
+          },
+          "PELVIS": {
+            "height_m": 0.957,
+            "heads_below_crown": 4.135041824584247
+          },
+          "HIP_L": {
+            "height_m": 0.957,
+            "heads_below_crown": 4.135041824584247
+          },
+          "KNEE_L": {
+            "height_m": 0.5660327813901469,
+            "heads_below_crown": 5.829659961282543
+          },
+          "ANKLE_L": {
+            "height_m": 0.16499999999999992,
+            "heads_below_crown": 7.567906526226591
+          }
+        }
+      },
+      "shoulder_growth_percent": 3.8353689987307815,
+      "helmet_reduction_percent": 10.92237938045023
+    }
+  ]
+}

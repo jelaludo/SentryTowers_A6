@@ -1,12 +1,12 @@
 {
   "status": "passed",
   "source_sha256": {
-    "nisoku03/index.html": "05e388ebbfefb66fe63745ed2ba72c8dc222c5ac6a911e690ac0cf9c09debb03",
-    "nisoku03/viewer.js": "2c7c7cbe29f7bba2f52c006e8db3fe5f8bdbda000f1b71035ee7ea7943f1d1e2",
+    "nisoku03/index.html": "2c26b89502b9970112cca49f738c546b75a719b2cb03cd3c87de2fabd3d9122c",
+    "nisoku03/viewer.js": "1e108173748e21587bc925215982038a6f036fbf5e23fbdf4526edb4f83e9248",
     "nisoku03/viewer.css": "0f57d419969f0c73d9d5506206cf7a25c888617ccdde56a811d5b07e3094a931",
-    "assets/nisoku03/runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
-    "assets/nisoku03/manifest.json": "6871de372da97c118793c10808f3e6c73d0f59738786a7eff4e1ff8d3669c227",
-    "assets/nisoku03/proportions-report.json": "79a6c3826d29d1477498881605ab9812cfdd785970b43d31823278d4a23737d7"
+    "assets/nisoku03/runtime.js": "ffa5dfcddcc4015164c0ef690297cf091aa2319e0a0c9a1977a3c600d57cdba7",
+    "assets/nisoku03/manifest.json": "e3df4c50b84f44690617178c609b0bb7047d4f61afd4ce1dc9b3fda1e38658a7",
+    "assets/nisoku03/proportions-report.json": "4d00ec80b1d8c127f5c12d1dd12508692819bc0fb2e908f30802cbbc95dda96b"
   },
   "variants": [
     {
@@ -34,7 +34,7 @@
       "encoding": "meshopt"
     }
   ],
-  "matched_body_joint_error_m": 0,
+  "expected_body_landmark_error_m": 1.6711069443220838e-16,
   "motions": [
     "neutral",
     "idle",
@@ -57,7 +57,7 @@
     "Previous NISOKU-03 and original NISOKU-02 reference selection",
     "Measured front head-unit grid",
     "Original/refined/split comparison under identical orthographic camera and area lights",
-    "Neutral body-joint parity",
+    "Expected +32 mm upper-body shift with equal head and ankle positions",
     "Tightly framed front/side/three-quarter master views",
     "All six plain/Meshopt tiers",
     "All eight studies",
