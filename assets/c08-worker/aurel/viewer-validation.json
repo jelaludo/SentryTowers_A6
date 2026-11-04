@@ -51,25 +51,25 @@
   "asset_hashes": [
     {
       "file": "c08_aurel_d0_lod0.glb",
-      "sha256": "661987224479b3f0f069d0dfb532f407d666dc2fef71ad6064ea4b4339a7b706",
-      "meshopt_sha256": "b98d2a79eddac8adcc61a944a176cb9bcb75bc98dc7732997105efd606e872d9"
+      "sha256": "7f687b87bdc2944e693111b87ddace06c077aa18b4c7636ada643a48ebf308b0",
+      "meshopt_sha256": "52d72e885e9b4c17a52dfb303ceb329bbf556a3e732778a1bfd81b3dc11c9946"
     },
     {
       "file": "c08_aurel_d0_lod1.glb",
-      "sha256": "35c5b90cd7201783d562167c3fc63c7ceb43f417292dada9ca5ee69a10541248",
-      "meshopt_sha256": "cb71897cd6e2d0f527aa2d62d6f5fa7221d14219a7b7e8b760e790542347254d"
+      "sha256": "78cb8d6354af8500e63acf9ca95028f9e2dde3be3cd7fd28d300d6e0b9d5e8ca",
+      "meshopt_sha256": "343727d7bacee6c24cf3d7a0092a0a8aad325dd069fe519e95b8db076ee1d8c0"
     },
     {
       "file": "c08_aurel_d0_lod2.glb",
-      "sha256": "7084f355a36c6da7107646f5d6e1f89ea7ccc25f3e201a387cde50cda04cde14",
-      "meshopt_sha256": "85497d2373e1006c10b713e08437538b44e9805d40346028678018ed02186a0a"
+      "sha256": "93d3ac939f5eaa678b659554db20978839592695e0df30b6b92cbc692b27639e",
+      "meshopt_sha256": "87c368c8966ff536ded499262dceb8d96c0d75abe72123defc3d53b8867d98d0"
     }
   ],
   "source_hashes": {
-    "c08-worker/index.html": "4ec4d96833d4be294cc8da7892c50ca025af40a7abde9aca5ee4ff9f95df075e",
-    "c08-worker/viewer.js": "3b4c03bd0108cd06d9e73cdf782014b41f7dbf04c554958cfecc70834acc2a75",
+    "c08-worker/index.html": "10932ce26e80194215152cf4374407a5e9c5afba94615b922c63a6c7215e3a0d",
+    "c08-worker/viewer.js": "453924dcb5144ab1d242b046e3e97f8265f5abffc4cb9407d6201d3bd6e7596b",
     "c08-worker/viewer.css": "45fd0f319324b481fd1a6f5f7051137ac2b00c20f8f882d4656a141483824777",
-    "assets/c08-worker/aurel/runtime.js": "117f74665d0308054b0043774ec7facfb6dd4b8b79e4c1868c729e210d3128f3",
+    "assets/c08-worker/aurel/runtime.js": "60e5a59cc80436c46a48b8ec2b6cd68d51aecd4a1f51b7199ee263db03ed0bdb",
     "tools/asset-pipeline/test-c08-worker-viewer.mjs": "1795b23c4a9ad309b595f71b5efdde1235260adc10ee8ddd90e40e661a42a338"
   }
 }

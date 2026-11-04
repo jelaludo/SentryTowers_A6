@@ -1,5 +1,11 @@
 # Devlog
 
+## 4 November 2026 / C08 — inward-facing palms at rest
+
+Turned the resting hand adapters by opposing quarter-turns so C08's palms face its thighs and both thumbs point forward. The corrected left/right hand assignment, natural finger curl, wrist positions and original body animation data remain intact. Detailed/game exports open in this pose and the static distance surface is rebuilt to match. The optional runtime keeps inward palms during standby, walking, crouching and manual postures; carrying retains its working grip, while inspection smoothly turns the right hand outward and returns it inward.
+
+Regenerated plain and Meshopt exports, measured manifests, review previews and integration notes. Validation now checks inward palm normals and forward thumbs in all six plain/decoded files, plus body-facing palms through standby and walking. Existing motion, hand-fit and browser checks pass. Triangle counts, draw counts, named nodes and sockets are unchanged. Completed: the C08 rest-pose adjustment. Pending: the remaining biped rollout and previously recorded integration acceptance. Handoff: the containing commit plus `assets/c08-worker/` and shared Hand Lab runtime modules. The received collaboration contract remains unchanged.
+
 ## 4 November 2026 / C08 — corrected left/right hand assignment
 
 Swapped the AUREL hand pair between C08's wrists after visual review identified reversed thumb placement. The left C08 wrist now receives the source hand surface and the right receives the reflected surface. Finger motor signs follow the corrected assignment. Detailed, game and static distance exports, optional Meshopt copies, measured manifests and review previews are refreshed; body motion, attachment transforms, node names, triangle counts and draw counts are unchanged.

@@ -61,10 +61,10 @@
     }
   ],
   "source_hashes": {
-    "c08-worker/index.html": "4ec4d96833d4be294cc8da7892c50ca025af40a7abde9aca5ee4ff9f95df075e",
-    "c08-worker/viewer.js": "3b4c03bd0108cd06d9e73cdf782014b41f7dbf04c554958cfecc70834acc2a75",
+    "c08-worker/index.html": "10932ce26e80194215152cf4374407a5e9c5afba94615b922c63a6c7215e3a0d",
+    "c08-worker/viewer.js": "453924dcb5144ab1d242b046e3e97f8265f5abffc4cb9407d6201d3bd6e7596b",
     "c08-worker/viewer.css": "45fd0f319324b481fd1a6f5f7051137ac2b00c20f8f882d4656a141483824777",
-    "assets/c08-worker/aurel/runtime.js": "117f74665d0308054b0043774ec7facfb6dd4b8b79e4c1868c729e210d3128f3",
+    "assets/c08-worker/aurel/runtime.js": "60e5a59cc80436c46a48b8ec2b6cd68d51aecd4a1f51b7199ee263db03ed0bdb",
     "tools/asset-pipeline/test-c08-worker-viewer.mjs": "1795b23c4a9ad309b595f71b5efdde1235260adc10ee8ddd90e40e661a42a338"
   }
 }

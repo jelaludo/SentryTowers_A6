@@ -12,7 +12,7 @@ async function load(url){const b=await fs.readFile(url);return new GLTFLoader().
 const wp=(r,n)=>r.getObjectByName(n).getWorldPosition(new T.Vector3()),wq=(r,n)=>r.getObjectByName(n).getWorldQuaternion(new T.Quaternion()).normalize();
 const hand=await load(new URL('../../hand-lab/biped/lod1/aurel01_biped_d0_lod1.glb',out));createRig(hand.scene).pose(BIPED_REST);let reference;hand.scene.traverse(o=>{if(o.isSkinnedMesh)reference=o});
 // Check the actual wrist assignment independently of the runtime's mapping table.
-// The approved swap places the thumb base on +X of HAND_L and -X of HAND_R.
+// With inward palms, the corrected hand pair places BOTH thumb bases forward.
 report.wrist_assignments=[];
 for(const e of manifest.assets)for(const file of [e.file,e.meshopt_file]){
  const {scene}=await load(new URL(file,out));scene.updateMatrixWorld(true);
@@ -20,8 +20,10 @@ for(const e of manifest.assets)for(const file of [e.file,e.meshopt_file]){
  for(const side of ['L','R']){
   const inv=scene.getObjectByName('HAND_'+side).matrixWorld.clone().invert();
   const thumb=wp(scene,`AUREL_${side}_THUMB_CMC_OPPOSITION`).applyMatrix4(inv),palm=wp(scene,`AUREL_${side}_PALM_FRAME`).applyMatrix4(inv);
-  const x=thumb.x-palm.x,expected=side==='L'?.0546:-.0546;
-  assert(Math.abs(x-expected)<.00015,'wrong hand on wrist '+file+' '+side+' '+x);check[side+'_thumb_offset_x_m']=x;
+  const z=thumb.z-palm.z,normal=new T.Vector3(0,0,1).applyQuaternion(wq(scene,`AUREL_${side}_SOCKET_PALM`)).applyQuaternion(wq(scene,'HAND_'+side).invert()),inward=side==='L'?-1:1;
+  assert(Math.abs(z-.0546)<.00015,'wrong hand on wrist '+file+' '+side+' '+z);
+  assert(normal.x*inward>.9999&&Math.abs(normal.z)<.0001,'palm must face the body '+file+' '+side);
+  check[side+'_thumb_offset_z_m']=z;check[side+'_palm_normal']=normal.toArray();
  }
  report.wrist_assignments.push(check);
 }
@@ -52,6 +54,12 @@ for(const e of manifest.assets){
   ma.stopAllAction();mb.stopAllAction();const ac=ma.clipAction(clip).setLoop(T.LoopOnce,1).play(),bc=mb.clipAction(b.animations.find(c=>c.name===clip.name)).setLoop(T.LoopOnce,1).play();ac.clampWhenFinished=bc.clampWhenFinished=true;
   for(let i=0;i<=60;i++){
    const t=clip.duration*i/60;ac.time=bc.time=Math.min(t,clip.duration-1e-7);ma.update(0);mb.update(0);applyHandPose(b.scene,sampleHands(clip.name,t));a.scene.updateMatrixWorld(true);b.scene.updateMatrixWorld(true);report.body_pose_samples++;
+   if(clip.name==='Carry_Walk_Cycle'||(clip.name==='Work_Inspect'&&t>=1.8&&t<=3))for(const side of clip.name==='Carry_Walk_Cycle'?['L','R']:['R']){
+    assert(b.scene.getObjectByName(`AUREL_${side}_MOUNT`).quaternion.angleTo(new T.Quaternion(0,0,1,0))<1e-7,'working palm orientation');
+   }
+   if(['Standby_Idle','Heavy_Walk_Cycle'].includes(clip.name))for(const side of ['L','R']){
+    const normal=new T.Vector3(0,0,1).applyQuaternion(wq(b.scene,`AUREL_${side}_SOCKET_PALM`)),towardBody=wp(b.scene,'PELVIS').sub(wp(b.scene,`AUREL_${side}_SOCKET_PALM`));towardBody.y=0;towardBody.normalize();assert(normal.dot(towardBody)>.9,'rest/walk palm points away from body');
+   }
    for(const n of originalEntry.required_nodes){report.maximum_body_position_error_m=Math.max(report.maximum_body_position_error_m,wp(a.scene,n).distanceTo(wp(b.scene,n)));report.maximum_body_rotation_error_rad=Math.max(report.maximum_body_rotation_error_rad,wq(a.scene,n).angleTo(wq(b.scene,n)));}
   }
  }
@@ -68,5 +76,5 @@ assert(report.maximum_body_position_error_m<1e-7);assert(report.maximum_body_rot
 const animated=await load(new URL(manifest.assets[1].file,out)),staticModel=await load(new URL(manifest.assets[2].file,out));animated.scene.updateMatrixWorld(true);staticModel.scene.updateMatrixWorld(true);
 for(const n of required){assert(wp(animated.scene,n).distanceTo(wp(staticModel.scene,n))<1e-6,'static frame '+n);assert(wq(animated.scene,n).angleTo(wq(staticModel.scene,n))<1e-6,'static orientation '+n);}
 for(const file of ['tools/asset-pipeline/build-c08-aurel.mjs','tools/blender/export_c08_body.py','assets/c08-worker/aurel/runtime.js','tools/asset-pipeline/validate-c08-aurel-fit.mjs'])report.source_hashes[file]=hash(await fs.readFile(new URL('../../../'+file,out)));
-report.status='passed';report.scope='Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including the corrected right-wrist reflection; positive transforms, independent motors, mount frames, static node parity and budgets. Not arbitrary whole-body collision or force validation.';
+report.status='passed';report.scope='Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including the corrected right-wrist reflection; positive transforms, independent motors, mount frames, inward rest/walk palms, forward thumbs, static node parity and budgets. Not arbitrary whole-body collision or force validation.';
 await fs.writeFile(new URL('fit-validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(report);

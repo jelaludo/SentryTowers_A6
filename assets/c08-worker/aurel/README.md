@@ -4,15 +4,15 @@ C08 now wears a left/right pair of Isao / Mechanism Atelier AUREL-01 economical 
 
 https://jelaludo.github.io/SentryTowers_A6/c08-worker/?variant=aurel&lod=1
 
-The viewer defaults to this game version. **Hand equipment** switches back to the preserved original. **Hands** opens a following close-up; **Hand posture** offers action-following, natural curl, open, grasp, pinch and point. Inspect opens the right hand; Carry uses a loose two-handed grip. Static distance disables articulation.
+The viewer defaults to this game version. **Hand equipment** switches back to the preserved original. **Hands** opens a following close-up; **Hand posture** offers action-following, natural curl, open, grasp, pinch and point. Rest and walking keep the palms toward the body. Inspect turns and opens the right hand, then returns it inward; Carry keeps its loose working grip. Static distance disables articulation.
 
 ## Exports and measured budgets
 
 | Tier | Triangles | Material draws | Plain bytes | Meshopt bytes |
 | --- | ---: | ---: | ---: | ---: |
-| LOD0 / detailed chassis, economy hands | 57,992 | 8 | 2,770,648 | 703,712 |
-| LOD1 / articulated game | 16,452 | 8 | 1,338,848 | 408,244 |
-| LOD2 / static curled distance | 2,784 | 1 | 235,648 | 84,828 |
+| LOD0 / detailed chassis, economy hands | 57,992 | 8 | 2,770,716 | 703,780 |
+| LOD1 / articulated game | 16,452 | 8 | 1,338,916 | 408,312 |
+| LOD2 / static curled distance | 2,784 | 1 | 235,720 | 84,808 |
 
 The complete game robot remains below the 25k unit target. Each articulated hand is exactly the 2,708-triangle economical surface, with one shared palette draw. The chassis keeps six materials; the two independently posed hand skins add two draws. Compared with original C08 game, the retrofit removes 4,792 old hand triangles and adds 5,416: a net 624 triangles and two draws. No FPS gain is claimed. LOD0 retains the detailed chassis and the requested economical hands; the separate original Hand Lab LOD0 remains the detailed hand master.
 
@@ -24,7 +24,7 @@ Metres, +Y up, +Z forward, original ground origin and 1.6 × 1.3 m standing rese
 
 The complete glTF scene belongs inside the robot instance wrapper. Clone with `SkeletonUtils.clone`, including all mesh and bone roots. The hand meshes `AUREL_L_GEOMETRY` and `AUREL_R_GEOMETRY` are scene roots, as required for portable glTF skinning. Their bones follow `HAND_L` / `HAND_R` through `AUREL_L_MOUNT` / `AUREL_R_MOUNT`.
 
-Each adapter translates `[0, 0.045, 0]` m in its original C08 hand frame, rotates 180° around Z and scales uniformly by 1.3. Fingers point down and palms forward in the rest frame. The left/right surface assignments were swapped after the first visual fit review; the original assignment put the thumbs on the wrong hands. This is a C08-specific adapter, not a universal biped attachment offset.
+Each adapter translates `[0, 0.045, 0]` m in its original C08 hand frame and scales uniformly by 1.3. Its rest rotation is `RY(yaw) × RZ(180°)`, with yaw −90° on the left wrist and +90° on the right. Fingers point down, palms face the body and thumbs point forward. The left/right surface assignments were swapped after the first visual fit review; the original assignment put the thumbs on the wrong hands. This is a C08-specific adapter, not a universal biped attachment offset.
 
 The left C08 wrist now receives the source surface; the right wrist receives the reflected surface. Reflection changes local X positions/normals, reverses winding, conjugates all local transforms and inverse bind matrices, and reverses Y/Z motor signs. `HAND_ASSIGNMENT` records this explicitly; source Hand Lab side labels must not be used to infer the C08 wrist assignment. No negative runtime scale is used. New nodes use `AUREL_L_` and `AUREL_R_` prefixes; for example:
 
@@ -47,7 +47,7 @@ The five original body clips retain their names, durations and animation data:
 | `Work_Inspect` | 5.0 | One-shot, returns |
 | `Crouch_Service` | 5.0 | One-shot, returns |
 
-No new AUREL motor is baked into a clip. The exported articulated hands already have the natural curl in their default pose. For action-following fingers, run the optional adapter after updating the body mixer:
+No new AUREL motor is baked into a clip. The exported articulated hands already have natural curl and inward-facing palms in their default pose. The optional adapter preserves inward palms for standby, walking, crouching and manual hand postures. Carry uses the original working orientation; inspection smoothly turns the raised right hand outward and returns it inward. No adapter yaw is baked into the body clips. Run the adapter after updating the body mixer:
 
 ```js
 import {sampleHands, applyHandPose} from './assets/c08-worker/aurel/runtime.js';
@@ -57,7 +57,7 @@ mixer.update(dt);
 applyHandPose(gltf.scene, sampleHands(clipName, clipTime, 'auto'));
 ```
 
-For independent poses pass `{L: leftAngles, R: rightAngles}`. Angles use the original Hand Lab convention; `applyHandPose` handles the reflected right-wrist sign conversion. Both wrists default neutral because C08's body clip already drives `HAND_L/R`; a consumer may additionally drive the two fine wrist axes if desired. `SENSOR_YAW` stays engine-driven and excluded from clips.
+For independent poses pass `{L: leftAngles, R: rightAngles}`. An optional `mountYaw: {L, R}` supplies adapter yaw in radians; when omitted, the inward rest yaw is restored. `sampleHands` includes this field for action-specific presentation. Angles use the original Hand Lab convention; `applyHandPose` handles the reflected right-wrist sign conversion. Both wrists default neutral because C08's body clip already drives `HAND_L/R`; a consumer may additionally drive the two fine wrist axes if desired. `SENSOR_YAW` stays engine-driven and excluded from clips.
 
 Loading policy: LOD2 for a stationary map/loading stand-in; LOD1 before visible motion, provisionally within 30 m with 8 m hysteresis. Keep LOD1 during gameplay motion. Settle the whole body to its authored standing frame and hands to `BIPED_REST` before a visible static swap; hand rest alone does not match a walking body. Static nodes are lookup metadata, not an animated rig. Use the new `validation-report.json` clip envelopes for culling. LOD0 is for recordings and close review.
 
@@ -65,7 +65,7 @@ Loading policy: LOD2 for a stationary map/loading stand-in; LOD1 before visible 
 
 All six plain/decoded Meshopt files pass glTF validation with zero errors and warnings. The full motion suite covers 8,756 geometry samples at 120 Hz: minimum floor clearance 4.635 mm, maximum stance-anchor drift 0.967 mm and maximum plain/decoded joint-position difference 0.720 mm. All actions close/return within the recorded tolerances. The quaternion check normalizes decomposed world orientations before comparing rotation angles, including uniformly scaled hand rigs.
 
-`fit-validation.json` verifies all six original C08 file hashes, byte-identical body animation data, unchanged original frames through 610 samples, source-identical economical hand surfaces including the right-wrist reflection, wrist attachment, 194 posture/motor checks, independent left/right skeleton state, static frame parity and budgets. A separate check verifies the actual thumb-base offset in each C08 wrist frame for all six plain/decoded files: +54.6 mm on `HAND_L`, −54.6 mm on `HAND_R`, matching the requested pair swap. `viewer-validation.json` covers both equipment versions, all tier/encoding combinations, existing controls, posture selection, a following hand close-up, static lockout and desktop/mobile layouts. Review renders are derived previews.
+`fit-validation.json` verifies all six original C08 file hashes, byte-identical body animation data, unchanged original frames through 610 samples, source-identical economical hand surfaces including the right-wrist reflection, wrist attachment, 194 posture/motor checks, independent left/right skeleton state, static frame parity and budgets. A separate check verifies inward palm normals and forward thumb-base offsets (+54.6 mm on local Z for both wrists) in all six plain/decoded files. Standby and walking samples also check that each palm faces toward the body. This retains the corrected left/right surface assignment while changing its resting orientation. `viewer-validation.json` covers both equipment versions, all tier/encoding combinations, existing controls, posture selection, a following hand close-up, static lockout and desktop/mobile layouts. Review renders are derived previews.
 
 Reproduce from the repository root:
 

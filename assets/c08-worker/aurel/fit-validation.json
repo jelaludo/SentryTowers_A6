@@ -5,46 +5,106 @@
   "hand_pose_samples": 194,
   "maximum_body_position_error_m": 0,
   "maximum_body_rotation_error_rad": 4.2146848510894035e-8,
-  "maximum_hand_surface_error_m": 4.2007538746572676e-16,
+  "maximum_hand_surface_error_m": 3.9745993972772024e-16,
   "maximum_mount_error_m": 0,
   "source_hashes": {
-    "tools/asset-pipeline/build-c08-aurel.mjs": "8341ad8aafbdcb1b64a2eac2e3c7c03f340e53973cd5f0e7fbd7c74716ad32d8",
+    "tools/asset-pipeline/build-c08-aurel.mjs": "67a065506802978539d3b2a609856782e74d9b654cb4d61ba964ee0306e49dce",
     "tools/blender/export_c08_body.py": "4c59d54ba9dfa55d9232c269357f095861d4a233c878fd22b392adb2305414e3",
-    "assets/c08-worker/aurel/runtime.js": "117f74665d0308054b0043774ec7facfb6dd4b8b79e4c1868c729e210d3128f3",
-    "tools/asset-pipeline/validate-c08-aurel-fit.mjs": "3c0a0ef55499b34019c56a28b0ba419912f171d7013b1464374479dd40e9267e"
+    "assets/c08-worker/aurel/runtime.js": "60e5a59cc80436c46a48b8ec2b6cd68d51aecd4a1f51b7199ee263db03ed0bdb",
+    "tools/asset-pipeline/validate-c08-aurel-fit.mjs": "029511136235491465e01acdf32a854c03e3e60ffe68915935b6e8ac6e7dabf0"
   },
   "assembly_inputs_verified": 5,
   "wrist_assignments": [
     {
       "file": "c08_aurel_d0_lod0.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     },
     {
       "file": "derived/meshopt/c08_aurel_d0_lod0.meshopt.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     },
     {
       "file": "c08_aurel_d0_lod1.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     },
     {
       "file": "derived/meshopt/c08_aurel_d0_lod1.meshopt.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     },
     {
       "file": "c08_aurel_d0_lod2.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     },
     {
       "file": "derived/meshopt/c08_aurel_d0_lod2.meshopt.glb",
-      "L_thumb_offset_x_m": 0.05459999999999998,
-      "R_thumb_offset_x_m": -0.05459999999999998
+      "L_thumb_offset_z_m": 0.05460000000000001,
+      "L_palm_normal": [
+        -1,
+        0,
+        2.220446049250313e-16
+      ],
+      "R_thumb_offset_z_m": 0.05460000000000001,
+      "R_palm_normal": [
+        1,
+        0,
+        2.220446049250313e-16
+      ]
     }
   ],
-  "scope": "Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including the corrected right-wrist reflection; positive transforms, independent motors, mount frames, static node parity and budgets. Not arbitrary whole-body collision or force validation."
+  "scope": "Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including the corrected right-wrist reflection; positive transforms, independent motors, mount frames, inward rest/walk palms, forward thumbs, static node parity and budgets. Not arbitrary whole-body collision or force validation."
 }

@@ -6,17 +6,18 @@ const page=await browser.newPage({viewport:{width:1500,height:1000},deviceScaleF
 const out=new URL('../../assets/c08-worker/aurel/',import.meta.url);await fs.mkdir(new URL('previews/',out),{recursive:true});
 await page.goto(process.env.C08_VIEWER_URL||'http://127.0.0.1:8791/c08-worker/?variant=aurel&lod=1');await page.waitForFunction(()=>window.c08Worker?.gltf);
 await page.addStyleTag({content:'.identity,.views,.stage-meta,.view-badge{display:none!important}'});
+const manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));const distance=manifest.assets.find(e=>e.lod===2);
 const panels=[];
 const shots=[
  ['game','Game / AUREL economical pair','16,452 triangles · eight material draws',1,'Standby_Idle',0,'rest','hero'],
- ['palm','Natural inward curl','2,708 triangles per hand · independent mirrored rigs',1,'Standby_Idle',0,'rest','hands'],
- ['dorsal','Ivory shells / wrist interface','Same Isao hand · fixed C08 adapter',1,'Standby_Idle',0,'rest','hands'],
+ ['palm','Rest / palms toward body','2,708 triangles per hand · independent mirrored rigs',1,'Standby_Idle',0,'rest','hands'],
+ ['dorsal','Palm pads / body-facing side','Same Isao hand · fixed C08 adapter',1,'Standby_Idle',0,'rest','hands'],
  ['inspect','Inspection / open right hand','Original body action · engine-driven fingers',1,'Work_Inspect',2.4,'auto','hero'],
  ['carry','Carry / loose paired grip','Existing locomotion and wrist choreography retained',1,'Carry_Walk_Cycle',.76,'auto','hero'],
- ['distance','Distance / naturally curled static','2,784 triangles · one draw · 235,648 bytes',2,'Standby_Idle',0,'rest','hero']
+ ['distance','Distance / naturally curled static',`${distance.triangles.toLocaleString()} triangles · one draw · ${distance.bytes.toLocaleString()} bytes`,2,'Standby_Idle',0,'rest','hero']
 ];
 for(const [id,label,detail,lod,clip,time,mode,view]of shots){
- await page.locator('#lod').selectOption(String(lod));await page.waitForFunction(l=>c08Worker.entry.lod===l,lod);
+ if(await page.evaluate(()=>c08Worker.entry.lod)!==lod){await page.locator('#lod').selectOption(String(lod));await page.waitForFunction(l=>c08Worker.entry.lod===l,lod);}
  await page.evaluate(async({clip,time,mode,view,id})=>{document.getElementById('hand-mode').value=mode;c08Worker.selectClip(clip);c08Worker.scrub(time);c08Worker.setView(view);if(id==='dorsal'){
   const T=await import('three'),k=c08Worker,center=new T.Box3().setFromObject(k.gltf.scene.getObjectByName('AUREL_R_GEOMETRY'),true).getCenter(new T.Vector3());const delta=k.camera.position.clone().sub(center);delta.x*=-1;delta.z*=-1;k.camera.position.copy(center).add(delta);k.camera.lookAt(center);
  }},{clip,time,mode,view,id});

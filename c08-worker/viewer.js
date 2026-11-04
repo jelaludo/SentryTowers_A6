@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {applyHandPose,sampleHands} from '../assets/c08-worker/aurel/runtime.js?v=c08-aurel-v2';
+import {applyHandPose,sampleHands} from '../assets/c08-worker/aurel/runtime.js?v=c08-aurel-v3';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
@@ -13,11 +13,11 @@ const rim=new T.DirectionalLight(0xb6d5ef,2);rim.position.set(-3,3,-3);scene.add
 const floor=new T.Mesh(new T.PlaneGeometry(100,100),new T.MeshStandardMaterial({color:0x202629,roughness:.85,metalness:.05}));floor.rotation.x=-Math.PI/2;floor.position.y=-.003;floor.receiveShadow=true;scene.add(floor);
 const grid=new T.GridHelper(40,80,0x455353,0x303b3d);grid.position.y=-.001;scene.add(grid);
 const holder=new T.Group();scene.add(holder);const markers={};for(const id of ['L','R']){const m=new T.Mesh(new T.RingGeometry(.16,.17,40),new T.MeshBasicMaterial({color:0xedbe67,side:T.DoubleSide,transparent:true,opacity:.8,depthWrite:false}));m.rotation.x=-Math.PI/2;scene.add(m);markers[id]=m;}
-const manifests=Object.fromEntries(await Promise.all(['original','aurel'].map(async v=>[v,await fetch('../assets/c08-worker/'+(v==='aurel'?'aurel/':'')+'manifest.json?v=aurel-v2').then(r=>{if(!r.ok)throw new Error('Manifest '+r.status);return r.json()})])));
+const manifests=Object.fromEntries(await Promise.all(['original','aurel'].map(async v=>[v,await fetch('../assets/c08-worker/'+(v==='aurel'?'aurel/':'')+'manifest.json?v=aurel-v3').then(r=>{if(!r.ok)throw new Error('Manifest '+r.status);return r.json()})])));
 let manifest=manifests.aurel;const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),params=new URLSearchParams(location.search);
 $('variant').value=params.get('variant')==='original'?'original':'aurel';$('lod').value=['0','1','2'].includes(params.get('lod'))?params.get('lod'):'1';
 let gltf,entry,mixer,action,helper,time=0,elapsed=0,playing=true,clipName='Heavy_Walk_Cycle',activeView='hero',loadToken=0,comparison,comparePromise;const lastFollow=new T.Vector3();
-const motionReports=await Promise.all(['','aurel/'].map(p=>fetch('../assets/c08-worker/'+p+'validation-report.json?v=aurel-v2').then(r=>r.json()))),motionBounds=new T.Box3();for(const report of motionReports)for(const b of Object.values(report.clip_envelopes))motionBounds.union(new T.Box3(new T.Vector3(...b.min),new T.Vector3(...b.max)));
+const motionReports=await Promise.all(['','aurel/'].map(p=>fetch('../assets/c08-worker/'+p+'validation-report.json?v=aurel-v3').then(r=>r.json()))),motionBounds=new T.Box3();for(const report of motionReports)for(const b of Object.values(report.clip_envelopes))motionBounds.union(new T.Box3(new T.Vector3(...b.min),new T.Vector3(...b.max)));
 const meta=()=>manifest.assets[0].clips.find(c=>c.name===clipName);
 $('clips').innerHTML=manifest.assets[0].clips.map((c,i)=>`<button data-clip="${c.name}"><span>0${i+1}</span>${c.label}</button>`).join('');
 function selectClip(name){clipName=name;time=elapsed=0;playing=true;mixer?.stopAllAction();const clip=gltf?.animations.find(c=>c.name===name);action=clip?mixer.clipAction(clip):null;if(action){action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.reset().play();}
