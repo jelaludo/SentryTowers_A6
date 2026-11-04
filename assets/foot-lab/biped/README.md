@@ -1,6 +1,6 @@
-# NISOKU-02 / Biped variants
+# AUREL-02 / Biped variants
 
-Two additional versions for robot integration: an economical articulated LOD1 and a static LOD2 frozen in a natural inward curl. The original master, game and distance GLBs remain byte-for-byte intact. Both use the same right-side authoring frame, scale, joint hierarchy and attachments as the original foot. The detailed master remains the original family's LOD0.
+Two additional versions for robot integration: an economical articulated LOD1 and a static LOD2 frozen in a natural inward curl. The original master, game and distance GLBs remain byte-for-byte intact. Both use the same source authoring frame, scale, joint hierarchy and attachments as the original foot. The detailed master remains the original family's LOD0.
 
 Economical game viewer:
 

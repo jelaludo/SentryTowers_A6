@@ -1,4 +1,5 @@
 const collectionImages={
+'nisoku02':'assets/nisoku02/preview.jpg',
 'foot-lab':'assets/foot-lab/preview.png',
 'hand-lab':'assets/hand-lab/preview.png',
 'rokuroku66':'assets/rokuroku66/preview.png',
@@ -38,7 +39,8 @@ const collectionImages={
 };
 
 export const collections=[
-['foot-lab','Foot Lab / NISOKU-02','Characters','Isao’s tactile prehensile foot: a broad heel, recessed arch, short gripping toes and an opposable great toe. Explore heel-to-toe stepping, toe agility, ankle balance and metal-pipe capture. Includes a 2,496-triangle economical biped rig and a naturally curled static version.','22 axes · Biped: 2,496 tris / 1 draw · Curled static','Kinematic design study'],
+['nisoku02','NISOKU-02 / All-purpose Humanoid','Characters','An Isao humanoid assembled with AUREL-01 hands and AUREL-02 tactile feet. Ivory armor, a dark oval visor, overlapping waist plates and gold rotary bearings. Standby, planted-foot walking, greeting, inspection, service crouch, toe agility and a calibrated metal-rail grasp.','7 motion studies · 20,244 game tris / 2 draws · 3 tiers','Kinematic prototype'],
+['foot-lab','Foot Lab / AUREL-02','Characters','Isao’s tactile prehensile foot: a broad heel, recessed arch, short gripping toes and an opposable great toe. Explore heel-to-toe stepping, toe agility, ankle balance and metal-pipe capture. Includes a 2,496-triangle economical biped rig and a naturally curled static version.','22 axes · Biped: 2,496 tris / 1 draw · Curled static','Kinematic design study'],
 ['hand-lab','Hand Lab / AUREL-01','Characters','An original ivory-and-graphite robotic hand with 23 joint axes, tactile fingertips, thumb opposition and an inspectable shell. Explore poses and motion, compare with attributed source models, or choose the 2,708-triangle economical biped hand and naturally curled static version.','23 axes · Biped: 2,708 tris / 1 draw · Curled static','Kinematic design study'],
 ['rokuroku66','RokuRoku-66 / Serpentine Limbs','Characters','Isao’s second biomimetic creature: six independent chains of short geared vertebrae. A continuous story at a 3× default pace wakes from a sleeping spiral, hands sensing to the limbs nearest the rolling 09-tai lure, pursues it, wraps a fixed pole and resumes the chase. Seeded roaming and individual motion studies remain available. Short two-axis gimbals carry sliding ivory scales and flexible service loops.','3× story · Adaptive feelers · Pole wrap · 3 LODs','Kinematic study'],
 ['nih-dairia-mech','Nih-Dairia / Isao Mechanical Study','Characters','Isao’s mechanical interpretation of an alien creature: six radial limbs, ivory armor, telescoping carbon hydraulics and three ivory pads per foot. Two legs reach ahead and plant anchors that pull the body forward.','3 pads per foot · Two-leg reach · Anchored step · 3 LODs','Kinematic prototype'],

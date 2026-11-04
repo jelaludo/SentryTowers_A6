@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "nisoku02/index.html": "f0ca83fd721fdd83b41b9082dcfcc54874cd1a72fae805689ab0eab943e79d9d",
+    "nisoku02/viewer.js": "c5194ad8d245113b7b36d5f01ec05fe05df8985d09749620d195f1cf5a249204",
+    "nisoku02/viewer.css": "dca65b485f24b02254a10ad3e1681a34709fef9975e279708c01fbc16dec90d4",
+    "assets/nisoku02/runtime.js": "4ce0f2265c6b5e7ec8e5b376903b8f829344514fc3435e8830107f11bde47f0f",
+    "assets/nisoku02/manifest.json": "7e7fa0aa7efddc284a6a64e385a344f8cc2e3fd51ea5cde2894dd618a521cdba"
+  },
+  "variants": [
+    {
+      "lod": 0,
+      "encoding": "plain"
+    },
+    {
+      "lod": 0,
+      "encoding": "meshopt"
+    },
+    {
+      "lod": 1,
+      "encoding": "plain"
+    },
+    {
+      "lod": 1,
+      "encoding": "meshopt"
+    },
+    {
+      "lod": 2,
+      "encoding": "plain"
+    },
+    {
+      "lod": 2,
+      "encoding": "meshopt"
+    }
+  ],
+  "motions": [
+    "idle",
+    "walk",
+    "greet",
+    "inspect",
+    "crouch",
+    "agility",
+    "rail"
+  ],
+  "desktop": [
+    1512,
+    1100
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "checks": [
+    "Every pose framed in hero view",
+    "All six plain/Meshopt tiers",
+    "Static playback disabled",
+    "Ground travel",
+    "Rail fixture",
+    "Wireframe and skeleton",
+    "Play/pause",
+    "Shared navigation",
+    "No horizontal mobile overflow",
+    "No browser errors"
+  ],
+  "performance": "No FPS claim; automated Chromium uses SwiftShader."
+}

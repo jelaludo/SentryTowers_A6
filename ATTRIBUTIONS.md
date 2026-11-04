@@ -1,14 +1,18 @@
 # Asset attributions and provenance
 
+## NISOKU-02 humanoid / 4 November 2026
+
+Original chassis, assembly, rigid skin, motion adapter, viewer and derived review renders by jelaludo / Model Workshop. The humanoid assembles our original AUREL-01 hand and AUREL-02 foot geometry, with a reflected pair, shared materials and reduced game/distance derivatives. No third-party hand reference geometry or code is incorporated. Two user-provided concept images guide the silhouette; fingerprints are recorded in `assets/nisoku02/manifest.json`, and the images are not redistributed. Original Workshop reuse terms apply. The foot was renamed from NISOKU-02 to AUREL-02; legacy foot file and node identifiers remain unchanged.
+
 ## C08 / AUREL economical hand retrofit / 4 November 2026
 
 Original assembly, reflected hand pair, adapter and review renders by jelaludo / Model Workshop, combining our existing C08 and AUREL-01 economical geometry. No third-party hand sources are incorporated. Original C08 files, its Blender master and Hand Lab originals remain preserved. The distance hands are simplified derivatives within the new static assembly; optional compressed copies are marked derived. See `assets/c08-worker/aurel/README.md`.
 
 ## Biped hand and foot variants / 4 November 2026
 
-The economical articulated AUREL-01 and NISOKU-02 variants, natural resting poses, frozen distance meshes and review renders are original work by jelaludo / Model Workshop, derived from our own procedural hand and foot designs. Existing model exports, source-reference originals and their license notices remain unchanged. Original Workshop reuse terms apply; integration records are in `docs/BIPED-EXTREMITIES.md` and each family's `biped/` folder.
+The economical articulated AUREL-01 and AUREL-02 variants, natural resting poses, frozen distance meshes and review renders are original work by jelaludo / Model Workshop, derived from our own procedural hand and foot designs. Existing model exports, source-reference originals and their license notices remain unchanged. Original Workshop reuse terms apply; integration records are in `docs/BIPED-EXTREMITIES.md` and each family's `biped/` folder.
 
-## Foot Lab / NISOKU-02 / 4 November 2026
+## Foot Lab / AUREL-02 / 4 November 2026
 
 Original foot geometry, 22-axis rig, demonstrations, rail fixture, viewer and derived review images by jelaludo / Model Workshop. Isao / Mechanism Atelier is the same fictional manufacturer as AUREL-01; the foot reuses our own palette and procedural construction approach, without importing third-party hand meshes or code. Guided by the user-supplied `nisoku-02.png`; the concept remains external and its SHA-256 is recorded in `assets/foot-lab/manifest.json`. No humanoid body is included in this standalone foot study. Original workshop reuse terms apply.
 

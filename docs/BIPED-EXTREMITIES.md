@@ -1,6 +1,6 @@
 # Isao biped extremities / integration notes
 
-The AUREL-01 hand and NISOKU-02 foot now have economical articulated and naturally curled static variants, prepared for adaptation to the Workshop's biped robots. They retain their original authoring frames and rigs. The first completed attachment test is now C08 with the economical hand pair; see `assets/c08-worker/aurel/README.md`. Foot attachment and the remaining biped hand rollout are pending.
+The AUREL-01 hand and AUREL-02 foot now have economical articulated and naturally curled static variants, prepared for adaptation to the Workshop's biped robots. They retain their original authoring frames and rigs. The first completed attachment test is now C08 with the economical hand pair; see `assets/c08-worker/aurel/README.md`. Foot attachment and the remaining biped hand rollout are pending.
 
 ## Select the variant by identity and LOD
 
@@ -15,7 +15,7 @@ Plain GLBs are authoritative. Meshopt copies under each family's `derived/meshop
 
 ## Frame and mount contract
 
-| Property | AUREL-01 | NISOKU-02 foot |
+| Property | AUREL-01 | AUREL-02 foot |
 | --- | --- | --- |
 | Units | Metres | Metres |
 | Authoring side | Right | Right |
@@ -34,7 +34,7 @@ Compute the relative socket matrix after applying the desired local pose. Conver
 
 The foot's ankle axes rotate its upper coupling relative to the foot. When a robot controller holds that coupling at a leg socket, solving the mounting relation rotates the foot oppositely under the fixed coupling. Choose controller signs accordingly. Its `FOOT_PLACEMENT` bone is for the lab's lift, travel and rocking demonstrations; keep it neutral when locomotion is already driven by the robot's leg/root controller. Drive each pivot from one pose system.
 
-These are right-side assets. A left-side conversion should mirror geometry, winding, socket frames and motor conventions together and record the new handedness. It is a separate retargeting step; selecting the economical variant does not produce a left hand or foot. The C08 retrofit implements and validates the complete pair with an explicit C08 wrist assignment in its assembled exports; the standalone source assets remain right-sided.
+Standalone components have one source frame. Do not infer final wrist or ankle assignment from their historical “right-side” labels: mirror geometry, winding, socket frames and motor conventions together, then check inward palm normals, forward thumbs and medial great toes in the assembled robot. C08 and NISOKU-02 both implement and validate the complete hand pair; NISOKU-02 also assembles paired AUREL-02 feet. Its +Z-forward frame uses the source foot on the left (-X medial) and reflection on the right (+X medial). Original standalone bytes and legacy metadata remain preserved; assembly metadata takes precedence for placement.
 
 ## Runtime and static swaps
 
@@ -61,4 +61,4 @@ Each family has `biped/validation-report.json`, `biped/viewer-validation.json`, 
 
 Pass the commit hash plus `assets/hand-lab/` and `assets/foot-lab/`. Include their existing runtime modules and new `biped.js`; do not hand off a loose GLB without its pose and socket contract. Original workshop attribution applies: credit **jelaludo**. Source-reference licenses inside Hand Lab remain separate and are unchanged.
 
-Completed first fit: C08 hand pair, including corrected left/right wrist assignments. Still pending: other robot attachment/retargeting, foot left variants, arbitrary-pose and whole-body collision/force checks, gameplay damage states, consuming-game r160/release gltfpack verification and reference-phone measurements. Finite authored-pose tests are not a physical contact or manufacturing certification. `docs/ASSET-COLLABORATION.md` remains verbatim as received.
+Completed first fits: C08 hand pair with inward resting palms, and NISOKU-02 with paired AUREL-01 hands and AUREL-02 feet. Still pending: remaining robot attachment/retargeting, standalone paired-foot exports, arbitrary-pose and whole-body collision/force checks, gameplay damage states, consuming-game r160/release gltfpack verification and reference-phone measurements. Finite authored-pose tests are not a physical contact or manufacturing certification. `docs/ASSET-COLLABORATION.md` remains verbatim as received.

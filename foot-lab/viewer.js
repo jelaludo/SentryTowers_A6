@@ -1,6 +1,6 @@
 import * as T from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {createRig,POSES,MOTIONS,JOINTS,TOES,controlsPose,sampleMotion,PIPE} from '../assets/foot-lab/runtime.js?v=footlab-v1';
-import {BIPED_REST} from '../assets/foot-lab/biped.js?v=biped-v1';
+import {BIPED_REST} from '../assets/foot-lab/biped.js?v=aurel02-v1';
 const $=id=>document.getElementById(id),base='../assets/foot-lab/',stage=$('stage'),scene=new T.Scene();scene.background=new T.Color(0x253740);scene.fog=new T.FogExp2(0x253740,.55);
 const renderer=new T.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;stage.prepend(renderer.domElement);
 const pmrem=new T.PMREMGenerator(renderer),room=new RoomEnvironment(),env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
@@ -18,7 +18,7 @@ for(const side of [-1,1]){
  const stand=new T.Mesh(new T.BoxGeometry(.022,.080,.062),standMat);stand.position.set(side*.132,.04,PIPE.center[2]);stand.castShadow=stand.receiveShadow=true;fixture.add(stand);
  const ring=new T.Mesh(new T.TorusGeometry(PIPE.radius+.001,.002,8,40),new T.MeshStandardMaterial({color:0xc5a164,metalness:.8,roughness:.3}));ring.rotation.y=Math.PI/2;ring.position.set(side*.141,PIPE.center[1],PIPE.center[2]);fixture.add(ring);
 }
-const manifest=await fetch(base+'manifest.json?v=biped-v1').then(r=>r.json());
+const manifest=await fetch(base+'manifest.json?v=aurel02-v1').then(r=>r.json());
 let root,rig,skeleton,entry,state,encoding='plain',generation=0,playing=false,time=0,last=performance.now(),pose={...POSES.plant},view='hero',selectedPose='plant';
 function dispose(r){const gs=new Set(),ms=new Set(),ss=new Set();r.traverse(o=>{if(o.isMesh){gs.add(o.geometry);for(const m of(Array.isArray(o.material)?o.material:[o.material]))ms.add(m);if(o.skeleton)ss.add(o.skeleton);}});gs.forEach(x=>x.dispose());ms.forEach(x=>x.dispose());ss.forEach(x=>x.dispose());}
 function applyVisibility(){root?.traverse(o=>{if(o.isMesh){o.visible=entry?.static||o.material.name!=='CERAMIC_IVORY'||$('armor').checked;if(o.material.name==='TACTILE_ELASTOMER')o.visible=$('pads').checked;for(const m of(Array.isArray(o.material)?o.material:[o.material]))m.wireframe=$('wire').checked;}});if(skeleton)skeleton.visible=$('rig').checked&&!entry.static;}
@@ -60,7 +60,7 @@ async function load(){
   root=g.scene;entry=e;encoding=format;actor.add(root);root.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;o.frustumCulled=false;}});rig=createRig(root);skeleton=new T.SkeletonHelper(root);scene.add(skeleton);
   for(const id of ['play','time','motion','speed','curl','spread','opposition','digit','digit-curl','joint','angle','explode','armor','pads','rig','export-pose'])$(id).disabled=e.static;document.querySelectorAll('[data-pose]').forEach(b=>b.disabled=e.static);for(const id of ['armor','pads'])$(id).disabled=e.static||e.merged_palette;$('biped-rest').disabled=e.static;
   document.querySelector('.specimen-tag').innerHTML=variant==='biped'?'02 / BIPED VARIANT<br>'+(e.static?'CURLED DISTANCE MODEL':'MINIMAL MOTION RIG'):'01 / ORIGINAL STUDY<br>TACTILE / PREHENSILE FOOT';$('download').href=base+(format==='plain'?e.file:e.meshopt_file);$('stats').innerHTML=`<div><strong>${e.triangles.toLocaleString()}</strong><small>Triangles</small></div><div><strong>${e.draw_calls}</strong><small>Draws</small></div><div><strong>${Math.round((format==='plain'?e.bytes:e.meshopt_bytes)/1024)}</strong><small>KiB</small></div>`;
-  $('status').textContent='NISOKU-02 / '+(variant==='biped'?(e.static?'Curled static / Biped':'Economical game / Biped'):e.static?'Static distance':lod===0?'Detailed master':'Articulated game')+' / '+(format==='plain'?'Plain GLB':'Decoded Meshopt');
+  $('status').textContent='AUREL-02 / '+(variant==='biped'?(e.static?'Curled static / Biped':'Economical game / Biped'):e.static?'Static distance':lod===0?'Detailed master':'Articulated game')+' / '+(format==='plain'?'Plain GLB':'Decoded Meshopt');
   playing=resume&&!e.static;$('play').textContent=playing?'Pause':'Play';last=performance.now();syncControls();update();applyVisibility();setView(view);
  }catch(e){$('status').textContent='Load failed: '+e.message;console.error(e);}
 }

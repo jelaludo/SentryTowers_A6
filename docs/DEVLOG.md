@@ -1,5 +1,19 @@
 # Devlog
 
+## 4 November 2026 / NISOKU-02 humanoid and AUREL-02 foot designation
+
+Renamed the public NISOKU-02 foot family to **AUREL-02**, companion to AUREL-01. Foot Lab, Workshop, integration notes and review sheets use the new designation. Original foot GLBs, paths, hashes, legacy `nisoku02foot` identifiers and pose schema remain unchanged; NISOKU-02 now identifies the separate complete humanoid.
+
+Built an original Isao / Mechanism Atelier humanoid with ivory shells, a continuous dark visor, graphite seals, gold bearings, amber indicators and overlapping abdominal plates. It assembles the actual AUREL-01 hands and AUREL-02 feet: full component detail in the master, economical components in game. Both pairs have explicit source/reflected assignments. Default palms face inward, thumbs forward and great toes medially. The foot sources’ historical side labels are clarified in the assembly guide; measured socket directions determine mounting.
+
+Seven named engine-driven motion studies cover standby, planted-foot walking, greeting, hand inspection, a 24 cm service crouch, independent toe agility and a 14-second metal-rail capture/release. Walking combines two-bone leg IK, anchored stance, body weight shift and arm counter-swing. The rail sequence aligns the great toe above the fixture before lowering and closing, then releases before returning to the floor. No engine-driven joints are baked into GLB clips. The viewer includes timeline/speed controls, seven cameras, travel, skeleton, wireframe, tier/encoding selection and downloads; static distance locks articulation.
+
+Measured master: 344,760 triangles / six material draws / 17,184,488 plain bytes. Game: 20,244 / two / 1,029,696, below the 25k unit triangle target. Static distance: 2,498 / one / 172,588, below all three distance targets. All tiers preserve 247 engine-facing nodes and 65 sockets. Plain GLB is authoritative; optional Meshopt copies and the simplified static surface are marked derived. Original component files are preserved. No FPS improvement is claimed.
+
+All six plain/decoded files pass glTF validation with zero errors and warnings. The 2,772 sampled motion poses pass finite geometry, floor and pipe clearance, rigid leg lengths, reachable IK, stance anchoring, cycle closure, inward palms, forward thumbs, medial great toes and five opposed tactile rail frames. Browser checks cover all seven studies, all six files, controls, static lockout, hero framing and desktop/mobile layouts without browser errors. Foot Lab’s existing export and browser checks also pass after the rename. Review renders and measured reports accompany the new family.
+
+Completed: foot designation update and NISOKU-02 v1. C08’s prior inward-palm update is deployed and checked on the public viewer. Pending: the remaining biped hand rollout; arbitrary terrain/self-collision/force solving, gameplay crossfades, damage states, consuming-game release packing/r160, camera thresholds and reference-phone acceptance. Handoff: the containing commit plus `assets/nisoku02/`, with shared Hand Lab `runtime.js` / `biped.js` and Foot Lab `runtime.js` for optional motion. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / C08 — inward-facing palms at rest
 
 Turned the resting hand adapters by opposing quarter-turns so C08's palms face its thighs and both thumbs point forward. The corrected left/right hand assignment, natural finger curl, wrist positions and original body animation data remain intact. Detailed/game exports open in this pose and the static distance surface is rebuilt to match. The optional runtime keeps inward palms during standby, walking, crouching and manual postures; carrying retains its working grip, while inspection smoothly turns the right hand outward and returns it inward.

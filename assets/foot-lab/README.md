@@ -1,8 +1,10 @@
-# Foot Lab / NISOKU-02
+# Foot Lab / AUREL-02
+
+Renamed from NISOKU-02 to **AUREL-02**, companion to AUREL-01. NISOKU-02 now identifies the complete Isao humanoid. Existing GLB filenames, `nisoku02foot` family key, root-node names and pose schema are retained as compatibility identifiers; all original model bytes remain unchanged.
 
 **Biped variants:** choose “Biped / economy” for a second articulated game version (2,496 triangles / one draw) and a static version with naturally curled toes. All original exports below are preserved. See `biped/README.md` and `docs/BIPED-EXTREMITIES.md` for measurements, pose matching and mounting notes.
 
-An original tactile, prehensile **right foot** from **Isao / Mechanism Atelier**, the fictional manufacturer of the AUREL-01 hand. Short ivory shells, graphite links, gold bearings, amber indicators and dark elastomer pads share the hand’s material language. The substantial heel, elevated medial arch, ankle above the hindfoot and four short toes make this a foot. Its two-segment great toe rotates to oppose the four lesser toes.
+An original tactile, prehensile **foot** from **Isao / Mechanism Atelier**, the fictional manufacturer of the AUREL-01 hand. Short ivory shells, graphite links, gold bearings, amber indicators and dark elastomer pads share the hand’s material language. The substantial heel, elevated medial arch, ankle above the hindfoot and four short toes make this a foot. Its two-segment great toe rotates to oppose the four lesser toes.
 
 Viewer: https://jelaludo.github.io/SentryTowers_A6/foot-lab/
 
@@ -24,7 +26,7 @@ These counts describe the foot, excluding the viewer’s floor, lighting, shadow
 
 ## Coordinate and attachment contract
 
-- Metres; **+Y up, +Z toes/forward, -X medial**. Root `NISOKU_02_FOOT_ROOT` is on the ground at the plot centre, unchanged across all tiers. Reserved plot: 0.40 × 0.40 m. D0 is the only authored damage state; D1–D3 are not implied by LOD.
+- Metres; **+Y up, +Z toes/forward, -X medial**. Root `NISOKU_02_FOOT_ROOT` is on the ground at the plot centre, unchanged across all tiers. The original embedded “right” label is historical; with +Z forward, this -X-medial source is mounted on NISOKU-02’s left ankle and reflected for its right. Original GLB bytes are preserved. Reserved plot: 0.40 × 0.40 m. D0 is the only authored damage state; D1–D3 are not implied by LOD.
 - **53 consistent named nodes:** root, 38 bones and 14 sockets. All names are meaningful, unique and dot-free. There are 22 mechanism axes, 15 inspection shell bones and one placement bone. Bone lengths are rigid.
 - `SOCKET_ANKLE_ATTACH` is the leg interface, with its normal along +Y in the neutral pose. Its exact transform, along with all other sockets and neutral bounds, is measured in `manifest.json`.
 - `SOCKET_HEEL`, `SOCKET_FOREFOOT` and `SOCKET_ARCH` describe support locations. Each of `TOE_02` through `TOE_05` and `HALLUX` has `_TIP` and `_PAD` sockets. Pad socket +Z points out of the tactile surface; use the full socket quaternion, not the foot’s forward axis.

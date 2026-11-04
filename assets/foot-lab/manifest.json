@@ -4,7 +4,7 @@
   "manufacturer": "Isao / Mechanism Atelier",
   "companion_family": "aurel01",
   "version": 1,
-  "label": "Foot Lab / NISOKU-02",
+  "label": "Foot Lab / AUREL-02",
   "status": "kinematic_design_study",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -19,7 +19,7 @@
   "supported_damage_levels": [
     0
   ],
-  "missing_damage_states_reason": "D1–D3 not authored; damage and LOD are independent.",
+  "missing_damage_states_reason": "D1\u2013D3 not authored; damage and LOD are independent.",
   "budgets": {
     "lod1": {
       "triangles": 25000,
@@ -236,7 +236,7 @@
     {
       "id": "nisoku02foot_d0_lod0",
       "family": "nisoku02foot",
-      "label": "NISOKU-02 / Tactile prehensile foot",
+      "label": "AUREL-02 / Tactile prehensile foot",
       "file": "lod0/nisoku02foot_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
@@ -565,12 +565,13 @@
         "SOCKET_FOREFOOT",
         "SOCKET_ARCH"
       ],
-      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated."
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated.",
+      "display_name": "AUREL-02"
     },
     {
       "id": "nisoku02foot_d0_lod1",
       "family": "nisoku02foot",
-      "label": "NISOKU-02 / Tactile prehensile foot",
+      "label": "AUREL-02 / Tactile prehensile foot",
       "file": "lod1/nisoku02foot_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
@@ -899,12 +900,13 @@
         "SOCKET_FOREFOOT",
         "SOCKET_ARCH"
       ],
-      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated."
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated.",
+      "display_name": "AUREL-02"
     },
     {
       "id": "nisoku02foot_d0_lod2",
       "family": "nisoku02foot",
-      "label": "NISOKU-02 / Tactile prehensile foot",
+      "label": "AUREL-02 / Tactile prehensile foot",
       "file": "lod2/nisoku02foot_d0_lod2.glb",
       "lod": 2,
       "damage_level": 0,
@@ -1233,7 +1235,8 @@
         "SOCKET_FOREFOOT",
         "SOCKET_ARCH"
       ],
-      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated."
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated.",
+      "display_name": "AUREL-02"
     },
     {
       "id": "nisoku02foot_biped_d0_lod1",
@@ -1571,7 +1574,8 @@
       "variant": "biped",
       "merged_palette": true,
       "material_visibility": false,
-      "static_pose": null
+      "static_pose": null,
+      "display_name": "AUREL-02"
     },
     {
       "id": "nisoku02foot_biped_d0_lod2",
@@ -1935,7 +1939,8 @@
         "TOE_05_MTP": 0.14,
         "TOE_05_PIP": 0.23,
         "TOE_05_DIP": 0.15
-      }
+      },
+      "display_name": "AUREL-02"
     }
   ],
   "variants": {
@@ -2000,5 +2005,8 @@
       "static_contract": "LOD2 geometry is frozen in rest_pose. Local hierarchy and interface coordinates are retained; world socket positions match articulated LOD1 at rest_pose, not its neutral bind pose. Static lookup nodes do not animate.",
       "integration": "Same right-side attachment frames, bone lengths, joint names and runtime as original. Apply rest_pose before an LOD1/LOD2 swap; retain LOD1 for visible motion. Material-based visibility is unavailable on the merged palette; joint rig, wireframe and shell-bone inspection remain available on LOD1."
     }
-  }
+  },
+  "display_name": "AUREL-02",
+  "formerly": "NISOKU-02 foot",
+  "identity_note": "AUREL-02 is the public foot designation. Legacy nisoku02foot filenames, family key, root node and pose schema remain stable for compatibility. NISOKU-02 now names the complete humanoid."
 }
