@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Three.js0.180.0 separate rig and moveset import",
+      "variants": false,
+      "clips": 99,
+      "poses": 297,
+      "max_joint_error_m": 0.0000014369940363558052
+    },
+    {
+      "name": "Three.js0.180.0 separate rig and moveset import",
+      "variants": true,
+      "clips": 207,
+      "poses": 621,
+      "max_joint_error_m": 0.0000021720172852293965
+    }
+  ],
+  "errors": [],
+  "request_failures": []
+}

@@ -1,0 +1,2741 @@
+{
+  "schema": "kimodo-game-state-machine/1",
+  "recipe": 1,
+  "units": "meters, seconds, Y up, +Z actor forward; anatomical left is +X",
+  "scope": "Candidate game-motion kit. Source takes preserved; derived in-place loops and one-shots. C08 and B-REK43 only. Runtime transitions, contact IK, collision controller and props require visual acceptance.",
+  "motion_root": "in-place; controller owns horizontal displacement and airborne jump arc",
+  "defaults": {
+    "character_height_m": 1.9,
+    "walk_m_s": 1.25,
+    "jog_m_s": 2.4,
+    "run_m_s": 3.8,
+    "sprint_m_s": 6,
+    "crouch_m_s": 0.75,
+    "crawl_m_s": 0.45,
+    "carry_walk_m_s": 0.95,
+    "carry_jog_m_s": 1.9,
+    "locomotion_blend_s": 0.14,
+    "stance_blend_s": 0.1
+  },
+  "transitions": [
+    [
+      "stand",
+      "immediate crouch-forward support pose",
+      "crouch"
+    ],
+    [
+      "crouch",
+      "immediate idle with headroom check",
+      "stand"
+    ],
+    [
+      "crouch",
+      "quick double-C end pose",
+      "seiza"
+    ],
+    [
+      "stand",
+      "game-prone-down",
+      "prone"
+    ],
+    [
+      "prone",
+      "game-getup-front",
+      "stand"
+    ],
+    [
+      "stand",
+      "game-pickup",
+      "carry"
+    ],
+    [
+      "carry",
+      "game-putdown",
+      "stand"
+    ],
+    [
+      "stand",
+      "game-knockdown",
+      "down"
+    ],
+    [
+      "down",
+      "game-getup-back",
+      "stand"
+    ],
+    [
+      "stand",
+      "game-sit",
+      "sit"
+    ],
+    [
+      "sit",
+      "game-stand-seat",
+      "stand"
+    ]
+  ],
+  "responsive_controls": {
+    "action_windows": "action-profiles.json",
+    "evade_s": 0.32,
+    "double_c_ms": 300,
+    "jump_anticipation_s": 0.065,
+    "action_blend_s": 0.065,
+    "cancel": "latest explicit action wins; fresh movement cancels evade/attack",
+    "flight": "independent of animation action",
+    "traversal": "explicit tags, range/facing/height and free destination; authored collision-checked path; exact contact IK remains open"
+  },
+  "contact_actions": {
+    "ledge": {
+      "threshold_height_m": 1.9,
+      "max_height_m": 2.85,
+      "duration_s": 2.45,
+      "phases": [
+        "load",
+        "jump",
+        "catch",
+        "hang",
+        "pull-up",
+        "top-out"
+      ]
+    },
+    "hero_landing": {
+      "min_drop_m": 1.6,
+      "min_impact_m_s": 4.5,
+      "duration_s": 1.65,
+      "pose": "right knee / left fist down; right elbow up"
+    },
+    "method": "Authored contact poses over existing generated sources, not new Kimodo inference",
+    "recording": "Save take bakes these layers; original source clips and 94-clip packs do not."
+  },
+  "variation": {
+    "default_on": true,
+    "policy": "state-entry shuffle bag; no immediate repeat; current take fixed; compared bodies share seed",
+    "rejected": "Current Game Kit Reject reviews and automatic_eligible=false excluded from automatic play; preferred mode falls back to eligible takes",
+    "preview_export": "Explicit selected/preferred takes; no random export selection",
+    "sprint_automatic_seeds": [
+      411,
+      1233,
+      1644,
+      2055,
+      2466
+    ],
+    "sprint_review_only_seeds": [
+      822
+    ]
+  },
+  "modifier_controls": {
+    "focus": "Game canvas only; not form controls or modals",
+    "forward": "Ctrl+W: happy skipping, 2.2m/s, dedicated generated loop",
+    "keyboard_capture": "Capture keys: JS fullscreen plus keyboard lock; Escape releases; browser permission required",
+    "backward": "Ctrl+S: 1.25m/s backward walk, camera heading held",
+    "plain_s": "Turn toward viewer and run back at3.8m/s; Shift sprints; stance/carry limits retained",
+    "strafe": "Ctrl+A/D: 1.25m/s lateral walk, camera heading held",
+    "browser": "All Ctrl chords prevent defaults in the viewport; unassigned chords reserved; Ctrl+W and other reserved browser shortcuts require Capture keys; form/modal editing and Meta shortcuts pass through"
+  },
+  "side_ukemi": {
+    "seeds_per_side": [
+      4411,
+      5522,
+      6633
+    ],
+    "styles": {
+      "4411": "judo",
+      "5522": "judo",
+      "6633": "skateboard shoulder roll"
+    },
+    "duration_s": 3.6,
+    "low_obstacle": "Plant impacting foot, compress hip/knee and continue incoming momentum over beam with matching-side roll; ground-level root and pose contacts",
+    "high_obstacle": "Same planted response; select away-side pool and collision-checked ground-level route",
+    "contact": {
+      "plant_until_s": 0.5,
+      "release_until_s": 0.76,
+      "fold_until_s": 0.45,
+      "hip_drop_m": 0.18,
+      "controller_roll_start_s": 0.48,
+      "method": "World-space sole anchor and two-bone leg IK; authored pelvis tilt/twist and compression; source-specific entry timing bypasses idle preparation; after release torso-skin/leg contacts support low-beam crossing while all other obstacles block"
+    },
+    "method": "Existing six Kimodo sources plus kinematic contact constraints; not a full rigid-body/force simulation",
+    "recording": "Save take bakes selected source, planted leg solve, controller path and transitions; original source clips retain their generated motion"
+  },
+  "breakfalls": {
+    "low_object_height_m": [
+      0.12,
+      0.7
+    ],
+    "min_speed_m_s": 0.65,
+    "trigger": "grounded standing locomotion contacts a low solid; frontal/backward by velocity versus facing; clear rollout required",
+    "recovery_interrupt_fraction": 0.72,
+    "cooldown_after_s": 0.8,
+    "forward_seeds": [
+      1101,
+      2202,
+      3303
+    ],
+    "backward_auto_seeds": [
+      101,
+      202
+    ],
+    "backward_manual_only_seeds": [
+      303
+    ]
+  },
+  "loop_policy": "Phase-searched interior window plus overlap crossfade. Position/quaternion endpoints match. Review velocity, contacts and balance separately.",
+  "jump_policy": "Anticipation / airborne / landing source windows; controller supplies jump height and airtime. Jump source airborne root arc removed in game clip to avoid double height.",
+  "runtime_not_in_default_pack": [
+    "World movement and collision controller",
+    "Foot and carrying hand IK",
+    "Authored ledge and superhero pose layers",
+    "Inter-clip blends",
+    "Prop transform"
+  ],
+  "recording": "Save take exports sampled actor transforms and bone poses including live IK. Prop mesh/trajectory are excluded.",
+  "bodies": {
+    "nisoku03": {
+      "file": "moveset.glb",
+      "default_seed": 411,
+      "clips": [
+        {
+          "motion": "game-idle",
+          "label": "Idle",
+          "clip": "game-idle-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.833333,
+          "direction": null,
+          "target_speed_m_s": 0,
+          "measured_unscaled_target_speed_m_s": 0.0013348577325350535,
+          "jump": null,
+          "source_sha256": "a83471e75d8cf97390aebd0cf1a83d8a8565b30c2fcc5e98fef275ca471bc278",
+          "candidate": "game-idle-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-idle-look",
+          "label": "Idle / look around",
+          "clip": "game-idle-look-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.004415763019025107,
+          "jump": null,
+          "source_sha256": "4fd7dfe30cb162636fa1fad7e1188396b796473cacaa6e167a46898cb9add8e9",
+          "candidate": "game-idle-look-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-forward",
+          "label": "Walk / forward",
+          "clip": "game-walk-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 1.25,
+          "measured_unscaled_target_speed_m_s": 1.2354831066830176,
+          "jump": null,
+          "source_sha256": "8f85f4603284eb618ea4d566f34cc03916da4048cd85d2220b5f4101ae4993d8",
+          "candidate": "game-walk-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-backward",
+          "label": "Walk / backward",
+          "clip": "game-walk-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.966667,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 0.9750000000000001,
+          "measured_unscaled_target_speed_m_s": 0.9701225487485846,
+          "jump": null,
+          "source_sha256": "30c5985162e9f151f2c581fe59b3a4455974ba2be602476bab6aa80a8b1ac59a",
+          "candidate": "game-walk-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-left",
+          "label": "Walk / left",
+          "clip": "game-walk-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.9,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 1.125,
+          "measured_unscaled_target_speed_m_s": 1.1430077376761116,
+          "jump": null,
+          "source_sha256": "e63d91b2f38ce6dfcdd32cc051904dba651332050972b3ab4f4091c368c509d8",
+          "candidate": "game-walk-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-right",
+          "label": "Walk / right",
+          "clip": "game-walk-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.933333,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 1.125,
+          "measured_unscaled_target_speed_m_s": 1.143185957436379,
+          "jump": null,
+          "source_sha256": "5e20e751f59e1533e950a7f695935cb63ed535fe6f51d84e39dca8d3e3153573",
+          "candidate": "game-walk-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-forward-left",
+          "label": "Walk / forward-left",
+          "clip": "game-walk-forward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.033333,
+          "direction": [
+            -0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 1.125,
+          "measured_unscaled_target_speed_m_s": 1.1086713899461522,
+          "jump": null,
+          "source_sha256": "b7337df99f92d297f9141bbd2e770f71c7adffbc17fd3db79680555c9245c203",
+          "candidate": "game-walk-forward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-forward-right",
+          "label": "Walk / forward-right",
+          "clip": "game-walk-forward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.1,
+          "direction": [
+            0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 1.125,
+          "measured_unscaled_target_speed_m_s": 1.1181538663494845,
+          "jump": null,
+          "source_sha256": "07b66999b2f239bf1b17e9b5595be3a1d23196e9a5eb5d6a56313eba121ad118",
+          "candidate": "game-walk-forward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-backward-left",
+          "label": "Walk / backward-left",
+          "clip": "game-walk-backward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.866667,
+          "direction": [
+            -0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 0.9750000000000001,
+          "measured_unscaled_target_speed_m_s": 0.9932946781848071,
+          "jump": null,
+          "source_sha256": "49c5de46427af42a6141257c6711f0f823396e20a9802cbc5c807a370d731277",
+          "candidate": "game-walk-backward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-walk-backward-right",
+          "label": "Walk / backward-right",
+          "clip": "game-walk-backward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 2.266667,
+          "direction": [
+            0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 0.9750000000000001,
+          "measured_unscaled_target_speed_m_s": 0.9696720052325097,
+          "jump": null,
+          "source_sha256": "4e9f1312f7b5f29f8b02a0499e3ebcde5119b90afa6a05fb6aba163191849228",
+          "candidate": "game-walk-backward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-forward",
+          "label": "Jog / forward",
+          "clip": "game-jog-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.666667,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 2.4,
+          "measured_unscaled_target_speed_m_s": 2.358366234087582,
+          "jump": null,
+          "source_sha256": "609b5e9de5c7a40fac0bdf377d6802e0fb97dfe05273ed1d2f8c0c833cdfe18e",
+          "candidate": "game-jog-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-backward",
+          "label": "Jog / backward",
+          "clip": "game-jog-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.933333,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 1.8719999999999999,
+          "measured_unscaled_target_speed_m_s": 1.8546079346413262,
+          "jump": null,
+          "source_sha256": "0c9ecde52fb7a774f4eb6922289633de0d38358024142ff795fa79abe3227faa",
+          "candidate": "game-jog-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-left",
+          "label": "Jog / left",
+          "clip": "game-jog-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.866667,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 2.16,
+          "measured_unscaled_target_speed_m_s": 2.1323046708464943,
+          "jump": null,
+          "source_sha256": "d90039fb6c273ae752b827897a9ac5891679b48c985c9149edd1df14494945d2",
+          "candidate": "game-jog-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-right",
+          "label": "Jog / right",
+          "clip": "game-jog-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.133333,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 2.16,
+          "measured_unscaled_target_speed_m_s": 2.169282385743808,
+          "jump": null,
+          "source_sha256": "8f1317943e7459699f6ebd797620c623b715932bd372e2d34d1db1f8d8c4ec3e",
+          "candidate": "game-jog-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-forward-left",
+          "label": "Jog / forward-left",
+          "clip": "game-jog-forward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.6,
+          "direction": [
+            -0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 2.16,
+          "measured_unscaled_target_speed_m_s": 2.1581733906752527,
+          "jump": null,
+          "source_sha256": "303bd80df7b903795d78341800f410f8b545dbbb2e124a3ae2690931765656c9",
+          "candidate": "game-jog-forward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-forward-right",
+          "label": "Jog / forward-right",
+          "clip": "game-jog-forward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 2.3,
+          "direction": [
+            0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 2.16,
+          "measured_unscaled_target_speed_m_s": 2.1334376366278933,
+          "jump": null,
+          "source_sha256": "552672de7d15d281c2227b205ba7a7b33c1fe4d093724e6a3615fb680b7a4eca",
+          "candidate": "game-jog-forward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-backward-left",
+          "label": "Jog / backward-left",
+          "clip": "game-jog-backward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.6,
+          "direction": [
+            -0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 1.8719999999999999,
+          "measured_unscaled_target_speed_m_s": 1.885001587779525,
+          "jump": null,
+          "source_sha256": "8981b961a9d5293912cddb6e7f91f6d49edb710a821d8e771469ea31e495bd27",
+          "candidate": "game-jog-backward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jog-backward-right",
+          "label": "Jog / backward-right",
+          "clip": "game-jog-backward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.6,
+          "direction": [
+            0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 1.8719999999999999,
+          "measured_unscaled_target_speed_m_s": 1.877057891707533,
+          "jump": null,
+          "source_sha256": "807af55f089e4b0e7946bd8736002cda991132fd697a4acd86546a6453b5ad54",
+          "candidate": "game-jog-backward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-forward",
+          "label": "Run / forward",
+          "clip": "game-run-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.933333,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 3.8,
+          "measured_unscaled_target_speed_m_s": 3.671889930646906,
+          "jump": null,
+          "source_sha256": "4005b3b2b478f3144ee78b456a0a5b35569dc3cacf516145172e74dee66df3b1",
+          "candidate": "game-run-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-backward",
+          "label": "Run / backward",
+          "clip": "game-run-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.9,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 2.964,
+          "measured_unscaled_target_speed_m_s": 2.9060707219361968,
+          "jump": null,
+          "source_sha256": "767e8d36d07020b4306a8710fae7ae7eaa133e486d39f96acc8a7ed4479647f7",
+          "candidate": "game-run-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-left",
+          "label": "Run / left",
+          "clip": "game-run-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.6,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 3.42,
+          "measured_unscaled_target_speed_m_s": 3.4426125276371433,
+          "jump": null,
+          "source_sha256": "82bcbd43b49dbbbc98d160233056ed798521489655a9c1927c688a789a9bfb14",
+          "candidate": "game-run-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-right",
+          "label": "Run / right",
+          "clip": "game-run-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.033333,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 3.42,
+          "measured_unscaled_target_speed_m_s": 3.3732187600223758,
+          "jump": null,
+          "source_sha256": "a49cca9fd137588a39cf7cd73b7ec29b40afb26c1a31431a1ba95e52d46e33d5",
+          "candidate": "game-run-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-forward-left",
+          "label": "Run / forward-left",
+          "clip": "game-run-forward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.8,
+          "direction": [
+            -0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 3.42,
+          "measured_unscaled_target_speed_m_s": 3.3276542997553045,
+          "jump": null,
+          "source_sha256": "01fc2896019c39a0a617157d9cd524af2a333ca7901686ed8a3c0c3454894c07",
+          "candidate": "game-run-forward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-forward-right",
+          "label": "Run / forward-right",
+          "clip": "game-run-forward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.166667,
+          "direction": [
+            0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 3.42,
+          "measured_unscaled_target_speed_m_s": 3.3266334993306943,
+          "jump": null,
+          "source_sha256": "3d4ad66e2d3a1d626f83f3b893b5a0898a19024e66f56ef07e107bdc3d39891f",
+          "candidate": "game-run-forward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-backward-left",
+          "label": "Run / backward-left",
+          "clip": "game-run-backward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.1,
+          "direction": [
+            -0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 2.964,
+          "measured_unscaled_target_speed_m_s": 2.9316608646333226,
+          "jump": null,
+          "source_sha256": "c50b3401f9f1fdc790f9f09a8857e73ac61c871d965839199b8fb9f4249d01fd",
+          "candidate": "game-run-backward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-run-backward-right",
+          "label": "Run / backward-right",
+          "clip": "game-run-backward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.633333,
+          "direction": [
+            0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 2.964,
+          "measured_unscaled_target_speed_m_s": 2.9446608253618436,
+          "jump": null,
+          "source_sha256": "381b043e86b8433675c8cee7205d56aaceaa64e19edf77b7b4359f4024e685e3",
+          "candidate": "game-run-backward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-sprint-forward",
+          "label": "Sprint / forward",
+          "clip": "game-sprint-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.766667,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 6,
+          "measured_unscaled_target_speed_m_s": 5.906058605072743,
+          "jump": null,
+          "source_sha256": "93c3b4c2b8b5988723dff3b70172fc0a5f0ec81ae14ac2ec9bb88a8f512b0b77",
+          "candidate": "game-sprint-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-idle",
+          "label": "Crouch / idle",
+          "clip": "game-crouch-idle-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.533333,
+          "direction": null,
+          "target_speed_m_s": 0,
+          "measured_unscaled_target_speed_m_s": 0.007223640520566662,
+          "jump": null,
+          "source_sha256": "c92dd75e09f936854d1f0ca0cdfe0e0a18954347acfdb67812e7ff0435d1f97a",
+          "candidate": "game-crouch-idle-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-forward",
+          "label": "Crouch / forward",
+          "clip": "game-crouch-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 2.366667,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.740658255638536,
+          "jump": null,
+          "source_sha256": "94e490e20880ee57b852ba0bb4a076090afcf90ffafaec6bec59708230078cfa",
+          "candidate": "game-crouch-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-backward",
+          "label": "Crouch / backward",
+          "clip": "game-crouch-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.233333,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7657526914797252,
+          "jump": null,
+          "source_sha256": "69a281e6ec8a95c4d098e33768812fc2407e79c52f56ffd346454e027edcb30b",
+          "candidate": "game-crouch-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-left",
+          "label": "Crouch / left",
+          "clip": "game-crouch-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.866667,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7379965475073388,
+          "jump": null,
+          "source_sha256": "49c8d7f874a8efe38ba6833c74027436b9f8eb63beaa310130a596909d666db1",
+          "candidate": "game-crouch-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-right",
+          "label": "Crouch / right",
+          "clip": "game-crouch-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.066667,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.763613770265011,
+          "jump": null,
+          "source_sha256": "876d2196f877fb529999aa04facd2db47fdbe5375b249d9c80ce9e254ab2856b",
+          "candidate": "game-crouch-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-forward-left",
+          "label": "Crouch / forward-left",
+          "clip": "game-crouch-forward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.233333,
+          "direction": [
+            -0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7625472261620274,
+          "jump": null,
+          "source_sha256": "518b047ea18e9b244fa35bef415d396d8cdb1e44b25ad732601cb65ab268b696",
+          "candidate": "game-crouch-forward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-forward-right",
+          "label": "Crouch / forward-right",
+          "clip": "game-crouch-forward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.933333,
+          "direction": [
+            0.7071,
+            0.7071
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7522338951428384,
+          "jump": null,
+          "source_sha256": "84c720c0330f6564b36b448d321e47e3cc05c8153aaccc21956a14be60a8a8f9",
+          "candidate": "game-crouch-forward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-backward-left",
+          "label": "Crouch / backward-left",
+          "clip": "game-crouch-backward-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.166667,
+          "direction": [
+            -0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7749977090387149,
+          "jump": null,
+          "source_sha256": "56626d72b84cba03fd704af52e4ce3251c382072cfd5aaebab736d35ed3bf4ec",
+          "candidate": "game-crouch-backward-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-backward-right",
+          "label": "Crouch / backward-right",
+          "clip": "game-crouch-backward-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.1,
+          "direction": [
+            0.7071,
+            -0.7071
+          ],
+          "target_speed_m_s": 0.75,
+          "measured_unscaled_target_speed_m_s": 0.7742145892433863,
+          "jump": null,
+          "source_sha256": "f79ce46e9549cd3a75e30ec03cf191486649a7033f0d37ba840d83b2c65df646",
+          "candidate": "game-crouch-backward-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crawl-forward",
+          "label": "Prone crawl / forward",
+          "clip": "game-crawl-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.933333,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 0.45,
+          "measured_unscaled_target_speed_m_s": 0.41993592399938484,
+          "jump": null,
+          "source_sha256": "0765475042a850d0988114ef1ecb235b4f7cc9114a1ffba9a0c305897096b917",
+          "candidate": "game-crawl-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crawl-backward",
+          "label": "Prone crawl / backward",
+          "clip": "game-crawl-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.3,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 0.45,
+          "measured_unscaled_target_speed_m_s": 0.4239236470424842,
+          "jump": null,
+          "source_sha256": "a21a910aab3b2268e0c5895c06951b43123596561c7900947995e8e1a479cd58",
+          "candidate": "game-crawl-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crawl-left",
+          "label": "Prone crawl / left",
+          "clip": "game-crawl-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.866667,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 0.45,
+          "measured_unscaled_target_speed_m_s": 0.43122129759242234,
+          "jump": null,
+          "source_sha256": "3785247d00feb682fb2b06ae987b940e404e540e4ca4a483647ce8a62994ae86",
+          "candidate": "game-crawl-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crawl-right",
+          "label": "Prone crawl / right",
+          "clip": "game-crawl-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.566667,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 0.45,
+          "measured_unscaled_target_speed_m_s": 0.43865063795024545,
+          "jump": null,
+          "source_sha256": "adc76de83c81ecbc55e13cb9b91cce94da4e8de8b5d44f88fd5f304162c12f1c",
+          "candidate": "game-crawl-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-prone-idle",
+          "label": "Prone / idle",
+          "clip": "game-prone-idle-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.633333,
+          "direction": null,
+          "target_speed_m_s": 0,
+          "measured_unscaled_target_speed_m_s": 0.0022168404986795975,
+          "jump": null,
+          "source_sha256": "b1b6b2c35e6a3f76adcc91fe52e05ba78ea9a87432db0c370ae8ec7bca69805c",
+          "candidate": "game-prone-idle-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-idle",
+          "label": "Box / carry idle",
+          "clip": "game-carry-idle-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 2.766667,
+          "direction": null,
+          "target_speed_m_s": 0,
+          "measured_unscaled_target_speed_m_s": 0.003398626437252875,
+          "jump": null,
+          "source_sha256": "fd8db5fe6f0d556df51369310efa09e0533057c8346f20342e0a8700e3ae6279",
+          "candidate": "game-carry-idle-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-forward",
+          "label": "Box / walk forward",
+          "clip": "game-carry-forward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.133333,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 0.95,
+          "measured_unscaled_target_speed_m_s": 0.9070345257812287,
+          "jump": null,
+          "source_sha256": "0ebe850ceb1093d52325b2a835ff17ac04f2f2ddc82d09009bb40d29a4202ae9",
+          "candidate": "game-carry-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-backward",
+          "label": "Box / walk backward",
+          "clip": "game-carry-backward-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 2.233333,
+          "direction": [
+            0,
+            -1
+          ],
+          "target_speed_m_s": 0.95,
+          "measured_unscaled_target_speed_m_s": 0.9370866302640402,
+          "jump": null,
+          "source_sha256": "c3d77558419c292fdb33d7863bb4a0f88f8fc2126a36d00a8a182226f5c83c50",
+          "candidate": "game-carry-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-left",
+          "label": "Box / walk left",
+          "clip": "game-carry-left-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.9,
+          "direction": [
+            -1,
+            0
+          ],
+          "target_speed_m_s": 0.95,
+          "measured_unscaled_target_speed_m_s": 0.9696561650696113,
+          "jump": null,
+          "source_sha256": "0ec05a5019fdfd091b18ea010162185a324483ee168b3955a16e0801c7daef6e",
+          "candidate": "game-carry-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-right",
+          "label": "Box / walk right",
+          "clip": "game-carry-right-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 1.1,
+          "direction": [
+            1,
+            0
+          ],
+          "target_speed_m_s": 0.95,
+          "measured_unscaled_target_speed_m_s": 0.9568691140874116,
+          "jump": null,
+          "source_sha256": "6d9fc48baef4c8cd9f556b4093446c27c4815b8f0cd0d2e52e3143047236d5a1",
+          "candidate": "game-carry-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-carry-jog",
+          "label": "Box / jog forward",
+          "clip": "game-carry-jog-seed411-nisoku03",
+          "loop": true,
+          "duration_s": 0.633333,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 1.9,
+          "measured_unscaled_target_speed_m_s": 1.8159148189360488,
+          "jump": null,
+          "source_sha256": "dd63717139f2a43feee690e23752fa84311164654de18357f5aae1ba0540f5ca",
+          "candidate": "game-carry-jog-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-down",
+          "label": "Enter crouch",
+          "clip": "game-crouch-down-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 3.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.014138057302394931,
+          "jump": null,
+          "source_sha256": "27d02ff6e762e1a41191c822639b27b6e782ee2f527d6cba43302b65523e3c40",
+          "candidate": "game-crouch-down-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-crouch-up",
+          "label": "Leave crouch",
+          "clip": "game-crouch-up-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 3.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0071383273583006755,
+          "jump": null,
+          "source_sha256": "0f1760701ef089091e9eafe85c9d92cfe9c4d6f4763c9b832434516247a97e30",
+          "candidate": "game-crouch-up-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-prone-down",
+          "label": "Enter prone",
+          "clip": "game-prone-down-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.16914898965906314,
+          "jump": null,
+          "source_sha256": "301df6f89c589f42038079f2432f110664e78a4ab7a8e5e35f054901dd8d77ea",
+          "candidate": "game-prone-down-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-getup-front",
+          "label": "Get up / front",
+          "clip": "game-getup-front-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.034059424138082064,
+          "jump": null,
+          "source_sha256": "31f3192f7ff9dd398c6cb253427eb7aea9442f31a55fbbda69fb684d29facd17",
+          "candidate": "game-getup-front-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-getup-back",
+          "label": "Get up / back",
+          "clip": "game-getup-back-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.05116113721656414,
+          "jump": null,
+          "source_sha256": "771dc4da71bb576945f61de1eede7cae6e16fefc907561d21d3eec7d0f530e35",
+          "candidate": "game-getup-back-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-pickup",
+          "label": "Box / pick up",
+          "clip": "game-pickup-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0013757968946559423,
+          "jump": null,
+          "source_sha256": "72f79db311a2a789aaa3612c77c7d6f2c3983121d62c53e8fbb0efc489e57f66",
+          "candidate": "game-pickup-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-putdown",
+          "label": "Box / put down",
+          "clip": "game-putdown-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0028901315124456833,
+          "jump": null,
+          "source_sha256": "42fc919ca907f2c1aeead896c365e5c4710da5796d8f78a0c4dab84aca04698a",
+          "candidate": "game-putdown-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-push",
+          "label": "Push crate",
+          "clip": "game-push-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.5303465952027974,
+          "jump": null,
+          "source_sha256": "07e05eab93ce4ebaa06b9a26b3e51a9bc7df23177621ec987d16075e2f1e461b",
+          "candidate": "game-push-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-pull",
+          "label": "Pull crate",
+          "clip": "game-pull-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.2579042123214895,
+          "jump": null,
+          "source_sha256": "98d48e73f95096587dc254fc377ef73f46025c71d5a11b06e345511348edc704",
+          "candidate": "game-pull-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-panel",
+          "label": "Use terminal",
+          "clip": "game-panel-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.002574159577738756,
+          "jump": null,
+          "source_sha256": "0262d74a60d4ec17190225e0fc477c6210542670160f5659598a35a36209e4b5",
+          "candidate": "game-panel-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-door",
+          "label": "Open door",
+          "clip": "game-door-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.24761264932606128,
+          "jump": null,
+          "source_sha256": "94798f7ce062f1bddb3d3454491c2b5a6882d40cf6115d6ac3dd2725bdb7b5a7",
+          "candidate": "game-door-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-sit",
+          "label": "Sit on bench",
+          "clip": "game-sit-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0651787750670761,
+          "jump": null,
+          "source_sha256": "38eaa8738160ceacde27b3f579ca34073d3f3552fa22834ccd38cb5465c597c0",
+          "candidate": "game-sit-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-stand-seat",
+          "label": "Stand from bench",
+          "clip": "game-stand-seat-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.08078300664352227,
+          "jump": null,
+          "source_sha256": "2c52dbfa21134c59762841c20d812757d818e080a51196a1799230178b3926f6",
+          "candidate": "game-stand-seat-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-wave",
+          "label": "Wave",
+          "clip": "game-wave-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.001180374855711601,
+          "jump": null,
+          "source_sha256": "a846ccd576cf23fbdc48ba80aec478cd20fad529b50b948503835d887ded66bc",
+          "candidate": "game-wave-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-point",
+          "label": "Point forward",
+          "clip": "game-point-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0007246258070431634,
+          "jump": null,
+          "source_sha256": "bd52d3ec9fc5bba94ae42993db3c4fecc3b64dab17bf088ffabece8e1d70ebc6",
+          "candidate": "game-point-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-turn-left",
+          "label": "Turn / 90 left",
+          "clip": "game-turn-left-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 3.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.037629910736001734,
+          "jump": null,
+          "source_sha256": "985f51dbfa29bbeb6497da08730d7908b185f119a98d383c013f21ccfee05d18",
+          "candidate": "game-turn-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-turn-right",
+          "label": "Turn / 90 right",
+          "clip": "game-turn-right-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 3.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.009143681015805746,
+          "jump": null,
+          "source_sha256": "17d3f17c3b6108377d63d67fa88a985e329597abb0139198934a327a0ebaf0f2",
+          "candidate": "game-turn-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-turn-back",
+          "label": "Turn / 180",
+          "clip": "game-turn-back-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.010621035060776553,
+          "jump": null,
+          "source_sha256": "12b9057c5800ef571fb17ac47bd2b79a5295884d2e0b65b22d45d2fd83b59c15",
+          "candidate": "game-turn-back-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-start-run",
+          "label": "Start running",
+          "clip": "game-start-run-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.9570119607144136,
+          "jump": null,
+          "source_sha256": "25f53a8a49e3ef3dc6ff6bee44341f7263ce5894aebd597f7dd4277df2184826",
+          "candidate": "game-start-run-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-stop-run",
+          "label": "Stop running",
+          "clip": "game-stop-run-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.9540472298506044,
+          "jump": null,
+          "source_sha256": "86d6e992db1119012d8cf10d0c48a95ece60c4e6555cee0ebb1443f44bc1eae5",
+          "candidate": "game-stop-run-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-hit-front",
+          "label": "Hit / front",
+          "clip": "game-hit-front-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.004351426056510471,
+          "jump": null,
+          "source_sha256": "3139dbe123508c073ca1a2f3cbc626e8d5f627a22b1c4065a2e116e84f6e43df",
+          "candidate": "game-hit-front-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-hit-left",
+          "label": "Hit / left",
+          "clip": "game-hit-left-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0027995061007242213,
+          "jump": null,
+          "source_sha256": "cf658d59832c0ff0ce69020808f3103a9fb2997d789232928dcf0c90e6f053e5",
+          "candidate": "game-hit-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-knockdown",
+          "label": "Knockdown / backward",
+          "clip": "game-knockdown-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.1749761582327321,
+          "jump": null,
+          "source_sha256": "db7bd899d4356174719903859de1856ca543e8f3ae1181f3f1b8ee17ee58de3c",
+          "candidate": "game-knockdown-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-death",
+          "label": "Collapse / downed",
+          "clip": "game-death-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.18345713559188062,
+          "jump": null,
+          "source_sha256": "edc1c5a5481b0a79052de3d40ce3e03bcba1e844ed15a278d150014b6a0aaf2e",
+          "candidate": "game-death-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-vault",
+          "label": "Vault low barrier",
+          "clip": "game-vault-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.321800230842026,
+          "jump": null,
+          "source_sha256": "3adf6260130202843342ee8c0baffe74a3e95ee6410e4f543399fe5e9dee9420",
+          "candidate": "game-vault-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-mantle",
+          "label": "Mantle ledge",
+          "clip": "game-mantle-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.3066454332889453,
+          "jump": null,
+          "source_sha256": "79d956767210a2269710fb2209889697671bcfe9add3497402e0f35226627c50",
+          "candidate": "game-mantle-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-ladder",
+          "label": "Climb ladder",
+          "clip": "game-ladder-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.05412893411275437,
+          "jump": null,
+          "source_sha256": "06b06824730908d45a824acd7490f6dfe5337ac2086ebf972ce40b95d8e53686",
+          "candidate": "game-ladder-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-balance",
+          "label": "Balance beam",
+          "clip": "game-balance-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.632369462695598,
+          "jump": null,
+          "source_sha256": "b2519732c5b97438f0c084da37d51997cba973ba99516c917cd81861e0cc2bb3",
+          "candidate": "game-balance-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-standing",
+          "label": "Jump / standing",
+          "clip": "game-jump-standing-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.633333,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.02618717432609465,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 32,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6333333333333333,
+            "landing_s": 0.9,
+            "source_airtime_s": 0.5333333333333333,
+            "source_height_rise_m": 0.35844624042510986
+          },
+          "source_sha256": "0f94487bd6c281c549bc1f5cf401f79f0de3f39b47834593c5ee99a2f4d1dcd0",
+          "candidate": "game-jump-standing-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-walk",
+          "label": "Jump / walking",
+          "clip": "game-jump-walk-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 2.366667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.108703811922327,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 69,
+            "source_end_frame": 140,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 1.1666666666666667,
+            "landing_s": 1.6333333333333333,
+            "source_airtime_s": 1.2666666666666666,
+            "source_height_rise_m": 1.035720944404602
+          },
+          "source_sha256": "ff6daa2718c901d7a261a66426631a1ca2c12b69bcaf8ddeb5c5d84477c815cb",
+          "candidate": "game-jump-walk-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-jog",
+          "label": "Jump / jogging",
+          "clip": "game-jump-jog-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.666667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.6283779805708054,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 31,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6666666666666666,
+            "landing_s": 0.9333333333333333,
+            "source_airtime_s": 0.5666666666666667,
+            "source_height_rise_m": 0.4170747995376587
+          },
+          "source_sha256": "1df7713618cc3642f95f598b0c14a04bd68e7b15174914164028703807361460",
+          "candidate": "game-jump-jog-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-run",
+          "label": "Jump / running",
+          "clip": "game-jump-run-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.666667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 2.191227478549839,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 31,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6666666666666666,
+            "landing_s": 0.9333333333333333,
+            "source_airtime_s": 0.5666666666666667,
+            "source_height_rise_m": 0.4528694152832031
+          },
+          "source_sha256": "26693b815004b7ef93c6e540488a97b4c8b51776c2b9292f6023912cf20f9d93",
+          "candidate": "game-jump-run-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-sprint",
+          "label": "Jump / sprinting",
+          "clip": "game-jump-sprint-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.7,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 2.7416751928123815,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 30,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.7,
+            "landing_s": 0.9666666666666667,
+            "source_airtime_s": 0.6,
+            "source_height_rise_m": 0.5375674366950989
+          },
+          "source_sha256": "60e0614de2f0268b3584659f8b8251700b3bb7dcd77789ace201d707be1ad010",
+          "candidate": "game-jump-sprint-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-high",
+          "label": "Jump / high",
+          "clip": "game-jump-high-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.5,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.040531243211391475,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 45,
+            "source_end_frame": 90,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6,
+            "landing_s": 0.7666666666666667,
+            "source_airtime_s": 0.4,
+            "source_height_rise_m": 0.172143816947937
+          },
+          "source_sha256": "787bf4cc0d173da79cec3063cb218ba6f343f42d11d6e9a1dab9d42e2f2c6d4d",
+          "candidate": "game-jump-high-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-backward",
+          "label": "Jump / backward",
+          "clip": "game-jump-backward-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.6,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.1030476348232021,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 33,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6,
+            "landing_s": 0.8666666666666667,
+            "source_airtime_s": 0.5,
+            "source_height_rise_m": 0.39458274841308594
+          },
+          "source_sha256": "c37263e82dda2059637c121681976e983e9810498768b19829778debcc736596",
+          "candidate": "game-jump-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-left",
+          "label": "Jump / left",
+          "clip": "game-jump-left-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.633333,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.0688676434294857,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 32,
+            "source_end_frame": 81,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6333333333333333,
+            "landing_s": 0.9,
+            "source_airtime_s": 0.5333333333333333,
+            "source_height_rise_m": 0.4102656841278076
+          },
+          "source_sha256": "9dffec31b9fd2d9837c82fb82b62ed49172aa2bf9fb05abf4f6b7a43880bd905",
+          "candidate": "game-jump-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jump-right",
+          "label": "Jump / right",
+          "clip": "game-jump-right-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 1.566667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 1.1234994719071731,
+          "jump": {
+            "valid_airborne_detection": true,
+            "source_start_frame": 33,
+            "source_end_frame": 80,
+            "takeoff_s": 0.36666666666666664,
+            "apex_s": 0.6,
+            "landing_s": 0.8333333333333334,
+            "source_airtime_s": 0.4666666666666667,
+            "source_height_rise_m": 0.33528947830200195
+          },
+          "source_sha256": "5b03c815baf46d2a55038f64364a93cce5aed38e54d25b67ed70cc403f940553",
+          "candidate": "game-jump-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-land-hard",
+          "label": "Landing / hard",
+          "clip": "game-land-hard-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.37419342159638835,
+          "jump": null,
+          "source_sha256": "103fd44742ccdf8386cf8bc5501044c64bd680ecb4b62ca17fccdc401d005c6b",
+          "candidate": "game-land-hard-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-dodge-forward",
+          "label": "Dodge / forward",
+          "clip": "game-dodge-forward-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.001838732963615179,
+          "jump": null,
+          "source_sha256": "7c64c10d2fa859c985446d2e9413b8edf210ce9a6c1f737964d2386ae06f4f35",
+          "candidate": "game-dodge-forward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-dodge-backward",
+          "label": "Dodge / backward",
+          "clip": "game-dodge-backward-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.005707454918647945,
+          "jump": null,
+          "source_sha256": "aa9c7e3e6ffbf9e5583bbfe83ba740a9c131f82844a32abac962f00db58d4a75",
+          "candidate": "game-dodge-backward-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-dodge-left",
+          "label": "Dodge / left",
+          "clip": "game-dodge-left-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0022687872047096303,
+          "jump": null,
+          "source_sha256": "8f0af8c219ef20c610ca794e88c94c09df510d77ac90981b5893929490b04df8",
+          "candidate": "game-dodge-left-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-dodge-right",
+          "label": "Dodge / right",
+          "clip": "game-dodge-right-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.002510956360881409,
+          "jump": null,
+          "source_sha256": "454fdb3c80c789ff6c8f626df9ad81b79a28cf11743ef99212e49c17249c6895",
+          "candidate": "game-dodge-right-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-jab",
+          "label": "Combat / jab",
+          "clip": "game-jab-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.002400010978511676,
+          "jump": null,
+          "source_sha256": "4b2e687681254e9d175831be430a589060fd3786bff337ddc74079e31ba11cbd",
+          "candidate": "game-jab-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-cross",
+          "label": "Combat / cross",
+          "clip": "game-cross-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.095578906026246,
+          "jump": null,
+          "source_sha256": "069f88bcbae388515e3766bffe6ddf27df183c4e0b37759f08619d3426f0fcdf",
+          "candidate": "game-cross-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-combo",
+          "label": "Combat / jab cross",
+          "clip": "game-combo-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0022219964373417366,
+          "jump": null,
+          "source_sha256": "4e31e921c77e6354b79400b63bb42bc624d89713fc9c395c815107b1f09db6c7",
+          "candidate": "game-combo-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-kick",
+          "label": "Combat / front kick",
+          "clip": "game-kick-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.005562335814461778,
+          "jump": null,
+          "source_sha256": "cee27b121952bd9adffd1dc6da736142971c0dc0325edcb7f84830647f3efa98",
+          "candidate": "game-kick-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-block",
+          "label": "Combat / block",
+          "clip": "game-block-seed411-nisoku03",
+          "loop": false,
+          "duration_s": 5.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.0017005572935857032,
+          "jump": null,
+          "source_sha256": "472159dbc564a78db4d76ffc4f0902b6a74a2f844832b749d518d34192c72614",
+          "candidate": "game-block-seed411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-ukemi-forward",
+          "label": "Ukemi / forward",
+          "clip": "game-ukemi-forward-seed1101-nisoku03",
+          "loop": false,
+          "duration_s": 3.466667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.733784410127638,
+          "jump": null,
+          "source_sha256": "70eb67bff23b70c287f71d8e7d735c9cb6dd0dd067ec2814c7128fe4d0f0b3c8",
+          "candidate": "game-ukemi-forward-seed1101",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-ukemi-backward",
+          "label": "Ukemi / backward",
+          "clip": "game-ukemi-backward-seed101-nisoku03",
+          "loop": false,
+          "duration_s": 3.233333,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.7459603088158325,
+          "jump": null,
+          "source_sha256": "fe3c0007ef48d34d512643d272a93b8a97420e4c5e0ed3de71b8c97ad7f7eeb2",
+          "candidate": "game-ukemi-backward-seed101",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-ukemi-side-left",
+          "label": "Side ukemi / left",
+          "clip": "game-ukemi-side-left-seed4411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.3565807418335271,
+          "jump": null,
+          "source_sha256": "7765027313607316d146fe6a1bfca1e1a1ab06b3dfa749ce11d3e9abe9403ac6",
+          "candidate": "game-ukemi-side-left-seed4411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-ukemi-side-right",
+          "label": "Side ukemi / right",
+          "clip": "game-ukemi-side-right-seed4411-nisoku03",
+          "loop": false,
+          "duration_s": 4.966667,
+          "direction": null,
+          "target_speed_m_s": null,
+          "measured_unscaled_target_speed_m_s": 0.3565807418335271,
+          "jump": null,
+          "source_sha256": "972f8af33c3176a9bea8281dffea8cdde61341f9462c8f8f7aa9f98ef740a86d",
+          "candidate": "game-ukemi-side-right-seed4411",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        },
+        {
+          "motion": "game-skip-forward",
+          "label": "Skip / happy childlike",
+          "clip": "game-skip-forward-seed1401-nisoku03",
+          "loop": true,
+          "duration_s": 0.633333,
+          "direction": [
+            0,
+            1
+          ],
+          "target_speed_m_s": 2.2,
+          "measured_unscaled_target_speed_m_s": 2.245265159428451,
+          "jump": null,
+          "source_sha256": "b726b98fd5450d9e3f580d06b9047444c255bdd473672dfb68bba7255ea7123a",
+          "candidate": "game-skip-forward-seed1401",
+          "processing": [
+            "Direct original SOMA rotation-delta retarget to pinned NISOKU-03 r4 native rig",
+            "Original geometry, skin weights, inverse binds and segment lengths retained",
+            "Shared source windows / controller jump timing; exact loop endpoint closure",
+            "Constant neutral floor calibration; no per-frame floor clamping"
+          ],
+          "limitations": [
+            "New target proportions require visual review of armor, floor and self contact.",
+            "Original AUREL finger/toe rest articulation retained; no inferred grasp or force simulation."
+          ]
+        }
+      ]
+    }
+  },
+  "backlog": [
+    "Swim and underwater locomotion",
+    "Ranged weapon rigs / reloads / aim offsets",
+    "Vehicle, rope and grapple interactions",
+    "Magic / flight / transformations",
+    "Paired combat and verified environmental hand contacts"
+  ],
+  "additional_actions": [
+    {
+      "id": "game-ukemi-forward",
+      "label": "Ukemi / forward",
+      "group": "ground",
+      "kind": "action",
+      "addon": true,
+      "default_seed": 1101
+    },
+    {
+      "id": "game-ukemi-backward",
+      "label": "Ukemi / backward",
+      "group": "ground",
+      "kind": "action",
+      "addon": true,
+      "default_seed": 101
+    },
+    {
+      "id": "game-ukemi-side-left",
+      "label": "Side ukemi / left",
+      "group": "ground",
+      "kind": "action",
+      "addon": true,
+      "default_seed": 4411
+    },
+    {
+      "id": "game-ukemi-side-right",
+      "label": "Side ukemi / right",
+      "group": "ground",
+      "kind": "action",
+      "addon": true,
+      "default_seed": 4411
+    },
+    {
+      "id": "game-skip-forward",
+      "label": "Skip / happy childlike",
+      "group": "locomotion",
+      "kind": "loop",
+      "direction": [
+        0,
+        1
+      ],
+      "speed": 2.2,
+      "addon": true,
+      "default_seed": 1401
+    }
+  ]
+}

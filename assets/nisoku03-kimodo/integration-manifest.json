@@ -1,0 +1,184 @@
+{
+  "schema": "jelaludo.motion-integration/1",
+  "family": "nisoku03-kimodo",
+  "source_manifest": "manifest.json",
+  "source_archive": "source/nisoku03-sentry-a6-v1.zip",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "actor_forward": "+Z",
+    "standing_height_m": 1.9
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "credit": "User-supplied Kimodo output on original Isao NISOKU-03 r4 / AUREL geometry by jelaludo",
+  "source_pin": {
+    "repository": "jelaludo/SentryTowers_A6",
+    "commit": "a92cffad917be69edda47d98c5e78393289b82c1",
+    "asset_sha256": "10712558de761e1a665f60c3c4adf5335b6492f15f227091f27b14a7d972ec5f",
+    "lod": 1,
+    "version": 4,
+    "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop"
+  },
+  "assets": [
+    {
+      "file": "rig.glb",
+      "bytes": 1276396,
+      "sha256": "8132106fbf035ec3b821327f31fab66da9f6e782d5b8d19277a99481f6262cdc",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 0,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "moveset.glb",
+      "bytes": 5727964,
+      "sha256": "d43c64c992cbed6d6c79f6220a67009d29be400bf0349df6796f226756866e09",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 99,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "moveset-variants.glb",
+      "bytes": 10671776,
+      "sha256": "eebf96a69103059bea10b6e1240810b4a427bc5a253979fc7575e28b139dc0ab",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 207,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "baked/side-roll-left.glb",
+      "bytes": 2339708,
+      "sha256": "00f9618823ea002afbfd5d4e18b98b9fc3facd60c203850014051338dee9f8c0",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "baked/side-roll-right.glb",
+      "bytes": 2339700,
+      "sha256": "4a2abd210a25cc2396f125cd0b1ad7dcdbd90a573af7ac290b2fe08ab9be45e2",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "baked/hero-landing.glb",
+      "bytes": 1856580,
+      "sha256": "8871f1c1f3f825a17021d704100dfc03e3fbd67d3beec9684f5a48681a91060a",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "baked/ledge-grab.glb",
+      "bytes": 1856476,
+      "sha256": "e9684e94f0f88cbf22870746358f73e18356d41fea9666ad944aca598645731c",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "baked/movement-controls.glb",
+      "bytes": 2118096,
+      "sha256": "d211a0164368b30dd82a072fbb642167f2ed751050231131f9cda3c48091b802",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": false
+    },
+    {
+      "file": "derived/chase.glb",
+      "bytes": 2380700,
+      "sha256": "298588ebe5bb069f812993d9ab810118d9295ef7096b2fd88419eccfa90a0485",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": 9,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true
+    },
+    {
+      "file": "derived/library.glb",
+      "bytes": 13564512,
+      "sha256": "133ea9cd735a0bcb5f2cb979fae77712297f743a62115193c864ba4591703fd6",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": 212,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true
+    }
+  ],
+  "clip_metadata": {
+    "source": "manifest.json / takes",
+    "derived": "derived/bundles.json"
+  },
+  "sockets": "../nisoku03/manifest.json",
+  "plot_m": [
+    23,
+    29
+  ],
+  "viewer": "../../nisoku03-chase/",
+  "lod_selection": {
+    "moving": "articulated game rig only",
+    "distance": "original static NISOKU export for loading only; no motion",
+    "detailed": "existing master preserved; Kimodo retarget not validated on master"
+  },
+  "integration": "INTEGRATION.md",
+  "validation": "integration-validation.json"
+}

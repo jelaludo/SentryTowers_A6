@@ -1,0 +1,915 @@
+{
+  "schema": "jelaludo.motion-bundles/1",
+  "assets": [
+    {
+      "file": "derived/chase.glb",
+      "derived": true,
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 2380700,
+      "sha256": "298588ebe5bb069f812993d9ab810118d9295ef7096b2fd88419eccfa90a0485",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": [
+        {
+          "name": "game-balance-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-idle-seed411-nisoku03",
+          "duration_s": 1.8333333730697632
+        },
+        {
+          "name": "game-jog-forward-seed411-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-jump-run-seed411-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-run-forward-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-sprint-forward-seed411-nisoku03",
+          "duration_s": 0.7666666507720947
+        },
+        {
+          "name": "game-walk-forward-seed411-nisoku03",
+          "duration_s": 1
+        },
+        {
+          "name": "recorded-side-roll-left",
+          "duration_s": 6.900000095367432
+        },
+        {
+          "name": "recorded-side-roll-right",
+          "duration_s": 6.900000095367432
+        }
+      ],
+      "credit": "User-supplied Kimodo motions; animation-only derivative for the original Isao NISOKU-03 r4 rig"
+    },
+    {
+      "file": "derived/library.glb",
+      "derived": true,
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 13564512,
+      "sha256": "133ea9cd735a0bcb5f2cb979fae77712297f743a62115193c864ba4591703fd6",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": [
+        {
+          "name": "game-balance-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-balance-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-block-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-block-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-carry-backward-seed411-nisoku03",
+          "duration_s": 2.2333333492279053
+        },
+        {
+          "name": "game-carry-backward-seed822-nisoku03",
+          "duration_s": 1.7666666507720947
+        },
+        {
+          "name": "game-carry-forward-seed411-nisoku03",
+          "duration_s": 1.1333333253860474
+        },
+        {
+          "name": "game-carry-forward-seed822-nisoku03",
+          "duration_s": 2.2666666507720947
+        },
+        {
+          "name": "game-carry-idle-seed411-nisoku03",
+          "duration_s": 2.7666666507720947
+        },
+        {
+          "name": "game-carry-idle-seed822-nisoku03",
+          "duration_s": 2.366666555404663
+        },
+        {
+          "name": "game-carry-jog-seed411-nisoku03",
+          "duration_s": 0.6333333253860474
+        },
+        {
+          "name": "game-carry-jog-seed822-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-carry-left-seed411-nisoku03",
+          "duration_s": 0.8999999761581421
+        },
+        {
+          "name": "game-carry-left-seed822-nisoku03",
+          "duration_s": 2.299999952316284
+        },
+        {
+          "name": "game-carry-right-seed411-nisoku03",
+          "duration_s": 1.100000023841858
+        },
+        {
+          "name": "game-carry-right-seed822-nisoku03",
+          "duration_s": 1.8666666746139526
+        },
+        {
+          "name": "game-combo-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-combo-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-crawl-backward-seed411-nisoku03",
+          "duration_s": 1.2999999523162842
+        },
+        {
+          "name": "game-crawl-backward-seed822-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-crawl-forward-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-crawl-forward-seed822-nisoku03",
+          "duration_s": 0.9666666388511658
+        },
+        {
+          "name": "game-crawl-left-seed411-nisoku03",
+          "duration_s": 1.8666666746139526
+        },
+        {
+          "name": "game-crawl-left-seed822-nisoku03",
+          "duration_s": 2.366666555404663
+        },
+        {
+          "name": "game-crawl-right-seed411-nisoku03",
+          "duration_s": 1.5666667222976685
+        },
+        {
+          "name": "game-crawl-right-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-cross-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-cross-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-crouch-backward-left-seed411-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-crouch-backward-left-seed822-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-crouch-backward-right-seed411-nisoku03",
+          "duration_s": 1.100000023841858
+        },
+        {
+          "name": "game-crouch-backward-right-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-crouch-backward-seed411-nisoku03",
+          "duration_s": 1.2333333492279053
+        },
+        {
+          "name": "game-crouch-backward-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-crouch-down-seed411-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-crouch-down-seed822-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-crouch-forward-left-seed411-nisoku03",
+          "duration_s": 1.2333333492279053
+        },
+        {
+          "name": "game-crouch-forward-left-seed822-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-crouch-forward-right-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-crouch-forward-right-seed822-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-crouch-forward-seed411-nisoku03",
+          "duration_s": 2.366666555404663
+        },
+        {
+          "name": "game-crouch-forward-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-crouch-idle-seed411-nisoku03",
+          "duration_s": 1.5333333015441895
+        },
+        {
+          "name": "game-crouch-idle-seed822-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-crouch-left-seed411-nisoku03",
+          "duration_s": 0.8666666746139526
+        },
+        {
+          "name": "game-crouch-left-seed822-nisoku03",
+          "duration_s": 1.1333333253860474
+        },
+        {
+          "name": "game-crouch-right-seed411-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-crouch-right-seed822-nisoku03",
+          "duration_s": 0.9666666388511658
+        },
+        {
+          "name": "game-crouch-up-seed411-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-crouch-up-seed822-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-death-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-death-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-backward-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-backward-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-forward-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-forward-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-left-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-left-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-right-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-dodge-right-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-door-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-door-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-getup-back-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-getup-back-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-getup-front-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-getup-front-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-hit-front-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-hit-front-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-hit-left-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-hit-left-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-idle-look-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-idle-look-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-idle-seed411-nisoku03",
+          "duration_s": 1.8333333730697632
+        },
+        {
+          "name": "game-idle-seed822-nisoku03",
+          "duration_s": 3.0333333015441895
+        },
+        {
+          "name": "game-jab-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-jab-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-jog-backward-left-seed411-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-jog-backward-left-seed822-nisoku03",
+          "duration_s": 2.1666667461395264
+        },
+        {
+          "name": "game-jog-backward-right-seed411-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-jog-backward-right-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-jog-backward-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-jog-backward-seed822-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-jog-forward-left-seed411-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-jog-forward-left-seed822-nisoku03",
+          "duration_s": 1.2999999523162842
+        },
+        {
+          "name": "game-jog-forward-right-seed411-nisoku03",
+          "duration_s": 2.299999952316284
+        },
+        {
+          "name": "game-jog-forward-right-seed822-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-jog-forward-seed411-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-jog-forward-seed822-nisoku03",
+          "duration_s": 0.6666666865348816
+        },
+        {
+          "name": "game-jog-left-seed411-nisoku03",
+          "duration_s": 1.8666666746139526
+        },
+        {
+          "name": "game-jog-left-seed822-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-jog-right-seed411-nisoku03",
+          "duration_s": 1.1333333253860474
+        },
+        {
+          "name": "game-jog-right-seed822-nisoku03",
+          "duration_s": 1.100000023841858
+        },
+        {
+          "name": "game-jump-backward-seed411-nisoku03",
+          "duration_s": 1.600000023841858
+        },
+        {
+          "name": "game-jump-backward-seed822-nisoku03",
+          "duration_s": 1.600000023841858
+        },
+        {
+          "name": "game-jump-high-seed411-nisoku03",
+          "duration_s": 1.5
+        },
+        {
+          "name": "game-jump-high-seed822-nisoku03",
+          "duration_s": 1.4666666984558105
+        },
+        {
+          "name": "game-jump-jog-seed411-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-jump-jog-seed822-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-jump-left-seed411-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-jump-left-seed822-nisoku03",
+          "duration_s": 1.600000023841858
+        },
+        {
+          "name": "game-jump-right-seed411-nisoku03",
+          "duration_s": 1.5666667222976685
+        },
+        {
+          "name": "game-jump-right-seed822-nisoku03",
+          "duration_s": 1.5666667222976685
+        },
+        {
+          "name": "game-jump-run-seed411-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-jump-run-seed822-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-jump-sprint-seed411-nisoku03",
+          "duration_s": 1.7000000476837158
+        },
+        {
+          "name": "game-jump-sprint-seed822-nisoku03",
+          "duration_s": 1.7333333492279053
+        },
+        {
+          "name": "game-jump-standing-seed411-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-jump-standing-seed822-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-jump-walk-seed411-nisoku03",
+          "duration_s": 2.366666555404663
+        },
+        {
+          "name": "game-jump-walk-seed822-nisoku03",
+          "duration_s": 2.9000000953674316
+        },
+        {
+          "name": "game-kick-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-kick-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-knockdown-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-knockdown-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-ladder-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-ladder-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-land-hard-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-land-hard-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-mantle-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-mantle-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-panel-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-panel-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-pickup-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-pickup-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-point-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-point-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-prone-down-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-prone-down-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-prone-idle-seed411-nisoku03",
+          "duration_s": 1.6333333253860474
+        },
+        {
+          "name": "game-prone-idle-seed822-nisoku03",
+          "duration_s": 2.700000047683716
+        },
+        {
+          "name": "game-pull-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-pull-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-push-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-push-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-putdown-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-putdown-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-run-backward-left-seed411-nisoku03",
+          "duration_s": 1.100000023841858
+        },
+        {
+          "name": "game-run-backward-left-seed822-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-run-backward-right-seed411-nisoku03",
+          "duration_s": 0.6333333253860474
+        },
+        {
+          "name": "game-run-backward-right-seed822-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-run-backward-seed411-nisoku03",
+          "duration_s": 0.8999999761581421
+        },
+        {
+          "name": "game-run-backward-seed822-nisoku03",
+          "duration_s": 1.399999976158142
+        },
+        {
+          "name": "game-run-forward-left-seed411-nisoku03",
+          "duration_s": 1.7999999523162842
+        },
+        {
+          "name": "game-run-forward-left-seed822-nisoku03",
+          "duration_s": 1.4666666984558105
+        },
+        {
+          "name": "game-run-forward-right-seed411-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-run-forward-right-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-run-forward-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-run-forward-seed822-nisoku03",
+          "duration_s": 1.4666666984558105
+        },
+        {
+          "name": "game-run-left-seed411-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-run-left-seed822-nisoku03",
+          "duration_s": 1.5666667222976685
+        },
+        {
+          "name": "game-run-right-seed411-nisoku03",
+          "duration_s": 1.0333333015441895
+        },
+        {
+          "name": "game-run-right-seed822-nisoku03",
+          "duration_s": 1.0666667222976685
+        },
+        {
+          "name": "game-sit-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-sit-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-sprint-forward-seed411-nisoku03",
+          "duration_s": 0.7666666507720947
+        },
+        {
+          "name": "game-sprint-forward-seed822-nisoku03",
+          "duration_s": 0.6000000238418579
+        },
+        {
+          "name": "game-stand-seat-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-stand-seat-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-start-run-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-start-run-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-stop-run-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-stop-run-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-turn-back-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-turn-back-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-turn-left-seed411-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-turn-left-seed822-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-turn-right-seed411-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-turn-right-seed822-nisoku03",
+          "duration_s": 3.9666666984558105
+        },
+        {
+          "name": "game-vault-seed411-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-vault-seed822-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-walk-backward-left-seed411-nisoku03",
+          "duration_s": 0.8666666746139526
+        },
+        {
+          "name": "game-walk-backward-left-seed822-nisoku03",
+          "duration_s": 1.6666666269302368
+        },
+        {
+          "name": "game-walk-backward-right-seed411-nisoku03",
+          "duration_s": 2.2666666507720947
+        },
+        {
+          "name": "game-walk-backward-right-seed822-nisoku03",
+          "duration_s": 1.8666666746139526
+        },
+        {
+          "name": "game-walk-backward-seed411-nisoku03",
+          "duration_s": 0.9666666388511658
+        },
+        {
+          "name": "game-walk-backward-seed822-nisoku03",
+          "duration_s": 1.7000000476837158
+        },
+        {
+          "name": "game-walk-forward-left-seed411-nisoku03",
+          "duration_s": 1.0333333015441895
+        },
+        {
+          "name": "game-walk-forward-left-seed822-nisoku03",
+          "duration_s": 2.2333333492279053
+        },
+        {
+          "name": "game-walk-forward-right-seed411-nisoku03",
+          "duration_s": 1.100000023841858
+        },
+        {
+          "name": "game-walk-forward-right-seed822-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-walk-forward-seed411-nisoku03",
+          "duration_s": 1
+        },
+        {
+          "name": "game-walk-forward-seed822-nisoku03",
+          "duration_s": 2.200000047683716
+        },
+        {
+          "name": "game-walk-left-seed411-nisoku03",
+          "duration_s": 0.8999999761581421
+        },
+        {
+          "name": "game-walk-left-seed822-nisoku03",
+          "duration_s": 1.600000023841858
+        },
+        {
+          "name": "game-walk-right-seed411-nisoku03",
+          "duration_s": 0.9333333373069763
+        },
+        {
+          "name": "game-walk-right-seed822-nisoku03",
+          "duration_s": 1.7333333492279053
+        },
+        {
+          "name": "game-wave-seed411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-wave-seed822-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-forward-seed1101-nisoku03",
+          "duration_s": 3.4666666984558105
+        },
+        {
+          "name": "game-ukemi-forward-seed2202-nisoku03",
+          "duration_s": 3.5333333015441895
+        },
+        {
+          "name": "game-ukemi-forward-seed3303-nisoku03",
+          "duration_s": 3.5
+        },
+        {
+          "name": "game-ukemi-backward-seed101-nisoku03",
+          "duration_s": 3.2333333492279053
+        },
+        {
+          "name": "game-ukemi-backward-seed202-nisoku03",
+          "duration_s": 3.799999952316284
+        },
+        {
+          "name": "game-ukemi-backward-seed303-nisoku03",
+          "duration_s": 5.9666666984558105
+        },
+        {
+          "name": "game-sprint-forward-seed1233-nisoku03",
+          "duration_s": 0.699999988079071
+        },
+        {
+          "name": "game-sprint-forward-seed1644-nisoku03",
+          "duration_s": 0.800000011920929
+        },
+        {
+          "name": "game-sprint-forward-seed2055-nisoku03",
+          "duration_s": 0.8666666746139526
+        },
+        {
+          "name": "game-sprint-forward-seed2466-nisoku03",
+          "duration_s": 0.6333333253860474
+        },
+        {
+          "name": "game-ukemi-side-left-seed4411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-side-left-seed5522-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-side-left-seed6633-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-side-right-seed4411-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-side-right-seed5522-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-ukemi-side-right-seed6633-nisoku03",
+          "duration_s": 4.9666666984558105
+        },
+        {
+          "name": "game-skip-forward-seed1401-nisoku03",
+          "duration_s": 0.6333333253860474
+        },
+        {
+          "name": "game-skip-forward-seed2502-nisoku03",
+          "duration_s": 1.1666666269302368
+        },
+        {
+          "name": "game-skip-forward-seed3603-nisoku03",
+          "duration_s": 0.6333333253860474
+        },
+        {
+          "name": "recorded-side-roll-left",
+          "duration_s": 6.900000095367432
+        },
+        {
+          "name": "recorded-side-roll-right",
+          "duration_s": 6.900000095367432
+        },
+        {
+          "name": "recorded-hero-landing",
+          "duration_s": 3.200000047683716
+        },
+        {
+          "name": "recorded-ledge-grab",
+          "duration_s": 3.200000047683716
+        },
+        {
+          "name": "recorded-movement-controls",
+          "duration_s": 5.199999809265137
+        }
+      ],
+      "credit": "User-supplied Kimodo motions; animation-only derivative for the original Isao NISOKU-03 r4 rig"
+    }
+  ]
+}

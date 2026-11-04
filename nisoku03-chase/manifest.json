@@ -1,0 +1,542 @@
+{
+  "schema": "jelaludo.diorama/v1",
+  "family": "nisoku03-chase",
+  "label": "Catch me / NISOKU-03 × K0-TECH-01",
+  "version": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at court centre"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "runtime": {
+    "duration_s": 47.88225500204196,
+    "loop": true,
+    "controller": "course.js + viewer.js",
+    "root_motion_ownership": "In-place: course supplies XZ and jump Y. Baked: original RecordedActor path sampled once externally; removed from derived pose clip.",
+    "scope": "Authored repeatable course with distance-dependent lure lead; animation test, not dynamic collision or ragdoll simulation"
+  },
+  "source_pack": {
+    "folder": "../assets/nisoku03-kimodo/",
+    "archive": "../assets/nisoku03-kimodo/source/nisoku03-sentry-a6-v1.zip",
+    "pinned_chassis": {
+      "repository": "jelaludo/SentryTowers_A6",
+      "commit": "a92cffad917be69edda47d98c5e78393289b82c1",
+      "asset_sha256": "10712558de761e1a665f60c3c4adf5335b6492f15f227091f27b14a7d972ec5f",
+      "lod": 1,
+      "version": 4,
+      "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop"
+    }
+  },
+  "actors": [
+    {
+      "family": "nisoku03",
+      "file": "../assets/nisoku03-kimodo/rig.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 24900,
+      "draw_calls": 3,
+      "bytes": 1276396,
+      "sockets": "../assets/nisoku03/manifest.json",
+      "master": "../assets/nisoku03/nisoku03_d0_lod0.glb",
+      "static": "../assets/nisoku03/nisoku03_d0_lod2.glb",
+      "motion_scope": "Kimodo clips bind to the game rig only; master retarget not claimed"
+    },
+    {
+      "family": "k0-tech-01",
+      "file": "../assets/k0-tech-01/k0_tech_01_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "triangles": 14878,
+      "draw_calls": 7,
+      "bytes": 1852732,
+      "sockets": "../assets/k0-tech-01/manifest.json"
+    }
+  ],
+  "motion_bundles": "../assets/nisoku03-kimodo/derived/bundles.json",
+  "lod_selection": {
+    "actors": "Keep articulated game rigs for all animation; existing static distance models are loading placeholders only.",
+    "court": {
+      "initial": 2,
+      "game_distance_m": 40,
+      "hysteresis_m": 8
+    },
+    "viewer": "Game tier shown throughout; no FPS claims."
+  },
+  "automatic_exclusions": [
+    "game-sprint-forward-seed822",
+    "game-ukemi-backward-seed303",
+    "recorded-hero-landing",
+    "recorded-ledge-grab",
+    "recorded-movement-controls"
+  ],
+  "chapters": [
+    {
+      "id": "watch",
+      "label": "The invitation",
+      "clip": "game-idle-seed411",
+      "from": [
+        0,
+        -9
+      ],
+      "to": [
+        0,
+        -9
+      ],
+      "length": 0,
+      "start": 0,
+      "s": 0,
+      "duration": 1.6,
+      "kind": "travel",
+      "note": "K0 notices the pursuer and opens a little space."
+    },
+    {
+      "id": "walk",
+      "label": "Follow at a walk",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        0,
+        -9
+      ],
+      "to": [
+        3,
+        -9
+      ],
+      "length": 3,
+      "start": 1.6,
+      "s": 0,
+      "duration": 2.4,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "jog",
+      "label": "K0 picks up speed",
+      "clip": "game-jog-forward-seed411",
+      "from": [
+        3,
+        -9
+      ],
+      "to": [
+        7,
+        -6
+      ],
+      "length": 5.704084122008009,
+      "start": 4,
+      "s": 3,
+      "duration": 2.3767017175033374,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "run",
+      "label": "Close the gap",
+      "clip": "game-run-forward-seed411",
+      "from": [
+        7,
+        -6
+      ],
+      "to": [
+        7,
+        -3
+      ],
+      "length": 3,
+      "start": 6.376701717503337,
+      "s": 8.704084122008009,
+      "duration": 0.7894736842105263,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "jump-a",
+      "label": "Running jump / rail A",
+      "clip": "game-jump-run-seed411",
+      "from": [
+        7,
+        -3
+      ],
+      "to": [
+        7,
+        0.65
+      ],
+      "length": 3.65,
+      "start": 7.166175401713864,
+      "s": 11.704084122008009,
+      "duration": 1.666667,
+      "kind": "jump",
+      "note": "Jump height follows the supplied takeoff, apex and landing times."
+    },
+    {
+      "id": "pursue",
+      "label": "The lure darts away",
+      "clip": "game-run-forward-seed411",
+      "from": [
+        7,
+        0.65
+      ],
+      "to": [
+        7,
+        4.7
+      ],
+      "length": 4.050000000000001,
+      "start": 8.832842401713863,
+      "s": 15.35408412200801,
+      "duration": 1.0657894736842108,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "approach-left",
+      "label": "A sideways approach",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        7,
+        4.7
+      ],
+      "to": [
+        6,
+        6
+      ],
+      "length": 1.872949394943218,
+      "start": 9.898631875398074,
+      "s": 19.40408412200801,
+      "duration": 1.4983595159545744,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "roll-left",
+      "label": "Left trip / beam recovery",
+      "clip": "recorded-side-roll-left",
+      "from": [
+        6,
+        6
+      ],
+      "to": [
+        -0.3,
+        6
+      ],
+      "length": 6.3,
+      "start": 11.396991391352648,
+      "s": 21.277033516951228,
+      "duration": 6.900000095367432,
+      "kind": "recorded",
+      "note": "Original planted-foot, beam contact and recovery recording.",
+      "record": "side-roll-left",
+      "yaw": -1.5707963267948966
+    },
+    {
+      "id": "approach-balance",
+      "label": "Find the narrow crossing",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -0.3,
+        6
+      ],
+      "to": [
+        -3,
+        7.2
+      ],
+      "length": 3.2588392181962993,
+      "start": 18.29699148672008,
+      "s": 27.57703351695123,
+      "duration": 2.6070713745570395,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "balance",
+      "label": "Balance / narrow steel beam",
+      "clip": "game-balance-seed411",
+      "from": [
+        -3,
+        7.2
+      ],
+      "to": [
+        -3,
+        10.2
+      ],
+      "length": 2.999999999999999,
+      "start": 20.904062861277122,
+      "s": 30.83587273514753,
+      "duration": 5.966667,
+      "kind": "balance",
+      "note": "K0 waits ahead while NISOKU crosses with arms out."
+    },
+    {
+      "id": "approach-right",
+      "label": "K0 doubles around",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -3,
+        10.2
+      ],
+      "to": [
+        -7,
+        8
+      ],
+      "length": 6.769631363612583,
+      "start": 26.870729861277123,
+      "s": 33.835872735147525,
+      "duration": 5.415705090890066,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "roll-right",
+      "label": "Right trip / beam recovery",
+      "clip": "recorded-side-roll-right",
+      "from": [
+        -7,
+        8
+      ],
+      "to": [
+        -7,
+        1.7
+      ],
+      "length": 6.3,
+      "start": 32.28643495216719,
+      "s": 40.60550409876011,
+      "duration": 6.900000095367432,
+      "kind": "recorded",
+      "note": "Opposite-side fall, using the second supplied contact recording.",
+      "record": "side-roll-right",
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "reset",
+      "label": "Recover and reacquire",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -7,
+        1.7
+      ],
+      "to": [
+        -6,
+        0
+      ],
+      "length": 2.220492190706754,
+      "start": 39.18643504753462,
+      "s": 46.905504098760105,
+      "duration": 1.7763937525654032,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "sprint",
+      "label": "A last sprint",
+      "clip": "game-sprint-forward-seed411",
+      "from": [
+        -6,
+        0
+      ],
+      "to": [
+        -6,
+        -6
+      ],
+      "length": 6,
+      "start": 40.96282880010003,
+      "s": 49.12599628946686,
+      "duration": 1,
+      "kind": "travel",
+      "note": "Eligible sprint take 411. Review-only take 822 is excluded."
+    },
+    {
+      "id": "jump-b",
+      "label": "Running jump / rail B",
+      "clip": "game-jump-run-seed411",
+      "from": [
+        -6,
+        -6
+      ],
+      "to": [
+        -6,
+        -9.65
+      ],
+      "length": 3.6500000000000004,
+      "start": 41.96282880010003,
+      "s": 55.12599628946686,
+      "duration": 1.666667,
+      "kind": "jump",
+      "note": ""
+    },
+    {
+      "id": "return",
+      "label": "The chase comes around",
+      "clip": "game-jog-forward-seed411",
+      "from": [
+        -6,
+        -9.65
+      ],
+      "to": [
+        -2,
+        -9
+      ],
+      "length": 6.366622084660637,
+      "start": 43.629495800100024,
+      "s": 58.77599628946686,
+      "duration": 2.652759201941932,
+      "kind": "travel",
+      "note": ""
+    },
+    {
+      "id": "settle",
+      "label": "Still just out of reach",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -2,
+        -9
+      ],
+      "to": [
+        0,
+        -9
+      ],
+      "length": 2,
+      "start": 46.28225500204196,
+      "s": 65.1426183741275,
+      "duration": 1.6,
+      "kind": "travel",
+      "note": ""
+    }
+  ],
+  "assets": [
+    {
+      "file": "court_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "triangles": 1788,
+      "draw_calls": 5,
+      "bytes": 131808,
+      "sha256": "d75a9ba0b396b28e956f6718db240fa9fea67cb3e952d46255fae8076774ea1e",
+      "plot_m": [
+        23,
+        29
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_JUMP_A",
+          "position_m": [
+            7,
+            0,
+            -1.5400000000000027
+          ],
+          "yaw_rad": 0,
+          "fixture_height_m": 0.2,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_ROLL_LEFT",
+          "position_m": [
+            2.1000000000000014,
+            0,
+            6
+          ],
+          "yaw_rad": -1.5707963267948966,
+          "fixture_height_m": 0.22,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_ROLL_RIGHT",
+          "position_m": [
+            -7,
+            0,
+            4.1000000000000085
+          ],
+          "yaw_rad": 3.141592653589793,
+          "fixture_height_m": 0.22,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_JUMP_B",
+          "position_m": [
+            -6,
+            0,
+            -7.460000000000001
+          ],
+          "yaw_rad": 3.141592653589793,
+          "fixture_height_m": 0.2,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        }
+      ],
+      "clips": [],
+      "credit": "Original Isao motion-test court by jelaludo / Model Workshop"
+    },
+    {
+      "file": "court_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "triangles": 1788,
+      "draw_calls": 1,
+      "bytes": 170964,
+      "sha256": "1abb8682b7a14d017ceb39e8fb96e985a9e50b1c246b940f60ba839d83e80ad8",
+      "plot_m": [
+        23,
+        29
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_JUMP_A",
+          "position_m": [
+            7,
+            0,
+            -1.5400000000000027
+          ],
+          "yaw_rad": 0,
+          "fixture_height_m": 0.2,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_ROLL_LEFT",
+          "position_m": [
+            2.1000000000000014,
+            0,
+            6
+          ],
+          "yaw_rad": -1.5707963267948966,
+          "fixture_height_m": 0.22,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_ROLL_RIGHT",
+          "position_m": [
+            -7,
+            0,
+            4.1000000000000085
+          ],
+          "yaw_rad": 3.141592653589793,
+          "fixture_height_m": 0.22,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_JUMP_B",
+          "position_m": [
+            -6,
+            0,
+            -7.460000000000001
+          ],
+          "yaw_rad": 3.141592653589793,
+          "fixture_height_m": 0.2,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        }
+      ],
+      "clips": [],
+      "credit": "Original Isao motion-test court by jelaludo / Model Workshop"
+    }
+  ]
+}

@@ -1,0 +1,1076 @@
+{
+  "date": "2026-11-04",
+  "browser": "Playwright Chromium / SwiftShader; visual and functional testing only",
+  "takes": 212,
+  "poses": 636,
+  "changed": 633,
+  "maxRestoreError": 0,
+  "results": [
+    {
+      "movement": "game-idle",
+      "take": "game-idle-seed411",
+      "duration_s": 1.833333
+    },
+    {
+      "movement": "game-idle",
+      "take": "game-idle-seed822",
+      "duration_s": 3.033333
+    },
+    {
+      "movement": "game-walk-forward",
+      "take": "game-walk-forward-seed411",
+      "duration_s": 1
+    },
+    {
+      "movement": "game-walk-forward",
+      "take": "game-walk-forward-seed822",
+      "duration_s": 2.2
+    },
+    {
+      "movement": "game-walk-backward",
+      "take": "game-walk-backward-seed411",
+      "duration_s": 0.966667
+    },
+    {
+      "movement": "game-walk-backward",
+      "take": "game-walk-backward-seed822",
+      "duration_s": 1.7
+    },
+    {
+      "movement": "game-walk-left",
+      "take": "game-walk-left-seed411",
+      "duration_s": 0.9
+    },
+    {
+      "movement": "game-walk-left",
+      "take": "game-walk-left-seed822",
+      "duration_s": 1.6
+    },
+    {
+      "movement": "game-walk-right",
+      "take": "game-walk-right-seed411",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-walk-right",
+      "take": "game-walk-right-seed822",
+      "duration_s": 1.733333
+    },
+    {
+      "movement": "game-walk-forward-left",
+      "take": "game-walk-forward-left-seed411",
+      "duration_s": 1.033333
+    },
+    {
+      "movement": "game-walk-forward-left",
+      "take": "game-walk-forward-left-seed822",
+      "duration_s": 2.233333
+    },
+    {
+      "movement": "game-walk-forward-right",
+      "take": "game-walk-forward-right-seed411",
+      "duration_s": 1.1
+    },
+    {
+      "movement": "game-walk-forward-right",
+      "take": "game-walk-forward-right-seed822",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-walk-backward-left",
+      "take": "game-walk-backward-left-seed411",
+      "duration_s": 0.866667
+    },
+    {
+      "movement": "game-walk-backward-left",
+      "take": "game-walk-backward-left-seed822",
+      "duration_s": 1.666667
+    },
+    {
+      "movement": "game-walk-backward-right",
+      "take": "game-walk-backward-right-seed411",
+      "duration_s": 2.266667
+    },
+    {
+      "movement": "game-walk-backward-right",
+      "take": "game-walk-backward-right-seed822",
+      "duration_s": 1.866667
+    },
+    {
+      "movement": "game-jog-forward",
+      "take": "game-jog-forward-seed411",
+      "duration_s": 0.666667
+    },
+    {
+      "movement": "game-jog-forward",
+      "take": "game-jog-forward-seed822",
+      "duration_s": 0.666667
+    },
+    {
+      "movement": "game-jog-backward",
+      "take": "game-jog-backward-seed411",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-jog-backward",
+      "take": "game-jog-backward-seed822",
+      "duration_s": 0.666667
+    },
+    {
+      "movement": "game-jog-left",
+      "take": "game-jog-left-seed411",
+      "duration_s": 1.866667
+    },
+    {
+      "movement": "game-jog-left",
+      "take": "game-jog-left-seed822",
+      "duration_s": 1.666667
+    },
+    {
+      "movement": "game-jog-right",
+      "take": "game-jog-right-seed411",
+      "duration_s": 1.133333
+    },
+    {
+      "movement": "game-jog-right",
+      "take": "game-jog-right-seed822",
+      "duration_s": 1.1
+    },
+    {
+      "movement": "game-jog-forward-left",
+      "take": "game-jog-forward-left-seed411",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-jog-forward-left",
+      "take": "game-jog-forward-left-seed822",
+      "duration_s": 1.3
+    },
+    {
+      "movement": "game-jog-forward-right",
+      "take": "game-jog-forward-right-seed411",
+      "duration_s": 2.3
+    },
+    {
+      "movement": "game-jog-forward-right",
+      "take": "game-jog-forward-right-seed822",
+      "duration_s": 0.666667
+    },
+    {
+      "movement": "game-jog-backward-left",
+      "take": "game-jog-backward-left-seed411",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-jog-backward-left",
+      "take": "game-jog-backward-left-seed822",
+      "duration_s": 2.166667
+    },
+    {
+      "movement": "game-jog-backward-right",
+      "take": "game-jog-backward-right-seed411",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-jog-backward-right",
+      "take": "game-jog-backward-right-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-run-forward",
+      "take": "game-run-forward-seed411",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-run-forward",
+      "take": "game-run-forward-seed822",
+      "duration_s": 1.466667
+    },
+    {
+      "movement": "game-run-backward",
+      "take": "game-run-backward-seed411",
+      "duration_s": 0.9
+    },
+    {
+      "movement": "game-run-backward",
+      "take": "game-run-backward-seed822",
+      "duration_s": 1.4
+    },
+    {
+      "movement": "game-run-left",
+      "take": "game-run-left-seed411",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-run-left",
+      "take": "game-run-left-seed822",
+      "duration_s": 1.566667
+    },
+    {
+      "movement": "game-run-right",
+      "take": "game-run-right-seed411",
+      "duration_s": 1.033333
+    },
+    {
+      "movement": "game-run-right",
+      "take": "game-run-right-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-run-forward-left",
+      "take": "game-run-forward-left-seed411",
+      "duration_s": 1.8
+    },
+    {
+      "movement": "game-run-forward-left",
+      "take": "game-run-forward-left-seed822",
+      "duration_s": 1.466667
+    },
+    {
+      "movement": "game-run-forward-right",
+      "take": "game-run-forward-right-seed411",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-run-forward-right",
+      "take": "game-run-forward-right-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-run-backward-left",
+      "take": "game-run-backward-left-seed411",
+      "duration_s": 1.1
+    },
+    {
+      "movement": "game-run-backward-left",
+      "take": "game-run-backward-left-seed822",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-run-backward-right",
+      "take": "game-run-backward-right-seed411",
+      "duration_s": 0.633333
+    },
+    {
+      "movement": "game-run-backward-right",
+      "take": "game-run-backward-right-seed822",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed411",
+      "duration_s": 0.766667
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed822",
+      "duration_s": 0.6
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed1233",
+      "duration_s": 0.7
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed1644",
+      "duration_s": 0.8
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed2055",
+      "duration_s": 0.866667
+    },
+    {
+      "movement": "game-sprint-forward",
+      "take": "game-sprint-forward-seed2466",
+      "duration_s": 0.633333
+    },
+    {
+      "movement": "game-skip-forward",
+      "take": "game-skip-forward-seed1401",
+      "duration_s": 0.633333
+    },
+    {
+      "movement": "game-skip-forward",
+      "take": "game-skip-forward-seed2502",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-skip-forward",
+      "take": "game-skip-forward-seed3603",
+      "duration_s": 0.633333
+    },
+    {
+      "movement": "game-idle-look",
+      "take": "game-idle-look-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-idle-look",
+      "take": "game-idle-look-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-wave",
+      "take": "game-wave-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-wave",
+      "take": "game-wave-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-point",
+      "take": "game-point-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-point",
+      "take": "game-point-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-crouch-idle",
+      "take": "game-crouch-idle-seed411",
+      "duration_s": 1.533333
+    },
+    {
+      "movement": "game-crouch-idle",
+      "take": "game-crouch-idle-seed822",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-crouch-forward",
+      "take": "game-crouch-forward-seed411",
+      "duration_s": 2.366667
+    },
+    {
+      "movement": "game-crouch-forward",
+      "take": "game-crouch-forward-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-crouch-backward",
+      "take": "game-crouch-backward-seed411",
+      "duration_s": 1.233333
+    },
+    {
+      "movement": "game-crouch-backward",
+      "take": "game-crouch-backward-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-crouch-left",
+      "take": "game-crouch-left-seed411",
+      "duration_s": 0.866667
+    },
+    {
+      "movement": "game-crouch-left",
+      "take": "game-crouch-left-seed822",
+      "duration_s": 1.133333
+    },
+    {
+      "movement": "game-crouch-right",
+      "take": "game-crouch-right-seed411",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-crouch-right",
+      "take": "game-crouch-right-seed822",
+      "duration_s": 0.966667
+    },
+    {
+      "movement": "game-crouch-forward-left",
+      "take": "game-crouch-forward-left-seed411",
+      "duration_s": 1.233333
+    },
+    {
+      "movement": "game-crouch-forward-left",
+      "take": "game-crouch-forward-left-seed822",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-crouch-forward-right",
+      "take": "game-crouch-forward-right-seed411",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-crouch-forward-right",
+      "take": "game-crouch-forward-right-seed822",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-crouch-backward-left",
+      "take": "game-crouch-backward-left-seed411",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-crouch-backward-left",
+      "take": "game-crouch-backward-left-seed822",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-crouch-backward-right",
+      "take": "game-crouch-backward-right-seed411",
+      "duration_s": 1.1
+    },
+    {
+      "movement": "game-crouch-backward-right",
+      "take": "game-crouch-backward-right-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-crawl-forward",
+      "take": "game-crawl-forward-seed411",
+      "duration_s": 0.933333
+    },
+    {
+      "movement": "game-crawl-forward",
+      "take": "game-crawl-forward-seed822",
+      "duration_s": 0.966667
+    },
+    {
+      "movement": "game-crawl-backward",
+      "take": "game-crawl-backward-seed411",
+      "duration_s": 1.3
+    },
+    {
+      "movement": "game-crawl-backward",
+      "take": "game-crawl-backward-seed822",
+      "duration_s": 1.166667
+    },
+    {
+      "movement": "game-crawl-left",
+      "take": "game-crawl-left-seed411",
+      "duration_s": 1.866667
+    },
+    {
+      "movement": "game-crawl-left",
+      "take": "game-crawl-left-seed822",
+      "duration_s": 2.366667
+    },
+    {
+      "movement": "game-crawl-right",
+      "take": "game-crawl-right-seed411",
+      "duration_s": 1.566667
+    },
+    {
+      "movement": "game-crawl-right",
+      "take": "game-crawl-right-seed822",
+      "duration_s": 1.066667
+    },
+    {
+      "movement": "game-prone-idle",
+      "take": "game-prone-idle-seed411",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-prone-idle",
+      "take": "game-prone-idle-seed822",
+      "duration_s": 2.7
+    },
+    {
+      "movement": "game-getup-front",
+      "take": "game-getup-front-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-getup-front",
+      "take": "game-getup-front-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-getup-back",
+      "take": "game-getup-back-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-getup-back",
+      "take": "game-getup-back-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-ukemi-forward",
+      "take": "game-ukemi-forward-seed1101",
+      "duration_s": 3.466667
+    },
+    {
+      "movement": "game-ukemi-forward",
+      "take": "game-ukemi-forward-seed2202",
+      "duration_s": 3.533333
+    },
+    {
+      "movement": "game-ukemi-forward",
+      "take": "game-ukemi-forward-seed3303",
+      "duration_s": 3.5
+    },
+    {
+      "movement": "game-ukemi-backward",
+      "take": "game-ukemi-backward-seed101",
+      "duration_s": 3.233333
+    },
+    {
+      "movement": "game-ukemi-backward",
+      "take": "game-ukemi-backward-seed202",
+      "duration_s": 3.8
+    },
+    {
+      "movement": "game-ukemi-backward",
+      "take": "game-ukemi-backward-seed303",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-ukemi-side-left",
+      "take": "game-ukemi-side-left-seed4411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-ukemi-side-left",
+      "take": "game-ukemi-side-left-seed5522",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-ukemi-side-left",
+      "take": "game-ukemi-side-left-seed6633",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-ukemi-side-right",
+      "take": "game-ukemi-side-right-seed4411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-ukemi-side-right",
+      "take": "game-ukemi-side-right-seed5522",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-ukemi-side-right",
+      "take": "game-ukemi-side-right-seed6633",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-carry-idle",
+      "take": "game-carry-idle-seed411",
+      "duration_s": 2.766667
+    },
+    {
+      "movement": "game-carry-idle",
+      "take": "game-carry-idle-seed822",
+      "duration_s": 2.366667
+    },
+    {
+      "movement": "game-carry-forward",
+      "take": "game-carry-forward-seed411",
+      "duration_s": 1.133333
+    },
+    {
+      "movement": "game-carry-forward",
+      "take": "game-carry-forward-seed822",
+      "duration_s": 2.266667
+    },
+    {
+      "movement": "game-carry-backward",
+      "take": "game-carry-backward-seed411",
+      "duration_s": 2.233333
+    },
+    {
+      "movement": "game-carry-backward",
+      "take": "game-carry-backward-seed822",
+      "duration_s": 1.766667
+    },
+    {
+      "movement": "game-carry-left",
+      "take": "game-carry-left-seed411",
+      "duration_s": 0.9
+    },
+    {
+      "movement": "game-carry-left",
+      "take": "game-carry-left-seed822",
+      "duration_s": 2.3
+    },
+    {
+      "movement": "game-carry-right",
+      "take": "game-carry-right-seed411",
+      "duration_s": 1.1
+    },
+    {
+      "movement": "game-carry-right",
+      "take": "game-carry-right-seed822",
+      "duration_s": 1.866667
+    },
+    {
+      "movement": "game-carry-jog",
+      "take": "game-carry-jog-seed411",
+      "duration_s": 0.633333
+    },
+    {
+      "movement": "game-carry-jog",
+      "take": "game-carry-jog-seed822",
+      "duration_s": 0.666667
+    },
+    {
+      "movement": "game-pickup",
+      "take": "game-pickup-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-pickup",
+      "take": "game-pickup-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-putdown",
+      "take": "game-putdown-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-putdown",
+      "take": "game-putdown-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-crouch-down",
+      "take": "game-crouch-down-seed411",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-crouch-down",
+      "take": "game-crouch-down-seed822",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-crouch-up",
+      "take": "game-crouch-up-seed411",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-crouch-up",
+      "take": "game-crouch-up-seed822",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-prone-down",
+      "take": "game-prone-down-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-prone-down",
+      "take": "game-prone-down-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-turn-left",
+      "take": "game-turn-left-seed411",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-turn-left",
+      "take": "game-turn-left-seed822",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-turn-right",
+      "take": "game-turn-right-seed411",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-turn-right",
+      "take": "game-turn-right-seed822",
+      "duration_s": 3.966667
+    },
+    {
+      "movement": "game-turn-back",
+      "take": "game-turn-back-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-turn-back",
+      "take": "game-turn-back-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-start-run",
+      "take": "game-start-run-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-start-run",
+      "take": "game-start-run-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-stop-run",
+      "take": "game-stop-run-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-stop-run",
+      "take": "game-stop-run-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-push",
+      "take": "game-push-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-push",
+      "take": "game-push-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-pull",
+      "take": "game-pull-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-pull",
+      "take": "game-pull-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-panel",
+      "take": "game-panel-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-panel",
+      "take": "game-panel-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-door",
+      "take": "game-door-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-door",
+      "take": "game-door-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-sit",
+      "take": "game-sit-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-sit",
+      "take": "game-sit-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-stand-seat",
+      "take": "game-stand-seat-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-stand-seat",
+      "take": "game-stand-seat-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-hit-front",
+      "take": "game-hit-front-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-hit-front",
+      "take": "game-hit-front-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-hit-left",
+      "take": "game-hit-left-seed411",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-hit-left",
+      "take": "game-hit-left-seed822",
+      "duration_s": 4.966667
+    },
+    {
+      "movement": "game-knockdown",
+      "take": "game-knockdown-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-knockdown",
+      "take": "game-knockdown-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-death",
+      "take": "game-death-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-death",
+      "take": "game-death-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-vault",
+      "take": "game-vault-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-vault",
+      "take": "game-vault-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-mantle",
+      "take": "game-mantle-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-mantle",
+      "take": "game-mantle-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-ladder",
+      "take": "game-ladder-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-ladder",
+      "take": "game-ladder-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-balance",
+      "take": "game-balance-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-balance",
+      "take": "game-balance-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-jump-standing",
+      "take": "game-jump-standing-seed411",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-jump-standing",
+      "take": "game-jump-standing-seed822",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-jump-walk",
+      "take": "game-jump-walk-seed411",
+      "duration_s": 2.366667
+    },
+    {
+      "movement": "game-jump-walk",
+      "take": "game-jump-walk-seed822",
+      "duration_s": 2.9
+    },
+    {
+      "movement": "game-jump-jog",
+      "take": "game-jump-jog-seed411",
+      "duration_s": 1.666667
+    },
+    {
+      "movement": "game-jump-jog",
+      "take": "game-jump-jog-seed822",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-jump-run",
+      "take": "game-jump-run-seed411",
+      "duration_s": 1.666667
+    },
+    {
+      "movement": "game-jump-run",
+      "take": "game-jump-run-seed822",
+      "duration_s": 1.666667
+    },
+    {
+      "movement": "game-jump-sprint",
+      "take": "game-jump-sprint-seed411",
+      "duration_s": 1.7
+    },
+    {
+      "movement": "game-jump-sprint",
+      "take": "game-jump-sprint-seed822",
+      "duration_s": 1.733333
+    },
+    {
+      "movement": "game-jump-high",
+      "take": "game-jump-high-seed411",
+      "duration_s": 1.5
+    },
+    {
+      "movement": "game-jump-high",
+      "take": "game-jump-high-seed822",
+      "duration_s": 1.466667
+    },
+    {
+      "movement": "game-jump-backward",
+      "take": "game-jump-backward-seed411",
+      "duration_s": 1.6
+    },
+    {
+      "movement": "game-jump-backward",
+      "take": "game-jump-backward-seed822",
+      "duration_s": 1.6
+    },
+    {
+      "movement": "game-jump-left",
+      "take": "game-jump-left-seed411",
+      "duration_s": 1.633333
+    },
+    {
+      "movement": "game-jump-left",
+      "take": "game-jump-left-seed822",
+      "duration_s": 1.6
+    },
+    {
+      "movement": "game-jump-right",
+      "take": "game-jump-right-seed411",
+      "duration_s": 1.566667
+    },
+    {
+      "movement": "game-jump-right",
+      "take": "game-jump-right-seed822",
+      "duration_s": 1.566667
+    },
+    {
+      "movement": "game-land-hard",
+      "take": "game-land-hard-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-land-hard",
+      "take": "game-land-hard-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-forward",
+      "take": "game-dodge-forward-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-forward",
+      "take": "game-dodge-forward-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-backward",
+      "take": "game-dodge-backward-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-backward",
+      "take": "game-dodge-backward-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-left",
+      "take": "game-dodge-left-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-left",
+      "take": "game-dodge-left-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-right",
+      "take": "game-dodge-right-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-dodge-right",
+      "take": "game-dodge-right-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-jab",
+      "take": "game-jab-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-jab",
+      "take": "game-jab-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-cross",
+      "take": "game-cross-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-cross",
+      "take": "game-cross-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-combo",
+      "take": "game-combo-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-combo",
+      "take": "game-combo-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-kick",
+      "take": "game-kick-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-kick",
+      "take": "game-kick-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-block",
+      "take": "game-block-seed411",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "game-block",
+      "take": "game-block-seed822",
+      "duration_s": 5.966667
+    },
+    {
+      "movement": "recorded-side-roll-left",
+      "take": "recorded-side-roll-left",
+      "duration_s": 6.900000095367432
+    },
+    {
+      "movement": "recorded-side-roll-right",
+      "take": "recorded-side-roll-right",
+      "duration_s": 6.900000095367432
+    },
+    {
+      "movement": "recorded-hero-landing",
+      "take": "recorded-hero-landing",
+      "duration_s": 3.200000047683716
+    },
+    {
+      "movement": "recorded-ledge-grab",
+      "take": "recorded-ledge-grab",
+      "duration_s": 3.200000047683716
+    },
+    {
+      "movement": "recorded-movement-controls",
+      "take": "recorded-movement-controls",
+      "duration_s": 5.199999809265137
+    }
+  ],
+  "reviewOnlyLabel": "Review only · A person sprints straight forward with long powerful strides and strong coordinated arm swings.",
+  "landingWarning": "Review only · Source recovery sinks below floor; review only. The source recovery passes below the floor. Excluded from the chase.",
+  "mobileOverflow": false,
+  "scrubPaused": true,
+  "restartTime": 0,
+  "errors": []
+}

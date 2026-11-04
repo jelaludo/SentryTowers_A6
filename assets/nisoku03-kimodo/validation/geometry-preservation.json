@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "vertices": 51966,
+  "influences": 51966,
+  "original_attributes_max_error": 0,
+  "original_weight_max_error": 0,
+  "skinned_surface_max_error_m": 4.002966042486721e-16,
+  "mount_frame_max_error": 0,
+  "source_sha256": "10712558de761e1a665f60c3c4adf5335b6492f15f227091f27b14a7d972ec5f",
+  "representation_changes": [
+    "Four unweighted helper joints; weight-to-bone assignment retained",
+    "RGB padded to opaque RGBA for aligned glTF export",
+    "Skin roots exported at scene root; authored native mount frames retained"
+  ]
+}

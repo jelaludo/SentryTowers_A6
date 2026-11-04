@@ -1,0 +1,102 @@
+{
+  "schema": "kimodo-game-recording/1",
+  "body": "nisoku03",
+  "ended": "2026-11-04T08:06:58.622Z",
+  "duration_s": 3.2000000000000326,
+  "frames": 65,
+  "events": [
+    {
+      "time": 0,
+      "type": "record-start",
+      "body": "nisoku03"
+    },
+    {
+      "time": 0.7249999999999974,
+      "type": "hero-landing",
+      "drop_m": 2.65,
+      "impact_m_s": 7.112250000000005
+    },
+    {
+      "time": 0.7249999999999974,
+      "type": "variant-choice",
+      "motion": "game-land-hard",
+      "seeds": {
+        "c08": 822,
+        "brek43": 822,
+        "nisoku03": 822
+      },
+      "takes": {
+        "c08": "game-land-hard-seed822",
+        "brek43": "game-land-hard-seed822",
+        "nisoku03": "game-land-hard-seed822"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 215,
+      "pool": [
+        "game-land-hard-seed411",
+        "game-land-hard-seed822"
+      ]
+    },
+    {
+      "time": 0.7249999999999974,
+      "type": "action-start",
+      "id": "game-land-hard",
+      "takes": {
+        "c08": "game-land-hard-seed822",
+        "brek43": "game-land-hard-seed822",
+        "nisoku03": "game-land-hard-seed822"
+      },
+      "seeds": {
+        "c08": 822,
+        "brek43": 822,
+        "nisoku03": 822
+      }
+    },
+    {
+      "time": 0.7249999999999974,
+      "type": "motion",
+      "id": "game-land-hard-seed822",
+      "body": "nisoku03",
+      "source_sha256": "904f8817e1c3022dd2437688bba42129c5a89a2735ade321401237e192f4467c"
+    },
+    {
+      "time": 2.4000000000000212,
+      "type": "action-end",
+      "id": "game-land-hard"
+    },
+    {
+      "time": 2.4250000000000216,
+      "type": "variant-choice",
+      "motion": "game-idle",
+      "seeds": {
+        "c08": 822,
+        "brek43": 822,
+        "nisoku03": 822
+      },
+      "takes": {
+        "c08": "game-idle-seed822",
+        "brek43": "game-idle-seed822",
+        "nisoku03": "game-idle-seed822"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 216,
+      "pool": [
+        "game-idle-seed411",
+        "game-idle-seed822"
+      ]
+    },
+    {
+      "time": 2.4250000000000216,
+      "type": "motion",
+      "id": "game-idle-seed822",
+      "body": "nisoku03",
+      "source_sha256": "f7a0d7affdd20ce60210d43c4384f41c73565f6008a8e47e3d04b6478b0f7ccc"
+    }
+  ],
+  "baked": [
+    "controller world translation and rotation",
+    "retargeted skeletal poses",
+    "runtime foot and carrying-hand IK"
+  ],
+  "scope": "Sampled live play session. Review collision, contacts, props and balance before shipping. Prop mesh and its trajectory are not included in this character recording."
+}

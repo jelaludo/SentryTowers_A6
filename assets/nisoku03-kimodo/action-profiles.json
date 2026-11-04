@@ -1,0 +1,1041 @@
+{
+  "schema": "nisoku03-export-action-windows/1",
+  "profiles": {
+    "game-balance-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-balance-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-block-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-block-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-carry-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.233333,
+      "duration": 2.233333
+    },
+    "game-carry-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.766667,
+      "duration": 1.766667
+    },
+    "game-carry-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.133333,
+      "duration": 1.133333
+    },
+    "game-carry-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.266667,
+      "duration": 2.266667
+    },
+    "game-carry-idle-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.766667,
+      "duration": 2.766667
+    },
+    "game-carry-idle-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.366667,
+      "duration": 2.366667
+    },
+    "game-carry-jog-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.633333,
+      "duration": 0.633333
+    },
+    "game-carry-jog-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.666667,
+      "duration": 0.666667
+    },
+    "game-carry-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.9,
+      "duration": 0.9
+    },
+    "game-carry-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.3,
+      "duration": 2.3
+    },
+    "game-carry-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.1,
+      "duration": 1.1
+    },
+    "game-carry-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.866667,
+      "duration": 1.866667
+    },
+    "game-combo-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-combo-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-crawl-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.3,
+      "duration": 1.3
+    },
+    "game-crawl-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-crawl-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-crawl-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.966667,
+      "duration": 0.966667
+    },
+    "game-crawl-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.866667,
+      "duration": 1.866667
+    },
+    "game-crawl-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.366667,
+      "duration": 2.366667
+    },
+    "game-crawl-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.566667,
+      "duration": 1.566667
+    },
+    "game-crawl-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-cross-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-cross-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-crouch-backward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-crouch-backward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-crouch-backward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.1,
+      "duration": 1.1
+    },
+    "game-crouch-backward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-crouch-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.233333,
+      "duration": 1.233333
+    },
+    "game-crouch-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-crouch-down-seed411:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-crouch-down-seed822:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-crouch-forward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.233333,
+      "duration": 1.233333
+    },
+    "game-crouch-forward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-crouch-forward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-crouch-forward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-crouch-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.366667,
+      "duration": 2.366667
+    },
+    "game-crouch-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-crouch-idle-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.533333,
+      "duration": 1.533333
+    },
+    "game-crouch-idle-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-crouch-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.866667,
+      "duration": 0.866667
+    },
+    "game-crouch-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.133333,
+      "duration": 1.133333
+    },
+    "game-crouch-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-crouch-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.966667,
+      "duration": 0.966667
+    },
+    "game-crouch-up-seed411:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-crouch-up-seed822:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-death-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-death-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-dodge-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-door-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-door-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-getup-back-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-getup-back-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-getup-front-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-getup-front-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-hit-front-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-hit-front-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-hit-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-hit-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-idle-look-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-idle-look-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-idle-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.833333,
+      "duration": 1.833333
+    },
+    "game-idle-seed822:nisoku03": {
+      "start": 0,
+      "end": 3.033333,
+      "duration": 3.033333
+    },
+    "game-jab-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-jab-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-jog-backward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-jog-backward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.166667,
+      "duration": 2.166667
+    },
+    "game-jog-backward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-jog-backward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-jog-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-jog-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.666667,
+      "duration": 0.666667
+    },
+    "game-jog-forward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-jog-forward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.3,
+      "duration": 1.3
+    },
+    "game-jog-forward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.3,
+      "duration": 2.3
+    },
+    "game-jog-forward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.666667,
+      "duration": 0.666667
+    },
+    "game-jog-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.666667,
+      "duration": 0.666667
+    },
+    "game-jog-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.666667,
+      "duration": 0.666667
+    },
+    "game-jog-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.866667,
+      "duration": 1.866667
+    },
+    "game-jog-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.666667,
+      "duration": 1.666667
+    },
+    "game-jog-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.133333,
+      "duration": 1.133333
+    },
+    "game-jog-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.1,
+      "duration": 1.1
+    },
+    "game-jump-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.6,
+      "duration": 1.6
+    },
+    "game-jump-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.6,
+      "duration": 1.6
+    },
+    "game-jump-high-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.5,
+      "duration": 1.5
+    },
+    "game-jump-high-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.466667,
+      "duration": 1.466667
+    },
+    "game-jump-jog-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.666667,
+      "duration": 1.666667
+    },
+    "game-jump-jog-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-jump-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-jump-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.6,
+      "duration": 1.6
+    },
+    "game-jump-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.566667,
+      "duration": 1.566667
+    },
+    "game-jump-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.566667,
+      "duration": 1.566667
+    },
+    "game-jump-run-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.666667,
+      "duration": 1.666667
+    },
+    "game-jump-run-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.666667,
+      "duration": 1.666667
+    },
+    "game-jump-sprint-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.7,
+      "duration": 1.7
+    },
+    "game-jump-sprint-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.733333,
+      "duration": 1.733333
+    },
+    "game-jump-standing-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-jump-standing-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-jump-walk-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.366667,
+      "duration": 2.366667
+    },
+    "game-jump-walk-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.9,
+      "duration": 2.9
+    },
+    "game-kick-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-kick-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-knockdown-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-knockdown-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-ladder-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-ladder-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-land-hard-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-land-hard-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-mantle-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-mantle-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-panel-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-panel-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-pickup-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-pickup-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-point-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-point-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-prone-down-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-prone-down-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-prone-idle-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.633333,
+      "duration": 1.633333
+    },
+    "game-prone-idle-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.7,
+      "duration": 2.7
+    },
+    "game-pull-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-pull-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-push-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-push-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-putdown-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-putdown-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-run-backward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.1,
+      "duration": 1.1
+    },
+    "game-run-backward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-run-backward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.633333,
+      "duration": 0.633333
+    },
+    "game-run-backward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-run-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.9,
+      "duration": 0.9
+    },
+    "game-run-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.4,
+      "duration": 1.4
+    },
+    "game-run-forward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.8,
+      "duration": 1.8
+    },
+    "game-run-forward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.466667,
+      "duration": 1.466667
+    },
+    "game-run-forward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-run-forward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-run-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-run-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.466667,
+      "duration": 1.466667
+    },
+    "game-run-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-run-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.566667,
+      "duration": 1.566667
+    },
+    "game-run-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.033333,
+      "duration": 1.033333
+    },
+    "game-run-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.066667,
+      "duration": 1.066667
+    },
+    "game-sit-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-sit-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-sprint-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.766667,
+      "duration": 0.766667
+    },
+    "game-sprint-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.6,
+      "duration": 0.6
+    },
+    "game-stand-seat-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-stand-seat-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-start-run-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-start-run-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-stop-run-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-stop-run-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-turn-back-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-turn-back-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-turn-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-turn-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-turn-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-turn-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 3.966667,
+      "duration": 3.966667
+    },
+    "game-vault-seed411:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-vault-seed822:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 5.966667
+    },
+    "game-walk-backward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.866667,
+      "duration": 0.866667
+    },
+    "game-walk-backward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.666667,
+      "duration": 1.666667
+    },
+    "game-walk-backward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 2.266667,
+      "duration": 2.266667
+    },
+    "game-walk-backward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.866667,
+      "duration": 1.866667
+    },
+    "game-walk-backward-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.966667,
+      "duration": 0.966667
+    },
+    "game-walk-backward-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.7,
+      "duration": 1.7
+    },
+    "game-walk-forward-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.033333,
+      "duration": 1.033333
+    },
+    "game-walk-forward-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.233333,
+      "duration": 2.233333
+    },
+    "game-walk-forward-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 1.1,
+      "duration": 1.1
+    },
+    "game-walk-forward-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-walk-forward-seed411:nisoku03": {
+      "start": 0,
+      "end": 1,
+      "duration": 1
+    },
+    "game-walk-forward-seed822:nisoku03": {
+      "start": 0,
+      "end": 2.2,
+      "duration": 2.2
+    },
+    "game-walk-left-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.9,
+      "duration": 0.9
+    },
+    "game-walk-left-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.6,
+      "duration": 1.6
+    },
+    "game-walk-right-seed411:nisoku03": {
+      "start": 0,
+      "end": 0.933333,
+      "duration": 0.933333
+    },
+    "game-walk-right-seed822:nisoku03": {
+      "start": 0,
+      "end": 1.733333,
+      "duration": 1.733333
+    },
+    "game-wave-seed411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-wave-seed822:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 4.966667
+    },
+    "game-ukemi-forward-seed1101:nisoku03": {
+      "start": 0,
+      "end": 3.466667,
+      "duration": 2.6
+    },
+    "game-ukemi-forward-seed2202:nisoku03": {
+      "start": 0,
+      "end": 3.533333,
+      "duration": 2.6
+    },
+    "game-ukemi-forward-seed3303:nisoku03": {
+      "start": 0,
+      "end": 3.5,
+      "duration": 2.6
+    },
+    "game-ukemi-backward-seed101:nisoku03": {
+      "start": 0,
+      "end": 3.233333,
+      "duration": 2.6
+    },
+    "game-ukemi-backward-seed202:nisoku03": {
+      "start": 0,
+      "end": 3.8,
+      "duration": 2.6
+    },
+    "game-ukemi-backward-seed303:nisoku03": {
+      "start": 0,
+      "end": 5.966667,
+      "duration": 2.6
+    },
+    "game-sprint-forward-seed1233:nisoku03": {
+      "start": 0,
+      "end": 0.7,
+      "duration": 0.7
+    },
+    "game-sprint-forward-seed1644:nisoku03": {
+      "start": 0,
+      "end": 0.8,
+      "duration": 0.8
+    },
+    "game-sprint-forward-seed2055:nisoku03": {
+      "start": 0,
+      "end": 0.866667,
+      "duration": 0.866667
+    },
+    "game-sprint-forward-seed2466:nisoku03": {
+      "start": 0,
+      "end": 0.633333,
+      "duration": 0.633333
+    },
+    "game-ukemi-side-left-seed4411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-ukemi-side-left-seed5522:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-ukemi-side-left-seed6633:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-ukemi-side-right-seed4411:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-ukemi-side-right-seed5522:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-ukemi-side-right-seed6633:nisoku03": {
+      "start": 0,
+      "end": 4.966667,
+      "duration": 3.6
+    },
+    "game-skip-forward-seed1401:nisoku03": {
+      "start": 0,
+      "end": 0.633333,
+      "duration": 0.633333
+    },
+    "game-skip-forward-seed2502:nisoku03": {
+      "start": 0,
+      "end": 1.166667,
+      "duration": 1.166667
+    },
+    "game-skip-forward-seed3603:nisoku03": {
+      "start": 0,
+      "end": 0.633333,
+      "duration": 0.633333
+    }
+  },
+  "scope": "The actual native clip window when present; full-clip fallback otherwise. Receiving game chooses action timing."
+}

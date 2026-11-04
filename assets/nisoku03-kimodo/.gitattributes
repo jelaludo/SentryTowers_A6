@@ -1,0 +1,2 @@
+# Preserve the supplied pack byte-for-byte, including its CRLF source files.
+* -text whitespace=cr-at-eol

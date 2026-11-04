@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "rig_animations": 0,
+  "default_clips": 99,
+  "variant_clips": 207,
+  "sampled_poses": 621,
+  "max_joint_discrepancy_m": 0.000002172017285229396,
+  "scope": "Independent glTF loader and mixer bind the exported moveset onto the separate exported rig and reproduce lab joint samples."
+}

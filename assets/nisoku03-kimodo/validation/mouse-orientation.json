@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Enter lab captures keyboard and mouse together"
+    },
+    {
+      "name": "lab captured mouse yaw and pitch",
+      "before": {
+        "yaw": 0.42,
+        "pitch": 0.09999999999999998
+      },
+      "after": {
+        "yaw": -8.326672684688674e-17,
+        "pitch": 0.18
+      }
+    },
+    {
+      "name": "lab right-drag fallback"
+    },
+    {
+      "name": "lab menu releases mouse; Mouse look restores it"
+    },
+    {
+      "name": "hybrid captured mouse yaw and pitch",
+      "before": {
+        "yaw": -0.987,
+        "pitch": -0.05
+      },
+      "after": {
+        "yaw": -1.4070000000000003,
+        "pitch": 0.03
+      }
+    },
+    {
+      "name": "hybrid right-drag fallback"
+    },
+    {
+      "name": "hybrid menu releases mouse; Mouse look restores it"
+    },
+    {
+      "name": "Escape releases mouse and keyboard"
+    }
+  ],
+  "errors": []
+}

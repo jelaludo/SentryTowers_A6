@@ -1,0 +1,161 @@
+{
+  "schema": "kimodo-game-recording/1",
+  "body": "nisoku03",
+  "ended": "2026-11-04T08:07:02.346Z",
+  "duration_s": 5.199999999999704,
+  "frames": 105,
+  "events": [
+    {
+      "time": 0,
+      "type": "record-start",
+      "body": "nisoku03"
+    },
+    {
+      "time": 0.02499999999999858,
+      "type": "variant-choice",
+      "motion": "game-jog-forward",
+      "seeds": {
+        "c08": 411,
+        "brek43": 411,
+        "nisoku03": 411
+      },
+      "takes": {
+        "c08": "game-jog-forward-seed411",
+        "brek43": "game-jog-forward-seed411",
+        "nisoku03": "game-jog-forward-seed411"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 228,
+      "pool": [
+        "game-jog-forward-seed411",
+        "game-jog-forward-seed822"
+      ]
+    },
+    {
+      "time": 0.02499999999999858,
+      "type": "motion",
+      "id": "game-jog-forward-seed411",
+      "body": "nisoku03",
+      "source_sha256": "609b5e9de5c7a40fac0bdf377d6802e0fb97dfe05273ed1d2f8c0c833cdfe18e"
+    },
+    {
+      "time": 0.9249999999999474,
+      "type": "variant-choice",
+      "motion": "game-skip-forward",
+      "seeds": {
+        "c08": 3603,
+        "brek43": 3603,
+        "nisoku03": 3603
+      },
+      "takes": {
+        "c08": "game-skip-forward-seed3603",
+        "brek43": "game-skip-forward-seed3603",
+        "nisoku03": "game-skip-forward-seed3603"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 229,
+      "pool": [
+        "game-skip-forward-seed1401",
+        "game-skip-forward-seed2502",
+        "game-skip-forward-seed3603"
+      ]
+    },
+    {
+      "time": 0.9249999999999474,
+      "type": "motion",
+      "id": "game-skip-forward-seed3603",
+      "body": "nisoku03",
+      "source_sha256": "4f3f7fbf06bc6c92104087c6e4edc56ce9f19c52c7bfb98f689cae5c6f5c56e6"
+    },
+    {
+      "time": 2.2249999999998735,
+      "type": "variant-choice",
+      "motion": "game-run-forward",
+      "seeds": {
+        "c08": 411,
+        "brek43": 411,
+        "nisoku03": 411
+      },
+      "takes": {
+        "c08": "game-run-forward-seed411",
+        "brek43": "game-run-forward-seed411",
+        "nisoku03": "game-run-forward-seed411"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 230,
+      "pool": [
+        "game-run-forward-seed411",
+        "game-run-forward-seed822"
+      ]
+    },
+    {
+      "time": 2.2249999999998735,
+      "type": "motion",
+      "id": "game-run-forward-seed411",
+      "body": "nisoku03",
+      "source_sha256": "4005b3b2b478f3144ee78b456a0a5b35569dc3cacf516145172e74dee66df3b1"
+    },
+    {
+      "time": 3.4249999999998053,
+      "type": "variant-choice",
+      "motion": "game-walk-backward",
+      "seeds": {
+        "c08": 411,
+        "brek43": 411,
+        "nisoku03": 411
+      },
+      "takes": {
+        "c08": "game-walk-backward-seed411",
+        "brek43": "game-walk-backward-seed411",
+        "nisoku03": "game-walk-backward-seed411"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 231,
+      "pool": [
+        "game-walk-backward-seed411",
+        "game-walk-backward-seed822"
+      ]
+    },
+    {
+      "time": 3.4249999999998053,
+      "type": "motion",
+      "id": "game-walk-backward-seed411",
+      "body": "nisoku03",
+      "source_sha256": "30c5985162e9f151f2c581fe59b3a4455974ba2be602476bab6aa80a8b1ac59a"
+    },
+    {
+      "time": 4.624999999999737,
+      "type": "variant-choice",
+      "motion": "game-idle",
+      "seeds": {
+        "c08": 822,
+        "brek43": 822,
+        "nisoku03": 822
+      },
+      "takes": {
+        "c08": "game-idle-seed822",
+        "brek43": "game-idle-seed822",
+        "nisoku03": "game-idle-seed822"
+      },
+      "policy": "shuffle-bag-no-repeat",
+      "draw": 232,
+      "pool": [
+        "game-idle-seed411",
+        "game-idle-seed822"
+      ]
+    },
+    {
+      "time": 4.624999999999737,
+      "type": "motion",
+      "id": "game-idle-seed822",
+      "body": "nisoku03",
+      "source_sha256": "f7a0d7affdd20ce60210d43c4384f41c73565f6008a8e47e3d04b6478b0f7ccc"
+    }
+  ],
+  "baked": [
+    "controller world translation and rotation",
+    "retargeted skeletal poses",
+    "runtime foot and carrying-hand IK"
+  ],
+  "scope": "Sampled live play session. Review collision, contacts, props and balance before shipping. Prop mesh and its trajectory are not included in this character recording."
+}

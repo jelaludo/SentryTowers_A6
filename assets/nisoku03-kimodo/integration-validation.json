@@ -1,0 +1,180 @@
+{
+  "schema": "jelaludo.motion-integration-validation/1",
+  "date": "2026-11-04",
+  "status": "passed structural and playback checks; visual acceptance pending",
+  "source_rig_sha256_matches": true,
+  "files": [
+    {
+      "file": "assets/nisoku03-kimodo/rig.glb",
+      "bytes": 1276396,
+      "sha256": "8132106fbf035ec3b821327f31fab66da9f6e782d5b8d19277a99481f6262cdc",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 0,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/moveset.glb",
+      "bytes": 5727964,
+      "sha256": "d43c64c992cbed6d6c79f6220a67009d29be400bf0349df6796f226756866e09",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 99,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/moveset-variants.glb",
+      "bytes": 10671776,
+      "sha256": "eebf96a69103059bea10b6e1240810b4a427bc5a253979fc7575e28b139dc0ab",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 207,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/baked/side-roll-left.glb",
+      "bytes": 2339708,
+      "sha256": "00f9618823ea002afbfd5d4e18b98b9fc3facd60c203850014051338dee9f8c0",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/baked/side-roll-right.glb",
+      "bytes": 2339700,
+      "sha256": "4a2abd210a25cc2396f125cd0b1ad7dcdbd90a573af7ac290b2fe08ab9be45e2",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/baked/hero-landing.glb",
+      "bytes": 1856580,
+      "sha256": "8871f1c1f3f825a17021d704100dfc03e3fbd67d3beec9684f5a48681a91060a",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/baked/ledge-grab.glb",
+      "bytes": 1856476,
+      "sha256": "e9684e94f0f88cbf22870746358f73e18356d41fea9666ad944aca598645731c",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/baked/movement-controls.glb",
+      "bytes": 2118096,
+      "sha256": "d211a0164368b30dd82a072fbb642167f2ed751050231131f9cda3c48091b802",
+      "triangles": 24900,
+      "draw_calls": 3,
+      "clips": 1,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/derived/chase.glb",
+      "bytes": 2380700,
+      "sha256": "298588ebe5bb069f812993d9ab810118d9295ef7096b2fd88419eccfa90a0485",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": 9,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "assets/nisoku03-kimodo/derived/library.glb",
+      "bytes": 13564512,
+      "sha256": "133ea9cd735a0bcb5f2cb979fae77712297f743a62115193c864ba4591703fd6",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": 212,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "nisoku03-chase/court_d0_lod1.glb",
+      "bytes": 131808,
+      "sha256": "d75a9ba0b396b28e956f6718db240fa9fea67cb3e952d46255fae8076774ea1e",
+      "triangles": 1788,
+      "draw_calls": 5,
+      "clips": 0,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    },
+    {
+      "file": "nisoku03-chase/court_d0_lod2.glb",
+      "bytes": 170964,
+      "sha256": "1abb8682b7a14d017ceb39e8fb96e985a9e50b1c246b940f60ba839d83e80ad8",
+      "triangles": 1788,
+      "draw_calls": 1,
+      "clips": 0,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": []
+    }
+  ],
+  "source_tracks_compared": 5733,
+  "max_source_track_error": 0,
+  "course": {
+    "duration_s": 47.88225500204196,
+    "chapters": 17,
+    "position_seam_m": 0.00008189999564578443,
+    "lure_loop_seam_m": 0.000024919893803598825,
+    "min_actor_gap_m": 1.2924307271383313,
+    "max_actor_gap_m": 4.11835996261024,
+    "max_lure_speed_m_s": 7.8,
+    "all_automatic_takes_eligible": true
+  },
+  "recorded_floor_samples": [
+    {
+      "recording": "side-roll-left",
+      "min_surface_y_m": -0.10941642643757223,
+      "time_s": 3.599999999999995,
+      "automatic": true
+    },
+    {
+      "recording": "side-roll-right",
+      "min_surface_y_m": -0.07623690949726525,
+      "time_s": 3.5499999999999954,
+      "automatic": true
+    },
+    {
+      "recording": "hero-landing",
+      "min_surface_y_m": -1.7658130724130814,
+      "time_s": 2.3999999999999995,
+      "automatic": false
+    }
+  ],
+  "limitations": [
+    "Preserved source takes can have armor, floor and self-contact artifacts.",
+    "Hero landing excluded from automatic chase because its recovery sinks into the floor.",
+    "Court is authored choreography, not general collision/force simulation.",
+    "No new compressed exports; decoded compressed validation is not applicable. Existing family Meshopt exports are unchanged.",
+    "Detailed NISOKU master is preserved; Kimodo retarget validated only for the game rig.",
+    "No FPS, reference-phone or consuming-game r160 acceptance claim."
+  ]
+}
