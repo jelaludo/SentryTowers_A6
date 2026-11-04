@@ -4,3 +4,5 @@
 #version{width:100%;margin:8px 0}.variant-label{font-size:11px;color:#adc0c5}.motion-grid button:last-child{grid-column:auto}#compare-labels{position:absolute;inset:0 0 auto;top:12px;display:grid;grid-template-columns:1fr 1fr;text-align:center;font:11px 'Space Grotesk',sans-serif;letter-spacing:.15em;color:#cdb98e;pointer-events:none}#compare-labels span{background:#1a2429a8;padding:8px}#compare-labels[hidden]{display:none}.identity{top:26px}.handoff{flex-wrap:wrap}.capture .identity,.capture .views,.capture .stage-footer,.capture #compare-labels{visibility:hidden}
 
 @media(max-width:760px){.views{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:thin}.views button{flex-shrink:0}}
+
+#baseline{width:100%;margin:8px 0 12px}#proportion-overlay{position:absolute;inset:0;pointer-events:none}#proportion-overlay[hidden]{display:none}

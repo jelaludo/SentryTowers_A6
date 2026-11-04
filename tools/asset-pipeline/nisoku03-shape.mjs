@@ -1,4 +1,5 @@
 // Original Isao humanoid chassis; source AUREL hands/feet are assembled, not approximated.
+import {PROPORTIONS,proportionHelmet,broadenCap,shoulderYoke} from './nisoku03-proportions.mjs';
 import {helmetShell,helmetVisor,helmetBrow,helmetSurface} from './nisoku03-helmet.mjs';
 import {enclosure,limbShell} from './nisoku03-shells.mjs';
 import * as T from 'three';import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -42,7 +43,7 @@ export function buildHumanoid(lod){
  function bone(parent,name,pos){const b=new T.Bone();b.name=name;b.position.fromArray(pos);b.userData={role:'engine_pivot'};parent.add(b);bones.push(b);nodes[name]=b;return b;}
  const base=bone(root,'BODY_ROOT',[0,0,0]),pelvis=bone(base,'PELVIS',[0,DIM.pelvisY,0]),waist=bone(pelvis,'WAIST',[0,.115,0]),chest=bone(waist,'CHEST',[0,.20,0]),neck=bone(chest,'NECK',[0,.30,0]),head=bone(neck,'HEAD',[0,.075,0]);
  for(const side of ['L','R']){const s=side==='L'?1:-1,shoulder=bone(chest,'SHOULDER_'+side,[s*DIM.shoulderX,DIM.shoulderY-(DIM.pelvisY+.315),0]),elbow=bone(shoulder,'ELBOW_'+side,[0,-DIM.upperArm,0]);bone(elbow,'WRIST_'+side,[0,-DIM.forearm,0]);const hip=bone(pelvis,'HIP_'+side,[s*DIM.hipX,0,0]),knee=bone(hip,'KNEE_'+side,[0,-DIM.thigh,0]);bone(knee,'ANKLE_'+side,[0,-DIM.shin,0]);}
- function add(b,m,g){const n=g.attributes.position.count,ii=new Uint16Array(n*4),ww=new Float32Array(n*4);for(let i=0;i<n;i++){ii[i*4]=bones.indexOf(b);ww[i*4]=1;}g.setAttribute('skinIndex',new T.Uint16BufferAttribute(ii,4));g.setAttribute('skinWeight',new T.Float32BufferAttribute(ww,4));root.updateMatrixWorld(true);g.applyMatrix4(b.matrixWorld);parts[lod===0?m:m===5?1:m===1||m===3?2:0].push(g);}
+ function add(b,m,g){if(b===head)proportionHelmet(g);const n=g.attributes.position.count,ii=new Uint16Array(n*4),ww=new Float32Array(n*4);for(let i=0;i<n;i++){ii[i*4]=bones.indexOf(b);ww[i*4]=1;}g.setAttribute('skinIndex',new T.Uint16BufferAttribute(ii,4));g.setAttribute('skinWeight',new T.Float32BufferAttribute(ww,4));root.updateMatrixWorld(true);g.applyMatrix4(b.matrixWorld);parts[lod===0?m:m===5?1:m===1||m===3?2:0].push(g);}
  const n=lod===0?32:lod===1?12:6,seg=lod===0?24:lod===1?10:4;
  function joint(b,r,width,side){
   add(b,1,prep(new T.CylinderGeometry(r,r,width,n,1,true),C.dark,[0,0,0],[0,0,Math.PI/2]));
@@ -54,11 +55,11 @@ export function buildHumanoid(lod){
  for(const s of [-1,1]){add(head,1,cyl(.043,.016,n,[s*.102,.12,-.012],C.dark,[0,0,Math.PI/2]));add(head,2,ring(.034,.0035,n,[s*.112,.12,-.012],C.gold,[0,Math.PI/2,0]));add(head,1,cyl(.024,.004,n,[s*.116,.12,-.012],C.carbon,[0,0,Math.PI/2]));}
  if(lod<2)for(const sign of [-1,1])for(let i=0;i<2;i++){const theta=sign*.64,p=helmetSurface(.050+i*.009,theta,.0015);add(head,1,roundBox([.024,.003,.002],[0,0,0],C.dark,lod,.001).rotateY(theta).rotateZ(sign*-.16).translate(...p.toArray()));}
  if(lod<2){const p=helmetSurface(.216,0,.002);add(head,4,roundBox([.017,.0025,.002],p.toArray(),C.light,lod,.001));}
- add(neck,1,cyl(.041,.10,n,[0,.04,0],C.carbon));for(let i=0;i<(lod===2?2:lod===1?4:7);i++)add(neck,1,ring(.042,.005,n,[0,.008+i*(lod===2?.034:lod===1?.018:.010),0],C.dark));
+ add(neck,1,cyl(.039,.134,n,[0,.054,0],C.carbon));for(let i=0;i<(lod===2?2:lod===1?4:7);i++)add(neck,1,ring(.039,.005,n,[0,.029+i*(lod===2?.066:lod===1?.024:.012),0],C.dark));
  // Steps 1–3: curved ribcage with a 34 mm crown (~11% width) and 65 mm side returns.
  add(chest,1,coreLoft([[.275,.108,.074],[.17,.152,.084],[.035,.127,.071],[-.068,.073,.055]],n,C.dark));
  add(chest,0,enclosure([[.267,.112,.071,.025,.058],[.186,.153,.096,.034,.066],[.057,.143,.069,.032,.062],[-.064,.062,.049,.022,.044]],C.ivory,lod,{thickness:.008}));
- add(chest,0,enclosure([[.294,.077,.020,.012,.028],[.270,.108,.064,.025,.053]],C.edge,lod,{thickness:.006,subdivisions:1}));
+ add(chest,0,shoulderYoke(lod,C.edge));
  add(chest,1,roundBox([.058,.007,.004],[0,.19,.132],C.dark,lod,.002));add(chest,4,roundBox([.040,.0025,.004],[0,.19,.135],C.light,lod,.001));
  add(chest,0,enclosure([[.262,.108,.052,.020,.045],[.16,.148,.063,.025,.060],[-.046,.103,.051,.021,.047]],C.ivory,lod,{thickness:.006}).rotateY(Math.PI));
  add(chest,1,panel([[-.052,.18],[.052,.18],[.067,.145],[.049,.005],[-.049,.005],[-.067,.145]],.025,[0,0,-.089],C.dark,lod));
@@ -74,7 +75,7 @@ export function buildHumanoid(lod){
   const s=side==='L'?1:-1,sh=nodes['SHOULDER_'+side],el=nodes['ELBOW_'+side],hip=nodes['HIP_'+side],knee=nodes['KNEE_'+side];
   joint(sh,.059,.114,s);
   const capProfile=[[.052,-.057],[.063,-.043],[.074,-.010],[.073,.020],[.060,.046],[.052,.058],[.046,.058],[.054,.046],[.067,.020],[.068,-.010],[.057,-.043],[.046,-.057],[.052,-.057]];
-  const cap=new T.LatheGeometry(capProfile.map(([r,x])=>new T.Vector2(r,x)),n);cap.rotateZ(-Math.PI/2);cap.scale(1,1,1.025);add(sh,0,prep(cap,C.ivory));
+  const cap=new T.LatheGeometry(capProfile.map(([r,x])=>new T.Vector2(r,x)),n);cap.rotateZ(-Math.PI/2);cap.scale(1,1,1.025);add(sh,0,prep(broadenCap(cap,s),C.ivory));
 
   // Sculpted, short front and rear shells leave a side seam over the dark spine.
   for(const [b,len,rx,rz]of [[sh,DIM.upperArm,.051,.049],[el,DIM.forearm,.052,.045],[hip,DIM.thigh,.068,.067],[knee,DIM.shin,.057,.054]]){

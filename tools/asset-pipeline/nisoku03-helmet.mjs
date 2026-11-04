@@ -38,7 +38,7 @@ export function helmetVisor(lod){
   for(let r=rows-2;r>0;r--){const i=r*cols;perimeter.push(new T.Vector3(...p.slice(i*3,i*3+3)))}
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();
   const curve=new T.CatmullRomCurve3(perimeter,true,'centripetal');
-  return {glass:prep(g,0x08121d),rim:prep(new T.TubeGeometry(curve,lod===0?80:lod===1?28:16,.0012,4,true),0x627078)};
+  return {glass:prep(g,0x08121d),rim:prep(new T.TubeGeometry(curve,lod===0?80:lod===1?27:16,.0012,4,true),0x627078)};
 }
 export function helmetBrow(lod){
   const cols=lod===0?25:lod===1?9:5,grid=[];

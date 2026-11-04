@@ -1,11 +1,12 @@
 {
   "status": "passed",
   "source_sha256": {
-    "nisoku03/index.html": "cec09480e7ba441c928e65a8bba602366783fde0c735cbfaf581a539a495d025",
-    "nisoku03/viewer.js": "c2b59a71f76274fabde6cfd119e9a1a5bceb94797917c319ea3219b77d1fb0dd",
-    "nisoku03/viewer.css": "0b07ccf5d1d614cd6c20c5c26ea0014a1d87378b569f1b88727e2b8ebeb6d750",
+    "nisoku03/index.html": "05e388ebbfefb66fe63745ed2ba72c8dc222c5ac6a911e690ac0cf9c09debb03",
+    "nisoku03/viewer.js": "2c7c7cbe29f7bba2f52c006e8db3fe5f8bdbda000f1b71035ee7ea7943f1d1e2",
+    "nisoku03/viewer.css": "0f57d419969f0c73d9d5506206cf7a25c888617ccdde56a811d5b07e3094a931",
     "assets/nisoku03/runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
-    "assets/nisoku03/manifest.json": "88d44f0fac17d6dd3f9940aef0b9747d0e6c77303bfaf638619a1b47ec6da7e2"
+    "assets/nisoku03/manifest.json": "6871de372da97c118793c10808f3e6c73d0f59738786a7eff4e1ff8d3669c227",
+    "assets/nisoku03/proportions-report.json": "79a6c3826d29d1477498881605ab9812cfdd785970b43d31823278d4a23737d7"
   },
   "variants": [
     {
@@ -53,6 +54,8 @@
     844
   ],
   "checks": [
+    "Previous NISOKU-03 and original NISOKU-02 reference selection",
+    "Measured front head-unit grid",
     "Original/refined/split comparison under identical orthographic camera and area lights",
     "Neutral body-joint parity",
     "Tightly framed front/side/three-quarter master views",

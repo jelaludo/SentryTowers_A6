@@ -3,10 +3,20 @@
   "family": "nisoku03",
   "label": "NISOKU-03 / Refined humanoid",
   "manufacturer": "Isao / Mechanism Atelier",
-  "version": 2,
+  "version": 3,
+  "proportions": {
+    "target_heads": 8.25,
+    "helmet_scale": 0.8907762061954977,
+    "crown_local_y_m": 0.264,
+    "shoulder_outer_extension_m": 0.018,
+    "collar_inner_y_m": 0.327,
+    "collar_side_y_m": 0.274,
+    "measurement": "Sole-to-crown divided by helmet chin-to-crown; neck excluded",
+    "report": "proportions-report.json"
+  },
   "previous_revision": {
-    "commit": "260cc9322e26208c5b9fe4ca70d7ffcf31e63fce",
-    "folder": "revisions/r1/",
+    "commit": "2c4d4a18c7698fef22e6882bdc49438337b547f1",
+    "folder": "revisions/r2/",
     "geometry_preserved": true
   },
   "helmet": {
@@ -165,9 +175,10 @@
     "hands": "tools/asset-pipeline/hand-lab-shape.mjs",
     "feet": "tools/asset-pipeline/foot-lab-shape.mjs",
     "module_sha256": {
-      "tools/asset-pipeline/nisoku03-shape.mjs": "f6a18fa30a52481bc3a8a70746223a473c621b0aaebd1921b18afe2752a0bd15",
+      "tools/asset-pipeline/nisoku03-shape.mjs": "89f3b06bfeadc05e574adf1c4b646dc82f93df67ba160aab5d0be7021ebaee9a",
       "tools/asset-pipeline/nisoku03-shells.mjs": "4516c1d0f16c5e0e4a0373907cc20691beada27809a8bfd3b86e20f80766ab1a",
-      "tools/asset-pipeline/nisoku03-helmet.mjs": "9de14932ee2fa06dbc4fd209ac9e6d9a18a51091bf6a22a49b454b874db0c44d",
+      "tools/asset-pipeline/nisoku03-helmet.mjs": "79397c53be735bd65849332fe6ab36a6f860a08aa071a23df3b98e88b271da73",
+      "tools/asset-pipeline/nisoku03-proportions.mjs": "38218a252e04ec7d109d461aef3c2c60f55e48ed215c509a41b873d59c3c4336",
       "tools/asset-pipeline/hand-lab-shape.mjs": "d0a652799947fabf92cff8b7d685a52005ef851a64cb1b2797e3262e46b3bab7",
       "tools/asset-pipeline/foot-lab-shape.mjs": "ca31163ea6f068120323935d39bfd3dd687b0b2703952231b7e9ac7b4035f79f",
       "assets/nisoku03/runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
@@ -193,6 +204,18 @@
         "sha256": "07a757e38a97287f4944d6b018d608038ff86a1bd0f590d121e0a8967243f7ac",
         "redistributed": false,
         "usage": "User-provided concept reference; no image texture or third-party geometry included"
+      },
+      {
+        "file": "HumanProportionsLifeartSchool5-700x390.jpg",
+        "sha256": "61df8f513f02f965ebef341d35b187e00790d8f795ec2877a931be5261452641",
+        "redistributed": false,
+        "usage": "User-provided concept reference; no image texture or third-party geometry included"
+      },
+      {
+        "file": "HumanProportionsLifeartSchool4-700x390.jpg",
+        "sha256": "9870a63d4a195cc22063ec6ee67e0d58eb1c2469e11359d72ee67a81c391b0fb",
+        "redistributed": false,
+        "usage": "User-provided concept reference; no image texture or third-party geometry included"
       }
     ]
   },
@@ -203,9 +226,9 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 17704688,
-      "sha256": "cd96fa936bec16a5c6b3dc646d9bf452549fa4b3a70dedd48f1d246eb2d80060",
-      "triangles": 364112,
+      "bytes": 17728476,
+      "sha256": "f6b9518f78ecc65d15756fead2c32289029a728712a5e92d23a4f9dfef7e90e2",
+      "triangles": 364708,
       "draw_calls": 6,
       "plot_m": [
         1.2,
@@ -213,19 +236,19 @@
       ],
       "bounds": {
         "min": [
-          -0.29428962298892103,
+          -0.30127245506504585,
           0.007633999585903415,
-          -0.1449931412935257
+          -0.1291564404964447
         ],
         "max": [
-          0.29428962298892103,
+          0.3022761219740341,
           1.9110000581741333,
           0.23687377371327317
         ],
         "dimensions_m": [
-          0.5885792459778421,
+          0.6035485770390799,
           1.90336605858823,
-          0.38186691500679887
+          0.3660302142097179
         ]
       },
       "required_nodes": [
@@ -1392,8 +1415,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 2713520,
-      "meshopt_sha256": "43008f028b2c7627e982d36f3f15f12aaa8c4971fef3e2e122f59a1a05cc5410",
+      "meshopt_bytes": 2718328,
+      "meshopt_sha256": "043438c05e112a09d5832d764054847cade6ca3e680a8cc573337c78e7c5fcc5",
       "meshopt_derived": true
     },
     {
@@ -1402,9 +1425,9 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1098448,
-      "sha256": "848c64e5b9e2d03fb7fbd86ef2fc517c1c703a8e70886a63b1ebdac4eb0d43ca",
-      "triangles": 24988,
+      "bytes": 1099848,
+      "sha256": "98527349c1b1ce3148690cbd3f285e9274ca0be5892e4c71c165a8d582c1c5cc",
+      "triangles": 24996,
       "draw_calls": 3,
       "plot_m": [
         1.2,
@@ -1412,19 +1435,19 @@
       ],
       "bounds": {
         "min": [
-          -0.2941418437508957,
+          -0.30127245506504585,
           0.008024999523553978,
-          -0.14431875944137573
+          -0.12855571508407593
         ],
         "max": [
-          0.2941418437508957,
+          0.3022761219740341,
           1.9110000581741333,
           0.23687377371327317
         ],
         "dimensions_m": [
-          0.5882836875017914,
+          0.6035485770390799,
           1.9029750586505794,
-          0.3811925331546489
+          0.3654294887973491
         ]
       },
       "required_nodes": [
@@ -2591,8 +2614,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 252192,
-      "meshopt_sha256": "32ba120e7e167fb1cfac42d5ec1ed79fe3e991efe02cb6c88c78fa7f02d8c22b",
+      "meshopt_bytes": 253004,
+      "meshopt_sha256": "3243c161b8ab07cbc54d22d3c7471157e7fdfe0cf1775c3b55dc727959860c12",
       "meshopt_derived": true
     },
     {
@@ -2601,9 +2624,9 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "bytes": 164924,
-      "sha256": "24d061a1490f3898ef442102ee145e7978a671325f67c58161d8e98809e07463",
-      "triangles": 2406,
+      "bytes": 165240,
+      "sha256": "bb3bde0f67c5194ada739cec613f57ba4f1237c26676ad8ffba08f6501ebac92",
+      "triangles": 2408,
       "draw_calls": 1,
       "plot_m": [
         1.2,
@@ -2611,19 +2634,19 @@
       ],
       "bounds": {
         "min": [
-          -0.28542470932006836,
+          -0.3010982871055603,
           0.008024999871850014,
-          -0.13197726011276245
+          -0.1175622045993805
         ],
         "max": [
-          0.28542470932006836,
-          1.8751249313354492,
+          0.3009762465953827,
+          1.8790433406829834,
           0.22855202853679657
         ],
         "dimensions_m": [
-          0.5708494186401367,
-          1.8670999314635992,
-          0.360529288649559
+          0.602074533700943,
+          1.8710183408111334,
+          0.34611423313617706
         ]
       },
       "required_nodes": [
@@ -3790,8 +3813,8 @@
       "clips": [],
       "credit": "Original Isao humanoid chassis and AUREL components by jelaludo / Model Workshop",
       "meshopt_file": "derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 82328,
-      "meshopt_sha256": "db3e3ff20f8ef48703f87b870b40d6441c37544970a1cf51aa61411f070ed2d7",
+      "meshopt_bytes": 82624,
+      "meshopt_sha256": "4a615207efa3d654d13bf06b75d4b2529dbe4d6fd9a3bf943f0327166c67fc27",
       "meshopt_derived": true
     }
   ]

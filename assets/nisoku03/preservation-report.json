@@ -67,19 +67,19 @@
       },
       "head_bounds_after": {
         "min": [
-          -0.12371227145195007,
-          1.659999966621399,
-          -0.1449931412935257
+          -0.1101999506354332,
+          1.688288927078247,
+          -0.1291564404964447
         ],
         "max": [
-          0.12371227145195007,
+          0.1101999506354332,
           1.9190000295639038,
-          0.1562872678041458
+          0.13921697437763214
         ]
       },
-      "unchanged_r1_body_except_head_and_elbows": {
-        "triangles": 342248,
-        "sha256": "7c318eb03a57ccbb4dfcaf9dac3b5153d7d0a5f04e1f9b9b741bf6715f2fb716"
+      "unchanged_r2_body_except_head_neck_chest_shoulders": {
+        "triangles": 337648,
+        "sha256": "487a61622f96c49f852a2a856220b419db056458e0969a7926176867bc94ca59"
       },
       "elbow_spheres": [
         {
@@ -123,19 +123,19 @@
       },
       "head_bounds_after": {
         "min": [
-          -0.12392114847898483,
-          1.659999966621399,
-          -0.14431875944137573
+          -0.11038601398468018,
+          1.688288927078247,
+          -0.12855571508407593
         ],
         "max": [
-          0.12392114847898483,
+          0.11038601398468018,
           1.9190000295639038,
-          0.15613777935504913
+          0.1393452137708664
         ]
       },
-      "unchanged_r1_body_except_head_and_elbows": {
-        "triangles": 21148,
-        "sha256": "7885a90c41ecfbecf172944e1ee6b1ba42cbad75c370a9e8cd3e44b302e7ce0b"
+      "unchanged_r2_body_except_head_neck_chest_shoulders": {
+        "triangles": 19296,
+        "sha256": "30e722df2231f82e06cd4a6e4c01b5f83551441ec41983479381611da31b2965"
       },
       "elbow_spheres": [
         {
@@ -153,5 +153,5 @@
       ]
     }
   ],
-  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged crown height with intentionally swept helmet depth; exact unchanged r1 body geometry outside HEAD/ELBOW bones; spherical 39 mm elbow surfaces at the original pivots; all r1 exports archived byte-for-byte. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
+  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged crown height; exact unchanged r2 body geometry outside HEAD/NECK/CHEST/SHOULDER bones; spherical 39 mm elbow surfaces at the original pivots; all r1/r2 exports archived byte-for-byte. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
 }

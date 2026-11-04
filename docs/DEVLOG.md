@@ -1,5 +1,17 @@
 # Devlog
 
+## 4 November 2026 / NISOKU-03 — measured head proportions and restrained shoulder shaping
+
+Measured NISOKU-03 against the supplied ideal/heroic proportion charts. The previous master was 7.3489 heads tall: 1.903366 m from sole to crown, divided by a 259.0 mm helmet from chin to crown, excluding the neck. Revision 3 targets 8.25 heads with a 230.711 mm helmet (8.2483 heads in game geometry). A uniform 10.92% helmet reduction anchored at the crown preserves overall height, limb lengths, joint centres and articulation. The helmet silhouette and spherical elbows remain recognizable.
+
+Expanded only the outer shoulder housings, keeping their inner seating and bearing/pivot centres. Measured neutral shoulder span grows from 594.4 to 617.2 mm, or 3.84%. Added a continuous rounded collar with a gentle trapezius-like slope: 53 mm rise over a 130 mm run, about 22.2 degrees. Curved front and rear returns connect it to the chest; the neck seal fills the revised interval. Hands, prehensile feet, five digits per foot, elbow spheres and all runtime motion paths remain intact.
+
+Archived revision 2 exports, reports and original README byte-for-byte under `assets/nisoku03/revisions/r2/` from `2c4d4a18c7698fef22e6882bdc49438337b547f1`. The viewer now defaults to previous/current NISOKU-03, with original NISOKU-02 still selectable. Added a front-view head grid, direct `?view=front&grid=1` study, measured statistics and an annotated proportion sheet. Refreshed matching front, side, three-quarter and detail renders. The head grid uses the external helmet; this is an artistic proportion study rather than a claim that every human landmark is reproduced.
+
+Measured detailed master: 364,708 triangles / six material draws / 17,728,476 plain bytes. Game: 24,996 / three / 1,099,848. Static: 2,408 / one / 165,240. Optional derived Meshopt exports accompany all tiers. All six plain/decoded exports pass glTF validation and 3,168 sampled poses pass existing floor/rail and articulation checks. Preservation checks confirm exact bind matrices, hand/digit signatures, both 39 mm elbow spheres, unchanged r2 geometry outside head/neck/chest/shoulders, and original/archive hashes. The separate proportion report checks the requested head-count range, unchanged total height and restrained shoulder growth. Browser checks cover the new reference selector and head grid, all tiers and motions, and desktop/mobile layouts. No FPS claim.
+
+Completed: proportion measurements, restrained shape changes, archived originals, review controls/images and measured handoff. Pending: user visual review, arbitrary self-collision/force solving, consuming-game release packing/r160 and reference-phone acceptance. Handoff: the containing commit plus `assets/nisoku03/`; shared Hand Lab `runtime.js` / `biped.js` and Foot Lab `runtime.js` support optional motion. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / NISOKU-03 — aerodynamic helmet and spherical elbows
 
 Reworked NISOKU-03’s head into a motorcycle/military hybrid: a swept satin-charcoal enclosure, forward chin guard, shallow brow lip and wraparound glossy visor with a narrow rim. Retained the brass side sensors, original head pivot, vision socket and crown height; front/rear helmet depth intentionally changes. Smooth profile interpolation removes the coarse crown silhouette in the detailed master.
