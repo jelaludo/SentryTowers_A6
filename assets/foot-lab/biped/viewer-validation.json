@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader; functional checks, no FPS claim",
+  "source_sha256": {
+    "foot-lab/viewer.js": "b7503e60c1956bdf6eaef164218a6cf2d3a8d5a1d146c5d83bb1e602dba420ea",
+    "foot-lab/viewer.css": "efd1f41f608e48d765d4a3720492ba6ce326c51f7455986a65734d230c0e9a37",
+    "foot-lab/index.html": "7bc870300d50a2f5792446115b6dfdb52360524b4c2ae20919309c93bede91cc",
+    "assets/foot-lab/biped.js": "725be8644f1f399a7ec45253ff5ac04000d0e858f4d3baf24fa3f83053b71767",
+    "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01",
+    "assets/foot-lab/manifest.json": "a1a1962ef77c3ee6d889ebfd023329433162e583785c578adf383d8ebd08bbb7"
+  },
+  "checks": [
+    "economical and curled-static deep links",
+    "original/master switch and automatic LOD1 selection",
+    "single loaded material primitive",
+    "all existing poses and motion studies on economical rig",
+    "independent joints, shell-bone separation and wireframe",
+    "natural rest restore, pose JSON source variant and download links",
+    "four variant tier/encoding combinations",
+    "static lockout and merged-palette visibility lockout",
+    "desktop and 390px mobile framing, zero horizontal overflow",
+    "zero page errors"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader; functional checks, no FPS claim",
+  "source_sha256": {
+    "hand-lab/viewer.js": "04bbae79013c66b75837d101fdb7ca53163db702ff9e6311474fbb48c2feec0a",
+    "hand-lab/viewer.css": "aaf2e9dffaf6b9e1d973e0cd79077de0de342bb0b14b33f3ed4e0bf82f007ecd",
+    "hand-lab/index.html": "7fe5ab280a8ed530ef1f8eba0eb310fb7c8a30b493638d5522865935c9b1cb09",
+    "assets/hand-lab/biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
+    "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+    "assets/hand-lab/manifest.json": "5d440dbe9d4d798fc81397917f761d59d5b80bd4cfd88f4f7b3604dfa46569f1"
+  },
+  "checks": [
+    "economical and curled-static deep links",
+    "original/master switch and automatic LOD1 selection",
+    "single loaded material primitive",
+    "all existing poses and motion studies on economical rig",
+    "independent joints, shell-bone separation and wireframe",
+    "natural rest restore, pose JSON source variant and download links",
+    "four variant tier/encoding combinations",
+    "static lockout and merged-palette visibility lockout",
+    "desktop and 390px mobile framing, zero horizontal overflow",
+    "zero page errors"
+  ]
+}

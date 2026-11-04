@@ -1,5 +1,7 @@
 # Hand Lab / AUREL-01 / v1
 
+**Biped variants:** choose “Biped / economy” for a second articulated game version (2,708 triangles / one draw) and a static version with naturally curled fingers. All original exports below are preserved. See `biped/README.md` and `docs/BIPED-EXTREMITIES.md` for measurements, pose matching and mounting notes.
+
 An original futuristic right robotic hand, built from the supplied concept: ivory protective shells, dark tactile surfaces, recessed gold bearings, graphite internal links and a ribbed wrist collar. The lab combines a pose studio for this new design with two attributed source-model comparisons. AUREL-01 contains no geometry or implementation copied from those sources.
 
 Viewer:

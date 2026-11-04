@@ -3,3 +3,7 @@
 @media(max-width:1050px){main{grid-template-columns:minmax(0,1fr) 310px}aside{padding:24px 19px}.identity{left:25px}.specimen-tag{display:none}h1{font-size:53px}.orbit-hint{display:none}}@media(max-width:700px){main{display:block}#stage{height:70vh;min-height:540px;max-height:720px;position:relative}.identity{left:22px;top:20px}h1{font-size:43px}.identity .eyebrow{font-size:7px;margin-bottom:13px}.identity h1 span{font-size:13px;margin-top:10px}.intro{display:none}.view-tabs,.stage-footer{left:22px;right:16px}.view-tabs{bottom:58px;gap:4px}.view-tabs button{padding:7px;font-size:8px}.stage-footer{font-size:8px;bottom:25px}#comparison-label{left:22px;bottom:105px;font-size:9px}#comparison-label span{font-size:7px}aside{border-left:0;padding:26px}.sources{padding:42px 25px}.sources h2{font-size:33px}.source-cards,.design-notes{grid-template-columns:1fr;gap:15px}.design-notes{gap:24px}.source-card{padding:21px}.handoff{gap:17px}}
 
 .pose-export{width:100%;margin-top:8px;font-size:10px;color:var(--muted)}
+
+.variant-label{display:block;font-size:10px;color:var(--muted);margin:18px 0 6px}#biped-rest{color:var(--gold);border-color:#736449}#variant-note{margin:8px 0 15px}
+
+body.workshop-viewer>main#lab-workspace{height:auto}#lab-workspace>aside{align-self:start}

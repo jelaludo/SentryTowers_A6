@@ -1,5 +1,7 @@
 # Foot Lab / NISOKU-02
 
+**Biped variants:** choose “Biped / economy” for a second articulated game version (2,496 triangles / one draw) and a static version with naturally curled toes. All original exports below are preserved. See `biped/README.md` and `docs/BIPED-EXTREMITIES.md` for measurements, pose matching and mounting notes.
+
 An original tactile, prehensile **right foot** from **Isao / Mechanism Atelier**, the fictional manufacturer of the AUREL-01 hand. Short ivory shells, graphite links, gold bearings, amber indicators and dark elastomer pads share the hand’s material language. The substantial heel, elevated medial arch, ankle above the hindfoot and four short toes make this a foot. Its two-segment great toe rotates to oppose the four lesser toes.
 
 Viewer: https://jelaludo.github.io/SentryTowers_A6/foot-lab/

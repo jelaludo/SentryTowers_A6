@@ -2,7 +2,7 @@
   "status": "passed",
   "source_sha256": {
     "runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
-    "manifest.json": "5570d16437dad9e1e8225b540eed84901b1c4e8d5ba07ce04afc07acbbacd3db",
+    "manifest.json": "5d440dbe9d4d798fc81397917f761d59d5b80bd4cfd88f4f7b3604dfa46569f1",
     "references/catalog.json": "0159da1bea3d562d6dad7561ca165ce691279d168794f8b7dcbd0e5f348e61aa"
   },
   "reports": [

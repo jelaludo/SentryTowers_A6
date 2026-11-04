@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+    "biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
+    "manifest.json": "5d440dbe9d4d798fc81397917f761d59d5b80bd4cfd88f4f7b3604dfa46569f1"
+  },
+  "reports": [
+    {
+      "file": "biped/lod1/aurel01_biped_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 157332,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/biped/lod1/aurel01_biped_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 39952,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "biped/lod2/aurel01_biped_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 97456,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/biped/lod2/aurel01_biped_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 41460,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 1316,
+  "min_sampled_floor_clearance_m": 0.0005000002565793693,
+  "min_sampled_pipe_clearance_m": null,
+  "max_static_to_articulated_rest_vertex_error_m": 2.1057543660696302e-8,
+  "swept_bounds_m": {
+    "min": [
+      -0.13383508859006954,
+      0.0005000002565793693,
+      -0.08824547526516281
+    ],
+    "max": [
+      0.07958822920420314,
+      0.24300000393390656,
+      0.10107895141580733
+    ]
+  },
+  "original_file_hashes_verified": true,
+  "required_names_preserved": true,
+  "scope": "Plain and decoded economy exports; every joint and socket compared with original across all sampled motions and axis limits; static geometry matches economical game at BIPED_REST; inward curl, ground/pipe clearance, independent joints and static lockout. Finite kinematics, not arbitrary-pose collision or force certification. No FPS claim."
+}

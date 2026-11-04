@@ -5,3 +5,7 @@
 .pose-export{width:100%;margin-top:8px;font-size:10px;color:var(--muted)}
 
 #phase-label{font:10px "IBM Plex Mono",monospace;letter-spacing:.8px;color:var(--gold);padding:9px 12px;background:#17282dcc;border-left:2px solid var(--gold)}
+
+.variant-label{display:block;font-size:10px;color:var(--muted);margin:18px 0 6px}#biped-rest{color:var(--gold);border-color:#736449}#variant-note{margin:8px 0 15px}
+
+body.workshop-viewer>main#lab-workspace{height:auto}#lab-workspace>aside{align-self:start}

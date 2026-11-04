@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01",
+    "biped.js": "725be8644f1f399a7ec45253ff5ac04000d0e858f4d3baf24fa3f83053b71767",
+    "manifest.json": "a1a1962ef77c3ee6d889ebfd023329433162e583785c578adf383d8ebd08bbb7"
+  },
+  "reports": [
+    {
+      "file": "biped/lod1/nisoku02foot_biped_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 131020,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/biped/lod1/nisoku02foot_biped_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 34868,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "biped/lod2/nisoku02foot_biped_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 81696,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/biped/lod2/nisoku02foot_biped_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 35280,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 1554,
+  "min_sampled_floor_clearance_m": 0.002201807190536288,
+  "min_sampled_pipe_clearance_m": 0.0014585727757509999,
+  "max_static_to_articulated_rest_vertex_error_m": 1.9252356534084373e-8,
+  "swept_bounds_m": {
+    "min": [
+      -0.13499949576925785,
+      0.002201807190536288,
+      -0.13142248255315703
+    ],
+    "max": [
+      0.08561759128759389,
+      0.37050001078844075,
+      0.14782571079157103
+    ]
+  },
+  "original_file_hashes_verified": true,
+  "required_names_preserved": true,
+  "scope": "Plain and decoded economy exports; every joint and socket compared with original across all sampled motions and axis limits; static geometry matches economical game at BIPED_REST; inward curl, ground/pipe clearance, independent joints and static lockout. Finite kinematics, not arbitrary-pose collision or force certification. No FPS claim."
+}

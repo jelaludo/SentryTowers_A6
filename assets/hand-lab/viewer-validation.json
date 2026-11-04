@@ -2,9 +2,11 @@
   "status": "passed",
   "browser": "Chromium / SwiftShader WebGL; functional checks only, no FPS claim",
   "source_sha256": {
-    "hand-lab/viewer.js": "2fa49673a60ae2d40c76125b940eac78e498dc2a51a879f43047f1e45cc68de5",
-    "hand-lab/index.html": "0c7479e50179e6986ebb63bf9d1fa4fa8eb66ed575476ea6c8be037fa859f1e6",
-    "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e"
+    "hand-lab/viewer.js": "04bbae79013c66b75837d101fdb7ca53163db702ff9e6311474fbb48c2feec0a",
+    "hand-lab/viewer.css": "aaf2e9dffaf6b9e1d973e0cd79077de0de342bb0b14b33f3ed4e0bf82f007ecd",
+    "hand-lab/index.html": "7fe5ab280a8ed530ef1f8eba0eb310fb7c8a30b493638d5522865935c9b1cb09",
+    "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+    "assets/hand-lab/manifest.json": "5d440dbe9d4d798fc81397917f761d59d5b80bd4cfd88f4f7b3604dfa46569f1"
   },
   "checks": [
     "six static poses and five motion cycles",

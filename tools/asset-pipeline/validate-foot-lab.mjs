@@ -5,7 +5,7 @@ import {createRig,POSES,MOTIONS,JOINTS,TOES,PIPE,sampleMotion} from '../../asset
 const base=new URL('../../assets/foot-lab/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',base))),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 await MeshoptDecoder.ready;const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
 const reports=[],sweep=new T.Box3(),contacts={};let baseline,poseCount=0,clearance=Infinity,pipeClearance=Infinity,rigidError=0;
-for(const e of manifest.assets)for(const packed of [false,true]){
+for(const e of manifest.assets.filter(e=>!e.variant||e.variant==='original'))for(const packed of [false,true]){
  const file=packed?e.meshopt_file:e.file,bytes=await fs.readFile(new URL(file,base));assert.equal(bytes.length,packed?e.meshopt_bytes:e.bytes);assert.equal(sha(bytes),packed?e.meshopt_sha256:e.sha256);
  let check=bytes;if(packed){const doc=await io.readBinary(bytes);doc.getRoot().listExtensionsUsed().filter(x=>x.extensionName===EXTMeshoptCompression.EXTENSION_NAME).forEach(x=>x.dispose());await doc.transform(dequantize());check=await io.writeBinary(doc);}
  const result=await validator.validateBytes(check);assert.equal(result.issues.numErrors,0,file+' '+JSON.stringify(result.issues.messages.slice(0,8)));assert.equal(result.issues.numWarnings,0,file+' '+JSON.stringify(result.issues.messages.slice(0,8)));

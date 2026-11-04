@@ -1234,6 +1234,771 @@
         "SOCKET_ARCH"
       ],
       "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied Nisoku-02 foot concept. No third-party geometry incorporated."
+    },
+    {
+      "id": "nisoku02foot_biped_d0_lod1",
+      "family": "nisoku02foot",
+      "label": "Biped / economical articulated",
+      "file": "biped/lod1/nisoku02foot_biped_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 131020,
+      "sha256": "36c3cf5ae57f003f1b08c0fe4cec07dcc7a7e6211db6c26bf8a0540b2f7e234e",
+      "triangles": 2496,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/biped/lod1/nisoku02foot_biped_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 34868,
+      "meshopt_sha256": "6647b7660c9cc9c2d2bfc37d75ad636658438e01aace77e95d1ccc6a2cd8b8a7",
+      "meshopt_derived": true,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.10461919009685516,
+          0.0035000001080334187,
+          -0.12600000202655792
+        ],
+        "max": [
+          0.07028749585151672,
+          0.140500009059906,
+          0.1329771876335144
+        ],
+        "dimensions_m": [
+          0.1749066859483719,
+          0.1370000089518726,
+          0.2589771896600723
+        ]
+      },
+      "sockets": [
+        {
+          "id": "ANKLE_ATTACH",
+          "node": "SOCKET_ANKLE_ATTACH",
+          "kind": "leg_mount",
+          "position_m": [
+            0,
+            0.14,
+            -0.073
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TOE_02_TIP",
+          "node": "SOCKET_TOE_02_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            -0.027824809901774,
+            0.028,
+            0.1329771886881263
+          ],
+          "normal": [
+            -0.024997395914712332,
+            0,
+            0.9996875162757026
+          ]
+        },
+        {
+          "id": "TOE_02_PAD",
+          "node": "SOCKET_TOE_02_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            -0.027538339744591397,
+            0.017954499999999998,
+            0.12152076975160674
+          ],
+          "normal": [
+            -8.673617379884035e-18,
+            -0.9999999999999999,
+            3.1330732279399864e-16
+          ]
+        },
+        {
+          "id": "TOE_03_TIP",
+          "node": "SOCKET_TOE_03_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.005,
+            0.028,
+            0.128
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "TOE_03_PAD",
+          "node": "SOCKET_TOE_03_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.005,
+            0.018221,
+            0.11654
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TOE_04_TIP",
+          "node": "SOCKET_TOE_04_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.035949707513162225,
+            0.028,
+            0.11697075219368419
+          ],
+          "normal": [
+            0.029995500202495657,
+            0,
+            0.9995500337489875
+          ]
+        },
+        {
+          "id": "TOE_04_PAD",
+          "node": "SOCKET_TOE_04_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.03562005696593679,
+            0.019020500000000003,
+            0.10598569732278282
+          ],
+          "normal": [
+            5.204170427930421e-18,
+            -1.0000000000000002,
+            -1.3417001884508117e-17
+          ]
+        },
+        {
+          "id": "TOE_05_TIP",
+          "node": "SOCKET_TOE_05_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.06283230009125217,
+            0.028,
+            0.09987540637660676
+          ],
+          "normal": [
+            0.0649542388347826,
+            0,
+            0.9978882436713011
+          ]
+        },
+        {
+          "id": "TOE_05_PAD",
+          "node": "SOCKET_TOE_05_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.06214898149871025,
+            0.01982,
+            0.08937762205318467
+          ],
+          "normal": [
+            1.3877787807814457e-17,
+            -1,
+            1.5417354892743873e-16
+          ]
+        },
+        {
+          "id": "HALLUX_TIP",
+          "node": "SOCKET_HALLUX_TIP",
+          "kind": "great_toe_tip",
+          "position_m": [
+            -0.09776960385659142,
+            0.029,
+            0.09049691272064145
+          ],
+          "normal": [
+            -0.5226872289306593,
+            0,
+            0.8525245220595057
+          ]
+        },
+        {
+          "id": "HALLUX_PAD",
+          "node": "SOCKET_HALLUX_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            -0.08784900025148751,
+            0.0164,
+            0.07431599729195203
+          ],
+          "normal": [
+            -1.1102230246251565e-16,
+            -1,
+            3.469446951953614e-16
+          ]
+        },
+        {
+          "id": "HEEL",
+          "node": "SOCKET_HEEL",
+          "kind": "heel_contact",
+          "position_m": [
+            0,
+            0.003,
+            -0.087
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "FOREFOOT",
+          "node": "SOCKET_FOREFOOT",
+          "kind": "forefoot_contact",
+          "position_m": [
+            0,
+            0.006,
+            0.031
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "ARCH",
+          "node": "SOCKET_ARCH",
+          "kind": "arch_reference",
+          "position_m": [
+            0,
+            0.021,
+            -0.026
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "ANKLE_PITCH",
+        "ANKLE_ROLL",
+        "TOE_02_SPLAY",
+        "TOE_02_MTP",
+        "TOE_02_PIP",
+        "TOE_02_DIP",
+        "TOE_03_SPLAY",
+        "TOE_03_MTP",
+        "TOE_03_PIP",
+        "TOE_03_DIP",
+        "TOE_04_SPLAY",
+        "TOE_04_MTP",
+        "TOE_04_PIP",
+        "TOE_04_DIP",
+        "TOE_05_SPLAY",
+        "TOE_05_MTP",
+        "TOE_05_PIP",
+        "TOE_05_DIP",
+        "HALLUX_OPPOSITION",
+        "HALLUX_ROLL",
+        "HALLUX_MTP",
+        "HALLUX_IP"
+      ],
+      "required_nodes": [
+        "NISOKU_02_FOOT_ROOT",
+        "FOOT_PLACEMENT",
+        "INSTEP_SHELL",
+        "ANKLE_PITCH",
+        "ANKLE_ROLL",
+        "SOCKET_ANKLE_ATTACH",
+        "TOE_02_SPLAY",
+        "TOE_02_MTP",
+        "TOE_02_PIP",
+        "TOE_02_DIP",
+        "TOE_02_DISTAL_SHELL",
+        "SOCKET_TOE_02_TIP",
+        "SOCKET_TOE_02_PAD",
+        "TOE_02_MIDDLE_SHELL",
+        "TOE_02_PROXIMAL_SHELL",
+        "TOE_03_SPLAY",
+        "TOE_03_MTP",
+        "TOE_03_PIP",
+        "TOE_03_DIP",
+        "TOE_03_DISTAL_SHELL",
+        "SOCKET_TOE_03_TIP",
+        "SOCKET_TOE_03_PAD",
+        "TOE_03_MIDDLE_SHELL",
+        "TOE_03_PROXIMAL_SHELL",
+        "TOE_04_SPLAY",
+        "TOE_04_MTP",
+        "TOE_04_PIP",
+        "TOE_04_DIP",
+        "TOE_04_DISTAL_SHELL",
+        "SOCKET_TOE_04_TIP",
+        "SOCKET_TOE_04_PAD",
+        "TOE_04_MIDDLE_SHELL",
+        "TOE_04_PROXIMAL_SHELL",
+        "TOE_05_SPLAY",
+        "TOE_05_MTP",
+        "TOE_05_PIP",
+        "TOE_05_DIP",
+        "TOE_05_DISTAL_SHELL",
+        "SOCKET_TOE_05_TIP",
+        "SOCKET_TOE_05_PAD",
+        "TOE_05_MIDDLE_SHELL",
+        "TOE_05_PROXIMAL_SHELL",
+        "HALLUX_OPPOSITION",
+        "HALLUX_ROLL",
+        "HALLUX_MTP",
+        "HALLUX_IP",
+        "HALLUX_DISTAL_SHELL",
+        "SOCKET_HALLUX_TIP",
+        "SOCKET_HALLUX_PAD",
+        "HALLUX_PROXIMAL_SHELL",
+        "SOCKET_HEEL",
+        "SOCKET_FOREFOOT",
+        "SOCKET_ARCH"
+      ],
+      "credit": "Original economical variant by jelaludo / Model Workshop; Isao / Mechanism Atelier. No third-party geometry incorporated.",
+      "variant": "biped",
+      "merged_palette": true,
+      "material_visibility": false,
+      "static_pose": null
+    },
+    {
+      "id": "nisoku02foot_biped_d0_lod2",
+      "family": "nisoku02foot",
+      "label": "Biped / inward-curled static",
+      "file": "biped/lod2/nisoku02foot_biped_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 81696,
+      "sha256": "f23babacd6583164a23d75be329b0edbccdbe3727730a24fd05782a9924b400d",
+      "triangles": 2496,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/biped/lod2/nisoku02foot_biped_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 35280,
+      "meshopt_sha256": "7d195b39603a894d3fb0d45836c3463cc78118d380355fab9409c0e85913acc9",
+      "meshopt_derived": true,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.0933491438627243,
+          0.002201808150857687,
+          -0.12600000202655792
+        ],
+        "max": [
+          0.06937619298696518,
+          0.140500009059906,
+          0.1297483593225479
+        ],
+        "dimensions_m": [
+          0.16272533684968948,
+          0.13829820090904832,
+          0.25574836134910583
+        ]
+      },
+      "sockets": [
+        {
+          "id": "ANKLE_ATTACH",
+          "node": "SOCKET_ANKLE_ATTACH",
+          "kind": "leg_mount",
+          "position_m": [
+            0,
+            0.14,
+            -0.073
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "TOE_02_TIP",
+          "node": "SOCKET_TOE_02_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            -0.02684400724918857,
+            0.010747388043702998,
+            0.1303305613709738
+          ],
+          "normal": [
+            -0.011052466664378256,
+            -0.38941834230865047,
+            0.9209946784071097
+          ]
+        },
+        {
+          "id": "TOE_02_PAD",
+          "node": "SOCKET_TOE_02_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            -0.026670404284342506,
+            0.0059576040313041485,
+            0.11586434205232785
+          ],
+          "normal": [
+            0.004672907956028712,
+            -0.9210609940028852,
+            -0.38939030452445966
+          ]
+        },
+        {
+          "id": "TOE_03_TIP",
+          "node": "SOCKET_TOE_03_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.005,
+            0.010636698092436291,
+            0.12515810576010983
+          ],
+          "normal": [
+            0,
+            -0.40776045305957026,
+            0.9130889403123083
+          ]
+        },
+        {
+          "id": "TOE_03_PAD",
+          "node": "SOCKET_TOE_03_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.005,
+            0.006380536137184905,
+            0.11070661703366125
+          ],
+          "normal": [
+            0,
+            -0.9130889403123085,
+            -0.4077604530595702
+          ]
+        },
+        {
+          "id": "TOE_04_TIP",
+          "node": "SOCKET_TOE_04_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.034887285740116285,
+            0.009672939363404234,
+            0.11361280625542278
+          ],
+          "normal": [
+            0.012838139653172433,
+            -0.4528862853790683,
+            0.891475851992523
+          ]
+        },
+        {
+          "id": "TOE_04_PAD",
+          "node": "SOCKET_TOE_04_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.03468763623859966,
+            0.006644322195870238,
+            0.0997492158698458
+          ],
+          "normal": [
+            -0.006521337126595035,
+            -0.8915682881953292,
+            -0.4528393309403815
+          ]
+        },
+        {
+          "id": "TOE_05_TIP",
+          "node": "SOCKET_TOE_05_TIP",
+          "kind": "toe_tip",
+          "position_m": [
+            0.06071924966995719,
+            0.009202323400747213,
+            0.09608627473134312
+          ],
+          "normal": [
+            0.027071565816252474,
+            -0.4968801378437368,
+            0.8673968289892726
+          ]
+        },
+        {
+          "id": "TOE_05_PAD",
+          "node": "SOCKET_TOE_05_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            0.06030766560924908,
+            0.007330741561100147,
+            0.08289875866581833
+          ],
+          "normal": [
+            -0.01550014527153202,
+            -0.86781917967765,
+            -0.4966383159605916
+          ]
+        },
+        {
+          "id": "HALLUX_TIP",
+          "node": "SOCKET_HALLUX_TIP",
+          "kind": "great_toe_tip",
+          "position_m": [
+            -0.08503679396910033,
+            0.011752777091944175,
+            0.09419504503284482
+          ],
+          "normal": [
+            -0.3496870030790537,
+            -0.33348709214081446,
+            0.8755029179009365
+          ]
+        },
+        {
+          "id": "HALLUX_PAD",
+          "node": "SOCKET_HALLUX_PAD",
+          "kind": "tactile_contact",
+          "position_m": [
+            -0.07684115007228337,
+            0.00620365331511967,
+            0.07367580902304055
+          ],
+          "normal": [
+            0.12369718876004143,
+            -0.9427546655283464,
+            -0.3096976688924199
+          ]
+        },
+        {
+          "id": "HEEL",
+          "node": "SOCKET_HEEL",
+          "kind": "heel_contact",
+          "position_m": [
+            0,
+            0.003,
+            -0.087
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "FOREFOOT",
+          "node": "SOCKET_FOREFOOT",
+          "kind": "forefoot_contact",
+          "position_m": [
+            0,
+            0.006,
+            0.031
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "ARCH",
+          "node": "SOCKET_ARCH",
+          "kind": "arch_reference",
+          "position_m": [
+            0,
+            0.021,
+            -0.026
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "ANKLE_PITCH",
+        "ANKLE_ROLL",
+        "TOE_02_SPLAY",
+        "TOE_02_MTP",
+        "TOE_02_PIP",
+        "TOE_02_DIP",
+        "TOE_03_SPLAY",
+        "TOE_03_MTP",
+        "TOE_03_PIP",
+        "TOE_03_DIP",
+        "TOE_04_SPLAY",
+        "TOE_04_MTP",
+        "TOE_04_PIP",
+        "TOE_04_DIP",
+        "TOE_05_SPLAY",
+        "TOE_05_MTP",
+        "TOE_05_PIP",
+        "TOE_05_DIP",
+        "HALLUX_OPPOSITION",
+        "HALLUX_ROLL",
+        "HALLUX_MTP",
+        "HALLUX_IP"
+      ],
+      "required_nodes": [
+        "NISOKU_02_FOOT_ROOT",
+        "FOOT_PLACEMENT",
+        "INSTEP_SHELL",
+        "ANKLE_PITCH",
+        "ANKLE_ROLL",
+        "SOCKET_ANKLE_ATTACH",
+        "TOE_02_SPLAY",
+        "TOE_02_MTP",
+        "TOE_02_PIP",
+        "TOE_02_DIP",
+        "TOE_02_DISTAL_SHELL",
+        "SOCKET_TOE_02_TIP",
+        "SOCKET_TOE_02_PAD",
+        "TOE_02_MIDDLE_SHELL",
+        "TOE_02_PROXIMAL_SHELL",
+        "TOE_03_SPLAY",
+        "TOE_03_MTP",
+        "TOE_03_PIP",
+        "TOE_03_DIP",
+        "TOE_03_DISTAL_SHELL",
+        "SOCKET_TOE_03_TIP",
+        "SOCKET_TOE_03_PAD",
+        "TOE_03_MIDDLE_SHELL",
+        "TOE_03_PROXIMAL_SHELL",
+        "TOE_04_SPLAY",
+        "TOE_04_MTP",
+        "TOE_04_PIP",
+        "TOE_04_DIP",
+        "TOE_04_DISTAL_SHELL",
+        "SOCKET_TOE_04_TIP",
+        "SOCKET_TOE_04_PAD",
+        "TOE_04_MIDDLE_SHELL",
+        "TOE_04_PROXIMAL_SHELL",
+        "TOE_05_SPLAY",
+        "TOE_05_MTP",
+        "TOE_05_PIP",
+        "TOE_05_DIP",
+        "TOE_05_DISTAL_SHELL",
+        "SOCKET_TOE_05_TIP",
+        "SOCKET_TOE_05_PAD",
+        "TOE_05_MIDDLE_SHELL",
+        "TOE_05_PROXIMAL_SHELL",
+        "HALLUX_OPPOSITION",
+        "HALLUX_ROLL",
+        "HALLUX_MTP",
+        "HALLUX_IP",
+        "HALLUX_DISTAL_SHELL",
+        "SOCKET_HALLUX_TIP",
+        "SOCKET_HALLUX_PAD",
+        "HALLUX_PROXIMAL_SHELL",
+        "SOCKET_HEEL",
+        "SOCKET_FOREFOOT",
+        "SOCKET_ARCH"
+      ],
+      "credit": "Original economical variant by jelaludo / Model Workshop; Isao / Mechanism Atelier. No third-party geometry incorporated.",
+      "variant": "biped",
+      "merged_palette": true,
+      "material_visibility": false,
+      "static_pose": {
+        "lift": 0,
+        "pitch": 0,
+        "roll": 0,
+        "ANKLE_PITCH": 0,
+        "ANKLE_ROLL": 0,
+        "HALLUX_OPPOSITION": -0.38,
+        "HALLUX_ROLL": 0,
+        "HALLUX_MTP": 0.12,
+        "HALLUX_IP": 0.22,
+        "TOE_02_SPLAY": -0.012,
+        "TOE_02_MTP": 0.1,
+        "TOE_02_PIP": 0.18,
+        "TOE_02_DIP": 0.12,
+        "TOE_03_SPLAY": 0,
+        "TOE_03_MTP": 0.1,
+        "TOE_03_PIP": 0.19,
+        "TOE_03_DIP": 0.13,
+        "TOE_04_SPLAY": 0.0144,
+        "TOE_04_MTP": 0.12,
+        "TOE_04_PIP": 0.21,
+        "TOE_04_DIP": 0.14,
+        "TOE_05_SPLAY": 0.0312,
+        "TOE_05_MTP": 0.14,
+        "TOE_05_PIP": 0.23,
+        "TOE_05_DIP": 0.15
+      }
     }
-  ]
+  ],
+  "variants": {
+    "original": {
+      "label": "Original study",
+      "lods": [
+        0,
+        1,
+        2
+      ]
+    },
+    "biped": {
+      "label": "Biped / economy",
+      "lods": [
+        1,
+        2
+      ],
+      "master_variant": "original",
+      "master_lod": 0,
+      "pose_module": "biped.js",
+      "rest_pose": {
+        "lift": 0,
+        "pitch": 0,
+        "roll": 0,
+        "ANKLE_PITCH": 0,
+        "ANKLE_ROLL": 0,
+        "HALLUX_OPPOSITION": -0.38,
+        "HALLUX_ROLL": 0,
+        "HALLUX_MTP": 0.12,
+        "HALLUX_IP": 0.22,
+        "TOE_02_SPLAY": -0.012,
+        "TOE_02_MTP": 0.1,
+        "TOE_02_PIP": 0.18,
+        "TOE_02_DIP": 0.12,
+        "TOE_03_SPLAY": 0,
+        "TOE_03_MTP": 0.1,
+        "TOE_03_PIP": 0.19,
+        "TOE_03_DIP": 0.13,
+        "TOE_04_SPLAY": 0.0144,
+        "TOE_04_MTP": 0.12,
+        "TOE_04_PIP": 0.21,
+        "TOE_04_DIP": 0.14,
+        "TOE_05_SPLAY": 0.0312,
+        "TOE_05_MTP": 0.14,
+        "TOE_05_PIP": 0.23,
+        "TOE_05_DIP": 0.15
+      },
+      "rest_label": "Natural inward curl",
+      "budgets": {
+        "lod1": {
+          "triangles": 3500,
+          "draw_calls": 1,
+          "bytes": 250000
+        },
+        "lod2": {
+          "triangles": 3000,
+          "draw_calls": 1,
+          "bytes": 250000
+        }
+      },
+      "construction": "Three-section twelve-sided segment shells, low-sided joint barrels, simplified pads and cuff ribs; hidden longitudinal links, microdetails and separate bearing assemblies omitted. One vertex-color palette.",
+      "static_contract": "LOD2 geometry is frozen in rest_pose. Local hierarchy and interface coordinates are retained; world socket positions match articulated LOD1 at rest_pose, not its neutral bind pose. Static lookup nodes do not animate.",
+      "integration": "Same right-side attachment frames, bone lengths, joint names and runtime as original. Apply rest_pose before an LOD1/LOD2 swap; retain LOD1 for visible motion. Material-based visibility is unavailable on the merged palette; joint rig, wireframe and shell-bone inspection remain available on LOD1."
+    }
+  }
 }
