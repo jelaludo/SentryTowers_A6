@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "nisoku03/index.html": "9e02e66ee1862213f0c18632536a010b6a7c90fa4b357c988bfd9dfd903ac550",
+    "nisoku03/viewer.js": "958032c7c63f4ba11e57b765baa66a1cc2d63425812c87a582c9de1f0bd11010",
+    "nisoku03/viewer.css": "360fd0b322de2200794a3066177e8ff1f76c6fe311bb2f2fd9f6622d0399e089",
+    "assets/nisoku03/runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
+    "assets/nisoku03/manifest.json": "9e7cce3ceded16ac0b02f1ef0dc317f3145e465366741274141a8e3b75b0ec29"
+  },
+  "variants": [
+    {
+      "lod": 0,
+      "encoding": "plain"
+    },
+    {
+      "lod": 0,
+      "encoding": "meshopt"
+    },
+    {
+      "lod": 1,
+      "encoding": "plain"
+    },
+    {
+      "lod": 1,
+      "encoding": "meshopt"
+    },
+    {
+      "lod": 2,
+      "encoding": "plain"
+    },
+    {
+      "lod": 2,
+      "encoding": "meshopt"
+    }
+  ],
+  "matched_body_joint_error_m": 0,
+  "motions": [
+    "neutral",
+    "idle",
+    "walk",
+    "greet",
+    "inspect",
+    "crouch",
+    "agility",
+    "rail"
+  ],
+  "desktop": [
+    1500,
+    1200
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "checks": [
+    "Original/refined/split comparison under identical orthographic camera and area lights",
+    "Neutral body-joint parity",
+    "Tightly framed front/side/three-quarter master views",
+    "All six plain/Meshopt tiers",
+    "All eight studies",
+    "Static playback disabled",
+    "Ground travel",
+    "Rail fixture",
+    "Wireframe and skeleton",
+    "Play/pause",
+    "Shared navigation",
+    "No horizontal mobile overflow",
+    "No browser errors"
+  ],
+  "performance": "No FPS claim; automated Chromium uses SwiftShader."
+}

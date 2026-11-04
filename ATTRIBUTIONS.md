@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## NISOKU-03 / Refined enclosure / 4 November 2026
+
+Original duplicate and refinement of our NISOKU-02 chassis by jelaludo / Model Workshop. Curved enclosure geometry, comparison viewer, frame audit, preservation checks and review renders are original Workshop work. Existing AUREL hand and foot digit geometry is reused unchanged; no third-party hand reference geometry or code is included. The original NISOKU-02 family and component sources remain preserved. Reference-image fingerprints and parent commit are in `assets/nisoku03/manifest.json`. Original Workshop reuse terms apply.
+
 ## NISOKU-02 humanoid / 4 November 2026
 
 Original chassis, assembly, rigid skin, motion adapter, viewer and derived review renders by jelaludo / Model Workshop. The humanoid assembles our original AUREL-01 hand and AUREL-02 foot geometry, with a reflected pair, shared materials and reduced game/distance derivatives. No third-party hand reference geometry or code is incorporated. Two user-provided concept images guide the silhouette; fingerprints are recorded in `assets/nisoku02/manifest.json`, and the images are not redistributed. Original Workshop reuse terms apply. The foot was renamed from NISOKU-02 to AUREL-02; legacy foot file and node identifiers remain unchanged.

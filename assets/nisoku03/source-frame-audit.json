@@ -1,0 +1,680 @@
+{
+  "source": "assets/nisoku02/nisoku02_d0_lod1.glb",
+  "anatomical_forward": "Confirmed +Z from SOCKET_VISION normal and forward lesser-toe chains; not inferred from filename.",
+  "left": "Anatomical left is +X in the model frame; source foot hallux is on -X medial side.",
+  "frame_note": "Body bases are identity rotations in authoring bind space. Current exported standing leg rotations contain bent-knee IK. Use each bone bind frame for geometry edits, not its posed world axes. Foot modules are positively scaled 1.15; hand adapters are rotated. No negative runtime scales.",
+  "objects": [
+    {
+      "name": "NISOKU_02_ROOT",
+      "parent": "NISOKU_02_HUMANOID",
+      "local_position": [
+        0,
+        0,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        0,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "CHEST",
+      "parent": "WAIST",
+      "local_position": [
+        0,
+        0.2,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        1.272,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "WAIST",
+      "parent": "PELVIS",
+      "local_position": [
+        0,
+        0.115,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        1.072,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "PELVIS",
+      "parent": "BODY_ROOT",
+      "local_position": [
+        0,
+        0.957,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        0.957,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "HEAD",
+      "parent": "NECK",
+      "local_position": [
+        0,
+        0.075,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        1.647,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "SHOULDER_L",
+      "parent": "CHEST",
+      "local_position": [
+        0.225,
+        0.20999999999999996,
+        0
+      ],
+      "local_quaternion": [
+        0.01749773968459419,
+        -0.00021873313852706437,
+        0.012497760517901477,
+        0.9997687668875147
+      ],
+      "world_position": [
+        0.225,
+        1.482,
+        0
+      ],
+      "world_scale": [
+        1,
+        0.9999999999999999,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          0.9996875162757026,
+          0.02498208657263898,
+          0.0008747302407305567
+        ],
+        [
+          -0.02499739591471234,
+          0.9990752701759348,
+          0.03498191990680565
+        ],
+        [
+          3.2526065174565133e-19,
+          -0.03499285460433622,
+          0.9993875625234886
+        ]
+      ]
+    },
+    {
+      "name": "ELBOW_L",
+      "parent": "SHOULDER_L",
+      "local_position": [
+        0,
+        -0.29,
+        0
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0.23224924481526657,
+        1.192268171648979,
+        -0.010144756772973636
+      ],
+      "world_scale": [
+        1,
+        0.9999999999999999,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          0.9996875162757026,
+          0.02498208657263898,
+          0.0008747302407305567
+        ],
+        [
+          -0.02499739591471234,
+          0.9990752701759348,
+          0.03498191990680565
+        ],
+        [
+          3.2526065174565133e-19,
+          -0.03499285460433622,
+          0.9993875625234886
+        ]
+      ]
+    },
+    {
+      "name": "HIP_L",
+      "parent": "PELVIS",
+      "local_position": [
+        0.108,
+        0,
+        0
+      ],
+      "local_quaternion": [
+        -0.07160461984340008,
+        0,
+        0,
+        0.9974330947071498
+      ],
+      "world_position": [
+        0.108,
+        0.957,
+        0
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0.9897455568341643,
+          -0.14284163513146306
+        ],
+        [
+          0,
+          0.14284163513146306,
+          0.9897455568341643
+        ]
+      ]
+    },
+    {
+      "name": "KNEE_L",
+      "parent": "HIP_L",
+      "local_position": [
+        0,
+        -0.395,
+        0
+      ],
+      "local_quaternion": [
+        0.14107838197582223,
+        0,
+        0,
+        0.9899984293619278
+      ],
+      "world_position": [
+        0.108,
+        0.566050505050505,
+        0.05642244587692791
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0.9902481606185308,
+          0.13931468117759985
+        ],
+        [
+          0,
+          -0.13931468117759985,
+          0.9902481606185308
+        ]
+      ]
+    },
+    {
+      "name": "ANKLE_L",
+      "parent": "KNEE_L",
+      "local_position": [
+        0,
+        -0.405,
+        0
+      ],
+      "local_quaternion": [
+        -0.06982778595039774,
+        0,
+        0,
+        0.9975590610631861
+      ],
+      "world_position": [
+        0.108,
+        0.16499999999999998,
+        -3.469446951953614e-17
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "HAND_L_ROOT",
+      "parent": "WRIST_L",
+      "local_position": [
+        0,
+        0.02,
+        0
+      ],
+      "local_quaternion": [
+        -0.7071067811865475,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "world_position": [
+        0.2383736068143711,
+        0.947494730455875,
+        -0.018715327150141018
+      ],
+      "world_scale": [
+        1,
+        0.9999999999999999,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          -2.220446049250313e-16,
+          0.03499285460433621,
+          -0.9993875625234886
+        ],
+        [
+          0.024997395914712343,
+          -0.9990752701759347,
+          -0.03498191990680565
+        ],
+        [
+          -0.9996875162757025,
+          -0.024982086572638985,
+          -0.0008747302407303279
+        ]
+      ]
+    },
+    {
+      "name": "FOOT_L_ROOT",
+      "parent": "ANKLE_L",
+      "local_position": [
+        0,
+        -0.161,
+        0.08394999999999998
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0.108,
+        0.003999999999999976,
+        0.08394999999999994
+      ],
+      "world_scale": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "FOOT_L_HALLUX_OPPOSITION",
+      "parent": "FOOT_L_FOOT_PLACEMENT",
+      "local_position": [
+        -0.057,
+        0.029,
+        0.024
+      ],
+      "local_quaternion": [
+        0,
+        -0.27154693695611287,
+        0,
+        0.962425197628238
+      ],
+      "world_position": [
+        0.04245,
+        0.037349999999999973,
+        0.11154999999999994
+      ],
+      "world_scale": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "local_axes_in_world": [
+        [
+          0.8525245220595057,
+          0,
+          0.5226872289306593
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          -0.5226872289306593,
+          0,
+          0.8525245220595057
+        ]
+      ]
+    },
+    {
+      "name": "FOOT_L_SOCKET_HALLUX_TIP",
+      "parent": "FOOT_L_HALLUX_IP",
+      "local_position": [
+        0,
+        0,
+        0.037000000000000005
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        -0.004435044435080131,
+        0.037349999999999973,
+        0.18802144962873757
+      ],
+      "world_scale": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "local_axes_in_world": [
+        [
+          0.8525245220595057,
+          0,
+          0.5226872289306593
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          -0.5226872289306593,
+          0,
+          0.8525245220595057
+        ]
+      ]
+    },
+    {
+      "name": "FOOT_L_SOCKET_HEEL",
+      "parent": "FOOT_L_FOOT_PLACEMENT",
+      "local_position": [
+        0,
+        0.003,
+        -0.087
+      ],
+      "local_quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865475
+      ],
+      "world_position": [
+        0.108,
+        0.007449999999999976,
+        -0.016100000000000045
+      ],
+      "world_scale": [
+        1.15,
+        1.1499999999999997,
+        1.1499999999999997
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          2.220446049250313e-16,
+          1
+        ],
+        [
+          0,
+          -1,
+          2.220446049250313e-16
+        ]
+      ]
+    },
+    {
+      "name": "SOCKET_VISION",
+      "parent": "HEAD",
+      "local_position": [
+        0,
+        0.12,
+        0.111
+      ],
+      "local_quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "world_position": [
+        0,
+        1.767,
+        0.111
+      ],
+      "world_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_axes_in_world": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  ]
+}

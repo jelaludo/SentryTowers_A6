@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "source_commit": "f7bf276955762f0dda94332da03a7049326c2e60",
+  "unchanged_dimensions": {
+    "pelvisY": 0.965,
+    "hipX": 0.108,
+    "thigh": 0.395,
+    "shin": 0.405,
+    "ankleY": 0.165,
+    "footScale": 1.15,
+    "shoulderX": 0.225,
+    "shoulderY": 1.49,
+    "upperArm": 0.29,
+    "forearm": 0.265
+  },
+  "original_exports": [
+    {
+      "file": "nisoku02/nisoku02_d0_lod0.glb",
+      "sha256": "93054fbf60b6ab1cea88016ba78dcff8c9e9b107965acefe4a4bf7576f3c0a0e"
+    },
+    {
+      "file": "nisoku02/derived/meshopt/nisoku02_d0_lod0.meshopt.glb",
+      "sha256": "21601716ff1c2045b45558ebb5f2fbfd83921dfcb7ac01cc55ebd369d70d1e03"
+    },
+    {
+      "file": "nisoku02/nisoku02_d0_lod1.glb",
+      "sha256": "a749736e44105022f3f0a585fbb6298d75610ebf3931d4e2956178020d5ee7bf"
+    },
+    {
+      "file": "nisoku02/derived/meshopt/nisoku02_d0_lod1.meshopt.glb",
+      "sha256": "ed158c0b3ce8c89b90d8f2c02974562e15937e6216ad555c50fc040191c49670"
+    },
+    {
+      "file": "nisoku02/nisoku02_d0_lod2.glb",
+      "sha256": "c22604436083d3562340b05b6d3526c12115c9d9bfb4cf1fc174881ff43f3353"
+    },
+    {
+      "file": "nisoku02/derived/meshopt/nisoku02_d0_lod2.meshopt.glb",
+      "sha256": "fa5cb2416152e074b18a7e1dd7f013406854d95579a484a8d1551570ec17f5e1"
+    }
+  ],
+  "reports": [
+    {
+      "lod": 0,
+      "matched_skin_bones": 176,
+      "max_inverse_bind_error": 0,
+      "hands": {
+        "triangles": 174432,
+        "sha256": "fbe02ded2f8b6dc8d7a369dfbfbb2e20ebb6deb2460cfc9190b5e7f5cc5459b8"
+      },
+      "foot_digits": {
+        "triangles": 83936,
+        "sha256": "0666689659bb47e7f7e1659096367db042555be52f7c59e1bb325d1b7c89972d"
+      },
+      "head_bounds_unchanged": true
+    },
+    {
+      "lod": 1,
+      "matched_skin_bones": 176,
+      "max_inverse_bind_error": 0,
+      "hands": {
+        "triangles": 5416,
+        "sha256": "651e91acac5e99dadd9898c947f7fcc586e47e82985b2d118ce455be735380b5"
+      },
+      "foot_digits": {
+        "triangles": 3440,
+        "sha256": "05d41509a888080ed29506c11e01535bd49a4971307c4ec01dc488f5bdac9893"
+      },
+      "head_bounds_unchanged": true
+    }
+  ],
+  "scope": "Unmodified NISOKU-02 GLBs; identical dimensions, bone names, local joint transforms and inverse bind matrices in master/game; exact triangle-coordinate/normal signatures for hands and all five foot digits; unchanged head bounds. Only a displayed review pose widens ankle targets and rotates NISOKU-03 great toes; it does not change bind frames."
+}

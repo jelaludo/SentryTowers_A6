@@ -1,0 +1,216 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "aa2ffe0f8d6741daeb1890882904a2e62564441b4c59fae8528276dcf434c12c",
+    "manifest.json": "9e7cce3ceded16ac0b02f1ef0dc317f3145e465366741274141a8e3b75b0ec29"
+  },
+  "reports": [
+    {
+      "file": "nisoku03_d0_lod1.glb",
+      "sha256": "517f5c73538017e7de802922b3e0bf278cd0d47ab8076aa9072317b20185faeb",
+      "decoded": false,
+      "triangles": 24604,
+      "draw_calls": 3,
+      "bytes": 1089440,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/nisoku03_d0_lod1.meshopt.glb",
+      "sha256": "a8ff8d97742a0710b1ba50318f1d474786fa2fa3ff9d7d63370bcd21043a2e10",
+      "decoded": true,
+      "triangles": 24604,
+      "draw_calls": 3,
+      "bytes": 249972,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "nisoku03_d0_lod0.glb",
+      "sha256": "1b6cf0b4e5818cdcd6c4ab3f537d390d7fca4ddf8b46674e0d63f5fbfd4116fe",
+      "decoded": false,
+      "triangles": 359256,
+      "draw_calls": 6,
+      "bytes": 17529104,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/nisoku03_d0_lod0.meshopt.glb",
+      "sha256": "ac0cff03f45705a5ea20cbcc6e49417080e368d1bba073eb9b6f3b47c91e2690",
+      "decoded": true,
+      "triangles": 359256,
+      "draw_calls": 6,
+      "bytes": 2686184,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "nisoku03_d0_lod2.glb",
+      "sha256": "43977a786c9f92e320eb9970b07b1947a74c8ee63367431da23106b90b12de4a",
+      "decoded": false,
+      "triangles": 2402,
+      "draw_calls": 1,
+      "bytes": 164788,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/nisoku03_d0_lod2.meshopt.glb",
+      "sha256": "fece9d5f0bd9ffca52b0dc3d50125f78b65355b370cc7584ece2bb5f1bcb65df",
+      "decoded": true,
+      "triangles": 2402,
+      "draw_calls": 1,
+      "bytes": 82388,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 3168,
+  "pairing": {
+    "L": {
+      "palm_normal": [
+        -0.9996875162757025,
+        -0.024982086572638985,
+        -0.0008747302407303279
+      ],
+      "thumb_forward_m": 0.07577605447210449,
+      "hallux_medial_m": 0.11243504443508012
+    },
+    "R": {
+      "palm_normal": [
+        0.9996875162757025,
+        -0.024982086572638985,
+        -0.0008747302407303279
+      ],
+      "thumb_forward_m": 0.07577605447210449,
+      "hallux_medial_m": 0.11243504443508012
+    }
+  },
+  "rail_contacts": {
+    "TOE_02": {
+      "gap_m": 0.001495001289988824,
+      "normal_dot": -0.9999999999998893
+    },
+    "TOE_03": {
+      "gap_m": 0.0014949992632732993,
+      "normal_dot": -0.9999999999998779
+    },
+    "TOE_04": {
+      "gap_m": 0.001495002415941988,
+      "normal_dot": -0.9999999999998918
+    },
+    "TOE_05": {
+      "gap_m": 0.0014950084357733782,
+      "normal_dot": -0.9999999999999699
+    },
+    "HALLUX": {
+      "gap_m": 0.0014960711468562198,
+      "normal_dot": -0.9958196531999173
+    }
+  },
+  "min_floor_clearance_m": 0.007633999585903161,
+  "min_rail_clearance_m": 1.1552980677516367e-05,
+  "max_ik_reach_error_m": 0,
+  "max_rigid_link_error_m": 2.7755575615628914e-16,
+  "max_walk_stance_drift_m": 3.1401849173675503e-16,
+  "motion_envelopes": {
+    "neutral": {
+      "min": [
+        -0.36243534427810414,
+        0.00802499952355392,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.36243534427810414,
+        1.9110000581741333,
+        0.23687377371327317
+      ]
+    },
+    "idle": {
+      "min": [
+        -0.2941418437508957,
+        0.008024999523553832,
+        -0.10883256304271934
+      ],
+      "max": [
+        0.2941418437508957,
+        1.9124785862822014,
+        0.23687377371327337
+      ]
+    },
+    "walk": {
+      "min": [
+        -0.31214404045428423,
+        0.00802499952355373,
+        -0.2966788759257185
+      ],
+      "max": [
+        0.31214404045428423,
+        1.8757903811394616,
+        0.47247315669696377
+      ]
+    },
+    "greet": {
+      "min": [
+        -0.3649601140808476,
+        0.008024999523553978,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.2941418437508957,
+        1.9110000581741333,
+        0.7029153756196971
+      ]
+    },
+    "inspect": {
+      "min": [
+        -0.294144148402282,
+        0.008024999523553978,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.2941418437508957,
+        1.9110000581741333,
+        0.6247481422848237
+      ]
+    },
+    "crouch": {
+      "min": [
+        -0.29414416794246956,
+        0.008024999523553827,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.29414416794246956,
+        1.9110000581741333,
+        0.4080100019661396
+      ]
+    },
+    "agility": {
+      "min": [
+        -0.2941418437508957,
+        0.008024999523553723,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.34914184375089574,
+        1.9110000581741333,
+        0.31576757113722964
+      ]
+    },
+    "rail": {
+      "min": [
+        -0.2941418437508957,
+        0.008024999523553806,
+        -0.10700000077486038
+      ],
+      "max": [
+        0.34914184375089574,
+        1.9110000581741333,
+        0.4168737737132734
+      ]
+    }
+  },
+  "scope": "Six plain/decoded exports, Khronos validation, node hierarchy and socket parity, triangle hygiene, static lockout, 56 master and 140 game intervals per motion, every sampled vertex against floor and rail, rigid IK, stance anchoring, loop closure, anatomical assignment and five opposed rail contact frames. Original kinematic prototype; no physical stability, arbitrary self-collision or FPS claim."
+}

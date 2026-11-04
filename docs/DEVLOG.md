@@ -1,5 +1,19 @@
 # Devlog
 
+## 4 November 2026 / NISOKU-03 — curved enclosure and matched before/after review
+
+Created a separate NISOKU-03 family from NISOKU-02, leaving the original collection, exports and runtime unchanged. Inspected source transforms and local axes first: anatomical forward is +Z, hands have rotated adapters, feet have positive 1.15× module scale, and the standing leg transforms already contain IK. New geometry is authored in local bind frames. A saved frame audit records the evidence.
+
+Completed and visually inspected the chest, abdomen/pelvis and limb shells before adding the finishing changes. The chest now has a 34 mm crown over 306 mm width (11.1%), 66 mm side returns, recessed lower profile and sloping collar. Three curved abdominal plates overlap 10% and follow a taper into the pelvis. Front/rear elliptical limb shells wrap the original cores with narrow seams and rounded rims. Shoulder housings seat the original pivots, brass rings sit within recessed sockets, and the helmet is satin charcoal around a glossier visor. Fuller heel/midfoot fairings and dark heel pads retain the existing five-digit foot.
+
+The original height, head size, limb lengths, joint centres, articulation, hand geometry and all foot digits are preserved. Master/game checks match all 176 skin bones, local joint transforms and inverse bind matrices exactly, plus hand and digit triangle-coordinate/normal signatures and head bounds. NISOKU-02 plain/packed export hashes remain unchanged. The review pose puts both robots in the same slightly wider IK stance (ankles ±0.155 m) with arms 0.18 rad clear of the torso; only NISOKU-03’s great toes turn farther inward in that pose. Existing action cycles and exported/static standby retain the original targets. This is a pose change, not a bind-frame edit.
+
+Added a matched comparison viewer with Original / Refined / Side-by-side modes, identical orthographic cameras and broad area lights. Returned tightly framed front, side and three-quarter master pairs and a combined review sheet. The eight available studies include the new neutral review and all seven original motions. Detailed/game/static exports retain 247 named nodes and 65 sockets. Measured master: 359,256 triangles / six material draws / 17,529,104 plain bytes. Game: 24,604 / three / 1,089,440. Static distance: 2,402 / one / 164,788. Game and static meet the respective triangle/draw/byte targets; no FPS claim is made.
+
+All six plain/decoded exports pass glTF validation without errors or warnings. The 3,168 sampled poses pass floor/rail clearance, rigid leg lengths, reachable IK, stance anchoring and loop closure. Preservation and comparison-pose checks pass; browser checks cover all tiers/encodings, eight studies, comparison controls, framing and desktop/mobile layouts. Plain GLBs are authoritative; compressed and simplified distance copies, intermediate inspection captures and review renders are marked derived.
+
+Completed: the separate NISOKU-03 refinement and matching before/after views. Pending: user visual review, remaining biped rollout, arbitrary terrain/self-collision/force solving, gameplay crossfades, damage states, consuming-game release packing/r160, camera thresholds and reference-phone acceptance. Handoff: the containing commit plus `assets/nisoku03/`, with shared Hand Lab `runtime.js` / `biped.js` and Foot Lab `runtime.js` for optional motion. NISOKU-02 is needed only by the comparison viewer. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / NISOKU-02 humanoid and AUREL-02 foot designation
 
 Renamed the public NISOKU-02 foot family to **AUREL-02**, companion to AUREL-01. Foot Lab, Workshop, integration notes and review sheets use the new designation. Original foot GLBs, paths, hashes, legacy `nisoku02foot` identifiers and pose schema remain unchanged; NISOKU-02 now identifies the separate complete humanoid.
