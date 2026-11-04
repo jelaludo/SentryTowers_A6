@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## C08 / AUREL economical hand retrofit / 4 November 2026
+
+Original assembly, mirrored left hand, adapter and review renders by jelaludo / Model Workshop, combining our existing C08 and AUREL-01 economical geometry. No third-party hand sources are incorporated. Original C08 files, its Blender master and Hand Lab originals remain preserved. The distance hands are simplified derivatives within the new static assembly; optional compressed copies are marked derived. See `assets/c08-worker/aurel/README.md`.
+
 ## Biped hand and foot variants / 4 November 2026
 
 The economical articulated AUREL-01 and NISOKU-02 variants, natural resting poses, frozen distance meshes and review renders are original work by jelaludo / Model Workshop, derived from our own procedural hand and foot designs. Existing model exports, source-reference originals and their license notices remain unchanged. Original Workshop reuse terms apply; integration records are in `docs/BIPED-EXTREMITIES.md` and each family's `biped/` folder.

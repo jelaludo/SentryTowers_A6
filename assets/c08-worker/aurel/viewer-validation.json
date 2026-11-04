@@ -1,0 +1,75 @@
+{
+  "variant": "aurel",
+  "additional_hand_checks": [
+    "six posture modes",
+    "hands close-up on mobile",
+    "static hand lockout",
+    "original/equipped switching"
+  ],
+  "status": "passed",
+  "browser": "Chromium headless with real WebGL; no performance benchmark",
+  "clips": [
+    {
+      "clip": "Standby_Idle",
+      "time": 1,
+      "draws": 14
+    },
+    {
+      "clip": "Heavy_Walk_Cycle",
+      "time": 0.56,
+      "draws": 14
+    },
+    {
+      "clip": "Carry_Walk_Cycle",
+      "time": 0.76,
+      "draws": 14
+    },
+    {
+      "clip": "Work_Inspect",
+      "time": 2.4,
+      "draws": 14
+    },
+    {
+      "clip": "Crouch_Service",
+      "time": 2.4,
+      "draws": 14
+    }
+  ],
+  "lod_encoding_combinations": 6,
+  "checks": [
+    "five clips and timeline controls",
+    "heel, double support, single support, swing indicators",
+    "hero/front/side/rear bounds and optical close-up",
+    "skeleton/wireframe/foot-marker toggles",
+    "all plain and Meshopt tiers",
+    "static tier disables actions",
+    "ground travel and real playback",
+    "actual-scale C-07 comparison",
+    "desktop and 390px mobile layout/bounds",
+    "zero page errors"
+  ],
+  "asset_hashes": [
+    {
+      "file": "c08_aurel_d0_lod0.glb",
+      "sha256": "0182f1275415cf2f9f9afe413099aae834c8205da580d49c10b99273c11c13ae",
+      "meshopt_sha256": "1d767e207655ff0755913e28283e024d7f3dc902cac042d585b2e058f7a52d31"
+    },
+    {
+      "file": "c08_aurel_d0_lod1.glb",
+      "sha256": "03ae41c8b8ddf577d68b51507675d77dd087b21423e96dac9d5fed3fb2a3c305",
+      "meshopt_sha256": "252785e61a9bf101f20d79e13ddd6d4f8464d349d3ce9be6360e3dc1d1a046a4"
+    },
+    {
+      "file": "c08_aurel_d0_lod2.glb",
+      "sha256": "feb26941b22ddc923962a065ef83f62d7994cac2ced8658dd24368fbbf88847c",
+      "meshopt_sha256": "b011e0ada8a2424c54e50a5ebe487974e5aa7d35ae5a0184abab9e8b8f26047c"
+    }
+  ],
+  "source_hashes": {
+    "c08-worker/index.html": "11e4ffeaaabe662596e72935116c8d5a552fab3a6f73b0c6990147afbc01c106",
+    "c08-worker/viewer.js": "ced36db273437ed1c0499279b13a32359197d2deed945f68349586434a67538f",
+    "c08-worker/viewer.css": "45fd0f319324b481fd1a6f5f7051137ac2b00c20f8f882d4656a141483824777",
+    "assets/c08-worker/aurel/runtime.js": "5f999dd38960c8d096e31d84f5334d210838f7fcc591f33d9bff6f96a6a2be21",
+    "tools/asset-pipeline/test-c08-worker-viewer.mjs": "1795b23c4a9ad309b595f71b5efdde1235260adc10ee8ddd90e40e661a42a338"
+  }
+}

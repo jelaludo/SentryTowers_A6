@@ -1,0 +1,2216 @@
+{
+  "family": "c08-aurel",
+  "label": "C-08 / AUREL economical hand test",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at standing hip centre"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 120,
+    "skeleton_joints": 137,
+    "placement_node": "instance wrapper around the glTF scene",
+    "motion_node": "MOTION",
+    "engine_driven_excluded": [
+      "SENSOR_YAW",
+      "AUREL_L_WRIST_FLEX",
+      "AUREL_L_WRIST_DEVIATION",
+      "AUREL_L_INDEX_MCP_SPREAD",
+      "AUREL_L_INDEX_MCP_FLEX",
+      "AUREL_L_INDEX_PIP_FLEX",
+      "AUREL_L_INDEX_DIP_FLEX",
+      "AUREL_L_MIDDLE_MCP_SPREAD",
+      "AUREL_L_MIDDLE_MCP_FLEX",
+      "AUREL_L_MIDDLE_PIP_FLEX",
+      "AUREL_L_MIDDLE_DIP_FLEX",
+      "AUREL_L_RING_MCP_SPREAD",
+      "AUREL_L_RING_MCP_FLEX",
+      "AUREL_L_RING_PIP_FLEX",
+      "AUREL_L_RING_DIP_FLEX",
+      "AUREL_L_LITTLE_MCP_SPREAD",
+      "AUREL_L_LITTLE_MCP_FLEX",
+      "AUREL_L_LITTLE_PIP_FLEX",
+      "AUREL_L_LITTLE_DIP_FLEX",
+      "AUREL_L_THUMB_CMC_OPPOSITION",
+      "AUREL_L_THUMB_CMC_ABDUCTION",
+      "AUREL_L_THUMB_AXIAL_ROLL",
+      "AUREL_L_THUMB_MCP_FLEX",
+      "AUREL_L_THUMB_IP_FLEX",
+      "AUREL_R_WRIST_FLEX",
+      "AUREL_R_WRIST_DEVIATION",
+      "AUREL_R_INDEX_MCP_SPREAD",
+      "AUREL_R_INDEX_MCP_FLEX",
+      "AUREL_R_INDEX_PIP_FLEX",
+      "AUREL_R_INDEX_DIP_FLEX",
+      "AUREL_R_MIDDLE_MCP_SPREAD",
+      "AUREL_R_MIDDLE_MCP_FLEX",
+      "AUREL_R_MIDDLE_PIP_FLEX",
+      "AUREL_R_MIDDLE_DIP_FLEX",
+      "AUREL_R_RING_MCP_SPREAD",
+      "AUREL_R_RING_MCP_FLEX",
+      "AUREL_R_RING_PIP_FLEX",
+      "AUREL_R_RING_DIP_FLEX",
+      "AUREL_R_LITTLE_MCP_SPREAD",
+      "AUREL_R_LITTLE_MCP_FLEX",
+      "AUREL_R_LITTLE_PIP_FLEX",
+      "AUREL_R_LITTLE_DIP_FLEX",
+      "AUREL_R_THUMB_CMC_OPPOSITION",
+      "AUREL_R_THUMB_CMC_ABDUCTION",
+      "AUREL_R_THUMB_AXIAL_ROLL",
+      "AUREL_R_THUMB_MCP_FLEX",
+      "AUREL_R_THUMB_IP_FLEX"
+    ],
+    "gait": "Original alternating biped gait: heel contact, flat support, toe roll and swing; double support, lateral weight transfer, counter-rotation and delayed arms; not a force simulation",
+    "skeleton_root": "ROOT",
+    "additional_hand_axes": 46
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 30,
+    "hysteresis_m": 8,
+    "lod0": "Detailed original chassis with economical AUREL hands for close-up retrofit review",
+    "lod1": "Economical articulated hand test; retain during motion",
+    "lod2": "Static chassis with simplified curled hand silhouettes and matching lookup frames"
+  },
+  "assets": [
+    {
+      "file": "c08_aurel_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 2770588,
+      "triangles": 57992,
+      "draw_calls": 8,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [
+        {
+          "name": "Standby_Idle",
+          "label": "Standby",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Quiet hydraulic corrections; both feet planted."
+        },
+        {
+          "name": "Heavy_Walk_Cycle",
+          "label": "Heavy walk",
+          "duration_s": 1.8,
+          "loop": true,
+          "speed_mps": 0.55,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.57
+          ],
+          "note": "66.7 steps/min · 0.55 m/s · heel placement, long support and delayed arm swing."
+        },
+        {
+          "name": "Carry_Walk_Cycle",
+          "label": "Carry walk",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.36,
+          "duty_factor": 0.74,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.63
+          ],
+          "note": "50 steps/min · 0.36 m/s · forearms braced for a load; attach cargo at the hand sockets."
+        },
+        {
+          "name": "Work_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Plant both feet, raise the right hand for a sensor check, then return to standby."
+        },
+        {
+          "name": "Crouch_Service",
+          "label": "Service crouch",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Lower the center of mass with both soles anchored, hold, then stand."
+        }
+      ],
+      "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
+      "sha256": "0182f1275415cf2f9f9afe413099aae834c8205da580d49c10b99273c11c13ae",
+      "bounds": {
+        "min": [
+          -0.7350000143051147,
+          0.006000000983476639,
+          -0.4350000023841858
+        ],
+        "max": [
+          0.7350000143051147,
+          2.2920000553131104,
+          0.3109999895095825
+        ],
+        "dimensions_m": [
+          1.4700000286102295,
+          2.2860000543296337,
+          0.7459999918937683
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "AUREL_L_AUREL_01_ROOT",
+        "AUREL_L_GEOMETRY",
+        "AUREL_L_INDEX_DIP_FLEX",
+        "AUREL_L_INDEX_DISTAL_SHELL",
+        "AUREL_L_INDEX_MCP_FLEX",
+        "AUREL_L_INDEX_MCP_SPREAD",
+        "AUREL_L_INDEX_MIDDLE_SHELL",
+        "AUREL_L_INDEX_PIP_FLEX",
+        "AUREL_L_INDEX_PROXIMAL_SHELL",
+        "AUREL_L_LITTLE_DIP_FLEX",
+        "AUREL_L_LITTLE_DISTAL_SHELL",
+        "AUREL_L_LITTLE_MCP_FLEX",
+        "AUREL_L_LITTLE_MCP_SPREAD",
+        "AUREL_L_LITTLE_MIDDLE_SHELL",
+        "AUREL_L_LITTLE_PIP_FLEX",
+        "AUREL_L_LITTLE_PROXIMAL_SHELL",
+        "AUREL_L_MIDDLE_DIP_FLEX",
+        "AUREL_L_MIDDLE_DISTAL_SHELL",
+        "AUREL_L_MIDDLE_MCP_FLEX",
+        "AUREL_L_MIDDLE_MCP_SPREAD",
+        "AUREL_L_MIDDLE_MIDDLE_SHELL",
+        "AUREL_L_MIDDLE_PIP_FLEX",
+        "AUREL_L_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_L_MOUNT",
+        "AUREL_L_PALM_DORSAL_SHELL",
+        "AUREL_L_PALM_FRAME",
+        "AUREL_L_RING_DIP_FLEX",
+        "AUREL_L_RING_DISTAL_SHELL",
+        "AUREL_L_RING_MCP_FLEX",
+        "AUREL_L_RING_MCP_SPREAD",
+        "AUREL_L_RING_MIDDLE_SHELL",
+        "AUREL_L_RING_PIP_FLEX",
+        "AUREL_L_RING_PROXIMAL_SHELL",
+        "AUREL_L_SOCKET_INDEX_CONTACT",
+        "AUREL_L_SOCKET_INDEX_PAD",
+        "AUREL_L_SOCKET_INDEX_TIP",
+        "AUREL_L_SOCKET_LITTLE_CONTACT",
+        "AUREL_L_SOCKET_LITTLE_PAD",
+        "AUREL_L_SOCKET_LITTLE_TIP",
+        "AUREL_L_SOCKET_MIDDLE_CONTACT",
+        "AUREL_L_SOCKET_MIDDLE_PAD",
+        "AUREL_L_SOCKET_MIDDLE_TIP",
+        "AUREL_L_SOCKET_PALM",
+        "AUREL_L_SOCKET_RING_CONTACT",
+        "AUREL_L_SOCKET_RING_PAD",
+        "AUREL_L_SOCKET_RING_TIP",
+        "AUREL_L_SOCKET_THUMB_CONTACT",
+        "AUREL_L_SOCKET_THUMB_PAD",
+        "AUREL_L_SOCKET_THUMB_TIP",
+        "AUREL_L_SOCKET_WRIST_ATTACH",
+        "AUREL_L_THUMB_AXIAL_ROLL",
+        "AUREL_L_THUMB_CMC_ABDUCTION",
+        "AUREL_L_THUMB_CMC_OPPOSITION",
+        "AUREL_L_THUMB_DISTAL_SHELL",
+        "AUREL_L_THUMB_IP_FLEX",
+        "AUREL_L_THUMB_MCP_FLEX",
+        "AUREL_L_THUMB_METACARPAL_SHELL",
+        "AUREL_L_THUMB_PROXIMAL_SHELL",
+        "AUREL_L_WRIST_DEVIATION",
+        "AUREL_L_WRIST_FLEX",
+        "AUREL_L_WRIST_MOUNT",
+        "AUREL_R_AUREL_01_ROOT",
+        "AUREL_R_GEOMETRY",
+        "AUREL_R_INDEX_DIP_FLEX",
+        "AUREL_R_INDEX_DISTAL_SHELL",
+        "AUREL_R_INDEX_MCP_FLEX",
+        "AUREL_R_INDEX_MCP_SPREAD",
+        "AUREL_R_INDEX_MIDDLE_SHELL",
+        "AUREL_R_INDEX_PIP_FLEX",
+        "AUREL_R_INDEX_PROXIMAL_SHELL",
+        "AUREL_R_LITTLE_DIP_FLEX",
+        "AUREL_R_LITTLE_DISTAL_SHELL",
+        "AUREL_R_LITTLE_MCP_FLEX",
+        "AUREL_R_LITTLE_MCP_SPREAD",
+        "AUREL_R_LITTLE_MIDDLE_SHELL",
+        "AUREL_R_LITTLE_PIP_FLEX",
+        "AUREL_R_LITTLE_PROXIMAL_SHELL",
+        "AUREL_R_MIDDLE_DIP_FLEX",
+        "AUREL_R_MIDDLE_DISTAL_SHELL",
+        "AUREL_R_MIDDLE_MCP_FLEX",
+        "AUREL_R_MIDDLE_MCP_SPREAD",
+        "AUREL_R_MIDDLE_MIDDLE_SHELL",
+        "AUREL_R_MIDDLE_PIP_FLEX",
+        "AUREL_R_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_R_MOUNT",
+        "AUREL_R_PALM_DORSAL_SHELL",
+        "AUREL_R_PALM_FRAME",
+        "AUREL_R_RING_DIP_FLEX",
+        "AUREL_R_RING_DISTAL_SHELL",
+        "AUREL_R_RING_MCP_FLEX",
+        "AUREL_R_RING_MCP_SPREAD",
+        "AUREL_R_RING_MIDDLE_SHELL",
+        "AUREL_R_RING_PIP_FLEX",
+        "AUREL_R_RING_PROXIMAL_SHELL",
+        "AUREL_R_SOCKET_INDEX_CONTACT",
+        "AUREL_R_SOCKET_INDEX_PAD",
+        "AUREL_R_SOCKET_INDEX_TIP",
+        "AUREL_R_SOCKET_LITTLE_CONTACT",
+        "AUREL_R_SOCKET_LITTLE_PAD",
+        "AUREL_R_SOCKET_LITTLE_TIP",
+        "AUREL_R_SOCKET_MIDDLE_CONTACT",
+        "AUREL_R_SOCKET_MIDDLE_PAD",
+        "AUREL_R_SOCKET_MIDDLE_TIP",
+        "AUREL_R_SOCKET_PALM",
+        "AUREL_R_SOCKET_RING_CONTACT",
+        "AUREL_R_SOCKET_RING_PAD",
+        "AUREL_R_SOCKET_RING_TIP",
+        "AUREL_R_SOCKET_THUMB_CONTACT",
+        "AUREL_R_SOCKET_THUMB_PAD",
+        "AUREL_R_SOCKET_THUMB_TIP",
+        "AUREL_R_SOCKET_WRIST_ATTACH",
+        "AUREL_R_THUMB_AXIAL_ROLL",
+        "AUREL_R_THUMB_CMC_ABDUCTION",
+        "AUREL_R_THUMB_CMC_OPPOSITION",
+        "AUREL_R_THUMB_DISTAL_SHELL",
+        "AUREL_R_THUMB_IP_FLEX",
+        "AUREL_R_THUMB_MCP_FLEX",
+        "AUREL_R_THUMB_METACARPAL_SHELL",
+        "AUREL_R_THUMB_PROXIMAL_SHELL",
+        "AUREL_R_WRIST_DEVIATION",
+        "AUREL_R_WRIST_FLEX",
+        "AUREL_R_WRIST_MOUNT",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_TIP",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_PAD",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_TIP",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_CONTACT",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_PAD",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_TIP",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_PAD",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_PALM",
+          "parent": "AUREL_L_PALM_FRAME",
+          "position_m": [
+            0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_L_WRIST_MOUNT",
+          "position_m": [
+            0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_TIP",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_PAD",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_TIP",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_CONTACT",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_PAD",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_TIP",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_PAD",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_PALM",
+          "parent": "AUREL_R_PALM_FRAME",
+          "position_m": [
+            -0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_R_WRIST_MOUNT",
+          "position_m": [
+            -0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_aurel_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 703652,
+      "meshopt_sha256": "1d767e207655ff0755913e28283e024d7f3dc902cac042d585b2e058f7a52d31",
+      "variant": "aurel",
+      "removed_original_hand_triangles": 18120
+    },
+    {
+      "file": "c08_aurel_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 1338784,
+      "triangles": 16452,
+      "draw_calls": 8,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [
+        {
+          "name": "Standby_Idle",
+          "label": "Standby",
+          "duration_s": 4,
+          "loop": true,
+          "note": "Quiet hydraulic corrections; both feet planted."
+        },
+        {
+          "name": "Heavy_Walk_Cycle",
+          "label": "Heavy walk",
+          "duration_s": 1.8,
+          "loop": true,
+          "speed_mps": 0.55,
+          "duty_factor": 0.68,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.57
+          ],
+          "note": "66.7 steps/min · 0.55 m/s · heel placement, long support and delayed arm swing."
+        },
+        {
+          "name": "Carry_Walk_Cycle",
+          "label": "Carry walk",
+          "duration_s": 2.4,
+          "loop": true,
+          "speed_mps": 0.36,
+          "duty_factor": 0.74,
+          "touchdown_phase": {
+            "L": 0,
+            "R": 0.5
+          },
+          "flat_support_phase": [
+            0.08,
+            0.63
+          ],
+          "note": "50 steps/min · 0.36 m/s · forearms braced for a load; attach cargo at the hand sockets."
+        },
+        {
+          "name": "Work_Inspect",
+          "label": "Inspect",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Plant both feet, raise the right hand for a sensor check, then return to standby."
+        },
+        {
+          "name": "Crouch_Service",
+          "label": "Service crouch",
+          "duration_s": 5,
+          "loop": false,
+          "note": "Lower the center of mass with both soles anchored, hold, then stand."
+        }
+      ],
+      "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
+      "sha256": "03ae41c8b8ddf577d68b51507675d77dd087b21423e96dac9d5fed3fb2a3c305",
+      "bounds": {
+        "min": [
+          -0.7350000143051147,
+          0.006000000983476639,
+          -0.4244999885559082
+        ],
+        "max": [
+          0.7350000143051147,
+          2.291412591934204,
+          0.3109999895095825
+        ],
+        "dimensions_m": [
+          1.4700000286102295,
+          2.2854125909507275,
+          0.7354999780654907
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "AUREL_L_AUREL_01_ROOT",
+        "AUREL_L_GEOMETRY",
+        "AUREL_L_INDEX_DIP_FLEX",
+        "AUREL_L_INDEX_DISTAL_SHELL",
+        "AUREL_L_INDEX_MCP_FLEX",
+        "AUREL_L_INDEX_MCP_SPREAD",
+        "AUREL_L_INDEX_MIDDLE_SHELL",
+        "AUREL_L_INDEX_PIP_FLEX",
+        "AUREL_L_INDEX_PROXIMAL_SHELL",
+        "AUREL_L_LITTLE_DIP_FLEX",
+        "AUREL_L_LITTLE_DISTAL_SHELL",
+        "AUREL_L_LITTLE_MCP_FLEX",
+        "AUREL_L_LITTLE_MCP_SPREAD",
+        "AUREL_L_LITTLE_MIDDLE_SHELL",
+        "AUREL_L_LITTLE_PIP_FLEX",
+        "AUREL_L_LITTLE_PROXIMAL_SHELL",
+        "AUREL_L_MIDDLE_DIP_FLEX",
+        "AUREL_L_MIDDLE_DISTAL_SHELL",
+        "AUREL_L_MIDDLE_MCP_FLEX",
+        "AUREL_L_MIDDLE_MCP_SPREAD",
+        "AUREL_L_MIDDLE_MIDDLE_SHELL",
+        "AUREL_L_MIDDLE_PIP_FLEX",
+        "AUREL_L_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_L_MOUNT",
+        "AUREL_L_PALM_DORSAL_SHELL",
+        "AUREL_L_PALM_FRAME",
+        "AUREL_L_RING_DIP_FLEX",
+        "AUREL_L_RING_DISTAL_SHELL",
+        "AUREL_L_RING_MCP_FLEX",
+        "AUREL_L_RING_MCP_SPREAD",
+        "AUREL_L_RING_MIDDLE_SHELL",
+        "AUREL_L_RING_PIP_FLEX",
+        "AUREL_L_RING_PROXIMAL_SHELL",
+        "AUREL_L_SOCKET_INDEX_CONTACT",
+        "AUREL_L_SOCKET_INDEX_PAD",
+        "AUREL_L_SOCKET_INDEX_TIP",
+        "AUREL_L_SOCKET_LITTLE_CONTACT",
+        "AUREL_L_SOCKET_LITTLE_PAD",
+        "AUREL_L_SOCKET_LITTLE_TIP",
+        "AUREL_L_SOCKET_MIDDLE_CONTACT",
+        "AUREL_L_SOCKET_MIDDLE_PAD",
+        "AUREL_L_SOCKET_MIDDLE_TIP",
+        "AUREL_L_SOCKET_PALM",
+        "AUREL_L_SOCKET_RING_CONTACT",
+        "AUREL_L_SOCKET_RING_PAD",
+        "AUREL_L_SOCKET_RING_TIP",
+        "AUREL_L_SOCKET_THUMB_CONTACT",
+        "AUREL_L_SOCKET_THUMB_PAD",
+        "AUREL_L_SOCKET_THUMB_TIP",
+        "AUREL_L_SOCKET_WRIST_ATTACH",
+        "AUREL_L_THUMB_AXIAL_ROLL",
+        "AUREL_L_THUMB_CMC_ABDUCTION",
+        "AUREL_L_THUMB_CMC_OPPOSITION",
+        "AUREL_L_THUMB_DISTAL_SHELL",
+        "AUREL_L_THUMB_IP_FLEX",
+        "AUREL_L_THUMB_MCP_FLEX",
+        "AUREL_L_THUMB_METACARPAL_SHELL",
+        "AUREL_L_THUMB_PROXIMAL_SHELL",
+        "AUREL_L_WRIST_DEVIATION",
+        "AUREL_L_WRIST_FLEX",
+        "AUREL_L_WRIST_MOUNT",
+        "AUREL_R_AUREL_01_ROOT",
+        "AUREL_R_GEOMETRY",
+        "AUREL_R_INDEX_DIP_FLEX",
+        "AUREL_R_INDEX_DISTAL_SHELL",
+        "AUREL_R_INDEX_MCP_FLEX",
+        "AUREL_R_INDEX_MCP_SPREAD",
+        "AUREL_R_INDEX_MIDDLE_SHELL",
+        "AUREL_R_INDEX_PIP_FLEX",
+        "AUREL_R_INDEX_PROXIMAL_SHELL",
+        "AUREL_R_LITTLE_DIP_FLEX",
+        "AUREL_R_LITTLE_DISTAL_SHELL",
+        "AUREL_R_LITTLE_MCP_FLEX",
+        "AUREL_R_LITTLE_MCP_SPREAD",
+        "AUREL_R_LITTLE_MIDDLE_SHELL",
+        "AUREL_R_LITTLE_PIP_FLEX",
+        "AUREL_R_LITTLE_PROXIMAL_SHELL",
+        "AUREL_R_MIDDLE_DIP_FLEX",
+        "AUREL_R_MIDDLE_DISTAL_SHELL",
+        "AUREL_R_MIDDLE_MCP_FLEX",
+        "AUREL_R_MIDDLE_MCP_SPREAD",
+        "AUREL_R_MIDDLE_MIDDLE_SHELL",
+        "AUREL_R_MIDDLE_PIP_FLEX",
+        "AUREL_R_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_R_MOUNT",
+        "AUREL_R_PALM_DORSAL_SHELL",
+        "AUREL_R_PALM_FRAME",
+        "AUREL_R_RING_DIP_FLEX",
+        "AUREL_R_RING_DISTAL_SHELL",
+        "AUREL_R_RING_MCP_FLEX",
+        "AUREL_R_RING_MCP_SPREAD",
+        "AUREL_R_RING_MIDDLE_SHELL",
+        "AUREL_R_RING_PIP_FLEX",
+        "AUREL_R_RING_PROXIMAL_SHELL",
+        "AUREL_R_SOCKET_INDEX_CONTACT",
+        "AUREL_R_SOCKET_INDEX_PAD",
+        "AUREL_R_SOCKET_INDEX_TIP",
+        "AUREL_R_SOCKET_LITTLE_CONTACT",
+        "AUREL_R_SOCKET_LITTLE_PAD",
+        "AUREL_R_SOCKET_LITTLE_TIP",
+        "AUREL_R_SOCKET_MIDDLE_CONTACT",
+        "AUREL_R_SOCKET_MIDDLE_PAD",
+        "AUREL_R_SOCKET_MIDDLE_TIP",
+        "AUREL_R_SOCKET_PALM",
+        "AUREL_R_SOCKET_RING_CONTACT",
+        "AUREL_R_SOCKET_RING_PAD",
+        "AUREL_R_SOCKET_RING_TIP",
+        "AUREL_R_SOCKET_THUMB_CONTACT",
+        "AUREL_R_SOCKET_THUMB_PAD",
+        "AUREL_R_SOCKET_THUMB_TIP",
+        "AUREL_R_SOCKET_WRIST_ATTACH",
+        "AUREL_R_THUMB_AXIAL_ROLL",
+        "AUREL_R_THUMB_CMC_ABDUCTION",
+        "AUREL_R_THUMB_CMC_OPPOSITION",
+        "AUREL_R_THUMB_DISTAL_SHELL",
+        "AUREL_R_THUMB_IP_FLEX",
+        "AUREL_R_THUMB_MCP_FLEX",
+        "AUREL_R_THUMB_METACARPAL_SHELL",
+        "AUREL_R_THUMB_PROXIMAL_SHELL",
+        "AUREL_R_WRIST_DEVIATION",
+        "AUREL_R_WRIST_FLEX",
+        "AUREL_R_WRIST_MOUNT",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_TIP",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_PAD",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_TIP",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_CONTACT",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_PAD",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_TIP",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_PAD",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_PALM",
+          "parent": "AUREL_L_PALM_FRAME",
+          "position_m": [
+            0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_L_WRIST_MOUNT",
+          "position_m": [
+            0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_TIP",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_PAD",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_TIP",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_CONTACT",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_PAD",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_TIP",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_PAD",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_PALM",
+          "parent": "AUREL_R_PALM_FRAME",
+          "position_m": [
+            -0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_R_WRIST_MOUNT",
+          "position_m": [
+            -0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_aurel_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 408180,
+      "meshopt_sha256": "252785e61a9bf101f20d79e13ddd6d4f8464d349d3ce9be6360e3dc1d1a046a4",
+      "variant": "aurel",
+      "removed_original_hand_triangles": 4792
+    },
+    {
+      "file": "c08_aurel_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 235588,
+      "triangles": 2784,
+      "draw_calls": 1,
+      "plot_m": [
+        1.6,
+        1.3
+      ],
+      "clips": [],
+      "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
+      "sha256": "feb26941b22ddc923962a065ef83f62d7994cac2ced8658dd24368fbbf88847c",
+      "bounds": {
+        "min": [
+          -0.7319999933242798,
+          0.006000000983476639,
+          -0.40149998664855957
+        ],
+        "max": [
+          0.7319999933242798,
+          2.2909998893737793,
+          0.30300000309944153
+        ],
+        "dimensions_m": [
+          1.4639999866485596,
+          2.2849998883903027,
+          0.7044999897480011
+        ]
+      },
+      "required_nodes": [
+        "ANKLE_L",
+        "ANKLE_R",
+        "AUREL_L_AUREL_01_ROOT",
+        "AUREL_L_GEOMETRY",
+        "AUREL_L_INDEX_DIP_FLEX",
+        "AUREL_L_INDEX_DISTAL_SHELL",
+        "AUREL_L_INDEX_MCP_FLEX",
+        "AUREL_L_INDEX_MCP_SPREAD",
+        "AUREL_L_INDEX_MIDDLE_SHELL",
+        "AUREL_L_INDEX_PIP_FLEX",
+        "AUREL_L_INDEX_PROXIMAL_SHELL",
+        "AUREL_L_LITTLE_DIP_FLEX",
+        "AUREL_L_LITTLE_DISTAL_SHELL",
+        "AUREL_L_LITTLE_MCP_FLEX",
+        "AUREL_L_LITTLE_MCP_SPREAD",
+        "AUREL_L_LITTLE_MIDDLE_SHELL",
+        "AUREL_L_LITTLE_PIP_FLEX",
+        "AUREL_L_LITTLE_PROXIMAL_SHELL",
+        "AUREL_L_MIDDLE_DIP_FLEX",
+        "AUREL_L_MIDDLE_DISTAL_SHELL",
+        "AUREL_L_MIDDLE_MCP_FLEX",
+        "AUREL_L_MIDDLE_MCP_SPREAD",
+        "AUREL_L_MIDDLE_MIDDLE_SHELL",
+        "AUREL_L_MIDDLE_PIP_FLEX",
+        "AUREL_L_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_L_MOUNT",
+        "AUREL_L_PALM_DORSAL_SHELL",
+        "AUREL_L_PALM_FRAME",
+        "AUREL_L_RING_DIP_FLEX",
+        "AUREL_L_RING_DISTAL_SHELL",
+        "AUREL_L_RING_MCP_FLEX",
+        "AUREL_L_RING_MCP_SPREAD",
+        "AUREL_L_RING_MIDDLE_SHELL",
+        "AUREL_L_RING_PIP_FLEX",
+        "AUREL_L_RING_PROXIMAL_SHELL",
+        "AUREL_L_SOCKET_INDEX_CONTACT",
+        "AUREL_L_SOCKET_INDEX_PAD",
+        "AUREL_L_SOCKET_INDEX_TIP",
+        "AUREL_L_SOCKET_LITTLE_CONTACT",
+        "AUREL_L_SOCKET_LITTLE_PAD",
+        "AUREL_L_SOCKET_LITTLE_TIP",
+        "AUREL_L_SOCKET_MIDDLE_CONTACT",
+        "AUREL_L_SOCKET_MIDDLE_PAD",
+        "AUREL_L_SOCKET_MIDDLE_TIP",
+        "AUREL_L_SOCKET_PALM",
+        "AUREL_L_SOCKET_RING_CONTACT",
+        "AUREL_L_SOCKET_RING_PAD",
+        "AUREL_L_SOCKET_RING_TIP",
+        "AUREL_L_SOCKET_THUMB_CONTACT",
+        "AUREL_L_SOCKET_THUMB_PAD",
+        "AUREL_L_SOCKET_THUMB_TIP",
+        "AUREL_L_SOCKET_WRIST_ATTACH",
+        "AUREL_L_THUMB_AXIAL_ROLL",
+        "AUREL_L_THUMB_CMC_ABDUCTION",
+        "AUREL_L_THUMB_CMC_OPPOSITION",
+        "AUREL_L_THUMB_DISTAL_SHELL",
+        "AUREL_L_THUMB_IP_FLEX",
+        "AUREL_L_THUMB_MCP_FLEX",
+        "AUREL_L_THUMB_METACARPAL_SHELL",
+        "AUREL_L_THUMB_PROXIMAL_SHELL",
+        "AUREL_L_WRIST_DEVIATION",
+        "AUREL_L_WRIST_FLEX",
+        "AUREL_L_WRIST_MOUNT",
+        "AUREL_R_AUREL_01_ROOT",
+        "AUREL_R_GEOMETRY",
+        "AUREL_R_INDEX_DIP_FLEX",
+        "AUREL_R_INDEX_DISTAL_SHELL",
+        "AUREL_R_INDEX_MCP_FLEX",
+        "AUREL_R_INDEX_MCP_SPREAD",
+        "AUREL_R_INDEX_MIDDLE_SHELL",
+        "AUREL_R_INDEX_PIP_FLEX",
+        "AUREL_R_INDEX_PROXIMAL_SHELL",
+        "AUREL_R_LITTLE_DIP_FLEX",
+        "AUREL_R_LITTLE_DISTAL_SHELL",
+        "AUREL_R_LITTLE_MCP_FLEX",
+        "AUREL_R_LITTLE_MCP_SPREAD",
+        "AUREL_R_LITTLE_MIDDLE_SHELL",
+        "AUREL_R_LITTLE_PIP_FLEX",
+        "AUREL_R_LITTLE_PROXIMAL_SHELL",
+        "AUREL_R_MIDDLE_DIP_FLEX",
+        "AUREL_R_MIDDLE_DISTAL_SHELL",
+        "AUREL_R_MIDDLE_MCP_FLEX",
+        "AUREL_R_MIDDLE_MCP_SPREAD",
+        "AUREL_R_MIDDLE_MIDDLE_SHELL",
+        "AUREL_R_MIDDLE_PIP_FLEX",
+        "AUREL_R_MIDDLE_PROXIMAL_SHELL",
+        "AUREL_R_MOUNT",
+        "AUREL_R_PALM_DORSAL_SHELL",
+        "AUREL_R_PALM_FRAME",
+        "AUREL_R_RING_DIP_FLEX",
+        "AUREL_R_RING_DISTAL_SHELL",
+        "AUREL_R_RING_MCP_FLEX",
+        "AUREL_R_RING_MCP_SPREAD",
+        "AUREL_R_RING_MIDDLE_SHELL",
+        "AUREL_R_RING_PIP_FLEX",
+        "AUREL_R_RING_PROXIMAL_SHELL",
+        "AUREL_R_SOCKET_INDEX_CONTACT",
+        "AUREL_R_SOCKET_INDEX_PAD",
+        "AUREL_R_SOCKET_INDEX_TIP",
+        "AUREL_R_SOCKET_LITTLE_CONTACT",
+        "AUREL_R_SOCKET_LITTLE_PAD",
+        "AUREL_R_SOCKET_LITTLE_TIP",
+        "AUREL_R_SOCKET_MIDDLE_CONTACT",
+        "AUREL_R_SOCKET_MIDDLE_PAD",
+        "AUREL_R_SOCKET_MIDDLE_TIP",
+        "AUREL_R_SOCKET_PALM",
+        "AUREL_R_SOCKET_RING_CONTACT",
+        "AUREL_R_SOCKET_RING_PAD",
+        "AUREL_R_SOCKET_RING_TIP",
+        "AUREL_R_SOCKET_THUMB_CONTACT",
+        "AUREL_R_SOCKET_THUMB_PAD",
+        "AUREL_R_SOCKET_THUMB_TIP",
+        "AUREL_R_SOCKET_WRIST_ATTACH",
+        "AUREL_R_THUMB_AXIAL_ROLL",
+        "AUREL_R_THUMB_CMC_ABDUCTION",
+        "AUREL_R_THUMB_CMC_OPPOSITION",
+        "AUREL_R_THUMB_DISTAL_SHELL",
+        "AUREL_R_THUMB_IP_FLEX",
+        "AUREL_R_THUMB_MCP_FLEX",
+        "AUREL_R_THUMB_METACARPAL_SHELL",
+        "AUREL_R_THUMB_PROXIMAL_SHELL",
+        "AUREL_R_WRIST_DEVIATION",
+        "AUREL_R_WRIST_FLEX",
+        "AUREL_R_WRIST_MOUNT",
+        "C08_RIG",
+        "C08_SKIN",
+        "CHEST",
+        "FINGER_L1_01",
+        "FINGER_L1_02",
+        "FINGER_L2_01",
+        "FINGER_L2_02",
+        "FINGER_L3_01",
+        "FINGER_L3_02",
+        "FINGER_L4_01",
+        "FINGER_L4_02",
+        "FINGER_R1_01",
+        "FINGER_R1_02",
+        "FINGER_R2_01",
+        "FINGER_R2_02",
+        "FINGER_R3_01",
+        "FINGER_R3_02",
+        "FINGER_R4_01",
+        "FINGER_R4_02",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "HIP_L",
+        "HIP_R",
+        "KNEE_L",
+        "KNEE_R",
+        "MOTION",
+        "NECK",
+        "PELVIS",
+        "ROOT",
+        "SENSOR_YAW",
+        "SHOULDER_L",
+        "SHOULDER_R",
+        "SOCKET_BACK",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HEEL_L",
+        "SOCKET_HEEL_R",
+        "SOCKET_SENSOR",
+        "SOCKET_SOLE_L",
+        "SOCKET_SOLE_R",
+        "SOCKET_TOE_L",
+        "SOCKET_TOE_R",
+        "SOCKET_TOOL_L",
+        "SOCKET_TOOL_R",
+        "THUMB_L_01",
+        "THUMB_L_02",
+        "THUMB_R_01",
+        "THUMB_R_02",
+        "TOE_L",
+        "TOE_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R",
+        "WAIST"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HEEL_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_L",
+          "parent": "ANKLE_L",
+          "position_m": [
+            0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_HEEL_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            -0.14000000059604645
+          ]
+        },
+        {
+          "node": "SOCKET_SOLE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.07000000029802322
+          ]
+        },
+        {
+          "node": "SOCKET_TOE_R",
+          "parent": "ANKLE_R",
+          "position_m": [
+            -0.2800000011920929,
+            0.006000012159347534,
+            0.3100000023841858
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            2.140000104904175,
+            0.23999999463558197
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_TIP",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_INDEX_PAD",
+          "parent": "AUREL_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_TIP",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_CONTACT",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_RING_PAD",
+          "parent": "AUREL_L_RING_DIP_FLEX",
+          "position_m": [
+            0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_TIP",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_THUMB_PAD",
+          "parent": "AUREL_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_PALM",
+          "parent": "AUREL_L_PALM_FRAME",
+          "position_m": [
+            0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_L_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_L_WRIST_MOUNT",
+          "position_m": [
+            0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            0.9900000095367432,
+            0.1899999976158142
+          ]
+        },
+        {
+          "node": "SOCKET_TOOL_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.6499999761581421,
+            1.0199999809265137,
+            0.2199999988079071
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_TIP",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084430825400527,
+            0.837931489794993,
+            0.18542405203950998
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_CONTACT",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6084875120915127,
+            0.8406239455165101,
+            0.1892605489054838
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_INDEX_PAD",
+          "parent": "AUREL_R_INDEX_DIP_FLEX",
+          "position_m": [
+            -0.6086770070657096,
+            0.8521074471659541,
+            0.1768766287419665
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_TIP",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8370879259452758,
+            0.20284216856785509
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8407065040026023,
+            0.20582141223748585
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_MIDDLE_PAD",
+          "parent": "AUREL_R_MIDDLE_DIP_FLEX",
+          "position_m": [
+            -0.6369999761581421,
+            0.8489355222031318,
+            0.19024238955904563
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_TIP",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.666144357947097,
+            0.858355968235808,
+            0.20534581309414826
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_CONTACT",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6661004527905106,
+            0.8625372580510563,
+            0.2074635684667362
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_RING_PAD",
+          "parent": "AUREL_R_RING_DIP_FLEX",
+          "position_m": [
+            -0.6660581234710745,
+            0.8665684736531565,
+            0.1905360197613713
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_TIP",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6918512144283737,
+            0.8944676847970212,
+            0.1925225417753009
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917149481113436,
+            0.8990085326197536,
+            0.19367672223849963
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_LITTLE_PAD",
+          "parent": "AUREL_R_LITTLE_DIP_FLEX",
+          "position_m": [
+            -0.6917175219375744,
+            0.8989227641518654,
+            0.1783775239965088
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_TIP",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5489391205371144,
+            0.8919740942163975,
+            0.18164741773753004
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_CONTACT",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5507165552287203,
+            0.8929622465011878,
+            0.18587048309093618
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_THUMB_PAD",
+          "parent": "AUREL_R_THUMB_IP_FLEX",
+          "position_m": [
+            -0.5586229911277292,
+            0.9067590028837413,
+            0.17533664899810314
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_PALM",
+          "parent": "AUREL_R_PALM_FRAME",
+          "position_m": [
+            -0.6499999761581421,
+            0.9621999475479126,
+            0.143399997317791
+          ]
+        },
+        {
+          "node": "AUREL_R_SOCKET_WRIST_ATTACH",
+          "parent": "AUREL_R_WRIST_MOUNT",
+          "position_m": [
+            -0.6499999761581421,
+            1.0999999475479125,
+            0.11999999731779099
+          ]
+        },
+        {
+          "node": "SOCKET_BACK",
+          "parent": "CHEST",
+          "position_m": [
+            0,
+            1.7999999523162842,
+            -0.3199999928474426
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/c08_aurel_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 84780,
+      "meshopt_sha256": "b011e0ada8a2424c54e50a5ebe487974e5aa7d35ae5a0184abab9e8b8f26047c",
+      "variant": "aurel",
+      "removed_original_hand_triangles": null
+    }
+  ],
+  "budgets": {
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the complete glTF scene in an instance group; ROOT is a skeleton lookup. Use SkeletonUtils.clone for skinned instances.",
+    "gait": "In-place clips. Move the instance along +Z at clips.speed_mps times playback rate. Keep LOD1 during animated gameplay. No root motion is baked.",
+    "sensor": "SENSOR_YAW is excluded from clips and remains engine-driven. Its local Y axis is the glTF up axis.",
+    "hands": "Embedded AUREL_L_ and AUREL_R_ motor/socket namespaces. Five original body clips remain unchanged. Optional runtime.js drives fingers after the body mixer. Legacy SOCKET_HAND/TOOL offsets are preserved for compatibility; use AUREL_L/R_SOCKET_PALM and digit contacts for new grasps.",
+    "feet": "SOLE, HEEL and TOE sockets mark the contact plane 6 mm above ground. Flat support anchors the sole; heel placement and toe-off rotate about the respective socket. Flat-floor kinematic motion; terrain IK and collision belong to the game.",
+    "bounds": "Use validation-report.json clip_envelopes for animated culling. Standing plot is 1.6 by 1.3 metres.",
+    "damage": "D0 intact only; D1-D3 are not authored. Distance is a static map/loading stand-in, never an animated gameplay replacement.",
+    "review": "Repository contract candidate only after validation. Consuming-game r160/release gltfpack, transitions, self-collision, phone performance and camera acceptance remain pending.",
+    "static": "LOD2 is frozen with naturally curled, simplified hand surfaces. All 180 lookup names and poses match the game rest hierarchy. Keep LOD1 for motion.",
+    "scope": "First C08 test fit only; rollout to the remaining bipeds is pending."
+  },
+  "provenance": {
+    "geometry": "Original procedural geometry and animation, following the user-supplied industrial robot design reference and the existing C-07 palette/joint design. No reference mesh, texture or captured animation is copied.",
+    "reference": {
+      "file": "photo_2026-10-28 10.24.53.jpeg",
+      "sha256": "60fb8ad29f4150ac9a6beefd0998bdc1a05ccf55281eaac5b30973df8a9e2cee",
+      "bytes": 236207,
+      "usage": "User-provided visual design reference; image is not redistributed; no third-party license assertion."
+    },
+    "manufacturer_family": "C-series; C-07 Mechanical Cheetah and C-08 Industrial Worker share ochre ceramic, ivory inserts, graphite mechanisms, titanium axle caps and blue-coated optics.",
+    "motion": "Independently authored timing and poses; no biomechanical or force-validation claim."
+  },
+  "source": {
+    "original_robot": "../manifest.json",
+    "hand": "../../hand-lab/manifest.json",
+    "builder": "tools/asset-pipeline/build-c08-aurel.mjs",
+    "inputs": [
+      {
+        "file": "../c08_d0_lod0.glb",
+        "sha256": "acc8bc2592b4541b6becd4fec093d7877ea8568756e23b312a058ec736443c75"
+      },
+      {
+        "file": "../c08_d0_lod1.glb",
+        "sha256": "44714a9ea5cea3ac797e670dc8aba57930e618f3a78809077a0b19597007a368"
+      },
+      {
+        "file": "../c08_d0_lod2.glb",
+        "sha256": "809234357768619935c585d5dd03b147de819541b468f098e6737e58f0182514"
+      },
+      {
+        "file": "../../hand-lab/biped/lod1/aurel01_biped_d0_lod1.glb",
+        "sha256": "5e2341f4bf000449fe3f65b74b23fd65acee0369a7bc1caafff35a7baaf82694"
+      },
+      {
+        "file": "../../hand-lab/biped/lod2/aurel01_biped_d0_lod2.glb",
+        "sha256": "c50de04f451aa3f1668d453821ca33ca5c5e6193f44d4b6c1623e7532b29acf1"
+      }
+    ],
+    "static_hand_simplification": {
+      "derived": true,
+      "method": "Meshoptimizer topology simplification on the curled hand surface",
+      "ratio": 0.15,
+      "error_relative": 0.04
+    }
+  },
+  "variant": "aurel",
+  "hand_integration": {
+    "manufacturer": "Isao / Mechanism Atelier AUREL-01 retrofit",
+    "hand_variant": "biped",
+    "hand_triangles_each": 2708,
+    "scale": 1.3,
+    "mount_offset_m": [
+      0,
+      0.045,
+      0
+    ],
+    "mount_rotation": "180 degrees about local Z; fingers down, palms forward, thumbs medial",
+    "namespaces": [
+      "AUREL_L_",
+      "AUREL_R_"
+    ],
+    "handedness": "R original; L reflected geometry, winding, local transforms, inverse binds and Y/Z motor signs; all positive scales",
+    "legacy": "Original HAND, FINGER, THUMB and SOCKET nodes and five body clips retained. Old hand geometry removed. Original grasp/tool socket coordinates unchanged; new palm/tip sockets are the geometric grasp references.",
+    "runtime": "runtime.js: sampleHands/applyHandPose after the body mixer; 23 independent axes per hand, no baked hand channels",
+    "rest_pose": {
+      "WRIST_FLEX": 0,
+      "WRIST_DEVIATION": 0,
+      "THUMB_CMC_OPPOSITION": 0.37800000000000006,
+      "THUMB_CMC_ABDUCTION": 0.64,
+      "THUMB_AXIAL_ROLL": -0.11200000000000002,
+      "THUMB_MCP_FLEX": 0.35,
+      "THUMB_IP_FLEX": 0.42,
+      "INDEX_MCP_SPREAD": 0.0165,
+      "INDEX_MCP_FLEX": 0.32,
+      "INDEX_PIP_FLEX": 0.58,
+      "INDEX_DIP_FLEX": 0.3,
+      "MIDDLE_MCP_SPREAD": 0,
+      "MIDDLE_MCP_FLEX": 0.42,
+      "MIDDLE_PIP_FLEX": 0.7,
+      "MIDDLE_DIP_FLEX": 0.35,
+      "RING_MCP_SPREAD": -0.010500000000000002,
+      "RING_MCP_FLEX": 0.49,
+      "RING_PIP_FLEX": 0.8,
+      "RING_DIP_FLEX": 0.4,
+      "LITTLE_MCP_SPREAD": -0.030000000000000006,
+      "LITTLE_MCP_FLEX": 0.56,
+      "LITTLE_PIP_FLEX": 0.9,
+      "LITTLE_DIP_FLEX": 0.45
+    }
+  },
+  "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes."
+}

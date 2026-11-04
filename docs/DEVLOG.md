@@ -1,5 +1,17 @@
 # Devlog
 
+## 4 November 2026 / C08 — first economical AUREL hand retrofit
+
+Fitted C08 with a mirrored left/right pair of AUREL-01 economical hands as the first test for the requested biped rollout. The original hand surfaces and wrist barrels are removed from the new assembled exports. Each replacement cuff inserts into its existing forearm through a fixed 1.3× adapter. Original C08 and Hand Lab exports and the original Blender master are preserved. The other bipeds remain pending this first-fit review.
+
+Each articulated hand retains its exact 2,708-triangle economical surface and 23 independent motor axes. The left conversion mirrors geometry, normals, winding, local frames and inverse bind matrices, with Y/Z motor sign conversion and positive runtime scales. The new pair defaults to a natural inward curl. Existing C08 body clips and legacy sockets are unchanged; namespaced palm and fingertip sockets describe the replacement hands. The five body clips contain no new baked hand channels; the optional runtime adapter supplies a loose carry grip and opens the right hand during inspection.
+
+Measured complete retrofit: detailed chassis with economy hands, 57,992 triangles / eight draws / 2,770,588 plain bytes; game, 16,452 / eight / 1,338,784; static distance, 2,784 / one / 235,588. Game stays below the 25k unit target. Its net change is +624 triangles and two draws relative to original C08 game. Static hand surfaces are simplified from the curled source and merged into the distance chassis. All tiers retain 180 unique named nodes and 46 sockets; the static hierarchy matches the game resting frames. Optional Meshopt files are derived; plain GLBs remain authoritative. No FPS improvement is claimed.
+
+All six new plain/decoded files pass glTF validation with zero errors and warnings. The full motion checks pass 8,756 samples at 120 Hz with at least 4.635 mm floor clearance and less than 0.967 mm stance drift. Fit checks verify original-file hashes, byte-identical body animation data, unchanged body frames through 610 samples, source-identical hand surfaces including the reflection, wrist attachment, 194 posture/motor samples, independent left/right control and static frame parity. Browser checks cover the original/equipped selector, all tiers and encodings, existing actions, six hand modes, following close-up, static lockout and desktop/mobile layouts.
+
+C08 now opens on the equipped game version, with a Hands close-up and hand-posture selector. Review previews, assembled manifests, runtime and integration notes are in `assets/c08-worker/aurel/`. Handoff: the containing commit plus `assets/c08-worker/` and the shared `assets/hand-lab/runtime.js` / `biped.js` for optional finger behavior. Pending: the other biped hand installations, object-specific grasp calibration, arbitrary whole-body collision/force checks, consuming-game r160/release packing, transitions and phone acceptance. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / Biped hand and foot variants — economical motion and natural static curls
 
 Added a second articulated game version and a naturally curled distance/static version for both the AUREL-01 hand and NISOKU-02 foot. The fingers form a loose inward cup, progressively curling more toward the little finger; the foot uses a shallower inward toe curl with its heel and ankle in their neutral positions. The original detailed, game and distance exports remain byte-for-byte intact. The existing detailed models remain the family masters.

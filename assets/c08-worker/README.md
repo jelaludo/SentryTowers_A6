@@ -1,5 +1,7 @@
 # C-08 / Industrial Worker
 
+**AUREL economical hand test:** the default viewer now loads the assembled left/right retrofit in `aurel/`. See `aurel/README.md` for its exports, measured budgets and integration. The files and original model described below remain preserved; choose “Original C08 hands” in the viewer to inspect them.
+
 Original heavy biped from the same C-series design family as C-07: ochre ceramic guards, ivory service panels, graphite mechanisms, titanium axle caps and blue-coated optics. The recessed sensor mast, replaceable backpack packs, exposed trunk actuators, articulated hands and broad segmented feet follow the supplied industrial-worker reference. Approximately 2.3 m tall. D0 intact only.
 
 ## Authoritative files and budgets

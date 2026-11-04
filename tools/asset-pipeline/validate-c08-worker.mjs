@@ -9,12 +9,14 @@ import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
 import {dequantize} from '@gltf-transform/functions';
 import {MeshoptDecoder} from 'meshoptimizer';
 import validator from 'gltf-validator';
-const out=new URL('../../assets/c08-worker/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));
+import {sampleHands,applyHandPose} from '../../assets/c08-worker/aurel/runtime.js';
+const retrofit=process.env.C08_AUREL==='1';
+const out=new URL(retrofit?'../../assets/c08-worker/aurel/':'../../assets/c08-worker/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out)));
 await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
 const report={assets:[],clip_samples:0,sample_hz:120,minimum_geometry_y_m:Infinity,maximum_loop_error_m:0,maximum_loop_rotation_error_rad:0,maximum_stance_slip_m:0,maximum_segment_length_error_m:0,maximum_decoded_pose_error_m:0,clip_envelopes:{},minimum_support_contacts:{},scope:'Plain and decoded Meshopt. Full skinned geometry at 120 Hz, loop position/rotation, heel/flat/toe support and world-space anchors, intermediate-key rigid lengths, LOD name/socket parity and budgets. Authored flat-floor kinematics; not physics, general self-collision or FPS acceptance.'};
 const wp=(root,n)=>root.getObjectByName(n).getWorldPosition(new T.Vector3());
-const wq=(root,n)=>root.getObjectByName(n).getWorldQuaternion(new T.Quaternion());
+const wq=(root,n)=>root.getObjectByName(n).getWorldQuaternion(new T.Quaternion()).normalize();
 let baselineNames,baselineSockets;const decodedPoses={};
 for(const e of manifest.assets)for(const compressed of [false,true]){
  const file=compressed?e.meshopt_file:e.file,bytes=await fs.readFile(new URL(file,out));
@@ -36,9 +38,9 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
   const segments=[];
   for(const id of ['L','R'])for(const [a,b] of [['HIP_','KNEE_'],['KNEE_','ANKLE_'],['UPPER_ARM_','FOREARM_'],['FOREARM_','HAND_']])segments.push([a+id,b+id,wp(root,a+id).distanceTo(wp(root,b+id))]);
   for(const clip of gltf.animations){
-   const meta=e.clips.find(c=>c.name===clip.name);assert(meta);assert(Math.abs(clip.duration-meta.duration_s)<1e-5);assert(clip.tracks.every(t=>!t.name.startsWith('SENSOR_YAW.')&&!t.name.startsWith('SOCKET_')&&!t.name.startsWith('ROOT.')),'engine pivots/sockets baked');
+   const meta=e.clips.find(c=>c.name===clip.name);assert(meta);assert(Math.abs(clip.duration-meta.duration_s)<1e-5);assert(clip.tracks.every(t=>!t.name.startsWith('SENSOR_YAW.')&&!t.name.startsWith('SOCKET_')&&!t.name.startsWith('ROOT.')&&!t.name.startsWith('AUREL_')),'engine pivots/sockets baked');
    const action=mixer.clipAction(clip);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;
-   function sample(t){mixer.stopAllAction();action.reset().play();action.time=Math.min(t,clip.duration-1e-7);mixer.update(0);root.updateMatrixWorld(true);meshes.forEach(o=>o.skeleton.update());}
+   function sample(t){mixer.stopAllAction();action.reset().play();action.time=Math.min(t,clip.duration-1e-7);mixer.update(0);if(retrofit)applyHandPose(root,sampleHands(clip.name,t));root.updateMatrixWorld(true);meshes.forEach(o=>o.skeleton.update());}
    const frames=Math.round(clip.duration*120),envelope=new T.Box3();let minimum=Infinity,first,last,firstQ,lastQ,supportMin=2;const checked=[];
    for(let i=0;i<=frames;i++){
     sample(i/120);report.clip_samples++;const box=new T.Box3().setFromObject(root,true);envelope.union(box);minimum=Math.min(minimum,box.min.y);assert(Number.isFinite(box.max.y));
@@ -73,5 +75,5 @@ for(const e of manifest.assets)for(const compressed of [false,true]){
  }
  report.assets.push({file,triangles,draw_calls:meshes.length,bytes:bytes.length,gltf_errors:validation.issues.numErrors,gltf_warnings:validation.issues.numWarnings});
 }
-assert(report.minimum_geometry_y_m>=-.001,'floor penetration '+report.minimum_geometry_y_m);assert(report.maximum_loop_error_m<.002,'loop/return seam '+report.maximum_loop_error_m);assert(report.maximum_loop_rotation_error_rad<.002,'rotation seam');assert(report.maximum_stance_slip_m<.002,'support slip '+report.maximum_stance_slip_m);assert(report.maximum_segment_length_error_m<.001,'rigid segment stretch '+report.maximum_segment_length_error_m);assert(report.maximum_decoded_pose_error_m<.002,'Meshopt motion drift');report.status='passed';
+assert(report.minimum_geometry_y_m>=-.001,'floor penetration '+report.minimum_geometry_y_m);assert(report.maximum_loop_error_m<.002,'loop/return seam '+report.maximum_loop_error_m);assert(report.maximum_loop_rotation_error_rad<.002,'rotation seam '+report.maximum_loop_rotation_error_rad);assert(report.maximum_stance_slip_m<.002,'support slip '+report.maximum_stance_slip_m);assert(report.maximum_segment_length_error_m<.001,'rigid segment stretch '+report.maximum_segment_length_error_m);assert(report.maximum_decoded_pose_error_m<.002,'Meshopt motion drift');report.status='passed';
 await fs.writeFile(new URL('validation-report.json',out),JSON.stringify(report,null,2)+'\n');console.log('PASS',report.clip_samples,'samples; floor',report.minimum_geometry_y_m,'slip',report.maximum_stance_slip_m,'rigid error',report.maximum_segment_length_error_m);

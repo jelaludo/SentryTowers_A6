@@ -1,4 +1,6 @@
 {
+  "variant": "original",
+  "additional_hand_checks": [],
   "status": "passed",
   "browser": "Chromium headless with real WebGL; no performance benchmark",
   "clips": [
@@ -57,5 +59,12 @@
       "sha256": "809234357768619935c585d5dd03b147de819541b468f098e6737e58f0182514",
       "meshopt_sha256": "fd7489dfc66f8a14a366a96778a987d247b806b6f87001d7868af5b578098a48"
     }
-  ]
+  ],
+  "source_hashes": {
+    "c08-worker/index.html": "11e4ffeaaabe662596e72935116c8d5a552fab3a6f73b0c6990147afbc01c106",
+    "c08-worker/viewer.js": "ced36db273437ed1c0499279b13a32359197d2deed945f68349586434a67538f",
+    "c08-worker/viewer.css": "45fd0f319324b481fd1a6f5f7051137ac2b00c20f8f882d4656a141483824777",
+    "assets/c08-worker/aurel/runtime.js": "5f999dd38960c8d096e31d84f5334d210838f7fcc591f33d9bff6f96a6a2be21",
+    "tools/asset-pipeline/test-c08-worker-viewer.mjs": "1795b23c4a9ad309b595f71b5efdde1235260adc10ee8ddd90e40e661a42a338"
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "original_files_verified": 6,
+  "body_pose_samples": 610,
+  "hand_pose_samples": 194,
+  "maximum_body_position_error_m": 0,
+  "maximum_body_rotation_error_rad": 4.2146848510894035e-8,
+  "maximum_hand_surface_error_m": 3.916020579897834e-16,
+  "maximum_mount_error_m": 0,
+  "source_hashes": {
+    "tools/asset-pipeline/build-c08-aurel.mjs": "76a48e9694790cbd7cd46cee7c4784a32d7f853a035478d261ba2c8a93455f52",
+    "tools/blender/export_c08_body.py": "4c59d54ba9dfa55d9232c269357f095861d4a233c878fd22b392adb2305414e3",
+    "assets/c08-worker/aurel/runtime.js": "5f999dd38960c8d096e31d84f5334d210838f7fcc591f33d9bff6f96a6a2be21",
+    "tools/asset-pipeline/validate-c08-aurel-fit.mjs": "ecde5ce0c667b17d9cb2bab9d06e429fcb2d6da402879d9c54aaa94f0336500d"
+  },
+  "assembly_inputs_verified": 5,
+  "scope": "Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including left reflection; positive transforms, independent motors, mount frames, static node parity and budgets. Not arbitrary whole-body collision or force validation."
+}
