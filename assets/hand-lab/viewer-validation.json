@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader WebGL; functional checks only, no FPS claim",
+  "source_sha256": {
+    "hand-lab/viewer.js": "2fa49673a60ae2d40c76125b940eac78e498dc2a51a879f43047f1e45cc68de5",
+    "hand-lab/index.html": "0c7479e50179e6986ebb63bf9d1fa4fa8eb66ed575476ea6c8be037fa859f1e6",
+    "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e"
+  },
+  "checks": [
+    "six static poses and five motion cycles",
+    "23 independent axes / per-finger coupling / pose JSON export",
+    "shell separation, material toggles, wireframe, skeleton",
+    "dorsal/palm/side/detail views",
+    "six tier/encoding combinations / downloads / static lockout",
+    "both attributed imported references / comparison / source cards",
+    "play, pause and timeline",
+    "desktop and 390px mobile framing without horizontal overflow",
+    "zero page errors"
+  ]
+}

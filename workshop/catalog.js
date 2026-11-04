@@ -1,4 +1,5 @@
 const collectionImages={
+'hand-lab':'assets/hand-lab/preview.png',
 'rokuroku66':'assets/rokuroku66/preview.png',
 'nih-dairia-mech':'assets/nih-dairia-mech/preview.png',
 'eva-k8':'assets/eva-k8/preview.png',
@@ -36,6 +37,7 @@ const collectionImages={
 };
 
 export const collections=[
+['hand-lab','Hand Lab / AUREL-01','Characters','An original ivory-and-graphite robotic hand with 23 joint axes, tactile fingertips, thumb opposition and an inspectable shell. Explore poses and continuous motion, then compare with attributed LiberHand CAD and LibHand anatomy references.','23 axes · 5 motion studies · 2 source imports · 3 LODs','Kinematic design study'],
 ['rokuroku66','RokuRoku-66 / Serpentine Limbs','Characters','Isao’s second biomimetic creature: six independent chains of short geared vertebrae. A continuous story at a 3× default pace wakes from a sleeping spiral, hands sensing to the limbs nearest the rolling 09-tai lure, pursues it, wraps a fixed pole and resumes the chase. Seeded roaming and individual motion studies remain available. Short two-axis gimbals carry sliding ivory scales and flexible service loops.','3× story · Adaptive feelers · Pole wrap · 3 LODs','Kinematic study'],
 ['nih-dairia-mech','Nih-Dairia / Isao Mechanical Study','Characters','Isao’s mechanical interpretation of an alien creature: six radial limbs, ivory armor, telescoping carbon hydraulics and three ivory pads per foot. Two legs reach ahead and plant anchors that pull the body forward.','3 pads per foot · Two-leg reach · Anchored step · 3 LODs','Kinematic prototype'],
 ['eva-k8','EVA-K8 / Heavy Hardsuit','Characters','Version two of the hardsuit: 1.35× shoulders, bevelled bolted plates over wrinkled quilting, angular tinted-visor helmet, tank-and-unit backpack with hoses, lugged boots and a contrapposto hero stance. Worn PBR surfaces generated at runtime over palette-only GLBs; EVA-K7 shown beside it.','7 clips · 50 joints · 1.96 m · 3 LODs · runtime wear','Contract candidate'],

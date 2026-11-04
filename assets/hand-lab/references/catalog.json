@@ -1,0 +1,85 @@
+{
+  "reviewed_on": "2026-11-04",
+  "scope": "License notices checked at pinned revisions. References remain separate from the original AUREL-01 model.",
+  "references": [
+    {
+      "id": "liberhand",
+      "title": "LiberHand V1",
+      "repository": "https://github.com/PPML-Group/LiberHand_V1",
+      "commit": "816769183b53bd5dd8180a98b264471508eaf3f0",
+      "license": "MIT",
+      "license_file": "liberhand/LICENSE",
+      "author": "PPML-G",
+      "status": "included",
+      "file": "liberhand/derived/reference.glb",
+      "meshopt_file": "liberhand/derived/reference.meshopt.glb",
+      "bytes": 8090448,
+      "meshopt_bytes": 2995356,
+      "sha256": "45d46ed27656628efe26ac4f4bed271b983afbf63b57c1268444ebb2256bfd37",
+      "meshopt_sha256": "2ea774361560e79618038a55d914f94c2121eb35102b55341c394051921b7891",
+      "triangles": 112350,
+      "draw_calls": 1,
+      "normalized_height_m": 0.25,
+      "original_bounds": {
+        "min": [
+          -0.09216513484716415,
+          -0.0764722004532814,
+          0.0564243383705616
+        ],
+        "max": [
+          0.07329348474740982,
+          0.23723086714744568,
+          0.25298646092414856
+        ]
+      },
+      "static_review": true,
+      "changes": "STEP tessellated with OpenCascade; reduced mesh, neutral review material, normalized display scale. Static assembly, no inferred joints.",
+      "study": "Modular mechanisms, finger spacing and thumb packaging."
+    },
+    {
+      "id": "libhand",
+      "title": "LibHand / human anatomy",
+      "repository": "https://github.com/libhand/libhand",
+      "commit": "d4e85aea22cd4e591e97befb3a24ab37dcd05664",
+      "license": "CC BY 3.0 (model)",
+      "license_file": "libhand/MODEL-LICENSE.txt",
+      "author": "Marin Šarić / LibHand",
+      "status": "included",
+      "file": "libhand/derived/reference.glb",
+      "meshopt_file": "libhand/derived/reference.meshopt.glb",
+      "bytes": 1455056,
+      "meshopt_bytes": 440324,
+      "sha256": "67b1a6506254d88773a03c08a0c25cd81e10f7fff35d83d82dd9e9a0af658bd3",
+      "meshopt_sha256": "2c6292cea5904b6528a1b7a20626ab3cfb176c4de384aeced77ad61de33b9c0e",
+      "triangles": 70297,
+      "draw_calls": 2,
+      "normalized_height_m": 0.25,
+      "original_bounds": {
+        "min": [
+          -3.196902057629585,
+          0.39826405375169105,
+          -1.425140623358489
+        ],
+        "max": [
+          1.1432502983647388,
+          2.1074537411921543,
+          0.5514219843316437
+        ]
+      },
+      "static_review": true,
+      "changes": "Static rest geometry baked from the supplied Blender rig into GLB; palette materials substituted and display scale normalized. Original articulated rig is preserved in source/hand.blend.",
+      "study": "Anatomical proportions, palm volume and thumb placement."
+    },
+    {
+      "id": "robot-hand-anatomy",
+      "title": "Robot Hand Anatomy",
+      "repository": "https://github.com/salikshah/robot-hand-anatomy",
+      "commit": "9f5a34bfec845670dd58e438baf2b84b5302c5cb",
+      "status": "link_only",
+      "license": "Hand-specific license not found; kit/LICENSE applies to the rendering toolkit.",
+      "author": "salikshah; rendering toolkit credited upstream to Ryan",
+      "study": "Interaction reference: coupled fingers, opposition, wrist axes and assembly inspection.",
+      "reason": "No hand geometry, source code, images or compiled pages redistributed. Clarify hand-specific permission before importing."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+    "manifest.json": "5570d16437dad9e1e8225b540eed84901b1c4e8d5ba07ce04afc07acbbacd3db",
+    "references/catalog.json": "0159da1bea3d562d6dad7561ca165ce691279d168794f8b7dcbd0e5f348e61aa"
+  },
+  "reports": [
+    {
+      "file": "lod0/aurel01_d0_lod0.glb",
+      "decoded": false,
+      "triangles": 87216,
+      "draw_calls": 5,
+      "bytes": 3798608,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod0/aurel01_d0_lod0.meshopt.glb",
+      "decoded": true,
+      "triangles": 87216,
+      "draw_calls": 5,
+      "bytes": 697368,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod1/aurel01_d0_lod1.glb",
+      "decoded": false,
+      "triangles": 14392,
+      "draw_calls": 5,
+      "bytes": 579840,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod1/aurel01_d0_lod1.meshopt.glb",
+      "decoded": true,
+      "triangles": 14392,
+      "draw_calls": 5,
+      "bytes": 134516,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "lod2/aurel01_d0_lod2.glb",
+      "decoded": false,
+      "triangles": 2604,
+      "draw_calls": 1,
+      "bytes": 102720,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/lod2/aurel01_d0_lod2.meshopt.glb",
+      "decoded": true,
+      "triangles": 2604,
+      "draw_calls": 1,
+      "bytes": 40372,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "references/liberhand/derived/reference.glb",
+      "decoded": false,
+      "triangles": 112350,
+      "draw_calls": 1,
+      "bytes": 8090448,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "references/liberhand/derived/reference.meshopt.glb",
+      "decoded": true,
+      "triangles": 112350,
+      "draw_calls": 1,
+      "bytes": 2995356,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "references/libhand/derived/reference.glb",
+      "decoded": false,
+      "triangles": 70297,
+      "draw_calls": 2,
+      "bytes": 1455056,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "references/libhand/derived/reference.meshopt.glb",
+      "decoded": true,
+      "triangles": 70297,
+      "draw_calls": 2,
+      "bytes": 440324,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 708,
+  "min_sampled_floor_clearance_m": 0.0005000002565793693,
+  "max_finger_link_length_error_m": 2.0816681711721685e-17,
+  "pinch_tip_contact_distance_m": 0.0014999390186995645,
+  "pinch_tip_contact_normal_dot": -0.9999999993772234,
+  "swept_bounds_m": {
+    "min": [
+      -0.13396425408904664,
+      0.0005000002565793693,
+      -0.08838465517961194
+    ],
+    "max": [
+      0.07977464631417024,
+      0.24300000393390656,
+      0.10103599965461893
+    ]
+  },
+  "original_sources_sha256_verified": true,
+  "scope": "Plain and decoded files, names/interfaces, budget, geometry, bounded individual joint samples, five cycles, static lockout, independent fingers and preserved source hashes. Finite visual kinematics; not a grip-force or arbitrary-pose self-collision guarantee."
+}

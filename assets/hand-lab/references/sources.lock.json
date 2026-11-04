@@ -1,0 +1,47 @@
+[
+  {
+    "source": "PPML-Group/LiberHand_V1",
+    "commit": "816769183b53bd5dd8180a98b264471508eaf3f0",
+    "upstream_path": "3D Model/Liberhand_V1.STEP",
+    "file": "liberhand/source/Liberhand_V1.STEP",
+    "bytes": 37409262,
+    "sha256": "15fd9c65332618c6ce4383ded6050cf65e885c5de8c3962f5687680a51bcb463",
+    "url": "https://raw.githubusercontent.com/PPML-Group/LiberHand_V1/816769183b53bd5dd8180a98b264471508eaf3f0/3D%20Model/Liberhand_V1.STEP"
+  },
+  {
+    "source": "PPML-Group/LiberHand_V1",
+    "commit": "816769183b53bd5dd8180a98b264471508eaf3f0",
+    "upstream_path": "LICENSE",
+    "file": "liberhand/LICENSE",
+    "bytes": 1063,
+    "sha256": "ff8ef4e9edefa42e09a70084fb42f5be79b0ecd32f7e821bbc374a564d63c5b5",
+    "url": "https://raw.githubusercontent.com/PPML-Group/LiberHand_V1/816769183b53bd5dd8180a98b264471508eaf3f0/LICENSE"
+  },
+  {
+    "source": "libhand/libhand",
+    "commit": "d4e85aea22cd4e591e97befb3a24ab37dcd05664",
+    "upstream_path": "hand_model/blender/hand.blend",
+    "file": "libhand/source/hand.blend",
+    "bytes": 10564732,
+    "sha256": "6a4ad9aa78a57fa3c30b3da4c126b66df4dd209d9d2ec201c98b513d93210086",
+    "url": "https://raw.githubusercontent.com/libhand/libhand/d4e85aea22cd4e591e97befb3a24ab37dcd05664/hand_model/blender/hand.blend"
+  },
+  {
+    "source": "libhand/libhand",
+    "commit": "d4e85aea22cd4e591e97befb3a24ab37dcd05664",
+    "upstream_path": "hand_model/hand_model_license.txt",
+    "file": "libhand/MODEL-LICENSE.txt",
+    "bytes": 274,
+    "sha256": "70d72c0b3b34a80840dd4741dc2a3e5c2fa00e8ebd44ff1b78aaac4fe9cf15ba",
+    "url": "https://raw.githubusercontent.com/libhand/libhand/d4e85aea22cd4e591e97befb3a24ab37dcd05664/hand_model/hand_model_license.txt"
+  },
+  {
+    "source": "libhand/libhand",
+    "commit": "d4e85aea22cd4e591e97befb3a24ab37dcd05664",
+    "upstream_path": "license.txt",
+    "file": "libhand/SOFTWARE-LICENSE.txt",
+    "bytes": 1736,
+    "sha256": "1e79758544017e194edd0ce813905fb455e50b9eb5a6943a426f50b98a483d6a",
+    "url": "https://raw.githubusercontent.com/libhand/libhand/d4e85aea22cd4e591e97befb3a24ab37dcd05664/license.txt"
+  }
+]

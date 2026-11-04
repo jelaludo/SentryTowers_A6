@@ -1,5 +1,23 @@
 # Asset attributions and provenance
 
+## Hand Lab / AUREL-01 / 4 November 2026
+
+AUREL-01 geometry, 23-axis rig, runtime poses, viewer and derived review images are original work by jelaludo / Model Workshop, guided by the user-supplied `handmodel.png`. That concept image remains external; its hash is recorded in `assets/hand-lab/manifest.json`. No third-party geometry or source implementation is incorporated into AUREL-01.
+
+The lab separately includes LiberHand V1 by PPML-G (MIT, commit `816769183b53bd5dd8180a98b264471508eaf3f0`) and the LibHand human model by Marin Šarić (model CC BY 3.0, commit `d4e85aea22cd4e591e97befb3a24ab37dcd05664`). Original STEP/Blender files and license notices are preserved. Static browser previews are converted derivatives with neutral materials and normalized display scale. Full credit, changes, source-file hashes and license links are in `assets/hand-lab/references/ATTRIBUTIONS.md`, `sources.lock.json` and `catalog.json`. Imported references keep their own licenses and are excluded from the original-workshop reuse grant.
+
+https://github.com/PPML-Group/LiberHand_V1
+
+https://github.com/libhand/libhand
+
+https://www.libhand.org/license.html
+
+https://creativecommons.org/licenses/by/3.0/
+
+Robot Hand Anatomy is linked at reviewed commit `9f5a34bfec845670dd58e438baf2b84b5302c5cb`. Its rendering toolkit has a scoped MIT notice, but no explicit hand-specific license was found; no hand code, assets or figures are redistributed.
+
+https://github.com/salikshah/robot-hand-anatomy
+
 ## K0-TECH-01 / Felis / 27 October 2026
 
 The antenna-ear follow-up adds original tapered paddle radomes, hinge shoes, pivot pins and seam details to EAR_L/EAR_R. The industrial face and all other geometry are retained; all animation keys are unchanged. No new external assets are used.

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**Hand Lab / AUREL-01** adds an original futuristic hand with ivory shells, dark tactile pads, recessed gold bearings and a ribbed wrist collar. Its 23 axes support individual fingers, thumb opposition and axial rotation, a fitted pinch, five continuous motion studies and separated-shell inspection. The lab compares it with attributed LiberHand V1 CAD and LibHand anatomical models; Robot Hand Anatomy remains a linked reference while its hand-specific license is unclear. Open `hand-lab/`; measured detailed/game/static exports, originals, licenses and integration notes are in `assets/hand-lab/`.
+
 **RokuRoku-66 / Six independent serpentine limbs** is Isao’s second Nih-Dairia-derived creature: 22 short two-axis vertebrae per limb, sliding ivory scales, central service loops, circular arcs, tightening spirals and a selectable limb that coils around a pole. All animations now run at a 3× default pace. The Story takes about 67 seconds: wake from a sleeping spiral, pursue the rolling 09-tai lure, investigate a fixed pole, wrap, release and resume the chase. Sensing transfers to the limbs nearest the lure, with the old feeler planting before the new one rises. It also has a flowing six-limb walk, a four-limb sensor crawl and seeded roaming: tentative steps, rising tentacle surveys, sudden rushes and soft arrivals. The body breathes, crouches, bounces and settles as the creature travels to new destinations. Open `rokuroku66/`; detailed, articulated game and static distance GLBs, measured integration notes and review sheets are in `assets/rokuroku66/`.
 
 **Nih-Dairia / Isao mechanical study v1.1** now has three reused ivory tip pads at each foot. Reach lifts the two front diagonal legs and extends them ahead while four legs support the body; Anchor plants the pair and pulls the body forward. Current detailed/game/static GLBs are in `assets/nih-dairia-mech/tripad/`, with the original v1 exports preserved. Open `nih-dairia-mech/`; integration notes and design/motion/anchor-sequence sheets are in `assets/nih-dairia-mech/`.
@@ -48,7 +50,7 @@ The new **Frontier industry** family adds an automated drill, six-wheel hauler, 
 
 Browse the [searchable collection gallery](https://jelaludo.github.io/SentryTowers_A6/) or open the [sentry LOD viewer](sentries/).
 
-**Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md).
+**Reuse:** Original workshop models and animations may be reused with attribution to **jelaludo**. Suggested credit: “Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/”. See [reuse and attribution](ASSET-LICENSE.md). Imported Hand Lab references retain their own source licenses and credits.
 
 The [robotic assembly line](assembly-line/) adds a 24 m conveyor with eight articulated robots, gantries and a ramp-accessible control station. The complete line has D0–D3 contract-candidate LOD1/LOD2 exports; LOD1 retains all eight useful robot rigs in one draw and LOD2 is static. Five reusable modules retain four detailed structural states. [Integration notes](assets/assembly-line/README.md) and [LOD hand-off](assets/assembly-line/README-LODS.md).
 

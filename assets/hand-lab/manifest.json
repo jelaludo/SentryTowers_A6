@@ -1,0 +1,1381 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "aurel01",
+  "version": 1,
+  "label": "Hand Lab / AUREL-01",
+  "status": "kinematic_design_study",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "base of wrist interface at plot centre",
+    "handedness": "right",
+    "palm_normal": "+Z"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "missing_damage_states_reason": "D1–D3 not authored; damage and LOD are independent.",
+  "budgets": {
+    "lod1": {
+      "triangles": 25000,
+      "draw_calls": 5
+    },
+    "lod2": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 150,
+    "hysteresis_m": 20,
+    "provisional": true,
+    "detailed": "Close inspection and recordings",
+    "game": "Articulated hand on a robot; tune screen-size thresholds in consuming game",
+    "distance": "Static open silhouette; switch to LOD1 before articulation"
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "joint_dof": 23,
+    "joints": [
+      {
+        "name": "WRIST_FLEX",
+        "axis": "x",
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "WRIST_DEVIATION",
+        "axis": "z",
+        "min": -0.3,
+        "max": 0.3
+      },
+      {
+        "name": "INDEX_MCP_SPREAD",
+        "axis": "z",
+        "min": -0.22,
+        "max": 0.22
+      },
+      {
+        "name": "INDEX_MCP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.4
+      },
+      {
+        "name": "INDEX_PIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.65
+      },
+      {
+        "name": "INDEX_DIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.15
+      },
+      {
+        "name": "MIDDLE_MCP_SPREAD",
+        "axis": "z",
+        "min": -0.22,
+        "max": 0.22
+      },
+      {
+        "name": "MIDDLE_MCP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.4
+      },
+      {
+        "name": "MIDDLE_PIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.65
+      },
+      {
+        "name": "MIDDLE_DIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.15
+      },
+      {
+        "name": "RING_MCP_SPREAD",
+        "axis": "z",
+        "min": -0.22,
+        "max": 0.22
+      },
+      {
+        "name": "RING_MCP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.4
+      },
+      {
+        "name": "RING_PIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.65
+      },
+      {
+        "name": "RING_DIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.15
+      },
+      {
+        "name": "LITTLE_MCP_SPREAD",
+        "axis": "z",
+        "min": -0.22,
+        "max": 0.22
+      },
+      {
+        "name": "LITTLE_MCP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.4
+      },
+      {
+        "name": "LITTLE_PIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.65
+      },
+      {
+        "name": "LITTLE_DIP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.15
+      },
+      {
+        "name": "THUMB_CMC_OPPOSITION",
+        "axis": "y",
+        "min": -0.2,
+        "max": 2.2
+      },
+      {
+        "name": "THUMB_CMC_ABDUCTION",
+        "axis": "z",
+        "min": -0.35,
+        "max": 1.15
+      },
+      {
+        "name": "THUMB_AXIAL_ROLL",
+        "axis": "y",
+        "min": -2.2,
+        "max": 2.2
+      },
+      {
+        "name": "THUMB_MCP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.5
+      },
+      {
+        "name": "THUMB_IP_FLEX",
+        "axis": "x",
+        "min": 0,
+        "max": 1.5
+      }
+    ],
+    "demonstrations": {
+      "showcase": {
+        "name": "Dexterity_Showcase",
+        "duration_s": 28,
+        "loop": true
+      },
+      "flex": {
+        "name": "Finger_Flexion_Cycle",
+        "duration_s": 6,
+        "loop": true
+      },
+      "ripple": {
+        "name": "Independent_Fingers_Cycle",
+        "duration_s": 8,
+        "loop": true
+      },
+      "opposition": {
+        "name": "Thumb_Opposition_Cycle",
+        "duration_s": 10,
+        "loop": true
+      },
+      "wrist": {
+        "name": "Wrist_Gimbal_Cycle",
+        "duration_s": 8,
+        "loop": true
+      }
+    },
+    "baked_clips": [],
+    "scope": "Engine-driven joint poses and shell separation for inspection. Kinematic visual design; no grip forces, sealed-enclosure certification or tendon tension simulation."
+  },
+  "references": {
+    "image": {
+      "file": "handmodel.png",
+      "sha256": "fd315d96209e9d591eeb4c3525457ff6f0362c9a3069ef7a4767ed00112cb5fd",
+      "redistributed": false
+    },
+    "third_party_catalog": "references/catalog.json"
+  },
+  "assets": [
+    {
+      "id": "aurel01_d0_lod0",
+      "family": "aurel01",
+      "label": "AUREL-01 / Enclosed dexterous hand",
+      "file": "lod0/aurel01_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3798608,
+      "sha256": "158bb2a55560ca55b9df05ba899429574d311f9423be431fb86a2b834497df41",
+      "triangles": 87216,
+      "draw_calls": 5,
+      "materials": 5,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod0/aurel01_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 697368,
+      "meshopt_sha256": "408ab6cf6185c40df959236bebcdb03c802f8ba3954826797e97b58af73f6e75",
+      "meshopt_derived": true,
+      "plot_m": [
+        0.32,
+        0.32
+      ],
+      "bounds": {
+        "min": [
+          -0.11372933536767961,
+          0.0005000002565793693,
+          -0.031050000339746475
+        ],
+        "max": [
+          0.0442974753677845,
+          0.24300000071525574,
+          0.028999999165534973
+        ],
+        "dimensions_m": [
+          0.1580268107354641,
+          0.24250000045867637,
+          0.06004999950528145
+        ]
+      },
+      "sockets": [
+        {
+          "id": "INDEX_TIP",
+          "node": "SOCKET_INDEX_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.031,
+            0.22599999999999998,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_CONTACT",
+          "node": "SOCKET_INDEX_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.031,
+            0.22799999999999998,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_PAD",
+          "node": "SOCKET_INDEX_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.031,
+            0.21592,
+            0.0077824
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "MIDDLE_TIP",
+          "node": "SOCKET_MIDDLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.01,
+            0.241,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_CONTACT",
+          "node": "SOCKET_MIDDLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.01,
+            0.243,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_PAD",
+          "node": "SOCKET_MIDDLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.01,
+            0.23044,
+            0.008092
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RING_TIP",
+          "node": "SOCKET_RING_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.012,
+            0.23399999999999999,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_CONTACT",
+          "node": "SOCKET_RING_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.012,
+            0.236,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_PAD",
+          "node": "SOCKET_RING_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.012,
+            0.22344,
+            0.0076276
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LITTLE_TIP",
+          "node": "SOCKET_LITTLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.0315,
+            0.207,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_CONTACT",
+          "node": "SOCKET_LITTLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.0315,
+            0.209,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_PAD",
+          "node": "SOCKET_LITTLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.0315,
+            0.19788,
+            0.0068536
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "THUMB_TIP",
+          "node": "SOCKET_THUMB_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.11014944113759106,
+            0.1530800672395478,
+            0.004
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_CONTACT",
+          "node": "SOCKET_THUMB_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.11171609495684603,
+            0.15432328717608912,
+            0.007
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_PAD",
+          "node": "SOCKET_THUMB_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.10112551513868245,
+            0.14591912040506974,
+            0.0127
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PALM",
+          "node": "SOCKET_PALM",
+          "kind": "grasp_reference",
+          "position_m": [
+            0,
+            0.106,
+            0.018
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "WRIST_ATTACH",
+          "node": "SOCKET_WRIST_ATTACH",
+          "kind": "wrist_mount",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX"
+      ],
+      "required_nodes": [
+        "AUREL_01_ROOT",
+        "WRIST_MOUNT",
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "PALM_FRAME",
+        "PALM_DORSAL_SHELL",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "INDEX_DISTAL_SHELL",
+        "SOCKET_INDEX_TIP",
+        "SOCKET_INDEX_CONTACT",
+        "SOCKET_INDEX_PAD",
+        "INDEX_MIDDLE_SHELL",
+        "INDEX_PROXIMAL_SHELL",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "MIDDLE_DISTAL_SHELL",
+        "SOCKET_MIDDLE_TIP",
+        "SOCKET_MIDDLE_CONTACT",
+        "SOCKET_MIDDLE_PAD",
+        "MIDDLE_MIDDLE_SHELL",
+        "MIDDLE_PROXIMAL_SHELL",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "RING_DISTAL_SHELL",
+        "SOCKET_RING_TIP",
+        "SOCKET_RING_CONTACT",
+        "SOCKET_RING_PAD",
+        "RING_MIDDLE_SHELL",
+        "RING_PROXIMAL_SHELL",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "LITTLE_DISTAL_SHELL",
+        "SOCKET_LITTLE_TIP",
+        "SOCKET_LITTLE_CONTACT",
+        "SOCKET_LITTLE_PAD",
+        "LITTLE_MIDDLE_SHELL",
+        "LITTLE_PROXIMAL_SHELL",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_METACARPAL_SHELL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX",
+        "THUMB_DISTAL_SHELL",
+        "SOCKET_THUMB_TIP",
+        "SOCKET_THUMB_CONTACT",
+        "SOCKET_THUMB_PAD",
+        "THUMB_PROXIMAL_SHELL",
+        "SOCKET_PALM",
+        "SOCKET_WRIST_ATTACH"
+      ],
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied hand concept. No third-party geometry incorporated."
+    },
+    {
+      "id": "aurel01_d0_lod1",
+      "family": "aurel01",
+      "label": "AUREL-01 / Enclosed dexterous hand",
+      "file": "lod1/aurel01_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 579840,
+      "sha256": "a841c7b1d121f4d1b61fcfb499d1cc0db2347f2ea69636db67b6d1aff3eba3df",
+      "triangles": 14392,
+      "draw_calls": 5,
+      "materials": 5,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod1/aurel01_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 134516,
+      "meshopt_sha256": "07c28e64cde44ef2c33fc8bedd652375e076d058912b5d8c4309ac4972a2c267",
+      "meshopt_derived": true,
+      "plot_m": [
+        0.32,
+        0.32
+      ],
+      "bounds": {
+        "min": [
+          -0.11372933536767961,
+          0.0005000002565793693,
+          -0.031050000339746475
+        ],
+        "max": [
+          0.04375686123967171,
+          0.24300000071525574,
+          0.028999999165534973
+        ],
+        "dimensions_m": [
+          0.1574861966073513,
+          0.24250000045867637,
+          0.06004999950528145
+        ]
+      },
+      "sockets": [
+        {
+          "id": "INDEX_TIP",
+          "node": "SOCKET_INDEX_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.031,
+            0.22599999999999998,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_CONTACT",
+          "node": "SOCKET_INDEX_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.031,
+            0.22799999999999998,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_PAD",
+          "node": "SOCKET_INDEX_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.031,
+            0.21592,
+            0.0077824
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "MIDDLE_TIP",
+          "node": "SOCKET_MIDDLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.01,
+            0.241,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_CONTACT",
+          "node": "SOCKET_MIDDLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.01,
+            0.243,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_PAD",
+          "node": "SOCKET_MIDDLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.01,
+            0.23044,
+            0.008092
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RING_TIP",
+          "node": "SOCKET_RING_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.012,
+            0.23399999999999999,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_CONTACT",
+          "node": "SOCKET_RING_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.012,
+            0.236,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_PAD",
+          "node": "SOCKET_RING_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.012,
+            0.22344,
+            0.0076276
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LITTLE_TIP",
+          "node": "SOCKET_LITTLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.0315,
+            0.207,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_CONTACT",
+          "node": "SOCKET_LITTLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.0315,
+            0.209,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_PAD",
+          "node": "SOCKET_LITTLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.0315,
+            0.19788,
+            0.0068536
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "THUMB_TIP",
+          "node": "SOCKET_THUMB_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.11014944113759106,
+            0.1530800672395478,
+            0.004
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_CONTACT",
+          "node": "SOCKET_THUMB_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.11171609495684603,
+            0.15432328717608912,
+            0.007
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_PAD",
+          "node": "SOCKET_THUMB_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.10112551513868245,
+            0.14591912040506974,
+            0.0127
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PALM",
+          "node": "SOCKET_PALM",
+          "kind": "grasp_reference",
+          "position_m": [
+            0,
+            0.106,
+            0.018
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "WRIST_ATTACH",
+          "node": "SOCKET_WRIST_ATTACH",
+          "kind": "wrist_mount",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX"
+      ],
+      "required_nodes": [
+        "AUREL_01_ROOT",
+        "WRIST_MOUNT",
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "PALM_FRAME",
+        "PALM_DORSAL_SHELL",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "INDEX_DISTAL_SHELL",
+        "SOCKET_INDEX_TIP",
+        "SOCKET_INDEX_CONTACT",
+        "SOCKET_INDEX_PAD",
+        "INDEX_MIDDLE_SHELL",
+        "INDEX_PROXIMAL_SHELL",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "MIDDLE_DISTAL_SHELL",
+        "SOCKET_MIDDLE_TIP",
+        "SOCKET_MIDDLE_CONTACT",
+        "SOCKET_MIDDLE_PAD",
+        "MIDDLE_MIDDLE_SHELL",
+        "MIDDLE_PROXIMAL_SHELL",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "RING_DISTAL_SHELL",
+        "SOCKET_RING_TIP",
+        "SOCKET_RING_CONTACT",
+        "SOCKET_RING_PAD",
+        "RING_MIDDLE_SHELL",
+        "RING_PROXIMAL_SHELL",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "LITTLE_DISTAL_SHELL",
+        "SOCKET_LITTLE_TIP",
+        "SOCKET_LITTLE_CONTACT",
+        "SOCKET_LITTLE_PAD",
+        "LITTLE_MIDDLE_SHELL",
+        "LITTLE_PROXIMAL_SHELL",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_METACARPAL_SHELL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX",
+        "THUMB_DISTAL_SHELL",
+        "SOCKET_THUMB_TIP",
+        "SOCKET_THUMB_CONTACT",
+        "SOCKET_THUMB_PAD",
+        "THUMB_PROXIMAL_SHELL",
+        "SOCKET_PALM",
+        "SOCKET_WRIST_ATTACH"
+      ],
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied hand concept. No third-party geometry incorporated."
+    },
+    {
+      "id": "aurel01_d0_lod2",
+      "family": "aurel01",
+      "label": "AUREL-01 / Enclosed dexterous hand",
+      "file": "lod2/aurel01_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 102720,
+      "sha256": "1dd9299e26fa2aaa7eeb50ed76a69ad2b1d9a4bf81e0541d9599bf9d59d52c64",
+      "triangles": 2604,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "meshopt_file": "derived/meshopt/lod2/aurel01_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 40372,
+      "meshopt_sha256": "682da35ba8a5c5b989b5df5977344652717a260eee6bcd2dc58e4def8fca4cbc",
+      "meshopt_derived": true,
+      "plot_m": [
+        0.32,
+        0.32
+      ],
+      "bounds": {
+        "min": [
+          -0.1137293353676796,
+          0.0005000002565793693,
+          -0.031050000339746475
+        ],
+        "max": [
+          0.0430000014603138,
+          0.24300000071525574,
+          0.028999999165534973
+        ],
+        "dimensions_m": [
+          0.1567293368279934,
+          0.24250000045867637,
+          0.06004999950528145
+        ]
+      },
+      "sockets": [
+        {
+          "id": "INDEX_TIP",
+          "node": "SOCKET_INDEX_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.031,
+            0.22599999999999998,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_CONTACT",
+          "node": "SOCKET_INDEX_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.031,
+            0.22799999999999998,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "INDEX_PAD",
+          "node": "SOCKET_INDEX_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.031,
+            0.21592,
+            0.0077824
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "MIDDLE_TIP",
+          "node": "SOCKET_MIDDLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.01,
+            0.241,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_CONTACT",
+          "node": "SOCKET_MIDDLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.01,
+            0.243,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "MIDDLE_PAD",
+          "node": "SOCKET_MIDDLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.01,
+            0.23044,
+            0.008092
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "RING_TIP",
+          "node": "SOCKET_RING_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.012,
+            0.23399999999999999,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_CONTACT",
+          "node": "SOCKET_RING_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.012,
+            0.236,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "RING_PAD",
+          "node": "SOCKET_RING_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.012,
+            0.22344,
+            0.0076276
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "LITTLE_TIP",
+          "node": "SOCKET_LITTLE_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            0.0315,
+            0.207,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_CONTACT",
+          "node": "SOCKET_LITTLE_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            0.0315,
+            0.209,
+            0.003
+          ],
+          "normal": [
+            0,
+            1,
+            2.220446049250313e-16
+          ]
+        },
+        {
+          "id": "LITTLE_PAD",
+          "node": "SOCKET_LITTLE_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            0.0315,
+            0.19788,
+            0.0068536
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "THUMB_TIP",
+          "node": "SOCKET_THUMB_TIP",
+          "kind": "fingertip",
+          "position_m": [
+            -0.11014944113759106,
+            0.1530800672395478,
+            0.004
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_CONTACT",
+          "node": "SOCKET_THUMB_CONTACT",
+          "kind": "fingertip_contact",
+          "position_m": [
+            -0.11171609495684603,
+            0.15432328717608912,
+            0.007
+          ],
+          "normal": [
+            -0.7833269096274835,
+            0.6216099682706643,
+            3.3306690738754696e-16
+          ]
+        },
+        {
+          "id": "THUMB_PAD",
+          "node": "SOCKET_THUMB_PAD",
+          "kind": "tactile_pad",
+          "position_m": [
+            -0.10112551513868245,
+            0.14591912040506974,
+            0.0127
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "PALM",
+          "node": "SOCKET_PALM",
+          "kind": "grasp_reference",
+          "position_m": [
+            0,
+            0.106,
+            0.018
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "WRIST_ATTACH",
+          "node": "SOCKET_WRIST_ATTACH",
+          "kind": "wrist_mount",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            -1,
+            2.220446049250313e-16
+          ]
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX"
+      ],
+      "required_nodes": [
+        "AUREL_01_ROOT",
+        "WRIST_MOUNT",
+        "WRIST_FLEX",
+        "WRIST_DEVIATION",
+        "PALM_FRAME",
+        "PALM_DORSAL_SHELL",
+        "INDEX_MCP_SPREAD",
+        "INDEX_MCP_FLEX",
+        "INDEX_PIP_FLEX",
+        "INDEX_DIP_FLEX",
+        "INDEX_DISTAL_SHELL",
+        "SOCKET_INDEX_TIP",
+        "SOCKET_INDEX_CONTACT",
+        "SOCKET_INDEX_PAD",
+        "INDEX_MIDDLE_SHELL",
+        "INDEX_PROXIMAL_SHELL",
+        "MIDDLE_MCP_SPREAD",
+        "MIDDLE_MCP_FLEX",
+        "MIDDLE_PIP_FLEX",
+        "MIDDLE_DIP_FLEX",
+        "MIDDLE_DISTAL_SHELL",
+        "SOCKET_MIDDLE_TIP",
+        "SOCKET_MIDDLE_CONTACT",
+        "SOCKET_MIDDLE_PAD",
+        "MIDDLE_MIDDLE_SHELL",
+        "MIDDLE_PROXIMAL_SHELL",
+        "RING_MCP_SPREAD",
+        "RING_MCP_FLEX",
+        "RING_PIP_FLEX",
+        "RING_DIP_FLEX",
+        "RING_DISTAL_SHELL",
+        "SOCKET_RING_TIP",
+        "SOCKET_RING_CONTACT",
+        "SOCKET_RING_PAD",
+        "RING_MIDDLE_SHELL",
+        "RING_PROXIMAL_SHELL",
+        "LITTLE_MCP_SPREAD",
+        "LITTLE_MCP_FLEX",
+        "LITTLE_PIP_FLEX",
+        "LITTLE_DIP_FLEX",
+        "LITTLE_DISTAL_SHELL",
+        "SOCKET_LITTLE_TIP",
+        "SOCKET_LITTLE_CONTACT",
+        "SOCKET_LITTLE_PAD",
+        "LITTLE_MIDDLE_SHELL",
+        "LITTLE_PROXIMAL_SHELL",
+        "THUMB_CMC_OPPOSITION",
+        "THUMB_CMC_ABDUCTION",
+        "THUMB_AXIAL_ROLL",
+        "THUMB_METACARPAL_SHELL",
+        "THUMB_MCP_FLEX",
+        "THUMB_IP_FLEX",
+        "THUMB_DISTAL_SHELL",
+        "SOCKET_THUMB_TIP",
+        "SOCKET_THUMB_CONTACT",
+        "SOCKET_THUMB_PAD",
+        "THUMB_PROXIMAL_SHELL",
+        "SOCKET_PALM",
+        "SOCKET_WRIST_ATTACH"
+      ],
+      "credit": "Original mechanical geometry by jelaludo / Model Workshop; user-supplied hand concept. No third-party geometry incorporated."
+    }
+  ]
+}

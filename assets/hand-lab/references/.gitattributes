@@ -1,0 +1,5 @@
+# Upstream originals and license notices are preserved byte-for-byte.
+*/source/* binary
+*/LICENSE -text -whitespace
+*/MODEL-LICENSE.txt -text -whitespace
+*/SOFTWARE-LICENSE.txt -text -whitespace
