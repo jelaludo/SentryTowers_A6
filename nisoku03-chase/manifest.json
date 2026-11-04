@@ -2,7 +2,11 @@
   "schema": "jelaludo.diorama/v1",
   "family": "nisoku03-chase",
   "label": "Catch me / NISOKU-03 × K0-TECH-01",
-  "version": 1,
+  "version": 2,
+  "previous_revision": {
+    "commit": "e4a3835803a66d53f981a2dcc2959c8426becb87",
+    "folder": "revisions/v1/"
+  },
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
     "units": "metres",
@@ -14,10 +18,10 @@
     "d0": "intact only"
   },
   "runtime": {
-    "duration_s": 47.88225500204196,
+    "duration_s": 82.71879483357235,
     "loop": true,
     "controller": "course.js + viewer.js",
-    "root_motion_ownership": "In-place: course supplies XZ and jump Y. Baked: original RecordedActor path sampled once externally; removed from derived pose clip.",
+    "root_motion_ownership": "In-place: course supplies XZ and jump Y. Chase contact passes: corrected controller path sampled once externally. Original recorded paths remain unchanged in Clip lab.",
     "scope": "Authored repeatable course with distance-dependent lure lead; animation test, not dynamic collision or ragdoll simulation"
   },
   "source_pack": {
@@ -58,6 +62,8 @@
     }
   ],
   "motion_bundles": "../assets/nisoku03-kimodo/derived/bundles.json",
+  "contact_passes": "../assets/nisoku03-kimodo/derived/chase-actions.json",
+  "contact_validation": "../assets/nisoku03-kimodo/chase-contact-playback-validation.json",
   "lod_selection": {
     "actors": "Keep articulated game rigs for all animation; existing static distance models are loading placeholders only.",
     "court": {
@@ -92,7 +98,10 @@
       "s": 0,
       "duration": 1.6,
       "kind": "travel",
-      "note": "K0 notices the pursuer and opens a little space."
+      "note": "K0 notices the pursuer and opens a little space.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "walk",
@@ -111,7 +120,10 @@
       "s": 0,
       "duration": 2.4,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "jog",
@@ -130,7 +142,10 @@
       "s": 3,
       "duration": 2.3767017175033374,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "run",
@@ -149,7 +164,10 @@
       "s": 8.704084122008009,
       "duration": 0.7894736842105263,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "jump-a",
@@ -168,7 +186,10 @@
       "s": 11.704084122008009,
       "duration": 1.666667,
       "kind": "jump",
-      "note": "Jump height follows the supplied takeoff, apex and landing times."
+      "note": "Jump height follows the supplied takeoff, apex and landing times.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "pursue",
@@ -187,7 +208,10 @@
       "s": 15.35408412200801,
       "duration": 1.0657894736842108,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "approach-left",
@@ -206,47 +230,55 @@
       "s": 19.40408412200801,
       "duration": 1.4983595159545744,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "roll-left",
-      "label": "Left trip / beam recovery",
-      "clip": "recorded-side-roll-left",
+      "label": "Left trip / planted recovery",
+      "clip": "chase-side-roll-left",
       "from": [
         6,
         6
       ],
       "to": [
-        -0.3,
+        0.8499999999999996,
         6
       ],
-      "length": 6.3,
+      "length": 5.15,
       "start": 11.396991391352648,
       "s": 21.277033516951228,
-      "duration": 6.900000095367432,
-      "kind": "recorded",
-      "note": "Original planted-foot, beam contact and recovery recording.",
-      "record": "side-roll-left",
-      "yaw": -1.5707963267948966
+      "duration": 5.9,
+      "kind": "contact",
+      "note": "Travel ends with the roll. Planted recovery replaces the drifting tail.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": -1.5707963267948966,
+      "contact": "side-roll-left"
     },
     {
       "id": "approach-balance",
       "label": "Find the narrow crossing",
       "clip": "game-walk-forward-seed411",
       "from": [
-        -0.3,
+        0.8499999999999996,
         6
       ],
       "to": [
         -3,
         7.2
       ],
-      "length": 3.2588392181962993,
-      "start": 18.29699148672008,
-      "s": 27.57703351695123,
-      "duration": 2.6070713745570395,
+      "length": 4.32783799036315,
+      "start": 17.29699139135265,
+      "s": 26.427033516951226,
+      "duration": 3.4622703922905202,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "balance",
@@ -261,11 +293,14 @@
         10.2
       ],
       "length": 2.999999999999999,
-      "start": 20.904062861277122,
-      "s": 30.83587273514753,
+      "start": 20.75926178364317,
+      "s": 30.754871507314377,
       "duration": 5.966667,
       "kind": "balance",
-      "note": "K0 waits ahead while NISOKU crosses with arms out."
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "approach-right",
@@ -280,108 +315,396 @@
         8
       ],
       "length": 6.769631363612583,
-      "start": 26.870729861277123,
-      "s": 33.835872735147525,
+      "start": 26.72592878364317,
+      "s": 33.75487150731438,
       "duration": 5.415705090890066,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
     },
     {
       "id": "roll-right",
-      "label": "Right trip / beam recovery",
-      "clip": "recorded-side-roll-right",
+      "label": "Right trip / planted recovery",
+      "clip": "chase-side-roll-right",
       "from": [
         -7,
         8
       ],
       "to": [
-        -7,
-        1.7
+        -6.999999999999999,
+        2.8499999999999996
       ],
-      "length": 6.3,
-      "start": 32.28643495216719,
-      "s": 40.60550409876011,
-      "duration": 6.900000095367432,
-      "kind": "recorded",
-      "note": "Opposite-side fall, using the second supplied contact recording.",
-      "record": "side-roll-right",
-      "yaw": 3.141592653589793
+      "length": 5.15,
+      "start": 32.141633874533234,
+      "s": 40.52450287092696,
+      "duration": 5.9,
+      "kind": "contact",
+      "note": "The other shoulder takes the roll; feet settle before pursuit resumes.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": 3.141592653589793,
+      "contact": "side-roll-right"
+    },
+    {
+      "id": "centre",
+      "label": "K0 cuts through the court",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -6.999999999999999,
+        2.8499999999999996
+      ],
+      "to": [
+        -4,
+        2.5
+      ],
+      "length": 3.0828991521757287,
+      "start": 38.04163387453323,
+      "s": 45.67450287092696,
+      "duration": 2.466319321740583,
+      "kind": "travel",
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
+    },
+    {
+      "id": "ukemi-forward",
+      "label": "Forward ukemi / shoulder roll",
+      "clip": "chase-ukemi-forward",
+      "from": [
+        -4,
+        2.5
+      ],
+      "to": [
+        -1,
+        2.5
+      ],
+      "length": 3,
+      "start": 40.50795319627382,
+      "s": 48.757402023102685,
+      "duration": 3.7,
+      "kind": "contact",
+      "note": "A low trip, forward shoulder roll, then a planted recovery.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": 1.5707963267948966,
+      "contact": "ukemi-forward"
+    },
+    {
+      "id": "turn-back",
+      "label": "The lure changes sides",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        -1,
+        2.5
+      ],
+      "to": [
+        1.5,
+        2.5
+      ],
+      "length": 2.5,
+      "start": 44.20795319627382,
+      "s": 51.757402023102685,
+      "duration": 2,
+      "kind": "travel",
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
+    },
+    {
+      "id": "ukemi-backward",
+      "label": "Backward ukemi / regroup",
+      "clip": "chase-ukemi-backward",
+      "from": [
+        1.5,
+        2.5
+      ],
+      "to": [
+        1.5,
+        0.25
+      ],
+      "length": 2.25,
+      "start": 46.20795319627382,
+      "s": 54.257402023102685,
+      "duration": 3.65,
+      "kind": "contact",
+      "note": "K0 slips behind. NISOKU rolls backward and regains its stance.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": 0,
+      "contact": "ukemi-backward"
+    },
+    {
+      "id": "duck-approach",
+      "label": "A low route through",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        1.5,
+        0.25
+      ],
+      "to": [
+        0,
+        -1
+      ],
+      "length": 2.235550908010995,
+      "start": 49.85795319627382,
+      "s": 56.507402023102685,
+      "duration": 1.7884407264087963,
+      "kind": "travel",
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
+    },
+    {
+      "id": "crouch-down",
+      "label": "Crouch / lower the silhouette",
+      "clip": "chase-crouch-down",
+      "from": [
+        0,
+        -1
+      ],
+      "to": [
+        0,
+        -1
+      ],
+      "length": 0,
+      "start": 51.64639392268261,
+      "s": 58.74295293111368,
+      "duration": 1.9,
+      "kind": "contact",
+      "note": "Lower before entering the overhead beams.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": 3.141592653589793,
+      "contact": "crouch-down"
+    },
+    {
+      "id": "crouch-pass",
+      "label": "Crouch / under the gantry",
+      "clip": "chase-crouch-forward",
+      "from": [
+        0,
+        -1
+      ],
+      "to": [
+        0,
+        -3.8
+      ],
+      "length": 2.8,
+      "start": 53.54639392268261,
+      "s": 58.74295293111368,
+      "duration": 3.733333333333333,
+      "kind": "crouch",
+      "note": "K0 fits underneath; NISOKU stays low through the passage.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
+    },
+    {
+      "id": "crouch-up",
+      "label": "Stand / clear of the gantry",
+      "clip": "chase-crouch-up",
+      "from": [
+        0,
+        -3.8
+      ],
+      "to": [
+        0,
+        -3.8
+      ],
+      "length": 0,
+      "start": 57.279727256015946,
+      "s": 61.542952931113675,
+      "duration": 1.9,
+      "kind": "contact",
+      "note": "Rise only after the helmet is clear.",
+      "h0": 0,
+      "h1": 0,
+      "yaw": 3.141592653589793,
+      "contact": "crouch-up"
+    },
+    {
+      "id": "climb-approach",
+      "label": "K0 takes the high route",
+      "clip": "game-walk-forward-seed411",
+      "from": [
+        0,
+        -3.8
+      ],
+      "to": [
+        2,
+        -5.5
+      ],
+      "length": 3.006833792668021,
+      "start": 59.179727256015944,
+      "s": 61.542952931113675,
+      "duration": 2.405467034134417,
+      "kind": "travel",
+      "note": "",
+      "h0": 0,
+      "h1": 0,
+      "yaw": null
+    },
+    {
+      "id": "climb",
+      "label": "Climb / grip and mantle",
+      "clip": "chase-climb",
+      "from": [
+        2,
+        -5.5
+      ],
+      "to": [
+        3.25,
+        -5.5
+      ],
+      "length": 1.25,
+      "start": 61.58519429015036,
+      "s": 64.5497867237817,
+      "duration": 4.4,
+      "kind": "contact",
+      "note": "Hands grip the fixed rail. Step onto the 1.05 m ledge.",
+      "h0": 0,
+      "h1": 1.05,
+      "yaw": 1.5707963267948966,
+      "contact": "climb"
+    },
+    {
+      "id": "deck",
+      "label": "Pursuit / raised deck",
+      "clip": "chase-deck",
+      "from": [
+        3.25,
+        -5.5
+      ],
+      "to": [
+        5.4,
+        -5.5
+      ],
+      "length": 2.1500000000000004,
+      "start": 65.98519429015036,
+      "s": 65.7997867237817,
+      "duration": 2.6875,
+      "kind": "contact",
+      "note": "Follow the sloping deck to a 1.8 m drop.",
+      "h0": 1.05,
+      "h1": 1.7999999999999996,
+      "yaw": 1.5707963267948966,
+      "contact": "deck"
+    },
+    {
+      "id": "hero-landing",
+      "label": "Super landing / hold and recover",
+      "clip": "chase-hero-landing",
+      "from": [
+        5.4,
+        -5.5
+      ],
+      "to": [
+        6.9,
+        -5.5
+      ],
+      "length": 1.5,
+      "start": 68.67269429015036,
+      "s": 67.9497867237817,
+      "duration": 4.1,
+      "kind": "contact",
+      "note": "Drop, absorb, hold the fist-and-knee pose, then step back into stance.",
+      "h0": 1.7999999999999996,
+      "h1": -4.440892098500626e-16,
+      "yaw": 1.5707963267948966,
+      "contact": "hero-landing"
     },
     {
       "id": "reset",
-      "label": "Recover and reacquire",
+      "label": "Reacquire the little escape artist",
       "clip": "game-walk-forward-seed411",
       "from": [
-        -7,
-        1.7
+        6.9,
+        -5.5
       ],
       "to": [
-        -6,
-        0
+        7.8,
+        -8.5
       ],
-      "length": 2.220492190706754,
-      "start": 39.18643504753462,
-      "s": 46.905504098760105,
-      "duration": 1.7763937525654032,
+      "length": 3.3520209578054065,
+      "start": 72.77269429015035,
+      "s": 69.4497867237817,
+      "duration": 2.6816167662443253,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": -4.440892098500626e-16,
+      "h1": -4.440892098500626e-16,
+      "yaw": null
     },
     {
       "id": "sprint",
       "label": "A last sprint",
       "clip": "game-sprint-forward-seed411",
       "from": [
-        -6,
-        0
+        7.8,
+        -8.5
       ],
       "to": [
-        -6,
-        -6
+        -2,
+        -11
       ],
-      "length": 6,
-      "start": 40.96282880010003,
-      "s": 49.12599628946686,
-      "duration": 1,
+      "length": 10.113851887386915,
+      "start": 75.45431105639469,
+      "s": 72.8018076815871,
+      "duration": 1.6856419812311525,
       "kind": "travel",
-      "note": "Eligible sprint take 411. Review-only take 822 is excluded."
+      "note": "",
+      "h0": -4.440892098500626e-16,
+      "h1": -4.440892098500626e-16,
+      "yaw": null
     },
     {
       "id": "jump-b",
       "label": "Running jump / rail B",
       "clip": "game-jump-run-seed411",
       "from": [
-        -6,
-        -6
+        -2,
+        -11
       ],
       "to": [
-        -6,
-        -9.65
+        -5.65,
+        -11
       ],
       "length": 3.6500000000000004,
-      "start": 41.96282880010003,
-      "s": 55.12599628946686,
+      "start": 77.13995303762584,
+      "s": 82.91565956897402,
       "duration": 1.666667,
       "kind": "jump",
-      "note": ""
+      "note": "",
+      "h0": -4.440892098500626e-16,
+      "h1": -4.440892098500626e-16,
+      "yaw": null
     },
     {
       "id": "return",
       "label": "The chase comes around",
       "clip": "game-jog-forward-seed411",
       "from": [
-        -6,
-        -9.65
+        -5.65,
+        -11
       ],
       "to": [
         -2,
         -9
       ],
-      "length": 6.366622084660637,
-      "start": 43.629495800100024,
-      "s": 58.77599628946686,
-      "duration": 2.652759201941932,
+      "length": 5.549219510271624,
+      "start": 78.80662003762585,
+      "s": 86.56565956897403,
+      "duration": 2.31217479594651,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": -4.440892098500626e-16,
+      "h1": -4.440892098500626e-16,
+      "yaw": null
     },
     {
       "id": "settle",
@@ -396,11 +719,14 @@
         -9
       ],
       "length": 2,
-      "start": 46.28225500204196,
-      "s": 65.1426183741275,
+      "start": 81.11879483357235,
+      "s": 92.11487907924565,
       "duration": 1.6,
       "kind": "travel",
-      "note": ""
+      "note": "",
+      "h0": -4.440892098500626e-16,
+      "h1": -4.440892098500626e-16,
+      "yaw": null
     }
   ],
   "assets": [
@@ -410,10 +736,10 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "triangles": 1788,
+      "triangles": 2512,
       "draw_calls": 5,
-      "bytes": 131808,
-      "sha256": "d75a9ba0b396b28e956f6718db240fa9fea67cb3e952d46255fae8076774ea1e",
+      "bytes": 181884,
+      "sha256": "e9471f7d3f8b785b54e5530b2b8887a276a4114b8865e61a94a535c76d3de3d9",
       "plot_m": [
         23,
         29
@@ -446,9 +772,9 @@
         {
           "node": "SOCKET_ROLL_RIGHT",
           "position_m": [
-            -7,
+            -6.999999999999999,
             0,
-            4.1000000000000085
+            4.100000000000001
           ],
           "yaw_rad": 3.141592653589793,
           "fixture_height_m": 0.22,
@@ -456,16 +782,67 @@
           "role": "authored animation test fixture"
         },
         {
+          "node": "SOCKET_UKEMI_FORWARD",
+          "position_m": [
+            -3.3999999999999915,
+            0,
+            2.5
+          ],
+          "yaw_rad": 1.5707963267948966,
+          "fixture_height_m": 0.12,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_UKEMI_BACKWARD",
+          "position_m": [
+            1.5,
+            0,
+            2.200000000000003
+          ],
+          "yaw_rad": 0,
+          "fixture_height_m": 0.12,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
           "node": "SOCKET_JUMP_B",
           "position_m": [
-            -6,
-            0,
-            -7.460000000000001
+            -3.460000000000008,
+            -4.440892098500626e-16,
+            -11
           ],
-          "yaw_rad": 3.141592653589793,
+          "yaw_rad": -1.5707963267948966,
           "fixture_height_m": 0.2,
           "fixture_width_m": 1.65,
           "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_CLIMB_GRIP",
+          "position_m": [
+            2.64,
+            1.25,
+            -5.5
+          ],
+          "yaw_rad": 0
+        },
+        {
+          "node": "SOCKET_HERO_LANDING",
+          "position_m": [
+            6.9,
+            0,
+            -5.5
+          ],
+          "yaw_rad": 0
+        },
+        {
+          "node": "SOCKET_CROUCH_PASSAGE",
+          "position_m": [
+            0,
+            1.55,
+            -2.325
+          ],
+          "yaw_rad": 0
         }
       ],
       "clips": [],
@@ -477,10 +854,10 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "triangles": 1788,
+      "triangles": 2512,
       "draw_calls": 1,
-      "bytes": 170964,
-      "sha256": "1abb8682b7a14d017ceb39e8fb96e985a9e50b1c246b940f60ba839d83e80ad8",
+      "bytes": 237908,
+      "sha256": "176f920875c19e28b25956a4e1d6d8530652a5d5a829674e9e86dc006da6db62",
       "plot_m": [
         23,
         29
@@ -513,9 +890,9 @@
         {
           "node": "SOCKET_ROLL_RIGHT",
           "position_m": [
-            -7,
+            -6.999999999999999,
             0,
-            4.1000000000000085
+            4.100000000000001
           ],
           "yaw_rad": 3.141592653589793,
           "fixture_height_m": 0.22,
@@ -523,16 +900,67 @@
           "role": "authored animation test fixture"
         },
         {
+          "node": "SOCKET_UKEMI_FORWARD",
+          "position_m": [
+            -3.3999999999999915,
+            0,
+            2.5
+          ],
+          "yaw_rad": 1.5707963267948966,
+          "fixture_height_m": 0.12,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_UKEMI_BACKWARD",
+          "position_m": [
+            1.5,
+            0,
+            2.200000000000003
+          ],
+          "yaw_rad": 0,
+          "fixture_height_m": 0.12,
+          "fixture_width_m": 1.65,
+          "role": "authored animation test fixture"
+        },
+        {
           "node": "SOCKET_JUMP_B",
           "position_m": [
-            -6,
-            0,
-            -7.460000000000001
+            -3.460000000000008,
+            -4.440892098500626e-16,
+            -11
           ],
-          "yaw_rad": 3.141592653589793,
+          "yaw_rad": -1.5707963267948966,
           "fixture_height_m": 0.2,
           "fixture_width_m": 1.65,
           "role": "authored animation test fixture"
+        },
+        {
+          "node": "SOCKET_CLIMB_GRIP",
+          "position_m": [
+            2.64,
+            1.25,
+            -5.5
+          ],
+          "yaw_rad": 0
+        },
+        {
+          "node": "SOCKET_HERO_LANDING",
+          "position_m": [
+            6.9,
+            0,
+            -5.5
+          ],
+          "yaw_rad": 0
+        },
+        {
+          "node": "SOCKET_CROUCH_PASSAGE",
+          "position_m": [
+            0,
+            1.55,
+            -2.325
+          ],
+          "yaw_rad": 0
         }
       ],
       "clips": [],

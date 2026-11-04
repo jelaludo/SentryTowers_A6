@@ -162,6 +162,20 @@
       "lod": 1,
       "damage_level": 0,
       "derived": true
+    },
+    {
+      "file": "derived/chase-actions.glb",
+      "bytes": 1097944,
+      "sha256": "ad7bd9da6e075258c24543685a8c26e4ddbf6da89e910ef3325e728ce9380fbc",
+      "triangles": 0,
+      "draw_calls": 0,
+      "clips": 10,
+      "errors": 0,
+      "warnings": 0,
+      "warning_messages": [],
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true
     }
   ],
   "clip_metadata": {
@@ -180,5 +194,8 @@
     "detailed": "existing master preserved; Kimodo retarget not validated on master"
   },
   "integration": "INTEGRATION.md",
-  "validation": "integration-validation.json"
+  "validation": "integration-validation.json",
+  "version": 2,
+  "contact_passes": "derived/chase-actions.json",
+  "contact_validation": "chase-contact-playback-validation.json"
 }

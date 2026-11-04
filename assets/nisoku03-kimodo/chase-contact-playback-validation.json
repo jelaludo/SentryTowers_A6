@@ -1,0 +1,115 @@
+{
+  "schema": "jelaludo.chase-contact-playback/2",
+  "sample_rate_hz": 60,
+  "poses": 2200,
+  "clips": 10,
+  "gltf_errors": 0,
+  "gltf_warnings": 0,
+  "thresholds": {
+    "foot_drift_m": 0.003,
+    "floor_penetration_m": 0.006,
+    "rig_length_error_m": 0.00001
+  },
+  "measurements": [
+    {
+      "id": "side-roll-left",
+      "poses": 354,
+      "min_floor_m": -0.003715505451783896,
+      "limb_length_error_m": 9.14018828401808e-8,
+      "recovery_ankle_drift_m": 3.609536853673483e-8,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "side-roll-right",
+      "poses": 354,
+      "min_floor_m": -0.0005740966110772423,
+      "limb_length_error_m": 8.81247390061013e-8,
+      "recovery_ankle_drift_m": 3.1686320467470535e-8,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "ukemi-forward",
+      "poses": 222,
+      "min_floor_m": 0.008981718208304634,
+      "limb_length_error_m": 8.993203715057518e-8,
+      "recovery_ankle_drift_m": 3.0386521750046995e-8,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "ukemi-backward",
+      "poses": 219,
+      "min_floor_m": -0.003389745793033472,
+      "limb_length_error_m": 9.542162476838811e-8,
+      "recovery_ankle_drift_m": 2.6180773605995874e-8,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "crouch-down",
+      "poses": 114,
+      "min_floor_m": 0.008999998825070687,
+      "limb_length_error_m": 6.41754018815277e-8,
+      "recovery_ankle_drift_m": 0,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "crouch-forward",
+      "poses": 143,
+      "min_floor_m": 0.007798843118152127,
+      "limb_length_error_m": 5.908188127623504e-8,
+      "recovery_ankle_drift_m": 0,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": 1.2335429492034133,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "crouch-up",
+      "poses": 114,
+      "min_floor_m": 0.008999944703422164,
+      "limb_length_error_m": 5.5813399457704804e-8,
+      "recovery_ankle_drift_m": 0,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "climb",
+      "poses": 264,
+      "min_floor_m": null,
+      "limb_length_error_m": 9.59296228564277e-8,
+      "recovery_ankle_drift_m": 8.91134931789931e-8,
+      "rail_grip_error_m": 3.6333496612337427e-8,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    },
+    {
+      "id": "deck",
+      "poses": 162,
+      "min_floor_m": null,
+      "limb_length_error_m": 2.446746610873518e-8,
+      "recovery_ankle_drift_m": 0,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": -0.0009054083428861048
+    },
+    {
+      "id": "hero-landing",
+      "poses": 246,
+      "min_floor_m": 0.00899993149316182,
+      "limb_length_error_m": 8.381880928221008e-8,
+      "recovery_ankle_drift_m": 1.1102230246251565e-16,
+      "rail_grip_error_m": 0,
+      "max_crouch_height_m": null,
+      "deck_clearance_m": null
+    }
+  ]
+}

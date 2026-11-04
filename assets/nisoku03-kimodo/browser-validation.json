@@ -1068,7 +1068,23 @@
     }
   ],
   "reviewOnlyLabel": "Review only · A person sprints straight forward with long powerful strides and strong coordinated arm swings.",
-  "landingWarning": "Review only · Source recovery sinks below floor; review only. The source recovery passes below the floor. Excluded from the chase.",
+  "landingWarning": "Review only · Source recovery sinks below floor; review only. The original recovery passes below the floor. The story uses a separate repaired landing cut.",
+  "story": {
+    "duration_s": 82.71879483357235,
+    "chapters": 29,
+    "poses": 145,
+    "contact_actions": [
+      "side-roll-left",
+      "side-roll-right",
+      "ukemi-forward",
+      "ukemi-backward",
+      "crouch-down",
+      "crouch-up",
+      "climb",
+      "deck",
+      "hero-landing"
+    ]
+  },
   "mobileOverflow": false,
   "scrubPaused": true,
   "restartTime": 0,

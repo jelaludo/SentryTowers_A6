@@ -19,10 +19,13 @@ const report=await page.evaluate(()=>{
 });
 await page.selectOption('#motion','game-sprint-forward');await page.selectOption('#take','game-sprint-forward-seed822');report.reviewOnlyLabel=await page.locator('#take-note').textContent();if(!report.reviewOnlyLabel.includes('Review only'))throw Error('Review-only label absent');
 await page.selectOption('#motion','recorded-hero-landing');report.landingWarning=await page.locator('#take-note').textContent();
-await page.click('#story-mode');await page.evaluate(()=>nisokuChase.seek(7.83));await page.screenshot({path:'/tmp/nisoku-chase-desktop-final.png'});
+await page.click('#story-mode');
+report.story=await page.evaluate(()=>{const api=nisokuChase,render=api.renderer.render;api.renderer.render=()=>{};let poses=0;for(const b of api.course.beats)for(const f of [.02,.25,.5,.75,.98]){api.seek(b.start+f*b.duration);api.human.root.traverse(o=>{if(o.isBone&&!o.position.toArray().concat(o.quaternion.toArray()).every(Number.isFinite))throw Error('Invalid pose '+b.id)});poses++}api.renderer.render=render;api.draw();return {duration_s:api.course.duration,chapters:api.course.beats.length,poses,contact_actions:api.course.beats.filter(b=>b.kind==='contact').map(b=>b.contact)}});
+for(const id of ['ukemi-forward','ukemi-backward','crouch-down','climb','hero-landing']){await page.click('[data-beat="'+id+'"]');const active=await page.evaluate(()=>nisokuChase.state.human.beat.id);if(active!==id)throw Error('Chapter failed '+id)}
+await page.evaluate(()=>nisokuChase.seek(7.83));await page.screenshot({path:'/tmp/nisoku-chase-desktop-final.png'});
 await page.click('#overview');await page.screenshot({path:'/tmp/nisoku-chase-court.png'});
-await page.click('#follow');await page.evaluate(()=>nisokuChase.seek(14.95));await page.screenshot({path:'/tmp/nisoku-chase-left-contact.png'});
-await page.evaluate(()=>nisokuChase.seek(35.84));await page.screenshot({path:'/tmp/nisoku-chase-right-contact.png'});
+await page.click('#follow');await page.evaluate(()=>nisokuChase.seek(nisokuChase.course.beats.find(b=>b.id==='roll-left').start+5.3));await page.screenshot({path:'/tmp/nisoku-chase-left-contact.png'});
+await page.evaluate(()=>nisokuChase.seek(nisokuChase.course.beats.find(b=>b.id==='roll-right').start+5.3));await page.screenshot({path:'/tmp/nisoku-chase-right-contact.png'});
 await page.setViewportSize({width:390,height:844});await page.evaluate(()=>nisokuChase.seek(3));await page.screenshot({path:'/tmp/nisoku-chase-mobile.png',fullPage:true});report.mobileOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);if(report.mobileOverflow)throw Error('Mobile overflow');
 await page.locator('#time').fill('12.5');report.scrubPaused=await page.evaluate(()=>!nisokuChase.playing);await page.click('#restart');report.restartTime=await page.evaluate(()=>nisokuChase.time);report.errors=errors;if(errors.length)throw Error(errors.join('\n'));if(report.takes!==212||report.maxRestoreError>1e-6)throw Error('Library coverage/restore failed');
 await fs.writeFile(new URL('../../assets/nisoku03-kimodo/browser-validation.json',import.meta.url),JSON.stringify({date:'2026-11-04',browser:'Playwright Chromium / SwiftShader; visual and functional testing only',...report},null,2)+'\n');console.log(JSON.stringify({...report,results:undefined},null,2));await browser.close();

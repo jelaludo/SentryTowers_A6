@@ -1,0 +1,107 @@
+{
+  "schema": "jelaludo.contact-bake-checks/1",
+  "fps": 60,
+  "measurements": [
+    {
+      "id": "side-roll-left",
+      "tracks": 19,
+      "min_surface_relative_floor_m": -0.003715594731487526,
+      "max_locked_contact_error_m": 6.286257481642608e-9,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.9552520536904974,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "side-roll-right",
+      "tracks": 19,
+      "min_surface_relative_floor_m": -0.0005740859123599951,
+      "max_locked_contact_error_m": 3.5797894315343554e-9,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.911359384846579,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "ukemi-forward",
+      "tracks": 19,
+      "min_surface_relative_floor_m": 0.00898171517095116,
+      "max_locked_contact_error_m": 6.840203112390681e-10,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.9056615637375547,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "ukemi-backward",
+      "tracks": 19,
+      "min_surface_relative_floor_m": -0.003389780662362979,
+      "max_locked_contact_error_m": 7.635110484636193e-10,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.988783342449019,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "crouch-down",
+      "tracks": 19,
+      "min_surface_relative_floor_m": 0.00899999999999985,
+      "max_locked_contact_error_m": 0,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.905652863661344,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "crouch-forward",
+      "tracks": 19,
+      "min_surface_relative_floor_m": 0.008999999999999772,
+      "max_locked_contact_error_m": 0,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.2344564993480258,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "crouch-up",
+      "tracks": 19,
+      "min_surface_relative_floor_m": 0.00899999999999973,
+      "max_locked_contact_error_m": 0,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.9034433500731447,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "climb",
+      "tracks": 19,
+      "min_surface_relative_floor_m": -0.004644009398832791,
+      "max_locked_contact_error_m": 1.09646176956284e-9,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 2.020155877564614,
+      "deck_foot_clearance_m": null
+    },
+    {
+      "id": "deck",
+      "tracks": 19,
+      "min_surface_relative_floor_m": -0.1377700292736892,
+      "max_locked_contact_error_m": 0,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.931118035048265,
+      "deck_foot_clearance_m": 0.005999995035697259
+    },
+    {
+      "id": "hero-landing",
+      "tracks": 43,
+      "min_surface_relative_floor_m": 0.008999999999926065,
+      "max_locked_contact_error_m": 2.6330092991418085e-12,
+      "max_ik_reach_excess_m": 0,
+      "recovery_horizontal_travel_m": 0,
+      "max_local_surface_y_m": 1.9104189009500494,
+      "deck_foot_clearance_m": null
+    }
+  ],
+  "source_files_unchanged": true
+}

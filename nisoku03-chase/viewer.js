@@ -2,8 +2,8 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {createCourse,clamp,smooth,wrap,trackSample} from './course.js';
-import {PosePlayer,clipName,clipTime,disposeModel} from './actor.js';
+import {createCourse,clamp,smooth,wrap,trackSample} from './course.js?v=2';
+import {PosePlayer,clipName,clipTime,disposeModel} from './actor.js?v=2';
 const $=id=>document.getElementById(id),stage=$('stage'),base='../assets/nisoku03-kimodo/',loader=new GLTFLoader();
 const scene=new T.Scene();scene.background=new T.Color(0xa5ada6);scene.fog=new T.Fog(0xa5ada6,37,90);
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.65));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;stage.prepend(renderer.domElement);
@@ -14,7 +14,7 @@ const sun=new T.DirectionalLight(0xfff0d2,2.5);sun.position.set(7,15,8);sun.cast
 const fill=new T.DirectionalLight(0xc8e4eb,.9);fill.position.set(-8,6,-8);scene.add(fill);
 const ground=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({color:0x89978e,roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.46;ground.receiveShadow=true;scene.add(ground);
 let ready=false,playing=true,time=0,mode='story',cameraMode='follow',libraryLoaded=false,libraryPromise=null,selected=null,lastBeat=-1,modeRequest=0;
-let course,paths,manifest,human,cat,holder,catHolder,court,route,skeleton,libraryFloor;
+let course,paths,contact,manifest,human,cat,holder,catHolder,court,route,skeleton,libraryFloor;
 const up=new T.Vector3(0,1,0),qA=new T.Quaternion(),qB=new T.Quaternion(),humanPosition=new T.Vector3(),catPosition=new T.Vector3();
 function clock(t){return `${String(Math.floor(t/60)).padStart(2,'0')}:${(t%60).toFixed(1).padStart(4,'0')}`}
 function yawQuaternion(s){const q=new T.Quaternion().setFromAxisAngle(up,s.yaw);if(s.rotation)q.setFromAxisAngle(up,s.rotation.yaw).multiply(new T.Quaternion().fromArray(s.rotation.quaternion).normalize());return q}
@@ -23,7 +23,7 @@ function poseStory(t){
  holder.position.fromArray(n.position);holder.quaternion.copy(yawQuaternion(n));
  if(n.local<fade){const prev=course.beats[(n.index-1+course.beats.length)%course.beats.length],w=smooth(n.local/fade);samples[0].weight=w;samples.push({name:clipName(prev),time:clipTime(human,prev,prev.duration-.0001),weight:1-w});holder.quaternion.copy(yawQuaternion(course.sample(b.start-.0001))).slerp(yawQuaternion(n),w)}
  // Turn into the side-step before contact, then return to the route after recovery.
- const next=course.beats[(n.index+1)%course.beats.length];if(next.kind==='recorded'&&b.duration-n.local<.45){const w=smooth(1-(b.duration-n.local)/.45);holder.quaternion.slerp(yawQuaternion(course.sample(next.start+.001)),w)}
+ const next=course.beats[(n.index+1)%course.beats.length];if(next.kind==='contact'&&b.duration-n.local<.45){const w=smooth(1-(b.duration-n.local)/.45);holder.quaternion.slerp(yawQuaternion(course.sample(next.start+.001)),w)}
  human.pose(samples);humanPosition.copy(holder.position);humanPosition.y+=.9;
  const k=course.lure(t),a=course.lure(t-.018),z=course.lure(t+.018),dx=z.position[0]-a.position[0],dz=z.position[2]-a.position[2],catSpeed=Math.hypot(dx,dz)/.036;
  catHolder.position.fromArray(k.position);catHolder.rotation.set(0,catSpeed>.035?Math.atan2(dx,dz):Math.atan2(holder.position.x-catHolder.position.x,holder.position.z-catHolder.position.z),0);
@@ -68,20 +68,20 @@ function populateTake(){const id=$('motion').value;$('take').replaceChildren();
  showTake();
 }
 function showTake(){if(!$('motion').value.startsWith('recorded-'))selected=manifest.takes.find(t=>t.id===$('take').value);$('time').max=selected.duration_s;
- const review=selected.automatic_eligible===false||selected.record==='hero-landing';$('take-note').classList.toggle('review',review);$('take-note').textContent=(review?'Review only · ':'')+(selected.note||selected.prompt||'')+(selected.record==='hero-landing'?' The source recovery passes below the floor. Excluded from the chase.':'');seek(0);}
+ const review=selected.automatic_eligible===false||selected.record==='hero-landing';$('take-note').classList.toggle('review',review);$('take-note').textContent=(review?'Review only · ':'')+(selected.note||selected.prompt||'')+(selected.record==='hero-landing'?' The original recovery passes below the floor. The story uses a separate repaired landing cut.':'');seek(0);}
 async function setMode(next){const request=++modeRequest;if(next==='library')await ensureLibrary();if(request!==modeRequest)return;mode=next;$('story-mode').setAttribute('aria-pressed',next==='story');$('library-mode').setAttribute('aria-pressed',next==='library');$('story-panel').hidden=next!=='story';$('library-panel').hidden=next!=='library';if(next==='story'){$('time').max=course.duration;seek(0)}else{populateTake()}cameraMode='follow';cameraUpdate(1,true)}
 window.nisokuChase={get ready(){return ready},get course(){return course},get time(){return time},get mode(){return mode},get human(){return human},get holder(){return holder},get cat(){return cat},get playing(){return playing},set playing(v){playing=v;$('play').textContent=v?'Pause':'Play'},seek,setMode,draw,cameraUpdate,renderer,scene,camera,controls};
 try{
- [manifest,paths]=await Promise.all(['manifest.json','derived/recorded-paths.json'].map(f=>fetch(base+f).then(r=>{if(!r.ok)throw Error(f+': '+r.status);return r.json()})));course=createCourse(paths);
- const [rig,moves,k0,courtGLB]=await Promise.all([loader.loadAsync(base+'rig.glb'),loader.loadAsync(base+'derived/chase.glb'),loader.loadAsync('../assets/k0-tech-01/k0_tech_01_d0_lod1.glb'),loader.loadAsync('court_d0_lod1.glb')]);
- holder=new T.Group();holder.name='NISOKU_CHASE_ACTOR';holder.add(rig.scene);scene.add(holder);human=new PosePlayer(rig.scene,moves.animations);disposeModel(moves.scene);
+ [manifest,paths,contact]=await Promise.all(['manifest.json','derived/recorded-paths.json','derived/chase-actions.json?v=2'].map(f=>fetch(base+f).then(r=>{if(!r.ok)throw Error(f+': '+r.status);return r.json()})));course=createCourse(paths,contact);
+ const [rig,moves,k0,courtGLB,contactGLB]=await Promise.all([loader.loadAsync(base+'rig.glb'),loader.loadAsync(base+'derived/chase.glb'),loader.loadAsync('../assets/k0-tech-01/k0_tech_01_d0_lod1.glb'),loader.loadAsync('court_d0_lod1.glb?v=2'),loader.loadAsync(base+'derived/chase-actions.glb?v=2')]);
+ holder=new T.Group();holder.name='NISOKU_CHASE_ACTOR';holder.add(rig.scene);scene.add(holder);human=new PosePlayer(rig.scene,[...moves.animations,...contactGLB.animations]);disposeModel(moves.scene);disposeModel(contactGLB.scene);
  const pounce=k0.animations.find(c=>c.name==='Pounce').clone();pounce.name='Chase_Pounce';const mt=pounce.tracks.find(t=>t.name==='MOTION.position');if(mt)mt.values.fill(0);
  catHolder=new T.Group();catHolder.name='K0_CHASE_LURE';catHolder.add(k0.scene);scene.add(catHolder);cat=new PosePlayer(k0.scene,[...k0.animations,pounce]);
  court=courtGLB.scene;court.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});scene.add(court);
  const pts=Array.from({length:1001},(_,i)=>new T.Vector3(...course.at(course.length*i/1000))).map(p=>{p.y+=.006;return p});route=new T.Line(new T.BufferGeometry().setFromPoints(pts),new T.LineBasicMaterial({color:0xf3cb7a,transparent:true,opacity:.8}));scene.add(route);
  libraryFloor=new T.Group();const f=new T.Mesh(new T.PlaneGeometry(80,80),new T.MeshStandardMaterial({color:0x89978e,roughness:1}));f.rotation.x=-Math.PI/2;f.receiveShadow=true;libraryFloor.add(f);const grid=new T.GridHelper(70,70,0x657d71,0x7f9385);grid.position.y=.002;libraryFloor.add(grid);scene.add(libraryFloor);
  skeleton=new T.SkeletonHelper(rig.scene);skeleton.material.depthTest=false;skeleton.renderOrder=10;scene.add(skeleton);
- for(const id of ['walk','run','jump-a','roll-left','balance','roll-right','sprint','jump-b']){const b=course.beats.find(b=>b.id===id),button=document.createElement('button');button.dataset.beat=id;const small=document.createElement('small');small.textContent=clock(b.start);button.append(small,b.label);button.onclick=()=>seek(b.start);$('chapters').append(button)}
+ for(const id of course.beats.map(b=>b.id).filter(id=>['jump-a','roll-left','roll-right','ukemi-forward','ukemi-backward','crouch-down','climb','hero-landing','balance','sprint'].includes(id))){const b=course.beats.find(b=>b.id===id),button=document.createElement('button');button.dataset.beat=id;const small=document.createElement('small');small.textContent=clock(b.start);button.append(small,b.label);button.onclick=()=>seek(b.start);$('chapters').append(button)}
  const groups=new Map();for(const m of manifest.motions){if(!groups.has(m.group)){const g=document.createElement('optgroup');g.label=m.group;groups.set(m.group,g);$('motion').append(g)}groups.get(m.group).append(new Option(m.label,m.id))}const group=document.createElement('optgroup');group.label='Recorded contact examples';for(const id of Object.keys(paths))group.append(new Option(id.replaceAll('-',' '),'recorded-'+id));$('motion').append(group);
  $('time').max=course.duration;ready=true;$('loading').hidden=true;$('play').disabled=false;$('restart').disabled=false;
  $('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'Pause':'Play'};$('restart').onclick=()=>seek(0);$('time').oninput=()=>{playing=false;$('play').textContent='Play';seek(Number($('time').value))};

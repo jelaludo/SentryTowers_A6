@@ -16,11 +16,13 @@ The kit pins NISOKU-03 r4 at `a92cffad917be69edda47d98c5e78393289b82c1`, origina
 - The supplied runtime files are preserved lab reference helpers, not a drop-in physics engine. The new viewer uses the supplied recorded contacts rather than pretending to port their entire actor/world API. It does not infer finger/toe grasp, solve arbitrary obstacles, or simulate rigid-body falling.
 - `game-sprint-forward-seed822` and `game-ukemi-backward-seed303` remain explicitly selectable with REVIEW ONLY labels. They never enter automatic playback. Automatic eligibility is a source selection flag, not a claim of visual acceptance.
 
-## Chase and controls
+## Chase v2 and controls
 
-`nisoku03-chase/` provides a 47.882255-second continuous loop with 17 beats: idle invitation, walk, jog, run, two running jumps, narrow-beam balance, left/right planted-foot trips and recovery, sprint and return. NISOKU follows an authored course. K0 reacts to closing distance and delayed pursuer speed, accelerates away, brakes to wait during recovery, and vaults the low beams. The lure controller is prewarmed to a repeatable loop so timeline seeking is deterministic. This is an animation test court, not unrestricted AI navigation or a collision solver.
+`nisoku03-chase/` now provides an **82.718795-second loop with 29 beats**: walk/jog/run/sprint, two running jumps, balance, left/right trips, forward and backward ukemi, crouch entry/travel/exit under a gantry, rail-assisted climbing onto a 1.05 m ledge, a sloping deck and a 1.8 m superhero landing. K0 reacts to closing distance and delayed pursuer speed, waits during recoveries and traverses the raised route. The authored course and prewarmed lure controller remain deterministic when seeking.
 
-Controls: pause/Space, restart, ¼×–2× speed, scrub, eight chapter shortcuts, follow/court/NISOKU cameras, orbit/zoom, fullscreen, route line, skeleton and wireframe. Clip lab loads all 207 takes plus all five recordings; each can be selected and scrubbed. Library jumps show the source-window controller arc; other unbaked takes are in place. Recorded props were not included in the source kit; the chase uses newly authored test beams.
+The ten scene-specific clips in `derived/chase-actions.glb` are **modified derivatives**, separate from the exact source library. Their actor paths live in `derived/chase-actions.json` and must be applied once. The original side-trip path continued to travel after the robot was standing; the new path finishes at 5.15 m instead of 6.3 m and holds during anchored recovery. Ground fitting removes source height offsets, two-bone IK retains link lengths, and the new landing holds its fist-and-knee pose before staged foot placement and rising. Its clenched AUREL fingers are an intentional pose edit. The original sinking landing remains unchanged and labeled in Clip lab.
+
+Controls: pause/Space, restart, ¼×–2× speed, scrub, ten chapter shortcuts, follow/court/NISOKU cameras, orbit/zoom, fullscreen, course line, skeleton and wireframe. Clip lab still exposes the original 207 takes plus five recordings. Source poses are restored exactly when returning from a recording. In-place source jumps receive their source-window controller arc; recorded paths retain original root motion. The viewer loads the actual plain court GLB. Court v1 files are preserved under `../../nisoku03-chase/revisions/v1/` with their original manifest; the previous implementation is pinned at `e4a3835803a66d53f981a2dcc2959c8426becb87`.
 
 ## Measured exports
 
@@ -28,20 +30,29 @@ Controls: pause/Space, restart, ¼×–2× speed, scrub, eight chapter shortcuts
 | --- | ---: | ---: | ---: | --- |
 | `rig.glb` | 24,900 | 3 | 1,276,396 | Original imported articulated game rig |
 | `derived/chase.glb` | 0 | 0 | 2,380,700 | Nine animation-only clips for initial playback |
+| `derived/chase-actions.glb` | 0 | 0 | 1,097,944 | Ten scene-specific contact passes, 60 Hz |
 | `derived/library.glb` | 0 | 0 | 13,564,512 | 212 animation-only clips, loaded on demand |
-| `../../nisoku03-chase/court_d0_lod1.glb` | 1,788 | 5 | 131,808 | Static court with shared material meshes |
-| `../../nisoku03-chase/court_d0_lod2.glb` | 1,788 | 1 | 170,964 | Derived merged-material static court |
+| `../../nisoku03-chase/court_d0_lod1.glb` | 2,512 | 5 | 181,884 | Static court with shared material meshes |
+| `../../nisoku03-chase/court_d0_lod2.glb` | 2,512 | 1 | 237,908 | Derived merged-material static court |
 
-Exact measured hashes, clip names/durations and counts are in `integration-validation.json`, `derived/bundles.json` and the scene `manifest.json`; these override any prose transcription. The source ZIP is 23,279,319 bytes. K0's existing game rig adds 14,878 triangles / seven draws / 1,852,732 bytes. The default scene reports 41,568 triangles / 16 draws, including the ground, with overlays off. These are counts, not FPS measurements.
+Exact measured hashes, clip names/durations and counts are in `integration-validation.json`, `derived/bundles.json` and the scene `manifest.json`; these override any prose transcription. The source ZIP is 23,279,319 bytes. K0's existing game rig adds 14,878 triangles / seven draws / 1,852,732 bytes. The default scene reports 42,292 triangles / 16 draws, including the ground, with overlays off. These are counts, not FPS measurements.
 
 Keep articulated game rigs for readable motion. Existing static model tiers are loading/distance placeholders only; the Kimodo skeleton must not be driven on a static mesh. The detailed NISOKU master remains available for further work, but these retargeted clips are validated for the imported game rig only. The small static court is already below the landmark game budget; the optional one-draw court keeps matching fixture and lookup names. No new Meshopt copies were produced. Plain GLBs are authoritative; the consuming game performs release packing and must validate its decoded result.
 
 ## Validation and remaining motion review
 
-Twelve imported/derived/exported GLBs pass glTF validation with zero errors and warnings. The derived library preserves all 5,733 source bone tracks exactly (maximum key value/time difference zero). Root-path checks ensure XZ recentering preserves Y and avoids double travel. Course boundary separation is under 0.1 mm; the lure loop closes under 0.03 mm. Sampled actor gap is 1.29–4.12 m. Browser tests exercise all 212 entries at three poses each, verify exact pose restoration after recording playback, review-only labels, scrubbing/restart, and desktop/mobile layouts without browser errors.
+Thirteen GLBs pass glTF validation with zero errors and warnings. The original 212-clip library still preserves all 5,733 source bone tracks exactly; source archive/extracted checksums remain unchanged. `chase-contact-playback-validation.json` checks 2,200 decoded poses at 60 Hz across the ten new contact clips: limb-length error below 0.1 μm, recovery ankle drift below 0.1 μm, and rail grip error below 0.1 μm. Worst sampled flat-floor intrusion is 3.72 mm; sloped-foot intrusion is below 1 mm. Crouch height peaks at 1.234 m under the 1.55 m crossbars. The derived superhero cut stays at least 9 mm above the floor. These are sampled kinematic checks, not physics guarantees.
 
-The supplied recordings are not all contact-clean. Dense 50 ms source samples measure lowest surfaces at **−109 mm for the left roll**, **−76 mm for the right roll**, and **−1.766 m during the hard-landing recovery**. The small roll errors remain visible for this motion review; the hard landing is excluded from the chase and prominently marked in Clip lab. It is preserved unchanged. Ledge grab and movement-controls recordings are also review-only examples outside the chase. Self-contact, armor clearance, turns, arbitrary terrain/props, detailed-master retargeting, game r160/release packing and reference-phone acceptance remain pending. No FPS claim.
+Browser validation covers 636 original-library poses and 145 story poses across all 29 beats, exact pose restoration, review labels, new chapter navigation, pause/scrub/restart and desktop/mobile layouts with no runtime errors. Positive-time wrapping preserves exact chapter boundaries. Current review captures are under `../../nisoku03-chase/review/`.
 
-Rebuild with `node tools/asset-pipeline/build-nisoku-kimodo.mjs` and `node tools/asset-pipeline/build-nisoku-chase-court.mjs`. Validate with `node tools/asset-pipeline/validate-nisoku-kimodo.mjs`. Browser test: `PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node tools/asset-pipeline/test-nisoku-chase-browser.mjs`, with the repository served at port 8791 (or set `VIEWER_URL`).
+The **original source recordings** still contain their documented errors: left roll −109 mm, right roll −76 mm, and hard-landing recovery −1.766 m at 50 ms source samples. Those source numbers do not describe the corrected chase cuts. The faulty hard landing is manual-review only; the separate derived landing is used automatically. Source review-only sprint 822 and backward ukemi 303 remain excluded. The court is authored choreography, not arbitrary navigation or a dynamic collision/force solver. Full body/fixture/self contact, arbitrary terrain, detailed-master retargeting, consuming-game r160/release packing and reference-phone acceptance remain pending. No new compressed assets or FPS claim.
 
-Handoff: the containing commit plus `assets/nisoku03-kimodo/` and `nisoku03-chase/`, together with the referenced original NISOKU-03 and K0-TECH-01 families. Original sources, animation-only derivatives and court exports are distinguished explicitly. User-supplied Kimodo output and original Isao geometry are credited in `ATTRIBUTIONS.md`; no inference weights or credentials are bundled.
+Rebuild in this order:
+
+1. `node tools/asset-pipeline/build-nisoku-kimodo.mjs` (original exact-pose bundles).
+2. `node tools/asset-pipeline/build-nisoku-chase-actions.mjs` (derived contact cuts).
+3. `node tools/asset-pipeline/build-nisoku-chase-court.mjs` (court and manifest).
+
+Validate with `node tools/asset-pipeline/validate-nisoku-kimodo.mjs` and `node tools/asset-pipeline/validate-nisoku-chase-contacts.mjs`. Browser: `PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node tools/asset-pipeline/test-nisoku-chase-browser.mjs`, with the repository served at port 8791 (or set `VIEWER_URL`).
+
+Handoff: the containing commit plus `assets/nisoku03-kimodo/` and `nisoku03-chase/`, together with the referenced original NISOKU-03 and K0-TECH-01 families. Original sources, exact-pose bundles, modified contact cuts and court exports are distinguished explicitly. Attribution remains in `ATTRIBUTIONS.md`; no inference weights or credentials are bundled.

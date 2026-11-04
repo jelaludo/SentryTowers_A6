@@ -10,6 +10,6 @@ export class PosePlayer {
  }
  duration(name){return this.actions.get(name).getClip().duration}
 }
-export function clipName(b){return b.clip.startsWith('recorded-')?b.clip:b.clip+'-nisoku03'}
-export function clipTime(player,b,local){const d=player.duration(clipName(b));return ['recorded','jump','balance'].includes(b.kind)?Math.min(local,d-.000001):local%d}
+export function clipName(b){return (b.clip.startsWith('recorded-')||b.clip.startsWith('chase-'))?b.clip:b.clip+'-nisoku03'}
+export function clipTime(player,b,local){const d=player.duration(clipName(b));return ['contact','recorded','jump','balance'].includes(b.kind)?Math.min(local,d-.000001):local%d}
 export function disposeModel(root){root.traverse(o=>{o.geometry?.dispose();if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose())})}
