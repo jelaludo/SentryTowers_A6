@@ -34,7 +34,7 @@ Compute the relative socket matrix after applying the desired local pose. Conver
 
 The foot's ankle axes rotate its upper coupling relative to the foot. When a robot controller holds that coupling at a leg socket, solving the mounting relation rotates the foot oppositely under the fixed coupling. Choose controller signs accordingly. Its `FOOT_PLACEMENT` bone is for the lab's lift, travel and rocking demonstrations; keep it neutral when locomotion is already driven by the robot's leg/root controller. Drive each pivot from one pose system.
 
-These are right-side assets. A left-side conversion should mirror geometry, winding, socket frames and motor conventions together and record the new handedness. It is a separate retargeting step; selecting the economical variant does not produce a left hand or foot. The C08 retrofit implements and validates a mirrored left hand in its own assembled export; the standalone source assets remain right-sided.
+These are right-side assets. A left-side conversion should mirror geometry, winding, socket frames and motor conventions together and record the new handedness. It is a separate retargeting step; selecting the economical variant does not produce a left hand or foot. The C08 retrofit implements and validates the complete pair with an explicit C08 wrist assignment in its assembled exports; the standalone source assets remain right-sided.
 
 ## Runtime and static swaps
 
@@ -61,4 +61,4 @@ Each family has `biped/validation-report.json`, `biped/viewer-validation.json`, 
 
 Pass the commit hash plus `assets/hand-lab/` and `assets/foot-lab/`. Include their existing runtime modules and new `biped.js`; do not hand off a loose GLB without its pose and socket contract. Original workshop attribution applies: credit **jelaludo**. Source-reference licenses inside Hand Lab remain separate and are unchanged.
 
-Completed first fit: C08 hand pair, including its mirrored left hand. Still pending: other robot attachment/retargeting, foot left variants, arbitrary-pose and whole-body collision/force checks, gameplay damage states, consuming-game r160/release gltfpack verification and reference-phone measurements. Finite authored-pose tests are not a physical contact or manufacturing certification. `docs/ASSET-COLLABORATION.md` remains verbatim as received.
+Completed first fit: C08 hand pair, including corrected left/right wrist assignments. Still pending: other robot attachment/retargeting, foot left variants, arbitrary-pose and whole-body collision/force checks, gameplay damage states, consuming-game r160/release gltfpack verification and reference-phone measurements. Finite authored-pose tests are not a physical contact or manufacturing certification. `docs/ASSET-COLLABORATION.md` remains verbatim as received.

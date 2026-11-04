@@ -11,6 +11,20 @@ await MeshoptDecoder.ready;
 async function load(url){const b=await fs.readFile(url);return new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'')}
 const wp=(r,n)=>r.getObjectByName(n).getWorldPosition(new T.Vector3()),wq=(r,n)=>r.getObjectByName(n).getWorldQuaternion(new T.Quaternion()).normalize();
 const hand=await load(new URL('../../hand-lab/biped/lod1/aurel01_biped_d0_lod1.glb',out));createRig(hand.scene).pose(BIPED_REST);let reference;hand.scene.traverse(o=>{if(o.isSkinnedMesh)reference=o});
+// Check the actual wrist assignment independently of the runtime's mapping table.
+// The approved swap places the thumb base on +X of HAND_L and -X of HAND_R.
+report.wrist_assignments=[];
+for(const e of manifest.assets)for(const file of [e.file,e.meshopt_file]){
+ const {scene}=await load(new URL(file,out));scene.updateMatrixWorld(true);
+ const check={file};
+ for(const side of ['L','R']){
+  const inv=scene.getObjectByName('HAND_'+side).matrixWorld.clone().invert();
+  const thumb=wp(scene,`AUREL_${side}_THUMB_CMC_OPPOSITION`).applyMatrix4(inv),palm=wp(scene,`AUREL_${side}_PALM_FRAME`).applyMatrix4(inv);
+  const x=thumb.x-palm.x,expected=side==='L'?.0546:-.0546;
+  assert(Math.abs(x-expected)<.00015,'wrong hand on wrist '+file+' '+side+' '+x);check[side+'_thumb_offset_x_m']=x;
+ }
+ report.wrist_assignments.push(check);
+}
 let required;
 for(const e of manifest.assets){
  const originalEntry=original.assets.find(x=>x.lod===e.lod);
@@ -27,7 +41,7 @@ for(const e of manifest.assets){
   assert.equal(mesh.geometry.attributes.position.count,reference.geometry.attributes.position.count);
   const inverse=root.matrixWorld.clone().invert();
   for(let i=0;i<reference.geometry.attributes.position.count;i++){
-   const expected=reference.getVertexPosition(i,new T.Vector3());if(side==='L')expected.x*=-1;
+   const expected=reference.getVertexPosition(i,new T.Vector3());if(side==='R')expected.x*=-1;
    const actual=mesh.getVertexPosition(i,new T.Vector3()).applyMatrix4(inverse);
    report.maximum_hand_surface_error_m=Math.max(report.maximum_hand_surface_error_m,actual.distanceTo(expected));
   }
@@ -47,12 +61,12 @@ for(const e of manifest.assets){
   const poses={L:{...BIPED_REST},R:{...BIPED_REST}};applyHandPose(b.scene,poses);
   const opposite=side==='L'?'R':'L',prior=wp(b.scene,`AUREL_${opposite}_SOCKET_INDEX_TIP`);poses[side][j.name]=v;applyHandPose(b.scene,poses);
   assert(prior.distanceTo(wp(b.scene,`AUREL_${opposite}_SOCKET_INDEX_TIP`))<1e-10,'shared skeleton state');
-  const node=b.scene.getObjectByName(`AUREL_${side}_${j.name}`),expected=v*(side==='L'&&j.axis!=='x'?-1:1);assert(Math.abs(node.rotation[j.axis]-expected)<1e-7,'motor sign '+node.name);report.hand_pose_samples++;
+  const node=b.scene.getObjectByName(`AUREL_${side}_${j.name}`),expected=v*(side==='R'&&j.axis!=='x'?-1:1);assert(Math.abs(node.rotation[j.axis]-expected)<1e-7,'motor sign '+node.name);report.hand_pose_samples++;
  }
 }
 assert(report.maximum_body_position_error_m<1e-7);assert(report.maximum_body_rotation_error_rad<1e-7);assert(report.maximum_hand_surface_error_m<1e-6);assert(report.maximum_mount_error_m<1e-7);
 const animated=await load(new URL(manifest.assets[1].file,out)),staticModel=await load(new URL(manifest.assets[2].file,out));animated.scene.updateMatrixWorld(true);staticModel.scene.updateMatrixWorld(true);
 for(const n of required){assert(wp(animated.scene,n).distanceTo(wp(staticModel.scene,n))<1e-6,'static frame '+n);assert(wq(animated.scene,n).angleTo(wq(staticModel.scene,n))<1e-6,'static orientation '+n);}
 for(const file of ['tools/asset-pipeline/build-c08-aurel.mjs','tools/blender/export_c08_body.py','assets/c08-worker/aurel/runtime.js','tools/asset-pipeline/validate-c08-aurel-fit.mjs'])report.source_hashes[file]=hash(await fs.readFile(new URL('../../../'+file,out)));
-report.status='passed';report.scope='Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including left reflection; positive transforms, independent motors, mount frames, static node parity and budgets. Not arbitrary whole-body collision or force validation.';
+report.status='passed';report.scope='Original GLB fingerprints and byte-identical body animation data; unchanged body frames through all clips; exact economical hand surfaces including the corrected right-wrist reflection; positive transforms, independent motors, mount frames, static node parity and budgets. Not arbitrary whole-body collision or force validation.';
 await fs.writeFile(new URL('fit-validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(report);

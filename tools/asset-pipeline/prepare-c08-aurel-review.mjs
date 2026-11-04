@@ -13,7 +13,7 @@ const shots=[
  ['dorsal','Ivory shells / wrist interface','Same Isao hand · fixed C08 adapter',1,'Standby_Idle',0,'rest','hands'],
  ['inspect','Inspection / open right hand','Original body action · engine-driven fingers',1,'Work_Inspect',2.4,'auto','hero'],
  ['carry','Carry / loose paired grip','Existing locomotion and wrist choreography retained',1,'Carry_Walk_Cycle',.76,'auto','hero'],
- ['distance','Distance / naturally curled static','2,784 triangles · one draw · 235,588 bytes',2,'Standby_Idle',0,'rest','hero']
+ ['distance','Distance / naturally curled static','2,784 triangles · one draw · 235,648 bytes',2,'Standby_Idle',0,'rest','hero']
 ];
 for(const [id,label,detail,lod,clip,time,mode,view]of shots){
  await page.locator('#lod').selectOption(String(lod));await page.waitForFunction(l=>c08Worker.entry.lod===l,lod);

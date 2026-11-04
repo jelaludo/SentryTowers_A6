@@ -1,5 +1,11 @@
 # Devlog
 
+## 4 November 2026 / C08 — corrected left/right hand assignment
+
+Swapped the AUREL hand pair between C08's wrists after visual review identified reversed thumb placement. The left C08 wrist now receives the source hand surface and the right receives the reflected surface. Finger motor signs follow the corrected assignment. Detailed, game and static distance exports, optional Meshopt copies, measured manifests and review previews are refreshed; body motion, attachment transforms, node names, triangle counts and draw counts are unchanged.
+
+Added an independent wrist-assignment check for all six plain/decoded files, measuring the thumb base in each C08 hand frame. The earlier checks verified reflection and animation but did not catch the wrong surface-to-wrist assignment. The corrected pair passes the geometry, motion and browser checks, including natural curl, carrying and inspection. Completed: this C08 correction. Pending: review and rollout to the other bipeds. Handoff: the containing commit plus `assets/c08-worker/` and shared Hand Lab runtime modules. The received collaboration contract remains unchanged.
+
 ## 4 November 2026 / C08 — first economical AUREL hand retrofit
 
 Fitted C08 with a mirrored left/right pair of AUREL-01 economical hands as the first test for the requested biped rollout. The original hand surfaces and wrist barrels are removed from the new assembled exports. Each replacement cuff inserts into its existing forearm through a fixed 1.3× adapter. Original C08 and Hand Lab exports and the original Blender master are preserved. The other bipeds remain pending this first-fit review.

@@ -2,7 +2,7 @@
 
 ## C08 / AUREL economical hand retrofit / 4 November 2026
 
-Original assembly, mirrored left hand, adapter and review renders by jelaludo / Model Workshop, combining our existing C08 and AUREL-01 economical geometry. No third-party hand sources are incorporated. Original C08 files, its Blender master and Hand Lab originals remain preserved. The distance hands are simplified derivatives within the new static assembly; optional compressed copies are marked derived. See `assets/c08-worker/aurel/README.md`.
+Original assembly, reflected hand pair, adapter and review renders by jelaludo / Model Workshop, combining our existing C08 and AUREL-01 economical geometry. No third-party hand sources are incorporated. Original C08 files, its Blender master and Hand Lab originals remain preserved. The distance hands are simplified derivatives within the new static assembly; optional compressed copies are marked derived. See `assets/c08-worker/aurel/README.md`.
 
 ## Biped hand and foot variants / 4 November 2026
 

@@ -4,7 +4,7 @@ import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLo
 import {NodeIO} from '@gltf-transform/core';import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
 import {copyToDocument,compactPrimitive,transformPrimitive,joinPrimitives,dedup,prune,reorder,weld,simplify,unpartition} from '@gltf-transform/functions';
 import {MeshoptEncoder,MeshoptDecoder,MeshoptSimplifier} from 'meshoptimizer';
-import {JOINTS,BIPED_REST,HAND_SCALE,HAND_MOUNT_OFFSET} from '../../assets/c08-worker/aurel/runtime.js';
+import {JOINTS,BIPED_REST,HAND_SCALE,HAND_MOUNT_OFFSET,HAND_ASSIGNMENT} from '../../assets/c08-worker/aurel/runtime.js';
 const base=new URL('../../assets/c08-worker/',import.meta.url),out=new URL('aurel/',base),handBase=new URL('../../assets/hand-lab/',import.meta.url);
 const original=JSON.parse(await fs.readFile(new URL('manifest.json',base))),handManifest=JSON.parse(await fs.readFile(new URL('manifest.json',handBase)));
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
@@ -36,7 +36,7 @@ function stripOriginalHands(doc){
  }
  return removed;
 }
-const manifest={...original,family:'c08-aurel',label:'C-08 / AUREL economical hand test',variant:'aurel',assets:[],source:{original_robot:'../manifest.json',hand:'../../hand-lab/manifest.json',builder:'tools/asset-pipeline/build-c08-aurel.mjs'},hand_integration:{manufacturer:'Isao / Mechanism Atelier AUREL-01 retrofit',hand_variant:'biped',hand_triangles_each:2708,scale:HAND_SCALE,mount_offset_m:HAND_MOUNT_OFFSET,mount_rotation:'180 degrees about local Z; fingers down, palms forward, thumbs medial',namespaces:['AUREL_L_','AUREL_R_'],handedness:'R original; L reflected geometry, winding, local transforms, inverse binds and Y/Z motor signs; all positive scales',legacy:'Original HAND, FINGER, THUMB and SOCKET nodes and five body clips retained. Old hand geometry removed. Original grasp/tool socket coordinates unchanged; new palm/tip sockets are the geometric grasp references.',runtime:'runtime.js: sampleHands/applyHandPose after the body mixer; 23 independent axes per hand, no baked hand channels',rest_pose:BIPED_REST},credit:'Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.'};
+const manifest={...original,family:'c08-aurel',label:'C-08 / AUREL economical hand test',variant:'aurel',assets:[],source:{original_robot:'../manifest.json',hand:'../../hand-lab/manifest.json',builder:'tools/asset-pipeline/build-c08-aurel.mjs'},hand_integration:{manufacturer:'Isao / Mechanism Atelier AUREL-01 retrofit',hand_variant:'biped',hand_triangles_each:2708,wrist_assignment:HAND_ASSIGNMENT,scale:HAND_SCALE,mount_offset_m:HAND_MOUNT_OFFSET,mount_rotation:'180 degrees about local Z; fingers down, palms forward; hand pair swapped to the user-corrected wrist assignment',namespaces:['AUREL_L_','AUREL_R_'],handedness:'L uses the source surface; R uses reflected geometry, winding, local transforms, inverse binds and Y/Z motor signs; all positive scales',legacy:'Original HAND, FINGER, THUMB and SOCKET nodes and five body clips retained. Old hand geometry removed. Original grasp/tool socket coordinates unchanged; new palm/tip sockets are the geometric grasp references.',runtime:'runtime.js: sampleHands/applyHandPose after the body mixer; 23 independent axes per hand, no baked hand channels',rest_pose:BIPED_REST},credit:'Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.'};
 for(const source of original.assets){
  const lod=source.lod,doc=await io.read(new URL(source.file,base).pathname);let removed=0;
  if(lod<2)removed=stripOriginalHands(doc);else{
@@ -46,9 +46,9 @@ for(const source of original.assets){
   const hsource=handManifest.assets.find(e=>e.variant==='biped'&&e.lod===(lod===2?2:1)),hdoc=await io.read(new URL(hsource.file,handBase).pathname);
   if(lod<2)for(const j of JOINTS){const q=new T.Quaternion().setFromAxisAngle(new T.Vector3(...(j.axis==='x'?[1,0,0]:j.axis==='y'?[0,1,0]:[0,0,1])),BIPED_REST[j.name]||0);find(hdoc,j.name).setRotation(q.toArray());}
   if(lod===2)await hdoc.transform(weld(),simplify({simplifier:MeshoptSimplifier,ratio:.15,error:.04}));
-  if(side==='L')reflectHand(hdoc);
+  if(HAND_ASSIGNMENT[side]==='reflected')reflectHand(hdoc);
   const hroot=find(hdoc,'AUREL_01_ROOT');for(const n of hdoc.getRoot().listNodes())n.setName('AUREL_'+side+'_'+n.getName());
-  hroot.setExtras({...hroot.getExtras(),handedness:side==='L'?'left':'right',host:'c08'});
+  hroot.setExtras({...hroot.getExtras(),handedness:side==='L'?'left':'right',host:'c08',source_assignment:HAND_ASSIGNMENT[side]});
   const copied=copyToDocument(doc,hdoc,hdoc.getRoot().listNodes());const root=copied.get(hroot);
   const mount=doc.createNode('AUREL_'+side+'_MOUNT').setTranslation(HAND_MOUNT_OFFSET).setRotation([0,0,1,0]).setScale([HAND_SCALE,HAND_SCALE,HAND_SCALE]).setExtras({role:'hand_adapter',handedness:side});
   find(doc,'HAND_'+side).addChild(mount);mount.addChild(root);

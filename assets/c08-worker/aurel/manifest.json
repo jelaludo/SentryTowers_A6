@@ -84,7 +84,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 2770588,
+      "bytes": 2770648,
       "triangles": 57992,
       "draw_calls": 8,
       "plot_m": [
@@ -149,20 +149,20 @@
         }
       ],
       "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
-      "sha256": "0182f1275415cf2f9f9afe413099aae834c8205da580d49c10b99273c11c13ae",
+      "sha256": "661987224479b3f0f069d0dfb532f407d666dc2fef71ad6064ea4b4339a7b706",
       "bounds": {
         "min": [
-          -0.7350000143051147,
+          -0.759718488754855,
           0.006000000983476639,
           -0.4350000023841858
         ],
         "max": [
-          0.7350000143051147,
+          0.759718488754855,
           2.2920000553131104,
           0.3109999895095825
         ],
         "dimensions_m": [
-          1.4700000286102295,
+          1.51943697750971,
           2.2860000543296337,
           0.7459999918937683
         ]
@@ -435,7 +435,7 @@
           "node": "AUREL_L_SOCKET_INDEX_TIP",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084430825400527,
+            0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -444,7 +444,7 @@
           "node": "AUREL_L_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084875120915127,
+            0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -453,7 +453,7 @@
           "node": "AUREL_L_SOCKET_INDEX_PAD",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6086770070657096,
+            0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -462,7 +462,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -471,7 +471,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -480,7 +480,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -489,7 +489,7 @@
           "node": "AUREL_L_SOCKET_RING_TIP",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.666144357947097,
+            0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -498,7 +498,7 @@
           "node": "AUREL_L_SOCKET_RING_CONTACT",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6661004527905106,
+            0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -507,7 +507,7 @@
           "node": "AUREL_L_SOCKET_RING_PAD",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6660581234710745,
+            0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -516,7 +516,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_TIP",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6918512144283737,
+            0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -525,7 +525,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917149481113436,
+            0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -534,7 +534,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_PAD",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917175219375744,
+            0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -543,7 +543,7 @@
           "node": "AUREL_L_SOCKET_THUMB_TIP",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5489391205371144,
+            0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -552,7 +552,7 @@
           "node": "AUREL_L_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5507165552287203,
+            0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -561,7 +561,7 @@
           "node": "AUREL_L_SOCKET_THUMB_PAD",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5586229911277292,
+            0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -606,7 +606,7 @@
           "node": "AUREL_R_SOCKET_INDEX_TIP",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084430825400527,
+            -0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -615,7 +615,7 @@
           "node": "AUREL_R_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084875120915127,
+            -0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -624,7 +624,7 @@
           "node": "AUREL_R_SOCKET_INDEX_PAD",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6086770070657096,
+            -0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -633,7 +633,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -642,7 +642,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -651,7 +651,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -660,7 +660,7 @@
           "node": "AUREL_R_SOCKET_RING_TIP",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.666144357947097,
+            -0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -669,7 +669,7 @@
           "node": "AUREL_R_SOCKET_RING_CONTACT",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6661004527905106,
+            -0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -678,7 +678,7 @@
           "node": "AUREL_R_SOCKET_RING_PAD",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6660581234710745,
+            -0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -687,7 +687,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_TIP",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6918512144283737,
+            -0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -696,7 +696,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917149481113436,
+            -0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -705,7 +705,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_PAD",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917175219375744,
+            -0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -714,7 +714,7 @@
           "node": "AUREL_R_SOCKET_THUMB_TIP",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5489391205371144,
+            -0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -723,7 +723,7 @@
           "node": "AUREL_R_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5507165552287203,
+            -0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -732,7 +732,7 @@
           "node": "AUREL_R_SOCKET_THUMB_PAD",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5586229911277292,
+            -0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -767,8 +767,8 @@
       ],
       "meshopt_file": "derived/meshopt/c08_aurel_d0_lod0.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 703652,
-      "meshopt_sha256": "1d767e207655ff0755913e28283e024d7f3dc902cac042d585b2e058f7a52d31",
+      "meshopt_bytes": 703712,
+      "meshopt_sha256": "b98d2a79eddac8adcc61a944a176cb9bcb75bc98dc7732997105efd606e872d9",
       "variant": "aurel",
       "removed_original_hand_triangles": 18120
     },
@@ -778,7 +778,7 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1338784,
+      "bytes": 1338848,
       "triangles": 16452,
       "draw_calls": 8,
       "plot_m": [
@@ -843,20 +843,20 @@
         }
       ],
       "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
-      "sha256": "03ae41c8b8ddf577d68b51507675d77dd087b21423e96dac9d5fed3fb2a3c305",
+      "sha256": "35c5b90cd7201783d562167c3fc63c7ceb43f417292dada9ca5ee69a10541248",
       "bounds": {
         "min": [
-          -0.7350000143051147,
+          -0.759718488754855,
           0.006000000983476639,
           -0.4244999885559082
         ],
         "max": [
-          0.7350000143051147,
+          0.759718488754855,
           2.291412591934204,
           0.3109999895095825
         ],
         "dimensions_m": [
-          1.4700000286102295,
+          1.51943697750971,
           2.2854125909507275,
           0.7354999780654907
         ]
@@ -1129,7 +1129,7 @@
           "node": "AUREL_L_SOCKET_INDEX_TIP",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084430825400527,
+            0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -1138,7 +1138,7 @@
           "node": "AUREL_L_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084875120915127,
+            0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -1147,7 +1147,7 @@
           "node": "AUREL_L_SOCKET_INDEX_PAD",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6086770070657096,
+            0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -1156,7 +1156,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -1165,7 +1165,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -1174,7 +1174,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -1183,7 +1183,7 @@
           "node": "AUREL_L_SOCKET_RING_TIP",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.666144357947097,
+            0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -1192,7 +1192,7 @@
           "node": "AUREL_L_SOCKET_RING_CONTACT",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6661004527905106,
+            0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -1201,7 +1201,7 @@
           "node": "AUREL_L_SOCKET_RING_PAD",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6660581234710745,
+            0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -1210,7 +1210,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_TIP",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6918512144283737,
+            0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -1219,7 +1219,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917149481113436,
+            0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -1228,7 +1228,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_PAD",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917175219375744,
+            0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -1237,7 +1237,7 @@
           "node": "AUREL_L_SOCKET_THUMB_TIP",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5489391205371144,
+            0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -1246,7 +1246,7 @@
           "node": "AUREL_L_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5507165552287203,
+            0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -1255,7 +1255,7 @@
           "node": "AUREL_L_SOCKET_THUMB_PAD",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5586229911277292,
+            0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -1300,7 +1300,7 @@
           "node": "AUREL_R_SOCKET_INDEX_TIP",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084430825400527,
+            -0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -1309,7 +1309,7 @@
           "node": "AUREL_R_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084875120915127,
+            -0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -1318,7 +1318,7 @@
           "node": "AUREL_R_SOCKET_INDEX_PAD",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6086770070657096,
+            -0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -1327,7 +1327,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -1336,7 +1336,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -1345,7 +1345,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -1354,7 +1354,7 @@
           "node": "AUREL_R_SOCKET_RING_TIP",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.666144357947097,
+            -0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -1363,7 +1363,7 @@
           "node": "AUREL_R_SOCKET_RING_CONTACT",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6661004527905106,
+            -0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -1372,7 +1372,7 @@
           "node": "AUREL_R_SOCKET_RING_PAD",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6660581234710745,
+            -0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -1381,7 +1381,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_TIP",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6918512144283737,
+            -0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -1390,7 +1390,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917149481113436,
+            -0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -1399,7 +1399,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_PAD",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917175219375744,
+            -0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -1408,7 +1408,7 @@
           "node": "AUREL_R_SOCKET_THUMB_TIP",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5489391205371144,
+            -0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -1417,7 +1417,7 @@
           "node": "AUREL_R_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5507165552287203,
+            -0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -1426,7 +1426,7 @@
           "node": "AUREL_R_SOCKET_THUMB_PAD",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5586229911277292,
+            -0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -1461,8 +1461,8 @@
       ],
       "meshopt_file": "derived/meshopt/c08_aurel_d0_lod1.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 408180,
-      "meshopt_sha256": "252785e61a9bf101f20d79e13ddd6d4f8464d349d3ce9be6360e3dc1d1a046a4",
+      "meshopt_bytes": 408244,
+      "meshopt_sha256": "cb71897cd6e2d0f527aa2d62d6f5fa7221d14219a7b7e8b760e790542347254d",
       "variant": "aurel",
       "removed_original_hand_triangles": 4792
     },
@@ -1472,7 +1472,7 @@
       "damage_level": 0,
       "static": true,
       "derived": false,
-      "bytes": 235588,
+      "bytes": 235648,
       "triangles": 2784,
       "draw_calls": 1,
       "plot_m": [
@@ -1481,20 +1481,20 @@
       ],
       "clips": [],
       "credit": "Original C08 and AUREL geometry by jelaludo; no third-party hand meshes.",
-      "sha256": "feb26941b22ddc923962a065ef83f62d7994cac2ced8658dd24368fbbf88847c",
+      "sha256": "7084f355a36c6da7107646f5d6e1f89ea7ccc25f3e201a387cde50cda04cde14",
       "bounds": {
         "min": [
-          -0.7319999933242798,
+          -0.7582035064697266,
           0.006000000983476639,
           -0.40149998664855957
         ],
         "max": [
-          0.7319999933242798,
+          0.7582035064697266,
           2.2909998893737793,
           0.30300000309944153
         ],
         "dimensions_m": [
-          1.4639999866485596,
+          1.5164070129394531,
           2.2849998883903027,
           0.7044999897480011
         ]
@@ -1767,7 +1767,7 @@
           "node": "AUREL_L_SOCKET_INDEX_TIP",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084430825400527,
+            0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -1776,7 +1776,7 @@
           "node": "AUREL_L_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6084875120915127,
+            0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -1785,7 +1785,7 @@
           "node": "AUREL_L_SOCKET_INDEX_PAD",
           "parent": "AUREL_L_INDEX_DIP_FLEX",
           "position_m": [
-            0.6086770070657096,
+            0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -1794,7 +1794,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -1803,7 +1803,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -1812,7 +1812,7 @@
           "node": "AUREL_L_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_L_MIDDLE_DIP_FLEX",
           "position_m": [
-            0.6369999761581421,
+            0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -1821,7 +1821,7 @@
           "node": "AUREL_L_SOCKET_RING_TIP",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.666144357947097,
+            0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -1830,7 +1830,7 @@
           "node": "AUREL_L_SOCKET_RING_CONTACT",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6661004527905106,
+            0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -1839,7 +1839,7 @@
           "node": "AUREL_L_SOCKET_RING_PAD",
           "parent": "AUREL_L_RING_DIP_FLEX",
           "position_m": [
-            0.6660581234710745,
+            0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -1848,7 +1848,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_TIP",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6918512144283737,
+            0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -1857,7 +1857,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917149481113436,
+            0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -1866,7 +1866,7 @@
           "node": "AUREL_L_SOCKET_LITTLE_PAD",
           "parent": "AUREL_L_LITTLE_DIP_FLEX",
           "position_m": [
-            0.6917175219375744,
+            0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -1875,7 +1875,7 @@
           "node": "AUREL_L_SOCKET_THUMB_TIP",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5489391205371144,
+            0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -1884,7 +1884,7 @@
           "node": "AUREL_L_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5507165552287203,
+            0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -1893,7 +1893,7 @@
           "node": "AUREL_L_SOCKET_THUMB_PAD",
           "parent": "AUREL_L_THUMB_IP_FLEX",
           "position_m": [
-            0.5586229911277292,
+            0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -1938,7 +1938,7 @@
           "node": "AUREL_R_SOCKET_INDEX_TIP",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084430825400527,
+            -0.6915568697762314,
             0.837931489794993,
             0.18542405203950998
           ]
@@ -1947,7 +1947,7 @@
           "node": "AUREL_R_SOCKET_INDEX_CONTACT",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6084875120915127,
+            -0.6915124402247714,
             0.8406239455165101,
             0.1892605489054838
           ]
@@ -1956,7 +1956,7 @@
           "node": "AUREL_R_SOCKET_INDEX_PAD",
           "parent": "AUREL_R_INDEX_DIP_FLEX",
           "position_m": [
-            -0.6086770070657096,
+            -0.6913229452505746,
             0.8521074471659541,
             0.1768766287419665
           ]
@@ -1965,7 +1965,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_TIP",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8370879259452758,
             0.20284216856785509
           ]
@@ -1974,7 +1974,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_CONTACT",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8407065040026023,
             0.20582141223748585
           ]
@@ -1983,7 +1983,7 @@
           "node": "AUREL_R_SOCKET_MIDDLE_PAD",
           "parent": "AUREL_R_MIDDLE_DIP_FLEX",
           "position_m": [
-            -0.6369999761581421,
+            -0.6629999761581421,
             0.8489355222031318,
             0.19024238955904563
           ]
@@ -1992,7 +1992,7 @@
           "node": "AUREL_R_SOCKET_RING_TIP",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.666144357947097,
+            -0.6338555943691871,
             0.858355968235808,
             0.20534581309414826
           ]
@@ -2001,7 +2001,7 @@
           "node": "AUREL_R_SOCKET_RING_CONTACT",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6661004527905106,
+            -0.6338994995257736,
             0.8625372580510563,
             0.2074635684667362
           ]
@@ -2010,7 +2010,7 @@
           "node": "AUREL_R_SOCKET_RING_PAD",
           "parent": "AUREL_R_RING_DIP_FLEX",
           "position_m": [
-            -0.6660581234710745,
+            -0.6339418288452097,
             0.8665684736531565,
             0.1905360197613713
           ]
@@ -2019,7 +2019,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_TIP",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6918512144283737,
+            -0.6081487378879105,
             0.8944676847970212,
             0.1925225417753009
           ]
@@ -2028,7 +2028,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_CONTACT",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917149481113436,
+            -0.6082850042049406,
             0.8990085326197536,
             0.19367672223849963
           ]
@@ -2037,7 +2037,7 @@
           "node": "AUREL_R_SOCKET_LITTLE_PAD",
           "parent": "AUREL_R_LITTLE_DIP_FLEX",
           "position_m": [
-            -0.6917175219375744,
+            -0.6082824303787098,
             0.8989227641518654,
             0.1783775239965088
           ]
@@ -2046,7 +2046,7 @@
           "node": "AUREL_R_SOCKET_THUMB_TIP",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5489391205371144,
+            -0.7510608317791698,
             0.8919740942163975,
             0.18164741773753004
           ]
@@ -2055,7 +2055,7 @@
           "node": "AUREL_R_SOCKET_THUMB_CONTACT",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5507165552287203,
+            -0.7492833970875639,
             0.8929622465011878,
             0.18587048309093618
           ]
@@ -2064,7 +2064,7 @@
           "node": "AUREL_R_SOCKET_THUMB_PAD",
           "parent": "AUREL_R_THUMB_IP_FLEX",
           "position_m": [
-            -0.5586229911277292,
+            -0.741376961188555,
             0.9067590028837413,
             0.17533664899810314
           ]
@@ -2099,8 +2099,8 @@
       ],
       "meshopt_file": "derived/meshopt/c08_aurel_d0_lod2.meshopt.glb",
       "meshopt_derived": true,
-      "meshopt_bytes": 84780,
-      "meshopt_sha256": "b011e0ada8a2424c54e50a5ebe487974e5aa7d35ae5a0184abab9e8b8f26047c",
+      "meshopt_bytes": 84828,
+      "meshopt_sha256": "85497d2373e1006c10b713e08437538b44e9805d40346028678018ed02186a0a",
       "variant": "aurel",
       "removed_original_hand_triangles": null
     }
@@ -2172,18 +2172,22 @@
     "manufacturer": "Isao / Mechanism Atelier AUREL-01 retrofit",
     "hand_variant": "biped",
     "hand_triangles_each": 2708,
+    "wrist_assignment": {
+      "L": "source",
+      "R": "reflected"
+    },
     "scale": 1.3,
     "mount_offset_m": [
       0,
       0.045,
       0
     ],
-    "mount_rotation": "180 degrees about local Z; fingers down, palms forward, thumbs medial",
+    "mount_rotation": "180 degrees about local Z; fingers down, palms forward; hand pair swapped to the user-corrected wrist assignment",
     "namespaces": [
       "AUREL_L_",
       "AUREL_R_"
     ],
-    "handedness": "R original; L reflected geometry, winding, local transforms, inverse binds and Y/Z motor signs; all positive scales",
+    "handedness": "L uses the source surface; R uses reflected geometry, winding, local transforms, inverse binds and Y/Z motor signs; all positive scales",
     "legacy": "Original HAND, FINGER, THUMB and SOCKET nodes and five body clips retained. Old hand geometry removed. Original grasp/tool socket coordinates unchanged; new palm/tip sockets are the geometric grasp references.",
     "runtime": "runtime.js: sampleHands/applyHandPose after the body mixer; 23 independent axes per hand, no baked hand channels",
     "rest_pose": {
