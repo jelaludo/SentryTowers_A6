@@ -1,5 +1,17 @@
 # Devlog
 
+## 5 November 2026 / PCS — standardized pallet logistics series
+
+Started a new logistics series from four user-supplied concept images: P-01 passive reusable pallet, STRIDE-01 articulated four-wheel carrier and an optional quarter-footprint cargo crate. The provisional PCS interface uses a 1.20 × 1.00 m pallet, 160 mm deck and 1.06 × 0.86 m corner-lock pitch. Five slats, three bottom runners and nine spacer blocks leave genuine four-way fork passages. Pallets stack at 160 mm pitch; four independent crates fit a 600 × 500 mm cell grid. Supplied images remain unchanged outside the repository, with provenance hashes recorded.
+
+STRIDE uses independent hip/knee/ankle axes, wheel steering/rolling and quarter-turn lock heads. An analytic two-link suspension keeps wheel centres at ground height through 160 mm of chassis lift. Pallet and carrier sockets align through the full range. The 20-second engine-driven transport study carries the secured load 3.4 m from A to B, holds and reverses to A; it is a kinematic demonstration, with pickup/drop-off, physical locks and terrain solving pending. No engine-driven pivots are baked into clips.
+
+Each module includes detailed, game and static-distance plain GLBs plus optional Meshopt derivatives. Game pallet: 1,012 triangles / one draw / 75,068 bytes. Game STRIDE: 6,236 / 21 / 421,668. Game crate: 716 / one / 62,232. Distance pallet/carrier/crate: 372 / 2,876 / 372 triangles, each one draw and below 250 KB. Detailed pallet/carrier/crate: 3,284 / 16,372 / 792 triangles. Game geometry meets the base-piece and articulated-unit targets; no FPS improvement is claimed. Names, hierarchy, rest frames, dimensions, sockets and D0 metadata agree across tiers; static merged surfaces retain non-articulating lookups.
+
+All 18 plain/decoded exports pass glTF validation with zero errors/warnings, finite nondegenerate geometry, hashes, bounds and fork-clearance checks. The 324 sampled rig poses preserve link lengths, wheel height and all four mating locks. A further 1,201 transport samples verify travel and cycle continuity. Browser checks cover 30 configuration/tier/encoding combinations, downloads, manual controls, static lockout, four cameras and desktop/mobile layouts without errors. The Workshop viewer includes assembly, pallet, carrier, empty return and crate modes, module separation, sockets, wireframe, timeline and previews.
+
+Completed: first three original modules, export tiers, shared interface, rig/transport study, gallery/viewer, integration notes and measured validation. Pending: visual acceptance and dimension confirmation, D1–D3, engineering/load rating, loading/unloading, collision/terrain/traction, consuming-game r160/release packing, LOD thresholds and phone acceptance. CUP, STEP and the return rack are possible later variants. Handoff: the containing commit plus `assets/pallet-cargo/`, with viewer/generator for review. Plain GLBs remain authoritative; compressed/static/previews are marked derived. The received collaboration contract remains verbatim.
+
 ## 4 November 2026 / Catch me v2 — planted recoveries and a wider movement test
 
 Expanded the chase to 82.719 seconds / 29 beats. Added forward shoulder ukemi, backward ukemi, crouch entry/travel/exit under an overhead gantry, a rail-assisted 1.05 m mantle, an ascending deck and a 1.8 m drop into a held fist-and-knee superhero landing. K0 takes the same course, including jumping onto the platform and off the deck. Chapter shortcuts expose the new movements directly.

@@ -1,0 +1,27 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+import * as T from 'three';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+import {NodeIO} from '@gltf-transform/core';
+import {ALL_EXTENSIONS,EXTMeshoptCompression} from '@gltf-transform/extensions';
+import {dedup,reorder} from '@gltf-transform/functions';
+import {MeshoptEncoder,MeshoptDecoder} from 'meshoptimizer';
+import {buildModule} from './pallet-cargo-shape.mjs';
+import {STANDARD} from '../../assets/pallet-cargo/runtime.js';
+const out=new URL('../../assets/pallet-cargo/',import.meta.url);
+globalThis.FileReader=class{readAsArrayBuffer(b){b.arrayBuffer().then(x=>{this.result=x;this.onloadend?.();});}readAsDataURL(b){b.arrayBuffer().then(x=>{this.result=`data:${b.type};base64,${Buffer.from(x).toString('base64')}`;this.onloadend?.();});}};
+await Promise.all([MeshoptEncoder.ready,MeshoptDecoder.ready]);
+const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.encoder':MeshoptEncoder,'meshopt.decoder':MeshoptDecoder});
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const assets=[];
+for(const module of ['pallet','stride','crate'])for(const lod of [0,1,2]){
+ const root=buildModule(module,lod);root.updateMatrixWorld(true);const required_nodes=[],sockets=[],engine_nodes=[];let triangles=0,draw_calls=0;
+ root.traverse(o=>{required_nodes.push(o.name);if(o.isMesh){triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;draw_calls++;}if(o.name.startsWith('SOCKET_'))sockets.push({node:o.name,parent:o.parent.name,position_m:o.getWorldPosition(new T.Vector3()).toArray(),kind:o.userData.kind,axis:o.userData.axis});if(o.userData.engine_driven||o.userData.range_rad||o.name==='CHASSIS_HEAVE')engine_nodes.push(o.name);});
+ const file=`${module}_d0_lod${lod}.glb`,meshopt_file=`derived/meshopt/${module}_d0_lod${lod}.meshopt.glb`;
+ const bytes=Buffer.from(await new GLTFExporter().parseAsync(root,{binary:true,trs:true}));await fs.writeFile(new URL(file,out),bytes);
+ const doc=await io.readBinary(bytes);await doc.transform(dedup(),reorder({encoder:MeshoptEncoder,target:'size'}));doc.createExtension(EXTMeshoptCompression).setRequired(true).setEncoderOptions({method:EXTMeshoptCompression.EncoderMethod.FILTER});const packed=Buffer.from(await io.writeBinary(doc));await fs.mkdir(new URL('derived/meshopt/',out),{recursive:true});await fs.writeFile(new URL(meshopt_file,out),packed);
+ const bounds=new T.Box3().setFromObject(root);
+ const e={module,file,lod,damage_level:0,static:lod===2,derived:lod===2,derived_note:lod===2?'Reduced geometry merged into one static surface; lookup hierarchy retained.':null,bytes:bytes.length,sha256:sha(bytes),triangles,draw_calls,materials:1,textures:0,plot_m:module==='stride'?[2.2,1.4]:module==='pallet'?[1.2,1]:[.6,.5],bounds:{min:bounds.min.toArray(),max:bounds.max.toArray(),dimensions_m:bounds.getSize(new T.Vector3()).toArray()},sockets,clips:[],engine_nodes,required_nodes,credit:'Models by jelaludo',meshopt_file,meshopt_bytes:packed.length,meshopt_sha256:sha(packed),meshopt_derived:true};assets.push(e);console.log(`${file}: ${triangles} triangles / ${draw_calls} draws / ${bytes.length} bytes / ${packed.length} packed`);
+}
+const manifest={schema:'jelaludo.asset-family/v2-candidate',family:'pallet_cargo',label:'PCS / Pallet cargo standard — P-01 & STRIDE-01',status:'kinematic_prototype_pending_visual_and_game_review',plain_glb_source_of_truth:true,coordinate_system:{units:'metres',up:'+Y',forward:'+Z',origin:'ground at module centre'},supported_damage_levels:[0],standard:{id:'PCS_120_100_V1',status:'provisional_project_standard',...STANDARD,pallet_stack_pitch_m:.16,crate_m:[.56,.36,.46],crate_cell_pitch_m:[.6,.5],carrier_attach:'Parent PALLET_ROOT at SOCKET_PALLET; identity local transform. The crate grid uses centres x=±0.30,z=±0.25 above SOCKET_CARGO.',lock_axes:'+Y; four quarter-turn heads, 0 open and PI/2 secured',fork_clearance_m:{front_width:.39,side_width:.29,height:.095},load_rating:'Not specified; artwork and kinematic interface only.'},lod_selection:{lod0:'Close inspection and recordings, explicitly selected.',lod1:'Default articulated game asset; pallet and crates can be instanced.',lod2:'One static draw per module, loading/map/background only; use LOD1 before moving joints.',distance_first:true,game_enter_m:150,distance_return_m:170,threshold_status:'Provisional; tune in consuming game.'},runtime:{file:'runtime.js',baked_clips:[],studies:[{name:'Pallet_Transport_Cycle',duration_s:20,loop:true,kind:'engine_driven_viewer_study'}],controls:['chassis height 0.60–0.76 m','counter-phase wheel steering ±0.6 rad','wheel rolling from signed travel','four quarter-turn lock heads'],static_tier_articulation:false},budgets:{pallet_game_triangles:1500,crate_game_triangles:1500,unit_game_triangles:25000,distance_triangles:3000,distance_draw_calls:1,distance_bytes:250000},handoff:{folder:'assets/pallet-cargo/',pin:'Repository commit containing these files plus each SHA-256 below.',pending:['User visual review','Damage D1–D3','Load/unload choreography and physical lock engineering','Terrain, wheel traction and collision physics','Consuming-game r160/release packing and reference-phone acceptance','CUP and STEP alternatives']},assets};
+await fs.writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');

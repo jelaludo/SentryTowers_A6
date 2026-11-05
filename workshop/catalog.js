@@ -1,4 +1,5 @@
 const collectionImages={
+'pallet-cargo':'assets/pallet-cargo/preview.png',
 'nisoku03-chase':'nisoku03-chase/preview.jpg',
 'nisoku03':'assets/nisoku03/preview.jpg',
 'nisoku02':'assets/nisoku02/preview.jpg',
@@ -41,6 +42,7 @@ const collectionImages={
 };
 
 export const collections=[
+['pallet-cargo','PCS / Pallet Cargo Standard','Industry','P-01 reusable passive pallet and STRIDE-01 articulated carrier. Shared corner sockets, four-way fork access, quarter-footprint cargo and an empty-return stack. Inspect the modules, adjust suspension and locks, or run the A-to-B transport study.','Pallet + carrier · 3 LODs · 20-second transport','Kinematic prototype'],
 ['nisoku03-chase','Catch me / NISOKU-03 × K0','Presentation','An 83-second pursuit with planted trip recoveries, forward/backward ukemi, crouching under a gantry, a rail-assisted climb and a superhero landing from a raised deck. Walk, run, sprint, jumps and balance link the tests. Includes replay, chapter shortcuts, scrubbing and the complete original Kimodo clip browser.','83-second chase · 4 roll directions · Climb + super landing','Motion review'],
 ['nisoku03','NISOKU-03 / Refined Enclosure','Characters','A separate refinement of NISOKU-02: bowed chest enclosure, overlapping curved abdomen scales, wrapping limb shells, seated bearings, a swept motorcycle/military helmet, spherical elbows and fuller heel housings. Measures 8.25 heads with a gentle collar slope and 3.84% broader shoulders. Revision 4 lengthens the legs 4% and shortens the exposed neck by 32 mm, retaining height, helmet size and hand/foot geometry. Compare the previous silhouette or original NISOKU-02 with a head proportion grid.','Before / after · 24,900 game tris / 3 draws · 3 tiers','Kinematic prototype'],
 ['nisoku02','NISOKU-02 / All-purpose Humanoid','Characters','An Isao humanoid assembled with AUREL-01 hands and AUREL-02 tactile feet. Ivory armor, a dark oval visor, overlapping waist plates and gold rotary bearings. Standby, planted-foot walking, greeting, inspection, service crouch, toe agility and a calibrated metal-rail grasp.','7 motion studies · 20,244 game tris / 2 draws · 3 tiers','Kinematic prototype'],
