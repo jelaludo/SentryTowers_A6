@@ -7,43 +7,43 @@
       "lod": 0,
       "encoding": "plain",
       "models": 6,
-      "triangles": 22824,
-      "draws": 26,
-      "render_calls": 28
+      "triangles": 24536,
+      "draws": 30,
+      "render_calls": 32
     },
     {
       "mode": "assembly",
       "lod": 0,
       "encoding": "meshopt",
       "models": 6,
-      "triangles": 22824,
-      "draws": 26,
-      "render_calls": 28
+      "triangles": 24536,
+      "draws": 30,
+      "render_calls": 32
     },
     {
       "mode": "assembly",
       "lod": 1,
       "encoding": "plain",
       "models": 6,
-      "triangles": 10112,
-      "draws": 26,
-      "render_calls": 28
+      "triangles": 10864,
+      "draws": 30,
+      "render_calls": 32
     },
     {
       "mode": "assembly",
       "lod": 1,
       "encoding": "meshopt",
       "models": 6,
-      "triangles": 10112,
-      "draws": 26,
-      "render_calls": 28
+      "triangles": 10864,
+      "draws": 30,
+      "render_calls": 32
     },
     {
       "mode": "assembly",
       "lod": 2,
       "encoding": "plain",
       "models": 6,
-      "triangles": 4736,
+      "triangles": 4432,
       "draws": 6,
       "render_calls": 8
     },
@@ -52,7 +52,7 @@
       "lod": 2,
       "encoding": "meshopt",
       "models": 6,
-      "triangles": 4736,
+      "triangles": 4432,
       "draws": 6,
       "render_calls": 8
     },
@@ -115,43 +115,43 @@
       "lod": 0,
       "encoding": "plain",
       "models": 1,
-      "triangles": 16372,
-      "draws": 21,
-      "render_calls": 23
+      "triangles": 18084,
+      "draws": 25,
+      "render_calls": 27
     },
     {
       "mode": "stride",
       "lod": 0,
       "encoding": "meshopt",
       "models": 1,
-      "triangles": 16372,
-      "draws": 21,
-      "render_calls": 23
+      "triangles": 18084,
+      "draws": 25,
+      "render_calls": 27
     },
     {
       "mode": "stride",
       "lod": 1,
       "encoding": "plain",
       "models": 1,
-      "triangles": 6236,
-      "draws": 21,
-      "render_calls": 23
+      "triangles": 6988,
+      "draws": 25,
+      "render_calls": 27
     },
     {
       "mode": "stride",
       "lod": 1,
       "encoding": "meshopt",
       "models": 1,
-      "triangles": 6236,
-      "draws": 21,
-      "render_calls": 23
+      "triangles": 6988,
+      "draws": 25,
+      "render_calls": 27
     },
     {
       "mode": "stride",
       "lod": 2,
       "encoding": "plain",
       "models": 1,
-      "triangles": 2876,
+      "triangles": 2572,
       "draws": 1,
       "render_calls": 3
     },
@@ -160,7 +160,7 @@
       "lod": 2,
       "encoding": "meshopt",
       "models": 1,
-      "triangles": 2876,
+      "triangles": 2572,
       "draws": 1,
       "render_calls": 3
     },
@@ -271,6 +271,114 @@
       "triangles": 372,
       "draws": 1,
       "render_calls": 3
+    },
+    {
+      "mode": "cup",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 16472,
+      "draws": 13,
+      "render_calls": 15
+    },
+    {
+      "mode": "cup",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 16472,
+      "draws": 13,
+      "render_calls": 15
+    },
+    {
+      "mode": "cup",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 5944,
+      "draws": 13,
+      "render_calls": 15
+    },
+    {
+      "mode": "cup",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 5944,
+      "draws": 13,
+      "render_calls": 15
+    },
+    {
+      "mode": "cup",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 2164,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "cup",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 2164,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 10,
+      "triangles": 28584,
+      "draws": 22,
+      "render_calls": 24
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 10,
+      "triangles": 28584,
+      "draws": 22,
+      "render_calls": 24
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 10,
+      "triangles": 12980,
+      "draws": 22,
+      "render_calls": 24
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 10,
+      "triangles": 12980,
+      "draws": 22,
+      "render_calls": 24
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 10,
+      "triangles": 5512,
+      "draws": 10,
+      "render_calls": 12
+    },
+    {
+      "mode": "cup-loading",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 10,
+      "triangles": 5512,
+      "draws": 10,
+      "render_calls": 12
     }
   ],
   "transport_positions": [
@@ -311,10 +419,149 @@
       "z": -1.7
     }
   ],
+  "cup_phases": [
+    {
+      "time": 0,
+      "crate": [
+        0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Hover above source"
+    },
+    {
+      "time": 1,
+      "crate": [
+        0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Lower four suction cups"
+    },
+    {
+      "time": 2,
+      "crate": [
+        0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Seal and establish suction"
+    },
+    {
+      "time": 3,
+      "crate": [
+        0.6499999999999999,
+        0.16000000000000003,
+        0.8
+      ],
+      "phase": "A → B · Lift secured crate"
+    },
+    {
+      "time": 4.5,
+      "crate": [
+        0.6499999999999999,
+        0.58,
+        0.8
+      ],
+      "phase": "A → B · Transfer · level load"
+    },
+    {
+      "time": 6,
+      "crate": [
+        0,
+        0.58,
+        1.0307764064044151
+      ],
+      "phase": "A → B · Transfer · level load"
+    },
+    {
+      "time": 7.5,
+      "crate": [
+        -0.6499999999999999,
+        0.58,
+        0.8
+      ],
+      "phase": "A → B · Lower onto destination pallet"
+    },
+    {
+      "time": 9,
+      "crate": [
+        -0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Supported · release suction"
+    },
+    {
+      "time": 10,
+      "crate": [
+        -0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Retract clear of crate"
+    },
+    {
+      "time": 11,
+      "crate": [
+        -0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Retract clear of crate"
+    },
+    {
+      "time": 12,
+      "crate": [
+        -0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "B → A · Hover above source"
+    },
+    {
+      "time": 15,
+      "crate": [
+        -0.6499999999999999,
+        0.16000000000000003,
+        0.8
+      ],
+      "phase": "B → A · Lift secured crate"
+    },
+    {
+      "time": 18,
+      "crate": [
+        0,
+        0.58,
+        1.0307764064044151
+      ],
+      "phase": "B → A · Transfer · level load"
+    },
+    {
+      "time": 21,
+      "crate": [
+        0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "B → A · Supported · release suction"
+    },
+    {
+      "time": 24,
+      "crate": [
+        0.65,
+        0.16,
+        0.8
+      ],
+      "phase": "A → B · Hover above source"
+    }
+  ],
   "checks": [
-    "30 configuration/tier/encoding combinations",
+    "42 configuration/tier/encoding combinations",
     "all selected GLB downloads",
-    "manual lift, steering and quarter-turn locks",
+    "manual lift, independent 360 degree steering, individual suspension and quarter-turn locks",
+    "sideways, diagonal, on-the-spot and suspension studies",
+    "CUP manual reach/yaw/height, seal compression and full 24-second cargo transfer",
     "separation, cargo, sockets and wireframe controls",
     "A-to-B motion, scrubbing and static lockout",
     "four cameras with model in frame",
@@ -340,18 +587,18 @@
     },
     {
       "file": "stride_d0_lod0.glb",
-      "sha256": "879cee68d69d52cdabea3853144e73c7d4c8b2220e32497670dbebf0949dd79e",
-      "meshopt_sha256": "9a24b3d19043546ef51cb7d3dd9b71528e6541e0ff46376e92e4a498d1239beb"
+      "sha256": "1380d353be050a8c9094eb0849ebc50b82c5cacacdb157928f40d5093ed4d30a",
+      "meshopt_sha256": "debab8452c579304ce5bb01865e4a31adba15f5c7d61f6920f401ff27819aa93"
     },
     {
       "file": "stride_d0_lod1.glb",
-      "sha256": "dd565d336f18d6106c6818797674a9a4cc7ba6f1c0e4bf92860231c85b0cb273",
-      "meshopt_sha256": "75badc729ac29ca0263c6880fdded7732e9c291046c386b3299f572e06dbf8f2"
+      "sha256": "7bfd6dfcef41d5929c52260875e0f2b3adab947df3a6a63700081a7712923c1d",
+      "meshopt_sha256": "dd90446f83b1203fbeba2157f04a167fbd86f6d168744c4a922b093baf601b46"
     },
     {
       "file": "stride_d0_lod2.glb",
-      "sha256": "e4ac2cffe9d5b9dc78f5f6ffe6bc1fab7a8c0160aed0f6a6e50c5e319f3d48b8",
-      "meshopt_sha256": "a19427bba2cb786ccba2e3ac8040f10d8c3ec368aec623613b984f3398d62ae1"
+      "sha256": "29b2e6691e8aad8550f8621461ffd5c0e5cc26c6d6e1021b4999ba3220b2853f",
+      "meshopt_sha256": "03a1fb1ac51d43bbefd12c9027d831f4a062a5e2e94d32c4a7090c755f547f5f"
     },
     {
       "file": "crate_d0_lod0.glb",
@@ -367,6 +614,26 @@
       "file": "crate_d0_lod2.glb",
       "sha256": "0df16b1077949c996ed581a4ccb7b168ed564e0c67f5044fc671f30d2ace50df",
       "meshopt_sha256": "ef3fbcda8c5c09aa084a9648ec8ba6c80548ecee46b472ffbbec1d63c63fdd9f"
+    },
+    {
+      "file": "cup_d0_lod0.glb",
+      "sha256": "3e159b9236528147efe4c88b4b39ce4e59611d941842f7d3c485bd2863ea6fc3",
+      "meshopt_sha256": "6b71fbb5f86d9701b712844b228d5b5ed86d58c4e46215a750cd65970e4c1bbd"
+    },
+    {
+      "file": "cup_d0_lod1.glb",
+      "sha256": "aba7ab3ecfee7be0b304ba0aa75609d1355628086aa4eb40b1f88f106a184aec",
+      "meshopt_sha256": "dd2f163c9befb5c5969949adc596eab7f3cb88b987fcbcde4a0afff80bd2e24a"
+    },
+    {
+      "file": "cup_d0_lod2.glb",
+      "sha256": "efc7e38db0a1c1fb1df78354a3b1edd94b4410729ce4225a63a8f1e35ba6a67a",
+      "meshopt_sha256": "b9cfae82784e994347e4ad7031e9576ec867526e186ca08b7ea45faf12f27f3f"
     }
-  ]
+  ],
+  "final_smoke": {
+    "turn_one_shot_stops_at_seconds": 20,
+    "cup_direct_query": true,
+    "fullscreen_at_1280x800": true
+  }
 }

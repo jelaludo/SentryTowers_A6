@@ -1,0 +1,89 @@
+{
+  "revision": 2,
+  "previous_commit": "610d174e57cb488bf3fbbd4a54ee43d6147d1872",
+  "preserved": "revisions/r1/",
+  "deployment": "Update STRIDE GLB and runtime.js together. All previous engine node names retained; mounting frames changed as declared below. Pallet/crate files and lock sockets are unchanged.",
+  "migration": [
+    {
+      "node": "LEG_FL_HIP_PITCH",
+      "old_parent": "CHASSIS_HEAVE",
+      "new_parent": "LEG_FL_SPLAY_YAW",
+      "change": "Translation moves to new splay parent; local motor remains Z."
+    },
+    {
+      "node": "LEG_FL_ANKLE_ROLL",
+      "old_parent": "LEG_FL_KNEE_PITCH",
+      "new_parent": "LEG_FL_SUSPENSION_EXTEND",
+      "change": "Lower span moves to sliding parent; ankle translation becomes zero."
+    },
+    {
+      "node": "WHEEL_FL_ROLL",
+      "change": "Pivot translation becomes (0,-0.10,0) below kingpin; old lateral caster offset removed."
+    },
+    {
+      "node": "WHEEL_FL_YAW",
+      "change": "Continuous root-relative heading, compensated for splay; 45 degree default replaces straight rest."
+    },
+    {
+      "node": "LEG_FR_HIP_PITCH",
+      "old_parent": "CHASSIS_HEAVE",
+      "new_parent": "LEG_FR_SPLAY_YAW",
+      "change": "Translation moves to new splay parent; local motor remains Z."
+    },
+    {
+      "node": "LEG_FR_ANKLE_ROLL",
+      "old_parent": "LEG_FR_KNEE_PITCH",
+      "new_parent": "LEG_FR_SUSPENSION_EXTEND",
+      "change": "Lower span moves to sliding parent; ankle translation becomes zero."
+    },
+    {
+      "node": "WHEEL_FR_ROLL",
+      "change": "Pivot translation becomes (0,-0.10,0) below kingpin; old lateral caster offset removed."
+    },
+    {
+      "node": "WHEEL_FR_YAW",
+      "change": "Continuous root-relative heading, compensated for splay; 45 degree default replaces straight rest."
+    },
+    {
+      "node": "LEG_RL_HIP_PITCH",
+      "old_parent": "CHASSIS_HEAVE",
+      "new_parent": "LEG_RL_SPLAY_YAW",
+      "change": "Translation moves to new splay parent; local motor remains Z."
+    },
+    {
+      "node": "LEG_RL_ANKLE_ROLL",
+      "old_parent": "LEG_RL_KNEE_PITCH",
+      "new_parent": "LEG_RL_SUSPENSION_EXTEND",
+      "change": "Lower span moves to sliding parent; ankle translation becomes zero."
+    },
+    {
+      "node": "WHEEL_RL_ROLL",
+      "change": "Pivot translation becomes (0,-0.10,0) below kingpin; old lateral caster offset removed."
+    },
+    {
+      "node": "WHEEL_RL_YAW",
+      "change": "Continuous root-relative heading, compensated for splay; 45 degree default replaces straight rest."
+    },
+    {
+      "node": "LEG_RR_HIP_PITCH",
+      "old_parent": "CHASSIS_HEAVE",
+      "new_parent": "LEG_RR_SPLAY_YAW",
+      "change": "Translation moves to new splay parent; local motor remains Z."
+    },
+    {
+      "node": "LEG_RR_ANKLE_ROLL",
+      "old_parent": "LEG_RR_KNEE_PITCH",
+      "new_parent": "LEG_RR_SUSPENSION_EXTEND",
+      "change": "Lower span moves to sliding parent; ankle translation becomes zero."
+    },
+    {
+      "node": "WHEEL_RR_ROLL",
+      "change": "Pivot translation becomes (0,-0.10,0) below kingpin; old lateral caster offset removed."
+    },
+    {
+      "node": "WHEEL_RR_YAW",
+      "change": "Continuous root-relative heading, compensated for splay; 45 degree default replaces straight rest."
+    }
+  ],
+  "new_module": "CUP_ROOT / cup_d0_lod0..2.glb"
+}

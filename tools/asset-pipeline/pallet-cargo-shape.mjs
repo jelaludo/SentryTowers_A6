@@ -1,12 +1,12 @@
 import * as T from 'three';
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
 import {mergeGeometries, mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
-import {applyStride, STATIONS, STANDARD} from '../../assets/pallet-cargo/runtime.js';
+import {applyStride,applyCup,STATIONS,STANDARD,STRIDE,CUP} from '../../assets/pallet-cargo/runtime.js';
 
 const C={ivory:0xd8cfbc,edge:0xb9b3a6,dark:0x30383d,rubber:0x1d252a,steel:0x879399,amber:0xe4a83e,light:0xffd177,glass:0x142c36};
 const Y=new T.Vector3(0,1,0);
 export function buildModule(module,lod=0){
- const root=new T.Group();root.name=module==='pallet'?'PALLET_ROOT':module==='stride'?'STRIDE_ROOT':'CRATE_ROOT';
+ const root=new T.Group();root.name=module.toUpperCase()+'_ROOT';
  root.userData={family:'pallet_cargo',module,lod,damage_level:0,static:lod===2,standard:'PCS_120_100_V1',units:'metres',...STANDARD};
  const material=new T.MeshStandardMaterial({name:'PCS_PALETTE',vertexColors:true,roughness:.59,metalness:.28});
  const n=lod===0?32:lod===1?12:6;
@@ -29,6 +29,15 @@ export function buildModule(module,lod=0){
  }
  function bolt(p,rot=[0,0,0]){return cyl(.006,.003,C.steel,p,rot,6);}
  function socket(name,parent,p,kind){const axis=kind.startsWith('fork')?'+Z':kind==='tow'?'-Z':kind==='wheel_centre'?'+X':'+Y';return group(name,parent,p,{kind,axis,standard:'PCS_120_100_V1'});}
+ function wheelItems(radius,width){
+  const wn=lod===2?8:n,rot=[0,0,Math.PI/2];
+  const a=[cyl(lod===2?radius:radius-.012,width,C.rubber,[0,0,0],rot,wn),cyl(radius*.55,width+.01,C.ivory,[0,0,0],rot,wn),cyl(radius*.28,width+.022,C.amber,[0,0,0],rot,wn)];
+  if(lod<2){a.push(cyl(radius*.69,width+.007,C.dark,[0,0,0],rot),cyl(radius*.40,width+.017,C.steel,[0,0,0],rot));const count=lod===0?28:16;
+   for(let i=0;i<count;i++){const ang=i/count*Math.PI*2,half=Math.PI/count*.77;for(const side of [-1,1]){const vs=[];for(const x of (side<0?[-width/2,-.004]:[.004,width/2]))for(const t of [ang-half,ang,ang+half])for(const r of [radius-.017,radius])vs.push(new T.Vector3(x,r*Math.cos(t),r*Math.sin(t)));a.push([new ConvexGeometry(vs),C.dark]);}}
+  }
+  if(lod===0)for(let i=0;i<6;i++){const t=i/6*Math.PI*2;a.push(cyl(.007,width+.022,C.dark,[0,radius*.455*Math.cos(t),radius*.455*Math.sin(t)],rot,6));}
+  return a;
+ }
  if(module==='pallet'){
   const a=[];
   // Three runners and nine spacer blocks leave genuinely open four-way fork entries.
@@ -62,6 +71,7 @@ export function buildModule(module,lod=0){
   mesh('CRATE_SURFACE',root,a);socket('SOCKET_STACK',root,[0,.36,0],'crate_origin');
  }
  if(module==='stride'){
+  root.userData.revision=2;root.userData.suspension=STRIDE;
   const body=group('CHASSIS_HEAVE',root,[0,.68,0],{axis:'+Y',range_m:[.60,.76]});
   const a=[box([1.10,.145,.90],C.dark,[0,-.03,0],.04),box([1.18,.075,.98],C.ivory,[0,.07,0],.025),box([.68,.07,.62],C.dark,[0,-.13,0],.03)];
   for(const end of [-1,1]){
@@ -78,29 +88,58 @@ export function buildModule(module,lod=0){
   }
   mesh('CHASSIS_SURFACE',body,a);socket('SOCKET_PALLET',body,[0,.13,0],'pallet_origin');socket('SOCKET_TOW',body,[0,-.07,-.49],'tow');
   for(const {id,side,end} of STATIONS){
-   const hip=group('LEG_'+id+'_HIP_PITCH',body,[side*.59,-.055,end*.40],{axis:'+Z',engine_driven:true});
+   const mount=group('LEG_'+id+'_SPLAY_YAW',body,[side*.59,-.055,end*.40],{axis:'+Y',rest_angle_rad:-side*end*Math.PI/4});
+   const hip=group('LEG_'+id+'_HIP_PITCH',mount,[0,0,0],{axis:'+Z',engine_driven:true});
    const knee=group('LEG_'+id+'_KNEE_PITCH',hip,[0,-STANDARD.upper_m,0],{axis:'+Z',engine_driven:true});
-   const ankle=group('LEG_'+id+'_ANKLE_ROLL',knee,[0,-STANDARD.lower_m,0],{axis:'+Z',engine_driven:true});
-   const steer=group('WHEEL_'+id+'_YAW',ankle,[0,0,0],{axis:'+Y',range_rad:[-.6,.6],engine_driven:true});
-   const spin=group('WHEEL_'+id+'_ROLL',steer,[side*.065,0,0],{axis:'+X',engine_driven:true,radius_m:STANDARD.wheel_radius_m});
-   const upper=[cyl(.087,.14,C.dark,[0,0,0],[Math.PI/2,0,0]),cyl(.064,.148,C.steel,[0,0,0],[Math.PI/2,0,0]),cyl(.048,.153,C.amber,[0,0,0],[Math.PI/2,0,0]),box([.115,STANDARD.upper_m*.86,.115],C.ivory,[0,-STANDARD.upper_m*.52,0],.022)];
-   const lower=[cyl(.065,.13,C.dark,[0,0,0],[Math.PI/2,0,0]),cyl(.043,.139,C.amber,[0,0,0],[Math.PI/2,0,0]),cyl(.043,STANDARD.lower_m*.70,C.steel,[0,-STANDARD.lower_m*.50,0]),cyl(.060,.09,C.dark,[0,-STANDARD.lower_m*.14,0]),box([.095,.10,.125],C.ivory,[0,-STANDARD.lower_m*.87,0],.015)];
-   if(lod===0){for(const y of [-.075,-.21]){upper.push(bolt([.045,y,.061],[Math.PI/2,0,0]));}for(let k=0;k<5;k++)lower.push(cyl(.047,.008,C.dark,[0,-.06-k*.013,0]));upper.push(beam([-.045,-.04,-.07],[-.045,-.25,-.07],.015,C.dark));}
+   const slide=group('LEG_'+id+'_SUSPENSION_EXTEND',knee,[0,-STANDARD.lower_m,0],{axis:'-Y',stroke_m:STRIDE.stroke_m,engine_driven:true});
+   const ankle=group('LEG_'+id+'_ANKLE_ROLL',slide,[0,0,0],{axis:'+Z',engine_driven:true});
+   const steer=group('WHEEL_'+id+'_YAW',ankle,[0,0,0],{axis:'+Y',continuous_rotation:true,engine_driven:true});
+   const spin=group('WHEEL_'+id+'_ROLL',steer,[0,-STRIDE.kingpin_height_m,0],{axis:'+X',engine_driven:true,radius_m:STANDARD.wheel_radius_m});
+   const upper=[cyl(.087,.14,C.dark,[0,0,0],[Math.PI/2,0,0]),cyl(.064,.148,C.steel,[0,0,0],[Math.PI/2,0,0]),cyl(.048,.153,C.amber,[0,0,0],[Math.PI/2,0,0]),box([.145,STANDARD.upper_m*.86,.13],C.ivory,[0,-STANDARD.upper_m*.52,0],lod<2?.022:0)];
+   const lower=[cyl(.065,.13,C.dark,[0,0,0],[Math.PI/2,0,0]),cyl(.043,.139,C.amber,[0,0,0],[Math.PI/2,0,0]),cyl(.049,.18,C.dark,[0,-.13,0]),cyl(.057,.025,C.steel,[0,-.215,0]),box([.125,.15,.025],C.ivory,[0,-.13,.051],lod<2?.01:0)];
+   if(lod===0){for(const y of [-.075,-.21])upper.push(bolt([.045,y,.068],[Math.PI/2,0,0]));for(let k=0;k<5;k++)lower.push(cyl(.051,.006,C.edge,[0,-.08-k*.022,0]));upper.push(beam([-.045,-.04,-.08],[-.045,-.25,-.08],.015,C.dark));}
    mesh('LEG_'+id+'_UPPER_SURFACE',hip,upper);mesh('LEG_'+id+'_LOWER_SURFACE',knee,lower);
-   mesh('LEG_'+id+'_UPRIGHT_SURFACE',steer,[box([.105,.14,.09],C.dark,[0,.01,0],.018),box([.18,.027,.17],C.ivory,[side*.04,.218,0],.012)]);
-   const r=STANDARD.wheel_radius_m;
-   const wn=lod===2?8:n;
-   const wheel=[cyl(lod===2?r:.193,.14,C.rubber,[0,0,0],[0,0,Math.PI/2],wn),cyl(.112,.15,C.ivory,[0,0,0],[0,0,Math.PI/2],wn),cyl(.082,.157,C.steel,[0,0,0],[0,0,Math.PI/2],wn),cyl(.057,.162,C.amber,[0,0,0],[0,0,Math.PI/2],wn)];
-   if(lod<2)wheel.push(cyl(.142,.147,C.dark,[0,0,0],[0,0,Math.PI/2]));
-   if(lod<2)for(let i=0;i<(lod===0?28:16);i++){
-    const count=lod===0?28:16,ang=i/count*Math.PI*2,half=Math.PI/count*.77;
-    for(const side2 of [-1,1]){const vs=[];for(const x of [side2*.035-.032,side2*.035+.032])for(const a of [ang-half,ang,ang+half])for(const radius of [.188,r])vs.push(new T.Vector3(x,radius*Math.cos(a),radius*Math.sin(a)));wheel.push([new ConvexGeometry(vs),C.dark]);}
-   }
-   if(lod===0)for(let i=0;i<6;i++){const ang=i/6*Math.PI*2;wheel.push(cyl(.007,.162,C.dark,[0,.093*Math.cos(ang),.093*Math.sin(ang)],[0,0,Math.PI/2],6));}
-   mesh('WHEEL_'+id+'_SURFACE',spin,wheel);socket('SOCKET_WHEEL_'+id,spin,[0,0,0],'wheel_centre');
+   mesh('LEG_'+id+'_SUSPENSION_ROD_SURFACE',slide,[cyl(.027,.23,C.steel,[0,.115,0]),cyl(.037,.025,C.amber,[0,.022,0])]);
+   const upright=[cyl(.05,.055,C.dark,[0,.035,0]),box([.22,.03,.19],C.ivory,[0,.13,0],lod<2?.012:0)];
+   for(const x of [-.10,.10])upright.push(box([.025,.23,.065],C.dark,[x,.015,0],lod<2?.009:0));
+   mesh('LEG_'+id+'_UPRIGHT_SURFACE',steer,upright);
+   mesh('WHEEL_'+id+'_SURFACE',spin,wheelItems(STANDARD.wheel_radius_m,.14));socket('SOCKET_WHEEL_'+id,spin,[0,0,0],'wheel_centre');
   }
   // Solve the shared nominal rest pose before merging the distance surface.
   root.userData.static=false;applyStride(root,{height:.68});root.userData.static=lod===2;
+ }
+ if(module==='cup'){
+  root.userData.revision=1;root.userData.tool='pressurized_bay_suction';root.userData.arm=CUP;
+  const body=group('CUP_CHASSIS',root),a=[box([.60,.16,.76],C.dark,[0,.24,0],.055),box([.68,.20,.82],C.ivory,[0,.40,0],.065),box([.46,.025,.43],C.edge,[0,.508,-.04],.018)];
+  for(const end of [-1,1]){a.push(box([.42,.08,.025],C.dark,[0,.38,end*.406],.012),box([.24,.024,.029],C.amber,[0,.386,end*.421],.004));for(const x of [-.27,.27])a.push(cyl(.014,.024,C.glass,[x,.41,end*.414],[Math.PI/2,0,0]));}
+  a.push(cyl(.046,.035,C.dark,[-.23,.52,-.27]),cyl(.035,.015,C.amber,[-.23,.545,-.27]));
+  if(lod<2)for(let i=0;i<7;i++)a.push(box([.025,.05,.016],C.dark,[.335,.41,-.19+i*.05]));
+  if(lod===0)for(const x of [-.27,.27])for(const z of [-.30,.30])a.push(bolt([x,.485,z]));
+  mesh('CUP_CHASSIS_SURFACE',body,a);
+  for(const {id,side,end} of STATIONS){const spin=group('CUP_WHEEL_'+id+'_ROLL',body,[side*.36,.18,end*.30],{axis:'+X',engine_driven:true});mesh('CUP_WHEEL_'+id+'_SURFACE',spin,wheelItems(.18,.12));socket('SOCKET_CUP_WHEEL_'+id,spin,[0,0,0],'wheel_centre');}
+  const base=group('CUP_BASE_YAW',body,[0,.52,0],{axis:'+Y',continuous_rotation:true,engine_driven:true});
+  const collar=[cyl(.115,.07,C.ivory,[0,.035,0]),cyl(.09,.035,C.dark,[0,.078,0])];if(lod===0)for(let i=0;i<5;i++)collar.push(cyl(.096,.008,C.dark,[0,.055+i*.012,0]));mesh('CUP_TURNTABLE_SURFACE',base,collar);
+  const shoulder=group('CUP_SHOULDER_PITCH',base,[0,.08,0],{axis:'+X',engine_driven:true});
+  const elbow=group('CUP_ELBOW_PITCH',shoulder,[0,CUP.upper_m,0],{axis:'+X',engine_driven:true});
+  const wrist=group('CUP_WRIST_LEVEL',elbow,[0,CUP.fore_m,0],{axes:['+X','+Y'],engine_driven:true});
+  for(const [joint,len,label,width] of [[shoulder,CUP.upper_m,'UPPER',.13],[elbow,CUP.fore_m,'FORE',.115]]){
+   const a=[cyl(.086,.17,C.dark,[0,0,0],[0,0,Math.PI/2],Math.max(n,12)),cyl(.062,.18,C.steel,[0,0,0],[0,0,Math.PI/2],Math.max(n,12)),cyl(.045,.186,C.amber,[0,0,0],[0,0,Math.PI/2],Math.max(n,12)),box([width,len-.12,.125],C.ivory,[0,len/2,0],lod<2?.025:0)];
+   a.push(beam([0,.11,-.075],[0,len-.12,-.075],.025,C.dark),beam([0,len*.45,-.076],[0,len-.04,-.076],.014,C.steel));
+   if(lod===0)for(const y of [.14,len-.14])for(const x of [-.045,.045])a.push(bolt([x,y,.064],[Math.PI/2,0,0]));
+   mesh('CUP_ARM_'+label+'_SURFACE',joint,a);
+  }
+  const head=[cyl(.062,.10,C.dark,[0,-.005,0]),cyl(.068,.025,C.steel,[0,-.045,0]),box([.38,.025,.055],C.ivory,[0,-.075,0],.008),box([.055,.025,.30],C.ivory,[0,-.075,0],.008)];
+  for(const {id,side,end} of STATIONS){
+   const x=side*.16,z=end*.12;
+   head.push(beam([0,-.075,0],[x,-.075,z],.014,C.steel),cyl(.022,.04,C.steel,[x,-.095,z]),cyl(.024,.01,C.amber,[x,-.11,z]));
+   if(lod===0){const curve=new T.CatmullRomCurve3([new T.Vector3(0,-.035,0),new T.Vector3(x*.5,.015,z*.5),new T.Vector3(x,-.07,z)]);head.push([new T.TubeGeometry(curve,12,.008,6,false),C.rubber]);}
+   const pad=group('CUP_PAD_'+id+'_COMPRESS',wrist,[x,-.10,z],{axis:'+Y',scale_range:[.82,1],engine_driven:true});
+   const profile=lod<2?[[.039,-.12],[.055,-.12],[.055,-.111],[.036,-.097],[.040,-.091],[.040,-.083],[.028,-.073],[.034,-.067],[.034,-.059],[.024,-.049],[.029,-.043],[.029,-.035],[.018,-.025],[.018,0],[.012,0],[.012,-.08],[.039,-.12]]:[[.039,-.12],[.055,-.12],[.055,-.11],[.020,-.025],[.020,0],[.012,0],[.012,-.08],[.039,-.12]];
+   mesh('CUP_PAD_'+id+'_SURFACE',pad,[[new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),lod===0?32:8),C.rubber]]);
+   const contact=socket('SOCKET_CUP_PAD_'+id,pad,[0,-.12,0],'suction_contact');contact.userData.axis='-Y';
+  }
+  mesh('CUP_TOOL_SURFACE',wrist,head);const grip=socket('SOCKET_CARGO_GRIP',wrist,[0,-.22,0],'crate_top');grip.userData.axis='-Y';
+  root.userData.static=false;applyCup(root);root.userData.static=lod===2;
  }
  root.updateMatrixWorld(true);
  if(lod===2){const meshes=[],gs=[];root.traverse(o=>{if(o.isMesh){meshes.push(o);gs.push(o.geometry.clone().applyMatrix4(o.matrixWorld));}});for(const m of meshes){const g=group(m.name,m.parent,m.position.toArray(),{lookup_only:true});g.quaternion.copy(m.quaternion);m.removeFromParent();}const m=new T.Mesh(mergeVertices(mergeGeometries(gs),1e-6),material);m.name=module.toUpperCase()+'_STATIC_SURFACE';root.add(m);}

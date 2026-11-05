@@ -1,34 +1,38 @@
-# PCS / Pallet cargo standard — P-01 + STRIDE-01
+# PCS / P-01, STRIDE-01 and CUP-01
 
-First prototype in the standardized pallet logistics series. **P-01** is a passive reusable pallet; **STRIDE-01** is an articulated carrier for moving the complete pallet from A to B. A quarter-footprint crate is included as an optional cargo gauge and reusable prop. Original geometry interprets the supplied cream, graphite and amber references. Dimensions and PCS are provisional project choices, not an external industry standard or an engineered load rating.
+Revision 2 gives STRIDE a 45-degree corner stance, independently swivelling wheels and compact telescopic suspension inspired by the repository's Nih-Dairia mechanism. CUP-01 is a separate pressurized-bay loader with four flexible suction cups, an articulated arm and a complete pallet-to-pallet crate transfer study. The original cream/graphite/amber visual language and provisional 1.20 × 1.00 m pallet standard remain.
 
-## Files, tiers and coordinates
+## Files and preservation
 
-Nine self-contained plain GLBs are authoritative. Optional `derived/meshopt/` files are compressed derivatives, validated after decoding. LOD0 is the detailed recording master; repeatable authoring source: `tools/asset-pipeline/pallet-cargo-shape.mjs`. LOD1 is reduced and articulated. LOD2 is reduced geometry merged into one static mesh/material per module; matching lookup hierarchy/rest frames remain but must not be articulated. Previews are derived browser renders, not concept art.
+Twelve self-contained plain GLBs are authoritative. Each module has a detailed recording master (LOD0), articulated/reduced game version (LOD1) and one-mesh/one-material static loading/map version (LOD2). `derived/meshopt/` contains optional compressed copies validated after decoding. All files use metres, +Y up, +Z forward and ground-centred module origins; one vertex-colour palette, no external textures and no baked clips. D0 is the only authored damage state. LOD2 preserves the same named lookup hierarchy/rest frames but ignores articulation.
 
-Metres, +Y up, +Z forward, ground-centred roots: `PALLET_ROOT`, `STRIDE_ROOT`, `CRATE_ROOT`. Names, parent/rest frames, bounds, sockets and gameplay metadata are consistent across tiers. **D0 intact only**; D1–D3 are future damage work, independent of LOD. Each module uses one vertex-colour palette, no textures and no baked clips.
+`revisions/r1/` preserves the first release from commit `610d174e57cb488bf3fbbd4a54ee43d6147d1872`, including all original exports, runtime, manifest, reports, previews and source snapshots. `preservation.json` records their hashes. Current pallet and crate GLBs, including their Meshopt copies, remain byte-identical. STRIDE's older engine node names remain, but new splay/slide parents and wheel-centred steering change its rig frames: deploy r2 model and r2 runtime together. `revision-2.json` documents that migration; the archived source snapshots restore their original relative locations when used with the original checkout.
 
-## Interface / PCS_120_100_V1
+## Shared cargo interface
 
-- Pallet: **1.20 × 1.00 × 0.16 m**. Three bottom runners, nine spacer blocks and five slats. Four-way fork access: front lanes 390 mm wide, side lanes 290 mm wide, vertical clearance 95 mm. This describes clear geometry, not certification for an existing forklift.
-- Lock pattern: **X ±0.53 / Z ±0.43 m** (1.06 × 0.86 m pitch). `SOCKET_BOTTOM_LOCK_FL/FR/RL/RR` at Y=0 and `SOCKET_TOP_LOCK_*` at Y=0.16. FL/FR use +Z; L/R use −X/+X. Receiver axis: +Y.
-- `SOCKET_CARGO` and `SOCKET_STACK`: (0, 0.16, 0). Empty pallet stack pitch: 0.16 m. Silver receivers and amber tags are passive; the pallet has no electronics or moving rig.
-- Parent a pallet with identity local transform to STRIDE's `SOCKET_PALLET`, under `CHASSIS_HEAVE`. At nominal chassis height 0.68 m, pallet origin is Y=0.81 m and deck Y=0.97 m. Four `SOCKET_PALLET_LOCK_*` meet the bottom sockets exactly. The viewer uses equivalent world placement for module separation.
-- Crate: **0.56 × 0.46 × 0.36 m**. Four use centres X=±0.30 / Z=±0.25 above `SOCKET_CARGO`, leaving 40 mm gaps. Crate stack socket: Y=0.36. Individual crate restraints and opening lids are not yet rigged.
-- STRIDE nominal envelope: **2.072 × 1.210 × 0.833 m** before pallet/cargo. Reserve a 2.2 × 1.4 m plot in the straight pose; steering changes the swept envelope. No collision mesh, load rating, traction or loading mechanism is supplied.
+P-01 remains **1.20 × 1.00 × 0.16 m**. Its five slats, three runners and nine spacers provide four-way fork entries: 390 mm front-lane width, 290 mm side-lane width, 95 mm height. Four locks are at X=±0.53 / Z=±0.43 m, with bottom sockets at Y=0 and top sockets at Y=0.16. FL/FR are +Z; L/R are −X/+X. Locks face +Y. `SOCKET_CARGO` and `SOCKET_STACK` are (0, 0.16, 0); empty return pitch is 160 mm. The pallet is passive.
 
-## Runtime and LOD selection
+Parent `PALLET_ROOT` with identity local transform to STRIDE's `SOCKET_PALLET`, under `CHASSIS_HEAVE`. At nominal chassis height 0.68 m, pallet origin is Y=0.81 and deck Y=0.97. All four `SOCKET_PALLET_LOCK_*` match `SOCKET_BOTTOM_LOCK_*` through the lift range. Quarter-footprint crates remain **0.56 × 0.46 × 0.36 m**, on a 600 × 500 mm cell grid, with 40 mm gaps and a top stack socket at Y=0.36. Individual crate restraints and opening lids are not rigged.
 
-Import `applyStride` and `transportPose` from `runtime.js`. Pass the actual `STRIDE_ROOT` object to `applyStride(root, {height, steer, travel, lock})`.
+## STRIDE / 45-degree stance and suspension
 
-- `CHASSIS_HEAVE`: local Y position clamped to 0.60–0.76 m. Two-link IK uses 0.30 m upper and 0.34 m lower links, keeping wheel centres at Y=0.205 m on a level floor.
-- `LEG_{id}_HIP_PITCH`, `LEG_{id}_KNEE_PITCH`, `LEG_{id}_ANKLE_ROLL`: local Z motors. The ankle cancels accumulated link angles. Names are semantic; the exact axes are declared in node metadata.
-- `WHEEL_{id}_YAW`: local Y, front/rear counter-phase ±0.6 rad for inspection. `WHEEL_{id}_ROLL`: local X, signed travel / 0.205 m radius. Transport uses straight steering.
-- `LOCK_{id}_YAW`: local Y, 0 open to π/2 secured; normalized `lock` input 0–1. These are visual quarter-turn heads; detailed receiver internals and mechanical strength remain future engineering work.
+`applyStride(STRIDE_ROOT, options)` accepts `height` (0.60–0.76 m), `steer` (common heading in radians), `headings` (independent FL/FR/RL/RR headings), `travel` / `wheelTravel` (signed metres), `suspension` (independent signed metres, −0.035…+0.035), and `lock` (0 open to 1 secured). Omitting steer/headings uses the 45-degree ready stance. Headings are relative to the robot root, measured from +Z toward +X. There is no ±34-degree steering limit: all four kingpins support continuous rotation.
 
-**Pallet_Transport_Cycle** is a **20-second looping runtime study**, not a GLB clip: hold at A (0–2 s), move 3.4 m to B (2–8 s), hold (8–12 s), reverse to A (12–18 s), hold (18–20 s). Smooth travel drives rolling. Cargo stays secured throughout; delivery is a position hold. Unloading, independent pallet exchange, pathfinding and physical terrain solving are not implemented.
+Each `LEG_{id}_SPLAY_YAW` turns its corner outward 45 degrees. Existing hip/knee motors rotate local Z; a new `LEG_{id}_SUSPENSION_EXTEND` translates along local −Y. The upper link is 0.30 m and the lower knee-to-ankle span is 0.34 m plus the requested stroke. The fixed dark barrel receives a rigid silver rod with at least 75 mm overlap; rod diameter/length are never scaled. `LEG_{id}_ANKLE_ROLL` cancels leg pitch. `WHEEL_{id}_YAW` rotates about local Y through the wheel centre line; `WHEEL_{id}_ROLL` is local X at a 0.205 m radius. The wheel centre is 0.10 m below its kingpin. Steering does not orbit the contact centre.
 
-Use LOD1 before gameplay articulation; explicitly select LOD0 for recordings. Proposed loading/map policy: distance first, game inside 150 m, static beyond 170 m. These thresholds are unmeasured and provisional. Shared geometry/palette support downstream instancing; viewer crate and return-stack repetitions share geometry but use individual draws. Static tiers ignore articulation commands.
+Wheel centres remain at X=±(0.59+0.43/√2), Z=±(0.40+0.43/√2), Y=0.205 on a level floor. Nominal measured envelope: approximately **2.177 × 1.797 × 0.833 m** before cargo. Reserve **2.4 × 2.0 m** for the straight chassis and swivel sweep. The original pallet lock/deck heights are unchanged.
+
+`strideStudy(time, mode)` offers forward, sideways and diagonal 20-second travel loops, a 20-second **one-shot** 360-degree turn and a six-second independent suspension loop. Body heading stays fixed during crab/diagonal travel. Turning uses per-wheel tangent headings and path lengths. Named studies and durations are in the manifest. The turn stops after one revolution rather than resetting wheel roll at its boundary. These are kinematic studies, not navigation, terrain or force simulation.
+
+## CUP / suction transport
+
+CUP has a compact four-wheel base, 360-degree arm base yaw, 0.64 m upper arm, 0.60 m forearm and a counter-rotating wrist. `applyCup(CUP_ROOT, {target, vacuum, travel})` aims at a crate-top contact point in robot-root metres, compresses the four rubber bellows by up to 18%, and keeps the head level and square. Metal rods and the spreader remain rigid. `CUP_SHOULDER_PITCH` and `CUP_ELBOW_PITCH` rotate local X; `CUP_WRIST_LEVEL` cancels both pitch and base yaw. The adapter rejects unreachable targets.
+
+Four `CUP_PAD_{id}_COMPRESS` controls sit at X=±0.16 / Z=±0.12 m. `SOCKET_CUP_PAD_*` describes each lip contact; all face −Y and stay coplanar. `SOCKET_CARGO_GRIP` is the centre of that plane. Attach a crate there with local translation (0, −0.36, 0) and identity rotation. Rubber compression changes the lip offset from 0.22 to 0.1984 m; the solver compensates to keep contact fixed. The base wheels have a 0.18 m rolling radius. Reserve **2.8 × 2.8 m** for the arm's operating area, plus pallet stations.
+
+`cupTransferPose(time)` is a **24-second looping pick–transfer–release study**. Each 12-second half hovers, lowers to the lid, establishes suction, lifts, sweeps to the opposite pallet, lowers, releases only after support and retracts. The second half returns the same crate, closing the loop without teleporting. Pallets are centred at X=±0.95 / Z=1.05; the two exchange cells are X=±0.65 / Z=0.80. Cargo lifts to a 0.94 m lid height, giving its bottom 60 mm clearance above neighbouring 0.52 m-high cargo during the sweep. The other six crates remain stationary. The moving crate follows the grip only after sealing and is supported before release. Manual inspection adjusts yaw, horizontal reach, contact height and seal compression.
+
+CUP is a pressurized-bay handling concept, following the reference. Seal geometry, grip state and motion are modelled; pressure, leakage, payload strength, robot balance and general collision/force behaviour are not simulated. The arm moves cargo between pallets; independent wheeled base driving/navigation is not part of this transfer study.
 
 ## Measured exports
 
@@ -37,25 +41,24 @@ Use LOD1 before gameplay articulation; explicitly select LOD0 for recordings. Pr
 | pallet | LOD0 | 3,284 | 1 | 220,608 | 53,988 |
 | pallet | LOD1 | 1,012 | 1 | 75,068 | 21,744 |
 | pallet | LOD2 | 372 | 1 | 32,404 | 11,184 |
-| stride | LOD0 | 16,372 | 21 | 913,996 | 151,992 |
-| stride | LOD1 | 6,236 | 21 | 421,668 | 89,640 |
-| stride | LOD2 | 2,876 | 1 | 196,144 | 60,208 |
+| stride | LOD0 | 18,084 | 25 | 999,964 | 162,184 |
+| stride | LOD1 | 6,988 | 25 | 467,316 | 95,624 |
+| stride | LOD2 | 2,572 | 1 | 164,400 | 55,440 |
 | crate | LOD0 | 792 | 1 | 68,736 | 19,396 |
 | crate | LOD1 | 716 | 1 | 62,232 | 17,876 |
 | crate | LOD2 | 372 | 1 | 32,572 | 10,132 |
+| cup | LOD0 | 16,472 | 13 | 774,084 | 143,628 |
+| cup | LOD1 | 5,944 | 13 | 341,888 | 75,512 |
+| cup | LOD2 | 2,164 | 1 | 110,424 | 35,180 |
 
-Pallet/crate game meet the 1.5k-triangle / five-draw base-piece target. STRIDE game meets the 25k articulated-unit triangle target; 21 draws retain independent locks, links, uprights and wheels. Its 421,668 plain bytes exceed the separate 400 KB landmark reference; the contract specifies no unit byte cap. All distance modules meet 3k triangles / one draw / 250 KB. No FPS or reference-phone performance claim is made.
+Pallet/crate game tiers meet the 1.5k-triangle / five-draw base-piece target. STRIDE and CUP meet the 25k articulated-unit triangle target. Their 25 / 13 game draws retain the separate moving mechanisms. All distance exports meet 3k triangles / one draw / 250 KB. No FPS or phone-performance improvement is claimed. Game STRIDE is above the separate landmark byte reference; the contract specifies no unit byte cap.
 
-## Viewer and validation
+## Viewer, validation and handoff
 
-Route: `pallet-cargo/`. Assembly, pallet, carrier, five-pallet return stack and crate views; tier/encoding, cargo, separation, transport, pause/reset/scrub, lift, steering, locks, sockets, wireframe, four cameras, fit, fullscreen and per-module downloads. Static distance disables rig controls. Shared navigation is generated by `tools/build-workshop-docs.py`.
+Open `pallet-cargo/`; `?module=cup-loading` selects CUP's two-pallet station and `?module=cup` isolates the loader. Seven configurations, three tiers, two encodings, full-circle individual wheel controls, per-wheel suspension, five STRIDE motion studies and CUP grip/transfer controls are included. Static distance disables motion. Downloads, sockets, wireframe, cameras, fullscreen, desktop/mobile layouts and shared Workshop navigation remain. The repeatable detailed source is `tools/asset-pipeline/pallet-cargo-shape.mjs`.
 
-Build: `node tools/asset-pipeline/build-pallet-cargo.mjs`. Validate: `node tools/asset-pipeline/validate-pallet-cargo.mjs`. Browser checks: `node tools/asset-pipeline/test-pallet-cargo-viewer.mjs`, with the repository served and local Playwright/Chromium paths supplied via environment variables if necessary.
+Build with `node tools/asset-pipeline/build-pallet-cargo.mjs`. Validate with `node tools/asset-pipeline/validate-pallet-cargo.mjs`; browser checks use `node tools/asset-pipeline/test-pallet-cargo-viewer.mjs` with a repository server and local Playwright/Chromium paths. `validation-report.json` covers all 24 plain/decoded exports, 756 STRIDE poses and 5,764 CUP poses: zero glTF errors/warnings, finite nondegenerate geometry, tier bounds/frames/names, independent steering, planted wheel centres, rigid rod overlap, four level seals, supported cargo transfer and stored-cargo AABB clearance. `viewer-validation.json` covers 42 configuration/tier/encoding combinations, manual/motion controls, downloads and desktop/mobile framing. General arm-versus-scene self-collision is not certified.
 
-`validation-report.json` records 18 plain/decoded files with zero glTF errors/warnings, finite nondegenerate geometry, stable names/frames/bounds, clear fork passages, exact pallet/crate envelopes, 324 suspension/steering/rolling poses, matching locks and static lockout. 1,201 transport samples check travel range and cycle continuity. `viewer-validation.json` covers 30 configuration/tier/encoding combinations, downloads, controls, four cameras, desktop/mobile framing and zero browser errors. These are geometry and kinematic checks, not general self-collision, terrain or force certification.
+Use LOD0 for close recording, LOD1 before articulation, and LOD2 for static loading/map use. Proposed thresholds remain game inside 150 m / distance beyond 170 m; tune in the consuming game. Plain GLBs are authoritative; compressed copies, static merged surfaces and previews are derived. Hand off the **containing commit plus `assets/pallet-cargo/`**, pinning manifest hashes. Credit: **Models by jelaludo**. The received collaboration contract and Nih-Dairia assets are unchanged.
 
-## Handoff and pending requests
-
-Hand off the **containing repository commit plus `assets/pallet-cargo/`**, pinning individual SHA-256 values from `manifest.json`. Include the viewer/generator for review or re-authoring. Credit: **Models by jelaludo**. Concept provenance is in `reference-provenance.json`; user originals remain unchanged outside the repository. Existing asset families and the received collaboration contract are unchanged.
-
-Completed: P-01, STRIDE-01, optional crate, three tiers, compatible sockets, level-floor articulation, 20-second transport, viewer, previews and measured validation. Pending: visual acceptance and dimension confirmation, D1–D3, physical locks/load rating, pickup/drop-off, terrain/collision/traction, consuming-game r160/release gltfpack checks, LOD thresholds and phone acceptance. CUP, STEP and the return rack are possible later assets, not delivered models.
+Completed: STRIDE's diagonal/omnidirectional stance, compact suspension, CUP model and suction transfer, all tiers, preserved originals, viewer and measured validation. Pending: visual acceptance, physical locks/suction/load rating, STRIDE pallet pickup/drop-off, arbitrary terrain/traction/collision, damage D1–D3, consuming-game r160/release packing and phone acceptance. STEP and the return rack remain future variants.

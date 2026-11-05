@@ -1,0 +1,372 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL, visual/function checks; not a performance benchmark",
+  "combinations": [
+    {
+      "mode": "assembly",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 6,
+      "triangles": 22824,
+      "draws": 26,
+      "render_calls": 28
+    },
+    {
+      "mode": "assembly",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 6,
+      "triangles": 22824,
+      "draws": 26,
+      "render_calls": 28
+    },
+    {
+      "mode": "assembly",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 6,
+      "triangles": 10112,
+      "draws": 26,
+      "render_calls": 28
+    },
+    {
+      "mode": "assembly",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 6,
+      "triangles": 10112,
+      "draws": 26,
+      "render_calls": 28
+    },
+    {
+      "mode": "assembly",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 6,
+      "triangles": 4736,
+      "draws": 6,
+      "render_calls": 8
+    },
+    {
+      "mode": "assembly",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 6,
+      "triangles": 4736,
+      "draws": 6,
+      "render_calls": 8
+    },
+    {
+      "mode": "pallet",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 3284,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "pallet",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 3284,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "pallet",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 1012,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "pallet",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 1012,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "pallet",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 372,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "pallet",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 372,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "stride",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 16372,
+      "draws": 21,
+      "render_calls": 23
+    },
+    {
+      "mode": "stride",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 16372,
+      "draws": 21,
+      "render_calls": 23
+    },
+    {
+      "mode": "stride",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 6236,
+      "draws": 21,
+      "render_calls": 23
+    },
+    {
+      "mode": "stride",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 6236,
+      "draws": 21,
+      "render_calls": 23
+    },
+    {
+      "mode": "stride",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 2876,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "stride",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 2876,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "stack",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 5,
+      "triangles": 16420,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "stack",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 5,
+      "triangles": 16420,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "stack",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 5,
+      "triangles": 5060,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "stack",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 5,
+      "triangles": 5060,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "stack",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 5,
+      "triangles": 1860,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "stack",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 5,
+      "triangles": 1860,
+      "draws": 5,
+      "render_calls": 7
+    },
+    {
+      "mode": "crate",
+      "lod": 0,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 792,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "crate",
+      "lod": 0,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 792,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "crate",
+      "lod": 1,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 716,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "crate",
+      "lod": 1,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 716,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "crate",
+      "lod": 2,
+      "encoding": "plain",
+      "models": 1,
+      "triangles": 372,
+      "draws": 1,
+      "render_calls": 3
+    },
+    {
+      "mode": "crate",
+      "lod": 2,
+      "encoding": "meshopt",
+      "models": 1,
+      "triangles": 372,
+      "draws": 1,
+      "render_calls": 3
+    }
+  ],
+  "transport_positions": [
+    {
+      "time": 0,
+      "z": -1.7
+    },
+    {
+      "time": 2,
+      "z": -1.7
+    },
+    {
+      "time": 5,
+      "z": 0
+    },
+    {
+      "time": 8,
+      "z": 1.7
+    },
+    {
+      "time": 10,
+      "z": 1.7
+    },
+    {
+      "time": 12,
+      "z": 1.7
+    },
+    {
+      "time": 15,
+      "z": 0
+    },
+    {
+      "time": 18,
+      "z": -1.7
+    },
+    {
+      "time": 20,
+      "z": -1.7
+    }
+  ],
+  "checks": [
+    "30 configuration/tier/encoding combinations",
+    "all selected GLB downloads",
+    "manual lift, steering and quarter-turn locks",
+    "separation, cargo, sockets and wireframe controls",
+    "A-to-B motion, scrubbing and static lockout",
+    "four cameras with model in frame",
+    "desktop and 390px mobile framing/layout",
+    "shared Workshop navigation",
+    "zero browser errors"
+  ],
+  "hashes": [
+    {
+      "file": "pallet_d0_lod0.glb",
+      "sha256": "f4e868f9bec83f26fd70658bd38ee877d08145f1630aa10f396a48a6ec21e822",
+      "meshopt_sha256": "8d9b5c61ee73a3a253d9c4e144aab3ef2c591e2846e48ad4886086b8e0ad1ac7"
+    },
+    {
+      "file": "pallet_d0_lod1.glb",
+      "sha256": "041f22e12568fe95c283947f7099676517d710ee17f01a4c0fc97aea2b47d2a4",
+      "meshopt_sha256": "dd8c954d9cd491f7f2e0c399898a80ab73c62fca85ca502a3d9e4b615937f68f"
+    },
+    {
+      "file": "pallet_d0_lod2.glb",
+      "sha256": "bdd03df8c456f211d6e70477ff271fadf146cf501b7835d955d6486b531c8d04",
+      "meshopt_sha256": "3be561ef8f7b99851e5255f19e0cd5906086aa0a3a2d97a66073751b47c0c308"
+    },
+    {
+      "file": "stride_d0_lod0.glb",
+      "sha256": "879cee68d69d52cdabea3853144e73c7d4c8b2220e32497670dbebf0949dd79e",
+      "meshopt_sha256": "9a24b3d19043546ef51cb7d3dd9b71528e6541e0ff46376e92e4a498d1239beb"
+    },
+    {
+      "file": "stride_d0_lod1.glb",
+      "sha256": "dd565d336f18d6106c6818797674a9a4cc7ba6f1c0e4bf92860231c85b0cb273",
+      "meshopt_sha256": "75badc729ac29ca0263c6880fdded7732e9c291046c386b3299f572e06dbf8f2"
+    },
+    {
+      "file": "stride_d0_lod2.glb",
+      "sha256": "e4ac2cffe9d5b9dc78f5f6ffe6bc1fab7a8c0160aed0f6a6e50c5e319f3d48b8",
+      "meshopt_sha256": "a19427bba2cb786ccba2e3ac8040f10d8c3ec368aec623613b984f3398d62ae1"
+    },
+    {
+      "file": "crate_d0_lod0.glb",
+      "sha256": "390b86195ef28959cba6cebab94e17b7a97cede87acdd6f1f3679525c96ab537",
+      "meshopt_sha256": "9ef9827c1387342d9fedad308053dda2b12c3447ff082777f7ccd7d37d0f6914"
+    },
+    {
+      "file": "crate_d0_lod1.glb",
+      "sha256": "e603cc1e30089abb995e573c9eb2c19cdf9611f82ba56e192a91ac1785847f72",
+      "meshopt_sha256": "90c52f7591794ff65b3f0171274a4ad72f99d0757c3ffa7d6eb31598213f9496"
+    },
+    {
+      "file": "crate_d0_lod2.glb",
+      "sha256": "0df16b1077949c996ed581a4ccb7b168ed564e0c67f5044fc671f30d2ace50df",
+      "meshopt_sha256": "ef3fbcda8c5c09aa084a9648ec8ba6c80548ecee46b472ffbbec1d63c63fdd9f"
+    }
+  ]
+}

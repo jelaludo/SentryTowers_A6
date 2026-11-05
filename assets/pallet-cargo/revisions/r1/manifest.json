@@ -1,0 +1,1585 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "pallet_cargo",
+  "label": "PCS / Pallet cargo standard — P-01 & STRIDE-01",
+  "status": "kinematic_prototype_pending_visual_and_game_review",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at module centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "standard": {
+    "id": "PCS_120_100_V1",
+    "status": "provisional_project_standard",
+    "pallet_m": [
+      1.2,
+      0.16,
+      1
+    ],
+    "lock_pitch_m": [
+      1.06,
+      0.86
+    ],
+    "upper_m": 0.3,
+    "lower_m": 0.34,
+    "wheel_radius_m": 0.205,
+    "pallet_stack_pitch_m": 0.16,
+    "crate_m": [
+      0.56,
+      0.36,
+      0.46
+    ],
+    "crate_cell_pitch_m": [
+      0.6,
+      0.5
+    ],
+    "carrier_attach": "Parent PALLET_ROOT at SOCKET_PALLET; identity local transform. The crate grid uses centres x=±0.30,z=±0.25 above SOCKET_CARGO.",
+    "lock_axes": "+Y; four quarter-turn heads, 0 open and PI/2 secured",
+    "fork_clearance_m": {
+      "front_width": 0.39,
+      "side_width": 0.29,
+      "height": 0.095
+    },
+    "load_rating": "Not specified; artwork and kinematic interface only."
+  },
+  "lod_selection": {
+    "lod0": "Close inspection and recordings, explicitly selected.",
+    "lod1": "Default articulated game asset; pallet and crates can be instanced.",
+    "lod2": "One static draw per module, loading/map/background only; use LOD1 before moving joints.",
+    "distance_first": true,
+    "game_enter_m": 150,
+    "distance_return_m": 170,
+    "threshold_status": "Provisional; tune in consuming game."
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "baked_clips": [],
+    "studies": [
+      {
+        "name": "Pallet_Transport_Cycle",
+        "duration_s": 20,
+        "loop": true,
+        "kind": "engine_driven_viewer_study"
+      }
+    ],
+    "controls": [
+      "chassis height 0.60–0.76 m",
+      "counter-phase wheel steering ±0.6 rad",
+      "wheel rolling from signed travel",
+      "four quarter-turn lock heads"
+    ],
+    "static_tier_articulation": false
+  },
+  "budgets": {
+    "pallet_game_triangles": 1500,
+    "crate_game_triangles": 1500,
+    "unit_game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "handoff": {
+    "folder": "assets/pallet-cargo/",
+    "pin": "Repository commit containing these files plus each SHA-256 below.",
+    "pending": [
+      "User visual review",
+      "Damage D1–D3",
+      "Load/unload choreography and physical lock engineering",
+      "Terrain, wheel traction and collision physics",
+      "Consuming-game r160/release packing and reference-phone acceptance",
+      "CUP and STEP alternatives"
+    ]
+  },
+  "assets": [
+    {
+      "module": "pallet",
+      "file": "pallet_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 220608,
+      "sha256": "f4e868f9bec83f26fd70658bd38ee877d08145f1630aa10f396a48a6ec21e822",
+      "triangles": 3284,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.6000000238418579,
+          -1.8626451769865326e-10,
+          -0.5
+        ],
+        "max": [
+          0.6000000238418579,
+          0.1599999964237213,
+          0.5
+        ],
+        "dimensions_m": [
+          1.2000000476837158,
+          0.15999999660998582,
+          1
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_TOP_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "cargo_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_STACK",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "empty_pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_FORK_L",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        },
+        {
+          "node": "SOCKET_FORK_R",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "PALLET_ROOT",
+        "SOCKET_TOP_LOCK_FL",
+        "SOCKET_BOTTOM_LOCK_FL",
+        "SOCKET_TOP_LOCK_FR",
+        "SOCKET_BOTTOM_LOCK_FR",
+        "SOCKET_TOP_LOCK_RL",
+        "SOCKET_BOTTOM_LOCK_RL",
+        "SOCKET_TOP_LOCK_RR",
+        "SOCKET_BOTTOM_LOCK_RR",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
+        "SOCKET_STACK",
+        "SOCKET_FORK_L",
+        "SOCKET_FORK_R"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/pallet_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 53988,
+      "meshopt_sha256": "8d9b5c61ee73a3a253d9c4e144aab3ef2c591e2846e48ad4886086b8e0ad1ac7",
+      "meshopt_derived": true
+    },
+    {
+      "module": "pallet",
+      "file": "pallet_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 75068,
+      "sha256": "041f22e12568fe95c283947f7099676517d710ee17f01a4c0fc97aea2b47d2a4",
+      "triangles": 1012,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.6000000238418579,
+          -1.8626451769865326e-10,
+          -0.5
+        ],
+        "max": [
+          0.6000000238418579,
+          0.1599999964237213,
+          0.5
+        ],
+        "dimensions_m": [
+          1.2000000476837158,
+          0.15999999660998582,
+          1
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_TOP_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "cargo_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_STACK",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "empty_pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_FORK_L",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        },
+        {
+          "node": "SOCKET_FORK_R",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "PALLET_ROOT",
+        "SOCKET_TOP_LOCK_FL",
+        "SOCKET_BOTTOM_LOCK_FL",
+        "SOCKET_TOP_LOCK_FR",
+        "SOCKET_BOTTOM_LOCK_FR",
+        "SOCKET_TOP_LOCK_RL",
+        "SOCKET_BOTTOM_LOCK_RL",
+        "SOCKET_TOP_LOCK_RR",
+        "SOCKET_BOTTOM_LOCK_RR",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
+        "SOCKET_STACK",
+        "SOCKET_FORK_L",
+        "SOCKET_FORK_R"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/pallet_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 21744,
+      "meshopt_sha256": "dd8c954d9cd491f7f2e0c399898a80ab73c62fca85ca502a3d9e4b615937f68f",
+      "meshopt_derived": true
+    },
+    {
+      "module": "pallet",
+      "file": "pallet_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "derived_note": "Reduced geometry merged into one static surface; lookup hierarchy retained.",
+      "bytes": 32404,
+      "sha256": "bdd03df8c456f211d6e70477ff271fadf146cf501b7835d955d6486b531c8d04",
+      "triangles": 372,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.6000000238418579,
+          -1.8626451769865326e-10,
+          -0.5
+        ],
+        "max": [
+          0.6000000238418579,
+          0.1599999964237213,
+          0.5
+        ],
+        "dimensions_m": [
+          1.2000000476837158,
+          0.15999999660998582,
+          1
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_TOP_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_FR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RL",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOP_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0.16,
+            -0.43
+          ],
+          "kind": "cargo_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_BOTTOM_LOCK_RR",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.53,
+            0,
+            -0.43
+          ],
+          "kind": "carrier_lock_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "cargo_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_STACK",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "empty_pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_FORK_L",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            -0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        },
+        {
+          "node": "SOCKET_FORK_R",
+          "parent": "PALLET_ROOT",
+          "position_m": [
+            0.265,
+            0.0725,
+            0.5
+          ],
+          "kind": "fork_entry_95mm_clearance",
+          "axis": "+Z"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "PALLET_ROOT",
+        "SOCKET_TOP_LOCK_FL",
+        "SOCKET_BOTTOM_LOCK_FL",
+        "SOCKET_TOP_LOCK_FR",
+        "SOCKET_BOTTOM_LOCK_FR",
+        "SOCKET_TOP_LOCK_RL",
+        "SOCKET_BOTTOM_LOCK_RL",
+        "SOCKET_TOP_LOCK_RR",
+        "SOCKET_BOTTOM_LOCK_RR",
+        "SOCKET_CARGO",
+        "SOCKET_STACK",
+        "SOCKET_FORK_L",
+        "SOCKET_FORK_R",
+        "PALLET_SURFACE",
+        "PALLET_STATIC_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/pallet_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 11184,
+      "meshopt_sha256": "3be561ef8f7b99851e5255f19e0cd5906086aa0a3a2d97a66073751b47c0c308",
+      "meshopt_derived": true
+    },
+    {
+      "module": "stride",
+      "file": "stride_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 913996,
+      "sha256": "879cee68d69d52cdabea3853144e73c7d4c8b2220e32497670dbebf0949dd79e",
+      "triangles": 16372,
+      "draw_calls": 21,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.2,
+        1.4
+      ],
+      "bounds": {
+        "min": [
+          -1.0360000002384184,
+          1.7881393032936899e-9,
+          -0.6049999982118607
+        ],
+        "max": [
+          1.0360000002384184,
+          0.8330000000447035,
+          0.6049999982118607
+        ],
+        "dimensions_m": [
+          2.072000000476837,
+          0.8329999982565642,
+          1.2099999964237214
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PALLET_LOCK_FL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_FR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.81,
+            0
+          ],
+          "kind": "pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOW",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.6100000000000001,
+            -0.49
+          ],
+          "kind": "tow",
+          "axis": "-Z"
+        },
+        {
+          "node": "SOCKET_WHEEL_FL",
+          "parent": "WHEEL_FL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_FR",
+          "parent": "WHEEL_FR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RL",
+          "parent": "WHEEL_RL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RR",
+          "parent": "WHEEL_RR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FR_YAW",
+        "LOCK_RL_YAW",
+        "LOCK_RR_YAW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL"
+      ],
+      "required_nodes": [
+        "STRIDE_ROOT",
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FL_SURFACE",
+        "SOCKET_PALLET_LOCK_FL",
+        "LOCK_FR_YAW",
+        "LOCK_FR_SURFACE",
+        "SOCKET_PALLET_LOCK_FR",
+        "LOCK_RL_YAW",
+        "LOCK_RL_SURFACE",
+        "SOCKET_PALLET_LOCK_RL",
+        "LOCK_RR_YAW",
+        "LOCK_RR_SURFACE",
+        "SOCKET_PALLET_LOCK_RR",
+        "CHASSIS_SURFACE",
+        "SOCKET_PALLET",
+        "SOCKET_TOW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "WHEEL_FL_SURFACE",
+        "SOCKET_WHEEL_FL",
+        "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_LOWER_SURFACE",
+        "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "WHEEL_FR_SURFACE",
+        "SOCKET_WHEEL_FR",
+        "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_LOWER_SURFACE",
+        "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "WHEEL_RL_SURFACE",
+        "SOCKET_WHEEL_RL",
+        "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_LOWER_SURFACE",
+        "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL",
+        "WHEEL_RR_SURFACE",
+        "SOCKET_WHEEL_RR",
+        "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_LOWER_SURFACE",
+        "LEG_RR_UPPER_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/stride_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 151992,
+      "meshopt_sha256": "9a24b3d19043546ef51cb7d3dd9b71528e6541e0ff46376e92e4a498d1239beb",
+      "meshopt_derived": true
+    },
+    {
+      "module": "stride",
+      "file": "stride_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 421668,
+      "sha256": "dd565d336f18d6106c6818797674a9a4cc7ba6f1c0e4bf92860231c85b0cb273",
+      "triangles": 6236,
+      "draw_calls": 21,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.2,
+        1.4
+      ],
+      "bounds": {
+        "min": [
+          -1.0360000002384184,
+          1.7881393032936899e-9,
+          -0.6049999982118607
+        ],
+        "max": [
+          1.0360000002384184,
+          0.8330000000447035,
+          0.6049999982118607
+        ],
+        "dimensions_m": [
+          2.072000000476837,
+          0.8329999982565642,
+          1.2099999964237214
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PALLET_LOCK_FL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_FR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.81,
+            0
+          ],
+          "kind": "pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOW",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.6100000000000001,
+            -0.49
+          ],
+          "kind": "tow",
+          "axis": "-Z"
+        },
+        {
+          "node": "SOCKET_WHEEL_FL",
+          "parent": "WHEEL_FL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_FR",
+          "parent": "WHEEL_FR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RL",
+          "parent": "WHEEL_RL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RR",
+          "parent": "WHEEL_RR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FR_YAW",
+        "LOCK_RL_YAW",
+        "LOCK_RR_YAW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL"
+      ],
+      "required_nodes": [
+        "STRIDE_ROOT",
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FL_SURFACE",
+        "SOCKET_PALLET_LOCK_FL",
+        "LOCK_FR_YAW",
+        "LOCK_FR_SURFACE",
+        "SOCKET_PALLET_LOCK_FR",
+        "LOCK_RL_YAW",
+        "LOCK_RL_SURFACE",
+        "SOCKET_PALLET_LOCK_RL",
+        "LOCK_RR_YAW",
+        "LOCK_RR_SURFACE",
+        "SOCKET_PALLET_LOCK_RR",
+        "CHASSIS_SURFACE",
+        "SOCKET_PALLET",
+        "SOCKET_TOW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "WHEEL_FL_SURFACE",
+        "SOCKET_WHEEL_FL",
+        "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_LOWER_SURFACE",
+        "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "WHEEL_FR_SURFACE",
+        "SOCKET_WHEEL_FR",
+        "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_LOWER_SURFACE",
+        "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "WHEEL_RL_SURFACE",
+        "SOCKET_WHEEL_RL",
+        "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_LOWER_SURFACE",
+        "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL",
+        "WHEEL_RR_SURFACE",
+        "SOCKET_WHEEL_RR",
+        "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_LOWER_SURFACE",
+        "LEG_RR_UPPER_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/stride_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 89640,
+      "meshopt_sha256": "75badc729ac29ca0263c6880fdded7732e9c291046c386b3299f572e06dbf8f2",
+      "meshopt_derived": true
+    },
+    {
+      "module": "stride",
+      "file": "stride_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "derived_note": "Reduced geometry merged into one static surface; lookup hierarchy retained.",
+      "bytes": 196144,
+      "sha256": "e4ac2cffe9d5b9dc78f5f6ffe6bc1fab7a8c0160aed0f6a6e50c5e319f3d48b8",
+      "triangles": 2876,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.2,
+        1.4
+      ],
+      "bounds": {
+        "min": [
+          -1.0360000133514404,
+          1.7881393032936899e-9,
+          -0.6050000190734863
+        ],
+        "max": [
+          1.0360000133514404,
+          0.8330000042915344,
+          0.6050000190734863
+        ],
+        "dimensions_m": [
+          2.072000026702881,
+          0.8330000025033951,
+          1.2100000381469727
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PALLET_LOCK_FL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_FR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RL",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            -0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET_LOCK_RR",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0.53,
+            0.81,
+            -0.43
+          ],
+          "kind": "pallet_bottom_receiver",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_PALLET",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.81,
+            0
+          ],
+          "kind": "pallet_origin",
+          "axis": "+Y"
+        },
+        {
+          "node": "SOCKET_TOW",
+          "parent": "CHASSIS_HEAVE",
+          "position_m": [
+            0,
+            0.6100000000000001,
+            -0.49
+          ],
+          "kind": "tow",
+          "axis": "-Z"
+        },
+        {
+          "node": "SOCKET_WHEEL_FL",
+          "parent": "WHEEL_FL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_FR",
+          "parent": "WHEEL_FR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RL",
+          "parent": "WHEEL_RL_ROLL",
+          "position_m": [
+            -0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_WHEEL_RR",
+          "parent": "WHEEL_RR_ROLL",
+          "position_m": [
+            0.9549999999999998,
+            0.20499999999999996,
+            -0.4
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FR_YAW",
+        "LOCK_RL_YAW",
+        "LOCK_RR_YAW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL"
+      ],
+      "required_nodes": [
+        "STRIDE_ROOT",
+        "CHASSIS_HEAVE",
+        "LOCK_FL_YAW",
+        "LOCK_FL_SURFACE",
+        "SOCKET_PALLET_LOCK_FL",
+        "LOCK_FR_YAW",
+        "LOCK_FR_SURFACE",
+        "SOCKET_PALLET_LOCK_FR",
+        "LOCK_RL_YAW",
+        "LOCK_RL_SURFACE",
+        "SOCKET_PALLET_LOCK_RL",
+        "LOCK_RR_YAW",
+        "LOCK_RR_SURFACE",
+        "SOCKET_PALLET_LOCK_RR",
+        "SOCKET_PALLET",
+        "SOCKET_TOW",
+        "LEG_FL_HIP_PITCH",
+        "LEG_FL_KNEE_PITCH",
+        "LEG_FL_ANKLE_ROLL",
+        "WHEEL_FL_YAW",
+        "WHEEL_FL_ROLL",
+        "SOCKET_WHEEL_FL",
+        "WHEEL_FL_SURFACE",
+        "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_LOWER_SURFACE",
+        "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_HIP_PITCH",
+        "LEG_FR_KNEE_PITCH",
+        "LEG_FR_ANKLE_ROLL",
+        "WHEEL_FR_YAW",
+        "WHEEL_FR_ROLL",
+        "SOCKET_WHEEL_FR",
+        "WHEEL_FR_SURFACE",
+        "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_LOWER_SURFACE",
+        "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_HIP_PITCH",
+        "LEG_RL_KNEE_PITCH",
+        "LEG_RL_ANKLE_ROLL",
+        "WHEEL_RL_YAW",
+        "WHEEL_RL_ROLL",
+        "SOCKET_WHEEL_RL",
+        "WHEEL_RL_SURFACE",
+        "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_LOWER_SURFACE",
+        "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_HIP_PITCH",
+        "LEG_RR_KNEE_PITCH",
+        "LEG_RR_ANKLE_ROLL",
+        "WHEEL_RR_YAW",
+        "WHEEL_RR_ROLL",
+        "SOCKET_WHEEL_RR",
+        "WHEEL_RR_SURFACE",
+        "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_LOWER_SURFACE",
+        "LEG_RR_UPPER_SURFACE",
+        "CHASSIS_SURFACE",
+        "STRIDE_STATIC_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/stride_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 60208,
+      "meshopt_sha256": "a19427bba2cb786ccba2e3ac8040f10d8c3ec368aec623613b984f3398d62ae1",
+      "meshopt_derived": true
+    },
+    {
+      "module": "crate",
+      "file": "crate_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 68736,
+      "sha256": "390b86195ef28959cba6cebab94e17b7a97cede87acdd6f1f3679525c96ab537",
+      "triangles": 792,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        0.6,
+        0.5
+      ],
+      "bounds": {
+        "min": [
+          -0.2800000011920929,
+          -3.7252903539730653e-10,
+          -0.23000000417232513
+        ],
+        "max": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.23000000417232513
+        ],
+        "dimensions_m": [
+          0.5600000023841858,
+          0.36000001467764375,
+          0.46000000834465027
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_STACK",
+          "parent": "CRATE_ROOT",
+          "position_m": [
+            0,
+            0.36,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "CRATE_ROOT",
+        "CRATE_SURFACE",
+        "SOCKET_STACK"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/crate_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 19396,
+      "meshopt_sha256": "9ef9827c1387342d9fedad308053dda2b12c3447ff082777f7ccd7d37d0f6914",
+      "meshopt_derived": true
+    },
+    {
+      "module": "crate",
+      "file": "crate_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 62232,
+      "sha256": "e603cc1e30089abb995e573c9eb2c19cdf9611f82ba56e192a91ac1785847f72",
+      "triangles": 716,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        0.6,
+        0.5
+      ],
+      "bounds": {
+        "min": [
+          -0.2800000011920929,
+          -3.7252903539730653e-10,
+          -0.23000000417232513
+        ],
+        "max": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.23000000417232513
+        ],
+        "dimensions_m": [
+          0.5600000023841858,
+          0.36000001467764375,
+          0.46000000834465027
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_STACK",
+          "parent": "CRATE_ROOT",
+          "position_m": [
+            0,
+            0.36,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "CRATE_ROOT",
+        "CRATE_SURFACE",
+        "SOCKET_STACK"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/crate_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 17876,
+      "meshopt_sha256": "90c52f7591794ff65b3f0171274a4ad72f99d0757c3ffa7d6eb31598213f9496",
+      "meshopt_derived": true
+    },
+    {
+      "module": "crate",
+      "file": "crate_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "derived_note": "Reduced geometry merged into one static surface; lookup hierarchy retained.",
+      "bytes": 32572,
+      "sha256": "0df16b1077949c996ed581a4ccb7b168ed564e0c67f5044fc671f30d2ace50df",
+      "triangles": 372,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        0.6,
+        0.5
+      ],
+      "bounds": {
+        "min": [
+          -0.2800000011920929,
+          -3.7252903539730653e-10,
+          -0.23000000417232513
+        ],
+        "max": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.23000000417232513
+        ],
+        "dimensions_m": [
+          0.5600000023841858,
+          0.36000001467764375,
+          0.46000000834465027
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_STACK",
+          "parent": "CRATE_ROOT",
+          "position_m": [
+            0,
+            0.36,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [],
+      "required_nodes": [
+        "CRATE_ROOT",
+        "SOCKET_STACK",
+        "CRATE_SURFACE",
+        "CRATE_STATIC_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/crate_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 10132,
+      "meshopt_sha256": "ef3fbcda8c5c09aa084a9648ec8ba6c80548ecee46b472ffbbec1d63c63fdd9f",
+      "meshopt_derived": true
+    }
+  ]
+}

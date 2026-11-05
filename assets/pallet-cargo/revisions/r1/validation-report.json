@@ -1,0 +1,166 @@
+{
+  "status": "passed",
+  "scope": "Plain and decoded Meshopt glTF, geometry, stable hierarchy/sockets, fork passages, mating interface and sampled kinematic rig. No load/force, self-collision, terrain or phone performance certification.",
+  "files": [
+    {
+      "file": "pallet_d0_lod0.glb",
+      "triangles": 3284,
+      "draw_calls": 1,
+      "bytes": 220608,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/pallet_d0_lod0.meshopt.glb",
+      "triangles": 3284,
+      "draw_calls": 1,
+      "bytes": 53988,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "pallet_d0_lod1.glb",
+      "triangles": 1012,
+      "draw_calls": 1,
+      "bytes": 75068,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/pallet_d0_lod1.meshopt.glb",
+      "triangles": 1012,
+      "draw_calls": 1,
+      "bytes": 21744,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "pallet_d0_lod2.glb",
+      "triangles": 372,
+      "draw_calls": 1,
+      "bytes": 32404,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/pallet_d0_lod2.meshopt.glb",
+      "triangles": 372,
+      "draw_calls": 1,
+      "bytes": 11184,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride_d0_lod0.glb",
+      "triangles": 16372,
+      "draw_calls": 21,
+      "bytes": 913996,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/stride_d0_lod0.meshopt.glb",
+      "triangles": 16372,
+      "draw_calls": 21,
+      "bytes": 151992,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride_d0_lod1.glb",
+      "triangles": 6236,
+      "draw_calls": 21,
+      "bytes": 421668,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/stride_d0_lod1.meshopt.glb",
+      "triangles": 6236,
+      "draw_calls": 21,
+      "bytes": 89640,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride_d0_lod2.glb",
+      "triangles": 2876,
+      "draw_calls": 1,
+      "bytes": 196144,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/stride_d0_lod2.meshopt.glb",
+      "triangles": 2876,
+      "draw_calls": 1,
+      "bytes": 60208,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "crate_d0_lod0.glb",
+      "triangles": 792,
+      "draw_calls": 1,
+      "bytes": 68736,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/crate_d0_lod0.meshopt.glb",
+      "triangles": 792,
+      "draw_calls": 1,
+      "bytes": 19396,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "crate_d0_lod1.glb",
+      "triangles": 716,
+      "draw_calls": 1,
+      "bytes": 62232,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/crate_d0_lod1.meshopt.glb",
+      "triangles": 716,
+      "draw_calls": 1,
+      "bytes": 17876,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "crate_d0_lod2.glb",
+      "triangles": 372,
+      "draw_calls": 1,
+      "bytes": 32572,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/crate_d0_lod2.meshopt.glb",
+      "triangles": 372,
+      "draw_calls": 1,
+      "bytes": 10132,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 324,
+  "transport_samples": 1201,
+  "max_wheel_height_error_m": 1.3877787807814457e-16,
+  "max_lock_alignment_error_m": 0,
+  "checks": [
+    "18 plain/decoded files, hashes, zero glTF errors/warnings",
+    "nondegenerate finite geometry, measured triangles/draws/bytes",
+    "unique engine names and identical cross-tier parent/rest frames",
+    "common origin, bounds and connection metadata",
+    "four-way pallet fork passages",
+    "pallet and cargo dimensions",
+    "all four mating locks through lift range",
+    "ground-height wheel centres and rigid link lengths",
+    "static tiers ignore articulation",
+    "continuous closed 20-second transport study"
+  ]
+}

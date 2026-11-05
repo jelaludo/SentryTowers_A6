@@ -1,7 +1,8 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "pallet_cargo",
-  "label": "PCS / Pallet cargo standard — P-01 & STRIDE-01",
+  "revision": 2,
+  "label": "PCS / P-01, omnidirectional STRIDE-01 & CUP-01",
   "status": "kinematic_prototype_pending_visual_and_game_review",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -38,7 +39,7 @@
       0.6,
       0.5
     ],
-    "carrier_attach": "Parent PALLET_ROOT at SOCKET_PALLET; identity local transform. The crate grid uses centres x=±0.30,z=±0.25 above SOCKET_CARGO.",
+    "carrier_attach": "Parent PALLET_ROOT at SOCKET_PALLET; identity local transform. The crate grid uses centres x=\u00b10.30,z=\u00b10.25 above SOCKET_CARGO.",
     "lock_axes": "+Y; four quarter-turn heads, 0 open and PI/2 secured",
     "fork_clearance_m": {
       "front_width": 0.39,
@@ -63,13 +64,54 @@
       {
         "name": "Pallet_Transport_Cycle",
         "duration_s": 20,
-        "loop": true,
-        "kind": "engine_driven_viewer_study"
+        "loop": true
+      },
+      {
+        "name": "Crab_Travel_Cycle",
+        "duration_s": 20,
+        "loop": true
+      },
+      {
+        "name": "Diagonal_Travel_Cycle",
+        "duration_s": 20,
+        "loop": true
+      },
+      {
+        "name": "Turn_In_Place",
+        "duration_s": 20,
+        "loop": false
+      },
+      {
+        "name": "Suspension_Cycle",
+        "duration_s": 6,
+        "loop": true
+      },
+      {
+        "name": "Cup_Transfer_Cycle",
+        "duration_s": 24,
+        "loop": true
       }
     ],
+    "stride": {
+      "splay_deg": 45,
+      "radial_reach_m": 0.43,
+      "kingpin_height_m": 0.1,
+      "stroke_m": [
+        -0.035,
+        0.035
+      ]
+    },
+    "cup": {
+      "upper_m": 0.64,
+      "fore_m": 0.6,
+      "shoulder_y": 0.6,
+      "lip_offset_m": 0.22,
+      "crate_height_m": 0.36,
+      "duration_s": 24
+    },
     "controls": [
-      "chassis height 0.60–0.76 m",
-      "counter-phase wheel steering ±0.6 rad",
+      "chassis height 0.60\u20130.76 m",
+      "independent continuous 360 degree wheel steering; 45 degree diagonal rest",
       "wheel rolling from signed travel",
       "four quarter-turn lock heads"
     ],
@@ -88,12 +130,16 @@
     "pin": "Repository commit containing these files plus each SHA-256 below.",
     "pending": [
       "User visual review",
-      "Damage D1–D3",
-      "Load/unload choreography and physical lock engineering",
+      "Damage D1\u2013D3",
+      "Physical lock and suction engineering, load rating, arbitrary cargo",
       "Terrain, wheel traction and collision physics",
       "Consuming-game r160/release packing and reference-phone acceptance",
-      "CUP and STEP alternatives"
+      "STEP walking variant"
     ]
+  },
+  "preserved_revision": {
+    "folder": "revisions/r1/",
+    "commit": "610d174e57cb488bf3fbbd4a54ee43d6147d1872"
   },
   "assets": [
     {
@@ -684,31 +730,31 @@
       "static": false,
       "derived": false,
       "derived_note": null,
-      "bytes": 913996,
-      "sha256": "879cee68d69d52cdabea3853144e73c7d4c8b2220e32497670dbebf0949dd79e",
-      "triangles": 16372,
-      "draw_calls": 21,
+      "bytes": 999964,
+      "sha256": "1380d353be050a8c9094eb0849ebc50b82c5cacacdb157928f40d5093ed4d30a",
+      "triangles": 18084,
+      "draw_calls": 25,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.2,
-        1.4
+        2.4,
+        2
       ],
       "bounds": {
         "min": [
-          -1.0360000002384184,
-          1.7881393032936899e-9,
-          -0.6049999982118607
+          -1.0885102796828448,
+          1.7881393032936899e-09,
+          -0.8985102796828448
         ],
         "max": [
-          1.0360000002384184,
+          1.0885102796828448,
           0.8330000000447035,
-          0.6049999982118607
+          0.8985102796828448
         ],
         "dimensions_m": [
-          2.072000000476837,
+          2.1770205593656895,
           0.8329999982565642,
-          1.2099999964237214
+          1.7970205593656896
         ]
       },
       "sockets": [
@@ -782,9 +828,9 @@
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -793,9 +839,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -804,9 +850,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -815,9 +861,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -832,21 +878,25 @@
         "LOCK_RR_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL"
@@ -869,51 +919,63 @@
         "CHASSIS_SURFACE",
         "SOCKET_PALLET",
         "SOCKET_TOW",
+        "LEG_FL_SPLAY_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "WHEEL_FL_SURFACE",
         "SOCKET_WHEEL_FL",
         "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_SUSPENSION_ROD_SURFACE",
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_SPLAY_YAW",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "WHEEL_FR_SURFACE",
         "SOCKET_WHEEL_FR",
         "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_SUSPENSION_ROD_SURFACE",
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_SPLAY_YAW",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "WHEEL_RL_SURFACE",
         "SOCKET_WHEEL_RL",
         "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_SUSPENSION_ROD_SURFACE",
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_SPLAY_YAW",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL",
         "WHEEL_RR_SURFACE",
         "SOCKET_WHEEL_RR",
         "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_SUSPENSION_ROD_SURFACE",
         "LEG_RR_LOWER_SURFACE",
         "LEG_RR_UPPER_SURFACE"
       ],
       "credit": "Models by jelaludo",
       "meshopt_file": "derived/meshopt/stride_d0_lod0.meshopt.glb",
-      "meshopt_bytes": 151992,
-      "meshopt_sha256": "9a24b3d19043546ef51cb7d3dd9b71528e6541e0ff46376e92e4a498d1239beb",
+      "meshopt_bytes": 162184,
+      "meshopt_sha256": "debab8452c579304ce5bb01865e4a31adba15f5c7d61f6920f401ff27819aa93",
       "meshopt_derived": true
     },
     {
@@ -924,31 +986,31 @@
       "static": false,
       "derived": false,
       "derived_note": null,
-      "bytes": 421668,
-      "sha256": "dd565d336f18d6106c6818797674a9a4cc7ba6f1c0e4bf92860231c85b0cb273",
-      "triangles": 6236,
-      "draw_calls": 21,
+      "bytes": 467316,
+      "sha256": "7bfd6dfcef41d5929c52260875e0f2b3adab947df3a6a63700081a7712923c1d",
+      "triangles": 6988,
+      "draw_calls": 25,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.2,
-        1.4
+        2.4,
+        2
       ],
       "bounds": {
         "min": [
-          -1.0360000002384184,
-          1.7881393032936899e-9,
-          -0.6049999982118607
+          -1.0885102796828448,
+          1.7881393032936899e-09,
+          -0.8985102796828448
         ],
         "max": [
-          1.0360000002384184,
+          1.0885102796828448,
           0.8330000000447035,
-          0.6049999982118607
+          0.8985102796828448
         ],
         "dimensions_m": [
-          2.072000000476837,
+          2.1770205593656895,
           0.8329999982565642,
-          1.2099999964237214
+          1.7970205593656896
         ]
       },
       "sockets": [
@@ -1022,9 +1084,9 @@
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1033,9 +1095,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1044,9 +1106,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1055,9 +1117,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1072,21 +1134,25 @@
         "LOCK_RR_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL"
@@ -1109,51 +1175,63 @@
         "CHASSIS_SURFACE",
         "SOCKET_PALLET",
         "SOCKET_TOW",
+        "LEG_FL_SPLAY_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "WHEEL_FL_SURFACE",
         "SOCKET_WHEEL_FL",
         "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_SUSPENSION_ROD_SURFACE",
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_SPLAY_YAW",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "WHEEL_FR_SURFACE",
         "SOCKET_WHEEL_FR",
         "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_SUSPENSION_ROD_SURFACE",
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_SPLAY_YAW",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "WHEEL_RL_SURFACE",
         "SOCKET_WHEEL_RL",
         "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_SUSPENSION_ROD_SURFACE",
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_SPLAY_YAW",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL",
         "WHEEL_RR_SURFACE",
         "SOCKET_WHEEL_RR",
         "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_SUSPENSION_ROD_SURFACE",
         "LEG_RR_LOWER_SURFACE",
         "LEG_RR_UPPER_SURFACE"
       ],
       "credit": "Models by jelaludo",
       "meshopt_file": "derived/meshopt/stride_d0_lod1.meshopt.glb",
-      "meshopt_bytes": 89640,
-      "meshopt_sha256": "75badc729ac29ca0263c6880fdded7732e9c291046c386b3299f572e06dbf8f2",
+      "meshopt_bytes": 95624,
+      "meshopt_sha256": "dd90446f83b1203fbeba2157f04a167fbd86f6d168744c4a922b093baf601b46",
       "meshopt_derived": true
     },
     {
@@ -1164,31 +1242,31 @@
       "static": true,
       "derived": true,
       "derived_note": "Reduced geometry merged into one static surface; lookup hierarchy retained.",
-      "bytes": 196144,
-      "sha256": "e4ac2cffe9d5b9dc78f5f6ffe6bc1fab7a8c0160aed0f6a6e50c5e319f3d48b8",
-      "triangles": 2876,
+      "bytes": 164400,
+      "sha256": "29b2e6691e8aad8550f8621461ffd5c0e5cc26c6d6e1021b4999ba3220b2853f",
+      "triangles": 2572,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.2,
-        1.4
+        2.4,
+        2
       ],
       "bounds": {
         "min": [
-          -1.0360000133514404,
-          1.7881393032936899e-9,
-          -0.6050000190734863
+          -1.088510274887085,
+          1.7881393032936899e-09,
+          -0.8985102772712708
         ],
         "max": [
-          1.0360000133514404,
+          1.088510274887085,
           0.8330000042915344,
-          0.6050000190734863
+          0.8985102772712708
         ],
         "dimensions_m": [
-          2.072000026702881,
+          2.17702054977417,
           0.8330000025033951,
-          1.2100000381469727
+          1.7970205545425415
         ]
       },
       "sockets": [
@@ -1262,9 +1340,9 @@
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1273,9 +1351,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1284,9 +1362,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            -0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1295,9 +1373,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.9549999999999998,
-            0.20499999999999996,
-            -0.4
+            0.8940559159102154,
+            0.20500000000000002,
+            -0.7040559159102154
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1312,21 +1390,25 @@
         "LOCK_RR_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL"
@@ -1348,44 +1430,56 @@
         "SOCKET_PALLET_LOCK_RR",
         "SOCKET_PALLET",
         "SOCKET_TOW",
+        "LEG_FL_SPLAY_YAW",
         "LEG_FL_HIP_PITCH",
         "LEG_FL_KNEE_PITCH",
+        "LEG_FL_SUSPENSION_EXTEND",
         "LEG_FL_ANKLE_ROLL",
         "WHEEL_FL_YAW",
         "WHEEL_FL_ROLL",
         "SOCKET_WHEEL_FL",
         "WHEEL_FL_SURFACE",
         "LEG_FL_UPRIGHT_SURFACE",
+        "LEG_FL_SUSPENSION_ROD_SURFACE",
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
+        "LEG_FR_SPLAY_YAW",
         "LEG_FR_HIP_PITCH",
         "LEG_FR_KNEE_PITCH",
+        "LEG_FR_SUSPENSION_EXTEND",
         "LEG_FR_ANKLE_ROLL",
         "WHEEL_FR_YAW",
         "WHEEL_FR_ROLL",
         "SOCKET_WHEEL_FR",
         "WHEEL_FR_SURFACE",
         "LEG_FR_UPRIGHT_SURFACE",
+        "LEG_FR_SUSPENSION_ROD_SURFACE",
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
+        "LEG_RL_SPLAY_YAW",
         "LEG_RL_HIP_PITCH",
         "LEG_RL_KNEE_PITCH",
+        "LEG_RL_SUSPENSION_EXTEND",
         "LEG_RL_ANKLE_ROLL",
         "WHEEL_RL_YAW",
         "WHEEL_RL_ROLL",
         "SOCKET_WHEEL_RL",
         "WHEEL_RL_SURFACE",
         "LEG_RL_UPRIGHT_SURFACE",
+        "LEG_RL_SUSPENSION_ROD_SURFACE",
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
+        "LEG_RR_SPLAY_YAW",
         "LEG_RR_HIP_PITCH",
         "LEG_RR_KNEE_PITCH",
+        "LEG_RR_SUSPENSION_EXTEND",
         "LEG_RR_ANKLE_ROLL",
         "WHEEL_RR_YAW",
         "WHEEL_RR_ROLL",
         "SOCKET_WHEEL_RR",
         "WHEEL_RR_SURFACE",
         "LEG_RR_UPRIGHT_SURFACE",
+        "LEG_RR_SUSPENSION_ROD_SURFACE",
         "LEG_RR_LOWER_SURFACE",
         "LEG_RR_UPPER_SURFACE",
         "CHASSIS_SURFACE",
@@ -1393,8 +1487,8 @@
       ],
       "credit": "Models by jelaludo",
       "meshopt_file": "derived/meshopt/stride_d0_lod2.meshopt.glb",
-      "meshopt_bytes": 60208,
-      "meshopt_sha256": "a19427bba2cb786ccba2e3ac8040f10d8c3ec368aec623613b984f3398d62ae1",
+      "meshopt_bytes": 55440,
+      "meshopt_sha256": "03a1fb1ac51d43bbefd12c9027d831f4a062a5e2e94d32c4a7090c755f547f5f",
       "meshopt_derived": true
     },
     {
@@ -1579,6 +1673,592 @@
       "meshopt_file": "derived/meshopt/crate_d0_lod2.meshopt.glb",
       "meshopt_bytes": 10132,
       "meshopt_sha256": "ef3fbcda8c5c09aa084a9648ec8ba6c80548ecee46b472ffbbec1d63c63fdd9f",
+      "meshopt_derived": true
+    },
+    {
+      "module": "cup",
+      "file": "cup_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 774084,
+      "sha256": "3e159b9236528147efe4c88b4b39ce4e59611d941842f7d3c485bd2863ea6fc3",
+      "triangles": 16472,
+      "draw_calls": 13,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.8,
+        2.8
+      ],
+      "bounds": {
+        "min": [
+          -0.43100000232458113,
+          -7.152557379708213e-09,
+          -0.48000000715255736
+        ],
+        "max": [
+          0.8649999997019767,
+          1.166407690625995,
+          0.9749999997019767
+        ],
+        "dimensions_m": [
+          1.2960000020265579,
+          1.1664076977785525,
+          1.4550000068545341
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_CUP_WHEEL_FL",
+          "parent": "CUP_WHEEL_FL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_FR",
+          "parent": "CUP_WHEEL_FR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RL",
+          "parent": "CUP_WHEEL_RL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RR",
+          "parent": "CUP_WHEEL_RR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FL",
+          "parent": "CUP_PAD_FL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FR",
+          "parent": "CUP_PAD_FR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.82,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RL",
+          "parent": "CUP_PAD_RL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RR",
+          "parent": "CUP_PAD_RR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CARGO_GRIP",
+          "parent": "CUP_WRIST_LEVEL",
+          "position_m": [
+            0.6499999999999999,
+            0.8200000000000001,
+            0.7999999999999999
+          ],
+          "kind": "crate_top",
+          "axis": "-Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CUP_WHEEL_FL_ROLL",
+        "CUP_WHEEL_FR_ROLL",
+        "CUP_WHEEL_RL_ROLL",
+        "CUP_WHEEL_RR_ROLL",
+        "CUP_BASE_YAW",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "CUP_PAD_FR_COMPRESS",
+        "CUP_PAD_RL_COMPRESS",
+        "CUP_PAD_RR_COMPRESS"
+      ],
+      "required_nodes": [
+        "CUP_ROOT",
+        "CUP_CHASSIS",
+        "CUP_CHASSIS_SURFACE",
+        "CUP_WHEEL_FL_ROLL",
+        "CUP_WHEEL_FL_SURFACE",
+        "SOCKET_CUP_WHEEL_FL",
+        "CUP_WHEEL_FR_ROLL",
+        "CUP_WHEEL_FR_SURFACE",
+        "SOCKET_CUP_WHEEL_FR",
+        "CUP_WHEEL_RL_ROLL",
+        "CUP_WHEEL_RL_SURFACE",
+        "SOCKET_CUP_WHEEL_RL",
+        "CUP_WHEEL_RR_ROLL",
+        "CUP_WHEEL_RR_SURFACE",
+        "SOCKET_CUP_WHEEL_RR",
+        "CUP_BASE_YAW",
+        "CUP_TURNTABLE_SURFACE",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "CUP_PAD_FL_SURFACE",
+        "SOCKET_CUP_PAD_FL",
+        "CUP_PAD_FR_COMPRESS",
+        "CUP_PAD_FR_SURFACE",
+        "SOCKET_CUP_PAD_FR",
+        "CUP_PAD_RL_COMPRESS",
+        "CUP_PAD_RL_SURFACE",
+        "SOCKET_CUP_PAD_RL",
+        "CUP_PAD_RR_COMPRESS",
+        "CUP_PAD_RR_SURFACE",
+        "SOCKET_CUP_PAD_RR",
+        "CUP_TOOL_SURFACE",
+        "SOCKET_CARGO_GRIP",
+        "CUP_ARM_FORE_SURFACE",
+        "CUP_ARM_UPPER_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/cup_d0_lod0.meshopt.glb",
+      "meshopt_bytes": 143628,
+      "meshopt_sha256": "6b71fbb5f86d9701b712844b228d5b5ed86d58c4e46215a750cd65970e4c1bbd",
+      "meshopt_derived": true
+    },
+    {
+      "module": "cup",
+      "file": "cup_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "derived_note": null,
+      "bytes": 341888,
+      "sha256": "aba7ab3ecfee7be0b304ba0aa75609d1355628086aa4eb40b1f88f106a184aec",
+      "triangles": 5944,
+      "draw_calls": 13,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.8,
+        2.8
+      ],
+      "bounds": {
+        "min": [
+          -0.43100000232458113,
+          -7.152557379708213e-09,
+          -0.48000000715255736
+        ],
+        "max": [
+          0.8649999997019767,
+          1.166407690625995,
+          0.9749999997019767
+        ],
+        "dimensions_m": [
+          1.2960000020265579,
+          1.1664076977785525,
+          1.4550000068545341
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_CUP_WHEEL_FL",
+          "parent": "CUP_WHEEL_FL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_FR",
+          "parent": "CUP_WHEEL_FR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RL",
+          "parent": "CUP_WHEEL_RL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RR",
+          "parent": "CUP_WHEEL_RR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FL",
+          "parent": "CUP_PAD_FL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FR",
+          "parent": "CUP_PAD_FR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.82,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RL",
+          "parent": "CUP_PAD_RL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RR",
+          "parent": "CUP_PAD_RR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CARGO_GRIP",
+          "parent": "CUP_WRIST_LEVEL",
+          "position_m": [
+            0.6499999999999999,
+            0.8200000000000001,
+            0.7999999999999999
+          ],
+          "kind": "crate_top",
+          "axis": "-Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CUP_WHEEL_FL_ROLL",
+        "CUP_WHEEL_FR_ROLL",
+        "CUP_WHEEL_RL_ROLL",
+        "CUP_WHEEL_RR_ROLL",
+        "CUP_BASE_YAW",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "CUP_PAD_FR_COMPRESS",
+        "CUP_PAD_RL_COMPRESS",
+        "CUP_PAD_RR_COMPRESS"
+      ],
+      "required_nodes": [
+        "CUP_ROOT",
+        "CUP_CHASSIS",
+        "CUP_CHASSIS_SURFACE",
+        "CUP_WHEEL_FL_ROLL",
+        "CUP_WHEEL_FL_SURFACE",
+        "SOCKET_CUP_WHEEL_FL",
+        "CUP_WHEEL_FR_ROLL",
+        "CUP_WHEEL_FR_SURFACE",
+        "SOCKET_CUP_WHEEL_FR",
+        "CUP_WHEEL_RL_ROLL",
+        "CUP_WHEEL_RL_SURFACE",
+        "SOCKET_CUP_WHEEL_RL",
+        "CUP_WHEEL_RR_ROLL",
+        "CUP_WHEEL_RR_SURFACE",
+        "SOCKET_CUP_WHEEL_RR",
+        "CUP_BASE_YAW",
+        "CUP_TURNTABLE_SURFACE",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "CUP_PAD_FL_SURFACE",
+        "SOCKET_CUP_PAD_FL",
+        "CUP_PAD_FR_COMPRESS",
+        "CUP_PAD_FR_SURFACE",
+        "SOCKET_CUP_PAD_FR",
+        "CUP_PAD_RL_COMPRESS",
+        "CUP_PAD_RL_SURFACE",
+        "SOCKET_CUP_PAD_RL",
+        "CUP_PAD_RR_COMPRESS",
+        "CUP_PAD_RR_SURFACE",
+        "SOCKET_CUP_PAD_RR",
+        "CUP_TOOL_SURFACE",
+        "SOCKET_CARGO_GRIP",
+        "CUP_ARM_FORE_SURFACE",
+        "CUP_ARM_UPPER_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/cup_d0_lod1.meshopt.glb",
+      "meshopt_bytes": 75512,
+      "meshopt_sha256": "dd2f163c9befb5c5969949adc596eab7f3cb88b987fcbcde4a0afff80bd2e24a",
+      "meshopt_derived": true
+    },
+    {
+      "module": "cup",
+      "file": "cup_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "derived_note": "Reduced geometry merged into one static surface; lookup hierarchy retained.",
+      "bytes": 110424,
+      "sha256": "efc7e38db0a1c1fb1df78354a3b1edd94b4410729ce4225a63a8f1e35ba6a67a",
+      "triangles": 2164,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        2.8,
+        2.8
+      ],
+      "bounds": {
+        "min": [
+          -0.4309999942779541,
+          -7.1525572131747595e-09,
+          -0.48000001907348633
+        ],
+        "max": [
+          0.8650000095367432,
+          1.1664077043533325,
+          0.9750000238418579
+        ],
+        "dimensions_m": [
+          1.2960000038146973,
+          1.1664077115058897,
+          1.4550000429153442
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_CUP_WHEEL_FL",
+          "parent": "CUP_WHEEL_FL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_FR",
+          "parent": "CUP_WHEEL_FR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RL",
+          "parent": "CUP_WHEEL_RL_ROLL",
+          "position_m": [
+            -0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_WHEEL_RR",
+          "parent": "CUP_WHEEL_RR_ROLL",
+          "position_m": [
+            0.36,
+            0.18,
+            -0.3
+          ],
+          "kind": "wheel_centre",
+          "axis": "+X"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FL",
+          "parent": "CUP_PAD_FL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_FR",
+          "parent": "CUP_PAD_FR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.82,
+            0.9199999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RL",
+          "parent": "CUP_PAD_RL_COMPRESS",
+          "position_m": [
+            0.4899999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CUP_PAD_RR",
+          "parent": "CUP_PAD_RR_COMPRESS",
+          "position_m": [
+            0.8099999999999999,
+            0.8200000000000001,
+            0.6799999999999999
+          ],
+          "kind": "suction_contact",
+          "axis": "-Y"
+        },
+        {
+          "node": "SOCKET_CARGO_GRIP",
+          "parent": "CUP_WRIST_LEVEL",
+          "position_m": [
+            0.6499999999999999,
+            0.8200000000000001,
+            0.7999999999999999
+          ],
+          "kind": "crate_top",
+          "axis": "-Y"
+        }
+      ],
+      "clips": [],
+      "engine_nodes": [
+        "CUP_WHEEL_FL_ROLL",
+        "CUP_WHEEL_FR_ROLL",
+        "CUP_WHEEL_RL_ROLL",
+        "CUP_WHEEL_RR_ROLL",
+        "CUP_BASE_YAW",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "CUP_PAD_FR_COMPRESS",
+        "CUP_PAD_RL_COMPRESS",
+        "CUP_PAD_RR_COMPRESS"
+      ],
+      "required_nodes": [
+        "CUP_ROOT",
+        "CUP_CHASSIS",
+        "CUP_WHEEL_FL_ROLL",
+        "SOCKET_CUP_WHEEL_FL",
+        "CUP_WHEEL_FL_SURFACE",
+        "CUP_WHEEL_FR_ROLL",
+        "SOCKET_CUP_WHEEL_FR",
+        "CUP_WHEEL_FR_SURFACE",
+        "CUP_WHEEL_RL_ROLL",
+        "SOCKET_CUP_WHEEL_RL",
+        "CUP_WHEEL_RL_SURFACE",
+        "CUP_WHEEL_RR_ROLL",
+        "SOCKET_CUP_WHEEL_RR",
+        "CUP_WHEEL_RR_SURFACE",
+        "CUP_BASE_YAW",
+        "CUP_SHOULDER_PITCH",
+        "CUP_ELBOW_PITCH",
+        "CUP_WRIST_LEVEL",
+        "CUP_PAD_FL_COMPRESS",
+        "SOCKET_CUP_PAD_FL",
+        "CUP_PAD_FL_SURFACE",
+        "CUP_PAD_FR_COMPRESS",
+        "SOCKET_CUP_PAD_FR",
+        "CUP_PAD_FR_SURFACE",
+        "CUP_PAD_RL_COMPRESS",
+        "SOCKET_CUP_PAD_RL",
+        "CUP_PAD_RL_SURFACE",
+        "CUP_PAD_RR_COMPRESS",
+        "SOCKET_CUP_PAD_RR",
+        "CUP_PAD_RR_SURFACE",
+        "SOCKET_CARGO_GRIP",
+        "CUP_TOOL_SURFACE",
+        "CUP_ARM_FORE_SURFACE",
+        "CUP_ARM_UPPER_SURFACE",
+        "CUP_TURNTABLE_SURFACE",
+        "CUP_CHASSIS_SURFACE",
+        "CUP_STATIC_SURFACE"
+      ],
+      "credit": "Models by jelaludo",
+      "meshopt_file": "derived/meshopt/cup_d0_lod2.meshopt.glb",
+      "meshopt_bytes": 35180,
+      "meshopt_sha256": "b9cfae82784e994347e4ad7031e9576ec867526e186ca08b7ea45faf12f27f3f",
       "meshopt_derived": true
     }
   ]

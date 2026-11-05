@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "Plain and decoded Meshopt glTF, geometry, stable hierarchy/sockets, fork passages, mating interface and sampled kinematic rig. No load/force, self-collision, terrain or phone performance certification.",
+  "scope": "Plain and decoded Meshopt, geometry, stable hierarchy/sockets, 45 degree stance, continuous steering, independent sliding suspension and CUP seal/cargo contact. Cargo AABB clearance is checked; general arm/body self-collision, forces, vacuum/load performance and phone certification are not.",
   "files": [
     {
       "file": "pallet_d0_lod0.glb",
@@ -52,49 +52,49 @@
     },
     {
       "file": "stride_d0_lod0.glb",
-      "triangles": 16372,
-      "draw_calls": 21,
-      "bytes": 913996,
+      "triangles": 18084,
+      "draw_calls": 25,
+      "bytes": 999964,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/stride_d0_lod0.meshopt.glb",
-      "triangles": 16372,
-      "draw_calls": 21,
-      "bytes": 151992,
+      "triangles": 18084,
+      "draw_calls": 25,
+      "bytes": 162184,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stride_d0_lod1.glb",
-      "triangles": 6236,
-      "draw_calls": 21,
-      "bytes": 421668,
+      "triangles": 6988,
+      "draw_calls": 25,
+      "bytes": 467316,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/stride_d0_lod1.meshopt.glb",
-      "triangles": 6236,
-      "draw_calls": 21,
-      "bytes": 89640,
+      "triangles": 6988,
+      "draw_calls": 25,
+      "bytes": 95624,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stride_d0_lod2.glb",
-      "triangles": 2876,
+      "triangles": 2572,
       "draw_calls": 1,
-      "bytes": 196144,
+      "bytes": 164400,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "derived/meshopt/stride_d0_lod2.meshopt.glb",
-      "triangles": 2876,
+      "triangles": 2572,
       "draw_calls": 1,
-      "bytes": 60208,
+      "bytes": 55440,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -145,22 +145,75 @@
       "bytes": 10132,
       "gltf_errors": 0,
       "gltf_warnings": 0
+    },
+    {
+      "file": "cup_d0_lod0.glb",
+      "triangles": 16472,
+      "draw_calls": 13,
+      "bytes": 774084,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/cup_d0_lod0.meshopt.glb",
+      "triangles": 16472,
+      "draw_calls": 13,
+      "bytes": 143628,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "cup_d0_lod1.glb",
+      "triangles": 5944,
+      "draw_calls": 13,
+      "bytes": 341888,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/cup_d0_lod1.meshopt.glb",
+      "triangles": 5944,
+      "draw_calls": 13,
+      "bytes": 75512,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "cup_d0_lod2.glb",
+      "triangles": 2164,
+      "draw_calls": 1,
+      "bytes": 110424,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/cup_d0_lod2.meshopt.glb",
+      "triangles": 2164,
+      "draw_calls": 1,
+      "bytes": 35180,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
     }
   ],
-  "pose_samples": 324,
+  "pose_samples": 756,
+  "cup_pose_samples": 5764,
   "transport_samples": 1201,
-  "max_wheel_height_error_m": 1.3877787807814457e-16,
+  "max_wheel_height_error_m": 1.942890293094024e-16,
   "max_lock_alignment_error_m": 0,
+  "max_cup_contact_error_m": 6.77599954797753e-16,
+  "min_rod_overlap_m": 0.07500000000000001,
   "checks": [
-    "18 plain/decoded files, hashes, zero glTF errors/warnings",
-    "nondegenerate finite geometry, measured triangles/draws/bytes",
-    "unique engine names and identical cross-tier parent/rest frames",
-    "common origin, bounds and connection metadata",
-    "four-way pallet fork passages",
-    "pallet and cargo dimensions",
-    "all four mating locks through lift range",
-    "ground-height wheel centres and rigid link lengths",
+    "24 plain/decoded files, hashes, zero glTF errors/warnings",
+    "finite nondegenerate geometry and measured metrics",
+    "unique names, matching tier hierarchy/rest frames/bounds/metadata",
+    "unchanged pallet and crate files; archived r1 checksums",
+    "four-way fork passages and carrier lock alignment",
+    "45 degree splayed stance and ready wheel headings",
+    "independent full-circle steering with fixed wheel centres",
+    "70 mm suspension stroke and 75 mm minimum rigid-rod overlap",
+    "CUP fixed link lengths and level square spreader",
+    "four coplanar seals at crate top, grip/release and cargo AABB clearance",
     "static tiers ignore articulation",
-    "continuous closed 20-second transport study"
+    "continuous 20-second STRIDE and 24-second CUP transport cycles"
   ]
 }

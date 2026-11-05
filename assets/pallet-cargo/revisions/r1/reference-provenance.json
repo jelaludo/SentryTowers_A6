@@ -1,0 +1,11 @@
+{
+  "source": "Four user-supplied concept images, 5 November 2026",
+  "use": "Visual reference for original procedural geometry. Images remain unchanged outside the repository and are not redistributed.",
+  "rights": "No external creator/license was supplied; no additional image rights claimed.",
+  "references": [
+    {"file": "palletCargoStandard.png", "role": "Pallet, modular cargo, locks, empty return", "sha256": "29b9fcc3f074f190ee245393954804361d484066f6458e3bf8d466f632a2b244"},
+    {"file": "Screenshot 2026-11-05 at 9.25.43.png", "role": "CUP / possible later arm loader", "sha256": "bc59505176055e5f4e44a5d7936abbe2b404fd496eb2ad8ea63bbda547d85920"},
+    {"file": "Screenshot 2026-11-05 at 9.26.00.png", "role": "STRIDE / first carrier silhouette", "sha256": "fa8e0ac9ac236b5857357b7a3e7d21013cb3a5124ab5750f595f430bfc1c60ba"},
+    {"file": "Screenshot 2026-11-05 at 9.25.30.png", "role": "STEP / possible later walking pallet", "sha256": "d53290d25d70beebd96dc401293b8e693ef9e84ac44d5c5f4c122cb3a620db39"}
+  ]
+}
