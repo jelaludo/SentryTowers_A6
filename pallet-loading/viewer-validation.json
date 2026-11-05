@@ -1,0 +1,302 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL; functional/visual checks, not an FPS benchmark",
+  "pose_samples": [
+    {
+      "lod": 1,
+      "time": 0,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 1.5,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 3,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 3.4,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 3.9,
+      "loaded": 0,
+      "held": 0
+    },
+    {
+      "lod": 1,
+      "time": 4.4,
+      "loaded": 0,
+      "held": 0
+    },
+    {
+      "lod": 1,
+      "time": 5.35,
+      "loaded": 1,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 6.4,
+      "loaded": 1,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 7.6,
+      "loaded": 1,
+      "held": 1
+    },
+    {
+      "lod": 1,
+      "time": 8.35,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 9.4,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 10,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 10.7,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 11.9,
+      "loaded": 2,
+      "held": 2
+    },
+    {
+      "lod": 1,
+      "time": 12.65,
+      "loaded": 3,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 13.7,
+      "loaded": 3,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 14.9,
+      "loaded": 3,
+      "held": 3
+    },
+    {
+      "lod": 1,
+      "time": 15.65,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 16.7,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 17.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 19.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 21.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 1,
+      "time": 22,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 0,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 1.5,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 3,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 3.4,
+      "loaded": 0,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 3.9,
+      "loaded": 0,
+      "held": 0
+    },
+    {
+      "lod": 0,
+      "time": 4.4,
+      "loaded": 0,
+      "held": 0
+    },
+    {
+      "lod": 0,
+      "time": 5.35,
+      "loaded": 1,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 6.4,
+      "loaded": 1,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 7.6,
+      "loaded": 1,
+      "held": 1
+    },
+    {
+      "lod": 0,
+      "time": 8.35,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 9.4,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 10,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 10.7,
+      "loaded": 2,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 11.9,
+      "loaded": 2,
+      "held": 2
+    },
+    {
+      "lod": 0,
+      "time": 12.65,
+      "loaded": 3,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 13.7,
+      "loaded": 3,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 14.9,
+      "loaded": 3,
+      "held": 3
+    },
+    {
+      "lod": 0,
+      "time": 15.65,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 16.7,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 17.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 19.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 21.4,
+      "loaded": 4,
+      "held": -1
+    },
+    {
+      "lod": 0,
+      "time": 22,
+      "loaded": 4,
+      "held": -1
+    }
+  ],
+  "measured_model_pass": [
+    {
+      "lod": 1,
+      "triangles": 19180,
+      "draw_calls": 44
+    },
+    {
+      "lod": 0,
+      "triangles": 47052,
+      "draw_calls": 44
+    }
+  ],
+  "checks": [
+    "Both animated detail tiers; 46 milestone poses and exact package counts",
+    "All camera modes, director framing and mobile 390px layout",
+    "Replay, one-shot end, forward/back scrubbing, chapters, speed, orbit, wireframe, fullscreen",
+    "Three station GLB downloads and scene documentation",
+    "Shared Workshop navigation and no browser errors"
+  ],
+  "errors": []
+}

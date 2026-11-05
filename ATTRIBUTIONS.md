@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Load / Go — STRIDE × CUP / 5 November 2026
+
+Original loading-station fixtures, deterministic choreography, viewer and derived review renders by jelaludo / Model Workshop. Reuses our own P-01 pallet, STRIDE, CUP, crates and runtime unchanged from `b9f027199645634a1686f6c87bdb0caa2308dadf`; per-file hashes are recorded in `pallet-loading/manifest.json`. Station game/distance tiers are reduced derivatives of the original fixture design. No third-party model geometry is introduced. Original Workshop reuse terms apply; original asset/reference provenance remains in `assets/pallet-cargo/`.
+
 ## NISOKU-03 / Refined enclosure / 4 November 2026
 
 Original duplicate and refinement of our NISOKU-02 chassis by jelaludo / Model Workshop. Curved enclosure geometry, the revision 2 aerodynamic helmet and spherical elbows, comparison viewer, frame audit, preservation checks and review renders are original Workshop work. Revision 3 adds the measured 8.25-head silhouette, modestly broader shoulder housings, sloping collar and proportion grid. Revision 4 adds longer leg links and a shorter neck with updated kinematics and preservation checks. User-supplied proportion charts guide the artistic canon and are not redistributed. Previous exports are archived under `assets/nisoku03/revisions/r1/`, `r2/` and `r3/`. Existing AUREL hand and foot digit geometry is reused unchanged; no third-party hand reference geometry or code is included. The original NISOKU-02 family and component sources remain preserved. Reference-image fingerprints and parent commit are in `assets/nisoku03/manifest.json`. Original Workshop reuse terms apply.

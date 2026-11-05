@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "scope": "Plain station exports, exact unchanged source dependencies, deterministic 22-second choreography, sampled rig/contact/cargo and fixture-envelope checks. General arm self-collision, traction, force and suction engineering remain unverified. No new compressed files or FPS claims.",
+  "files": [
+    {
+      "file": "station_d0_lod0.glb",
+      "triangles": 6044,
+      "draw_calls": 1,
+      "bytes": 273704,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "station_d0_lod1.glb",
+      "triangles": 2372,
+      "draw_calls": 1,
+      "bytes": 114436,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "station_d0_lod2.glb",
+      "triangles": 852,
+      "draw_calls": 1,
+      "bytes": 59056,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 5282,
+  "max_contact_error_m": 8.891536662303994e-16,
+  "max_wheel_height_error_m": 2.498001805406602e-16,
+  "min_empty_pallet_dock_clearance_m": 0.09000000000000008,
+  "min_carried_crate_body_clearance_m": 0.10749999046325698,
+  "min_package_separation_m": 0.03999999999999915,
+  "checks": [
+    "Three self-contained station GLBs with zero validator errors/warnings",
+    "Measured triangles/draws/bytes, nondegenerate finite geometry, identical named frames/sockets across tiers",
+    "12 existing PCS GLBs and runtime match the pinned upstream commit byte for byte",
+    "5,282 master/game poses sampled at 120 Hz; exact four-package custody and deck support",
+    "CUP reach, rigid links, level tool and four coplanar seals",
+    "STRIDE grounded wheels, rigid links, steering, rolling and pallet-lock mating",
+    "Stationary carrier during each seal/lift/place; sideways index with two supported crates",
+    "Cargo pair AABBs, dock slab and conservative CUP base proxy clearance",
+    "Continuity at all choreography boundaries and history-free backwards scrubbing",
+    "One-shot ends loaded at 22 seconds; no loop teleport"
+  ]
+}

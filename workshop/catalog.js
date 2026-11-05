@@ -1,4 +1,5 @@
 const collectionImages={
+'pallet-loading':'pallet-loading/preview.png',
 'pallet-cargo':'assets/pallet-cargo/preview.png',
 'nisoku03-chase':'nisoku03-chase/preview.jpg',
 'nisoku03':'assets/nisoku03/preview.jpg',
@@ -42,6 +43,7 @@ const collectionImages={
 };
 
 export const collections=[
+['pallet-loading','Load / Go — STRIDE × CUP','Presentation','STRIDE arrives with an empty pallet. CUP swiftly loads four packages, STRIDE adjusts sideways for the second row, then heads out loaded. A replayable loading bay with director and inspection cameras.','22-second scene · 4 suction transfers · Replay + timeline','Motion study'],
 ['pallet-cargo','PCS / Pallets, STRIDE + CUP','Industry','P-01 passive pallet, STRIDE with a 45-degree corner stance, independent 360-degree wheel steering and compact suspension, and CUP with a level four-cup suction head. Test multidirectional travel or watch CUP transfer a crate between two pallets.','360° wheels · Sliding suspension · CUP transfer · 3 LODs','Kinematic prototype'],
 ['nisoku03-chase','Catch me / NISOKU-03 × K0','Presentation','An 83-second pursuit with planted trip recoveries, forward/backward ukemi, crouching under a gantry, a rail-assisted climb and a superhero landing from a raised deck. Walk, run, sprint, jumps and balance link the tests. Includes replay, chapter shortcuts, scrubbing and the complete original Kimodo clip browser.','83-second chase · 4 roll directions · Climb + super landing','Motion review'],
 ['nisoku03','NISOKU-03 / Refined Enclosure','Characters','A separate refinement of NISOKU-02: bowed chest enclosure, overlapping curved abdomen scales, wrapping limb shells, seated bearings, a swept motorcycle/military helmet, spherical elbows and fuller heel housings. Measures 8.25 heads with a gentle collar slope and 3.84% broader shoulders. Revision 4 lengthens the legs 4% and shortens the exposed neck by 32 mm, retaining height, helmet size and hand/foot geometry. Compare the previous silhouette or original NISOKU-02 with a head proportion grid.','Before / after · 24,900 game tris / 3 draws · 3 tiers','Kinematic prototype'],
