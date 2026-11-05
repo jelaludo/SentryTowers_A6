@@ -207,3 +207,10 @@ PCS revision 2 adds original CUP-01 geometry, four-pad suction rig and a pallet-
 YūshiRover geometry, articulated runtime, finite-inventory beacon mission and viewer are original work by jelaludo. The user-supplied biomass recovery rover concept informed its root rake, conveyor, six-wheel chassis, twin tanks and cream/graphite/amber palette. Reference filename and SHA-256 are recorded in `assets/yushi-rover/reference-provenance.json`; the image remains unchanged outside the repository. Reference-image creator/license was not supplied; no additional image rights are claimed.
 
 Original project MÖRK and Yūshi045 Bio-Pearl models/runtime are reused unchanged for scale comparison and depot offloading, with source hashes pinned in the rover manifest. Plain rover GLBs are authoritative; LOD2 simplification and browser previews are derived. Repeatable procedural source is `tools/asset-pipeline/yushi-rover-shape.mjs`. No external model or third-party animation was incorporated.
+
+
+## SAI-92 / 採掘 — Mineral Recovery
+
+SAI-92 unit, service-bay geometry, articulated runtime, finite-resource command mission and viewer are original work by jelaludo. The designation and its goroawase interpretation were supplied by the user. Two supplied autonomous-mining / mineral-recovery gas-hopper concept sheets informed its ore tank, pressure bottles, four cold-gas thrusters, folding anchored legs and twin-auger/laser head. Their filenames and SHA-256 values are recorded in `assets/sai92/reference-provenance.json`; originals remain unchanged outside the repository. Reference creator/license was not supplied and no additional reference-image rights are claimed.
+
+The procedural source is `tools/asset-pipeline/sai92-shape.mjs`. Plain unit/bay GLBs are authoritative. LOD2 simplifications and browser previews are derived. No third-party meshes, animations or textures were incorporated; existing asset families are preserved.

@@ -1,0 +1,1330 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "sai92",
+  "label": "SAI-92 / 採掘",
+  "revision": 1,
+  "status": "interactive_kinematic_prototype_pending_game_integration",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground at reserved plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "designation": {
+    "name": "SAI-92",
+    "meaning": "User-designated goroawase play on sai ku tsuu / 採掘; retained as provided."
+  },
+  "spec": {
+    "upper_leg_m": 0.95,
+    "lower_leg_m": 1.35,
+    "body_height_m": 1.7,
+    "anchor_stroke_m": 0.16,
+    "ore_capacity": 80,
+    "flight_gas_capacity": 100,
+    "battery_capacity": 100,
+    "units": "Demonstration units; production balancing is game-owned"
+  },
+  "runtime": {
+    "adapter": "runtime.js",
+    "mission": "mission.js",
+    "baked_clips": [],
+    "engine_driven": [
+      "four two-link landing legs, telescopic shocks and ground anchors",
+      "four cold-gas thruster gimbals",
+      "sensor yaw",
+      "folding/sliding twin-auger mining head and three mining laser sockets",
+      "ore window mask, segmented ore level and two-stage unloading tube",
+      "service bay ore, gas and charge indicators"
+    ],
+    "inventory": "Finite ore transfers from selected site to SAI-92 to home receiver; gas and charge consumed on mission and restored at base. Demonstration units."
+  },
+  "lod_selection": {
+    "lod0": "Detailed master for inspection and recordings",
+    "lod1": "Active articulated unit / service bay",
+    "lod2": "Derived frozen landed unit with half ore, and half-filled static bay. No live gauges or actuation.",
+    "unit_runtime_swap": false,
+    "preview_enter_m": 150,
+    "preview_return_m": 170,
+    "threshold_status": "Provisional map/loading metadata, not measured game recommendations"
+  },
+  "assets": [
+    {
+      "module": "unit",
+      "file": "sai92_unit_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "bytes": 1094620,
+      "sha256": "dbc36a9f17251947930ce8a125ce6537f103f763f9fb88dc0b3332ca49206798",
+      "triangles": 54152,
+      "draw_calls": 42,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        7,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -3.1586000132560734,
+          1.7881392280205722e-9,
+          -2.289600013494492
+        ],
+        "max": [
+          3.1586000132560734,
+          3.9945000100135806,
+          2.2896000134944914
+        ],
+        "dimensions_m": [
+          6.317200026512147,
+          3.994500008225441,
+          4.579200026988984
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_FOOT_FL",
+          "position_m": [
+            -2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_FR",
+          "position_m": [
+            2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RL",
+          "position_m": [
+            -2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RR",
+          "position_m": [
+            2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_LASER_L",
+          "position_m": [
+            -0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_R",
+          "position_m": [
+            0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_C",
+          "position_m": [
+            0,
+            0.8811927348042595,
+            1.0260192150370702
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_MINING_CONTACT",
+          "position_m": [
+            0,
+            0.8464038785744226,
+            0.5387926399385645
+          ],
+          "kind": "drill_ground"
+        },
+        {
+          "node": "SOCKET_ORE_OUT",
+          "position_m": [
+            0,
+            2.04,
+            1.38
+          ],
+          "kind": "ore_outlet"
+        },
+        {
+          "node": "SOCKET_GAS_IN",
+          "position_m": [
+            -0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "gas_inlet"
+        },
+        {
+          "node": "SOCKET_CHARGE",
+          "position_m": [
+            0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "power_inlet"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "position_m": [
+            0,
+            2.6799999999999997,
+            0
+          ],
+          "kind": "ore_inventory"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_ROOT",
+        "BODY_HEAVE",
+        "ORE_WINDOW_CONTENT",
+        "ORE_WINDOW_MASK",
+        "ORE_WINDOW_MASK_SURFACE",
+        "ORE_GAUGE_FILL",
+        "ORE_GAUGE_SURFACE",
+        "BODY_ORE_TANK_SURFACE",
+        "SENSOR_YAW",
+        "SENSOR_SURFACE",
+        "LEG_FL_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_UPPER",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_BARREL",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_SHOCK_ROD_SURFACE",
+        "LEG_FL_FOOT",
+        "LEG_FL_FOOT_SURFACE",
+        "LEG_FL_ANCHORS",
+        "LEG_FL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FL",
+        "THRUSTER_FL_GIMBAL",
+        "THRUSTER_FL_SURFACE",
+        "SOCKET_EXHAUST_FL",
+        "THRUSTER_FL_BOOM",
+        "LEG_FR_YAW",
+        "LEG_FR_HIP",
+        "LEG_FR_UPPER",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_BARREL",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_SHOCK_ROD_SURFACE",
+        "LEG_FR_FOOT",
+        "LEG_FR_FOOT_SURFACE",
+        "LEG_FR_ANCHORS",
+        "LEG_FR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FR",
+        "THRUSTER_FR_GIMBAL",
+        "THRUSTER_FR_SURFACE",
+        "SOCKET_EXHAUST_FR",
+        "THRUSTER_FR_BOOM",
+        "LEG_RL_YAW",
+        "LEG_RL_HIP",
+        "LEG_RL_UPPER",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_BARREL",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_SHOCK_ROD_SURFACE",
+        "LEG_RL_FOOT",
+        "LEG_RL_FOOT_SURFACE",
+        "LEG_RL_ANCHORS",
+        "LEG_RL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RL",
+        "THRUSTER_RL_GIMBAL",
+        "THRUSTER_RL_SURFACE",
+        "SOCKET_EXHAUST_RL",
+        "THRUSTER_RL_BOOM",
+        "LEG_RR_YAW",
+        "LEG_RR_HIP",
+        "LEG_RR_UPPER",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_BARREL",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_SHOCK_ROD_SURFACE",
+        "LEG_RR_FOOT",
+        "LEG_RR_FOOT_SURFACE",
+        "LEG_RR_ANCHORS",
+        "LEG_RR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RR",
+        "THRUSTER_RR_GIMBAL",
+        "THRUSTER_RR_SURFACE",
+        "SOCKET_EXHAUST_RR",
+        "THRUSTER_RR_BOOM",
+        "INTAKE_SCREW_ROLL",
+        "INTAKE_SCREW",
+        "INTAKE_FRAME",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "AUGER_L_SURFACE",
+        "LASER_L_AIM",
+        "LASER_L_SURFACE",
+        "SOCKET_LASER_L",
+        "AUGER_R_ROLL",
+        "AUGER_R_SURFACE",
+        "LASER_R_AIM",
+        "LASER_R_SURFACE",
+        "SOCKET_LASER_R",
+        "SOCKET_LASER_C",
+        "MINING_FRAME",
+        "SOCKET_MINING_CONTACT",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_TUBE_1",
+        "OFFLOAD_STAGE_2",
+        "OFFLOAD_TUBE_2",
+        "SOCKET_ORE_OUT",
+        "SOCKET_GAS_IN",
+        "SOCKET_CHARGE",
+        "SOCKET_CARGO"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "ORE_WINDOW_MASK",
+        "ORE_GAUGE_FILL",
+        "SENSOR_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_FOOT",
+        "LEG_FL_ANCHORS",
+        "THRUSTER_FL_GIMBAL",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_FOOT",
+        "LEG_FR_ANCHORS",
+        "THRUSTER_FR_GIMBAL",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_FOOT",
+        "LEG_RL_ANCHORS",
+        "THRUSTER_RL_GIMBAL",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_FOOT",
+        "LEG_RR_ANCHORS",
+        "THRUSTER_RR_GIMBAL",
+        "INTAKE_SCREW_ROLL",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "LASER_L_AIM",
+        "AUGER_R_ROLL",
+        "LASER_R_AIM",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_STAGE_2"
+      ],
+      "static": false,
+      "derived": false,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    },
+    {
+      "module": "unit",
+      "file": "sai92_unit_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 641160,
+      "sha256": "71764390537a05b01a3d0bde48fb51d1a8d26101a39dbe4aad6d1e7fd78f7031",
+      "triangles": 18992,
+      "draw_calls": 42,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        7,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -3.1586000132560734,
+          1.7881392280205722e-9,
+          -2.289600013494492
+        ],
+        "max": [
+          3.1586000132560734,
+          3.9945000100135806,
+          2.2896000134944914
+        ],
+        "dimensions_m": [
+          6.317200026512147,
+          3.994500008225441,
+          4.579200026988984
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_FOOT_FL",
+          "position_m": [
+            -2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_FR",
+          "position_m": [
+            2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RL",
+          "position_m": [
+            -2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RR",
+          "position_m": [
+            2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_LASER_L",
+          "position_m": [
+            -0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_R",
+          "position_m": [
+            0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_C",
+          "position_m": [
+            0,
+            0.8811927348042595,
+            1.0260192150370702
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_MINING_CONTACT",
+          "position_m": [
+            0,
+            0.8464038785744226,
+            0.5387926399385645
+          ],
+          "kind": "drill_ground"
+        },
+        {
+          "node": "SOCKET_ORE_OUT",
+          "position_m": [
+            0,
+            2.04,
+            1.38
+          ],
+          "kind": "ore_outlet"
+        },
+        {
+          "node": "SOCKET_GAS_IN",
+          "position_m": [
+            -0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "gas_inlet"
+        },
+        {
+          "node": "SOCKET_CHARGE",
+          "position_m": [
+            0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "power_inlet"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "position_m": [
+            0,
+            2.6799999999999997,
+            0
+          ],
+          "kind": "ore_inventory"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_ROOT",
+        "BODY_HEAVE",
+        "ORE_WINDOW_CONTENT",
+        "ORE_WINDOW_MASK",
+        "ORE_WINDOW_MASK_SURFACE",
+        "ORE_GAUGE_FILL",
+        "ORE_GAUGE_SURFACE",
+        "BODY_ORE_TANK_SURFACE",
+        "SENSOR_YAW",
+        "SENSOR_SURFACE",
+        "LEG_FL_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_UPPER",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_BARREL",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_SHOCK_ROD_SURFACE",
+        "LEG_FL_FOOT",
+        "LEG_FL_FOOT_SURFACE",
+        "LEG_FL_ANCHORS",
+        "LEG_FL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FL",
+        "THRUSTER_FL_GIMBAL",
+        "THRUSTER_FL_SURFACE",
+        "SOCKET_EXHAUST_FL",
+        "THRUSTER_FL_BOOM",
+        "LEG_FR_YAW",
+        "LEG_FR_HIP",
+        "LEG_FR_UPPER",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_BARREL",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_SHOCK_ROD_SURFACE",
+        "LEG_FR_FOOT",
+        "LEG_FR_FOOT_SURFACE",
+        "LEG_FR_ANCHORS",
+        "LEG_FR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FR",
+        "THRUSTER_FR_GIMBAL",
+        "THRUSTER_FR_SURFACE",
+        "SOCKET_EXHAUST_FR",
+        "THRUSTER_FR_BOOM",
+        "LEG_RL_YAW",
+        "LEG_RL_HIP",
+        "LEG_RL_UPPER",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_BARREL",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_SHOCK_ROD_SURFACE",
+        "LEG_RL_FOOT",
+        "LEG_RL_FOOT_SURFACE",
+        "LEG_RL_ANCHORS",
+        "LEG_RL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RL",
+        "THRUSTER_RL_GIMBAL",
+        "THRUSTER_RL_SURFACE",
+        "SOCKET_EXHAUST_RL",
+        "THRUSTER_RL_BOOM",
+        "LEG_RR_YAW",
+        "LEG_RR_HIP",
+        "LEG_RR_UPPER",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_BARREL",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_SHOCK_ROD_SURFACE",
+        "LEG_RR_FOOT",
+        "LEG_RR_FOOT_SURFACE",
+        "LEG_RR_ANCHORS",
+        "LEG_RR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RR",
+        "THRUSTER_RR_GIMBAL",
+        "THRUSTER_RR_SURFACE",
+        "SOCKET_EXHAUST_RR",
+        "THRUSTER_RR_BOOM",
+        "INTAKE_SCREW_ROLL",
+        "INTAKE_SCREW",
+        "INTAKE_FRAME",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "AUGER_L_SURFACE",
+        "LASER_L_AIM",
+        "LASER_L_SURFACE",
+        "SOCKET_LASER_L",
+        "AUGER_R_ROLL",
+        "AUGER_R_SURFACE",
+        "LASER_R_AIM",
+        "LASER_R_SURFACE",
+        "SOCKET_LASER_R",
+        "SOCKET_LASER_C",
+        "MINING_FRAME",
+        "SOCKET_MINING_CONTACT",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_TUBE_1",
+        "OFFLOAD_STAGE_2",
+        "OFFLOAD_TUBE_2",
+        "SOCKET_ORE_OUT",
+        "SOCKET_GAS_IN",
+        "SOCKET_CHARGE",
+        "SOCKET_CARGO"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "ORE_WINDOW_MASK",
+        "ORE_GAUGE_FILL",
+        "SENSOR_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_FOOT",
+        "LEG_FL_ANCHORS",
+        "THRUSTER_FL_GIMBAL",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_FOOT",
+        "LEG_FR_ANCHORS",
+        "THRUSTER_FR_GIMBAL",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_FOOT",
+        "LEG_RL_ANCHORS",
+        "THRUSTER_RL_GIMBAL",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_FOOT",
+        "LEG_RR_ANCHORS",
+        "THRUSTER_RR_GIMBAL",
+        "INTAKE_SCREW_ROLL",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "LASER_L_AIM",
+        "AUGER_R_ROLL",
+        "LASER_R_AIM",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_STAGE_2"
+      ],
+      "static": false,
+      "derived": false,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    },
+    {
+      "module": "unit",
+      "file": "sai92_unit_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "bytes": 203320,
+      "sha256": "62d0d9636b313c8ac6f00e988a37c9e18b339c07a2928357a3f1cebda66f8e10",
+      "triangles": 2500,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        7,
+        5
+      ],
+      "bounds": {
+        "min": [
+          -3.158600091934204,
+          1.7881391922713874e-9,
+          -2.289599895477295
+        ],
+        "max": [
+          3.158600091934204,
+          3.994499921798706,
+          2.289599895477295
+        ],
+        "dimensions_m": [
+          6.317200183868408,
+          3.9944999200105666,
+          4.57919979095459
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_FOOT_FL",
+          "position_m": [
+            -2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_FR",
+          "position_m": [
+            2.58,
+            0,
+            1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_FR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RL",
+          "position_m": [
+            -2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RL",
+          "position_m": [
+            -2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_FOOT_RR",
+          "position_m": [
+            2.5800000000000005,
+            0,
+            -1.73
+          ],
+          "kind": "ground_contact"
+        },
+        {
+          "node": "SOCKET_EXHAUST_RR",
+          "position_m": [
+            2.56,
+            1.9100000000000001,
+            -0.89
+          ],
+          "kind": "cold_gas_exhaust"
+        },
+        {
+          "node": "SOCKET_LASER_L",
+          "position_m": [
+            -0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_R",
+          "position_m": [
+            0.4517062038599786,
+            0.8050558831530767,
+            1.1409811271289838
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_LASER_C",
+          "position_m": [
+            0,
+            0.8811927348042595,
+            1.0260192150370702
+          ],
+          "kind": "mining_beam"
+        },
+        {
+          "node": "SOCKET_MINING_CONTACT",
+          "position_m": [
+            0,
+            0.8464038785744226,
+            0.5387926399385645
+          ],
+          "kind": "drill_ground"
+        },
+        {
+          "node": "SOCKET_ORE_OUT",
+          "position_m": [
+            0,
+            2.04,
+            1.38
+          ],
+          "kind": "ore_outlet"
+        },
+        {
+          "node": "SOCKET_GAS_IN",
+          "position_m": [
+            -0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "gas_inlet"
+        },
+        {
+          "node": "SOCKET_CHARGE",
+          "position_m": [
+            0.66,
+            1.5699999999999998,
+            -1.3
+          ],
+          "kind": "power_inlet"
+        },
+        {
+          "node": "SOCKET_CARGO",
+          "position_m": [
+            0,
+            2.6799999999999997,
+            0
+          ],
+          "kind": "ore_inventory"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_ROOT",
+        "BODY_HEAVE",
+        "ORE_WINDOW_MASK",
+        "ORE_WINDOW_MASK_SURFACE",
+        "ORE_GAUGE_FILL",
+        "ORE_GAUGE_SURFACE",
+        "SENSOR_YAW",
+        "SENSOR_SURFACE",
+        "LEG_FL_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_FOOT",
+        "LEG_FL_ANCHORS",
+        "LEG_FL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FL",
+        "LEG_FL_FOOT_SURFACE",
+        "LEG_FL_SHOCK_ROD_SURFACE",
+        "LEG_FL_SHOCK_BARREL",
+        "LEG_FL_UPPER",
+        "THRUSTER_FL_GIMBAL",
+        "SOCKET_EXHAUST_FL",
+        "THRUSTER_FL_SURFACE",
+        "LEG_FR_YAW",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_FOOT",
+        "LEG_FR_ANCHORS",
+        "LEG_FR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_FR",
+        "LEG_FR_FOOT_SURFACE",
+        "LEG_FR_SHOCK_ROD_SURFACE",
+        "LEG_FR_SHOCK_BARREL",
+        "LEG_FR_UPPER",
+        "THRUSTER_FR_GIMBAL",
+        "SOCKET_EXHAUST_FR",
+        "THRUSTER_FR_SURFACE",
+        "LEG_RL_YAW",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_FOOT",
+        "LEG_RL_ANCHORS",
+        "LEG_RL_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RL",
+        "LEG_RL_FOOT_SURFACE",
+        "LEG_RL_SHOCK_ROD_SURFACE",
+        "LEG_RL_SHOCK_BARREL",
+        "LEG_RL_UPPER",
+        "THRUSTER_RL_GIMBAL",
+        "SOCKET_EXHAUST_RL",
+        "THRUSTER_RL_SURFACE",
+        "LEG_RR_YAW",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_FOOT",
+        "LEG_RR_ANCHORS",
+        "LEG_RR_ANCHOR_SPIKES",
+        "SOCKET_FOOT_RR",
+        "LEG_RR_FOOT_SURFACE",
+        "LEG_RR_SHOCK_ROD_SURFACE",
+        "LEG_RR_SHOCK_BARREL",
+        "LEG_RR_UPPER",
+        "THRUSTER_RR_GIMBAL",
+        "SOCKET_EXHAUST_RR",
+        "THRUSTER_RR_SURFACE",
+        "INTAKE_SCREW_ROLL",
+        "INTAKE_SCREW",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "AUGER_L_SURFACE",
+        "LASER_L_AIM",
+        "SOCKET_LASER_L",
+        "LASER_L_SURFACE",
+        "AUGER_R_ROLL",
+        "AUGER_R_SURFACE",
+        "LASER_R_AIM",
+        "SOCKET_LASER_R",
+        "LASER_R_SURFACE",
+        "SOCKET_LASER_C",
+        "SOCKET_MINING_CONTACT",
+        "MINING_FRAME",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_STAGE_2",
+        "SOCKET_ORE_OUT",
+        "OFFLOAD_TUBE_2",
+        "OFFLOAD_TUBE_1",
+        "SOCKET_GAS_IN",
+        "SOCKET_CHARGE",
+        "SOCKET_CARGO",
+        "ORE_WINDOW_CONTENT",
+        "BODY_ORE_TANK_SURFACE",
+        "THRUSTER_FL_BOOM",
+        "THRUSTER_FR_BOOM",
+        "THRUSTER_RL_BOOM",
+        "THRUSTER_RR_BOOM",
+        "INTAKE_FRAME",
+        "SAI92_STATIC_SURFACE"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "ORE_WINDOW_MASK",
+        "ORE_GAUGE_FILL",
+        "SENSOR_YAW",
+        "LEG_FL_HIP",
+        "LEG_FL_KNEE",
+        "LEG_FL_SHOCK_ROD",
+        "LEG_FL_FOOT",
+        "LEG_FL_ANCHORS",
+        "THRUSTER_FL_GIMBAL",
+        "LEG_FR_HIP",
+        "LEG_FR_KNEE",
+        "LEG_FR_SHOCK_ROD",
+        "LEG_FR_FOOT",
+        "LEG_FR_ANCHORS",
+        "THRUSTER_FR_GIMBAL",
+        "LEG_RL_HIP",
+        "LEG_RL_KNEE",
+        "LEG_RL_SHOCK_ROD",
+        "LEG_RL_FOOT",
+        "LEG_RL_ANCHORS",
+        "THRUSTER_RL_GIMBAL",
+        "LEG_RR_HIP",
+        "LEG_RR_KNEE",
+        "LEG_RR_SHOCK_ROD",
+        "LEG_RR_FOOT",
+        "LEG_RR_ANCHORS",
+        "THRUSTER_RR_GIMBAL",
+        "INTAKE_SCREW_ROLL",
+        "MINING_LIFT",
+        "MINING_FOLD",
+        "AUGER_L_ROLL",
+        "LASER_L_AIM",
+        "AUGER_R_ROLL",
+        "LASER_R_AIM",
+        "OFFLOAD_STAGE_1",
+        "OFFLOAD_STAGE_2"
+      ],
+      "static": true,
+      "derived": true,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    },
+    {
+      "module": "bay",
+      "file": "sai92_bay_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "bytes": 285032,
+      "sha256": "fcb519f8944e71aa5361a2916376f66dc2adebbc7ebe1ddca7776404111e8ca1",
+      "triangles": 5040,
+      "draw_calls": 5,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        10,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -3.5762786065873797e-9,
+          -4.5
+        ],
+        "max": [
+          5,
+          3.4049999713897705,
+          4.5
+        ],
+        "dimensions_m": [
+          10,
+          3.4049999749660493,
+          9
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LANDING",
+          "position_m": [
+            0,
+            0.215,
+            0
+          ],
+          "kind": "ground_origin"
+        },
+        {
+          "node": "SOCKET_RECEIVER",
+          "position_m": [
+            0,
+            1.87,
+            3.3
+          ],
+          "kind": "ore_receiver"
+        },
+        {
+          "node": "SOCKET_GAS_SUPPLY",
+          "position_m": [
+            -2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "gas_supply"
+        },
+        {
+          "node": "SOCKET_POWER_SUPPLY",
+          "position_m": [
+            2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "power_supply"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_BAY_ROOT",
+        "ORE_RECEIVER",
+        "ORE_RECEIVER_SURFACE",
+        "BAY_ORE_LEVEL",
+        "BAY_ORE_LEVEL_SURFACE",
+        "BAY_GAS_LEVEL",
+        "BAY_GAS_GAUGE",
+        "BAY_POWER_LEVEL",
+        "BAY_POWER_GAUGE",
+        "BAY_SURFACE",
+        "SOCKET_LANDING",
+        "SOCKET_RECEIVER",
+        "SOCKET_GAS_SUPPLY",
+        "SOCKET_POWER_SUPPLY"
+      ],
+      "engine_nodes": [
+        "BAY_ORE_LEVEL",
+        "BAY_GAS_LEVEL",
+        "BAY_POWER_LEVEL"
+      ],
+      "static": false,
+      "derived": false,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    },
+    {
+      "module": "bay",
+      "file": "sai92_bay_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 246664,
+      "sha256": "efa93366d61ef020100378bcd24c68ed4f038e4fcb33fd45f70052b1cb31b8a2",
+      "triangles": 3928,
+      "draw_calls": 5,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        10,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -3.5762786065873797e-9,
+          -4.5
+        ],
+        "max": [
+          5,
+          3.4049999713897705,
+          4.5
+        ],
+        "dimensions_m": [
+          10,
+          3.4049999749660493,
+          9
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LANDING",
+          "position_m": [
+            0,
+            0.215,
+            0
+          ],
+          "kind": "ground_origin"
+        },
+        {
+          "node": "SOCKET_RECEIVER",
+          "position_m": [
+            0,
+            1.87,
+            3.3
+          ],
+          "kind": "ore_receiver"
+        },
+        {
+          "node": "SOCKET_GAS_SUPPLY",
+          "position_m": [
+            -2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "gas_supply"
+        },
+        {
+          "node": "SOCKET_POWER_SUPPLY",
+          "position_m": [
+            2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "power_supply"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_BAY_ROOT",
+        "ORE_RECEIVER",
+        "ORE_RECEIVER_SURFACE",
+        "BAY_ORE_LEVEL",
+        "BAY_ORE_LEVEL_SURFACE",
+        "BAY_GAS_LEVEL",
+        "BAY_GAS_GAUGE",
+        "BAY_POWER_LEVEL",
+        "BAY_POWER_GAUGE",
+        "BAY_SURFACE",
+        "SOCKET_LANDING",
+        "SOCKET_RECEIVER",
+        "SOCKET_GAS_SUPPLY",
+        "SOCKET_POWER_SUPPLY"
+      ],
+      "engine_nodes": [
+        "BAY_ORE_LEVEL",
+        "BAY_GAS_LEVEL",
+        "BAY_POWER_LEVEL"
+      ],
+      "static": false,
+      "derived": false,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    },
+    {
+      "module": "bay",
+      "file": "sai92_bay_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "bytes": 138692,
+      "sha256": "e14543456c2c2dafffbb41d56b69a171ebfd405a8501a2f322d79a72b8a3d023",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        10,
+        9
+      ],
+      "bounds": {
+        "min": [
+          -5,
+          -3.5762786065873797e-9,
+          -4.5
+        ],
+        "max": [
+          5,
+          3.4049999713897705,
+          4.5
+        ],
+        "dimensions_m": [
+          10,
+          3.4049999749660493,
+          9
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LANDING",
+          "position_m": [
+            0,
+            0.215,
+            0
+          ],
+          "kind": "ground_origin"
+        },
+        {
+          "node": "SOCKET_RECEIVER",
+          "position_m": [
+            0,
+            1.87,
+            3.3
+          ],
+          "kind": "ore_receiver"
+        },
+        {
+          "node": "SOCKET_GAS_SUPPLY",
+          "position_m": [
+            -2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "gas_supply"
+        },
+        {
+          "node": "SOCKET_POWER_SUPPLY",
+          "position_m": [
+            2.3,
+            1.78,
+            -3.2
+          ],
+          "kind": "power_supply"
+        }
+      ],
+      "clips": [],
+      "nodes": [
+        "SAI92_BAY_ROOT",
+        "ORE_RECEIVER",
+        "BAY_ORE_LEVEL",
+        "BAY_ORE_LEVEL_SURFACE",
+        "ORE_RECEIVER_SURFACE",
+        "BAY_GAS_LEVEL",
+        "BAY_GAS_GAUGE",
+        "BAY_POWER_LEVEL",
+        "BAY_POWER_GAUGE",
+        "SOCKET_LANDING",
+        "SOCKET_RECEIVER",
+        "SOCKET_GAS_SUPPLY",
+        "SOCKET_POWER_SUPPLY",
+        "BAY_SURFACE",
+        "SAI92_BAY_STATIC_SURFACE"
+      ],
+      "engine_nodes": [
+        "BAY_ORE_LEVEL",
+        "BAY_GAS_LEVEL",
+        "BAY_POWER_LEVEL"
+      ],
+      "static": true,
+      "derived": true,
+      "credit": "Original SAI-92 unit and service bay by jelaludo, from supplied mineral recovery gas-hopper concepts."
+    }
+  ],
+  "handoff": {
+    "folder": "assets/sai92/",
+    "viewer": "sai92/",
+    "derived": "LOD2 simplifications and browser previews; no compressed exports.",
+    "pending": [
+      "Visual acceptance and mechanism collision/load engineering",
+      "Flight dynamics, gas impulse and energy balancing",
+      "Game navigation, terrain/obstacle avoidance and inventory/network integration",
+      "D1–D3 damage",
+      "Consuming r160 renderer, release gltfpack and reference-phone measurements"
+    ]
+  }
+}

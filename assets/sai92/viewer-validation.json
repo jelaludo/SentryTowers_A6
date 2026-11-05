@@ -1,0 +1,224 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL; functional checks, not FPS benchmarking",
+  "samples": [
+    {
+      "phase": "lift",
+      "time": 3,
+      "cargo": 0,
+      "stored": 0,
+      "gas": 97.66000000000034,
+      "battery": 99.36999999999955,
+      "fold": 0.9752807617187496,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 4,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "outbound",
+      "time": 5.9999999999999565,
+      "cargo": 0,
+      "stored": 0,
+      "gas": 93.7600000000009,
+      "battery": 98.3199999999988,
+      "fold": 1,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 4,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "locate",
+      "time": 9.999999999999869,
+      "cargo": 0,
+      "stored": 0,
+      "gas": 88.56000000000165,
+      "battery": 96.9199999999978,
+      "fold": 1,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 4,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "anchor",
+      "time": 15.499999999999751,
+      "cargo": 0,
+      "stored": 0,
+      "gas": 82.11200000000258,
+      "battery": 95.18399999999656,
+      "fold": 0,
+      "anchor": 0.48636513899323836,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 0,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "mine",
+      "time": 22.499999999999602,
+      "cargo": 29.640000000000068,
+      "stored": 0,
+      "gas": 82.11200000000258,
+      "battery": 91.97299999999527,
+      "fold": 0,
+      "anchor": 1,
+      "deploy": 1,
+      "offload": 0,
+      "jets": 0,
+      "lasers": 3,
+      "connections": []
+    },
+    {
+      "phase": "retract",
+      "time": 31.9999999999994,
+      "cargo": 80,
+      "stored": 0,
+      "gas": 82.11200000000258,
+      "battery": 86.51299999999307,
+      "fold": 0,
+      "anchor": 1,
+      "deploy": 0.23193359374999956,
+      "offload": 0,
+      "jets": 0,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "inbound",
+      "time": 37.00000000000018,
+      "cargo": 80,
+      "stored": 0,
+      "gas": 77.56200000000324,
+      "battery": 85.2879999999922,
+      "fold": 1,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 4,
+      "lasers": 0,
+      "connections": []
+    },
+    {
+      "phase": "service",
+      "time": 48.0000000000019,
+      "cargo": 65.19999999999979,
+      "stored": 14.79999999999998,
+      "gas": 84.89600000000436,
+      "battery": 97.2809999999904,
+      "fold": 0,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 1,
+      "jets": 0,
+      "lasers": 0,
+      "connections": [
+        {
+          "name": "gas",
+          "start": [
+            -15.3,
+            1.78,
+            -13.2
+          ],
+          "end": [
+            -13.66,
+            1.7850000000000001,
+            -11.3
+          ],
+          "target": [
+            -13.66,
+            1.7850000000000001,
+            -11.3
+          ],
+          "error": 0
+        },
+        {
+          "name": "power",
+          "start": [
+            -10.7,
+            1.78,
+            -13.2
+          ],
+          "end": [
+            -12.34,
+            1.7850000000000001,
+            -11.3
+          ],
+          "target": [
+            -12.34,
+            1.7850000000000001,
+            -11.3
+          ],
+          "error": 0
+        }
+      ]
+    },
+    {
+      "phase": "ready",
+      "time": 58.00000000000346,
+      "cargo": 0,
+      "stored": 80,
+      "gas": 100,
+      "battery": 100,
+      "fold": 0,
+      "anchor": 0,
+      "deploy": 0,
+      "offload": 0,
+      "jets": 0,
+      "lasers": 0,
+      "connections": []
+    }
+  ],
+  "measured_model_only_passes": [
+    {
+      "lod": 0,
+      "unit": {
+        "triangles": 54152,
+        "draw_calls": 42
+      },
+      "bay": {
+        "triangles": 5040,
+        "draw_calls": 5
+      }
+    },
+    {
+      "lod": 1,
+      "unit": {
+        "triangles": 18992,
+        "draw_calls": 42
+      },
+      "bay": {
+        "triangles": 3928,
+        "draw_calls": 5
+      }
+    },
+    {
+      "lod": 2,
+      "unit": {
+        "triangles": 2500,
+        "draw_calls": 1
+      },
+      "bay": {
+        "triangles": 2000,
+        "draw_calls": 1
+      }
+    }
+  ],
+  "checks": [
+    "Explicit dispatch, complete finite-ore mission, restored gas/battery and idle waiting",
+    "Actual visible thrusters/lasers follow takeoff/drilling interlocks",
+    "Both gas/power hoses reach exact unit sockets during service",
+    "Player map and numeric site creation/selection, recall and pause",
+    "Master/game counter-rotating augers, live ore window/gauge, shock stroke and folded flight",
+    "Six plain exports and frozen static tiers; all cameras, wireframe/fullscreen, 390px layout and shared navigation"
+  ],
+  "errors": []
+}
