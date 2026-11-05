@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "scope": "Plain exports and originals, unchanged STRIDE-01 leg surfaces, full fold trajectory, packed envelope, floor/deck-plane clearances, flat-wheel versus support clearance, rigid links and supported body. This does not certify general pairwise self-collision, actuator loads, forces or production engineering.",
+  "files": [
+    {
+      "file": "stride02_deployed_d0_lod0.glb",
+      "triangles": 19592,
+      "draw_calls": 49,
+      "bytes": 1070712,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride02_deployed_d0_lod1.glb",
+      "triangles": 7704,
+      "draw_calls": 49,
+      "bytes": 533156,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride02_deployed_d0_lod2.glb",
+      "triangles": 2200,
+      "draw_calls": 1,
+      "bytes": 226732,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride02_stowed_d0_lod0.glb",
+      "triangles": 19592,
+      "draw_calls": 49,
+      "bytes": 1071156,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride02_stowed_d0_lod1.glb",
+      "triangles": 7704,
+      "draw_calls": 49,
+      "bytes": 533600,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stride02_stowed_d0_lod2.glb",
+      "triangles": 2200,
+      "draw_calls": 1,
+      "bytes": 224196,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 1202,
+  "min_ground_y_m": -3.7252906315288215e-10,
+  "min_packed_leg_roof_gap_m": 0.005000001192092929,
+  "min_flat_wheel_support_clearance_m": 0.031008474424118804,
+  "max_grounded_parking_error_m": 7.632783294297951e-17,
+  "max_link_length_error_m": 1.6653345369377348e-16,
+  "swept_bounds_m": {
+    "min": [
+      -1.3264880524023919,
+      -3.7252906315288215e-10,
+      -0.8890559141220761
+    ],
+    "max": [
+      1.3264880524023919,
+      0.9399999973177908,
+      0.8890559141220761
+    ]
+  },
+  "checks": [
+    "Six plain exports, hashes and zero glTF errors/warnings",
+    "Unique dot-free names, consistent tier hierarchy/frames/sockets and D0 identifiers",
+    "Source files match pinned original commit; all 40 master/game leg surfaces have identical indices/attributes",
+    "1,202 master/game fold samples: rigid links, no scaling, finite transforms, no floor penetration",
+    "Actual leg-surface vertices clear the deck top layer throughout the fold",
+    "Four parking feet stay grounded before wheel lift through body settlement; constant nested sections keep at least 18 mm overlap",
+    "Packed model fits exactly inside 1.2 × 1.0 × 0.44 m; wheels retain their full 410 mm diameter",
+    "Horizontal wheel axles when deployed and vertical axles when packed; named cargo sockets stay level",
+    "Phase boundary continuity and cycle end/start closure; distance tiers ignore runtime commands",
+    "Measured game/unit and static distance budget checks; no compressed exports or FPS claim"
+  ],
+  "preserved_surface_count": 40
+}

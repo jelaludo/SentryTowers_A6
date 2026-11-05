@@ -1,5 +1,7 @@
 # Model Workshop
 
+**STRIDE-02 / Transforming pallet** puts STRIDE-01’s original legs directly on a pallet. Wheels turn flat, rigid links fold and four mounts draw inward until the mechanism fits beneath the 1,200 × 1,000 mm deck, in a 440 mm packed height. Open `stride-02/` for deploy/retract, scrubbing, underside and transparent-frame views. Six master/game/static exports, source-preservation checks and measured validation are in `assets/stride-02/`.
+
 **Load / Go — STRIDE × CUP** is a 22-second loading-bay scene: STRIDE arrives with an empty pallet, CUP swiftly places four packages, then STRIDE departs loaded. A sideways adjustment serves the second row while keeping the existing arm geometry. Open `pallet-loading/` for replay, scrubbing, chapter/camera controls and master/game views. Three static station tiers, measured validation and source dependency hashes are included; existing PCS models remain unchanged.
 
 **PCS / Pallet Cargo Standard** pairs the passive P-01 pallet with STRIDE-01's 45-degree stance, four independent 360-degree wheel swivels and compact telescopic suspension. CUP-01 adds an articulated, level four-cup suction head and a complete pallet-to-pallet crate transfer. Seven configurations, crab/diagonal/turn/suspension studies, 24-second CUP handling, three tiers and optional Meshopt copies are available in `pallet-cargo/`. Measured validation, preserved originals and migration notes are in `assets/pallet-cargo/`; pallet/crate files remain unchanged. STEP is a future variant.

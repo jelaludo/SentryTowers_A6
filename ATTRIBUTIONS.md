@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## STRIDE-02 / Transforming pallet / 5 November 2026
+
+Original powered pallet, packing mechanism, parking supports, runtime, viewer and derived review renders by jelaludo / Model Workshop. Reuses original STRIDE-01 master/game leg surfaces unchanged from `b9f027199645634a1686f6c87bdb0caa2308dadf`; source hashes and exact surface-preservation checks accompany `assets/stride-02/`. New hierarchy and frames are explicitly separate from STRIDE-01. Static distance tiers are reduced frozen derivatives. Optional cargo uses our existing PCS crate. No third-party geometry is introduced; original Workshop reuse terms apply.
+
 ## Load / Go — STRIDE × CUP / 5 November 2026
 
 Original loading-station fixtures, deterministic choreography, viewer and derived review renders by jelaludo / Model Workshop. Reuses our own P-01 pallet, STRIDE, CUP, crates and runtime unchanged from `b9f027199645634a1686f6c87bdb0caa2308dadf`; per-file hashes are recorded in `pallet-loading/manifest.json`. Station game/distance tiers are reduced derivatives of the original fixture design. No third-party model geometry is introduced. Original Workshop reuse terms apply; original asset/reference provenance remains in `assets/pallet-cargo/`.

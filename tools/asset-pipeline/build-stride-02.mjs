@@ -1,0 +1,32 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+import * as T from 'three';
+import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptSimplifier} from 'meshoptimizer';
+import {buildStride02} from './stride-02-shape.mjs';
+import {SPEC} from '../../assets/stride-02/runtime.js';
+globalThis.FileReader=class{readAsArrayBuffer(b){b.arrayBuffer().then(x=>{this.result=x;this.onloadend?.();});}readAsDataURL(b){b.arrayBuffer().then(x=>{this.result=`data:${b.type};base64,${Buffer.from(x).toString('base64')}`;this.onloadend?.();});}};
+await MeshoptSimplifier.ready;const out=new URL('../../assets/stride-02/',import.meta.url),assets=[];
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+for(const configuration of ['deployed','stowed'])for(const lod of [0,1,2]){
+ const root=buildStride02(Math.min(lod,1),configuration);root.userData.lod=lod;
+ if(lod===2){
+  const geometries=[],meshes=[];let mat;root.traverse(o=>{if(o.isMesh){meshes.push(o);geometries.push(o.geometry.clone().applyMatrix4(o.matrixWorld));mat=o.material;}});
+  for(const m of meshes){const lookup=new T.Group();lookup.name=m.name;lookup.position.copy(m.position);lookup.quaternion.copy(m.quaternion);lookup.userData={lookup_only:true};m.parent.add(lookup);m.removeFromParent();}
+  let geometry=mergeVertices(mergeGeometries(geometries),1e-5);geometry.computeBoundingBox();const bounds=geometry.boundingBox,p=geometry.attributes.position,c=geometry.attributes.color;
+  const locks=Uint8Array.from({length:p.count},(_,i)=>['x','y','z'].some((axis,j)=>Math.abs(p.getComponent(i,j)-bounds.min[axis])<1e-5||Math.abs(p.getComponent(i,j)-bounds.max[axis])<1e-5)?1:0);
+  const [indices]=MeshoptSimplifier.simplifyWithAttributes(Uint32Array.from(geometry.index.array),p.array,3,c.array,3,[.1,.1,.1],locks,6600,.08,['Permissive']);geometry.setIndex(new T.BufferAttribute(indices,1));geometry=geometry.toNonIndexed();geometry.computeVertexNormals();geometry=mergeVertices(geometry,1e-5);
+  const mesh=new T.Mesh(geometry,mat);mesh.name='STRIDE02_STATIC_SURFACE';root.add(mesh);root.userData.static=true;
+ }
+ let bytes=Buffer.from(await new GLTFExporter().parseAsync(root,{binary:true,trs:true,onlyVisible:false}));
+ const decoded=(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;decoded.updateMatrixWorld(true);
+ let triangles=0,draw_calls=0;const required_nodes=[],sockets=[],engine_nodes=[];decoded.getObjectByName('STRIDE02_ROOT').traverse(o=>{required_nodes.push(o.name);if(o.isMesh){triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;draw_calls++;}if(o.name.startsWith('SOCKET_'))sockets.push({node:o.name,parent:o.parent.name,position_m:o.getWorldPosition(new T.Vector3()).toArray(),kind:o.userData.kind,axis:o.userData.axis});if(o.userData.engine_driven)engine_nodes.push(o.name);});
+ const file=`stride02_${configuration}_d0_lod${lod}.glb`;await fs.writeFile(new URL(file,out),bytes);const b=new T.Box3().setFromObject(decoded,true);
+ assets.push({module:'stride02',file,configuration,lod,damage_level:0,static:lod===2,derived:lod===2,bytes:bytes.length,sha256:sha(bytes),triangles,draw_calls,materials:1,textures:0,plot_m:[2.8,2.2],bounds:{min:b.min.toArray(),max:b.max.toArray(),dimensions_m:b.getSize(new T.Vector3()).toArray()},sockets,clips:[],engine_nodes,required_nodes,credit:'Original pallet/packing mechanism by jelaludo, using original STRIDE-01 leg surfaces unchanged.'});console.log(file,triangles,draw_calls,bytes.length);
+}
+const sourceFiles=['tools/asset-pipeline/pallet-cargo-shape.mjs','assets/pallet-cargo/runtime.js',...[0,1,2].map(lod=>`assets/pallet-cargo/stride_d0_lod${lod}.glb`)];
+const sources=[];for(const file of sourceFiles)sources.push({file,sha256:sha(await fs.readFile(new URL('../../'+file,import.meta.url))),commit:'b9f027199645634a1686f6c87bdb0caa2308dadf',preserved:true});
+const manifest={schema:'jelaludo.asset-family/v2-candidate',family:'stride02',revision:1,label:'STRIDE-02 / transforming pallet',status:'kinematic_prototype_pending_visual_and_game_review',plain_glb_source_of_truth:true,coordinate_system:{units:'metres',up:'+Y',forward:'+Z',origin:'ground at pallet centre'},supported_damage_levels:[0],standard:{...SPEC,cargo_lock_pitch_m:[1.06,.86],crate_cell_pitch_m:[.60,.50],source_leg_surfaces:'Identical original STRIDE-01 master/game upper/lower/rod/upright/wheel surfaces; new parents, packing gimbals, carriages and pallet.',fork_access:'Packed underbody contains wheels and links; conventional fork entry is not certified.'},configurations:['deployed','stowed'],runtime:{file:'runtime.js',baked_clips:[],studies:[{name:'Stride02_Retract',duration_s:12,loop:false},{name:'Stride02_Deploy',duration_s:12,loop:false},{name:'Stride02_Transform_Cycle',duration_s:28,loop:true}],engine_pivots:'Drive only via the supplied adapter; STRIDE-01 runtime is not compatible with this new hierarchy.',parking_supports:'Four inboard jacks, each with three rigid 160 mm nested sections; up to 425 mm total extension during clearance lift, at least 18 mm overlap.',static_tier_articulation:false},lod_selection:{lod0:'Explicit close inspection, animation and recordings.',lod1:'Default articulated game asset with all packing pivots.',lod2:'One frozen surface per configuration; map/loading only, never animate.',distance_first:true,game_enter_m:150,distance_return_m:170,threshold_status:'Provisional, consuming-game tuning pending.'},sources,assets,handoff:{folder:'assets/stride-02/',viewer:'stride-02/',pending:['Visual acceptance','General self-collision, bearing/actuator engineering and load rating','Driving traction and terrain physics','Damage D1–D3','Consuming-game r160/release packing and reference-phone performance'],derived:'Static tiers and preview renders; no new compressed copies. Source originals are unchanged.'}};
+await fs.writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');
