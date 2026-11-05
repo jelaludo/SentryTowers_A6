@@ -5,14 +5,14 @@
     {
       "configuration": "deployed",
       "lod": 0,
-      "triangles": 19592,
-      "draw_calls": 49
+      "triangles": 21316,
+      "draw_calls": 54
     },
     {
       "configuration": "deployed",
       "lod": 1,
-      "triangles": 7704,
-      "draw_calls": 49
+      "triangles": 8452,
+      "draw_calls": 54
     },
     {
       "configuration": "deployed",
@@ -23,14 +23,14 @@
     {
       "configuration": "stowed",
       "lod": 0,
-      "triangles": 19592,
-      "draw_calls": 49
+      "triangles": 21316,
+      "draw_calls": 54
     },
     {
       "configuration": "stowed",
       "lod": 1,
-      "triangles": 7704,
-      "draw_calls": 49
+      "triangles": 8452,
+      "draw_calls": 54
     },
     {
       "configuration": "stowed",
@@ -41,6 +41,7 @@
   ],
   "pose_samples": 56,
   "checks": [
+    "Initial stowed comparison and exact 1,200 × 1,000 × 160 mm P-01 dimensions in all three packed tiers",
     "Six configuration/tier exports and downloads",
     "56 master/game fold poses, four cameras, desktop and 390px portrait framing",
     "Deploy/retract continue from the current pose without resetting to an endpoint",

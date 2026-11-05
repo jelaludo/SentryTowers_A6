@@ -1,20 +1,21 @@
 {
   "status": "passed",
-  "scope": "Plain exports and originals, unchanged STRIDE-01 leg surfaces, full fold trajectory, packed envelope, floor/deck-plane clearances, flat-wheel versus support clearance, rigid links and supported body. This does not certify general pairwise self-collision, actuator loads, forces or production engineering.",
+  "revision": 2,
+  "scope": "Exact original P-01 envelope and body, baked miniature legs, plain exports, original/r1 preservation and sampled folding clearance inside the original underside pockets. General mechanism self-collision, force/traction and load engineering remain unverified.",
   "files": [
     {
       "file": "stride02_deployed_d0_lod0.glb",
-      "triangles": 19592,
-      "draw_calls": 49,
-      "bytes": 1070712,
+      "triangles": 21316,
+      "draw_calls": 54,
+      "bytes": 1233352,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stride02_deployed_d0_lod1.glb",
-      "triangles": 7704,
-      "draw_calls": 49,
-      "bytes": 533156,
+      "triangles": 8452,
+      "draw_calls": 54,
+      "bytes": 590672,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -22,23 +23,23 @@
       "file": "stride02_deployed_d0_lod2.glb",
       "triangles": 2200,
       "draw_calls": 1,
-      "bytes": 226732,
+      "bytes": 212868,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stride02_stowed_d0_lod0.glb",
-      "triangles": 19592,
-      "draw_calls": 49,
-      "bytes": 1071156,
+      "triangles": 21316,
+      "draw_calls": 54,
+      "bytes": 1233728,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stride02_stowed_d0_lod1.glb",
-      "triangles": 7704,
-      "draw_calls": 49,
-      "bytes": 533600,
+      "triangles": 8452,
+      "draw_calls": 54,
+      "bytes": 591052,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
@@ -46,40 +47,47 @@
       "file": "stride02_stowed_d0_lod2.glb",
       "triangles": 2200,
       "draw_calls": 1,
-      "bytes": 224196,
+      "bytes": 211968,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
   ],
   "pose_samples": 1202,
-  "min_ground_y_m": -3.7252906315288215e-10,
-  "min_packed_leg_roof_gap_m": 0.005000001192092929,
-  "min_flat_wheel_support_clearance_m": 0.031008474424118804,
-  "max_grounded_parking_error_m": 7.632783294297951e-17,
-  "max_link_length_error_m": 1.6653345369377348e-16,
+  "leg_scale": 0.23,
+  "packed_target_m": [
+    1.2,
+    0.16,
+    1
+  ],
+  "max_packed_dimension_error_m": 1.3411045884925699e-10,
+  "min_ground_y_m": -9.298325165385535e-10,
+  "min_packed_leg_roof_gap_m": 0.003350000795721994,
+  "min_leg_pocket_plan_gap_m": 0.0085935549351015,
+  "max_grounded_parking_error_m": 1.9081958235744878e-17,
+  "max_link_length_error_m": 5.551115123125783e-17,
   "swept_bounds_m": {
     "min": [
-      -1.3264880524023919,
-      -3.7252906315288215e-10,
-      -0.8890559141220761
+      -0.6000000238418579,
+      -9.298325165385535e-10,
+      -0.5
     ],
     "max": [
-      1.3264880524023919,
-      0.9399999973177908,
-      0.8890559141220761
+      0.6000000238418579,
+      0.2899999964237214,
+      0.5
     ]
   },
   "checks": [
-    "Six plain exports, hashes and zero glTF errors/warnings",
-    "Unique dot-free names, consistent tier hierarchy/frames/sockets and D0 identifiers",
-    "Source files match pinned original commit; all 40 master/game leg surfaces have identical indices/attributes",
-    "1,202 master/game fold samples: rigid links, no scaling, finite transforms, no floor penetration",
-    "Actual leg-surface vertices clear the deck top layer throughout the fold",
-    "Four parking feet stay grounded before wheel lift through body settlement; constant nested sections keep at least 18 mm overlap",
-    "Packed model fits exactly inside 1.2 × 1.0 × 0.44 m; wheels retain their full 410 mm diameter",
-    "Horizontal wheel axles when deployed and vertical axles when packed; named cargo sockets stay level",
-    "Phase boundary continuity and cycle end/start closure; distance tiers ignore runtime commands",
-    "Measured game/unit and static distance budget checks; no compressed exports or FPS claim"
+    "Six plain GLBs, hashes, unique names, tier frame/socket parity and zero glTF errors/warnings",
+    "All three packed tiers match the original P-01 1.2 × 1.0 × 0.16 m envelope",
+    "Master/game retain the actual P-01 body geometry, indices, normals and colours",
+    "40 leg surfaces verified as a baked 0.23 derivation; topology/normals/colours preserved; no scaling during animation",
+    "Original source hashes and all 29 archived r1 files preserved",
+    "1,202 sampled master/game fold poses: grounded wheels/supports, rigid links and no floor penetration",
+    "Actual leg triangles remain inside original pocket plan boundaries and below the original deck",
+    "Miniature parking sections retain at least 6.6 mm overlap; flat tyres remain separated",
+    "Phase continuity, cargo socket, static articulation lockout and game/distance budgets"
   ],
-  "preserved_surface_count": 40
+  "preserved_r1_files": 29,
+  "verified_scaled_surface_count": 40
 }

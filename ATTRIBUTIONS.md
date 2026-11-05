@@ -1,8 +1,8 @@
 # Asset attributions and provenance
 
-## STRIDE-02 / Transforming pallet / 5 November 2026
+## STRIDE-02 r2 / Exact pallet envelope / 5 November 2026
 
-Original powered pallet, packing mechanism, parking supports, runtime, viewer and derived review renders by jelaludo / Model Workshop. Reuses original STRIDE-01 master/game leg surfaces unchanged from `b9f027199645634a1686f6c87bdb0caa2308dadf`; source hashes and exact surface-preservation checks accompany `assets/stride-02/`. New hierarchy and frames are explicitly separate from STRIDE-01. Static distance tiers are reduced frozen derivatives. Optional cargo uses our existing PCS crate. No third-party geometry is introduced; original Workshop reuse terms apply.
+Original miniature packing mechanism, support/guide hardware, runtime, comparison viewer and derived renders by jelaludo / Model Workshop. Reuses the exact original P-01 body and baked 23%-size STRIDE-01 leg surfaces; source hashes, topology/attribute derivation checks and the original 1,200 × 1,000 × 160 mm envelope are recorded in `assets/stride-02/`. Original sources remain unchanged. The former full-size-leg STRIDE-02 release is preserved in `revisions/r1/` from `7b539417eb3e59763de164d4f36ac50720c9f613`. Static tiers and preview renders are derivatives. No third-party geometry is introduced; original Workshop reuse terms apply.
 
 ## Load / Go — STRIDE × CUP / 5 November 2026
 

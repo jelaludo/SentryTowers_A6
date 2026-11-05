@@ -1,8 +1,8 @@
 {
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "stride02",
-  "revision": 1,
-  "label": "STRIDE-02 / transforming pallet",
+  "revision": 2,
+  "label": "STRIDE-02 / exact P-01 envelope",
   "status": "kinematic_prototype_pending_visual_and_game_review",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -19,11 +19,16 @@
       1.2,
       1
     ],
-    "packed_height_m": 0.44,
-    "deployed_deck_m": 0.83,
-    "upper_m": 0.3,
-    "lower_m": 0.34,
-    "wheel_radius_m": 0.205,
+    "packed_height_m": 0.16,
+    "deployed_deck_m": 0.25,
+    "leg_scale": 0.23,
+    "upper_m": 0.069,
+    "lower_m": 0.0782,
+    "wheel_radius_m": 0.04715,
+    "hip_deck_offset_m": 0.0652,
+    "open_carriage_x_m": 0.275,
+    "closed_carriage_x_m": 0.2199,
+    "mount_z_m": 0.2474,
     "duration_s": 12,
     "cargo_lock_pitch_m": [
       1.06,
@@ -33,8 +38,9 @@
       0.6,
       0.5
     ],
-    "source_leg_surfaces": "Identical original STRIDE-01 master/game upper/lower/rod/upright/wheel surfaces; new parents, packing gimbals, carriages and pallet.",
-    "fork_access": "Packed underbody contains wheels and links; conventional fork entry is not certified."
+    "source_leg_surfaces": "Baked 23% STRIDE-01-derived upper/lower/rod/upright/wheel surfaces; original topology, normals and colours. Geometry stays rigid during animation.",
+    "pallet_body": "Exact original P-01 master/game surface, with its original 1.2 × 1.0 × 0.16 m envelope and support layout.",
+    "fork_access": "Miniature mechanisms occupy the original underside pockets; fork entry is not certified."
   },
   "configurations": [
     "deployed",
@@ -61,7 +67,7 @@
       }
     ],
     "engine_pivots": "Drive only via the supplied adapter; STRIDE-01 runtime is not compatible with this new hierarchy.",
-    "parking_supports": "Four inboard jacks, each with three rigid 160 mm nested sections; up to 425 mm total extension during clearance lift, at least 18 mm overlap.",
+    "parking_supports": "Four inboard miniature jacks, each with three rigid 50 mm sections; at most 130 mm total extension and at least 6.6 mm overlap.",
     "static_tier_articulation": false
   },
   "lod_selection": {
@@ -72,6 +78,11 @@
     "game_enter_m": 150,
     "distance_return_m": 170,
     "threshold_status": "Provisional, consuming-game tuning pending."
+  },
+  "preserved_revision": {
+    "folder": "revisions/r1/",
+    "commit": "7b539417eb3e59763de164d4f36ac50720c9f613",
+    "note": "Prior 440 mm concept superseded by exact P-01 dimensions."
   },
   "sources": [
     {
@@ -103,6 +114,24 @@
       "sha256": "29b2e6691e8aad8550f8621461ffd5c0e5cc26c6d6e1021b4999ba3220b2853f",
       "commit": "b9f027199645634a1686f6c87bdb0caa2308dadf",
       "preserved": true
+    },
+    {
+      "file": "assets/pallet-cargo/pallet_d0_lod0.glb",
+      "sha256": "f4e868f9bec83f26fd70658bd38ee877d08145f1630aa10f396a48a6ec21e822",
+      "commit": "b9f027199645634a1686f6c87bdb0caa2308dadf",
+      "preserved": true
+    },
+    {
+      "file": "assets/pallet-cargo/pallet_d0_lod1.glb",
+      "sha256": "041f22e12568fe95c283947f7099676517d710ee17f01a4c0fc97aea2b47d2a4",
+      "commit": "b9f027199645634a1686f6c87bdb0caa2308dadf",
+      "preserved": true
+    },
+    {
+      "file": "assets/pallet-cargo/pallet_d0_lod2.glb",
+      "sha256": "bdd03df8c456f211d6e70477ff271fadf146cf501b7835d955d6486b531c8d04",
+      "commit": "b9f027199645634a1686f6c87bdb0caa2308dadf",
+      "preserved": true
     }
   ],
   "assets": [
@@ -114,40 +143,51 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1070712,
-      "sha256": "bb27bee64899bd6c17a0cacbb4c9a6f8fa189d0b22c7783c1fb4ce0c792e4e8f",
-      "triangles": 19592,
-      "draw_calls": 49,
+      "bytes": 1233352,
+      "sha256": "6a42192eb697d5f5215ecb14c379bc01e4ff2dd714b45bd05251b5f583fb7bc0",
+      "triangles": 21316,
+      "draw_calls": 54,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
-          -0.9740559165062619,
-          1.7881393865604167e-9,
-          -0.8890559141220761
+          -0.6000000238418579,
+          -9.298324610274022e-10,
+          -0.5
         ],
         "max": [
-          0.9740559165062619,
-          0.8300000000130385,
-          0.8890559141220761
+          0.6000000238418579,
+          0.2499999964237214,
+          0.5
         ],
         "dimensions_m": [
-          1.9481118330125238,
-          0.8299999982248991,
-          1.7781118282441521
+          1.2000000476837158,
+          0.24999999735355385,
+          1
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.25,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
         {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -157,9 +197,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            0.44
+            -0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -169,7 +209,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -179,9 +219,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            0.44
+            0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -191,7 +231,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -201,9 +241,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            -0.44
+            -0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -213,7 +253,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -223,31 +263,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            -0.44
+            0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.83,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -256,9 +285,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -267,9 +296,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -278,9 +307,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -349,6 +378,8 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -385,9 +416,9 @@
         "PARK_RR_SLIDE_3",
         "SOCKET_PARK_FOOT_RR",
         "PARK_RR_SURFACE_3",
-        "PALLET_SURFACE",
-        "SOCKET_CARGO",
+        "PARK_HOUSINGS_SURFACE",
         "LEG_FL_CARRIAGE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
         "LEG_FL_HIP_PITCH",
@@ -410,6 +441,7 @@
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
         "LEG_FR_CARRIAGE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
         "LEG_FR_HIP_PITCH",
@@ -432,6 +464,7 @@
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
         "LEG_RL_CARRIAGE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
         "LEG_RL_HIP_PITCH",
@@ -454,6 +487,7 @@
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
         "LEG_RR_CARRIAGE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
         "LEG_RR_HIP_PITCH",
@@ -486,40 +520,51 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 533156,
-      "sha256": "a045985b6ceb4b5bb01d2309dd535c4110507d91ea8fd39c0af4b3deef6216b1",
-      "triangles": 7704,
-      "draw_calls": 49,
+      "bytes": 590672,
+      "sha256": "56497b557c992b590f25f2cef343e55a8a510476283af18a8c894038a7b2899e",
+      "triangles": 8452,
+      "draw_calls": 54,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
-          -0.9740559165062619,
-          1.7881393865604167e-9,
-          -0.8890559141220761
+          -0.6000000238418579,
+          -9.298324610274022e-10,
+          -0.5
         ],
         "max": [
-          0.9740559165062619,
-          0.8299999995529651,
-          0.8890559141220761
+          0.6000000238418579,
+          0.2499999964237214,
+          0.5
         ],
         "dimensions_m": [
-          1.9481118330125238,
-          0.8299999977648257,
-          1.7781118282441521
+          1.2000000476837158,
+          0.24999999735355385,
+          1
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.25,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
         {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -529,9 +574,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            0.44
+            -0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -541,7 +586,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -551,9 +596,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            0.44
+            0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -563,7 +608,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -573,9 +618,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            -0.44
+            -0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -585,7 +630,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -595,31 +640,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            -0.44
+            0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.83,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -628,9 +662,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -639,9 +673,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -650,9 +684,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -721,6 +755,8 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -757,9 +793,9 @@
         "PARK_RR_SLIDE_3",
         "SOCKET_PARK_FOOT_RR",
         "PARK_RR_SURFACE_3",
-        "PALLET_SURFACE",
-        "SOCKET_CARGO",
+        "PARK_HOUSINGS_SURFACE",
         "LEG_FL_CARRIAGE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
         "LEG_FL_HIP_PITCH",
@@ -782,6 +818,7 @@
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
         "LEG_FR_CARRIAGE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
         "LEG_FR_HIP_PITCH",
@@ -804,6 +841,7 @@
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
         "LEG_RL_CARRIAGE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
         "LEG_RL_HIP_PITCH",
@@ -826,6 +864,7 @@
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
         "LEG_RR_CARRIAGE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
         "LEG_RR_HIP_PITCH",
@@ -858,40 +897,51 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "bytes": 226732,
-      "sha256": "c1ef6aca680af53f03ed55adbe9971f27db26b5dabf225ac9884bcb8f8ef3dbc",
+      "bytes": 212868,
+      "sha256": "73d22f28c86d1990a14df198aa1c80c26df59e4c74b694966babd9f06e36416d",
       "triangles": 2200,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
-          -0.9740559458732605,
-          1.7881394143159923e-9,
-          -0.8890559077262878
+          -0.6000000238418579,
+          0.0013683876022696495,
+          -0.5
         ],
         "max": [
-          0.9740559458732605,
-          0.8299999833106995,
-          0.8890559077262878
+          0.6000000238418579,
+          0.25,
+          0.5
         ],
         "dimensions_m": [
-          1.948111891746521,
-          0.82999998152256,
-          1.7781118154525757
+          1.2000000476837158,
+          0.24863161239773035,
+          1
         ]
       },
       "sockets": [
+        {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.25,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
         {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -901,9 +951,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            0.44
+            -0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -913,7 +963,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -923,9 +973,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            0.44
+            0.11,
+            0.09,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -935,7 +985,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -945,9 +995,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            0.38999999999999996,
-            -0.44
+            -0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -957,7 +1007,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.83,
+            0.25,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -967,31 +1017,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            0.38999999999999996,
-            -0.44
+            0.11,
+            0.09,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.83,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1000,9 +1039,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1011,9 +1050,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            -0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1022,9 +1061,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.8340559159102154,
-            0.20500000000000004,
-            -0.6840559159102154
+            0.3209619407771257,
+            0.04715,
+            -0.29336194077712563
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1093,6 +1132,7 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -1129,7 +1169,6 @@
         "PARK_RR_SURFACE_3",
         "PARK_RR_SURFACE_2",
         "PARK_RR_SURFACE_1",
-        "SOCKET_CARGO",
         "LEG_FL_CARRIAGE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
@@ -1152,6 +1191,7 @@
         "LEG_FL_SUSPENSION_ROD_SURFACE",
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FR_CARRIAGE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
@@ -1174,6 +1214,7 @@
         "LEG_FR_SUSPENSION_ROD_SURFACE",
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_RL_CARRIAGE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
@@ -1196,6 +1237,7 @@
         "LEG_RL_SUSPENSION_ROD_SURFACE",
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RR_CARRIAGE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
@@ -1218,7 +1260,9 @@
         "LEG_RR_SUSPENSION_ROD_SURFACE",
         "LEG_RR_LOWER_SURFACE",
         "LEG_RR_UPPER_SURFACE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "PALLET_SURFACE",
+        "PARK_HOUSINGS_SURFACE",
         "STRIDE02_STATIC_SURFACE"
       ],
       "credit": "Original pallet/packing mechanism by jelaludo, using original STRIDE-01 leg surfaces unchanged."
@@ -1231,40 +1275,51 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 1071156,
-      "sha256": "7454f953a7978c8619dca0f1c466bf55625bae6ea2580e0930948436539d4957",
-      "triangles": 19592,
-      "draw_calls": 49,
+      "bytes": 1233728,
+      "sha256": "92b3f331c11592cec887ec273169b8a88790654b938d62dfcf83e4faff702fad",
+      "triangles": 21316,
+      "draw_calls": 54,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
           -0.6000000238418579,
-          -3.725290076417309e-10,
+          -5.215405884939628e-11,
           -0.5
         ],
         "max": [
           0.6000000238418579,
-          0.4400000000130385,
+          0.1599999964237214,
           0.5
         ],
         "dimensions_m": [
           1.2000000476837158,
-          0.4400000003855675,
+          0.15999999647587546,
           1
         ]
       },
       "sockets": [
         {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
+        {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1274,9 +1329,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            0.44
+            -0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1286,7 +1341,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1296,9 +1351,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            0.44
+            0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1308,7 +1363,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1318,9 +1373,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            -0.44
+            -0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1330,7 +1385,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1340,31 +1395,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            -0.44
+            0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.44,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1373,9 +1417,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1384,9 +1428,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1395,9 +1439,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1466,6 +1510,8 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -1502,9 +1548,9 @@
         "PARK_RR_SLIDE_3",
         "SOCKET_PARK_FOOT_RR",
         "PARK_RR_SURFACE_3",
-        "PALLET_SURFACE",
-        "SOCKET_CARGO",
+        "PARK_HOUSINGS_SURFACE",
         "LEG_FL_CARRIAGE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
         "LEG_FL_HIP_PITCH",
@@ -1527,6 +1573,7 @@
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
         "LEG_FR_CARRIAGE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
         "LEG_FR_HIP_PITCH",
@@ -1549,6 +1596,7 @@
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
         "LEG_RL_CARRIAGE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
         "LEG_RL_HIP_PITCH",
@@ -1571,6 +1619,7 @@
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
         "LEG_RR_CARRIAGE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
         "LEG_RR_HIP_PITCH",
@@ -1603,40 +1652,51 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 533600,
-      "sha256": "97c5f237ac1e6261eaccaf5afe0b06fbc0fad145fa0284c860e800643493fdb0",
-      "triangles": 7704,
-      "draw_calls": 49,
+      "bytes": 591052,
+      "sha256": "4f8409f9ba686083c449900b91a958d23b18a7b8eca7ba1dc52799829e36f2bd",
+      "triangles": 8452,
+      "draw_calls": 54,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
           -0.6000000238418579,
-          -3.725290076417309e-10,
+          -5.215405884939628e-11,
           -0.5
         ],
         "max": [
           0.6000000238418579,
-          0.4399999995529652,
+          0.1599999964237214,
           0.5
         ],
         "dimensions_m": [
           1.2000000476837158,
-          0.4399999999254942,
+          0.15999999647587546,
           1
         ]
       },
       "sockets": [
         {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
+        {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1646,9 +1706,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            0.44
+            -0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1658,7 +1718,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1668,9 +1728,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            0.44
+            0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1680,7 +1740,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1690,9 +1750,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            -0.44
+            -0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -1702,7 +1762,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -1712,31 +1772,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            -0.44
+            0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.44,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1745,9 +1794,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1756,9 +1805,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1767,9 +1816,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -1838,6 +1887,8 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "PALLET_SURFACE",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -1874,9 +1925,9 @@
         "PARK_RR_SLIDE_3",
         "SOCKET_PARK_FOOT_RR",
         "PARK_RR_SURFACE_3",
-        "PALLET_SURFACE",
-        "SOCKET_CARGO",
+        "PARK_HOUSINGS_SURFACE",
         "LEG_FL_CARRIAGE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
         "LEG_FL_HIP_PITCH",
@@ -1899,6 +1950,7 @@
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
         "LEG_FR_CARRIAGE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
         "LEG_FR_HIP_PITCH",
@@ -1921,6 +1973,7 @@
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
         "LEG_RL_CARRIAGE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
         "LEG_RL_HIP_PITCH",
@@ -1943,6 +1996,7 @@
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
         "LEG_RR_CARRIAGE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
         "LEG_RR_HIP_PITCH",
@@ -1975,40 +2029,51 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "bytes": 224196,
-      "sha256": "aafe173ac139b270e7ac700225bbf9cb99dc509f71521cbee5bad42093de210b",
+      "bytes": 211968,
+      "sha256": "aafbd519250afc7c97af1e51a5f04f668fcaac6b3c814a1031eb60b2baa4f436",
       "triangles": 2200,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
       "plot_m": [
-        2.8,
-        2.2
+        1.2,
+        1
       ],
       "bounds": {
         "min": [
           -0.6000000238418579,
-          -3.725290076417309e-10,
+          -5.215405884939628e-11,
           -0.5
         ],
         "max": [
           0.6000000238418579,
-          0.4399999976158142,
+          0.1599999964237213,
           0.5
         ],
         "dimensions_m": [
           1.2000000476837158,
-          0.4399999979883432,
+          0.15999999647587537,
           1
         ]
       },
       "sockets": [
         {
+          "node": "SOCKET_CARGO",
+          "parent": "PALLET_LIFT",
+          "position_m": [
+            0,
+            0.16,
+            0
+          ],
+          "kind": "crate_origin",
+          "axis": "+Y"
+        },
+        {
           "node": "SOCKET_CARGO_LOCK_FL",
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -2018,9 +2083,9 @@
           "node": "SOCKET_PARK_FOOT_FL",
           "parent": "PARK_FL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            0.44
+            -0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -2030,7 +2095,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -2040,9 +2105,9 @@
           "node": "SOCKET_PARK_FOOT_FR",
           "parent": "PARK_FR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            0.44
+            0.11,
+            5.204170427930421e-18,
+            0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -2052,7 +2117,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             -0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -2062,9 +2127,9 @@
           "node": "SOCKET_PARK_FOOT_RL",
           "parent": "PARK_RL_SLIDE_3",
           "position_m": [
-            -0.1,
-            2.0816681711721685e-17,
-            -0.44
+            -0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
           "axis": "+Y"
@@ -2074,7 +2139,7 @@
           "parent": "PALLET_LIFT",
           "position_m": [
             0.53,
-            0.44,
+            0.16,
             -0.43
           ],
           "kind": "cargo_lock_receiver",
@@ -2084,31 +2149,20 @@
           "node": "SOCKET_PARK_FOOT_RR",
           "parent": "PARK_RR_SLIDE_3",
           "position_m": [
-            0.1,
-            2.0816681711721685e-17,
-            -0.44
+            0.11,
+            5.204170427930421e-18,
+            -0.43
           ],
           "kind": "ground_contact",
-          "axis": "+Y"
-        },
-        {
-          "node": "SOCKET_CARGO",
-          "parent": "PALLET_LIFT",
-          "position_m": [
-            0,
-            0.44,
-            0
-          ],
-          "kind": "crate_origin",
           "axis": "+Y"
         },
         {
           "node": "SOCKET_WHEEL_FL",
           "parent": "WHEEL_FL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -2117,9 +2171,9 @@
           "node": "SOCKET_WHEEL_FR",
           "parent": "WHEEL_FR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -2128,9 +2182,9 @@
           "node": "SOCKET_WHEEL_RL",
           "parent": "WHEEL_RL_ROLL",
           "position_m": [
-            -0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            -0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -2139,9 +2193,9 @@
           "node": "SOCKET_WHEEL_RR",
           "parent": "WHEEL_RR_ROLL",
           "position_m": [
-            0.33999999999999997,
-            0.12999999999999987,
-            -0.25000000000000017
+            0.2682,
+            0.05569999999999999,
+            -0.21750000000000003
           ],
           "kind": "wheel_centre",
           "axis": "+X"
@@ -2210,6 +2264,7 @@
       "required_nodes": [
         "STRIDE02_ROOT",
         "PALLET_LIFT",
+        "SOCKET_CARGO",
         "SOCKET_CARGO_LOCK_FL",
         "PARK_FL_MOUNT",
         "PARK_FL_SLIDE_1",
@@ -2246,7 +2301,6 @@
         "PARK_RR_SURFACE_3",
         "PARK_RR_SURFACE_2",
         "PARK_RR_SURFACE_1",
-        "SOCKET_CARGO",
         "LEG_FL_CARRIAGE",
         "LEG_FL_SPLAY_YAW",
         "LEG_FL_PACK_ROLL",
@@ -2269,6 +2323,7 @@
         "LEG_FL_SUSPENSION_ROD_SURFACE",
         "LEG_FL_LOWER_SURFACE",
         "LEG_FL_UPPER_SURFACE",
+        "LEG_FL_CARRIAGE_SURFACE",
         "LEG_FR_CARRIAGE",
         "LEG_FR_SPLAY_YAW",
         "LEG_FR_PACK_ROLL",
@@ -2291,6 +2346,7 @@
         "LEG_FR_SUSPENSION_ROD_SURFACE",
         "LEG_FR_LOWER_SURFACE",
         "LEG_FR_UPPER_SURFACE",
+        "LEG_FR_CARRIAGE_SURFACE",
         "LEG_RL_CARRIAGE",
         "LEG_RL_SPLAY_YAW",
         "LEG_RL_PACK_ROLL",
@@ -2313,6 +2369,7 @@
         "LEG_RL_SUSPENSION_ROD_SURFACE",
         "LEG_RL_LOWER_SURFACE",
         "LEG_RL_UPPER_SURFACE",
+        "LEG_RL_CARRIAGE_SURFACE",
         "LEG_RR_CARRIAGE",
         "LEG_RR_SPLAY_YAW",
         "LEG_RR_PACK_ROLL",
@@ -2335,7 +2392,9 @@
         "LEG_RR_SUSPENSION_ROD_SURFACE",
         "LEG_RR_LOWER_SURFACE",
         "LEG_RR_UPPER_SURFACE",
+        "LEG_RR_CARRIAGE_SURFACE",
         "PALLET_SURFACE",
+        "PARK_HOUSINGS_SURFACE",
         "STRIDE02_STATIC_SURFACE"
       ],
       "credit": "Original pallet/packing mechanism by jelaludo, using original STRIDE-01 leg surfaces unchanged."

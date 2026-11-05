@@ -1,5 +1,17 @@
 # Devlog
 
+## 5 November 2026 / STRIDE-02 r2 — exact P-01 envelope, miniature legs
+
+Corrected STRIDE-02 to the user’s required original pallet dimensions: 1,200 × 1,000 × 160 mm when stowed. Reused the actual P-01 body, including deck, runners, spacer blocks and lock receivers. Replaced the full-size leg assumption with baked 23% STRIDE-derived assemblies: 69/78.2 mm rigid links and 94.3 mm wheels. They fold and retract into the original underside pockets. Deployed deck height is 250 mm, with a temporary 40 mm clearance lift; the whole transformation stays within the original plan footprint. The viewer opens stowed beside the original P-01 for direct comparison.
+
+Preserved the superseded 440 mm STRIDE-02 release in `assets/stride-02/revisions/r1/`: 29 byte-identical exports, source snapshots, runtime, previews and reports pinned to `7b539417eb3e59763de164d4f36ac50720c9f613`. Original P-01 and STRIDE-01 files remain unchanged. Master/game body geometry matches P-01; all 40 miniature leg surfaces retain source topology/normals/colours with positions baked at 0.23 scale. No geometry changes size during animation. New dimensions/rest offsets require r2 GLBs and runtime together.
+
+Measured master/game/static: 21,316 / 8,452 / 2,200 triangles and 54 / 54 / one draws. Deployed bytes: 1,233,352 / 590,672 / 212,868; stowed: 1,233,728 / 591,052 / 211,968. Game meets the articulated-unit triangle target; static tiers meet 3k triangles / one draw / 250 KB. Plain GLBs remain authoritative; static tiers and previews are derived. No new compressed files or FPS claim.
+
+Six GLBs pass validation with zero errors/warnings. All three packed tiers match the original P-01 bounds. Checks cover originals/archive hashes, exact body retention, miniature derivation, names/frames/sockets and 1,202 sampled fold poses. Actual leg triangles remain inside the original pocket plan boundaries and below the deck, with at least 8.59 mm plan clearance and 3.35 mm packed roof clearance; rigid links, floor/support contact and telescoping overlap pass. Browser coverage includes six combinations, 56 poses, side-by-side dimensions, partial-transform continuity and desktop/mobile controls without errors.
+
+Completed: corrected original-size STRIDE-02, smaller legs, internal retraction, r1 preservation, six exports, P-01 comparison, previews and integration notes. Pending: user visual acceptance, actuator/load/bearing engineering, general mechanism self-collision/traction/terrain, D1–D3, consuming-game r160/release packing and phone measurements. Handoff: containing commit plus `assets/stride-02/` and `stride-02/`. The received collaboration contract remains verbatim.
+
 ## 5 November 2026 / STRIDE-02 — the pallet is the vehicle
 
 Created STRIDE-02 with STRIDE-01’s original legs mounted directly to a powered pallet. Four parking supports take the weight, leg assemblies lift and roll, full-size wheels turn flat, knees fold into horizontal storage bays, and each hip carriage draws 400 mm inward. The pallet then settles onto its base. Deployed deck height is 830 mm; a temporary 35 mm lift clears the rigid hip housings. Packed geometry fits 1,200 × 1,000 × 440 mm, retaining the original 300/340 mm links and 410 mm wheels without scaling. Parking supports were moved inward to clear the retraction path.

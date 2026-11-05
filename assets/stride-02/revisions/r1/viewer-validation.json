@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL; functional and framing review, not a performance measurement",
+  "combinations": [
+    {
+      "configuration": "deployed",
+      "lod": 0,
+      "triangles": 19592,
+      "draw_calls": 49
+    },
+    {
+      "configuration": "deployed",
+      "lod": 1,
+      "triangles": 7704,
+      "draw_calls": 49
+    },
+    {
+      "configuration": "deployed",
+      "lod": 2,
+      "triangles": 2200,
+      "draw_calls": 1
+    },
+    {
+      "configuration": "stowed",
+      "lod": 0,
+      "triangles": 19592,
+      "draw_calls": 49
+    },
+    {
+      "configuration": "stowed",
+      "lod": 1,
+      "triangles": 7704,
+      "draw_calls": 49
+    },
+    {
+      "configuration": "stowed",
+      "lod": 2,
+      "triangles": 2200,
+      "draw_calls": 1
+    }
+  ],
+  "pose_samples": 56,
+  "checks": [
+    "Six configuration/tier exports and downloads",
+    "56 master/game fold poses, four cameras, desktop and 390px portrait framing",
+    "Deploy/retract continue from the current pose without resetting to an endpoint",
+    "Playback, pause, speed, reset, scrubbing, cargo, frame transparency, envelope and wireframe",
+    "Static tier locks out articulation",
+    "Fullscreen, shared navigation and zero browser errors"
+  ],
+  "errors": []
+}
