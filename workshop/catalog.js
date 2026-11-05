@@ -1,4 +1,5 @@
 const collectionImages={
+'yushi-rover':'assets/yushi-rover/preview.png',
 'stride-02':'assets/stride-02/preview.png',
 'pallet-loading':'pallet-loading/preview.png',
 'pallet-cargo':'assets/pallet-cargo/preview.png',
@@ -44,6 +45,7 @@ const collectionImages={
 };
 
 export const collections=[
+['yushi-rover','YūshiRover / Biomass Recovery','Industry','MÖRK-scale six-wheel harvester with a moving cleated conveyor, independent suspension, twin gauged tanks and player-set collection beacons. Returns to the existing Yūshi045 Bio-Pearl to offload, then resumes its route.','Custom beacon routes · Live cargo transfer · 3 detail tiers','Interactive prototype'],
 ['stride-02','STRIDE-02 / Exact pallet envelope','Industry','Miniature STRIDE legs and 94.3 mm wheels fold completely into the original P-01 pallet. Exactly 1,200 × 1,000 × 160 mm when stowed. Compare directly with P-01, deploy or retract, and inspect the underside.','Miniature legs · Original P-01 body · 160 mm packed','Kinematic prototype'],
 ['pallet-loading','Load / Go — STRIDE × CUP','Presentation','STRIDE arrives with an empty pallet. CUP swiftly loads four packages, STRIDE adjusts sideways for the second row, then heads out loaded. A replayable loading bay with director and inspection cameras.','22-second scene · 4 suction transfers · Replay + timeline','Motion study'],
 ['pallet-cargo','PCS / Pallets, STRIDE + CUP','Industry','P-01 passive pallet, STRIDE with a 45-degree corner stance, independent 360-degree wheel steering and compact suspension, and CUP with a level four-cup suction head. Test multidirectional travel or watch CUP transfer a crate between two pallets.','360° wheels · Sliding suspension · CUP transfer · 3 LODs','Kinematic prototype'],

@@ -200,3 +200,10 @@ Plain GLBs in `assets/pallet-cargo/` are authoritative. Optional Meshopt copies,
 
 
 PCS revision 2 adds original CUP-01 geometry, four-pad suction rig and a pallet-transfer study from the supplied CUP reference, plus STRIDE's 45-degree splay, independent steering and compact sleeve/rod mechanisms. The suspension interpretation follows the repository's original Nih-Dairia design; no Nih-Dairia files or external meshes are modified or incorporated. First-release PCS originals and source snapshots are preserved under `assets/pallet-cargo/revisions/r1/`. Current detailed/game/static and compressed derivatives remain attributed to jelaludo.
+
+
+## YūshiRover / Biomass Recovery
+
+YūshiRover geometry, articulated runtime, finite-inventory beacon mission and viewer are original work by jelaludo. The user-supplied biomass recovery rover concept informed its root rake, conveyor, six-wheel chassis, twin tanks and cream/graphite/amber palette. Reference filename and SHA-256 are recorded in `assets/yushi-rover/reference-provenance.json`; the image remains unchanged outside the repository. Reference-image creator/license was not supplied; no additional image rights are claimed.
+
+Original project MÖRK and Yūshi045 Bio-Pearl models/runtime are reused unchanged for scale comparison and depot offloading, with source hashes pinned in the rover manifest. Plain rover GLBs are authoritative; LOD2 simplification and browser previews are derived. Repeatable procedural source is `tools/asset-pipeline/yushi-rover-shape.mjs`. No external model or third-party animation was incorporated.

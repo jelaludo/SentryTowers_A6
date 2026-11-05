@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL; functional checks, no FPS benchmark",
+  "samples": [
+    {
+      "phase": "harvesting",
+      "cargo": 24.65999999999997,
+      "stored": 40,
+      "delivered": 0,
+      "pearl": 0.1,
+      "connected": false,
+      "carried": true,
+      "ready": true,
+      "lod": 1
+    },
+    {
+      "phase": "clearing",
+      "cargo": 100,
+      "stored": 40,
+      "delivered": 0,
+      "pearl": 0.1,
+      "connected": false,
+      "carried": true,
+      "ready": true,
+      "lod": 1
+    },
+    {
+      "phase": "unloading",
+      "cargo": 85.6000000000003,
+      "stored": 54.40000000000001,
+      "delivered": 14.400000000000007,
+      "pearl": 0.13600000000000004,
+      "connected": true,
+      "carried": false,
+      "ready": true,
+      "lod": 1
+    },
+    {
+      "phase": "unloading",
+      "cargo": 37.600000000000776,
+      "stored": 102.39999999999917,
+      "delivered": 62.40000000000001,
+      "pearl": 0.2559999999999979,
+      "connected": true,
+      "carried": false,
+      "ready": true,
+      "lod": 1
+    },
+    {
+      "phase": "complete",
+      "cargo": 0,
+      "stored": 219.9999999999974,
+      "delivered": 179.9999999999983,
+      "pearl": 0.5499999999999935,
+      "connected": false,
+      "carried": false,
+      "ready": true,
+      "lod": 1
+    }
+  ],
+  "measured_rover_only_render_pass": [
+    {
+      "lod": 0,
+      "triangles": 40596,
+      "draw_calls": 61
+    },
+    {
+      "lod": 1,
+      "triangles": 21036,
+      "draw_calls": 61
+    },
+    {
+      "lod": 2,
+      "triangles": 2497,
+      "draw_calls": 1
+    }
+  ],
+  "checks": [
+    "Default complete mission, material conservation reflected in live Bio-Pearl gauge",
+    "Player new route, numeric and map beacon placement, duplicate rejection, recall and pause",
+    "Master/game moving belt, needles and level strips; static model remains frozen",
+    "Independent suspension test, all detail/camera modes, comparison, wireframe and fullscreen",
+    "390px mobile layout, shared navigation, authoritative GLB downloads and no browser errors"
+  ],
+  "errors": []
+}

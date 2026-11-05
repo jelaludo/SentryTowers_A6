@@ -1,5 +1,7 @@
 # Model Workshop
 
+**YūshiRover / Biomass Recovery** adds a MÖRK-scale six-wheel collector with a working cleated conveyor, independent suspension, twin tank needles/level strips and a player-authored beacon route. It gathers finite ground biomass, returns to the existing Yūshi045 Bio-Pearl fill port, connects its hose and offloads before resuming. Includes a MÖRK scale comparison, conveyor inspection and six-pad suspension test. Open `yushi-rover/`; master/game/static GLBs and integration notes are in `assets/yushi-rover/`.
+
 **STRIDE-02 / Exact pallet envelope** now uses the original P-01 body and packs to exactly 1,200 × 1,000 × 160 mm. Miniature STRIDE-derived legs and 94.3 mm wheels retract into its original underside pockets. Open `stride-02/` for a side-by-side P-01 comparison, deploy/retract, scrubbing and underside views. Six validated master/game/static exports and the preserved former revision are in `assets/stride-02/`.
 
 **Load / Go — STRIDE × CUP** is a 22-second loading-bay scene: STRIDE arrives with an empty pallet, CUP swiftly places four packages, then STRIDE departs loaded. A sideways adjustment serves the second row while keeping the existing arm geometry. Open `pallet-loading/` for replay, scrubbing, chapter/camera controls and master/game views. Three static station tiers, measured validation and source dependency hashes are included; existing PCS models remain unchanged.

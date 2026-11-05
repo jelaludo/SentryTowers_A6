@@ -1,5 +1,18 @@
 # Devlog
 
+
+## 5 November 2026 / YūshiRover — beacon collection and Bio-Pearl offloading
+
+Created an original 5.43 × 10.29 × 3.53 m biomass recovery rover at comparable MÖRK vehicle scale. Cream/graphite/amber construction includes a broad root rake, 24 rigid circulating conveyor cleats, processor housing, six independent one-metre swing arms with telescoping dampers, independently steered/rolled wheels, and two strapped cylindrical tanks with cargo-driven analogue needles and side level strips. Tank mounts have small vibration isolation movement. Original MÖRK and Yūshi045 Bio-Pearl files remain unchanged.
+
+Added an interactive finite-inventory mission at `yushi-rover/`. Players can create an empty route and place beacons on the map/3D ground or through coordinate inputs. The rover approaches each patch, gathers biomass, clears its belt, returns when full or finished, connects to the actual Bio-Pearl fill socket, transfers inventory and resumes. The default three sites supply 180 units in two visits; the 100-unit rover ends empty and the container rises from 40 to 220 units in approximately 117.26 simulated seconds. Pause, recall, speed, reset, new routes, intake/tank/suspension cameras, live gauges, six-pad suspension test and original-scale MÖRK comparison are included.
+
+Measured master/game/static exports: 40,596 / 21,036 / 2,497 triangles, 61 / 61 / one draws, 988,636 / 677,544 / 219,648 plain bytes. One palette material, shared geometry/accessors, zero textures. Game meets the articulated-unit triangle target; static meets 3k / one draw / 250 KB. Plain GLBs are authoritative. Static LOD2 is a derived frozen 50%-fill loading/map model; no active-unit swapping or live articulation is claimed for it. All moving interfaces remain engine-driven with no baked clips. No new compressed copies or FPS claims.
+
+Three GLBs pass validation with zero errors/warnings, finite nondegenerate geometry, consistent bounds/frames/sockets and preserved source hashes. 480 sampled terrain poses verify rigid arms, wheel-height error below 1.48 µm and damper overlap above 225 mm. Mission checks cover conservation, full storage, pause, recall and beacon bounds/separation. Real Chromium WebGL checks cover full offloading into the original Bio-Pearl gauge controller, custom routes, detail tiers, frozen distance mode, all cameras, wireframe/fullscreen, downloads and 390px layout. Derived previews and measured reports are included.
+
+Completed: rover master/game/static family, working conveyor/suspension/gauges, player-beacon collection, hose docking, offload/resume, MÖRK comparison, viewer, documentation and shared navigation. Pending: visual acceptance, general collision/traction and load engineering, production navigation/traffic/inventory authority and biomass conversion recipe, D1–D3, consuming r160/release gltfpack and game-camera/reference-phone measurements. Handoff: containing commit plus `assets/yushi-rover/`, `yushi-rover/` and source/build scripts. The received collaboration contract is unchanged.
+
 ## 5 November 2026 / STRIDE-02 r2 — exact P-01 envelope, miniature legs
 
 Corrected STRIDE-02 to the user’s required original pallet dimensions: 1,200 × 1,000 × 160 mm when stowed. Reused the actual P-01 body, including deck, runners, spacer blocks and lock receivers. Replaced the full-size leg assumption with baked 23% STRIDE-derived assemblies: 69/78.2 mm rigid links and 94.3 mm wheels. They fold and retract into the original underside pockets. Deployed deck height is 250 mm, with a temporary 40 mm clearance lift; the whole transformation stays within the original plan footprint. The viewer opens stowed beside the original P-01 for direct comparison.

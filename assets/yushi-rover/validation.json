@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "scope": "Plain GLB structure/geometry, articulated kinematics, deterministic collection and finite inventory. Not general rigid-body collision/traction or production game acceptance.",
+  "files": [
+    {
+      "file": "yushirover_d0_lod0.glb",
+      "triangles": 40596,
+      "draw_calls": 61,
+      "bytes": 988636,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "yushirover_d0_lod1.glb",
+      "triangles": 21036,
+      "draw_calls": 61,
+      "bytes": 677544,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "yushirover_d0_lod2.glb",
+      "triangles": 2497,
+      "draw_calls": 1,
+      "bytes": 219648,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "poses": 480,
+  "max_wheel_height_error_m": 0.0000014745289367290582,
+  "min_damper_overlap_m": 0.22536299666048,
+  "max_arm_length_error_m": 7.771561172376096e-16,
+  "mission": {
+    "duration_s": 117.25999999999381,
+    "delivered": 179.9999999999983,
+    "final_storage": 219.9999999999974,
+    "remaining_rover": 0,
+    "minimum_depot_centre_distance_m": 7.68202759776882,
+    "unload_visits": 2
+  },
+  "checks": [
+    "Three authoritative plain GLBs: hashes, finite/nondegenerate geometry, zero validator errors/warnings",
+    "Master/game/static named frames, sockets and bounds agree; static ignores all actuator requests",
+    "Unit triangle and static triangle/draw/byte targets",
+    "480 terrain poses: wheel contact, rigid arms and damper sleeve overlap",
+    "Continuous closed belt path, forward and return runs",
+    "Default two-trip mission: 180 collected and delivered, conserved total inventory",
+    "Player beacon bounds/separation, pause, recall and full-storage hold",
+    "Original MÖRK and Bio-Pearl assets byte-identical to pinned commit"
+  ]
+}
