@@ -3,9 +3,22 @@ import {applyKidou} from '../stalheart-kidou/runtime.js';
 export const DURATION = 144;
 export const DOME_SCALE = .5;
 export const SITE_DISTANCE = 52;
+export const ASSEMBLY = {
+  leg_top_m:28.0, roof_base_m:33.2,
+  phases:[
+    {id:'left',start:6,end:13,label:'Print the left leg',part:0},
+    {id:'cross',start:13,end:15,label:'Move to the right leg',printing:false},
+    {id:'right',start:15,end:22,label:'Print the right leg',part:1},
+    {id:'rise',start:22,end:24,label:'Position above the two legs',printing:false},
+    {id:'bridge',start:24,end:26,label:'Connect the top span',part:2},
+    {id:'roof',start:26,end:28,label:'Complete the roof and silos',part:3},
+    {id:'arm',start:28,end:30,label:'Finish the suspended arm',part:4},
+    {id:'hold',start:30,end:34,label:'Complete gantry wireframe',printing:false},
+  ],
+};
 export const CHAPTERS = [
   {id:'arrival',start:0,end:6,title:'ISAO arrives',detail:'A construction drone prepares the first work site.'},
-  {id:'assembly',start:6,end:34,title:'Build the builder',detail:'ISAO traces STALHEART-KIDOU from its wheels to its silos.'},
+  {id:'assembly',start:6,end:34,title:'Build the builder',detail:'Left leg, right leg, then the connecting top and suspended arm.'},
   {id:'materials',start:34,end:44,title:'The machine takes shape',detail:'The gantry’s original surfaces appear through the wireframe.'},
   {id:'ready',start:44,end:50,title:'Workshop online',detail:'ISAO clears the bay. The fabrication arm takes over.'},
   {id:'tank',start:50,end:72,title:'Print a MÖRK',detail:'The first build rises in cyan linework, layer by layer.'},
@@ -20,20 +33,48 @@ export const smooth=v=>{v=clamp(v);return v*v*(3-2*v);};
 export function stateAt(t){
   t=clamp(t,0,DURATION);
   const chapter=CHAPTERS.find(c=>t<c.end)||CHAPTERS.at(-1),travel=smooth((t-78)/20);
-  return {time:t,chapter,wire:clamp((t-6)/24),surface:clamp((t-34)/10),tank:clamp((t-50)/22),dome:clamp((t-104)/28),z:SITE_DISTANCE*travel,
+  const left=clamp((t-6)/7),right=clamp((t-15)/7),top=clamp((t-24)/6),phase=ASSEMBLY.phases.find(p=>t<p.end)||ASSEMBLY.phases.at(-1);
+  const assembly={left,right,top,phase:phase.id,label:phase.label,printing:t>=phase.start&&phase.part!==undefined,progress:clamp((t-phase.start)/(phase.end-phase.start))};
+  return {time:t,chapter,assembly,wire:(left+right+top)/3,surface:clamp((t-34)/10),tank:clamp((t-50)/22),dome:clamp((t-104)/28),z:SITE_DISTANCE*travel,
     speed:t>78&&t<98?SITE_DISTANCE*6*((t-78)/20)*(1-(t-78)/20)/20:0};
 }
 
 // Lines are derived review geometry. Canonical GLBs and their material palettes stay intact.
-export function wireFrom(T,root,name,color){
-  root.updateMatrixWorld(true);const positions=[];
+export function wireFrom(T,root,name,color,construction=false){
+  root.updateMatrixWorld(true);const positions=[],parts=[];
   root.traverse(o=>{if(!o.isMesh)return;const e=new T.EdgesGeometry(o.geometry,10),p=e.attributes.position,v=new T.Vector3();
-    for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i).applyMatrix4(o.matrixWorld);positions.push(v.x,v.y,v.z);}e.dispose();});
+    const hanging=/^(GANTRY_SURFACE_(J[1-6]_|TOOL_LIFT_Z|CARRIAGE_TRAVEL_X)|FEED_HOSE_)/.test(o.name);
+    for(let i=0;i<p.count;i+=2){
+      const a=v.fromBufferAttribute(p,i).applyMatrix4(o.matrixWorld).clone(),b=v.fromBufferAttribute(p,i+1).applyMatrix4(o.matrixWorld).clone(),cuts=[0,1];
+      // Split at section boundaries so an edge cannot interpolate into an unbuilt leg.
+      if(construction&&!hanging)for(const [axis,value]of [['y',ASSEMBLY.leg_top_m],['y',ASSEMBLY.roof_base_m],['x',0]]){
+        const d=b[axis]-a[axis],f=(value-a[axis])/d;if(Math.abs(d)>1e-8&&f>1e-6&&f<1-1e-6)cuts.push(f);
+      }
+      cuts.sort((x,y)=>x-y);
+      for(let j=1;j<cuts.length;j++){
+        if(cuts[j]-cuts[j-1]<1e-7)continue;
+        const from=a.clone().lerp(b,cuts[j-1]),to=a.clone().lerp(b,cuts[j]),mid=from.clone().add(to).multiplyScalar(.5);
+        const part=!construction?-1:hanging?4:mid.y<ASSEMBLY.leg_top_m?(mid.x<0?0:1):mid.y<ASSEMBLY.roof_base_m?2:3;
+        positions.push(...from.toArray(),...to.toArray());parts.push(part,part);
+      }
+    }e.dispose();});
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.computeBoundingBox();
-  const material=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{top:{value:-1},bottom:{value:-1},tint:{value:new T.Color(color)}},
-    vertexShader:'varying float height; void main(){vec4 w=modelMatrix*vec4(position,1.0);height=w.y;gl_Position=projectionMatrix*viewMatrix*w;}',
-    fragmentShader:'uniform float top;uniform float bottom;uniform vec3 tint;varying float height;void main(){if(height>top||height<bottom)discard;float front=1.0-smoothstep(0.0,0.55,abs(top-height));gl_FragColor=vec4(mix(tint,vec3(0.9,1.0,1.0),front*.8),.78+front*.22);\n#include <colorspace_fragment>\n}',toneMapped:false});
+  const bounds=Array.from({length:5},()=>new T.Box3());for(let i=0;i<parts.length;i++)if(parts[i]>=0)bounds[parts[i]].expandByPoint(new T.Vector3(...positions.slice(i*3,i*3+3)));
+  const born=parts.map((part,i)=>{
+    const x=positions[i*3],y=positions[i*3+1];
+    if(part===0)return 6+7*clamp(y/ASSEMBLY.leg_top_m);
+    if(part===1)return 15+7*clamp(y/ASSEMBLY.leg_top_m);
+    if(part===2)return 24+2*clamp((x-bounds[2].min.x)/(bounds[2].max.x-bounds[2].min.x));
+    if(part===3)return 26+2*clamp((y-ASSEMBLY.roof_base_m)/(bounds[3].max.y-ASSEMBLY.roof_base_m));
+    if(part===4)return 28+2*clamp((bounds[4].max.y-y)/(bounds[4].max.y-bounds[4].min.y));
+    return 0;
+  });
+  g.setAttribute('buildAt',new T.Float32BufferAttribute(born,1));g.setAttribute('buildPart',new T.Float32BufferAttribute(parts,1));
+  const material=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{top:{value:-1},bottom:{value:-1},buildTime:{value:1000},construction:{value:construction?1:0},tint:{value:new T.Color(color)}},
+    vertexShader:'attribute float buildAt;varying float height;varying float birth;void main(){vec4 w=modelMatrix*vec4(position,1.0);height=w.y;birth=buildAt;gl_Position=projectionMatrix*viewMatrix*w;}',
+    fragmentShader:'uniform float top;uniform float bottom;uniform float buildTime;uniform float construction;uniform vec3 tint;varying float height;varying float birth;void main(){if(height>top||height<bottom||birth>buildTime)discard;float d=construction>.5?abs(buildTime-birth)*4.0:abs(top-height);float front=1.0-smoothstep(0.0,0.55,d);gl_FragColor=vec4(mix(tint,vec3(0.9,1.0,1.0),front*.8),.78+front*.22);\n#include <colorspace_fragment>\n}',toneMapped:false});
   const wire=new T.LineSegments(g,material);wire.name=name;wire.frustumCulled=false;wire.userData.derived=true;
+  if(construction)wire.userData.assembly_sections=bounds.map((b,part)=>({part,bounds:{min:b.min.toArray(),max:b.max.toArray()},segments:parts.filter(p=>p===part).length/2}));
   return wire;
 }
 function layerBounds(T,wire){
@@ -47,20 +88,54 @@ function layerBounds(T,wire){
   return levels;
 }
 function assemblyTargets(T,wire){
-  const p=wire.geometry.attributes.position,h=wire.geometry.boundingBox.max.y,result=[];
-  for(let j=0;j<=128;j++){
-    const y=Math.max(.04,h*j/128-.01),angle=-Math.PI/2+j/128*Math.PI*6,wanted=new T.Vector3(16*Math.cos(angle),y,10*Math.sin(angle));let nearest=wanted,score=Infinity;
-    for(let i=0;i<p.count;i+=2){const a=new T.Vector3().fromBufferAttribute(p,i),b=new T.Vector3().fromBufferAttribute(p,i+1);if(y<Math.min(a.y,b.y)-.05||y>Math.max(a.y,b.y)+.05)continue;
-      const q=a.clone().lerp(b,Math.abs(b.y-a.y)<1e-6?.5:clamp((y-a.y)/(b.y-a.y))),d=q.distanceToSquared(wanted);if(d<score){score=d;nearest=q;}}
-    result.push(nearest);
+  const p=wire.geometry.attributes.position,born=wire.geometry.attributes.buildAt,part=wire.geometry.attributes.buildPart,result={};
+  for(const phase of ASSEMBLY.phases.filter(p=>p.part!==undefined)){
+    const indices=[];for(let i=0;i<p.count;i+=2)if(part.getX(i)===phase.part)indices.push(i);
+    const bounds=wire.userData.assembly_sections[phase.part].bounds,path=[];
+    for(let j=0;j<=128;j++){
+      const f=j/128,time=phase.start+(phase.end-phase.start)*f;
+      const wanted=phase.part<2?new T.Vector3(phase.part===0?-16:16,ASSEMBLY.leg_top_m*f,10*Math.cos(Math.PI*f)):
+        phase.part===2?new T.Vector3(bounds.min[0]+(bounds.max[0]-bounds.min[0])*f,31,-2):
+        phase.part===3?new T.Vector3(0,ASSEMBLY.roof_base_m+(bounds.max[1]-ASSEMBLY.roof_base_m)*f,-2):
+        new T.Vector3(0,bounds.max[1]-(bounds.max[1]-bounds.min[1])*f,2.6);
+      let nearest=wanted,score=Infinity;
+      for(const i of indices){
+        const a=new T.Vector3().fromBufferAttribute(p,i),b=new T.Vector3().fromBufferAttribute(p,i+1),ta=born.getX(i),tb=born.getX(i+1);
+        const q=a.lerp(b,Math.abs(tb-ta)<1e-7?.5:clamp((time-ta)/(tb-ta))),delay=Math.max(Math.min(ta,tb)-time,time-Math.max(ta,tb),0);
+        const d=q.distanceToSquared(wanted)+delay*delay*100000;if(d<score){score=d;nearest=q;}
+      }
+      path.push(nearest);
+    }result[phase.id]=path;
   }return result;
+}
+function assemblyFlight(T,story,t){
+  const bounds=story.kw.userData.assembly_sections;
+  const position=(id,p)=>{
+    if(id==='left'||id==='right'){const side=id==='left'?-1:1;return new T.Vector3(side*(20.5+1.4*Math.sin(p*Math.PI*2)),1.6+ASSEMBLY.leg_top_m*p,10*Math.cos(p*Math.PI));}
+    if(id==='bridge')return new T.Vector3(bounds[2].bounds.min[0]+(bounds[2].bounds.max[0]-bounds[2].bounds.min[0])*p,34.8,-7);
+    if(id==='roof')return position('bridge',1).lerp(new T.Vector3(0,story.gantryHeight+1.6,-7),smooth(p));
+    return position('roof',1).lerp(new T.Vector3(-7,bounds[4].bounds.min[1]+1.6,9),smooth(p));
+  };
+  const target=(id,p)=>{const path=story.assemblyTargets[id],f=clamp(p)*128,i=Math.min(127,Math.floor(f));return path[i].clone().lerp(path[i+1],f-i);};
+  const phase=story.state.assembly.phase,p=story.state.assembly.progress;
+  let work,aim;
+  if(t<6){work=new T.Vector3(-27,8,18).lerp(position('left',0),smooth(t/6));aim=target('left',0);}
+  else if(phase==='cross'||phase==='rise'){
+    const a=phase==='cross'?'left':'right',b=phase==='cross'?'right':'bridge',f=smooth(p);
+    work=position(a,1).lerp(position(b,0),f);if(phase==='cross')work.z-=12*Math.sin(Math.PI*f);else work.y+=5*Math.sin(Math.PI*f);
+    aim=target(a,1).lerp(target(b,0),f);
+  }else if(t<30){work=position(phase,p);aim=target(phase,p);}
+  else{work=position('arm',1);aim=target('arm',1);}
+  if(t>=34){const f=smooth((t-34)/10);work=position('arm',1).lerp(new T.Vector3(-25,4,-17),f);work.y+=8*Math.sin(Math.PI*f);aim=target('arm',1).lerp(new T.Vector3(0,15,0),f);}
+  if(t>=44){work.set(-25,4+.15*Math.sin((t-44)*2),story.state.z-17);aim.set(0,15,story.state.z);}
+  return{work,aim};
 }
 export function createStory(T,models,lod=1){
   if(![0,1].includes(lod))throw new Error('The animated diorama supports detailed and game tiers only.');
   const root=new T.Group();root.name='STALHEART_DIORAMA_ROOT';
   const kidou=models.kidou.scene.getObjectByName('STALHEART_KIDOU_ROOT');root.add(kidou);
   if(lod<2)applyKidou(T,kidou);
-  const kw=wireFrom(T,kidou,'STALHEART_ASSEMBLY_WIREFRAME',0x7ad8e1);root.add(kw);
+  const kw=wireFrom(T,kidou,'STALHEART_ASSEMBLY_WIREFRAME',0x7ad8e1,true);root.add(kw);
   const tankSource=models.tank.scene;tankSource.position.set(0,0,2.6);
   const tw=wireFrom(T,tankSource,'MORK_BUILD_WIREFRAME',0x68e7e0);root.add(tw);
   const domeSource=models.dome.scene;domeSource.scale.setScalar(DOME_SCALE);domeSource.position.set(0,0,SITE_DISTANCE+2.6);
@@ -107,7 +182,7 @@ export function applyTime(T,story,time){
   const s=stateAt(story.lod===2?DURATION:time),t=s.time,{kidou,isao,kw,tw,dw}=story;story.state=s;
   kidou.position.set(0,0,s.z);kidou.visible=s.surface>0;
   story.surfacePlane.constant=s.surface>=1?1000:s.surface*story.gantryHeight;
-  kw.visible=s.wire>0&&s.surface<1;kw.material.uniforms.top.value=s.wire*story.gantryHeight;kw.material.uniforms.bottom.value=s.surface>0?s.surface*story.gantryHeight:-1;
+  kw.visible=s.wire>0&&s.surface<1;kw.material.uniforms.top.value=1000;kw.material.uniforms.buildTime.value=t>=30?1000:t;kw.material.uniforms.bottom.value=s.surface>0?s.surface*story.gantryHeight:-1;
   for(const [wire,p,height]of [[tw,s.tank,story.tankHeight],[dw,s.dome,story.domeHeight]]){wire.visible=p>0;wire.material.uniforms.top.value=p>=1?1000:p*height;}
   story.laser.visible=story.spark.visible=story.ring.visible=false;
   let pose=null;
@@ -140,18 +215,12 @@ export function applyTime(T,story,time){
     pose=applyKidou(T,kidou,{mode:'park',distance:s.z,vz:s.speed,carriageX});pose.lift.position.y=lift;pose.j.forEach((j,i)=>j.rotation.copy(angles[i]));
     story.mixer.setTime(t);
   }
-  // ISAO's native size is preserved. Close camera shots make the small builder readable.
-  const p=clamp((t-6)/24),angle=-Math.PI/2+p*Math.PI*6,y=1+p*story.gantryHeight;
-  const work=new T.Vector3(21*Math.cos(angle),y+1.2,14*Math.sin(angle));
-  const ai=Math.min(127,Math.floor(p*128));story.isaoTarget.copy(story.assemblyTargets[ai]).lerp(story.assemblyTargets[ai+1],p*128-ai);
-  if(t<6)work.lerpVectors(new T.Vector3(-27,8,18),new T.Vector3(0,2.2,-14),smooth(t/6));
-  if(t>=34){const exit=smooth((t-34)/10);work.lerpVectors(new T.Vector3(0,story.gantryHeight+2.2,-14),new T.Vector3(-25,4,-17),exit);}
-  if(t>=44)work.set(-25,4+.15*Math.sin(t*2),s.z-17);
-  isao.position.copy(work);isao.rotation.y=Math.atan2(-work.x,(s.z||0)-work.z);story.isaoWorld=work.clone();
-  if(t>=6&&t<34&&story.lod<2){
+  // Fly to each completed section before starting the next; transfers never print.
+  const {work,aim}=assemblyFlight(T,story,t);story.isaoTarget.copy(aim);
+  isao.position.copy(work);isao.rotation.y=Math.atan2(aim.x-work.x,aim.z-work.z);story.isaoWorld=work.clone();
+  if(t>=6&&t<30&&s.assembly.printing){
     story.root.updateMatrixWorld(true);const tip=isao.getObjectByName('TOOL_TIP').getWorldPosition(new T.Vector3()),d=tip.clone().sub(story.isaoTarget);
     story.laser.position.copy(tip).add(story.isaoTarget).multiplyScalar(.5);story.laser.scale.y=d.length();story.laser.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());story.spark.position.copy(story.isaoTarget);story.laser.visible=story.spark.visible=true;
   }
-  if(story.lod===2)isao.position.set(-25,4,SITE_DISTANCE-17);
   story.root.updateMatrixWorld(true);story.pose=pose;return s;
 }

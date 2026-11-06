@@ -233,3 +233,5 @@ The KIDOU revision with wheels directly beneath the beams replaces outboard moun
 ## STALHEART / From builder to settlement
 
 Models by jelaludo. The 144-second `stalheart-diorama/` scene composes unchanged STALHEART-KIDOU, ISAO-Birudorōn, MÖRK and Dome City habitat GLBs. Source paths, SHA-256 values, sizes, frames, clips and measured counts are pinned in `assets/stalheart-diorama/layout.json`. Generated wireframes, construction/material-reveal shaders, the two-site choreography, arm pose solver, camera sequence and browser previews are derived presentation work. The habitat is a uniformly half-scale instance; the other modules retain original scale. No new third-party meshes, textures or external reference images were introduced. Original GLBs and their existing author/license notices remain authoritative.
+
+The sequential-construction revision changes only the diorama choreography and derived line attributes: left support, right support, connecting top, roof and suspended arm. It preserves the source GLBs, original scales and the prior diorama in commit `ae6fa5e`.

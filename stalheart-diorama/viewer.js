@@ -3,7 +3,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-import {createStory,applyTime,DURATION,CHAPTERS,smooth,clamp} from '../assets/stalheart-diorama/runtime.js';
+import {createStory,applyTime,DURATION,CHAPTERS,smooth,clamp} from '../assets/stalheart-diorama/runtime.js?v=leg-order-2';
 
 const $=id=>document.getElementById(id),stage=$('stage');
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.localClippingEnabled=true;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;renderer.domElement.setAttribute('aria-label','ISAO constructs STALHEART, which prints a tank and a habitat');stage.prepend(renderer.domElement);
@@ -37,7 +37,8 @@ function cameraShot(){
   const s=story.state,z=s.z,overview=shot([0,14,26],[-83,55,108]),gantry=shot([0,17,z],[-54,25,67]),isao=shot(story.isaoWorld.clone().add(new T.Vector3(0,.6,0)).toArray(),new T.Vector3(-5,3,7).applyQuaternion(story.isao.quaternion).toArray());
   const tool=shot([0,Math.max(5,s.dome*story.domeHeight),z+2.6],[-20,12,27]),tank=shot([0,5.8,3],[-21,11,29]),dome=shot([0,10,54.6],[-33,20,39]);
   if(view==='overview')return overview;if(view==='gantry')return gantry;if(view==='isao')return isao;if(view==='tool')return tool;
-  const assembly=shot(story.isaoWorld.clone().add(new T.Vector3(0,-2,0)).toArray(),[-14,9,22]);
+  const left=shot([-16,13,0],[-35,17,43]),right=shot([5,13,0],[-43,20,52]),top=shot([0,20,0],[-53,25,65]);
+  const assembly=time<13?left:time<15?blend(left,right,(time-13)/2):time<22?right:time<24?blend(right,top,(time-22)/2):top;
   if(time<4)return isao;
   if(time<6)return blend(isao,assembly,(time-4)/2);
   if(time<26)return assembly;
@@ -53,8 +54,8 @@ function cameraShot(){
 }
 function moveCamera(){if(!ready||view==='orbit')return;const s=cameraShot();s.offset.multiplyScalar(Math.max(1,Math.min(2.1,1.15/camera.aspect)));camera.position.copy(s.target).add(s.offset);orbit.target.copy(s.target);orbit.update();}
 function render(){
-  if(!ready)return;const s=applyTime(T,story,time);time=s.time;$('phase').textContent=s.chapter.title;$('caption').textContent=s.chapter.detail;$('clock').textContent=fmt(time);$('time-label').textContent=`${fmt(time)} / 02:24`;$('time').value=time;$('play').textContent=running?'Pause':'Play';
-  let value=s.wire,name='GANTRY WIREFRAME';if(time>=34){value=s.surface;name='SURFACE FINISH';}if(time>=50){value=s.tank;name='MÖRK WIREFRAME';}if(time>=78){value=s.z/52;name='TRANSFER / 52 M';}if(time>=104){value=s.dome;name='HABITAT WIREFRAME';}
+  if(!ready)return;const s=applyTime(T,story,time);time=s.time;$('phase').textContent=s.chapter.id==='assembly'?s.assembly.label:s.chapter.title;$('caption').textContent=s.chapter.id==='assembly'?'Left leg → right leg → top. Each finished section stays in place.':s.chapter.detail;$('clock').textContent=fmt(time);$('time-label').textContent=`${fmt(time)} / 02:24`;$('time').value=time;$('play').textContent=running?'Pause':'Play';
+  let value=s.wire,name='GANTRY WIREFRAME';if(time>=6&&time<34){value=s.assembly.phase==='hold'?1:s.assembly.progress;name={left:'LEFT LEG',cross:'REPOSITIONING',right:'RIGHT LEG',rise:'REPOSITIONING',bridge:'TOP SPAN',roof:'ROOF + SILOS',arm:'SUSPENDED ARM',hold:'GANTRY WIREFRAME'}[s.assembly.phase];}if(time>=34){value=s.surface;name='SURFACE FINISH';}if(time>=50){value=s.tank;name='MÖRK WIREFRAME';}if(time>=78){value=s.z/52;name='TRANSFER / 52 M';}if(time>=104){value=s.dome;name='HABITAT WIREFRAME';}
   $('progress-name').textContent=name;$('progress-value').textContent=Math.round(value*100)+'%';$('progress-bar').style.width=value*100+'%';
   for(const b of $('chapters').children)b.setAttribute('aria-current',String(b.dataset.chapter===s.chapter.id));
   moveCamera();renderer.render(scene,camera);
@@ -64,4 +65,4 @@ orbit.addEventListener('start',()=>{view='orbit';$('camera').value='orbit';});
 new ResizeObserver(()=>{renderer.setSize(stage.clientWidth,stage.clientHeight);camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();moveCamera();if(ready)renderer.render(scene,camera);}).observe(stage);
 function frame(now){const dt=Math.min(.08,(now-last)/1000);last=now;if(ready&&running){time+=dt*Number($('speed').value);if(time>=DURATION){if($('loop').checked)time%=DURATION;else{time=DURATION;running=false;}}render();}else if(orbit.update())renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
 window.diorama={get ready(){return ready;},get story(){return story;},get time(){return time;},get running(){return running;},get lod(){return lod;},scene,renderer,camera,render,loadTier,setTime(t){time=clamp(t,0,DURATION);running=false;render();},setView(v){view=v;$('camera').value=v;render();}};
-try{layout=await fetch('../assets/stalheart-diorama/layout.json').then(r=>{if(!r.ok)throw Error('Scene manifest missing');return r.json();});await loadTier(1);}catch(error){$('loading').textContent='The scene manifest could not load. Reload to try again.';console.error(error);}
+try{layout=await fetch('../assets/stalheart-diorama/layout.json?v=leg-order-2').then(r=>{if(!r.ok)throw Error('Scene manifest missing');return r.json();});await loadTier(1);}catch(error){$('loading').textContent='The scene manifest could not load. Reload to try again.';console.error(error);}

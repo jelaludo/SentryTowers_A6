@@ -1,6 +1,8 @@
 {
   "schema": "jelaludo.scene-composition/v1",
   "family": "stalheart-diorama",
+  "revision": 2,
+  "revision_notes": "Sequential left leg, right leg, top span, roof and suspended arm; print beam off during travel",
   "derived": true,
   "source_commit": "acb8221ea4408c581e5c7813bbda7b12867ef556",
   "credit": "Models by jelaludo",
@@ -40,7 +42,7 @@
       "start": 6,
       "end": 34,
       "title": "Build the builder",
-      "detail": "ISAO traces STALHEART-KIDOU from its wheels to its silos."
+      "detail": "Left leg, right leg, then the connecting top and suspended arm."
     },
     {
       "id": "materials",
@@ -99,6 +101,68 @@
       "detail": "The finished tank and habitat remain as complete wireframes."
     }
   ],
+  "assembly": {
+    "leg_top_m": 28,
+    "roof_base_m": 33.2,
+    "phases": [
+      {
+        "id": "left",
+        "start": 6,
+        "end": 13,
+        "label": "Print the left leg",
+        "part": 0
+      },
+      {
+        "id": "cross",
+        "start": 13,
+        "end": 15,
+        "label": "Move to the right leg",
+        "printing": false
+      },
+      {
+        "id": "right",
+        "start": 15,
+        "end": 22,
+        "label": "Print the right leg",
+        "part": 1
+      },
+      {
+        "id": "rise",
+        "start": 22,
+        "end": 24,
+        "label": "Position above the two legs",
+        "printing": false
+      },
+      {
+        "id": "bridge",
+        "start": 24,
+        "end": 26,
+        "label": "Connect the top span",
+        "part": 2
+      },
+      {
+        "id": "roof",
+        "start": 26,
+        "end": 28,
+        "label": "Complete the roof and silos",
+        "part": 3
+      },
+      {
+        "id": "arm",
+        "start": 28,
+        "end": 30,
+        "label": "Finish the suspended arm",
+        "part": 4
+      },
+      {
+        "id": "hold",
+        "start": 30,
+        "end": 34,
+        "label": "Complete gantry wireframe",
+        "printing": false
+      }
+    ]
+  },
   "instances": {
     "kidou": {
       "scale": 1,
@@ -356,7 +420,7 @@
       "wireframes": [
         {
           "node": "STALHEART_ASSEMBLY_WIREFRAME",
-          "segments": 126584,
+          "segments": 128462,
           "bounds": {
             "min": [
               -21.04298210144043,
@@ -370,7 +434,89 @@
             ]
           },
           "draw_calls": 1,
-          "derived": true
+          "derived": true,
+          "assembly_sections": [
+            {
+              "part": 0,
+              "bounds": {
+                "min": [
+                  -21.04298210144043,
+                  0.0031024885177610706,
+                  -12
+                ],
+                "max": [
+                  -13.975000381469727,
+                  28,
+                  12
+                ]
+              },
+              "segments": 36854
+            },
+            {
+              "part": 1,
+              "bounds": {
+                "min": [
+                  13.975000381469727,
+                  0.0031024885177610706,
+                  -12
+                ],
+                "max": [
+                  21.04298210144043,
+                  28,
+                  12
+                ]
+              },
+              "segments": 44297
+            },
+            {
+              "part": 2,
+              "bounds": {
+                "min": [
+                  -17.04298210144043,
+                  28,
+                  -2.049999952316284
+                ],
+                "max": [
+                  17.04298210144043,
+                  33.2,
+                  2.2799999713897705
+                ]
+              },
+              "segments": 27294
+            },
+            {
+              "part": 3,
+              "bounds": {
+                "min": [
+                  -17.04298210144043,
+                  33.2,
+                  -2.042982578277588
+                ],
+                "max": [
+                  17.04298210144043,
+                  39.86000289916992,
+                  2.042982578277588
+                ]
+              },
+              "segments": 13415
+            },
+            {
+              "part": 4,
+              "bounds": {
+                "min": [
+                  -3.6899440792633595,
+                  3.2103657520842273,
+                  -0.5158606171607971
+                ],
+                "max": [
+                  7.04779577255249,
+                  33.471598052978514,
+                  3.9499999284744263
+                ]
+              },
+              "segments": 6602
+            }
+          ]
         },
         {
           "node": "MORK_BUILD_WIREFRAME",
@@ -409,7 +555,7 @@
           "derived": true
         }
       ],
-      "generated_line_segments": 153890,
+      "generated_line_segments": 155768,
       "endpoint": {
         "tank_wireframe": true,
         "dome_wireframe": true,
@@ -631,7 +777,7 @@
       "wireframes": [
         {
           "node": "STALHEART_ASSEMBLY_WIREFRAME",
-          "segments": 14976,
+          "segments": 15475,
           "bounds": {
             "min": [
               -21.04298210144043,
@@ -645,7 +791,89 @@
             ]
           },
           "draw_calls": 1,
-          "derived": true
+          "derived": true,
+          "assembly_sections": [
+            {
+              "part": 0,
+              "bounds": {
+                "min": [
+                  -21.04298210144043,
+                  0.0031024885177610706,
+                  -12
+                ],
+                "max": [
+                  -13.975000381469727,
+                  28,
+                  12
+                ]
+              },
+              "segments": 4776
+            },
+            {
+              "part": 1,
+              "bounds": {
+                "min": [
+                  13.975000381469727,
+                  0.0031024885177610706,
+                  -12
+                ],
+                "max": [
+                  21.04298210144043,
+                  28,
+                  12
+                ]
+              },
+              "segments": 4958
+            },
+            {
+              "part": 2,
+              "bounds": {
+                "min": [
+                  -17.03182029724121,
+                  28,
+                  -2.0473413467407227
+                ],
+                "max": [
+                  17.04298210144043,
+                  33.2,
+                  2.2726776599884033
+                ]
+              },
+              "segments": 2406
+            },
+            {
+              "part": 3,
+              "bounds": {
+                "min": [
+                  -17.03016115030446,
+                  33.2,
+                  -2.0417821407318115
+                ],
+                "max": [
+                  17.035263061523438,
+                  39.86000289916992,
+                  2.0419395856732225
+                ]
+              },
+              "segments": 1657
+            },
+            {
+              "part": 4,
+              "bounds": {
+                "min": [
+                  -3.6899440792633595,
+                  3.2103657520842273,
+                  -0.4937331974506378
+                ],
+                "max": [
+                  7.051202297210693,
+                  33.46502914428711,
+                  3.9499999284744263
+                ]
+              },
+              "segments": 1678
+            }
+          ]
         },
         {
           "node": "MORK_BUILD_WIREFRAME",
@@ -684,7 +912,7 @@
           "derived": true
         }
       ],
-      "generated_line_segments": 26340,
+      "generated_line_segments": 26839,
       "endpoint": {
         "tank_wireframe": true,
         "dome_wireframe": true,

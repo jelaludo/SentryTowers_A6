@@ -1,5 +1,15 @@
 # Devlog
 
+## 6 November 2026 / STALHEART diorama — left leg, right leg, then top
+
+Revised ISAO's construction order within the existing 144-second diorama. It prints the complete left wheel base and tower at 6–13 s, flies across with its beam off at 13–15 s, prints the right base and tower at 15–22 s, and repositions above the supports at 22–24 s. It then connects the upper span, adds the roof/silos and finishes the suspended mechanism at 24–30 s. The completed wireframe holds until the original material reveal begins at 34 s. Finished sections persist; no central arm appears before its supporting top exists.
+
+Derived line edges are split at construction boundaries and carry build-time/section attributes while remaining one line draw. ISAO follows the active section with a continuous flight path and switches its print beam off during transfers and the complete-wireframe hold. Camera framing and progress captions now show each support and top stage clearly. Canonical source GLBs, original scales, the tank/dome sequences and their completed endpoints are unchanged.
+
+Measured total generated lines are 155,768 in the detailed composition and 26,839 in the game composition; the gantry portion is 128,462 / 15,475 segments. Source bytes and mesh counts are unchanged. The 578-frame mechanism checks pass, with 24 additional section-order samples verifying left-only construction, both supports before the top, roof before the hanging arm, active-section tool targets and beam-off transfers. Browser checks pass in both tiers with the new leg/top previews, existing playback controls and mobile layout. No FPS claim.
+
+Completed: requested construction-order refinement, synchronized scene manifest, previews, documentation and gallery. Pending: visual acceptance and the existing production physics/collision/game-integration work. The prior diorama is preserved at `ae6fa5e`; the received collaboration contract remains unchanged.
+
 ## 6 November 2026 / STALHEART — From builder to settlement
 
 Created a separate 144-second animation diorama at `stalheart-diorama/`. Original-size ISAO arrives, constructs the under-beam-wheel STALHEART-KIDOU from bottom to top as a wireframe, and holds the complete linework before the original gantry materials appear. STALHEART then prints a full-scale MÖRK wireframe, retracts the tool, drives 52 m to a second site and prints a half-scale Dome City habitat. Both products stay as complete wireframes. The habitat measures 14.6 m across and 17.925 m tall, with 6.8 m lateral bay clearance and 2.1 m longitudinal margin beneath the gantry.

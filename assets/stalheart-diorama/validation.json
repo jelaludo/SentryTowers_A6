@@ -6,7 +6,7 @@
     {
       "lod": 0,
       "source_bytes": 12562744,
-      "line_segments": 153890,
+      "line_segments": 155768,
       "dome_width_m": 14.600000381469727,
       "dome_height_m": 17.924999237060547,
       "dome_side_clearance_m": 6.799999809265136,
@@ -16,7 +16,7 @@
     {
       "lod": 1,
       "source_bytes": 2734600,
-      "line_segments": 26340,
+      "line_segments": 26839,
       "dome_width_m": 14.600000381469727,
       "dome_height_m": 17.924999237060547,
       "dome_side_clearance_m": 6.799999809265136,
@@ -24,6 +24,321 @@
       "dome_clearance_below_25m_working_limit_m": 7.075000762939453
     }
   ],
+  "assembly_samples": [
+    {
+      "lod": 0,
+      "time": 6,
+      "phase": "left",
+      "visible_segments_by_section": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 10,
+      "phase": "left",
+      "visible_segments_by_section": [
+        22422,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 13,
+      "phase": "cross",
+      "visible_segments_by_section": [
+        36854,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 0,
+      "time": 14,
+      "phase": "cross",
+      "visible_segments_by_section": [
+        36854,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 0,
+      "time": 19,
+      "phase": "right",
+      "visible_segments_by_section": [
+        36854,
+        29605,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 22,
+      "phase": "rise",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 0,
+      "time": 23,
+      "phase": "rise",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 0,
+      "time": 25,
+      "phase": "bridge",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        13918,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 27,
+      "phase": "roof",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        27294,
+        10230,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 29,
+      "phase": "arm",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        27294,
+        13415,
+        1928
+      ],
+      "printing": true
+    },
+    {
+      "lod": 0,
+      "time": 30,
+      "phase": "hold",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        27294,
+        13415,
+        6602
+      ],
+      "printing": false
+    },
+    {
+      "lod": 0,
+      "time": 32,
+      "phase": "hold",
+      "visible_segments_by_section": [
+        36854,
+        44297,
+        27294,
+        13415,
+        6602
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 6,
+      "phase": "left",
+      "visible_segments_by_section": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 10,
+      "phase": "left",
+      "visible_segments_by_section": [
+        4298,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 13,
+      "phase": "cross",
+      "visible_segments_by_section": [
+        4776,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 14,
+      "phase": "cross",
+      "visible_segments_by_section": [
+        4776,
+        0,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 19,
+      "phase": "right",
+      "visible_segments_by_section": [
+        4776,
+        4467,
+        0,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 22,
+      "phase": "rise",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 23,
+      "phase": "rise",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        0,
+        0,
+        0
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 25,
+      "phase": "bridge",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        1350,
+        0,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 27,
+      "phase": "roof",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        2406,
+        775,
+        0
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 29,
+      "phase": "arm",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        2406,
+        1657,
+        518
+      ],
+      "printing": true
+    },
+    {
+      "lod": 1,
+      "time": 30,
+      "phase": "hold",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        2406,
+        1657,
+        1678
+      ],
+      "printing": false
+    },
+    {
+      "lod": 1,
+      "time": 32,
+      "phase": "hold",
+      "visible_segments_by_section": [
+        4776,
+        4958,
+        2406,
+        1657,
+        1678
+      ],
+      "printing": false
+    }
+  ],
+  "max_isao_boundary_jump_m": 0.0001704285427919886,
   "max_print_horizontal_error_m": 7.119291619286993e-15,
   "min_nozzle_to_layer_m": 0.7999999999999954,
   "max_link_length_error_m": 9.53674320847142e-7,
@@ -31,6 +346,8 @@
   "max_boundary_tip_jump_m": 0.00008949725477840554,
   "checks": [
     "Original source SHA-256 and byte sizes unchanged in both detail tiers",
+    "Left leg completes before right leg; both legs complete before the top; roof precedes suspended arm",
+    "ISAO targets the active section, follows a continuous flight path, and switches its beam off during transfers and the finished-wireframe hold",
     "144-second deterministic one-shot; chapter boundaries continuous; backward seeking stable",
     "Progressive gantry wireframe, original surface reveal, persistent wire-only tank and habitat",
     "Half-scale dome fits within the side beams and 24 m machine length, below 25 m working limit",

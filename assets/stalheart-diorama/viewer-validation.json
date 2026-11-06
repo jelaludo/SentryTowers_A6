@@ -16,10 +16,111 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "phase": "left",
+        "label": "Print the left leg",
+        "printing": false,
+        "progress": 0
+      },
+      "beam": false,
+      "buildTime": 2,
       "z": 0,
-      "draws": 55,
-      "triangles": 17280,
+      "draws": 54,
+      "triangles": 17278,
       "lines": 74
+    },
+    {
+      "time": 10,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.19047619047619047,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 0.5714285714285714,
+        "right": 0,
+        "top": 0,
+        "phase": "left",
+        "label": "Print the left leg",
+        "printing": true,
+        "progress": 0.5714285714285714
+      },
+      "beam": true,
+      "buildTime": 10,
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15557
+    },
+    {
+      "time": 14,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.3333333333333333,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 0,
+        "top": 0,
+        "phase": "cross",
+        "label": "Move to the right leg",
+        "printing": false,
+        "progress": 0.5
+      },
+      "beam": false,
+      "buildTime": 14,
+      "z": 0,
+      "draws": 57,
+      "triangles": 17280,
+      "lines": 15557
+    },
+    {
+      "time": 19,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.5238095238095238,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 0.5714285714285714,
+        "top": 0,
+        "phase": "right",
+        "label": "Print the right leg",
+        "printing": true,
+        "progress": 0.5714285714285714
+      },
+      "beam": true,
+      "buildTime": 19,
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15557
     },
     {
       "time": 20,
@@ -30,15 +131,116 @@
       "tankWire": false,
       "domeWire": false,
       "progress": [
-        0.5833333333333334,
+        0.5714285714285715,
         0,
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 0.7142857142857143,
+        "top": 0,
+        "phase": "right",
+        "label": "Print the right leg",
+        "printing": true,
+        "progress": 0.7142857142857143
+      },
+      "beam": true,
+      "buildTime": 20,
       "z": 0,
-      "draws": 58,
+      "draws": 59,
       "triangles": 17392,
-      "lines": 15050
+      "lines": 15557
+    },
+    {
+      "time": 25,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.7222222222222222,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.16666666666666666,
+        "phase": "bridge",
+        "label": "Connect the top span",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 25,
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15557
+    },
+    {
+      "time": 27,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.8333333333333334,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.5,
+        "phase": "roof",
+        "label": "Complete the roof and silos",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 27,
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15557
+    },
+    {
+      "time": 29,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.9444444444444445,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.8333333333333334,
+        "phase": "arm",
+        "label": "Finish the suspended arm",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 29,
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15557
     },
     {
       "time": 32,
@@ -54,10 +256,21 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 0.5
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 0,
-      "draws": 59,
-      "triangles": 17392,
-      "lines": 15058
+      "draws": 57,
+      "triangles": 17280,
+      "lines": 15557
     },
     {
       "time": 39,
@@ -73,10 +286,21 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 0,
       "draws": 102,
       "triangles": 32825,
-      "lines": 15058
+      "lines": 15557
     },
     {
       "time": 68,
@@ -92,6 +316,17 @@
         0.8181818181818182,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 0,
       "draws": 53,
       "triangles": 15253,
@@ -111,6 +346,17 @@
         1,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 33.696,
       "draws": 103,
       "triangles": 32827,
@@ -130,6 +376,17 @@
         1,
         0.42857142857142855
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 52,
       "draws": 66,
       "triangles": 18503,
@@ -149,6 +406,17 @@
         1,
         0.7857142857142857
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 52,
       "draws": 65,
       "triangles": 18067,
@@ -168,6 +436,17 @@
         1,
         1
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 52,
       "draws": 104,
       "triangles": 32827,
@@ -179,7 +458,7 @@
       "time": 20,
       "calls": 52,
       "triangles": 17376,
-      "lines": 14976
+      "lines": 15475
     },
     {
       "kind": "model-only",
@@ -187,7 +466,7 @@
       "time": 39,
       "calls": 95,
       "triangles": 32809,
-      "lines": 14976
+      "lines": 15475
     },
     {
       "kind": "model-only",
@@ -235,10 +514,111 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "phase": "left",
+        "label": "Print the left leg",
+        "printing": false,
+        "progress": 0
+      },
+      "beam": false,
+      "buildTime": 2,
       "z": 0,
-      "draws": 105,
-      "triangles": 45796,
+      "draws": 104,
+      "triangles": 45794,
       "lines": 74
+    },
+    {
+      "time": 10,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.19047619047619047,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 0.5714285714285714,
+        "right": 0,
+        "top": 0,
+        "phase": "left",
+        "label": "Print the left leg",
+        "printing": true,
+        "progress": 0.5714285714285714
+      },
+      "beam": true,
+      "buildTime": 10,
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 128544
+    },
+    {
+      "time": 14,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.3333333333333333,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 0,
+        "top": 0,
+        "phase": "cross",
+        "label": "Move to the right leg",
+        "printing": false,
+        "progress": 0.5
+      },
+      "beam": false,
+      "buildTime": 14,
+      "z": 0,
+      "draws": 107,
+      "triangles": 45796,
+      "lines": 128544
+    },
+    {
+      "time": 19,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.5238095238095238,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 0.5714285714285714,
+        "top": 0,
+        "phase": "right",
+        "label": "Print the right leg",
+        "printing": true,
+        "progress": 0.5714285714285714
+      },
+      "beam": true,
+      "buildTime": 19,
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 128544
     },
     {
       "time": 20,
@@ -249,15 +629,116 @@
       "tankWire": false,
       "domeWire": false,
       "progress": [
-        0.5833333333333334,
+        0.5714285714285715,
         0,
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 0.7142857142857143,
+        "top": 0,
+        "phase": "right",
+        "label": "Print the right leg",
+        "printing": true,
+        "progress": 0.7142857142857143
+      },
+      "beam": true,
+      "buildTime": 20,
       "z": 0,
-      "draws": 108,
+      "draws": 109,
       "triangles": 45908,
-      "lines": 126658
+      "lines": 128544
+    },
+    {
+      "time": 25,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.7222222222222222,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.16666666666666666,
+        "phase": "bridge",
+        "label": "Connect the top span",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 25,
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 128544
+    },
+    {
+      "time": 27,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.8333333333333334,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.5,
+        "phase": "roof",
+        "label": "Complete the roof and silos",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 27,
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 128544
+    },
+    {
+      "time": 29,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.9444444444444445,
+        0,
+        0,
+        0
+      ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 0.8333333333333334,
+        "phase": "arm",
+        "label": "Finish the suspended arm",
+        "printing": true,
+        "progress": 0.5
+      },
+      "beam": true,
+      "buildTime": 29,
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 128544
     },
     {
       "time": 32,
@@ -273,10 +754,21 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 0.5
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 0,
-      "draws": 109,
-      "triangles": 45908,
-      "lines": 126666
+      "draws": 107,
+      "triangles": 45796,
+      "lines": 128544
     },
     {
       "time": 39,
@@ -292,10 +784,21 @@
         0,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 0,
       "draws": 152,
       "triangles": 205464,
-      "lines": 126666
+      "lines": 128544
     },
     {
       "time": 68,
@@ -311,6 +814,17 @@
         0.8181818181818182,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 0,
       "draws": 53,
       "triangles": 158168,
@@ -330,6 +844,17 @@
         1,
         0
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 33.696,
       "draws": 153,
       "triangles": 205466,
@@ -349,6 +874,17 @@
         1,
         0.42857142857142855
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 52,
       "draws": 81,
       "triangles": 166878,
@@ -368,6 +904,17 @@
         1,
         0.7857142857142857
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": true,
+      "buildTime": 1000,
       "z": 52,
       "draws": 80,
       "triangles": 166554,
@@ -387,6 +934,17 @@
         1,
         1
       ],
+      "assembly": {
+        "left": 1,
+        "right": 1,
+        "top": 1,
+        "phase": "hold",
+        "label": "Complete gantry wireframe",
+        "printing": false,
+        "progress": 1
+      },
+      "beam": false,
+      "buildTime": 1000,
       "z": 52,
       "draws": 154,
       "triangles": 205466,
@@ -398,7 +956,7 @@
       "time": 20,
       "calls": 102,
       "triangles": 45892,
-      "lines": 126584
+      "lines": 128462
     },
     {
       "kind": "model-only",
@@ -406,7 +964,7 @@
       "time": 39,
       "calls": 145,
       "triangles": 205448,
-      "lines": 126584
+      "lines": 128462
     },
     {
       "kind": "model-only",
@@ -441,18 +999,19 @@
       "lines": 27306
     }
   ],
+  "arrival_camera": {
+    "frontDot": 0.7650869641129069,
+    "working": 1
+  },
   "checks": [
+    "Opening close shot faces ISAO’s active working display",
     "Both detail tiers and every construction/transfer phase",
+    "Sequential left leg, right leg, top span/roof/arm; beam off during leg transfer",
     "Full gantry wireframe holds before surfaces appear; tank and habitat remain wire-only",
     "Backward scrubbing, chapter jumps, speed, pause, endpoint clamp, looping and restart",
     "Five camera presets, full screen and PNG capture",
     "390px layout without horizontal overflow; shared navigation present",
-    "Actual model-only render counts and source-byte measurements recorded separately",
-    "Opening close shot faces ISAO’s active working display"
+    "Actual model-only render counts and source-byte measurements recorded separately"
   ],
-  "errors": [],
-  "arrival_camera": {
-    "frontDot": 0.7650869641129068,
-    "working": 1
-  }
+  "errors": []
 }
