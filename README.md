@@ -1,5 +1,7 @@
 # Model Workshop
 
+**STALHEART-KIDOU — Mobile fabrication gantry** replaces Stalheart’s rail bed and bogies with eight enlarged XB-12 wheels on independent swing arms and dampers. Preserves the twin towers, silos, catwalks and six-joint fabrication arm; demonstrates straight/crab travel, pivot turns, uneven-ground contact and a tool sweep above an original-scale MÖRK. Detailed/game/static exports are in `assets/stalheart-kidou/`; open `stalheart-kidou/`.
+
 **SAI-93 — Long Chassis Miner** is the headless SAI-92 variant: a flat service deck with flush sensors, a 10.4% narrower and 25.2% longer landed footprint, and the complete fly–anchor–mine–return cycle. Includes detailed/articulated/static exports and a byte-identical shared SAI-92 bay. Open `sai93/`; measurements and runtime contracts are in `assets/sai93/`.
 
 **SAI-92 / 採掘 — Mineral Recovery** adds an autonomous cold-gas mining hopper and its service bay. Select a seam and dispatch: the unit flies with folded legs, lands, anchors, extracts with twin augers and mining lasers, then returns to offload, refill gas and recharge. Includes live ore indicators, finite resources, safe recall, inspection modes and detailed/game/static exports for both modules. Open `sai92/`; integration notes and measurements are in `assets/sai92/`.

@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "Export structure, source preservation and sampled rigid kinematics. No physical load, stability or general collision certification.",
+  "files": [
+    {
+      "file": "stalheart_kidou_d0_lod0.glb",
+      "triangles": 159924,
+      "draw_calls": 45,
+      "bytes": 7633692,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stalheart_kidou_d0_lod1.glb",
+      "triangles": 15417,
+      "draw_calls": 45,
+      "bytes": 391124,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "stalheart_kidou_d0_lod2.glb",
+      "triangles": 2759,
+      "draw_calls": 1,
+      "bytes": 131912,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "samples": 780,
+  "max_contact_error_m": 9.227863064995012e-7,
+  "max_arm_length_error_m": 1.3322676295501878e-15,
+  "min_damper_overlap_m": 0.5626528480308102,
+  "min_travel_tool_height_m": 9.556160371997189,
+  "min_fabrication_tool_height_m": 3.210365752084231,
+  "checks": [
+    "Sampled tire vertices clear the side beams over full steering and travel ranges",
+    "Three plain GLBs: zero errors/warnings, nondegenerate geometry, manifest hashes and dot-free names",
+    "Stable frames, sockets and exact tier envelopes; static adapter remains frozen",
+    "Eight rigid swing arms, compensated uprights, exact damper endpoints and positive rod overlap",
+    "Flat and uneven-ground contact, all travel limits, straight/crab/radial steering and rolling rates",
+    "Travel tool raises above MORK; fabrication sweep clears the reference tank height",
+    "Original Stalheart and XB-12 source hashes unchanged; no rail-bed/bogie names retained",
+    "Game under 25k articulated-unit triangles; static under 3k/one draw/250 KB"
+  ],
+  "min_sampled_tire_to_side_beam_lateral_gap_m": 0.20661555546859844
+}

@@ -1,0 +1,30 @@
+{
+  "reference": {
+    "path": "/Users/jela/Downloads/ChatGPT Image Nov 6, 2026, 09_49_01 AM.png",
+    "sha256": "f90182dba29bf0481d8726ea1386a7359e83a65cd3521d937c5adb10f2189c96",
+    "preserved": true
+  },
+  "role": "User-supplied mobile Stalheart concept; source gantry and XB-12 wheel reuse explicitly requested",
+  "rights": "Reference creator/license not supplied; no additional image rights claimed",
+  "source_commit": "14e4cb396e775f09b4c44cb95cfca1242e44ee76",
+  "sources": [
+    {
+      "path": "assets/terraformer/terraformer_3000_d0.glb",
+      "sha256": "72ec3c06fcfdce3e6a4be87db0437de062158413eeb299da56a1abb36f42744e",
+      "bytes": 11086528,
+      "role": "Source gantry geometry; rail bed, bogies and old flexible segments removed"
+    },
+    {
+      "path": "assets/xb12/xb12_d0_lod0.glb",
+      "sha256": "182463d929e7757f99040acd901b6fd51126f02d87bbc1ad530bb2d707d60dcd",
+      "bytes": 604004,
+      "role": "WHEEL_FL geometry reused eight times at 3.6 uniform scale"
+    },
+    {
+      "path": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+      "sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+      "bytes": 459080,
+      "role": "External scale reference in viewer only; not included in KIDOU GLBs"
+    }
+  ]
+}

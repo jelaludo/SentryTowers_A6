@@ -220,3 +220,9 @@ The procedural source is `tools/asset-pipeline/sai92-shape.mjs`. Plain unit/bay 
 SAI-93 geometry, revised rigid mounting frames, runtime adapter and viewer are by jelaludo, derived from SAI-92 at commit `1d33d06a2c15144a0bab997b57bb295cffec8fee`. The user directed removal of the anthropomorphic swivelling head and a narrower, longer body. The original SAI-92 assets remain unchanged. Original concept-reference hashes and rights limits are retained in `assets/sai93/reference-provenance.json`.
 
 The source is `tools/asset-pipeline/sai93-shape.mjs`. Plain unit GLBs are authoritative; LOD2 and browser previews are derived. The three bay GLBs and `mission.js` are byte-identical SAI-92 copies bundled for portability, with original bay names/signage preserved. No third-party meshes, animations or textures were incorporated.
+
+## STALHEART-KIDOU / Mobile fabrication gantry
+
+Models by jelaludo. KIDOU derives its gantry, silos, balconies and six-joint arm from the preserved detailed Stalheart / Terraformer 3000, and reuses the XB-12 detailed `WHEEL_FL` geometry eight times at uniform 3.6× scale. The mobile chassis, suspension frames, runtime and viewer are new library work. The viewer uses a separate original-scale MÖRK for comparison. Donor paths/hashes and the supplied concept-image hash are recorded in `assets/stalheart-kidou/reference-provenance.json`; original assets remain unchanged. Reference-image creator/license was not supplied and no additional image rights are claimed.
+
+Plain KIDOU GLBs are authoritative derived variants, with a further simplified static tier and derived browser previews. No new third-party meshes or textures were introduced. Procedural sources: `tools/asset-pipeline/stalheart-kidou-shape.mjs`, `stalheart-kidou-utils.mjs` and `build-stalheart-kidou.mjs`.

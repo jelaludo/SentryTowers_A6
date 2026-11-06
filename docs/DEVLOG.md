@@ -1,5 +1,18 @@
 # Devlog
 
+## 6 November 2026 / STALHEART-KIDOU — mobile fabrication gantry
+
+Created a separate mobile Stalheart from the supplied concept. Reused the canonical detailed gantry, twin silos, catwalks, balconies and six-joint fabrication arm; removed the rail bed, sleepers, track fittings, flanged wheels and short bogies. Two 24 m side beams carry eight enlarged XB-12 wheels, independent 3 m trailing arms, compensated uprights, separate steering/spin pivots and endpoint-driven telescopic dampers. Wheel geometry is uniformly scaled 3.6× and shared across stations. The gantry sits 2.3 m higher; neutral bounds are 42.128 × 24.000 × 38.257 m (width × length × height), with a 48 × 28 m moving-root reservation.
+
+The `stalheart-kidou/` viewer shows a canonical original-scale MÖRK beneath the arch and demonstrates parked inspection, straight travel, crab travel, radial-steered pivot turns, individual suspension and a fabrication sweep. Wheels solve mild uneven-ground contact within ±0.55 m travel. The tool raises during travel and lowers above the tank when parked; two procedural feed hoses follow the carriage. The legacy `GANTRY_TRAVEL_Y` name remains fixed on the mobile chassis. No rail-motion or engine-pivot clips are baked. This is kinematic operation, not force-based vehicle dynamics or finished-tank production.
+
+Measured detailed: 159,924 triangles / 45 draws / 7,633,692 plain bytes; articulated game: 15,417 / 45 / 391,124; static: 2,759 / one / 131,912. Game fits the 25k mobile-unit triangle target and the 400 KB landmark byte reference, but exceeds the stationary landmark 8k/10-draw targets. Static fits 3k/one draw/250 KB. All three plain GLBs validate with zero errors/warnings; corresponding frames, sockets, bounds and dot-free names agree. No FPS claim.
+
+Validation includes 780 kinematic samples, exact damper endpoints, rigid links, wheel rolling rates, safe tool heights, under-0.001 mm sampled contact error, at least 0.56265 m damper overlap and at least 0.2066 m sampled tire-to-side-beam lateral clearance throughout steering/travel. Browser checks cover all six live modes in master/game, moving feed endpoints, individual compression and terrain, frozen distance controls, measured render counts, cameras, pause, wireframe, fullscreen, downloads and 390 px layout. Source Stalheart, XB-12 and MÖRK hashes are unchanged.
+
+Completed: three GLBs, mobile runtime, viewer, provenance/manifest, integration notes, previews, Workshop listing and generated shared navigation. Pending: visual acceptance, structural stability/load and general collision engineering, physical traction/drive power, production navigation/terrain integration, D1–D3, consuming r160/release gltfpack and reference-phone/game-camera measurements. The received collaboration contract remains verbatim.
+
+
 ## 6 November 2026 / SAI-93 — flat service deck and longer chassis
 
 Created a separate SAI-93 variant from SAI-92. Removed the raised optical head, pedestal and sensor-yaw pivot in every tier. A flat service deck, longitudinal ribs and flush distributed sensor apertures replace the anthropomorphic silhouette. Authored a narrower, longer tank and moved rigid leg/thruster mounting frames; circular joints, bells, shock rods and mining tools retain their proportions. Landed bounds are 5.6600 × 5.7316 × 3.5750 m (width × length × height): 10.4% narrower, 25.2% longer and 0.4195 m lower than SAI-92. Reserve 6 × 6 m.

@@ -1,0 +1,2012 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "stalheart-kidou",
+  "label": "STALHEART-KIDOU",
+  "revision": 1,
+  "status": "interactive_kinematic_prototype_pending_game_integration",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Ground at mobile plot centre"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "spec": {
+    "wheel_radius_m": 1.82,
+    "wheel_source_scale": 3.6,
+    "half_track_m": 20.2,
+    "arm_length_m": 3,
+    "arm_drop_m": 2.4,
+    "arm_trail_m": 1.8,
+    "pivot_height_m": 4.22,
+    "compression_m": [
+      -0.55,
+      0.55
+    ],
+    "gantry_raise_m": 2.3,
+    "cycle_s": 16
+  },
+  "sources": [
+    {
+      "path": "assets/terraformer/terraformer_3000_d0.glb",
+      "sha256": "72ec3c06fcfdce3e6a4be87db0437de062158413eeb299da56a1abb36f42744e",
+      "bytes": 11086528,
+      "role": "Source gantry geometry; rail bed, bogies and old flexible segments removed"
+    },
+    {
+      "path": "assets/xb12/xb12_d0_lod0.glb",
+      "sha256": "182463d929e7757f99040acd901b6fd51126f02d87bbc1ad530bb2d707d60dcd",
+      "bytes": 604004,
+      "role": "WHEEL_FL geometry reused eight times at 3.6 uniform scale"
+    },
+    {
+      "path": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+      "sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+      "bytes": 459080,
+      "role": "External scale reference in viewer only; not included in KIDOU GLBs"
+    }
+  ],
+  "runtime": {
+    "adapter": "runtime.js",
+    "engine_driven": true,
+    "baked_clips": [],
+    "demo_duration_s": 16,
+    "modes": [
+      "park",
+      "drive",
+      "crab",
+      "turn",
+      "suspension",
+      "fabricate"
+    ],
+    "legacy_control": "GANTRY_TRAVEL_Y retained at fixed Y 2.3 m; rail translation is replaced by whole-root locomotion",
+    "procedural_meshes": [
+      "FEED_HOSE_1",
+      "FEED_HOSE_2"
+    ],
+    "physics": "Kinematic contact/steering/rolling demonstration; no force or load simulation"
+  },
+  "lod_selection": {
+    "lod0": "Detailed master for close shots and recordings",
+    "lod1": "Active articulated mobile unit",
+    "lod2": "Static parked map/loading proxy; lookup transforms retained but not animated",
+    "enter_m": 150,
+    "return_m": 170,
+    "threshold_status": "Provisional; use game tier before wheel or arm motion is visible",
+    "active_unit_swap": false
+  },
+  "budget_basis": "Mobile articulated unit: 25k game triangles. The stricter stationary Stalheart landmark 8k/10 draws/400KB targets are reported separately, not claimed.",
+  "assets": [
+    {
+      "file": "stalheart_kidou_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "bytes": 7633692,
+      "sha256": "30b7d588247c0de733ac4d604c44c76c7894aad8f96f5579efb81aac2cb6315b",
+      "triangles": 159924,
+      "draw_calls": 45,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        48,
+        28
+      ],
+      "bounds": {
+        "min": [
+          -21.0639999628067,
+          0.0031024885177610706,
+          -12
+        ],
+        "max": [
+          21.0639999628067,
+          38.26000289916992,
+          12
+        ],
+        "dimensions_m": [
+          42.1279999256134,
+          38.25690041065216,
+          24
+        ]
+      },
+      "nodes": [
+        "STALHEART_KIDOU_ROOT",
+        "BODY_HEAVE",
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "GANTRY_SURFACE_J6_TOOL_ROLL",
+        "GANTRY_SURFACE_J5_WRIST_PITCH",
+        "GANTRY_SURFACE_J4_FOREARM_ROLL",
+        "GANTRY_SURFACE_J3_ELBOW",
+        "GANTRY_SURFACE_J2_SHOULDER",
+        "GANTRY_SURFACE_J1_BASE_YAW",
+        "GANTRY_SURFACE_TOOL_LIFT_Z",
+        "GANTRY_SURFACE_CARRIAGE_TRAVEL_X",
+        "GANTRY_SURFACE_GANTRY_TRAVEL_Y",
+        "FEED_HOSE_1",
+        "FEED_HOSE_2",
+        "MOBILE_CHASSIS_SURFACE",
+        "SUSP_PIVOT_L1",
+        "SUSP_ARM_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "WHEEL_L1",
+        "SOCKET_CONTACT_L1",
+        "SOCKET_DAMPER_LOWER_L1",
+        "SOCKET_DAMPER_UPPER_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_BARREL_L1",
+        "DAMPER_ROD_L1",
+        "DAMPER_ROD_SURFACE_L1",
+        "SUSP_PIVOT_L2",
+        "SUSP_ARM_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "WHEEL_L2",
+        "SOCKET_CONTACT_L2",
+        "SOCKET_DAMPER_LOWER_L2",
+        "SOCKET_DAMPER_UPPER_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_BARREL_L2",
+        "DAMPER_ROD_L2",
+        "DAMPER_ROD_SURFACE_L2",
+        "SUSP_PIVOT_L3",
+        "SUSP_ARM_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "WHEEL_L3",
+        "SOCKET_CONTACT_L3",
+        "SOCKET_DAMPER_LOWER_L3",
+        "SOCKET_DAMPER_UPPER_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_BARREL_L3",
+        "DAMPER_ROD_L3",
+        "DAMPER_ROD_SURFACE_L3",
+        "SUSP_PIVOT_L4",
+        "SUSP_ARM_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "WHEEL_L4",
+        "SOCKET_CONTACT_L4",
+        "SOCKET_DAMPER_LOWER_L4",
+        "SOCKET_DAMPER_UPPER_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_BARREL_L4",
+        "DAMPER_ROD_L4",
+        "DAMPER_ROD_SURFACE_L4",
+        "SUSP_PIVOT_R1",
+        "SUSP_ARM_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "WHEEL_R1",
+        "SOCKET_CONTACT_R1",
+        "SOCKET_DAMPER_LOWER_R1",
+        "SOCKET_DAMPER_UPPER_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_BARREL_R1",
+        "DAMPER_ROD_R1",
+        "DAMPER_ROD_SURFACE_R1",
+        "SUSP_PIVOT_R2",
+        "SUSP_ARM_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "WHEEL_R2",
+        "SOCKET_CONTACT_R2",
+        "SOCKET_DAMPER_LOWER_R2",
+        "SOCKET_DAMPER_UPPER_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_BARREL_R2",
+        "DAMPER_ROD_R2",
+        "DAMPER_ROD_SURFACE_R2",
+        "SUSP_PIVOT_R3",
+        "SUSP_ARM_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "WHEEL_R3",
+        "SOCKET_CONTACT_R3",
+        "SOCKET_DAMPER_LOWER_R3",
+        "SOCKET_DAMPER_UPPER_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_BARREL_R3",
+        "DAMPER_ROD_R3",
+        "DAMPER_ROD_SURFACE_R3",
+        "SUSP_PIVOT_R4",
+        "SUSP_ARM_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "WHEEL_R4",
+        "SOCKET_CONTACT_R4",
+        "SOCKET_DAMPER_LOWER_R4",
+        "SOCKET_DAMPER_UPPER_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_BARREL_R4",
+        "DAMPER_ROD_R4",
+        "DAMPER_ROD_SURFACE_R4",
+        "WHEEL_MOUNT_BRIDGES",
+        "SOCKET_MATERIAL_INPUT",
+        "SOCKET_TOW_FRONT",
+        "SOCKET_TOW_REAR",
+        "SOCKET_FABRICATION_ORIGIN"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "SUSP_PIVOT_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_ROD_L1",
+        "SUSP_PIVOT_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_ROD_L2",
+        "SUSP_PIVOT_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_ROD_L3",
+        "SUSP_PIVOT_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_ROD_L4",
+        "SUSP_PIVOT_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_ROD_R1",
+        "SUSP_PIVOT_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_ROD_R2",
+        "SUSP_PIVOT_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_ROD_R3",
+        "SUSP_PIVOT_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_ROD_R4"
+      ],
+      "sockets": [
+        {
+          "node": "EXTRUSION_TIP",
+          "position_m": [
+            0.05049592762043404,
+            3.210365752084231,
+            2.5999999046325684
+          ],
+          "quaternion": [
+            0,
+            0,
+            8.326672684688674e-17,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L1",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L1",
+          "position_m": [
+            -20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L1",
+          "position_m": [
+            -20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L2",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L2",
+          "position_m": [
+            -20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L2",
+          "position_m": [
+            -20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L3",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L3",
+          "position_m": [
+            -20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L3",
+          "position_m": [
+            -20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L4",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L4",
+          "position_m": [
+            -20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L4",
+          "position_m": [
+            -20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R1",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R1",
+          "position_m": [
+            20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R1",
+          "position_m": [
+            20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R2",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R2",
+          "position_m": [
+            20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R2",
+          "position_m": [
+            20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R3",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R3",
+          "position_m": [
+            20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R3",
+          "position_m": [
+            20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R4",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R4",
+          "position_m": [
+            20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R4",
+          "position_m": [
+            20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_MATERIAL_INPUT",
+          "position_m": [
+            16,
+            4.4,
+            -11.85
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_FRONT",
+          "position_m": [
+            16,
+            4,
+            12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_REAR",
+          "position_m": [
+            -16,
+            4,
+            -12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_FABRICATION_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            2.6
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "static": false,
+      "derived": true,
+      "credit": "Models by jelaludo; mobile derivative of Stalheart with scaled XB-12 wheel geometry."
+    },
+    {
+      "file": "stalheart_kidou_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 391124,
+      "sha256": "d961809b4b7ebe1ab6bd7624939017ba76b552280baa2f5beff23032501f0353",
+      "triangles": 15417,
+      "draw_calls": 45,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        48,
+        28
+      ],
+      "bounds": {
+        "min": [
+          -21.0639999628067,
+          0.0031024885177610706,
+          -12
+        ],
+        "max": [
+          21.0639999628067,
+          38.26000289916992,
+          12
+        ],
+        "dimensions_m": [
+          42.1279999256134,
+          38.25690041065216,
+          24
+        ]
+      },
+      "nodes": [
+        "STALHEART_KIDOU_ROOT",
+        "BODY_HEAVE",
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "GANTRY_SURFACE_J6_TOOL_ROLL",
+        "GANTRY_SURFACE_J5_WRIST_PITCH",
+        "GANTRY_SURFACE_J4_FOREARM_ROLL",
+        "GANTRY_SURFACE_J3_ELBOW",
+        "GANTRY_SURFACE_J2_SHOULDER",
+        "GANTRY_SURFACE_J1_BASE_YAW",
+        "GANTRY_SURFACE_TOOL_LIFT_Z",
+        "GANTRY_SURFACE_CARRIAGE_TRAVEL_X",
+        "GANTRY_SURFACE_GANTRY_TRAVEL_Y",
+        "FEED_HOSE_1",
+        "FEED_HOSE_2",
+        "MOBILE_CHASSIS_SURFACE",
+        "SUSP_PIVOT_L1",
+        "SUSP_ARM_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "WHEEL_L1",
+        "SOCKET_CONTACT_L1",
+        "SOCKET_DAMPER_LOWER_L1",
+        "SOCKET_DAMPER_UPPER_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_BARREL_L1",
+        "DAMPER_ROD_L1",
+        "DAMPER_ROD_SURFACE_L1",
+        "SUSP_PIVOT_L2",
+        "SUSP_ARM_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "WHEEL_L2",
+        "SOCKET_CONTACT_L2",
+        "SOCKET_DAMPER_LOWER_L2",
+        "SOCKET_DAMPER_UPPER_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_BARREL_L2",
+        "DAMPER_ROD_L2",
+        "DAMPER_ROD_SURFACE_L2",
+        "SUSP_PIVOT_L3",
+        "SUSP_ARM_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "WHEEL_L3",
+        "SOCKET_CONTACT_L3",
+        "SOCKET_DAMPER_LOWER_L3",
+        "SOCKET_DAMPER_UPPER_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_BARREL_L3",
+        "DAMPER_ROD_L3",
+        "DAMPER_ROD_SURFACE_L3",
+        "SUSP_PIVOT_L4",
+        "SUSP_ARM_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "WHEEL_L4",
+        "SOCKET_CONTACT_L4",
+        "SOCKET_DAMPER_LOWER_L4",
+        "SOCKET_DAMPER_UPPER_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_BARREL_L4",
+        "DAMPER_ROD_L4",
+        "DAMPER_ROD_SURFACE_L4",
+        "SUSP_PIVOT_R1",
+        "SUSP_ARM_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "WHEEL_R1",
+        "SOCKET_CONTACT_R1",
+        "SOCKET_DAMPER_LOWER_R1",
+        "SOCKET_DAMPER_UPPER_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_BARREL_R1",
+        "DAMPER_ROD_R1",
+        "DAMPER_ROD_SURFACE_R1",
+        "SUSP_PIVOT_R2",
+        "SUSP_ARM_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "WHEEL_R2",
+        "SOCKET_CONTACT_R2",
+        "SOCKET_DAMPER_LOWER_R2",
+        "SOCKET_DAMPER_UPPER_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_BARREL_R2",
+        "DAMPER_ROD_R2",
+        "DAMPER_ROD_SURFACE_R2",
+        "SUSP_PIVOT_R3",
+        "SUSP_ARM_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "WHEEL_R3",
+        "SOCKET_CONTACT_R3",
+        "SOCKET_DAMPER_LOWER_R3",
+        "SOCKET_DAMPER_UPPER_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_BARREL_R3",
+        "DAMPER_ROD_R3",
+        "DAMPER_ROD_SURFACE_R3",
+        "SUSP_PIVOT_R4",
+        "SUSP_ARM_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "WHEEL_R4",
+        "SOCKET_CONTACT_R4",
+        "SOCKET_DAMPER_LOWER_R4",
+        "SOCKET_DAMPER_UPPER_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_BARREL_R4",
+        "DAMPER_ROD_R4",
+        "DAMPER_ROD_SURFACE_R4",
+        "WHEEL_MOUNT_BRIDGES",
+        "SOCKET_MATERIAL_INPUT",
+        "SOCKET_TOW_FRONT",
+        "SOCKET_TOW_REAR",
+        "SOCKET_FABRICATION_ORIGIN"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "SUSP_PIVOT_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_ROD_L1",
+        "SUSP_PIVOT_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_ROD_L2",
+        "SUSP_PIVOT_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_ROD_L3",
+        "SUSP_PIVOT_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_ROD_L4",
+        "SUSP_PIVOT_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_ROD_R1",
+        "SUSP_PIVOT_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_ROD_R2",
+        "SUSP_PIVOT_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_ROD_R3",
+        "SUSP_PIVOT_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_ROD_R4"
+      ],
+      "sockets": [
+        {
+          "node": "EXTRUSION_TIP",
+          "position_m": [
+            0.05049592762043404,
+            3.210365752084231,
+            2.5999999046325684
+          ],
+          "quaternion": [
+            0,
+            0,
+            8.326672684688674e-17,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L1",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L1",
+          "position_m": [
+            -20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L1",
+          "position_m": [
+            -20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L2",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L2",
+          "position_m": [
+            -20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L2",
+          "position_m": [
+            -20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L3",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L3",
+          "position_m": [
+            -20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L3",
+          "position_m": [
+            -20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L4",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L4",
+          "position_m": [
+            -20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L4",
+          "position_m": [
+            -20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R1",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R1",
+          "position_m": [
+            20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R1",
+          "position_m": [
+            20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R2",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R2",
+          "position_m": [
+            20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R2",
+          "position_m": [
+            20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R3",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R3",
+          "position_m": [
+            20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R3",
+          "position_m": [
+            20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R4",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R4",
+          "position_m": [
+            20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R4",
+          "position_m": [
+            20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_MATERIAL_INPUT",
+          "position_m": [
+            16,
+            4.4,
+            -11.85
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_FRONT",
+          "position_m": [
+            16,
+            4,
+            12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_REAR",
+          "position_m": [
+            -16,
+            4,
+            -12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_FABRICATION_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            2.6
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "static": false,
+      "derived": true,
+      "credit": "Models by jelaludo; mobile derivative of Stalheart with scaled XB-12 wheel geometry."
+    },
+    {
+      "file": "stalheart_kidou_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "bytes": 131912,
+      "sha256": "32f4f6b35eeb0fe9f8ce22d9d98f69e979b21b607ac3699b25cac81a3e11d02f",
+      "triangles": 2759,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        48,
+        28
+      ],
+      "bounds": {
+        "min": [
+          -21.06399917602539,
+          0.0031024885829538107,
+          -12
+        ],
+        "max": [
+          21.06399917602539,
+          38.26000213623047,
+          12
+        ],
+        "dimensions_m": [
+          42.12799835205078,
+          38.256899647647515,
+          24
+        ]
+      },
+      "nodes": [
+        "STALHEART_KIDOU_ROOT",
+        "BODY_HEAVE",
+        "GANTRY_TRAVEL_Y",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "EXTRUSION_TIP",
+        "GANTRY_SURFACE_J6_TOOL_ROLL",
+        "GANTRY_SURFACE_J5_WRIST_PITCH",
+        "GANTRY_SURFACE_J4_FOREARM_ROLL",
+        "GANTRY_SURFACE_J3_ELBOW",
+        "GANTRY_SURFACE_J2_SHOULDER",
+        "GANTRY_SURFACE_J1_BASE_YAW",
+        "GANTRY_SURFACE_TOOL_LIFT_Z",
+        "GANTRY_SURFACE_CARRIAGE_TRAVEL_X",
+        "GANTRY_SURFACE_GANTRY_TRAVEL_Y",
+        "FEED_HOSE_1",
+        "FEED_HOSE_2",
+        "SUSP_PIVOT_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "WHEEL_L1",
+        "SOCKET_CONTACT_L1",
+        "SOCKET_DAMPER_LOWER_L1",
+        "SUSP_ARM_L1",
+        "SOCKET_DAMPER_UPPER_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_ROD_L1",
+        "DAMPER_ROD_SURFACE_L1",
+        "DAMPER_BARREL_L1",
+        "SUSP_PIVOT_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "WHEEL_L2",
+        "SOCKET_CONTACT_L2",
+        "SOCKET_DAMPER_LOWER_L2",
+        "SUSP_ARM_L2",
+        "SOCKET_DAMPER_UPPER_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_ROD_L2",
+        "DAMPER_ROD_SURFACE_L2",
+        "DAMPER_BARREL_L2",
+        "SUSP_PIVOT_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "WHEEL_L3",
+        "SOCKET_CONTACT_L3",
+        "SOCKET_DAMPER_LOWER_L3",
+        "SUSP_ARM_L3",
+        "SOCKET_DAMPER_UPPER_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_ROD_L3",
+        "DAMPER_ROD_SURFACE_L3",
+        "DAMPER_BARREL_L3",
+        "SUSP_PIVOT_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "WHEEL_L4",
+        "SOCKET_CONTACT_L4",
+        "SOCKET_DAMPER_LOWER_L4",
+        "SUSP_ARM_L4",
+        "SOCKET_DAMPER_UPPER_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_ROD_L4",
+        "DAMPER_ROD_SURFACE_L4",
+        "DAMPER_BARREL_L4",
+        "SUSP_PIVOT_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "WHEEL_R1",
+        "SOCKET_CONTACT_R1",
+        "SOCKET_DAMPER_LOWER_R1",
+        "SUSP_ARM_R1",
+        "SOCKET_DAMPER_UPPER_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_ROD_R1",
+        "DAMPER_ROD_SURFACE_R1",
+        "DAMPER_BARREL_R1",
+        "SUSP_PIVOT_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "WHEEL_R2",
+        "SOCKET_CONTACT_R2",
+        "SOCKET_DAMPER_LOWER_R2",
+        "SUSP_ARM_R2",
+        "SOCKET_DAMPER_UPPER_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_ROD_R2",
+        "DAMPER_ROD_SURFACE_R2",
+        "DAMPER_BARREL_R2",
+        "SUSP_PIVOT_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "WHEEL_R3",
+        "SOCKET_CONTACT_R3",
+        "SOCKET_DAMPER_LOWER_R3",
+        "SUSP_ARM_R3",
+        "SOCKET_DAMPER_UPPER_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_ROD_R3",
+        "DAMPER_ROD_SURFACE_R3",
+        "DAMPER_BARREL_R3",
+        "SUSP_PIVOT_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "WHEEL_R4",
+        "SOCKET_CONTACT_R4",
+        "SOCKET_DAMPER_LOWER_R4",
+        "SUSP_ARM_R4",
+        "SOCKET_DAMPER_UPPER_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_ROD_R4",
+        "DAMPER_ROD_SURFACE_R4",
+        "DAMPER_BARREL_R4",
+        "SOCKET_MATERIAL_INPUT",
+        "SOCKET_TOW_FRONT",
+        "SOCKET_TOW_REAR",
+        "MOBILE_CHASSIS_SURFACE",
+        "WHEEL_MOUNT_BRIDGES",
+        "SOCKET_FABRICATION_ORIGIN",
+        "KIDOU_STATIC_SURFACE"
+      ],
+      "engine_nodes": [
+        "BODY_HEAVE",
+        "CARRIAGE_TRAVEL_X",
+        "TOOL_LIFT_Z",
+        "J1_BASE_YAW",
+        "J2_SHOULDER",
+        "J3_ELBOW",
+        "J4_FOREARM_ROLL",
+        "J5_WRIST_PITCH",
+        "J6_TOOL_ROLL",
+        "SUSP_PIVOT_L1",
+        "UPRIGHT_L1",
+        "WHEEL_STEER_L1",
+        "WHEEL_SPIN_L1",
+        "DAMPER_AIM_L1",
+        "DAMPER_ROD_L1",
+        "SUSP_PIVOT_L2",
+        "UPRIGHT_L2",
+        "WHEEL_STEER_L2",
+        "WHEEL_SPIN_L2",
+        "DAMPER_AIM_L2",
+        "DAMPER_ROD_L2",
+        "SUSP_PIVOT_L3",
+        "UPRIGHT_L3",
+        "WHEEL_STEER_L3",
+        "WHEEL_SPIN_L3",
+        "DAMPER_AIM_L3",
+        "DAMPER_ROD_L3",
+        "SUSP_PIVOT_L4",
+        "UPRIGHT_L4",
+        "WHEEL_STEER_L4",
+        "WHEEL_SPIN_L4",
+        "DAMPER_AIM_L4",
+        "DAMPER_ROD_L4",
+        "SUSP_PIVOT_R1",
+        "UPRIGHT_R1",
+        "WHEEL_STEER_R1",
+        "WHEEL_SPIN_R1",
+        "DAMPER_AIM_R1",
+        "DAMPER_ROD_R1",
+        "SUSP_PIVOT_R2",
+        "UPRIGHT_R2",
+        "WHEEL_STEER_R2",
+        "WHEEL_SPIN_R2",
+        "DAMPER_AIM_R2",
+        "DAMPER_ROD_R2",
+        "SUSP_PIVOT_R3",
+        "UPRIGHT_R3",
+        "WHEEL_STEER_R3",
+        "WHEEL_SPIN_R3",
+        "DAMPER_AIM_R3",
+        "DAMPER_ROD_R3",
+        "SUSP_PIVOT_R4",
+        "UPRIGHT_R4",
+        "WHEEL_STEER_R4",
+        "WHEEL_SPIN_R4",
+        "DAMPER_AIM_R4",
+        "DAMPER_ROD_R4"
+      ],
+      "sockets": [
+        {
+          "node": "EXTRUSION_TIP",
+          "position_m": [
+            0.05049592762043404,
+            3.210365752084231,
+            2.5999999046325684
+          ],
+          "quaternion": [
+            0,
+            0,
+            8.326672684688674e-17,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L1",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L1",
+          "position_m": [
+            -20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L1",
+          "position_m": [
+            -20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L2",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L2",
+          "position_m": [
+            -20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L2",
+          "position_m": [
+            -20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L3",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L3",
+          "position_m": [
+            -20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L3",
+          "position_m": [
+            -20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_L4",
+          "position_m": [
+            -20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_L4",
+          "position_m": [
+            -20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_L4",
+          "position_m": [
+            -20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R1",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R1",
+          "position_m": [
+            20.2,
+            2.3,
+            8.64
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R1",
+          "position_m": [
+            20.2,
+            4.42,
+            8.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R2",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R2",
+          "position_m": [
+            20.2,
+            2.3,
+            2.6399999999999997
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R2",
+          "position_m": [
+            20.2,
+            4.42,
+            2.7
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R3",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R3",
+          "position_m": [
+            20.2,
+            2.3,
+            -3.36
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R3",
+          "position_m": [
+            20.2,
+            4.42,
+            -3.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CONTACT_R4",
+          "position_m": [
+            20.2,
+            -2.220446049250313e-16,
+            -9
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_LOWER_R4",
+          "position_m": [
+            20.2,
+            2.3,
+            -9.360000000000001
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_DAMPER_UPPER_R4",
+          "position_m": [
+            20.2,
+            4.42,
+            -9.3
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_MATERIAL_INPUT",
+          "position_m": [
+            16,
+            4.4,
+            -11.85
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_FRONT",
+          "position_m": [
+            16,
+            4,
+            12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TOW_REAR",
+          "position_m": [
+            -16,
+            4,
+            -12
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_FABRICATION_ORIGIN",
+          "position_m": [
+            0,
+            0,
+            2.6
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "clips": [],
+      "static": true,
+      "derived": true,
+      "credit": "Models by jelaludo; mobile derivative of Stalheart with scaled XB-12 wheel geometry."
+    }
+  ],
+  "handoff": {
+    "folder": "assets/stalheart-kidou/",
+    "viewer": "stalheart-kidou/",
+    "derived": "All KIDOU exports derive from preserved Stalheart/XB-12 originals; static tier is a further simplification. No compressed copies generated.",
+    "pending": [
+      "Visual acceptance",
+      "Load, stability, tire and collision engineering",
+      "Production navigation, rigid-body dynamics and terrain limits",
+      "Damage D1-D3",
+      "Consuming Three r160 and release gltfpack validation",
+      "Reference-phone/game-camera measurements"
+    ]
+  }
+}
