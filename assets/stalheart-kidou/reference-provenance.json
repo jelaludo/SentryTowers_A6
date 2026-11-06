@@ -7,6 +7,9 @@
   "role": "User-supplied mobile Stalheart concept; source gantry and XB-12 wheel reuse explicitly requested",
   "rights": "Reference creator/license not supplied; no additional image rights claimed",
   "source_commit": "14e4cb396e775f09b4c44cb95cfca1242e44ee76",
+  "revision": 2,
+  "previous_revision_commit": "2f7cbd4d224938397600408cb51d635538c13fd3",
+  "revision_direction": "Place wheels directly under the beams, replacing outboard cantilevers with short vertical clevises",
   "sources": [
     {
       "path": "assets/terraformer/terraformer_3000_d0.glb",

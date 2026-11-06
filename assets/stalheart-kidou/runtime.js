@@ -1,5 +1,5 @@
 export const STATIONS=[-1,1].flatMap(side=>[9,3,-3,-9].map((z,i)=>({id:(side<0?'L':'R')+(i+1),side,z})));
-export const SPEC={wheel_radius_m:1.82,wheel_source_scale:3.6,half_track_m:20.2,arm_length_m:3,arm_drop_m:2.4,arm_trail_m:1.8,pivot_height_m:4.22,compression_m:[-.55,.55],gantry_raise_m:2.3,cycle_s:16};
+export const SPEC={wheel_radius_m:1.82,wheel_source_scale:3.6,half_track_m:16,arm_length_m:3,arm_drop_m:2.4,arm_trail_m:1.8,pivot_height_m:4.22,compression_m:[-.55,.55],gantry_raise_m:3.9,chassis_raise_m:1.6,cycle_s:16};
 const refs=new WeakMap(),clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export function stateAt(time,mode='park'){
  const w=time*Math.PI*2/16,k=Math.PI*2/16,s={time,mode,x:0,z:0,yaw:0,vx:0,vz:0,omega:0,distance:0,turnAngle:0,compression:{},fabricate:mode==='fabricate'};
@@ -27,7 +27,7 @@ export function applyKidou(T,scene,{time=0,mode='park',vx=0,vz=0,omega=0,distanc
  }
  const moving=['drive','crab','turn'].includes(mode),printing=mode==='fabricate',w=time*Math.PI*2/16;
  c.carriage.position.x=carriageX+(printing?1.45*Math.sin(w):0);
- c.lift.position.y=moving?-2.4:-8.85+(printing?.18*(1-Math.cos(w*2)):0);
+ c.lift.position.y=moving?-2.4:-(8.85+SPEC.chassis_raise_m)+(printing?.18*(1-Math.cos(w*2)):0);
  c.j[0].rotation.set(0,printing?.08*Math.sin(w*2):0,0);c.j[1].rotation.set(0,0,-.5);c.j[2].rotation.set(0,0,1.05);c.j[3].rotation.set(0,0,0);c.j[4].rotation.set(0,0,-.55);c.j[5].rotation.set(0,printing?time*.3:0,0);
  root.updateMatrixWorld(true);
  for(const l of c.wheels){const a=l.top.getWorldPosition(new T.Vector3()),b=l.bottom.getWorldPosition(new T.Vector3());c.body.worldToLocal(a);c.body.worldToLocal(b);const d=b.clone().sub(a);l.aim.position.copy(a);const up=d.clone().normalize(),right=new T.Vector3().crossVectors(up,Math.abs(up.z)<.9?new T.Vector3(0,0,1):new T.Vector3(1,0,0)).normalize(),forward=new T.Vector3().crossVectors(right,up);l.aim.quaternion.setFromRotationMatrix(new T.Matrix4().makeBasis(right,up,forward));l.rod.position.y=d.length();l.aim.userData.length_m=d.length();}

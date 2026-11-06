@@ -1,5 +1,16 @@
 # Devlog
 
+## 6 November 2026 / STALHEART-KIDOU — wheels directly beneath the beams
+
+Moved all eight wheel centres from X ±20.2 m to X ±16 m, directly beneath the chassis beam and tower centre lines. Removed the long outboard cantilever mounts and replaced them with short vertical clevises. The established `WHEEL_MOUNT_BRIDGES` lookup name is retained for the revised mount geometry. Raised the chassis surfaces and gantry another 1.6 m to keep full steering and ±0.55 m suspension travel clear of the beam undersides. Extended the ram/guides and supply conduits upward 1.6 m and lowered the parked lift setting by the same amount, preserving the approximately 3.210 m fabrication tip height over the MÖRK. Material/tow sockets follow the raised chassis; wheel contact sockets remain at ground level.
+
+Updated detailed, articulated game and static tiers, runtime steering radii, inspection camera, cache tags, previews, manifest/provenance and integration notes. Neutral bounds are 42.0860 × 24.000 × 39.8569 m (width × length × height); root origin and 48 × 28 m reservation remain. Detailed: 159,668 triangles / 45 draws / 7,635,300 plain bytes; game: 15,545 / 45 / 405,820; static: 2,756 / one / 154,136. Game remains within the articulated-unit triangle target but is above the stricter stationary landmark triangle/draw/byte targets. No FPS claim.
+
+All three GLBs validate with zero errors/warnings and matching tier frames/sockets/bounds. The 780-sample mechanism checks pass; wheel centres align exactly under the beams, sampled tire-to-beam underside clearance is at least 0.4131 m throughout steering/travel, and terrain-contact residual stays below 0.004 mm. The source gantry and wheel donor hashes are unchanged. Browser verification covers all operation modes, wheel alignment, individual compression, moving feed endpoints, static controls, cameras and mobile layout. The old outboard revision is preserved at `2f7cbd4d224938397600408cb51d635538c13fd3`.
+
+Completed: requested wheel-placement revision and synchronized exports/viewer/docs. Pending: visual acceptance and the existing physical load/stability, general self-collision, navigation/terrain, damage-state and production-game acceptance work. The received collaboration contract remains unchanged.
+
+
 ## 6 November 2026 / STALHEART-KIDOU — mobile fabrication gantry
 
 Created a separate mobile Stalheart from the supplied concept. Reused the canonical detailed gantry, twin silos, catwalks, balconies and six-joint fabrication arm; removed the rail bed, sleepers, track fittings, flanged wheels and short bogies. Two 24 m side beams carry eight enlarged XB-12 wheels, independent 3 m trailing arms, compensated uprights, separate steering/spin pivots and endpoint-driven telescopic dampers. Wheel geometry is uniformly scaled 3.6× and shared across stations. The gantry sits 2.3 m higher; neutral bounds are 42.128 × 24.000 × 38.257 m (width × length × height), with a 48 × 28 m moving-root reservation.

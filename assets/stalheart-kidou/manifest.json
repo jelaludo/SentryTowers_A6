@@ -2,7 +2,9 @@
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "stalheart-kidou",
   "label": "STALHEART-KIDOU",
-  "revision": 1,
+  "revision": 2,
+  "revision_notes": "Wheel centres directly below beam/tower X ±16 m; short vertical clevises, raised beams and extended ram preserve fabrication reach",
+  "previous_revision_commit": "2f7cbd4d224938397600408cb51d635538c13fd3",
   "status": "interactive_kinematic_prototype_pending_game_integration",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -17,7 +19,7 @@
   "spec": {
     "wheel_radius_m": 1.82,
     "wheel_source_scale": 3.6,
-    "half_track_m": 20.2,
+    "half_track_m": 16,
     "arm_length_m": 3,
     "arm_drop_m": 2.4,
     "arm_trail_m": 1.8,
@@ -26,7 +28,8 @@
       -0.55,
       0.55
     ],
-    "gantry_raise_m": 2.3,
+    "gantry_raise_m": 3.9,
+    "chassis_raise_m": 1.6,
     "cycle_s": 16
   },
   "sources": [
@@ -62,7 +65,7 @@
       "suspension",
       "fabricate"
     ],
-    "legacy_control": "GANTRY_TRAVEL_Y retained at fixed Y 2.3 m; rail translation is replaced by whole-root locomotion",
+    "legacy_control": "GANTRY_TRAVEL_Y retained at fixed Y 3.9 m; rail translation is replaced by whole-root locomotion",
     "procedural_meshes": [
       "FEED_HOSE_1",
       "FEED_HOSE_2"
@@ -84,9 +87,9 @@
       "file": "stalheart_kidou_d0_lod0.glb",
       "lod": 0,
       "damage_level": 0,
-      "bytes": 7633692,
-      "sha256": "30b7d588247c0de733ac4d604c44c76c7894aad8f96f5579efb81aac2cb6315b",
-      "triangles": 159924,
+      "bytes": 7635300,
+      "sha256": "20fa84d8257e28ce65c7cbbacbeba4974339f7f32883328601966e0b2b2b11f9",
+      "triangles": 159668,
       "draw_calls": 45,
       "materials": 1,
       "textures": 0,
@@ -96,18 +99,18 @@
       ],
       "bounds": {
         "min": [
-          -21.0639999628067,
+          -21.04298210144043,
           0.0031024885177610706,
           -12
         ],
         "max": [
-          21.0639999628067,
-          38.26000289916992,
+          21.04298210144043,
+          39.86000289916992,
           12
         ],
         "dimensions_m": [
-          42.1279999256134,
-          38.25690041065216,
+          42.08596420288086,
+          39.85690041065216,
           24
         ]
       },
@@ -310,7 +313,7 @@
           "node": "EXTRUSION_TIP",
           "position_m": [
             0.05049592762043404,
-            3.210365752084231,
+            3.2103657520842273,
             2.5999999046325684
           ],
           "quaternion": [
@@ -323,7 +326,7 @@
         {
           "node": "SOCKET_CONTACT_L1",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             9
           ],
@@ -337,7 +340,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L1",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             8.64
           ],
@@ -351,7 +354,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L1",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             8.7
           ],
@@ -365,7 +368,7 @@
         {
           "node": "SOCKET_CONTACT_L2",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             3
           ],
@@ -379,7 +382,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L2",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             2.6399999999999997
           ],
@@ -393,7 +396,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L2",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             2.7
           ],
@@ -407,7 +410,7 @@
         {
           "node": "SOCKET_CONTACT_L3",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -3
           ],
@@ -421,7 +424,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L3",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -3.36
           ],
@@ -435,7 +438,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L3",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -3.3
           ],
@@ -449,7 +452,7 @@
         {
           "node": "SOCKET_CONTACT_L4",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -9
           ],
@@ -463,7 +466,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L4",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -9.360000000000001
           ],
@@ -477,7 +480,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L4",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -9.3
           ],
@@ -491,7 +494,7 @@
         {
           "node": "SOCKET_CONTACT_R1",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             9
           ],
@@ -505,7 +508,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R1",
           "position_m": [
-            20.2,
+            16,
             2.3,
             8.64
           ],
@@ -519,7 +522,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R1",
           "position_m": [
-            20.2,
+            16,
             4.42,
             8.7
           ],
@@ -533,7 +536,7 @@
         {
           "node": "SOCKET_CONTACT_R2",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             3
           ],
@@ -547,7 +550,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R2",
           "position_m": [
-            20.2,
+            16,
             2.3,
             2.6399999999999997
           ],
@@ -561,7 +564,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R2",
           "position_m": [
-            20.2,
+            16,
             4.42,
             2.7
           ],
@@ -575,7 +578,7 @@
         {
           "node": "SOCKET_CONTACT_R3",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -3
           ],
@@ -589,7 +592,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R3",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -3.36
           ],
@@ -603,7 +606,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R3",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -3.3
           ],
@@ -617,7 +620,7 @@
         {
           "node": "SOCKET_CONTACT_R4",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -9
           ],
@@ -631,7 +634,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R4",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -9.360000000000001
           ],
@@ -645,7 +648,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R4",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -9.3
           ],
@@ -660,7 +663,7 @@
           "node": "SOCKET_MATERIAL_INPUT",
           "position_m": [
             16,
-            4.4,
+            6,
             -11.85
           ],
           "quaternion": [
@@ -674,7 +677,7 @@
           "node": "SOCKET_TOW_FRONT",
           "position_m": [
             16,
-            4,
+            5.6,
             12
           ],
           "quaternion": [
@@ -688,7 +691,7 @@
           "node": "SOCKET_TOW_REAR",
           "position_m": [
             -16,
-            4,
+            5.6,
             -12
           ],
           "quaternion": [
@@ -722,9 +725,9 @@
       "file": "stalheart_kidou_d0_lod1.glb",
       "lod": 1,
       "damage_level": 0,
-      "bytes": 391124,
-      "sha256": "d961809b4b7ebe1ab6bd7624939017ba76b552280baa2f5beff23032501f0353",
-      "triangles": 15417,
+      "bytes": 405820,
+      "sha256": "7c1fa0909dbd18a4f94571133527faeab54aa269b924d2e72f1890fd59ab99be",
+      "triangles": 15545,
       "draw_calls": 45,
       "materials": 1,
       "textures": 0,
@@ -734,18 +737,18 @@
       ],
       "bounds": {
         "min": [
-          -21.0639999628067,
+          -21.04298210144043,
           0.0031024885177610706,
           -12
         ],
         "max": [
-          21.0639999628067,
-          38.26000289916992,
+          21.04298210144043,
+          39.86000289916992,
           12
         ],
         "dimensions_m": [
-          42.1279999256134,
-          38.25690041065216,
+          42.08596420288086,
+          39.85690041065216,
           24
         ]
       },
@@ -948,7 +951,7 @@
           "node": "EXTRUSION_TIP",
           "position_m": [
             0.05049592762043404,
-            3.210365752084231,
+            3.2103657520842273,
             2.5999999046325684
           ],
           "quaternion": [
@@ -961,7 +964,7 @@
         {
           "node": "SOCKET_CONTACT_L1",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             9
           ],
@@ -975,7 +978,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L1",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             8.64
           ],
@@ -989,7 +992,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L1",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             8.7
           ],
@@ -1003,7 +1006,7 @@
         {
           "node": "SOCKET_CONTACT_L2",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             3
           ],
@@ -1017,7 +1020,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L2",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             2.6399999999999997
           ],
@@ -1031,7 +1034,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L2",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             2.7
           ],
@@ -1045,7 +1048,7 @@
         {
           "node": "SOCKET_CONTACT_L3",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -3
           ],
@@ -1059,7 +1062,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L3",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -3.36
           ],
@@ -1073,7 +1076,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L3",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -3.3
           ],
@@ -1087,7 +1090,7 @@
         {
           "node": "SOCKET_CONTACT_L4",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -9
           ],
@@ -1101,7 +1104,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L4",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -9.360000000000001
           ],
@@ -1115,7 +1118,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L4",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -9.3
           ],
@@ -1129,7 +1132,7 @@
         {
           "node": "SOCKET_CONTACT_R1",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             9
           ],
@@ -1143,7 +1146,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R1",
           "position_m": [
-            20.2,
+            16,
             2.3,
             8.64
           ],
@@ -1157,7 +1160,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R1",
           "position_m": [
-            20.2,
+            16,
             4.42,
             8.7
           ],
@@ -1171,7 +1174,7 @@
         {
           "node": "SOCKET_CONTACT_R2",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             3
           ],
@@ -1185,7 +1188,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R2",
           "position_m": [
-            20.2,
+            16,
             2.3,
             2.6399999999999997
           ],
@@ -1199,7 +1202,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R2",
           "position_m": [
-            20.2,
+            16,
             4.42,
             2.7
           ],
@@ -1213,7 +1216,7 @@
         {
           "node": "SOCKET_CONTACT_R3",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -3
           ],
@@ -1227,7 +1230,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R3",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -3.36
           ],
@@ -1241,7 +1244,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R3",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -3.3
           ],
@@ -1255,7 +1258,7 @@
         {
           "node": "SOCKET_CONTACT_R4",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -9
           ],
@@ -1269,7 +1272,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R4",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -9.360000000000001
           ],
@@ -1283,7 +1286,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R4",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -9.3
           ],
@@ -1298,7 +1301,7 @@
           "node": "SOCKET_MATERIAL_INPUT",
           "position_m": [
             16,
-            4.4,
+            6,
             -11.85
           ],
           "quaternion": [
@@ -1312,7 +1315,7 @@
           "node": "SOCKET_TOW_FRONT",
           "position_m": [
             16,
-            4,
+            5.6,
             12
           ],
           "quaternion": [
@@ -1326,7 +1329,7 @@
           "node": "SOCKET_TOW_REAR",
           "position_m": [
             -16,
-            4,
+            5.6,
             -12
           ],
           "quaternion": [
@@ -1360,9 +1363,9 @@
       "file": "stalheart_kidou_d0_lod2.glb",
       "lod": 2,
       "damage_level": 0,
-      "bytes": 131912,
-      "sha256": "32f4f6b35eeb0fe9f8ce22d9d98f69e979b21b607ac3699b25cac81a3e11d02f",
-      "triangles": 2759,
+      "bytes": 154136,
+      "sha256": "5648cf6191ae07f56397434aef5f89eca7b5400fc0496f0c10133985fbd5a3c5",
+      "triangles": 2756,
       "draw_calls": 1,
       "materials": 1,
       "textures": 0,
@@ -1372,18 +1375,18 @@
       ],
       "bounds": {
         "min": [
-          -21.06399917602539,
+          -21.04298210144043,
           0.0031024885829538107,
           -12
         ],
         "max": [
-          21.06399917602539,
-          38.26000213623047,
+          21.04298210144043,
+          39.86000442504883,
           12
         ],
         "dimensions_m": [
-          42.12799835205078,
-          38.256899647647515,
+          42.08596420288086,
+          39.856901936465874,
           24
         ]
       },
@@ -1587,7 +1590,7 @@
           "node": "EXTRUSION_TIP",
           "position_m": [
             0.05049592762043404,
-            3.210365752084231,
+            3.2103657520842273,
             2.5999999046325684
           ],
           "quaternion": [
@@ -1600,7 +1603,7 @@
         {
           "node": "SOCKET_CONTACT_L1",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             9
           ],
@@ -1614,7 +1617,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L1",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             8.64
           ],
@@ -1628,7 +1631,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L1",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             8.7
           ],
@@ -1642,7 +1645,7 @@
         {
           "node": "SOCKET_CONTACT_L2",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             3
           ],
@@ -1656,7 +1659,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L2",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             2.6399999999999997
           ],
@@ -1670,7 +1673,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L2",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             2.7
           ],
@@ -1684,7 +1687,7 @@
         {
           "node": "SOCKET_CONTACT_L3",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -3
           ],
@@ -1698,7 +1701,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L3",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -3.36
           ],
@@ -1712,7 +1715,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L3",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -3.3
           ],
@@ -1726,7 +1729,7 @@
         {
           "node": "SOCKET_CONTACT_L4",
           "position_m": [
-            -20.2,
+            -16,
             -2.220446049250313e-16,
             -9
           ],
@@ -1740,7 +1743,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_L4",
           "position_m": [
-            -20.2,
+            -16,
             2.3,
             -9.360000000000001
           ],
@@ -1754,7 +1757,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_L4",
           "position_m": [
-            -20.2,
+            -16,
             4.42,
             -9.3
           ],
@@ -1768,7 +1771,7 @@
         {
           "node": "SOCKET_CONTACT_R1",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             9
           ],
@@ -1782,7 +1785,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R1",
           "position_m": [
-            20.2,
+            16,
             2.3,
             8.64
           ],
@@ -1796,7 +1799,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R1",
           "position_m": [
-            20.2,
+            16,
             4.42,
             8.7
           ],
@@ -1810,7 +1813,7 @@
         {
           "node": "SOCKET_CONTACT_R2",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             3
           ],
@@ -1824,7 +1827,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R2",
           "position_m": [
-            20.2,
+            16,
             2.3,
             2.6399999999999997
           ],
@@ -1838,7 +1841,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R2",
           "position_m": [
-            20.2,
+            16,
             4.42,
             2.7
           ],
@@ -1852,7 +1855,7 @@
         {
           "node": "SOCKET_CONTACT_R3",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -3
           ],
@@ -1866,7 +1869,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R3",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -3.36
           ],
@@ -1880,7 +1883,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R3",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -3.3
           ],
@@ -1894,7 +1897,7 @@
         {
           "node": "SOCKET_CONTACT_R4",
           "position_m": [
-            20.2,
+            16,
             -2.220446049250313e-16,
             -9
           ],
@@ -1908,7 +1911,7 @@
         {
           "node": "SOCKET_DAMPER_LOWER_R4",
           "position_m": [
-            20.2,
+            16,
             2.3,
             -9.360000000000001
           ],
@@ -1922,7 +1925,7 @@
         {
           "node": "SOCKET_DAMPER_UPPER_R4",
           "position_m": [
-            20.2,
+            16,
             4.42,
             -9.3
           ],
@@ -1937,7 +1940,7 @@
           "node": "SOCKET_MATERIAL_INPUT",
           "position_m": [
             16,
-            4.4,
+            6,
             -11.85
           ],
           "quaternion": [
@@ -1951,7 +1954,7 @@
           "node": "SOCKET_TOW_FRONT",
           "position_m": [
             16,
-            4,
+            5.6,
             12
           ],
           "quaternion": [
@@ -1965,7 +1968,7 @@
           "node": "SOCKET_TOW_REAR",
           "position_m": [
             -16,
-            4,
+            5.6,
             -12
           ],
           "quaternion": [

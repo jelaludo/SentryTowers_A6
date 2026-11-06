@@ -48,7 +48,7 @@ const collectionImages={
 };
 
 export const collections=[
-['stalheart-kidou','STALHEART-KIDOU / Mobile Gantry','Industry','The Stalheart fabrication gantry on eight enlarged XB-12 wheels. Independent suspension, straight and crab travel, pivot turns, twin silos and the original six-joint arm.','8 wheels · Working arm · Terrain contact · 3 tiers','Interactive prototype'],
+['stalheart-kidou','STALHEART-KIDOU / Mobile Gantry','Industry','The Stalheart fabrication gantry on eight enlarged XB-12 wheels directly beneath its chassis beams. Independent suspension, straight and crab travel, pivot turns, twin silos and the original six-joint arm.','8 wheels · Working arm · Terrain contact · 3 tiers','Interactive prototype'],
 ['sai93','SAI-93 — Long Chassis Miner','Industry','A longer, narrower SAI mining hopper with a flat service deck and flush sensors. Folding legs, gas flight, anchored twin-auger extraction and autonomous return to the shared ore service bay.','No swivel head · Articulated mining cycle · 3 tiers','Interactive prototype'],
 ['sai92','SAI-92 / 採掘 — Mineral Recovery','Industry','Command a cold-gas hopper to a mineral seam. It folds its legs for flight, lands on shock struts, anchors, drills with twin augers and mining lasers, then returns to offload ore, refill gas and recharge.','Dispatch + recall · Finite ore · Unit + service bay · 3 tiers','Interactive prototype'],
 ['yushi-rover','YūshiRover / Biomass Recovery','Industry','MÖRK-scale six-wheel harvester with a moving cleated conveyor, independent suspension, twin gauged tanks and player-set collection beacons. Returns to the existing Yūshi045 Bio-Pearl to offload, then resumes its route.','Custom beacon routes · Live cargo transfer · 3 detail tiers','Interactive prototype'],

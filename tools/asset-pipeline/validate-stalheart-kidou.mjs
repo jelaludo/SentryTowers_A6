@@ -19,11 +19,27 @@ for(const lod of [0,1])for(const mode of ['park','drive','crab','turn','suspensi
  root.traverse(n=>assert(n.matrixWorld.elements.every(Number.isFinite)));report.samples++;
 }
 // Compression endpoints, stable steering, wheel-rate consistency and rail-travel lock.
-for(const lod of [0,1]){const root=roots[lod];root.position.set(0,0,0);root.rotation.set(0,0,0);for(const travel of [-.55,0,.55]){const c=applyKidou(T,root,{compression:Object.fromEntries(STATIONS.map(s=>[s.id,travel]))});for(const l of c.wheels)assert(Math.abs(l.upright.getWorldPosition(new T.Vector3()).y-(1.82+travel))<1e-6);assert.deepEqual(c.gantry.position.toArray(),[0,2.3,0]);}
+for(const lod of [0,1]){const root=roots[lod];root.position.set(0,0,0);root.rotation.set(0,0,0);for(const travel of [-.55,0,.55]){const c=applyKidou(T,root,{compression:Object.fromEntries(STATIONS.map(s=>[s.id,travel]))});for(const l of c.wheels)assert(Math.abs(l.upright.getWorldPosition(new T.Vector3()).y-(1.82+travel))<1e-6);assert.deepEqual(c.gantry.position.toArray(),[0,SPEC.gantry_raise_m,0]);}
  for(const mode of ['drive','crab','turn'])for(const t of [2,6,10,14]){const dt=1e-4,a=stateAt(t,mode),b=stateAt(t+dt,mode),ca=applyKidou(T,root,a),spinA=ca.wheels.map(w=>w.spin.rotation.x),speeds=ca.wheels.map(w=>w.speed),cb=applyKidou(T,root,b);for(let i=0;i<8;i++)assert(Math.abs((cb.wheels[i].spin.rotation.x-spinA[i])/dt*SPEC.wheel_radius_m-speeds[i])<.001,'wheel rolling speed');}
 }
-let minTireToBeam=Infinity;
-for(const lod of [0,1]){const root=roots[lod];root.position.set(0,0,0);root.rotation.set(0,0,0);for(const travel of [-.55,0,.55])for(let angle=-90;angle<=90;angle+=15){applyKidou(T,root,{steerDeg:angle,compression:Object.fromEntries(STATIONS.map(s=>[s.id,travel]))});for(const l of STATIONS){const mesh=root.getObjectByName('WHEEL_'+l.id),p=mesh.geometry.attributes.position;for(let i=0;i<p.count;i++){const v=new T.Vector3().fromBufferAttribute(p,i).applyMatrix4(mesh.matrixWorld);minTireToBeam=Math.min(minTireToBeam,Math.abs(v.x)-18.025);}}}}
-assert(minTireToBeam>.10,'tire clears outer side beam through steering/travel samples');report.min_sampled_tire_to_side_beam_lateral_gap_m=minTireToBeam;
+let minTireToBeam=Infinity,maxWheelAlignmentError=0;
+for(const lod of [0,1]){
+ const root=roots[lod];root.position.set(0,0,0);root.rotation.set(0,0,0);
+ for(const travel of [-.55,0,.55])for(let angle=-90;angle<=90;angle+=15){
+  const pose=applyKidou(T,root,{steerDeg:angle,compression:Object.fromEntries(STATIONS.map(s=>[s.id,travel]))});
+  const beamBottom=new T.Box3().setFromObject(root.getObjectByName('MOBILE_CHASSIS_SURFACE'),true).min.y;
+  for(const l of pose.wheels){
+   const hub=l.upright.getWorldPosition(new T.Vector3());maxWheelAlignmentError=Math.max(maxWheelAlignmentError,Math.abs(hub.x-l.side*16));
+   const mesh=root.getObjectByName('WHEEL_'+l.id),p=mesh.geometry.attributes.position;
+   for(let i=0;i<p.count;i++){const v=new T.Vector3().fromBufferAttribute(p,i).applyMatrix4(mesh.matrixWorld);minTireToBeam=Math.min(minTireToBeam,beamBottom-v.y);}
+  }
+ }
+ const mounts=new T.Box3().setFromObject(root.getObjectByName('WHEEL_MOUNT_BRIDGES'),true);
+ assert(mounts.min.x>=-17.1&&mounts.max.x<=17.1,'no outboard mount cantilevers');
+}
+assert(maxWheelAlignmentError<1e-7,'wheels directly under beam/tower centre lines');
+assert(minTireToBeam>.40,'tires clear the overhead beams at full steering/compression');
+report.max_wheel_to_beam_centre_alignment_error_m=maxWheelAlignmentError;
+report.min_sampled_tire_to_beam_vertical_gap_m=minTireToBeam;
 for(const source of m.sources){const bytes=await fs.readFile(new URL('../../'+source.path,import.meta.url));assert.equal(sha(bytes),source.sha256);}
-report.checks=['Sampled tire vertices clear the side beams over full steering and travel ranges','Three plain GLBs: zero errors/warnings, nondegenerate geometry, manifest hashes and dot-free names','Stable frames, sockets and exact tier envelopes; static adapter remains frozen','Eight rigid swing arms, compensated uprights, exact damper endpoints and positive rod overlap','Flat and uneven-ground contact, all travel limits, straight/crab/radial steering and rolling rates','Travel tool raises above MORK; fabrication sweep clears the reference tank height','Original Stalheart and XB-12 source hashes unchanged; no rail-bed/bogie names retained','Game under 25k articulated-unit triangles; static under 3k/one draw/250 KB'];await fs.writeFile(new URL('validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+report.checks=['Wheel centres align under the beams; short mounts have no outboard cantilever; tire vertices clear beam undersides over full steering/travel','Three plain GLBs: zero errors/warnings, nondegenerate geometry, manifest hashes and dot-free names','Stable frames, sockets and exact tier envelopes; static adapter remains frozen','Eight rigid swing arms, compensated uprights, exact damper endpoints and positive rod overlap','Flat and uneven-ground contact, all travel limits, straight/crab/radial steering and rolling rates','Travel tool raises above MORK; fabrication sweep clears the reference tank height','Original Stalheart and XB-12 source hashes unchanged; no rail-bed/bogie names retained','Game under 25k articulated-unit triangles; static under 3k/one draw/250 KB'];await fs.writeFile(new URL('validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

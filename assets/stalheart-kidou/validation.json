@@ -4,37 +4,37 @@
   "files": [
     {
       "file": "stalheart_kidou_d0_lod0.glb",
-      "triangles": 159924,
+      "triangles": 159668,
       "draw_calls": 45,
-      "bytes": 7633692,
+      "bytes": 7635300,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stalheart_kidou_d0_lod1.glb",
-      "triangles": 15417,
+      "triangles": 15545,
       "draw_calls": 45,
-      "bytes": 391124,
+      "bytes": 405820,
       "gltf_errors": 0,
       "gltf_warnings": 0
     },
     {
       "file": "stalheart_kidou_d0_lod2.glb",
-      "triangles": 2759,
+      "triangles": 2756,
       "draw_calls": 1,
-      "bytes": 131912,
+      "bytes": 154136,
       "gltf_errors": 0,
       "gltf_warnings": 0
     }
   ],
   "samples": 780,
-  "max_contact_error_m": 9.227863064995012e-7,
+  "max_contact_error_m": 0.000003072018399996601,
   "max_arm_length_error_m": 1.3322676295501878e-15,
   "min_damper_overlap_m": 0.5626528480308102,
-  "min_travel_tool_height_m": 9.556160371997189,
-  "min_fabrication_tool_height_m": 3.210365752084231,
+  "min_travel_tool_height_m": 11.183044420895657,
+  "min_fabrication_tool_height_m": 3.2103657520842273,
   "checks": [
-    "Sampled tire vertices clear the side beams over full steering and travel ranges",
+    "Wheel centres align under the beams; short mounts have no outboard cantilever; tire vertices clear beam undersides over full steering/travel",
     "Three plain GLBs: zero errors/warnings, nondegenerate geometry, manifest hashes and dot-free names",
     "Stable frames, sockets and exact tier envelopes; static adapter remains frozen",
     "Eight rigid swing arms, compensated uprights, exact damper endpoints and positive rod overlap",
@@ -43,5 +43,6 @@
     "Original Stalheart and XB-12 source hashes unchanged; no rail-bed/bogie names retained",
     "Game under 25k articulated-unit triangles; static under 3k/one draw/250 KB"
   ],
-  "min_sampled_tire_to_side_beam_lateral_gap_m": 0.20661555546859844
+  "max_wheel_to_beam_centre_alignment_error_m": 0,
+  "min_sampled_tire_to_beam_vertical_gap_m": 0.41310248851776077
 }

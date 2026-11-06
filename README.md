@@ -1,6 +1,6 @@
 # Model Workshop
 
-**STALHEART-KIDOU — Mobile fabrication gantry** replaces Stalheart’s rail bed and bogies with eight enlarged XB-12 wheels on independent swing arms and dampers. Preserves the twin towers, silos, catwalks and six-joint fabrication arm; demonstrates straight/crab travel, pivot turns, uneven-ground contact and a tool sweep above an original-scale MÖRK. Detailed/game/static exports are in `assets/stalheart-kidou/`; open `stalheart-kidou/`.
+**STALHEART-KIDOU — Mobile fabrication gantry** replaces Stalheart’s rail bed and bogies with eight enlarged XB-12 wheels directly beneath the chassis beams, with short vertical mounts, independent swing arms and dampers. Preserves the twin towers, silos, catwalks and six-joint fabrication arm; demonstrates straight/crab travel, pivot turns, uneven-ground contact and a tool sweep above an original-scale MÖRK. Detailed/game/static exports are in `assets/stalheart-kidou/`; open `stalheart-kidou/`.
 
 **SAI-93 — Long Chassis Miner** is the headless SAI-92 variant: a flat service deck with flush sensors, a 10.4% narrower and 25.2% longer landed footprint, and the complete fly–anchor–mine–return cycle. Includes detailed/articulated/static exports and a byte-identical shared SAI-92 bay. Open `sai93/`; measurements and runtime contracts are in `assets/sai93/`.
 
