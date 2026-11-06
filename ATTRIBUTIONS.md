@@ -228,3 +228,8 @@ Models by jelaludo. KIDOU derives its gantry, silos, balconies and six-joint arm
 Plain KIDOU GLBs are authoritative derived variants, with a further simplified static tier and derived browser previews. No new third-party meshes or textures were introduced. Procedural sources: `tools/asset-pipeline/stalheart-kidou-shape.mjs`, `stalheart-kidou-utils.mjs` and `build-stalheart-kidou.mjs`.
 
 The KIDOU revision with wheels directly beneath the beams replaces outboard mounts with short vertical clevises, raises the chassis 1.6 m for tire clearance, and extends the lift ram/guides to retain the tool working height. The former variant is preserved at `2f7cbd4d224938397600408cb51d635538c13fd3`. Wheel donor geometry and original Stalheart/XB-12/MÖRK sources remain unchanged.
+
+
+## STALHEART / From builder to settlement
+
+Models by jelaludo. The 144-second `stalheart-diorama/` scene composes unchanged STALHEART-KIDOU, ISAO-Birudorōn, MÖRK and Dome City habitat GLBs. Source paths, SHA-256 values, sizes, frames, clips and measured counts are pinned in `assets/stalheart-diorama/layout.json`. Generated wireframes, construction/material-reveal shaders, the two-site choreography, arm pose solver, camera sequence and browser previews are derived presentation work. The habitat is a uniformly half-scale instance; the other modules retain original scale. No new third-party meshes, textures or external reference images were introduced. Original GLBs and their existing author/license notices remain authoritative.

@@ -1,0 +1,716 @@
+{
+  "schema": "jelaludo.scene-composition/v1",
+  "family": "stalheart-diorama",
+  "derived": true,
+  "source_commit": "acb8221ea4408c581e5c7813bbda7b12867ef556",
+  "credit": "Models by jelaludo",
+  "status": "cinematic_kinematic_diorama",
+  "units": "metres",
+  "up": "+Y",
+  "forward": "+Z",
+  "root": "STALHEART_DIORAMA_ROOT",
+  "origin": "First build site at ground level",
+  "plot_m": [
+    92,
+    132
+  ],
+  "plot_center": [
+    0,
+    0,
+    26
+  ],
+  "plain_glb_source_of_truth": true,
+  "merged_scene_glb": false,
+  "clip": {
+    "name": "ISAO_STALHEART_Settlement_Sequence",
+    "duration_s": 144,
+    "playback": "One-shot, clamped endpoint; optional viewer loop",
+    "implementation": "Deterministic runtime.js composition; no new baked engine-pivot clips"
+  },
+  "chapters": [
+    {
+      "id": "arrival",
+      "start": 0,
+      "end": 6,
+      "title": "ISAO arrives",
+      "detail": "A construction drone prepares the first work site."
+    },
+    {
+      "id": "assembly",
+      "start": 6,
+      "end": 34,
+      "title": "Build the builder",
+      "detail": "ISAO traces STALHEART-KIDOU from its wheels to its silos."
+    },
+    {
+      "id": "materials",
+      "start": 34,
+      "end": 44,
+      "title": "The machine takes shape",
+      "detail": "The gantry’s original surfaces appear through the wireframe."
+    },
+    {
+      "id": "ready",
+      "start": 44,
+      "end": 50,
+      "title": "Workshop online",
+      "detail": "ISAO clears the bay. The fabrication arm takes over."
+    },
+    {
+      "id": "tank",
+      "start": 50,
+      "end": 72,
+      "title": "Print a MÖRK",
+      "detail": "The first build rises in cyan linework, layer by layer."
+    },
+    {
+      "id": "retract",
+      "start": 72,
+      "end": 78,
+      "title": "Clear the finished tank",
+      "detail": "The wireframe stays behind as the tool retracts."
+    },
+    {
+      "id": "travel",
+      "start": 78,
+      "end": 98,
+      "title": "Move the workshop",
+      "detail": "Eight wheels carry STALHEART 52 metres to the second site."
+    },
+    {
+      "id": "position",
+      "start": 98,
+      "end": 104,
+      "title": "Set the second work site",
+      "detail": "The carriage aligns over the habitat foundation."
+    },
+    {
+      "id": "dome",
+      "start": 104,
+      "end": 132,
+      "title": "Print a dome city element",
+      "detail": "A half-scale habitat dome grows beneath the gantry."
+    },
+    {
+      "id": "complete",
+      "start": 132,
+      "end": 144,
+      "title": "From one builder, a settlement",
+      "detail": "The finished tank and habitat remain as complete wireframes."
+    }
+  ],
+  "instances": {
+    "kidou": {
+      "scale": 1,
+      "sites": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          52
+        ]
+      ]
+    },
+    "isao": {
+      "scale": 1
+    },
+    "tank": {
+      "scale": 1,
+      "position": [
+        0,
+        0,
+        2.6
+      ],
+      "appearance": "Wireframe only"
+    },
+    "dome": {
+      "scale": 0.5,
+      "position": [
+        0,
+        0,
+        54.6
+      ],
+      "source_role": "Dome City habitat",
+      "appearance": "Wireframe only"
+    }
+  },
+  "lod_selection": {
+    "default": 1,
+    "detailed": 0,
+    "automatic_swap": false,
+    "distance": "No animated scene LOD2: static source proxies cannot preserve the final raised fabrication-arm pose. Existing module distance tiers remain separate."
+  },
+  "textures": "Original source palettes appear on STALHEART. No bitmap textures added to canonical models.",
+  "tiers": [
+    {
+      "lod": 0,
+      "role": "Detailed recording composition",
+      "source_bytes": 12562744,
+      "source_triangles": 240924,
+      "source_draw_calls": 221,
+      "sources": [
+        {
+          "role": "kidou",
+          "file": "assets/stalheart-kidou/stalheart_kidou_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 7635300,
+          "sha256": "20fa84d8257e28ce65c7cbbacbeba4974339f7f32883328601966e0b2b2b11f9",
+          "triangles": 159668,
+          "draw_calls": 45,
+          "bounds": {
+            "min": [
+              -21.04298210144043,
+              0.0031024885177610706,
+              -12
+            ],
+            "max": [
+              21.04298210144043,
+              39.86000289916992,
+              12
+            ]
+          },
+          "sockets": [
+            "EXTRUSION_TIP",
+            "SOCKET_FABRICATION_ORIGIN"
+          ],
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "isao",
+          "file": "assets/isao-birudoron/isao_birudoron_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 3362660,
+          "sha256": "5d0c92c62745d4c956d0aea2a346cfa71cd33829579f3e9f4da299d84878e073",
+          "triangles": 45780,
+          "draw_calls": 99,
+          "bounds": {
+            "min": [
+              -0.8790000081062317,
+              2.9802322387695312e-8,
+              -0.6389999985694885
+            ],
+            "max": [
+              0.8790000081062317,
+              1.6650000996887684,
+              0.6419999776408076
+            ]
+          },
+          "sockets": [
+            "TOOL_TIP"
+          ],
+          "clips": [
+            {
+              "name": "Hover_Idle",
+              "duration_s": 4
+            },
+            {
+              "name": "Emotion_Neutral",
+              "duration_s": 4
+            },
+            {
+              "name": "Emotion_Happy",
+              "duration_s": 1.600000023841858
+            },
+            {
+              "name": "Emotion_Curious",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Working",
+              "duration_s": 2
+            },
+            {
+              "name": "Emotion_Alarm",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Emotion_Determined",
+              "duration_s": 2
+            },
+            {
+              "name": "Emotion_Sad",
+              "duration_s": 3.200000047683716
+            },
+            {
+              "name": "Emotion_Skeptical",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Love",
+              "duration_s": 2.200000047683716
+            },
+            {
+              "name": "Emotion_Glee",
+              "duration_s": 1.7999999523162842
+            },
+            {
+              "name": "Emotion_Worried",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Angry",
+              "duration_s": 1.600000023841858
+            },
+            {
+              "name": "Emotion_Surprised",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Emotion_Sleepy",
+              "duration_s": 4
+            },
+            {
+              "name": "Rotor_Cycle",
+              "duration_s": 1
+            },
+            {
+              "name": "Tool_Fabricate",
+              "duration_s": 2
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "tank",
+          "file": "assets/hover-tank/mork_hover_tank_d0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 1007676,
+          "sha256": "8dd7d7736ad4d943e84c6be2dad3e0f700c3aace06369bea1578c500ea397391",
+          "triangles": 23980,
+          "draw_calls": 69,
+          "bounds": {
+            "min": [
+              -2.9127391576766968,
+              0,
+              -4.635499954223633
+            ],
+            "max": [
+              2.9127391576766968,
+              3.0162529945373535,
+              8.644999157637358
+            ]
+          },
+          "sockets": [],
+          "clips": [
+            {
+              "name": "Power_On",
+              "duration_s": 2
+            },
+            {
+              "name": "Power_Off",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Hover_Idle",
+              "duration_s": 3
+            },
+            {
+              "name": "Fire_Heavy",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Plasma_Sweep",
+              "duration_s": 4
+            },
+            {
+              "name": "Turret_Aim",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "dome",
+          "file": "assets/dome-colony/habitat_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 557108,
+          "sha256": "b687f2f394b7215af9a10a0424e8548f8cfcf049e1bc7c8e4eab29b8dbf8c932",
+          "triangles": 11496,
+          "draw_calls": 8,
+          "bounds": {
+            "min": [
+              -14.600000381469727,
+              -2.3841858265427618e-8,
+              -14.600000381469727
+            ],
+            "max": [
+              14.600000381469727,
+              35.84999990463257,
+              14.600000381469727
+            ]
+          },
+          "sockets": [],
+          "clips": [],
+          "credit": "Models by jelaludo"
+        }
+      ],
+      "wireframes": [
+        {
+          "node": "STALHEART_ASSEMBLY_WIREFRAME",
+          "segments": 126584,
+          "bounds": {
+            "min": [
+              -21.04298210144043,
+              0.0031024885829538107,
+              -12
+            ],
+            "max": [
+              21.04298210144043,
+              39.86000442504883,
+              12
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        },
+        {
+          "node": "MORK_BUILD_WIREFRAME",
+          "segments": 19786,
+          "bounds": {
+            "min": [
+              -2.9127392768859863,
+              0,
+              -2.0355000495910645
+            ],
+            "max": [
+              2.9127392768859863,
+              3.0162529945373535,
+              11.244998931884766
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        },
+        {
+          "node": "HABITAT_BUILD_WIREFRAME",
+          "segments": 7520,
+          "bounds": {
+            "min": [
+              -7.300000190734863,
+              -1.1920929132713809e-8,
+              47.29999923706055
+            ],
+            "max": [
+              7.300000190734863,
+              17.924999237060547,
+              61.900001525878906
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        }
+      ],
+      "generated_line_segments": 153890,
+      "endpoint": {
+        "tank_wireframe": true,
+        "dome_wireframe": true,
+        "kidou_position": [
+          0,
+          0,
+          52
+        ],
+        "dome_height_m": 17.924999237060547
+      }
+    },
+    {
+      "lod": 1,
+      "role": "Reduced animated composition",
+      "source_bytes": 2734600,
+      "source_triangles": 45431,
+      "source_draw_calls": 171,
+      "sources": [
+        {
+          "role": "kidou",
+          "file": "assets/stalheart-kidou/stalheart_kidou_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 405820,
+          "sha256": "7c1fa0909dbd18a4f94571133527faeab54aa269b924d2e72f1890fd59ab99be",
+          "triangles": 15545,
+          "draw_calls": 45,
+          "bounds": {
+            "min": [
+              -21.04298210144043,
+              0.0031024885177610706,
+              -12
+            ],
+            "max": [
+              21.04298210144043,
+              39.86000289916992,
+              12
+            ]
+          },
+          "sockets": [
+            "EXTRUSION_TIP",
+            "SOCKET_FABRICATION_ORIGIN"
+          ],
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "isao",
+          "file": "assets/isao-birudoron/isao_birudoron_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 1570944,
+          "sha256": "2e9a389a4729f625fa9a7fd018bad8b78db86ac3254ebdcff9df230fba344088",
+          "triangles": 17264,
+          "draw_calls": 49,
+          "bounds": {
+            "min": [
+              -0.879000082613411,
+              2.9802322387695312e-8,
+              -0.6327571139946807
+            ],
+            "max": [
+              0.8790000641200284,
+              1.665000095963478,
+              0.6420000447149588
+            ]
+          },
+          "sockets": [
+            "TOOL_TIP"
+          ],
+          "clips": [
+            {
+              "name": "Hover_Idle",
+              "duration_s": 4
+            },
+            {
+              "name": "Emotion_Neutral",
+              "duration_s": 4
+            },
+            {
+              "name": "Emotion_Happy",
+              "duration_s": 1.600000023841858
+            },
+            {
+              "name": "Emotion_Curious",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Working",
+              "duration_s": 2
+            },
+            {
+              "name": "Emotion_Alarm",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Emotion_Determined",
+              "duration_s": 2
+            },
+            {
+              "name": "Emotion_Sad",
+              "duration_s": 3.200000047683716
+            },
+            {
+              "name": "Emotion_Skeptical",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Love",
+              "duration_s": 2.200000047683716
+            },
+            {
+              "name": "Emotion_Glee",
+              "duration_s": 1.7999999523162842
+            },
+            {
+              "name": "Emotion_Worried",
+              "duration_s": 2.4000000953674316
+            },
+            {
+              "name": "Emotion_Angry",
+              "duration_s": 1.600000023841858
+            },
+            {
+              "name": "Emotion_Surprised",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Emotion_Sleepy",
+              "duration_s": 4
+            },
+            {
+              "name": "Rotor_Cycle",
+              "duration_s": 1
+            },
+            {
+              "name": "Tool_Fabricate",
+              "duration_s": 2
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "tank",
+          "file": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 459080,
+          "sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+          "triangles": 6742,
+          "draw_calls": 69,
+          "bounds": {
+            "min": [
+              -2.909192383289337,
+              0.00544419139623642,
+              -4.626236915588379
+            ],
+            "max": [
+              2.9099475741386414,
+              3.0159517526626587,
+              8.64112377539277
+            ]
+          },
+          "sockets": [],
+          "clips": [
+            {
+              "name": "Power_On",
+              "duration_s": 2
+            },
+            {
+              "name": "Power_Off",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Hover_Idle",
+              "duration_s": 3
+            },
+            {
+              "name": "Fire_Heavy",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Plasma_Sweep",
+              "duration_s": 4
+            },
+            {
+              "name": "Turret_Aim",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "dome",
+          "file": "assets/dome-colony/habitat_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 298756,
+          "sha256": "7b8e231fea26d39e6df62eb1dd5c7dbf89908253330af34497caaa9fbaeb18fc",
+          "triangles": 5880,
+          "draw_calls": 8,
+          "bounds": {
+            "min": [
+              -14.600000381469727,
+              -2.3841858265427618e-8,
+              -14.600000381469727
+            ],
+            "max": [
+              14.600000381469727,
+              35.84999990463257,
+              14.600000381469727
+            ]
+          },
+          "sockets": [],
+          "clips": [],
+          "credit": "Models by jelaludo"
+        }
+      ],
+      "wireframes": [
+        {
+          "node": "STALHEART_ASSEMBLY_WIREFRAME",
+          "segments": 14976,
+          "bounds": {
+            "min": [
+              -21.04298210144043,
+              0.0031024885829538107,
+              -12
+            ],
+            "max": [
+              21.04298210144043,
+              39.86000442504883,
+              12
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        },
+        {
+          "node": "MORK_BUILD_WIREFRAME",
+          "segments": 7044,
+          "bounds": {
+            "min": [
+              -2.9091923236846924,
+              0.00544419139623642,
+              -2.0262370109558105
+            ],
+            "max": [
+              2.909947633743286,
+              3.015951633453369,
+              11.241124153137207
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        },
+        {
+          "node": "HABITAT_BUILD_WIREFRAME",
+          "segments": 4320,
+          "bounds": {
+            "min": [
+              -7.300000190734863,
+              -1.1920929132713809e-8,
+              47.29999923706055
+            ],
+            "max": [
+              7.300000190734863,
+              17.924999237060547,
+              61.900001525878906
+            ]
+          },
+          "draw_calls": 1,
+          "derived": true
+        }
+      ],
+      "generated_line_segments": 26340,
+      "endpoint": {
+        "tank_wireframe": true,
+        "dome_wireframe": true,
+        "kidou_position": [
+          0,
+          0,
+          52
+        ],
+        "dome_height_m": 17.924999237060547
+      }
+    }
+  ],
+  "handoff": {
+    "folder": "assets/stalheart-diorama/",
+    "viewer": "stalheart-diorama/",
+    "source_folders": [
+      "assets/stalheart-kidou/",
+      "assets/isao-birudoron/",
+      "assets/hover-tank/",
+      "assets/dome-colony/"
+    ],
+    "pending": [
+      "Game navigation and force simulation",
+      "Production collision/arm limits",
+      "Game-camera and reference-device performance",
+      "Release gltfpack packing and decoded validation if consumed by the game"
+    ]
+  }
+}

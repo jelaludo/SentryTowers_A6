@@ -1,0 +1,36 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_EXECUTABLE?{executablePath:process.env.CHROMIUM_EXECUTABLE}:{})}),page=await browser.newPage({viewport:{width:1512,height:1130},deviceScaleFactor:1}),out=new URL('../../assets/stalheart-diorama/',import.meta.url),errors=[],samples=[];
+await fs.mkdir(new URL('previews/',out),{recursive:true});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.setDefaultTimeout(30000);
+await page.goto(process.env.DIORAMA_URL||'http://127.0.0.1:8788/stalheart-diorama/');await page.waitForFunction(()=>window.diorama?.ready);assert.equal(await page.locator('.workshop-header').count(),1);assert.equal(await page.locator('#chapters button').count(),10);
+const seek=t=>page.evaluate(t=>window.diorama.setTime(t),t);let arrivalCamera;
+for(const lod of [1,0]){
+  if(lod===0){await page.locator('#quality').selectOption('0');await page.waitForFunction(()=>window.diorama.ready&&window.diorama.lod===0);}
+  for(const [name,t]of [['arrival',2],['assembly',20],['wireframe',32],['materials',39],['tank',68],['travel',90],['dome',116],['dome-mast',126],['complete',144]]){
+    await seek(t);
+    if(lod===1&&t===2){arrivalCamera=await page.evaluate(async()=>{const T=await import('three'),d=window.diorama,s=d.story,p=s.isao.getObjectByName('LED_PANEL').getWorldPosition(new T.Vector3()),front=new T.Vector3(0,0,1).applyQuaternion(s.isao.getWorldQuaternion(new T.Quaternion()));return{frontDot:d.camera.position.clone().sub(p).normalize().dot(front),working:s.isao.getObjectByName('FACE_WORKING').scale.x};});assert(arrivalCamera.frontDot>.5);assert.equal(arrivalCamera.working,1);}
+    const result=await page.evaluate(()=>{const d=window.diorama,s=d.story;return{time:d.time,lod:d.lod,chapter:s.state.chapter.id,solid:s.kidou.visible,gantryWire:s.kw.visible,tankWire:s.tw.visible,domeWire:s.dw.visible,progress:[s.state.wire,s.state.surface,s.state.tank,s.state.dome],z:s.kidou.position.z,draws:d.renderer.info.render.calls,triangles:d.renderer.info.render.triangles,lines:d.renderer.info.render.lines};});
+    assert.equal(result.solid,t>34);assert.equal(result.gantryWire,t>6&&t<44);assert.equal(result.tankWire,t>50);assert.equal(result.domeWire,t>104);assert(result.draws>0);if(t===32)assert.deepEqual(result.progress,[1,0,0,0]);if(t===90)assert(result.z>0&&result.z<52);if(t===144)assert.deepEqual(result.progress,[1,1,1,1]);samples.push(result);
+    if(lod===1)await page.locator('#stage').screenshot({path:new URL('previews/'+name+'.png',out).pathname});
+    if(lod===0&&t===116)await page.locator('#stage').screenshot({path:new URL('previews/master.png',out).pathname});
+  }
+  // Model-only renderer counts, without scenery and presentation helpers.
+  for(const t of [20,39,68,90,116,144]){
+    await seek(t);const measured=await page.evaluate(()=>{const d=window.diorama,hidden=d.scene.children.filter(o=>o!==d.story.root&&!o.isLight),visible=hidden.map(o=>o.visible);hidden.forEach(o=>o.visible=false);d.renderer.shadowMap.enabled=false;d.renderer.render(d.scene,d.camera);const r={kind:'model-only',lod:d.lod,time:d.time,calls:d.renderer.info.render.calls,triangles:d.renderer.info.render.triangles,lines:d.renderer.info.render.lines};hidden.forEach((o,i)=>o.visible=visible[i]);d.renderer.shadowMap.enabled=true;d.render();return r;});samples.push(measured);
+  }
+}
+await page.locator('#quality').selectOption('1');await page.waitForFunction(()=>window.diorama.ready&&window.diorama.lod===1);
+// Independent chapter navigation and reversible seeking.
+await page.locator('[data-chapter="materials"]').click();assert((await page.evaluate(()=>window.diorama.time))>=34);await seek(12);assert.equal(await page.locator('#play').textContent(),'Play');
+await page.locator('#time').fill('121');await page.locator('#time').dispatchEvent('input');assert.equal(await page.evaluate(()=>window.diorama.time),121);
+await seek(50);await page.locator('#speed').selectOption('4');await page.locator('#play').click();await page.waitForFunction(()=>window.diorama.time>51);await page.locator('#play').click();const paused=await page.evaluate(()=>window.diorama.time);await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>window.diorama.time),paused);
+await seek(143.7);await page.locator('#play').click();await page.waitForFunction(()=>window.diorama.time===144&&!window.diorama.running);await page.locator('#loop').check();await seek(143.7);await page.locator('#play').click();await page.waitForFunction(()=>window.diorama.time<3&&window.diorama.running);await page.locator('#loop').uncheck();await seek(116);
+for(const camera of ['overview','gantry','isao','tool','auto']){await page.locator('#camera').selectOption(camera);assert(await page.evaluate(()=>window.diorama.camera.matrixWorld.elements.every(Number.isFinite)));}
+await page.locator('#fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await page.locator('#fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);
+const download=page.waitForEvent('download');await page.locator('#photo').click();assert((await download).suggestedFilename().endsWith('.png'));
+await page.locator('#restart').click();await page.waitForFunction(()=>window.diorama.time<2&&window.diorama.running);await seek(139);await page.locator('#camera').selectOption('auto');
+await page.screenshot({path:new URL('previews/desktop.png',out).pathname,fullPage:true});
+await seek(116);const hide=await page.addStyleTag({content:'.scene-top,.scene-bottom{visibility:hidden}'});await page.locator('#stage').screenshot({path:new URL('preview.png',out).pathname});await hide.evaluate(e=>e.remove());
+await page.setViewportSize({width:390,height:844});await page.waitForFunction(()=>document.getElementById('stage').clientWidth<400);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.screenshot({path:new URL('previews/mobile.png',out).pathname,fullPage:true});await seek(20);await page.locator('#stage').screenshot({path:new URL('previews/mobile-assembly.png',out).pathname});
+assert.deepEqual(errors,[]);const report={status:'passed',browser:'Chromium headless WebGL; functional and render-count checks, not FPS benchmarking',samples,arrival_camera:arrivalCamera,checks:['Opening close shot faces ISAO’s active working display','Both detail tiers and every construction/transfer phase','Full gantry wireframe holds before surfaces appear; tank and habitat remain wire-only','Backward scrubbing, chapter jumps, speed, pause, endpoint clamp, looping and restart','Five camera presets, full screen and PNG capture','390px layout without horizontal overflow; shared navigation present','Actual model-only render counts and source-byte measurements recorded separately'],errors};await fs.writeFile(new URL('viewer-validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,samples:samples.length,errors},null,2));await browser.close();

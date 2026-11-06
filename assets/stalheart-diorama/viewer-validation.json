@@ -1,0 +1,458 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless WebGL; functional and render-count checks, not FPS benchmarking",
+  "samples": [
+    {
+      "time": 2,
+      "lod": 1,
+      "chapter": "arrival",
+      "solid": false,
+      "gantryWire": false,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 55,
+      "triangles": 17280,
+      "lines": 74
+    },
+    {
+      "time": 20,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.5833333333333334,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 58,
+      "triangles": 17392,
+      "lines": 15050
+    },
+    {
+      "time": 32,
+      "lod": 1,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 59,
+      "triangles": 17392,
+      "lines": 15058
+    },
+    {
+      "time": 39,
+      "lod": 1,
+      "chapter": "materials",
+      "solid": true,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        1,
+        0.5,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 102,
+      "triangles": 32825,
+      "lines": 15058
+    },
+    {
+      "time": 68,
+      "lod": 1,
+      "chapter": "tank",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": false,
+      "progress": [
+        1,
+        1,
+        0.8181818181818182,
+        0
+      ],
+      "z": 0,
+      "draws": 53,
+      "triangles": 15253,
+      "lines": 7222
+    },
+    {
+      "time": 90,
+      "lod": 1,
+      "chapter": "travel",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": false,
+      "progress": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "z": 33.696,
+      "draws": 103,
+      "triangles": 32827,
+      "lines": 7126
+    },
+    {
+      "time": 116,
+      "lod": 1,
+      "chapter": "dome",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        0.42857142857142855
+      ],
+      "z": 52,
+      "draws": 66,
+      "triangles": 18503,
+      "lines": 11542
+    },
+    {
+      "time": 126,
+      "lod": 1,
+      "chapter": "dome",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        0.7857142857142857
+      ],
+      "z": 52,
+      "draws": 65,
+      "triangles": 18067,
+      "lines": 11542
+    },
+    {
+      "time": 144,
+      "lod": 1,
+      "chapter": "complete",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "z": 52,
+      "draws": 104,
+      "triangles": 32827,
+      "lines": 11446
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 20,
+      "calls": 52,
+      "triangles": 17376,
+      "lines": 14976
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 39,
+      "calls": 95,
+      "triangles": 32809,
+      "lines": 14976
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 68,
+      "calls": 46,
+      "triangles": 15237,
+      "lines": 7140
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 90,
+      "calls": 95,
+      "triangles": 32809,
+      "lines": 7044
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 116,
+      "calls": 58,
+      "triangles": 18485,
+      "lines": 11460
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "time": 144,
+      "calls": 96,
+      "triangles": 32809,
+      "lines": 11364
+    },
+    {
+      "time": 2,
+      "lod": 0,
+      "chapter": "arrival",
+      "solid": false,
+      "gantryWire": false,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 105,
+      "triangles": 45796,
+      "lines": 74
+    },
+    {
+      "time": 20,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        0.5833333333333334,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 108,
+      "triangles": 45908,
+      "lines": 126658
+    },
+    {
+      "time": 32,
+      "lod": 0,
+      "chapter": "assembly",
+      "solid": false,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 109,
+      "triangles": 45908,
+      "lines": 126666
+    },
+    {
+      "time": 39,
+      "lod": 0,
+      "chapter": "materials",
+      "solid": true,
+      "gantryWire": true,
+      "tankWire": false,
+      "domeWire": false,
+      "progress": [
+        1,
+        0.5,
+        0,
+        0
+      ],
+      "z": 0,
+      "draws": 152,
+      "triangles": 205464,
+      "lines": 126666
+    },
+    {
+      "time": 68,
+      "lod": 0,
+      "chapter": "tank",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": false,
+      "progress": [
+        1,
+        1,
+        0.8181818181818182,
+        0
+      ],
+      "z": 0,
+      "draws": 53,
+      "triangles": 158168,
+      "lines": 19964
+    },
+    {
+      "time": 90,
+      "lod": 0,
+      "chapter": "travel",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": false,
+      "progress": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "z": 33.696,
+      "draws": 153,
+      "triangles": 205466,
+      "lines": 19868
+    },
+    {
+      "time": 116,
+      "lod": 0,
+      "chapter": "dome",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        0.42857142857142855
+      ],
+      "z": 52,
+      "draws": 81,
+      "triangles": 166878,
+      "lines": 27484
+    },
+    {
+      "time": 126,
+      "lod": 0,
+      "chapter": "dome",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        0.7857142857142857
+      ],
+      "z": 52,
+      "draws": 80,
+      "triangles": 166554,
+      "lines": 27484
+    },
+    {
+      "time": 144,
+      "lod": 0,
+      "chapter": "complete",
+      "solid": true,
+      "gantryWire": false,
+      "tankWire": true,
+      "domeWire": true,
+      "progress": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "z": 52,
+      "draws": 154,
+      "triangles": 205466,
+      "lines": 27388
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 20,
+      "calls": 102,
+      "triangles": 45892,
+      "lines": 126584
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 39,
+      "calls": 145,
+      "triangles": 205448,
+      "lines": 126584
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 68,
+      "calls": 46,
+      "triangles": 158152,
+      "lines": 19882
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 90,
+      "calls": 145,
+      "triangles": 205448,
+      "lines": 19786
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 116,
+      "calls": 73,
+      "triangles": 166860,
+      "lines": 27402
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "time": 144,
+      "calls": 146,
+      "triangles": 205448,
+      "lines": 27306
+    }
+  ],
+  "checks": [
+    "Both detail tiers and every construction/transfer phase",
+    "Full gantry wireframe holds before surfaces appear; tank and habitat remain wire-only",
+    "Backward scrubbing, chapter jumps, speed, pause, endpoint clamp, looping and restart",
+    "Five camera presets, full screen and PNG capture",
+    "390px layout without horizontal overflow; shared navigation present",
+    "Actual model-only render counts and source-byte measurements recorded separately",
+    "Opening close shot faces ISAO’s active working display"
+  ],
+  "errors": [],
+  "arrival_camera": {
+    "frontDot": 0.7650869641129068,
+    "working": 1
+  }
+}

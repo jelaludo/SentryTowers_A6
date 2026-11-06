@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "duration_s": 144,
+  "samples": 578,
+  "tiers": [
+    {
+      "lod": 0,
+      "source_bytes": 12562744,
+      "line_segments": 153890,
+      "dome_width_m": 14.600000381469727,
+      "dome_height_m": 17.924999237060547,
+      "dome_side_clearance_m": 6.799999809265136,
+      "dome_longitudinal_clearance_m": 2.0999984741210938,
+      "dome_clearance_below_25m_working_limit_m": 7.075000762939453
+    },
+    {
+      "lod": 1,
+      "source_bytes": 2734600,
+      "line_segments": 26340,
+      "dome_width_m": 14.600000381469727,
+      "dome_height_m": 17.924999237060547,
+      "dome_side_clearance_m": 6.799999809265136,
+      "dome_longitudinal_clearance_m": 2.0999984741210938,
+      "dome_clearance_below_25m_working_limit_m": 7.075000762939453
+    }
+  ],
+  "max_print_horizontal_error_m": 7.119291619286993e-15,
+  "min_nozzle_to_layer_m": 0.7999999999999954,
+  "max_link_length_error_m": 9.53674320847142e-7,
+  "max_wheel_contact_error_m": 2.220446049250313e-16,
+  "max_boundary_tip_jump_m": 0.00008949725477840554,
+  "checks": [
+    "Original source SHA-256 and byte sizes unchanged in both detail tiers",
+    "144-second deterministic one-shot; chapter boundaries continuous; backward seeking stable",
+    "Progressive gantry wireframe, original surface reveal, persistent wire-only tank and habitat",
+    "Half-scale dome fits within the side beams and 24 m machine length, below 25 m working limit",
+    "Rigid arm link lengths, downward nozzle and print-front clearance",
+    "Eight wheel contacts on the ground and rotation tied to 52 m displacement",
+    "Procedural feed endpoints follow the blended carriage",
+    "Detailed and game compositions use original source pivots; no animation baked into donor GLBs"
+  ]
+}
