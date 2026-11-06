@@ -214,3 +214,9 @@ Original project MÖRK and Yūshi045 Bio-Pearl models/runtime are reused unchang
 SAI-92 unit, service-bay geometry, articulated runtime, finite-resource command mission and viewer are original work by jelaludo. The designation and its goroawase interpretation were supplied by the user. Two supplied autonomous-mining / mineral-recovery gas-hopper concept sheets informed its ore tank, pressure bottles, four cold-gas thrusters, folding anchored legs and twin-auger/laser head. Their filenames and SHA-256 values are recorded in `assets/sai92/reference-provenance.json`; originals remain unchanged outside the repository. Reference creator/license was not supplied and no additional reference-image rights are claimed.
 
 The procedural source is `tools/asset-pipeline/sai92-shape.mjs`. Plain unit/bay GLBs are authoritative. LOD2 simplifications and browser previews are derived. No third-party meshes, animations or textures were incorporated; existing asset families are preserved.
+
+## SAI-93 — Long Chassis Miner
+
+SAI-93 geometry, revised rigid mounting frames, runtime adapter and viewer are by jelaludo, derived from SAI-92 at commit `1d33d06a2c15144a0bab997b57bb295cffec8fee`. The user directed removal of the anthropomorphic swivelling head and a narrower, longer body. The original SAI-92 assets remain unchanged. Original concept-reference hashes and rights limits are retained in `assets/sai93/reference-provenance.json`.
+
+The source is `tools/asset-pipeline/sai93-shape.mjs`. Plain unit GLBs are authoritative; LOD2 and browser previews are derived. The three bay GLBs and `mission.js` are byte-identical SAI-92 copies bundled for portability, with original bay names/signage preserved. No third-party meshes, animations or textures were incorporated.

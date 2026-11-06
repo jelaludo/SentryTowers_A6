@@ -1,4 +1,5 @@
 const collectionImages={
+'sai93':'assets/sai93/preview.png',
 'sai92':'assets/sai92/preview.png',
 'yushi-rover':'assets/yushi-rover/preview.png',
 'stride-02':'assets/stride-02/preview.png',
@@ -46,6 +47,7 @@ const collectionImages={
 };
 
 export const collections=[
+['sai93','SAI-93 — Long Chassis Miner','Industry','A longer, narrower SAI mining hopper with a flat service deck and flush sensors. Folding legs, gas flight, anchored twin-auger extraction and autonomous return to the shared ore service bay.','No swivel head · Articulated mining cycle · 3 tiers','Interactive prototype'],
 ['sai92','SAI-92 / 採掘 — Mineral Recovery','Industry','Command a cold-gas hopper to a mineral seam. It folds its legs for flight, lands on shock struts, anchors, drills with twin augers and mining lasers, then returns to offload ore, refill gas and recharge.','Dispatch + recall · Finite ore · Unit + service bay · 3 tiers','Interactive prototype'],
 ['yushi-rover','YūshiRover / Biomass Recovery','Industry','MÖRK-scale six-wheel harvester with a moving cleated conveyor, independent suspension, twin gauged tanks and player-set collection beacons. Returns to the existing Yūshi045 Bio-Pearl to offload, then resumes its route.','Custom beacon routes · Live cargo transfer · 3 detail tiers','Interactive prototype'],
 ['stride-02','STRIDE-02 / Exact pallet envelope','Industry','Miniature STRIDE legs and 94.3 mm wheels fold completely into the original P-01 pallet. Exactly 1,200 × 1,000 × 160 mm when stowed. Compare directly with P-01, deploy or retract, and inspect the underside.','Miniature legs · Original P-01 body · 160 mm packed','Kinematic prototype'],

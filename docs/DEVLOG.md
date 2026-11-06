@@ -1,5 +1,16 @@
 # Devlog
 
+## 6 November 2026 / SAI-93 — flat service deck and longer chassis
+
+Created a separate SAI-93 variant from SAI-92. Removed the raised optical head, pedestal and sensor-yaw pivot in every tier. A flat service deck, longitudinal ribs and flush distributed sensor apertures replace the anthropomorphic silhouette. Authored a narrower, longer tank and moved rigid leg/thruster mounting frames; circular joints, bells, shock rods and mining tools retain their proportions. Landed bounds are 5.6600 × 5.7316 × 3.5750 m (width × length × height): 10.4% narrower, 25.2% longer and 0.4195 m lower than SAI-92. Reserve 6 × 6 m.
+
+Preserved the complete explicit-dispatch flight, anchoring, extraction, return and service cycle. The front tools move forward 0.42 m, rear service sockets move back 0.42 m, and each unloading tube stage now travels 0.69 m to retain the original extended outlet position. Shared SAI-92 bay files and mission logic are copied byte-for-byte with provenance; source SAI-92 assets/viewer are unchanged. The new `sai93/` route opens in unit inspection, adds a side-profile camera, and retains mission, tier, fill, wireframe, fullscreen and capture controls.
+
+Measured unit detailed: 52,420 triangles / 41 draws / 1,075,008 plain bytes; game: 18,988 / 41 / 662,832; static: 2,496 / one / 201,200. The articulated game unit meets the 25k triangle target; both unit/bay distance tiers meet the static budget. All six GLBs pass validation with zero errors/warnings. Bounds, socket frames and unique dot-free lookup names agree across tiers. A total of 1,122 kinematic samples check contacts, rigid links and shock overlap, plus conserved ore, safe recall and takeoff/drill interlocks. Chromium WebGL checks cover the complete 80-ore return, actual hose endpoints, live mechanisms, measured render counts, cameras, fullscreen and 390 px layout. No FPS claim.
+
+Completed: new model tiers, bundled compatible bay, runtime, viewer, previews, manifest/provenance, integration notes, Workshop listing and shared navigation. Pending: visual acceptance, general collision/load engineering, force-based flight and resource balancing, production navigation/inventory/network integration, D1–D3, consuming r160/release gltfpack and reference-phone/game-camera measurements. The received collaboration contract remains verbatim.
+
+
 
 ## 5 November 2026 / SAI-92 — command, hop, anchor, drill, return
 

@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "scope": "Plain GLB structure, geometry and tier parity; kinematic contact/link tests and finite-inventory mission safety interlocks. General self-collision, flight forces and load engineering are not certified.",
+  "files": [
+    {
+      "file": "sai93_unit_d0_lod0.glb",
+      "triangles": 52420,
+      "draw_calls": 41,
+      "bytes": 1075008,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "sai93_unit_d0_lod1.glb",
+      "triangles": 18988,
+      "draw_calls": 41,
+      "bytes": 662832,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "sai93_unit_d0_lod2.glb",
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 201200,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "sai93_bay_d0_lod0.glb",
+      "triangles": 5040,
+      "draw_calls": 5,
+      "bytes": 285032,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "sai93_bay_d0_lod1.glb",
+      "triangles": 3928,
+      "draw_calls": 5,
+      "bytes": 246664,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "sai93_bay_d0_lod2.glb",
+      "triangles": 2000,
+      "draw_calls": 1,
+      "bytes": 138692,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "kinematic_samples": 1122,
+  "max_foot_contact_error_m": 8.187894806610529e-16,
+  "max_link_length_error_m": 1.4432899320127035e-15,
+  "min_shock_overlap_m": 0.61,
+  "mission": {
+    "first_trip_duration_s": 55.78000000000312,
+    "ore_delivered": 80,
+    "ore_left_first_seam": 39.999999999998394,
+    "lowest_gas": 67.18800000000473,
+    "lowest_battery": 82.4949999999902,
+    "restored_gas": 100,
+    "restored_battery": 100,
+    "phases": [
+      "preflight",
+      "lift",
+      "outbound",
+      "locate",
+      "land",
+      "anchor",
+      "deploy",
+      "mine",
+      "retract",
+      "release",
+      "return_lift",
+      "inbound",
+      "land_home",
+      "connect",
+      "service",
+      "disconnect",
+      "ready"
+    ],
+    "offload_tip_to_receiver_m": 0.4032679010285838
+  },
+  "checks": [
+    "SAI-93 exported width/length/height versus SAI-92; no sensor head/yaw in any tier; shared bay bytes unchanged",
+    "Six authoritative plain GLBs: hashes, names, finite/nondegenerate triangles, zero errors/warnings",
+    "Master/game/static root frames, sockets and bounds agree; static adapters do not articulate",
+    "Unit and service-bay game budgets; one-draw distance tiers under 250 KB",
+    "Sampled complete mission plus folding/impact sweeps: foot contact, rigid links, telescopic overlap",
+    "No takeoff thrust while anchors or mining head are deployed; drilling only while planted",
+    "Finite ore conserved through full and partial-load returns; idle waits for command",
+    "Four recall phases, all selectable field corners, pause, invalid sites and full-receiver hold",
+    "Docked ore outlet falls within 0.5 m of the receiving hopper; hoses bind named supply sockets"
+  ],
+  "variant": {
+    "source": "SAI-92",
+    "source_dimensions_xyz_m": [
+      6.317200026512147,
+      3.994500008225441,
+      4.579200026988984
+    ],
+    "dimensions_xyz_m": [
+      5.6600000238418575,
+      3.5749999982118608,
+      5.731587869670687
+    ],
+    "width_reduction_percent": 10.403343251949282,
+    "length_increase_percent": 25.16570221632022,
+    "raised_sensor_geometry_and_yaw_absent": true,
+    "shared_bay_byte_identical": true
+  }
+}

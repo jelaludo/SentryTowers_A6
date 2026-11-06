@@ -1,0 +1,27 @@
+{
+  "references": [
+    {
+      "file": "/Users/jela/Downloads/ChatGPT Image Nov 5, 2026, 04_08_43 PM.png",
+      "sha256": "f7db2434b6af55881230966a4e0f8334ae4870b131d568ae20d6ea040540c716",
+      "preserved": true
+    },
+    {
+      "file": "/Users/jela/Downloads/ChatGPT Image Nov 5, 2026, 04_08_35 PM.png",
+      "sha256": "c493bfa50b27b1994fd9ac2d93566a4190724404f170e208d7209f578b087026",
+      "preserved": true
+    }
+  ],
+  "role": "The original SAI-92 references, inherited for the SAI-93 variant. User direction: remove the anthropomorphic swivelling head and make the unit narrower and longer.",
+  "rights": "Reference creator/license not supplied; no additional reference-image rights claimed. Originals remain unchanged outside the repository.",
+  "source_model": {
+    "folder": "assets/sai92/",
+    "commit": "1d33d06a2c15144a0bab997b57bb295cffec8fee",
+    "original_preserved": true
+  },
+  "reused_byte_identical": [
+    "mission.js",
+    "sai92_bay_d0_lod0.glb \u2192 sai93_bay_d0_lod0.glb",
+    "sai92_bay_d0_lod1.glb \u2192 sai93_bay_d0_lod1.glb",
+    "sai92_bay_d0_lod2.glb \u2192 sai93_bay_d0_lod2.glb"
+  ]
+}
