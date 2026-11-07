@@ -1,0 +1,327 @@
+{
+  "status": "passed",
+  "browser": "Headless Chromium / Three r180; render counts and functionality, no FPS benchmark",
+  "samples": [
+    {
+      "time": 5,
+      "lod": 1,
+      "chapter": "city",
+      "height": 55,
+      "multiplier": 1,
+      "draws": 226,
+      "triangles": 104660
+    },
+    {
+      "time": 19,
+      "lod": 1,
+      "chapter": "approach",
+      "height": 55,
+      "multiplier": 1,
+      "draws": 112,
+      "triangles": 69226
+    },
+    {
+      "time": 28,
+      "lod": 1,
+      "chapter": "depart",
+      "height": 63,
+      "multiplier": 1,
+      "draws": 14,
+      "triangles": 35968
+    },
+    {
+      "time": 34,
+      "lod": 1,
+      "chapter": "accelerate",
+      "height": 89.25,
+      "multiplier": 10.5,
+      "draws": 14,
+      "triangles": 35968
+    },
+    {
+      "time": 42,
+      "lod": 1,
+      "chapter": "ascent",
+      "height": 395,
+      "multiplier": 20,
+      "draws": 12,
+      "triangles": 28184
+    },
+    {
+      "time": 52,
+      "lod": 1,
+      "chapter": "gunship",
+      "height": 795,
+      "multiplier": 20,
+      "draws": 28,
+      "triangles": 30656
+    },
+    {
+      "lod": 1,
+      "time": 52,
+      "framing": [
+        {
+          "id": "korp",
+          "centre": [
+            -0.27460156345584746,
+            0.3410245592136318,
+            0.9982410319673868
+          ]
+        },
+        {
+          "id": "climber",
+          "centre": [
+            0.18436921571648784,
+            -0.1781575208836334,
+            0.9973988581261194
+          ]
+        }
+      ]
+    },
+    {
+      "time": 67,
+      "lod": 1,
+      "chapter": "arrival",
+      "height": 1395,
+      "multiplier": 20,
+      "draws": 12,
+      "triangles": 28184
+    },
+    {
+      "time": 74,
+      "lod": 1,
+      "chapter": "arrival",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 48152
+    },
+    {
+      "time": 84,
+      "lod": 1,
+      "chapter": "sol",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 48152
+    },
+    {
+      "lod": 1,
+      "time": 84,
+      "framing": [
+        {
+          "id": "sol82",
+          "centre": [
+            -0.5343363917109041,
+            0.42621051041336316,
+            0.9992909856043374
+          ]
+        },
+        {
+          "id": "sol88",
+          "centre": [
+            0.36232231557334954,
+            0.5874497182905063,
+            0.9993616329956281
+          ]
+        },
+        {
+          "id": "orbital",
+          "centre": [
+            0.036282655838209096,
+            -0.12500549827671803,
+            0.9988963590300033
+          ]
+        }
+      ]
+    },
+    {
+      "time": 112,
+      "lod": 1,
+      "chapter": "complete",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 48152
+    },
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "triangles": 101948,
+      "draws": 257
+    },
+    {
+      "time": 5,
+      "lod": 0,
+      "chapter": "city",
+      "height": 55,
+      "multiplier": 1,
+      "draws": 226,
+      "triangles": 195932
+    },
+    {
+      "time": 19,
+      "lod": 0,
+      "chapter": "approach",
+      "height": 55,
+      "multiplier": 1,
+      "draws": 112,
+      "triangles": 117180
+    },
+    {
+      "time": 28,
+      "lod": 0,
+      "chapter": "depart",
+      "height": 63,
+      "multiplier": 1,
+      "draws": 14,
+      "triangles": 42500
+    },
+    {
+      "time": 34,
+      "lod": 0,
+      "chapter": "accelerate",
+      "height": 89.25,
+      "multiplier": 10.5,
+      "draws": 14,
+      "triangles": 42500
+    },
+    {
+      "time": 42,
+      "lod": 0,
+      "chapter": "ascent",
+      "height": 395,
+      "multiplier": 20,
+      "draws": 12,
+      "triangles": 28952
+    },
+    {
+      "time": 52,
+      "lod": 0,
+      "chapter": "gunship",
+      "height": 795,
+      "multiplier": 20,
+      "draws": 62,
+      "triangles": 34180
+    },
+    {
+      "lod": 0,
+      "time": 52,
+      "framing": [
+        {
+          "id": "korp",
+          "centre": [
+            -0.27460156345584746,
+            0.3410245592136318,
+            0.9982410319673868
+          ]
+        },
+        {
+          "id": "climber",
+          "centre": [
+            0.18436921571648784,
+            -0.1781575208836334,
+            0.9973988581261194
+          ]
+        }
+      ]
+    },
+    {
+      "time": 67,
+      "lod": 0,
+      "chapter": "arrival",
+      "height": 1395,
+      "multiplier": 20,
+      "draws": 12,
+      "triangles": 28952
+    },
+    {
+      "time": 74,
+      "lod": 0,
+      "chapter": "arrival",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 120680
+    },
+    {
+      "time": 84,
+      "lod": 0,
+      "chapter": "sol",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 120680
+    },
+    {
+      "lod": 0,
+      "time": 84,
+      "framing": [
+        {
+          "id": "sol82",
+          "centre": [
+            -0.5343363917109041,
+            0.42621051041336316,
+            0.9992909856043374
+          ]
+        },
+        {
+          "id": "sol88",
+          "centre": [
+            0.36228191156531386,
+            0.5886259459116703,
+            0.9993615150484314
+          ]
+        },
+        {
+          "id": "orbital",
+          "centre": [
+            0.036282655838209096,
+            -0.12500549827671803,
+            0.9988963590300033
+          ]
+        }
+      ]
+    },
+    {
+      "time": 112,
+      "lod": 0,
+      "chapter": "complete",
+      "height": 1515,
+      "multiplier": 1,
+      "draws": 30,
+      "triangles": 120680
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "triangles": 267736,
+      "draws": 291
+    }
+  ],
+  "mobile_framing": [
+    {
+      "id": "sol82",
+      "x": -0.7309843097752987,
+      "y": 0.2476133437182386
+    },
+    {
+      "id": "sol88",
+      "x": 0.5170735425728714,
+      "y": 0.3560283003399858
+    },
+    {
+      "id": "orbital",
+      "x": 0.04031239280542126,
+      "y": -0.05898277636044922
+    }
+  ],
+  "checks": [
+    "Both master/game tiers, ten sequence samples and visible KORP/SOL framing",
+    "Measured unculled model-only draws/triangles match composition manifest, including instancing",
+    "Chapter jumps, backward scrub, pause, playback speed, endpoint clamp, looping and restart",
+    "Five camera presets, identification labels, fullscreen and image capture",
+    "390 px layout without horizontal overflow; both SOL platforms remain framed; shared navigation present"
+  ],
+  "errors": []
+}

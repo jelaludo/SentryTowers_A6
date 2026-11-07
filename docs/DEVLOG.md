@@ -1,5 +1,17 @@
 # Devlog
 
+## 7 November 2026 / Above the city — elevator journey
+
+Created a separate 112-second continuous diorama linking eight original-scale Dome City modules and the new surface elevator station. Eight canonical elevated halls form a connected ring around a civic plaza; an added pedestrian transfer joins logistics to the station's observation facade. Roads, utility banks, a parked MÖRK in the single bay and a slow patrol MÖRK complete the scene. Transfer supports span the vehicle approach. Canonical models, clips, node names and source GLBs remain unchanged.
+
+The camera establishes the city, closes on the climber, follows a 2 m/s departure, ramps smoothly to 40 m/s (exactly 20×), frames KORP crossing behind the tether, then reveals the orbital station and docks the cabin beneath it. SOL-82 and SOL-88 remain behind the terminal on distinct 0.0018 and 0.0022 rad/s scenic drift arcs; their original idle clips play without firing. KORP's original gear retract clip is clamped in flight. A 6,000 m miniature world and 1,523.2 m terminal datum keep the whole continuous scene readable; these are cinematic dimensions, not real orbital engineering claims.
+
+The two compositions pin fourteen unique plain GLB sources each: detailed 8,805,316 source bytes / 267,224 composed visible triangles / 283 primitive draws; game 3,802,996 bytes / 101,692 triangles / 249 draws. Generated site, transfer hall, tether and instanced markings contribute 4,116 triangles and four draws. Actual unculled model-only browser rendering measures 267,736 / 101,948 triangles and 291 / 257 draws because transparent bridge glass adds back/front passes. World scenery and shadows are separate; no FPS claim. Static source proxies are not substituted for animated flight poses.
+
+Validation covers 450 sampled states, unchanged source hashes and clip durations, exact opposing hallway socket pairs, a connected dome graph, canonical model scale, 20× speed, camera continuity, final docking and reversible scrubbing. Browser checks cover both tiers, every chapter, visible KORP/SOL framing, playback/loop/endpoint controls, camera presets, fullscreen, image capture and mobile layout. Added previews, integration notes, gallery entry, cross-link from the station lab and shared navigation.
+
+Completed: requested mini-city, directed climb, 20× ascent, gunship encounter and two SOL platforms behind the orbital terminal. Pending: visual acceptance; sealed/passable transfer interiors, production collision/navigation and orbital physics; consuming-game release gltfpack/decode checks; reference-phone/game-camera profiling. The received collaboration contract remains unchanged.
+
 ## 7 November 2026 / Space elevator — surface and orbital terminals
 
 Created a new space-elevator family from the supplied concept: a 60 × 60 m surface station with a 54 m tapered mast, seven splayed ribs, observation level, service galleries and exactly one vehicle hangar; a 61.76 × 72.40 m orbital station with an annular deck, eight trussed spokes, central hub, two sealed docking arms, tanks, solar wings and fixed antennas; and a shared 8 m traction-cage climber. The footprint interprets “about four small domes” as four standard 30 m Dome City plots. The viewer can display those four original-scale domes beside the station.

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**Above the City / Elevator diorama** follows a connected eight-dome settlement into orbit: zoom onto the climber, accelerate its ascent to 20×, pass KORP, then arrive at the orbital terminal with SOL-82 and SOL-88 drifting behind it at different rates. The 112-second scene has reversible scrubbing, nine chapters and master/game compositions. Open `elevator-city-diorama/`; source pins and measured hand-off are in `assets/elevator-city-diorama/`.
+
 **Space Elevator / Surface + Orbit** adds a 60 × 60 m single-bay base station, an annular orbital terminal and a shared tether climber. Includes a four-dome scale comparison, working doors and solar hinges, local climber movement, nine master/game/static GLBs and measured integration notes. Open `space-elevator/`; hand-off folder is `assets/space-elevator/`.
 
 **STALHEART — From builder to settlement** adds a separate 144-second animated diorama: original-size ISAO prints the left leg, right leg and then the connecting top in wireframe, its materials appear, then STALHEART prints a wireframe MÖRK, drives 52 m and builds a half-scale Dome City habitat. Cinematic cameras, chapter jumps, reversible scrubbing and detailed/game selections are in `stalheart-diorama/`; source pins and measured hand-off are in `assets/stalheart-diorama/`.

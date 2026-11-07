@@ -240,3 +240,8 @@ The sequential-construction revision changes only the diorama choreography and d
 ## Space elevator / Surface + orbit
 
 Models by jelaludo. Surface terminal, orbital terminal and shared climber are original procedural geometry in `tools/asset-pipeline/space-elevator-shape.mjs`, guided by the user-supplied 7 November 2026 concept image. Its original path and SHA-256 are recorded in `assets/space-elevator/reference-provenance.json`; reference creator/license was not supplied and no additional image rights are claimed. No third-party meshes or textures were incorporated. Plain master GLBs are authoritative; reduced game/static tiers and browser previews are derived. The viewer uses unmodified Dome City habitat and MÖRK references pinned by hash; their GLBs are excluded from this new export family.
+
+
+## Above the city / Elevator diorama
+
+Models by jelaludo. The `elevator-city-diorama/` presentation composes unchanged Space Elevator, Dome City, SOL-82, SOL-88, KORP and MÖRK plain GLBs at original scale. Paths, hashes, bytes and original clip metadata are pinned in `assets/elevator-city-diorama/layout.json`, based on commit `6627837b6af392fa2291b2c12f37b3942a622158`. Site deck, pedestrian adapter, markings, miniature world, atmosphere, star field, choreography, camera path and browser previews are derived presentation work. No third-party meshes, textures or new external concept images were introduced. Canonical source assets retain their existing notices and provenance; no original GLBs or clips were changed.

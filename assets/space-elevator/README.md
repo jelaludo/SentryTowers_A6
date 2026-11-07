@@ -44,6 +44,8 @@ Each module uses one palette material and vertex colours. Every game module meet
 
 LOD1/LOD2 and browser previews are derived. Only D0 is authored; D1–D3 are not interchangeable with LOD numbers. The received collaboration document is unchanged.
 
+A separate 112-second connected-city journey is available at `elevator-city-diorama/`, with KORP, SOL-82 and SOL-88. It composes these unchanged GLBs; see `assets/elevator-city-diorama/README.md`.
+
 ## Viewer and checks
 
 Open `space-elevator/` for paired independent station views or single-module inspection. Controls include four camera presets/free orbit, all three tiers, hangar doors, solar tilt, dish heading, local climber playback/scrubbing, four-dome comparison, MÖRK toggle, tether toggle, wireframe, image capture, fullscreen and per-module GLB downloads. The split views do not share an altitude scale. Tethers are viewer geometry, intentionally extended beyond the composition.

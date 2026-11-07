@@ -1,0 +1,876 @@
+{
+  "schema": "jelaludo.scene-composition/v1",
+  "family": "elevator-city-diorama",
+  "revision": 1,
+  "derived": true,
+  "source_commit": "6627837b6af392fa2291b2c12f37b3942a622158",
+  "credit": "Models by jelaludo",
+  "units": "metres",
+  "up": "+Y",
+  "forward": "+Z",
+  "root": "ELEVATOR_CITY_DIORAMA_ROOT",
+  "origin": "Surface station ground centre",
+  "plot_m": [
+    174,
+    224
+  ],
+  "plot_center": [
+    0,
+    0,
+    78
+  ],
+  "plain_glb_source_of_truth": true,
+  "merged_scene_glb": false,
+  "clip": {
+    "name": "City_to_Orbit_Sequence",
+    "duration_s": 112,
+    "implementation": "Deterministic runtime composition; no new baked source-pivot clips",
+    "playback": "One-shot; optional loop"
+  },
+  "chapters": [
+    {
+      "id": "city",
+      "start": 0,
+      "end": 12,
+      "title": "A city on the surface",
+      "detail": "Eight connected domes, a central plaza and one elevator terminal."
+    },
+    {
+      "id": "approach",
+      "start": 12,
+      "end": 24,
+      "title": "Find the climber",
+      "detail": "The camera leaves the streets and closes on the tether cabin."
+    },
+    {
+      "id": "depart",
+      "start": 24,
+      "end": 32,
+      "title": "Leave the city",
+      "detail": "The first part of the ascent plays at normal travel speed."
+    },
+    {
+      "id": "accelerate",
+      "start": 32,
+      "end": 36,
+      "title": "Accelerate to 20×",
+      "detail": "Time compression rises smoothly from 1× to 20×."
+    },
+    {
+      "id": "ascent",
+      "start": 36,
+      "end": 46,
+      "title": "Above the settlement",
+      "detail": "Follow the climber as the city falls away below."
+    },
+    {
+      "id": "gunship",
+      "start": 46,
+      "end": 60,
+      "title": "KORP passes",
+      "detail": "The heavy gunship crosses behind the tether on its own flight path."
+    },
+    {
+      "id": "arrival",
+      "start": 60,
+      "end": 78,
+      "title": "The orbital harbour",
+      "detail": "The terminal comes into view. The climber brakes and docks below it."
+    },
+    {
+      "id": "sol",
+      "start": 78,
+      "end": 98,
+      "title": "Two quiet sentinels",
+      "detail": "SOL-82 and SOL-88 drift behind the terminal at different angular speeds."
+    },
+    {
+      "id": "complete",
+      "start": 98,
+      "end": 112,
+      "title": "One connected settlement",
+      "detail": "Hold on the orbital terminal, the two SOL platforms and the world below."
+    }
+  ],
+  "domes": [
+    {
+      "id": "HABITAT_W",
+      "module": "habitat",
+      "p": [
+        -48,
+        0,
+        62
+      ]
+    },
+    {
+      "id": "LOGISTICS",
+      "module": "logistics",
+      "p": [
+        0,
+        0,
+        62
+      ]
+    },
+    {
+      "id": "RESEARCH_E",
+      "module": "research",
+      "p": [
+        48,
+        0,
+        62
+      ]
+    },
+    {
+      "id": "BIOSPHERE",
+      "module": "biosphere",
+      "p": [
+        -48,
+        0,
+        110
+      ]
+    },
+    {
+      "id": "FABRICATION",
+      "module": "fabrication",
+      "p": [
+        48,
+        0,
+        110
+      ]
+    },
+    {
+      "id": "POWER",
+      "module": "power",
+      "p": [
+        -48,
+        0,
+        158
+      ]
+    },
+    {
+      "id": "HABITAT_N",
+      "module": "habitat",
+      "p": [
+        0,
+        0,
+        158
+      ]
+    },
+    {
+      "id": "RESEARCH_N",
+      "module": "research",
+      "p": [
+        48,
+        0,
+        158
+      ]
+    }
+  ],
+  "links": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "scale": {
+    "canonical_models": 1,
+    "world_radius_m": 6000,
+    "orbital_datum_y_m": 1523.2,
+    "note": "Compressed scenic altitude on a miniature world, not an engineered orbital altitude. Models keep their canonical metre scale."
+  },
+  "travel": {
+    "normal_m_per_s": 2,
+    "accelerated_m_per_s": 40,
+    "multiplier": 20,
+    "normal_s": [
+      24,
+      32
+    ],
+    "ramp_s": [
+      32,
+      36
+    ],
+    "fast_s": [
+      36,
+      68
+    ],
+    "brake_s": [
+      68,
+      72
+    ],
+    "start_y_m": 55,
+    "end_y_m": 1515
+  },
+  "background_motion": {
+    "sol82_rad_per_s": 0.0018,
+    "sol88_rad_per_s": 0.0022,
+    "ratio": 1.2222222222,
+    "relative_to": "Fixed tether terminal; nearby scenic drift arcs",
+    "firing": false
+  },
+  "gunship": {
+    "asset": "KORP / GS01",
+    "passage_s": [
+      46,
+      60
+    ],
+    "gear": "Gear_Retract clamped at 2 s",
+    "flight_path": "Horizontal crossing behind tether around Y=805 m; independent of climber ascent"
+  },
+  "connections": {
+    "dome_socket_y_m": 9.7,
+    "span_m": 20,
+    "centre_spacing_m": 48,
+    "station_adapter": {
+      "from": [
+        0,
+        9.7,
+        23.2
+      ],
+      "to": [
+        0,
+        9.7,
+        48
+      ],
+      "note": "Derived elevated pedestrian hall butts against observation facade. Surface GLB is unchanged; interior doorway/pressure sealing are not modelled."
+    }
+  },
+  "lod_selection": {
+    "default": 1,
+    "master": 0,
+    "automatic_swap": false,
+    "distance": "No animated scene LOD2; original static module proxies remain separate and must not replace in-flight poses."
+  },
+  "tiers": [
+    {
+      "lod": 0,
+      "label": "Detailed recording composition",
+      "source_bytes": 8805316,
+      "unique_source_triangles": 206024,
+      "composed_visible_triangles": 267224,
+      "composed_primitive_draws": 283,
+      "expected_model_render_triangles": 267736,
+      "expected_model_render_draws": 291,
+      "derived": {
+        "triangles": 4116,
+        "draw_calls": 4,
+        "nodes": [
+          "CITY_SITE_AND_TRANSFER",
+          "CONTINUOUS_TETHER"
+        ]
+      },
+      "city_bounds": {
+        "min": [
+          -87,
+          -6.119999885559082,
+          -34
+        ],
+        "max": [
+          87,
+          54,
+          190
+        ]
+      },
+      "sources": [
+        {
+          "role": "surface",
+          "file": "assets/space-elevator/surface_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 524824,
+          "sha256": "d11de6442549ee15570fe79866299b7c4abd8bacd9d3cedbf441652ebd670e38",
+          "triangles": 12236,
+          "draw_calls": 4,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "orbital",
+          "file": "assets/space-elevator/orbital_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 702572,
+          "sha256": "c39c2a2d956d468fcdcb0408f15958f3940f2578aeb9b0a44740aade93914eda",
+          "triangles": 16628,
+          "draw_calls": 4,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "climber",
+          "file": "assets/space-elevator/climber_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 50360,
+          "sha256": "496d0335fd20ac495c216a11d2b4c02a3527ca1bbd8af166670780e5ec09b3ae",
+          "triangles": 1760,
+          "draw_calls": 6,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "habitat",
+          "file": "assets/dome-colony/habitat_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 557108,
+          "sha256": "b687f2f394b7215af9a10a0424e8548f8cfcf049e1bc7c8e4eab29b8dbf8c932",
+          "triangles": 11496,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "logistics",
+          "file": "assets/dome-colony/logistics_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 556892,
+          "sha256": "76a6e43fab7d96ceea4bf051c4774fb4c09694abc52bb9a00c24d5fc6d34d020",
+          "triangles": 11496,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "research",
+          "file": "assets/dome-colony/research_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 551252,
+          "sha256": "72ba9c991c7be46b3b340fcdb7fa0c7c9f031e92870387e5414d5ecfcbb3c764",
+          "triangles": 11816,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "biosphere",
+          "file": "assets/dome-colony/biosphere_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 665996,
+          "sha256": "8219e2a1292119f301235f55218ca13e74a8a707f21f30267ad45d3a4fb3dc45",
+          "triangles": 12184,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "fabrication",
+          "file": "assets/dome-colony/fabrication_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 519864,
+          "sha256": "f0d160c07b46cba1d56022585db4c92fd61762a3c4353771b53ee9dcf2cf74d3",
+          "triangles": 10904,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "power",
+          "file": "assets/dome-colony/power_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 560248,
+          "sha256": "e322bd2099aa7d5d57654039cea9505c7b84dbf6481aaf6f6323e7e7d45ba06e",
+          "triangles": 11768,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "bridge",
+          "file": "assets/dome-colony/bridge_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 68632,
+          "sha256": "cd55b1f854e8235b275aa5fd21dfe929a6e7e2210eded45422a5eb55bf51e0bd",
+          "triangles": 1428,
+          "draw_calls": 2,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "sol82",
+          "file": "assets/sol82/lod0/sol82_platform_detailed.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 447372,
+          "sha256": "c64fe484698d6f58470cf47ac61ca70f9cc1520c681e37d035c5f1b98de559d9",
+          "triangles": 9436,
+          "draw_calls": 7,
+          "clips": [
+            {
+              "name": "Arrays_Deploy",
+              "duration_s": 2.5
+            },
+            {
+              "name": "Aperture_Open",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Aperture_Close",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Idle_Cycle",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "sol88",
+          "file": "assets/sol88/lod0/sol88_platform_detailed.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 2303400,
+          "sha256": "e5efe4ce776c69dd983be5aa3cfaec9e8d6827c0e67e951a8e2c9f83bacc0aed",
+          "triangles": 65664,
+          "draw_calls": 7,
+          "clips": [
+            {
+              "name": "Idle_Cycle",
+              "duration_s": 24
+            },
+            {
+              "name": "Convergence",
+              "duration_s": 4
+            },
+            {
+              "name": "Firing_Cycle",
+              "duration_s": 10
+            },
+            {
+              "name": "Recovery",
+              "duration_s": 5
+            },
+            {
+              "name": "Aperture_Open",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Aperture_Close",
+              "duration_s": 0.6000000238418579
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "korp",
+          "file": "assets/korp/korp_d0_lod0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 289120,
+          "sha256": "b2cd65c283f9342af780e4eeacd961926a1b99d9f89608a08054805afd907ebd",
+          "triangles": 5228,
+          "draw_calls": 50,
+          "clips": [
+            {
+              "name": "Gear_Retract",
+              "duration_s": 2
+            },
+            {
+              "name": "Gear_Deploy",
+              "duration_s": 2
+            },
+            {
+              "name": "Heavy_Fire",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Rotary_Fire",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Rotary_Cycle",
+              "duration_s": 1
+            },
+            {
+              "name": "Ramp_Open",
+              "duration_s": 2
+            },
+            {
+              "name": "Ramp_Close",
+              "duration_s": 2
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "tank",
+          "file": "assets/hover-tank/mork_hover_tank_d0.glb",
+          "lod": 0,
+          "damage_level": 0,
+          "bytes": 1007676,
+          "sha256": "8dd7d7736ad4d943e84c6be2dad3e0f700c3aace06369bea1578c500ea397391",
+          "triangles": 23980,
+          "draw_calls": 69,
+          "clips": [
+            {
+              "name": "Power_On",
+              "duration_s": 2
+            },
+            {
+              "name": "Power_Off",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Hover_Idle",
+              "duration_s": 3
+            },
+            {
+              "name": "Fire_Heavy",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Plasma_Sweep",
+              "duration_s": 4
+            },
+            {
+              "name": "Turret_Aim",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        }
+      ]
+    },
+    {
+      "lod": 1,
+      "label": "Reduced animated composition",
+      "source_bytes": 3802996,
+      "unique_source_triangles": 73634,
+      "composed_visible_triangles": 101692,
+      "composed_primitive_draws": 249,
+      "expected_model_render_triangles": 101948,
+      "expected_model_render_draws": 257,
+      "derived": {
+        "triangles": 4116,
+        "draw_calls": 4,
+        "nodes": [
+          "CITY_SITE_AND_TRANSFER",
+          "CONTINUOUS_TETHER"
+        ]
+      },
+      "city_bounds": {
+        "min": [
+          -87,
+          -6.119999885559082,
+          -34
+        ],
+        "max": [
+          87,
+          54,
+          190
+        ]
+      },
+      "sources": [
+        {
+          "role": "surface",
+          "file": "assets/space-elevator/surface_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 261076,
+          "sha256": "69eefb129297932333131a672f2851ab9546cb0c70588ec63a25755586b6e5ae",
+          "triangles": 6128,
+          "draw_calls": 4,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "orbital",
+          "file": "assets/space-elevator/orbital_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 275012,
+          "sha256": "f2c9954c15b5daa297a1fad1f906292f5381655e567f5a77596b4125aa6ce9ef",
+          "triangles": 7100,
+          "draw_calls": 4,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "climber",
+          "file": "assets/space-elevator/climber_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 33560,
+          "sha256": "543531f7a5a12444534c0f40b23f038df7051aeb30cd4c9f109d8a0d2e15c2fb",
+          "triangles": 992,
+          "draw_calls": 6,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "habitat",
+          "file": "assets/dome-colony/habitat_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 298756,
+          "sha256": "7b8e231fea26d39e6df62eb1dd5c7dbf89908253330af34497caaa9fbaeb18fc",
+          "triangles": 5880,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "logistics",
+          "file": "assets/dome-colony/logistics_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 321004,
+          "sha256": "172ae45d92ff111c5b7b4ac093cadeb60dcf47693c75515b1f39754d8b7e3b39",
+          "triangles": 6168,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "research",
+          "file": "assets/dome-colony/research_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 304036,
+          "sha256": "8084a012971e5c5c6b39a35a34e84a344d889f26170aa35c2c2b63b06d89f8ee",
+          "triangles": 6232,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "biosphere",
+          "file": "assets/dome-colony/biosphere_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 362524,
+          "sha256": "476635f5033d6da590e1676c22a39f897a0e5956e17950b298c43f41613513a9",
+          "triangles": 6344,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "fabrication",
+          "file": "assets/dome-colony/fabrication_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 289352,
+          "sha256": "c9b6684660ec330e9f5b01c0f32b18d984edde57495793216673637e67d1cc79",
+          "triangles": 5704,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "power",
+          "file": "assets/dome-colony/power_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 309384,
+          "sha256": "0b014c0fab356bdf2e49ad71a35557ff13805b93b8ecb4b805e8a2d790a6351b",
+          "triangles": 6248,
+          "draw_calls": 8,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "bridge",
+          "file": "assets/dome-colony/bridge_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 39240,
+          "sha256": "5ec93ef4019d4bd2166244dcaa387d6f2175b3b3a13447ce6c7faee119ae99fe",
+          "triangles": 756,
+          "draw_calls": 2,
+          "clips": [],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "sol82",
+          "file": "assets/sol82/lod1/sol82_platform_game.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 264808,
+          "sha256": "25039485ec09da435d7811bb5a928b20f9eb47aa731c234533fbbfecc83370b6",
+          "triangles": 4940,
+          "draw_calls": 7,
+          "clips": [
+            {
+              "name": "Arrays_Deploy",
+              "duration_s": 2.5
+            },
+            {
+              "name": "Aperture_Open",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Aperture_Close",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Idle_Cycle",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "sol88",
+          "file": "assets/sol88/lod1/sol88_platform_game.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 386400,
+          "sha256": "c7fc3b73bdad389e3731d7976c2537fc8e664beb6b7b1fa61acb817bf544f752",
+          "triangles": 7928,
+          "draw_calls": 7,
+          "clips": [
+            {
+              "name": "Idle_Cycle",
+              "duration_s": 24
+            },
+            {
+              "name": "Convergence",
+              "duration_s": 4
+            },
+            {
+              "name": "Firing_Cycle",
+              "duration_s": 10
+            },
+            {
+              "name": "Recovery",
+              "duration_s": 5
+            },
+            {
+              "name": "Aperture_Open",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Aperture_Close",
+              "duration_s": 0.6000000238418579
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "korp",
+          "file": "assets/korp/korp_d0_lod1.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 198764,
+          "sha256": "e1dc17e06c53160b95970e79315bf72e75b3047d6522a1a4fd200bdd394165d6",
+          "triangles": 2472,
+          "draw_calls": 16,
+          "clips": [
+            {
+              "name": "Gear_Retract",
+              "duration_s": 2
+            },
+            {
+              "name": "Gear_Deploy",
+              "duration_s": 2
+            },
+            {
+              "name": "Heavy_Fire",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Rotary_Fire",
+              "duration_s": 0.6000000238418579
+            },
+            {
+              "name": "Rotary_Cycle",
+              "duration_s": 1
+            },
+            {
+              "name": "Ramp_Open",
+              "duration_s": 2
+            },
+            {
+              "name": "Ramp_Close",
+              "duration_s": 2
+            }
+          ],
+          "credit": "Models by jelaludo"
+        },
+        {
+          "role": "tank",
+          "file": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+          "lod": 1,
+          "damage_level": 0,
+          "bytes": 459080,
+          "sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+          "triangles": 6742,
+          "draw_calls": 69,
+          "clips": [
+            {
+              "name": "Power_On",
+              "duration_s": 2
+            },
+            {
+              "name": "Power_Off",
+              "duration_s": 1.2000000476837158
+            },
+            {
+              "name": "Hover_Idle",
+              "duration_s": 3
+            },
+            {
+              "name": "Fire_Heavy",
+              "duration_s": 1.399999976158142
+            },
+            {
+              "name": "Plasma_Sweep",
+              "duration_s": 4
+            },
+            {
+              "name": "Turret_Aim",
+              "duration_s": 8
+            }
+          ],
+          "credit": "Models by jelaludo"
+        }
+      ]
+    }
+  ],
+  "handoff": {
+    "folder": "assets/elevator-city-diorama/",
+    "viewer": "elevator-city-diorama/",
+    "pending": [
+      "Visual acceptance",
+      "Interior transfer, collision, navigation and physical orbital integration",
+      "Reference-phone/game-camera profiling",
+      "Consuming-game release gltfpack and decoded output checks"
+    ]
+  }
+}

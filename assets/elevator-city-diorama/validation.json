@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "Deterministic scene composition, unchanged source hashes, connection socket mating, scene traversal and camera samples; not collision or orbital physics certification.",
+  "samples": 450,
+  "connection_pairs": 32,
+  "max_socket_gap_m": 0,
+  "max_dock_gap_m": 0,
+  "normal_speed_mps": 2,
+  "fast_speed_mps": 40,
+  "acceleration_ratio": 20,
+  "sol_angular_speed_ratio": 1.2222222222222223,
+  "tiers": [
+    {
+      "lod": 0,
+      "source_bytes": 8805316,
+      "composed_visible_triangles": 267224,
+      "composed_primitive_draws": 283
+    },
+    {
+      "lod": 1,
+      "source_bytes": 3802996,
+      "composed_visible_triangles": 101692,
+      "composed_primitive_draws": 249
+    }
+  ],
+  "checks": [
+    "Both tiers preserve original source hashes and clip names/durations",
+    "Eight domes form one connected network with 16 opposing socket pairs per tier",
+    "All used port caps hidden; logistics hall matches station-adapter endpoint; only one vehicle bay",
+    "Canonical models retain unit scale; new ground/transfer geometry is separately identified",
+    "450 half-second samples have finite transforms and cameras; correct ascent and final dock",
+    "2 m/s normal and 40 m/s fast climb: measured exact 20× speed ratio; continuous travel and camera boundaries",
+    "SOL-82 and SOL-88 remain behind the terminal on distinct 0.0018 / 0.0022 rad/s paths",
+    "Original idle and gear clips support reversible seeking; scene clamps at 112 seconds"
+  ]
+}
