@@ -1,0 +1,24 @@
+{
+  "reference": {
+    "path": "/Users/jela/Downloads/ChatGPT Image Nov 7, 2026, 12_33_44 PM.png",
+    "sha256": "e64683f16c2cf281853272da804e6bf9e0570824615bb2dd47970d35cbeec733",
+    "preserved": true
+  },
+  "role": "User concept for surface base and orbital terminal; scale interpreted as four standard dome plots, one vehicle bay only",
+  "rights": "Reference creator/license not supplied; no additional image rights claimed",
+  "source_commit": "87a87206f38eb65972dc8bc2e5879ad27877360a",
+  "sources": [
+    {
+      "path": "assets/dome-colony/habitat_d0_lod2.glb",
+      "bytes": 116820,
+      "sha256": "9d2bd16e978dbcb95236b2ebe90fbe17ef634af347a5b217259901c4fe6a4372",
+      "role": "Unmodified viewer-only scale reference; excluded from new GLBs"
+    },
+    {
+      "path": "assets/hover-tank/mork_hover_tank_low_d0.glb",
+      "bytes": 459080,
+      "sha256": "213fc574e953bb71ca87f7fb86c511280b552646407da4d173d39689ad6d300c",
+      "role": "Unmodified viewer-only scale reference; excluded from new GLBs"
+    }
+  ]
+}

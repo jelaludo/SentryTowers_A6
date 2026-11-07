@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "browser": "Headless Chromium 1248 / Three r180",
+  "model_only_renders": [
+    {
+      "module": "surface",
+      "lod": 0,
+      "triangles": 12236,
+      "draw_calls": 4
+    },
+    {
+      "module": "orbital",
+      "lod": 0,
+      "triangles": 16628,
+      "draw_calls": 4
+    },
+    {
+      "module": "climber",
+      "lod": 0,
+      "triangles": 1760,
+      "draw_calls": 6
+    },
+    {
+      "module": "surface",
+      "lod": 1,
+      "triangles": 6128,
+      "draw_calls": 4
+    },
+    {
+      "module": "orbital",
+      "lod": 1,
+      "triangles": 7100,
+      "draw_calls": 4
+    },
+    {
+      "module": "climber",
+      "lod": 1,
+      "triangles": 992,
+      "draw_calls": 6
+    },
+    {
+      "module": "surface",
+      "lod": 2,
+      "triangles": 2700,
+      "draw_calls": 1
+    },
+    {
+      "module": "orbital",
+      "lod": 2,
+      "triangles": 2700,
+      "draw_calls": 1
+    },
+    {
+      "module": "climber",
+      "lod": 2,
+      "triangles": 600,
+      "draw_calls": 1
+    }
+  ],
+  "checks": [
+    "All nine modules/tier renders match manifest triangle and draw counts",
+    "Nine selected GLB download paths resolve with exact byte lengths",
+    "Master and distance screenshots; surface, orbital, climber and bay inspection",
+    "Open/closed door endpoints, solar tilt, climber docking endpoint, play/pause and reset",
+    "Four original-scale dome instances; wireframe toggles; image download and fullscreen",
+    "390 px layout has no horizontal overflow; shared navigation present"
+  ],
+  "errors": []
+}

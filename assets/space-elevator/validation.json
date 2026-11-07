@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain GLBs, geometry, frame parity, budgets, measured vehicle containment and sampled kinematic interfaces. No physical or general collision certification.",
+  "files": [
+    {
+      "file": "surface_d0_lod0.glb",
+      "triangles": 12236,
+      "draw_calls": 4,
+      "bytes": 524824,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "surface_d0_lod1.glb",
+      "triangles": 6128,
+      "draw_calls": 4,
+      "bytes": 261076,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "surface_d0_lod2.glb",
+      "triangles": 2700,
+      "draw_calls": 1,
+      "bytes": 98008,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "orbital_d0_lod0.glb",
+      "triangles": 16628,
+      "draw_calls": 4,
+      "bytes": 702572,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "orbital_d0_lod1.glb",
+      "triangles": 7100,
+      "draw_calls": 4,
+      "bytes": 275012,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "orbital_d0_lod2.glb",
+      "triangles": 2700,
+      "draw_calls": 1,
+      "bytes": 98956,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "climber_d0_lod0.glb",
+      "triangles": 1760,
+      "draw_calls": 6,
+      "bytes": 50360,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "climber_d0_lod1.glb",
+      "triangles": 992,
+      "draw_calls": 6,
+      "bytes": 33560,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "climber_d0_lod2.glb",
+      "triangles": 600,
+      "draw_calls": 1,
+      "bytes": 34360,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "samples": 98,
+  "checks": [
+    "Nine plain GLBs validate with zero errors/warnings; no nonfinite or degenerate triangles",
+    "Unique dot-free names, stable local parent/TRS and socket frames across tiers",
+    "Exact tier envelopes within 0.01 mm; root minima at datum Y=0",
+    "All game and distance targets met; one material per module, one distance draw",
+    "One vehicle bay, full-size MORK fits, both open leaves clear 11 m opening",
+    "Solar sweeps remain outside ring; traction rollers tangent to tether, spin matches distance",
+    "Climber dock mates with orbital lower collar and body stays below it",
+    "Static adapters leave all transforms unchanged; original reference hashes preserved"
+  ],
+  "vehicle_fit": {
+    "vehicle": "MÖRK original scale",
+    "position_m": [
+      0,
+      0.54,
+      14
+    ],
+    "bounds": {
+      "min": [
+        -2.909192383289337,
+        0.5454441913962365,
+        9.373763084411621
+      ],
+      "max": [
+        2.9099475741386414,
+        3.5559517526626587,
+        22.64112377539277
+      ]
+    },
+    "clearance": {
+      "side_m": 2.5900524258613586,
+      "overhead_m": 2.8440482473373416,
+      "rear_m": 2.2237630844116207,
+      "front_m": 2.508876224607228
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**Space Elevator / Surface + Orbit** adds a 60 × 60 m single-bay base station, an annular orbital terminal and a shared tether climber. Includes a four-dome scale comparison, working doors and solar hinges, local climber movement, nine master/game/static GLBs and measured integration notes. Open `space-elevator/`; hand-off folder is `assets/space-elevator/`.
+
 **STALHEART — From builder to settlement** adds a separate 144-second animated diorama: original-size ISAO prints the left leg, right leg and then the connecting top in wireframe, its materials appear, then STALHEART prints a wireframe MÖRK, drives 52 m and builds a half-scale Dome City habitat. Cinematic cameras, chapter jumps, reversible scrubbing and detailed/game selections are in `stalheart-diorama/`; source pins and measured hand-off are in `assets/stalheart-diorama/`.
 
 **STALHEART-KIDOU — Mobile fabrication gantry** replaces Stalheart’s rail bed and bogies with eight enlarged XB-12 wheels directly beneath the chassis beams, with short vertical mounts, independent swing arms and dampers. Preserves the twin towers, silos, catwalks and six-joint fabrication arm; demonstrates straight/crab travel, pivot turns, uneven-ground contact and a tool sweep above an original-scale MÖRK. Detailed/game/static exports are in `assets/stalheart-kidou/`; open `stalheart-kidou/`.

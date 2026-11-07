@@ -1,4 +1,5 @@
 const collectionImages={
+'space-elevator':'assets/space-elevator/preview.png',
 'stalheart-diorama':'assets/stalheart-diorama/preview.png',
 'stalheart-kidou':'assets/stalheart-kidou/preview.png',
 'sai93':'assets/sai93/preview.png',
@@ -49,6 +50,7 @@ const collectionImages={
 };
 
 export const collections=[
+['space-elevator','Space Elevator / Surface + Orbit','Industry','A compact single-bay surface station, a ring-shaped orbital harbour and a shared tether climber. Compare four Dome City plots, operate the hangar doors and solar wings, and inspect both terminals.','3 modules · 9 GLBs · Four-dome scale · Local climber cycle','Interactive prototype'],
 ['stalheart-diorama','STALHEART / From Builder to Settlement','Industry','A longer animated diorama: ISAO prints the left leg, right leg and top of the mobile gantry in order, its surfaces appear, then STALHEART prints a MÖRK, moves to a second site and builds a scaled Dome City habitat.','144 seconds · Cinematic camera · Scrubber + chapters · 2 tiers','Animated diorama'],
 ['stalheart-kidou','STALHEART-KIDOU / Mobile Gantry','Industry','The Stalheart fabrication gantry on eight enlarged XB-12 wheels directly beneath its chassis beams. Independent suspension, straight and crab travel, pivot turns, twin silos and the original six-joint arm.','8 wheels · Working arm · Terrain contact · 3 tiers','Interactive prototype'],
 ['sai93','SAI-93 — Long Chassis Miner','Industry','A longer, narrower SAI mining hopper with a flat service deck and flush sensors. Folding legs, gas flight, anchored twin-auger extraction and autonomous return to the shared ore service bay.','No swivel head · Articulated mining cycle · 3 tiers','Interactive prototype'],
