@@ -1,0 +1,1171 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "robot-assembly",
+  "designation": "AUREL-03",
+  "label": "Robotic anatomy / Modular adult frame",
+  "version": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Shared ground datum below assembly centre; standalone modules keep assembly-space placement"
+  },
+  "dimensions": {
+    "height": 1.8,
+    "headHeight": 0.23,
+    "hipY": 0.945,
+    "hipX": 0.09,
+    "thigh": 0.42,
+    "shin": 0.385,
+    "ankleY": 0.14,
+    "shoulderY": 1.475,
+    "shoulderX": 0.19,
+    "upperArm": 0.3,
+    "forearm": 0.255,
+    "handScale": 0.82,
+    "footScale": 1,
+    "chestWidth": 0.306
+  },
+  "proportions": {
+    "intent": "Lean adult design study, not a population-average anatomical specification",
+    "head_units": 7.826086956521739,
+    "rib_pairs": 12,
+    "body": "Tapered thoracic basket, lumbar interval, open pelvis and separate limb shafts"
+  },
+  "damage_states": {
+    "d0": "intact",
+    "d1_d3": "not authored"
+  },
+  "budgets": {
+    "unit_game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "lod_selection": {
+    "initial": 2,
+    "articulated": 1,
+    "close_inspection": 0,
+    "game_distance_m": 30,
+    "hysteresis_m": 8,
+    "provisional": true,
+    "static_policy": "Use LOD1 for motion or assembly; LOD2 freezes the same rest pose and retains lookup markers only"
+  },
+  "components": {
+    "hands": "Original AUREL-01 full master / economical biped game, uniformly scaled 0.82; mirrored on right",
+    "feet": "Original AUREL-02 full master / economical biped game, original scale; mirrored on right",
+    "heads": [
+      "head",
+      "head_sensor"
+    ]
+  },
+  "runtime": {
+    "file": "../../runtime.js",
+    "motions": {
+      "assembly": {
+        "name": "Anatomy_Assembly_Cycle",
+        "duration_s": 20,
+        "loop": true
+      },
+      "inspection": {
+        "name": "Anatomy_Articulation_Cycle",
+        "duration_s": 12,
+        "loop": true
+      }
+    },
+    "baked_clips": [],
+    "scope": "Engine-driven modular separation, upper-body articulation and original hand/foot axes; no force/contact simulation"
+  },
+  "sources": {
+    "body": "tools/asset-pipeline/robot-assembly-shape.mjs",
+    "builder": "tools/asset-pipeline/build-robot-assembly.mjs",
+    "anatomy_reference": "https://openstax.org/books/anatomy-and-physiology/pages/7-4-the-thoracic-cage",
+    "reference_use": "Facts about thoracic arrangement only; no images, text passages or mesh data incorporated",
+    "originals_preserved": true,
+    "source_sha256": {
+      "tools/asset-pipeline/robot-assembly-shape.mjs": "517a17ff693f56d70f7c6f9da4e2d4eddb51b0893b209ccebbd454ddbd29ca2b",
+      "tools/asset-pipeline/build-robot-assembly.mjs": "097b3d082b66dd66afa52fc5cedb36ad97b3969cc084ecc0c17fdc66b2e4b0a7",
+      "assets/robot-assembly/runtime.js": "6908563a084818a003df46fa0d90f817dbb7965f9fac130d2e89c98629fb709e",
+      "tools/asset-pipeline/hand-lab-shape.mjs": "d0a652799947fabf92cff8b7d685a52005ef851a64cb1b2797e3262e46b3bab7",
+      "tools/asset-pipeline/foot-lab-shape.mjs": "ca31163ea6f068120323935d39bfd3dd687b0b2703952231b7e9ac7b4035f79f",
+      "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+      "assets/hand-lab/biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
+      "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01"
+    }
+  },
+  "assets": [
+    {
+      "module": "hand_l",
+      "file": "aurel03_hand_l_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3798240,
+      "sha256": "d8b307f9111a85f3804954e4f9680f274136d7e71c185460fddcaaa4be0d3be2",
+      "triangles": 87216,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          0.18774067280189652,
+          0.7512445066966713,
+          -0.004669343055959346
+        ],
+        "max": [
+          0.2589772757644884,
+          0.9244721008028272,
+          0.10280739510178868
+        ],
+        "dimensions_m": [
+          0.0712366029625919,
+          0.17322759410615585,
+          0.10747673815774803
+        ]
+      },
+      "sockets": [
+        {
+          "node": "HAND_L_SOCKET_INDEX_TIP",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.20251675757977805,
+            0.7576736774434019,
+            0.0638830979910392
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_CONTACT",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.1999770655865308,
+            0.7591765297060767,
+            0.06370254424278457
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_PAD",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.2072267549427667,
+            0.7669449656950907,
+            0.06293247057014235
+          ],
+          "quaternion": [
+            0.6197113879106331,
+            -0.4068109006149707,
+            -0.5749107953078691,
+            -0.3463239296860479
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_TIP",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.19172184842563914,
+            0.7547075739968794,
+            0.04599101466854204
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1896775820571,
+            0.7568336242909653,
+            0.04578586798571061
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_PAD",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1990893684842785,
+            0.7627250121455402,
+            0.04531934335640765
+          ],
+          "quaternion": [
+            0.5636140218729628,
+            -0.4764980723025804,
+            -0.5192131550733011,
+            -0.43093679471464985
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_TIP",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.18926973949150097,
+            0.7662649883985384,
+            0.02647629671961291
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_CONTACT",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1877406713236347,
+            0.7687867485745803,
+            0.026266830367786934
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_PAD",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1981980946889966,
+            0.7721145505714547,
+            0.02606488215015406
+          ],
+          "quaternion": [
+            -0.5101442517468351,
+            0.5283741109823382,
+            0.46673919850293244,
+            0.49267449886728026
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_TIP",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1957448747832979,
+            0.7880399630564783,
+            0.008279561501257636
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_CONTACT",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1948045739169309,
+            0.7908377317158247,
+            0.00810773365285034
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_PAD",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.20443175700996674,
+            0.7915069479455071,
+            0.008110979172602097
+          ],
+          "quaternion": [
+            -0.4473524183896678,
+            0.5728432947988267,
+            0.4118300825314024,
+            0.5496565805001505
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_TIP",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20209557792482216,
+            0.795071132443394,
+            0.09820064215665779
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_CONTACT",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.19940032271404196,
+            0.795390080355542,
+            0.09702800769609538
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_PAD",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20541020687711187,
+            0.8040839504630661,
+            0.0912788811659188
+          ],
+          "quaternion": [
+            0.7827431868507394,
+            -0.4563933579821127,
+            -0.41478801981767294,
+            -0.08348116460791173
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_PALM",
+          "parent": "HAND_L_PALM_FRAME",
+          "position_m": [
+            0.2232766798965373,
+            0.8351585426963645,
+            0.030731273541783937
+          ],
+          "quaternion": [
+            0.7070868939015486,
+            -0.005303251140593398,
+            -0.7047017729767585,
+            0.058270156713476184
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_WRIST_ATTACH",
+          "parent": "HAND_L_WRIST_MOUNT",
+          "position_m": [
+            0.2315086561010522,
+            0.9225893577407351,
+            0.022919030045492818
+          ],
+          "quaternion": [
+            0.5411891605188197,
+            -0.5020493672298977,
+            -0.4945494375422001,
+            -0.458782714613016
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_HAND_L",
+        "DISTANCE_SURFACE",
+        "HAND_L_GEOMETRY",
+        "HAND_L_GEOMETRY_FRAME",
+        "HAND_L_INDEX_DIP_FLEX",
+        "HAND_L_INDEX_DISTAL_SHELL",
+        "HAND_L_INDEX_MCP_FLEX",
+        "HAND_L_INDEX_MCP_SPREAD",
+        "HAND_L_INDEX_MIDDLE_SHELL",
+        "HAND_L_INDEX_PIP_FLEX",
+        "HAND_L_INDEX_PROXIMAL_SHELL",
+        "HAND_L_LITTLE_DIP_FLEX",
+        "HAND_L_LITTLE_DISTAL_SHELL",
+        "HAND_L_LITTLE_MCP_FLEX",
+        "HAND_L_LITTLE_MCP_SPREAD",
+        "HAND_L_LITTLE_MIDDLE_SHELL",
+        "HAND_L_LITTLE_PIP_FLEX",
+        "HAND_L_LITTLE_PROXIMAL_SHELL",
+        "HAND_L_MIDDLE_DIP_FLEX",
+        "HAND_L_MIDDLE_DISTAL_SHELL",
+        "HAND_L_MIDDLE_MCP_FLEX",
+        "HAND_L_MIDDLE_MCP_SPREAD",
+        "HAND_L_MIDDLE_MIDDLE_SHELL",
+        "HAND_L_MIDDLE_PIP_FLEX",
+        "HAND_L_MIDDLE_PROXIMAL_SHELL",
+        "HAND_L_PALM_DORSAL_SHELL",
+        "HAND_L_PALM_FRAME",
+        "HAND_L_RING_DIP_FLEX",
+        "HAND_L_RING_DISTAL_SHELL",
+        "HAND_L_RING_MCP_FLEX",
+        "HAND_L_RING_MCP_SPREAD",
+        "HAND_L_RING_MIDDLE_SHELL",
+        "HAND_L_RING_PIP_FLEX",
+        "HAND_L_RING_PROXIMAL_SHELL",
+        "HAND_L_SOCKET_INDEX_CONTACT",
+        "HAND_L_SOCKET_INDEX_PAD",
+        "HAND_L_SOCKET_INDEX_TIP",
+        "HAND_L_SOCKET_LITTLE_CONTACT",
+        "HAND_L_SOCKET_LITTLE_PAD",
+        "HAND_L_SOCKET_LITTLE_TIP",
+        "HAND_L_SOCKET_MIDDLE_CONTACT",
+        "HAND_L_SOCKET_MIDDLE_PAD",
+        "HAND_L_SOCKET_MIDDLE_TIP",
+        "HAND_L_SOCKET_PALM",
+        "HAND_L_SOCKET_RING_CONTACT",
+        "HAND_L_SOCKET_RING_PAD",
+        "HAND_L_SOCKET_RING_TIP",
+        "HAND_L_SOCKET_THUMB_CONTACT",
+        "HAND_L_SOCKET_THUMB_PAD",
+        "HAND_L_SOCKET_THUMB_TIP",
+        "HAND_L_SOCKET_WRIST_ATTACH",
+        "HAND_L_THUMB_AXIAL_ROLL",
+        "HAND_L_THUMB_CMC_ABDUCTION",
+        "HAND_L_THUMB_CMC_OPPOSITION",
+        "HAND_L_THUMB_DISTAL_SHELL",
+        "HAND_L_THUMB_IP_FLEX",
+        "HAND_L_THUMB_MCP_FLEX",
+        "HAND_L_THUMB_METACARPAL_SHELL",
+        "HAND_L_THUMB_PROXIMAL_SHELL",
+        "HAND_L_WRIST_DEVIATION",
+        "HAND_L_WRIST_FLEX",
+        "HAND_L_WRIST_MOUNT",
+        "PART_HAND_L"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "hand_l",
+      "file": "aurel03_hand_l_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 158664,
+      "sha256": "3f2af9a73af6dc17c750113df0a637f52c45521e3e6b073b153aa10dbf028e6c",
+      "triangles": 2708,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          0.18774067280189652,
+          0.7514576529311988,
+          -0.003643036772405324
+        ],
+        "max": [
+          0.2590173002820847,
+          0.9244721008028272,
+          0.10295825465894562
+        ],
+        "dimensions_m": [
+          0.07127662748018818,
+          0.17301444787162834,
+          0.10660129143135094
+        ]
+      },
+      "sockets": [
+        {
+          "node": "HAND_L_SOCKET_INDEX_TIP",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.20251675757977805,
+            0.7576736774434019,
+            0.0638830979910392
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_CONTACT",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.1999770655865308,
+            0.7591765297060767,
+            0.06370254424278457
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_PAD",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.2072267549427667,
+            0.7669449656950907,
+            0.06293247057014235
+          ],
+          "quaternion": [
+            0.6197113879106331,
+            -0.4068109006149707,
+            -0.5749107953078691,
+            -0.3463239296860479
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_TIP",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.19172184842563914,
+            0.7547075739968794,
+            0.04599101466854204
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1896775820571,
+            0.7568336242909653,
+            0.04578586798571061
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_PAD",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1990893684842785,
+            0.7627250121455402,
+            0.04531934335640765
+          ],
+          "quaternion": [
+            0.5636140218729628,
+            -0.4764980723025804,
+            -0.5192131550733011,
+            -0.43093679471464985
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_TIP",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.18926973949150097,
+            0.7662649883985384,
+            0.02647629671961291
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_CONTACT",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1877406713236347,
+            0.7687867485745803,
+            0.026266830367786934
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_PAD",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1981980946889966,
+            0.7721145505714547,
+            0.02606488215015406
+          ],
+          "quaternion": [
+            -0.5101442517468351,
+            0.5283741109823382,
+            0.46673919850293244,
+            0.49267449886728026
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_TIP",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1957448747832979,
+            0.7880399630564783,
+            0.008279561501257636
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_CONTACT",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1948045739169309,
+            0.7908377317158247,
+            0.00810773365285034
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_PAD",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.20443175700996674,
+            0.7915069479455071,
+            0.008110979172602097
+          ],
+          "quaternion": [
+            -0.4473524183896678,
+            0.5728432947988267,
+            0.4118300825314024,
+            0.5496565805001505
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_TIP",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20209557792482216,
+            0.795071132443394,
+            0.09820064215665779
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_CONTACT",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.19940032271404196,
+            0.795390080355542,
+            0.09702800769609538
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_PAD",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20541020687711187,
+            0.8040839504630661,
+            0.0912788811659188
+          ],
+          "quaternion": [
+            0.7827431868507394,
+            -0.4563933579821127,
+            -0.41478801981767294,
+            -0.08348116460791173
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_PALM",
+          "parent": "HAND_L_PALM_FRAME",
+          "position_m": [
+            0.2232766798965373,
+            0.8351585426963645,
+            0.030731273541783937
+          ],
+          "quaternion": [
+            0.7070868939015486,
+            -0.005303251140593398,
+            -0.7047017729767585,
+            0.058270156713476184
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_WRIST_ATTACH",
+          "parent": "HAND_L_WRIST_MOUNT",
+          "position_m": [
+            0.2315086561010522,
+            0.9225893577407351,
+            0.022919030045492818
+          ],
+          "quaternion": [
+            0.5411891605188197,
+            -0.5020493672298977,
+            -0.4945494375422001,
+            -0.458782714613016
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_HAND_L",
+        "DISTANCE_SURFACE",
+        "HAND_L_GEOMETRY",
+        "HAND_L_GEOMETRY_FRAME",
+        "HAND_L_INDEX_DIP_FLEX",
+        "HAND_L_INDEX_DISTAL_SHELL",
+        "HAND_L_INDEX_MCP_FLEX",
+        "HAND_L_INDEX_MCP_SPREAD",
+        "HAND_L_INDEX_MIDDLE_SHELL",
+        "HAND_L_INDEX_PIP_FLEX",
+        "HAND_L_INDEX_PROXIMAL_SHELL",
+        "HAND_L_LITTLE_DIP_FLEX",
+        "HAND_L_LITTLE_DISTAL_SHELL",
+        "HAND_L_LITTLE_MCP_FLEX",
+        "HAND_L_LITTLE_MCP_SPREAD",
+        "HAND_L_LITTLE_MIDDLE_SHELL",
+        "HAND_L_LITTLE_PIP_FLEX",
+        "HAND_L_LITTLE_PROXIMAL_SHELL",
+        "HAND_L_MIDDLE_DIP_FLEX",
+        "HAND_L_MIDDLE_DISTAL_SHELL",
+        "HAND_L_MIDDLE_MCP_FLEX",
+        "HAND_L_MIDDLE_MCP_SPREAD",
+        "HAND_L_MIDDLE_MIDDLE_SHELL",
+        "HAND_L_MIDDLE_PIP_FLEX",
+        "HAND_L_MIDDLE_PROXIMAL_SHELL",
+        "HAND_L_PALM_DORSAL_SHELL",
+        "HAND_L_PALM_FRAME",
+        "HAND_L_RING_DIP_FLEX",
+        "HAND_L_RING_DISTAL_SHELL",
+        "HAND_L_RING_MCP_FLEX",
+        "HAND_L_RING_MCP_SPREAD",
+        "HAND_L_RING_MIDDLE_SHELL",
+        "HAND_L_RING_PIP_FLEX",
+        "HAND_L_RING_PROXIMAL_SHELL",
+        "HAND_L_SOCKET_INDEX_CONTACT",
+        "HAND_L_SOCKET_INDEX_PAD",
+        "HAND_L_SOCKET_INDEX_TIP",
+        "HAND_L_SOCKET_LITTLE_CONTACT",
+        "HAND_L_SOCKET_LITTLE_PAD",
+        "HAND_L_SOCKET_LITTLE_TIP",
+        "HAND_L_SOCKET_MIDDLE_CONTACT",
+        "HAND_L_SOCKET_MIDDLE_PAD",
+        "HAND_L_SOCKET_MIDDLE_TIP",
+        "HAND_L_SOCKET_PALM",
+        "HAND_L_SOCKET_RING_CONTACT",
+        "HAND_L_SOCKET_RING_PAD",
+        "HAND_L_SOCKET_RING_TIP",
+        "HAND_L_SOCKET_THUMB_CONTACT",
+        "HAND_L_SOCKET_THUMB_PAD",
+        "HAND_L_SOCKET_THUMB_TIP",
+        "HAND_L_SOCKET_WRIST_ATTACH",
+        "HAND_L_THUMB_AXIAL_ROLL",
+        "HAND_L_THUMB_CMC_ABDUCTION",
+        "HAND_L_THUMB_CMC_OPPOSITION",
+        "HAND_L_THUMB_DISTAL_SHELL",
+        "HAND_L_THUMB_IP_FLEX",
+        "HAND_L_THUMB_MCP_FLEX",
+        "HAND_L_THUMB_METACARPAL_SHELL",
+        "HAND_L_THUMB_PROXIMAL_SHELL",
+        "HAND_L_WRIST_DEVIATION",
+        "HAND_L_WRIST_FLEX",
+        "HAND_L_WRIST_MOUNT",
+        "PART_HAND_L"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "hand_l",
+      "file": "aurel03_hand_l_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "bytes": 31664,
+      "sha256": "a2d47596aff2ca2fddd1937c67b9fedbf306f260abb080974af980e198ff6a92",
+      "triangles": 352,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          0.18774066865444183,
+          0.7514576315879822,
+          -0.003643038682639599
+        ],
+        "max": [
+          0.25901731848716736,
+          0.9244720935821533,
+          0.10295823216438293
+        ],
+        "dimensions_m": [
+          0.07127664983272552,
+          0.17301446199417114,
+          0.10660127084702253
+        ]
+      },
+      "sockets": [
+        {
+          "node": "HAND_L_SOCKET_INDEX_TIP",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.20251675757977805,
+            0.7576736774434019,
+            0.0638830979910392
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_CONTACT",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.1999770655865308,
+            0.7591765297060767,
+            0.06370254424278457
+          ],
+          "quaternion": [
+            -0.6830901239383134,
+            -0.11886457545409292,
+            0.6941820684249979,
+            -0.19331412560195813
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_INDEX_PAD",
+          "parent": "HAND_L_INDEX_DIP_FLEX",
+          "position_m": [
+            0.2072267549427667,
+            0.7669449656950907,
+            0.06293247057014235
+          ],
+          "quaternion": [
+            0.6197113879106331,
+            -0.4068109006149707,
+            -0.5749107953078691,
+            -0.3463239296860479
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_TIP",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.19172184842563914,
+            0.7547075739968794,
+            0.04599101466854204
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_CONTACT",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1896775820571,
+            0.7568336242909653,
+            0.04578586798571061
+          ],
+          "quaternion": [
+            -0.7032536266437192,
+            -0.030204124686121304,
+            0.7040741609810662,
+            -0.09381696703267092
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_MIDDLE_PAD",
+          "parent": "HAND_L_MIDDLE_DIP_FLEX",
+          "position_m": [
+            0.1990893684842785,
+            0.7627250121455402,
+            0.04531934335640765
+          ],
+          "quaternion": [
+            0.5636140218729628,
+            -0.4764980723025804,
+            -0.5192131550733011,
+            -0.43093679471464985
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_TIP",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.18926973949150097,
+            0.7662649883985384,
+            0.02647629671961291
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_CONTACT",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1877406713236347,
+            0.7687867485745803,
+            0.026266830367786934
+          ],
+          "quaternion": [
+            0.7090999388602621,
+            -0.04358246457202723,
+            -0.7036513691860226,
+            0.01235298072678635
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_RING_PAD",
+          "parent": "HAND_L_RING_DIP_FLEX",
+          "position_m": [
+            0.1981980946889966,
+            0.7721145505714547,
+            0.02606488215015406
+          ],
+          "quaternion": [
+            -0.5101442517468351,
+            0.5283741109823382,
+            0.46673919850293244,
+            0.49267449886728026
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_TIP",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1957448747832979,
+            0.7880399630564783,
+            0.008279561501257636
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_CONTACT",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.1948045739169309,
+            0.7908377317158247,
+            0.00810773365285034
+          ],
+          "quaternion": [
+            0.7049918240190015,
+            -0.11385353425492471,
+            -0.6962692223640651,
+            -0.07233996677193028
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_LITTLE_PAD",
+          "parent": "HAND_L_LITTLE_DIP_FLEX",
+          "position_m": [
+            0.20443175700996674,
+            0.7915069479455071,
+            0.008110979172602097
+          ],
+          "quaternion": [
+            -0.4473524183896678,
+            0.5728432947988267,
+            0.4118300825314024,
+            0.5496565805001505
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_TIP",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20209557792482216,
+            0.795071132443394,
+            0.09820064215665779
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_CONTACT",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.19940032271404196,
+            0.795390080355542,
+            0.09702800769609538
+          ],
+          "quaternion": [
+            -0.6125131129453317,
+            0.029419416749635132,
+            0.616018259885668,
+            -0.4944529177541217
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_THUMB_PAD",
+          "parent": "HAND_L_THUMB_IP_FLEX",
+          "position_m": [
+            0.20541020687711187,
+            0.8040839504630661,
+            0.0912788811659188
+          ],
+          "quaternion": [
+            0.7827431868507394,
+            -0.4563933579821127,
+            -0.41478801981767294,
+            -0.08348116460791173
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_PALM",
+          "parent": "HAND_L_PALM_FRAME",
+          "position_m": [
+            0.2232766798965373,
+            0.8351585426963645,
+            0.030731273541783937
+          ],
+          "quaternion": [
+            0.7070868939015486,
+            -0.005303251140593398,
+            -0.7047017729767585,
+            0.058270156713476184
+          ]
+        },
+        {
+          "node": "HAND_L_SOCKET_WRIST_ATTACH",
+          "parent": "HAND_L_WRIST_MOUNT",
+          "position_m": [
+            0.2315086561010522,
+            0.9225893577407351,
+            0.022919030045492818
+          ],
+          "quaternion": [
+            0.5411891605188197,
+            -0.5020493672298977,
+            -0.4945494375422001,
+            -0.458782714613016
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_HAND_L",
+        "DISTANCE_SURFACE",
+        "HAND_L_GEOMETRY",
+        "HAND_L_GEOMETRY_FRAME",
+        "HAND_L_INDEX_DIP_FLEX",
+        "HAND_L_INDEX_DISTAL_SHELL",
+        "HAND_L_INDEX_MCP_FLEX",
+        "HAND_L_INDEX_MCP_SPREAD",
+        "HAND_L_INDEX_MIDDLE_SHELL",
+        "HAND_L_INDEX_PIP_FLEX",
+        "HAND_L_INDEX_PROXIMAL_SHELL",
+        "HAND_L_LITTLE_DIP_FLEX",
+        "HAND_L_LITTLE_DISTAL_SHELL",
+        "HAND_L_LITTLE_MCP_FLEX",
+        "HAND_L_LITTLE_MCP_SPREAD",
+        "HAND_L_LITTLE_MIDDLE_SHELL",
+        "HAND_L_LITTLE_PIP_FLEX",
+        "HAND_L_LITTLE_PROXIMAL_SHELL",
+        "HAND_L_MIDDLE_DIP_FLEX",
+        "HAND_L_MIDDLE_DISTAL_SHELL",
+        "HAND_L_MIDDLE_MCP_FLEX",
+        "HAND_L_MIDDLE_MCP_SPREAD",
+        "HAND_L_MIDDLE_MIDDLE_SHELL",
+        "HAND_L_MIDDLE_PIP_FLEX",
+        "HAND_L_MIDDLE_PROXIMAL_SHELL",
+        "HAND_L_PALM_DORSAL_SHELL",
+        "HAND_L_PALM_FRAME",
+        "HAND_L_RING_DIP_FLEX",
+        "HAND_L_RING_DISTAL_SHELL",
+        "HAND_L_RING_MCP_FLEX",
+        "HAND_L_RING_MCP_SPREAD",
+        "HAND_L_RING_MIDDLE_SHELL",
+        "HAND_L_RING_PIP_FLEX",
+        "HAND_L_RING_PROXIMAL_SHELL",
+        "HAND_L_SOCKET_INDEX_CONTACT",
+        "HAND_L_SOCKET_INDEX_PAD",
+        "HAND_L_SOCKET_INDEX_TIP",
+        "HAND_L_SOCKET_LITTLE_CONTACT",
+        "HAND_L_SOCKET_LITTLE_PAD",
+        "HAND_L_SOCKET_LITTLE_TIP",
+        "HAND_L_SOCKET_MIDDLE_CONTACT",
+        "HAND_L_SOCKET_MIDDLE_PAD",
+        "HAND_L_SOCKET_MIDDLE_TIP",
+        "HAND_L_SOCKET_PALM",
+        "HAND_L_SOCKET_RING_CONTACT",
+        "HAND_L_SOCKET_RING_PAD",
+        "HAND_L_SOCKET_RING_TIP",
+        "HAND_L_SOCKET_THUMB_CONTACT",
+        "HAND_L_SOCKET_THUMB_PAD",
+        "HAND_L_SOCKET_THUMB_TIP",
+        "HAND_L_SOCKET_WRIST_ATTACH",
+        "HAND_L_THUMB_AXIAL_ROLL",
+        "HAND_L_THUMB_CMC_ABDUCTION",
+        "HAND_L_THUMB_CMC_OPPOSITION",
+        "HAND_L_THUMB_DISTAL_SHELL",
+        "HAND_L_THUMB_IP_FLEX",
+        "HAND_L_THUMB_MCP_FLEX",
+        "HAND_L_THUMB_METACARPAL_SHELL",
+        "HAND_L_THUMB_PROXIMAL_SHELL",
+        "HAND_L_WRIST_DEVIATION",
+        "HAND_L_WRIST_FLEX",
+        "HAND_L_WRIST_MOUNT",
+        "PART_HAND_L"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    }
+  ],
+  "module": "hand_l"
+}

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**AUREL-03 / Robotic anatomy** starts a separate modular adult frame with a metal rib cage, curved spine, pelvis, lean arms and legs, original AUREL hands/feet and two interchangeable heads. The viewer has assembled/exploded states, isolated parts, proportion guides, a 20-second assembly and 12-second joint study. Both complete bodies and all twelve modules have detailed/game/static exports. Open `robot-assembly/`; measured hand-off and mounting notes are in `assets/robot-assembly/`.
+
 **SHUTTLE-02 / Industrial VTOL** adds a long armored transport with two independently rotating thruster pods, exposed mounts and the shared underbelly airlock. Includes a 24-second lift/transition cycle, 72-second orbital docking cycle, manual controls and master/game/static-hover GLBs. Open `shuttle-02/`; measured hand-off is in `assets/shuttle-02/`.
 
 **SHUTTLE-01 / Orbital shuttle** starts the shuttle series with a smooth ivory lifting body, twin recessed engines and an underbelly docking hatch. Inspect the extending collar, sliding doors, four latches and gimballed nozzles, or play the 72-second docking/departure cycle at the Space Elevator orbital terminal. Master, articulated game and static distance GLBs are in `assets/shuttle-01/`; open `shuttle-01/`.

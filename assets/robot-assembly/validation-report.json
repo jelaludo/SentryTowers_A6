@@ -1,0 +1,439 @@
+{
+  "status": "passed",
+  "scope": "Plain exports, measured geometry and interfaces, modular placement, finite kinematic samples and original-source preservation. No packed release, force simulation or arbitrary collision proof.",
+  "files": [
+    {
+      "file": "aurel03_assembly_d0_lod0.glb",
+      "sha256": "301b8c99054e2051fee59b1009a118793bd37fbd819f291de234424d3de2a523",
+      "triangles": 343032,
+      "draw_calls": 11,
+      "bytes": 11765620,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/pelvis/aurel03_pelvis_d0_lod0.glb",
+      "sha256": "139a4fd55d20211dd21bd14267ce803efa155262229936e12c9bf915c588f7c9",
+      "triangles": 2056,
+      "draw_calls": 1,
+      "bytes": 76708,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/ribcage/aurel03_ribcage_d0_lod0.glb",
+      "sha256": "b0c71f380ddd2be92c8b5c2f3d82f8a94d7bb6c70880ef45bafa70ffb4ba16fc",
+      "triangles": 21040,
+      "draw_calls": 1,
+      "bytes": 766364,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_l/aurel03_arm_l_d0_lod0.glb",
+      "sha256": "92a1c691b2f7e33f26d719596479c956216086047dc5222ccda4aac743e7becb",
+      "triangles": 3328,
+      "draw_calls": 1,
+      "bytes": 163624,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_r/aurel03_arm_r_d0_lod0.glb",
+      "sha256": "37f5fa1f51edba940cb8ee0067a3c6c800c3560d5e6c146f9f5973b0a0b36ce2",
+      "triangles": 3328,
+      "draw_calls": 1,
+      "bytes": 163628,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_l/aurel03_leg_l_d0_lod0.glb",
+      "sha256": "f584d544747950dadc039b7df73c9885493f8f81fcc56b9ecd167d081410a8dd",
+      "triangles": 3820,
+      "draw_calls": 1,
+      "bytes": 184552,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_r/aurel03_leg_r_d0_lod0.glb",
+      "sha256": "c290742a2ea2fb0efd82a170c51788f44cbbe92fa145b3590f5fd3f8f861b911",
+      "triangles": 3820,
+      "draw_calls": 1,
+      "bytes": 184556,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_l/aurel03_hand_l_d0_lod0.glb",
+      "sha256": "d8b307f9111a85f3804954e4f9680f274136d7e71c185460fddcaaa4be0d3be2",
+      "triangles": 87216,
+      "draw_calls": 1,
+      "bytes": 3798240,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_r/aurel03_hand_r_d0_lod0.glb",
+      "sha256": "5c0eeb30e8459464217ff3fefb2bf4c7e8d54a8369b9fbe83d50b49789732a27",
+      "triangles": 87216,
+      "draw_calls": 1,
+      "bytes": 3798244,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_l/aurel03_foot_l_d0_lod0.glb",
+      "sha256": "cae6478245c5fb3fa4ece97b7e8dea21c8997e1bcf9f404591432f897bd24a0a",
+      "triangles": 63560,
+      "draw_calls": 1,
+      "bytes": 2897704,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_r/aurel03_foot_r_d0_lod0.glb",
+      "sha256": "623955649b418e91192f2804be17a0d37f161be67d9dabfc8f2c15ee1682166f",
+      "triangles": 63560,
+      "draw_calls": 1,
+      "bytes": 2897708,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head/aurel03_head_d0_lod0.glb",
+      "sha256": "59ded3949401728d7043946c3fc5a9005d0766297e256f490d7a4f55c57cd3ad",
+      "triangles": 4088,
+      "draw_calls": 1,
+      "bytes": 149868,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_assembly_d0_lod1.glb",
+      "sha256": "4ffe6cf8b2fe4a8c8ac8605bdda02c990b0a9049449d3bbe3790b01d68ab4db3",
+      "triangles": 23576,
+      "draw_calls": 11,
+      "bytes": 915000,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/pelvis/aurel03_pelvis_d0_lod1.glb",
+      "sha256": "bf1e9e598a00b79572558cd9fb638d47a115b5318ecdf877eafb8910dec7486a",
+      "triangles": 800,
+      "draw_calls": 1,
+      "bytes": 32144,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/pelvis/aurel03_pelvis_d0_lod2.glb",
+      "sha256": "181d8a19a45e4f9c1991770f7af0247967956354cfeb182e318eec6bf540cd76",
+      "triangles": 158,
+      "draw_calls": 1,
+      "bytes": 7436,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/ribcage/aurel03_ribcage_d0_lod1.glb",
+      "sha256": "b784ac4eec88c477b1ffa5ea5564ed4c714f27c3f7097898d45255b48e30fc9b",
+      "triangles": 6272,
+      "draw_calls": 1,
+      "bytes": 212768,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/ribcage/aurel03_ribcage_d0_lod2.glb",
+      "sha256": "ce8193b1c50c7b2ea859fbb3abf29ebe67d550ee86c55604d78c633752a95f3e",
+      "triangles": 799,
+      "draw_calls": 1,
+      "bytes": 26452,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_l/aurel03_arm_l_d0_lod1.glb",
+      "sha256": "5dd7fab2ace77348487ae3a88aece4faa16bd28411e80c4d85281e90f94cb220",
+      "triangles": 1024,
+      "draw_calls": 1,
+      "bytes": 51824,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_l/aurel03_arm_l_d0_lod2.glb",
+      "sha256": "f745a78b3d33546d0f322ac6163436499de7aeb4f50df4e58b8b92684c56e543",
+      "triangles": 158,
+      "draw_calls": 1,
+      "bytes": 10740,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_r/aurel03_arm_r_d0_lod1.glb",
+      "sha256": "69dbc13eca45194fcdb1560c3d74479fc9a0f6c1c71ebd85e2f58f8074ff3168",
+      "triangles": 1024,
+      "draw_calls": 1,
+      "bytes": 51824,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/arm_r/aurel03_arm_r_d0_lod2.glb",
+      "sha256": "66bae48718f500550ff04683333c25db3b17ee5b6c71b87d5f08a394bf9a328b",
+      "triangles": 156,
+      "draw_calls": 1,
+      "bytes": 10660,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_l/aurel03_leg_l_d0_lod1.glb",
+      "sha256": "7f0833d546bf71a319b613dca901d1ea6ebd763ff8f5946d3388249e0600bb10",
+      "triangles": 1212,
+      "draw_calls": 1,
+      "bytes": 60112,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_l/aurel03_leg_l_d0_lod2.glb",
+      "sha256": "387351c879eebc00900eddfdcbf1a2399765946d39b021c669271c36b0c17f41",
+      "triangles": 156,
+      "draw_calls": 1,
+      "bytes": 10324,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_r/aurel03_leg_r_d0_lod1.glb",
+      "sha256": "00b207ac0ad83bc66e05fc00a97d8d4e155b384b75148b11351af133c51a8071",
+      "triangles": 1212,
+      "draw_calls": 1,
+      "bytes": 60116,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/leg_r/aurel03_leg_r_d0_lod2.glb",
+      "sha256": "15ac39db01a19b92403d125b71b2813188a7e697dcfd27cd42ac1de1d76b1bfb",
+      "triangles": 154,
+      "draw_calls": 1,
+      "bytes": 10204,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_l/aurel03_hand_l_d0_lod1.glb",
+      "sha256": "3f2af9a73af6dc17c750113df0a637f52c45521e3e6b073b153aa10dbf028e6c",
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 158664,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_l/aurel03_hand_l_d0_lod2.glb",
+      "sha256": "a2d47596aff2ca2fddd1937c67b9fedbf306f260abb080974af980e198ff6a92",
+      "triangles": 352,
+      "draw_calls": 1,
+      "bytes": 31664,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_r/aurel03_hand_r_d0_lod1.glb",
+      "sha256": "dd9056cfea0b05ad678b01db0107eec731f80d4da0f4d7788bf483bd9ea1d937",
+      "triangles": 2708,
+      "draw_calls": 1,
+      "bytes": 158668,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/hand_r/aurel03_hand_r_d0_lod2.glb",
+      "sha256": "563c4144ea99772f104699a8f0514c5fb6e662f7f6a03f7e57a397082ae4867b",
+      "triangles": 352,
+      "draw_calls": 1,
+      "bytes": 31452,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_l/aurel03_foot_l_d0_lod1.glb",
+      "sha256": "5f9274089c5b0a3a01a3a32ba896b0f2376948888e5316761be424e1d0c8c444",
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 131056,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_l/aurel03_foot_l_d0_lod2.glb",
+      "sha256": "5e55159877bfba85753ffd0ba5e3527774644da9bdf32c0039e6115d9a89c9dd",
+      "triangles": 318,
+      "draw_calls": 1,
+      "bytes": 22932,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_r/aurel03_foot_r_d0_lod1.glb",
+      "sha256": "3ea39277556e578d08964f19876ac5af1dece06052121e27703be48cb843e4de",
+      "triangles": 2496,
+      "draw_calls": 1,
+      "bytes": 131060,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/foot_r/aurel03_foot_r_d0_lod2.glb",
+      "sha256": "deb41eeb9ad2fed2a2b226900e723630df671a21d146dcf8b5fcb56a4d8d9114",
+      "triangles": 316,
+      "draw_calls": 1,
+      "bytes": 22852,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head/aurel03_head_d0_lod1.glb",
+      "sha256": "9f198befd1b9e5c7c0eabd277374151554219797f19d50059e36a401ecab5819",
+      "triangles": 1624,
+      "draw_calls": 1,
+      "bytes": 62272,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head/aurel03_head_d0_lod2.glb",
+      "sha256": "c02f046636a19986b09b615d39eb2de21ca9e09334233ba98907704d565ade6c",
+      "triangles": 206,
+      "draw_calls": 1,
+      "bytes": 9880,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_assembly_d0_lod2.glb",
+      "sha256": "30b2481136ba77499975b2a5780a6e6c23881d025b59a2352c4c1a70d81f75fd",
+      "triangles": 2794,
+      "draw_calls": 1,
+      "bytes": 162452,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_assembly_sensor_d0_lod0.glb",
+      "sha256": "cae2d1d78ea965f92cc19b82ab9f18e7fd88d057399ad71148e29f9d57712158",
+      "triangles": 344308,
+      "draw_calls": 11,
+      "bytes": 11807440,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head_sensor/aurel03_head_sensor_d0_lod0.glb",
+      "sha256": "ff749c990f421ad3a3afc22f330a0748127db27195092115417dfb13f61f7358",
+      "triangles": 5364,
+      "draw_calls": 1,
+      "bytes": 191692,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_assembly_sensor_d0_lod1.glb",
+      "sha256": "fd542b2bf302bd1181975d2b08dd9c15fcb044b1233aaad557f60add6c89f647",
+      "triangles": 23692,
+      "draw_calls": 11,
+      "bytes": 919084,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head_sensor/aurel03_head_sensor_d0_lod1.glb",
+      "sha256": "df1d46b149d875c57e7deb30a64a3e73675050a2995b77fa28d5235654f046b3",
+      "triangles": 1740,
+      "draw_calls": 1,
+      "bytes": 66360,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "parts/head_sensor/aurel03_head_sensor_d0_lod2.glb",
+      "sha256": "41db7ae34c5a2620ebd1ebaf2ed8f0fde903f183e3f2bb6a48ae1e929ef56591",
+      "triangles": 226,
+      "draw_calls": 1,
+      "bytes": 10224,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_assembly_sensor_d0_lod2.glb",
+      "sha256": "03d799df89376ee48cc287dd826641a3a17f59d1d4213dfbf294b04f04ea4ce1",
+      "triangles": 2788,
+      "draw_calls": 1,
+      "bytes": 162092,
+      "errors": 0,
+      "warnings": 0,
+      "degenerate_triangles": 0
+    }
+  ],
+  "checks": [
+    "42 self-contained plain GLBs validate with zero errors/warnings",
+    "Unique dot-free names, matching bind/lookup frames and socket transforms across tiers",
+    "Standalone modules reassemble into matching posed surfaces",
+    "Rigid one-bone skin weights and constant segment lengths through motion",
+    "All structural connections coincide with opposed socket normals through sampled articulation",
+    "Distance surfaces preserve game bounds and reject runtime animation",
+    "Game and distance triangle targets, one-draw/static byte targets",
+    "Nominal 1.80 m crown, adult design landmarks and nonnegative resting sole",
+    "Source and plain GLB fingerprints match manifests"
+  ],
+  "animation_samples": 642,
+  "reassembled_vertex_comparisons": 69440
+}

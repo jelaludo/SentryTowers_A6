@@ -1,0 +1,340 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "robot-assembly",
+  "designation": "AUREL-03",
+  "label": "Robotic anatomy / Modular adult frame",
+  "version": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Shared ground datum below assembly centre; standalone modules keep assembly-space placement"
+  },
+  "dimensions": {
+    "height": 1.8,
+    "headHeight": 0.23,
+    "hipY": 0.945,
+    "hipX": 0.09,
+    "thigh": 0.42,
+    "shin": 0.385,
+    "ankleY": 0.14,
+    "shoulderY": 1.475,
+    "shoulderX": 0.19,
+    "upperArm": 0.3,
+    "forearm": 0.255,
+    "handScale": 0.82,
+    "footScale": 1,
+    "chestWidth": 0.306
+  },
+  "proportions": {
+    "intent": "Lean adult design study, not a population-average anatomical specification",
+    "head_units": 7.826086956521739,
+    "rib_pairs": 12,
+    "body": "Tapered thoracic basket, lumbar interval, open pelvis and separate limb shafts"
+  },
+  "damage_states": {
+    "d0": "intact",
+    "d1_d3": "not authored"
+  },
+  "budgets": {
+    "unit_game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "lod_selection": {
+    "initial": 2,
+    "articulated": 1,
+    "close_inspection": 0,
+    "game_distance_m": 30,
+    "hysteresis_m": 8,
+    "provisional": true,
+    "static_policy": "Use LOD1 for motion or assembly; LOD2 freezes the same rest pose and retains lookup markers only"
+  },
+  "components": {
+    "hands": "Original AUREL-01 full master / economical biped game, uniformly scaled 0.82; mirrored on right",
+    "feet": "Original AUREL-02 full master / economical biped game, original scale; mirrored on right",
+    "heads": [
+      "head",
+      "head_sensor"
+    ]
+  },
+  "runtime": {
+    "file": "../../runtime.js",
+    "motions": {
+      "assembly": {
+        "name": "Anatomy_Assembly_Cycle",
+        "duration_s": 20,
+        "loop": true
+      },
+      "inspection": {
+        "name": "Anatomy_Articulation_Cycle",
+        "duration_s": 12,
+        "loop": true
+      }
+    },
+    "baked_clips": [],
+    "scope": "Engine-driven modular separation, upper-body articulation and original hand/foot axes; no force/contact simulation"
+  },
+  "sources": {
+    "body": "tools/asset-pipeline/robot-assembly-shape.mjs",
+    "builder": "tools/asset-pipeline/build-robot-assembly.mjs",
+    "anatomy_reference": "https://openstax.org/books/anatomy-and-physiology/pages/7-4-the-thoracic-cage",
+    "reference_use": "Facts about thoracic arrangement only; no images, text passages or mesh data incorporated",
+    "originals_preserved": true,
+    "source_sha256": {
+      "tools/asset-pipeline/robot-assembly-shape.mjs": "517a17ff693f56d70f7c6f9da4e2d4eddb51b0893b209ccebbd454ddbd29ca2b",
+      "tools/asset-pipeline/build-robot-assembly.mjs": "097b3d082b66dd66afa52fc5cedb36ad97b3969cc084ecc0c17fdc66b2e4b0a7",
+      "assets/robot-assembly/runtime.js": "6908563a084818a003df46fa0d90f817dbb7965f9fac130d2e89c98629fb709e",
+      "tools/asset-pipeline/hand-lab-shape.mjs": "d0a652799947fabf92cff8b7d685a52005ef851a64cb1b2797e3262e46b3bab7",
+      "tools/asset-pipeline/foot-lab-shape.mjs": "ca31163ea6f068120323935d39bfd3dd687b0b2703952231b7e9ac7b4035f79f",
+      "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+      "assets/hand-lab/biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
+      "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01"
+    }
+  },
+  "assets": [
+    {
+      "module": "leg_r",
+      "file": "aurel03_leg_r_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 184556,
+      "sha256": "c290742a2ea2fb0efd82a170c51788f44cbbe92fa145b3590f5fd3f8f861b911",
+      "triangles": 3820,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.1325504297018051,
+          0.13599997699260702,
+          -0.04295274615287781
+        ],
+        "max": [
+          -0.04883499458432197,
+          0.9860000085830688,
+          0.04100000113248825
+        ],
+        "dimensions_m": [
+          0.08371543511748314,
+          0.8500000315904618,
+          0.08395274728536606
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LEG_R_ATTACH",
+          "parent": "LEG_R_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_ANKLE_R",
+          "parent": "LEG_R_ANKLE",
+          "position_m": [
+            -0.09,
+            0.1399999999999999,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_LEG_R",
+        "DISTANCE_SURFACE",
+        "LEG_R_ANKLE",
+        "LEG_R_FRAME",
+        "LEG_R_GEOMETRY",
+        "LEG_R_GEOMETRY_FRAME",
+        "LEG_R_HIP",
+        "LEG_R_KNEE",
+        "PART_LEG_R",
+        "SOCKET_ANKLE_R",
+        "SOCKET_LEG_R_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "leg_r",
+      "file": "aurel03_leg_r_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 60116,
+      "sha256": "00b207ac0ad83bc66e05fc00a97d8d4e155b384b75148b11351af133c51a8071",
+      "triangles": 1212,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.13221051931381225,
+          0.13599997699260702,
+          -0.04295274615287781
+        ],
+        "max": [
+          -0.04883499458432197,
+          0.9839932990074157,
+          0.04100000113248825
+        ],
+        "dimensions_m": [
+          0.08337552472949028,
+          0.8479933220148087,
+          0.08395274728536606
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LEG_R_ATTACH",
+          "parent": "LEG_R_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_ANKLE_R",
+          "parent": "LEG_R_ANKLE",
+          "position_m": [
+            -0.09,
+            0.1399999999999999,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_LEG_R",
+        "DISTANCE_SURFACE",
+        "LEG_R_ANKLE",
+        "LEG_R_FRAME",
+        "LEG_R_GEOMETRY",
+        "LEG_R_GEOMETRY_FRAME",
+        "LEG_R_HIP",
+        "LEG_R_KNEE",
+        "PART_LEG_R",
+        "SOCKET_ANKLE_R",
+        "SOCKET_LEG_R_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "leg_r",
+      "file": "aurel03_leg_r_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "bytes": 10204,
+      "sha256": "15ac39db01a19b92403d125b71b2813188a7e697dcfd27cd42ac1de1d76b1bfb",
+      "triangles": 154,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.13221052289009094,
+          0.13599997758865356,
+          -0.04295274615287781
+        ],
+        "max": [
+          -0.04883499816060066,
+          0.9839932918548584,
+          0.04100000113248825
+        ],
+        "dimensions_m": [
+          0.08337552472949028,
+          0.8479933142662048,
+          0.08395274728536606
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_LEG_R_ATTACH",
+          "parent": "LEG_R_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_ANKLE_R",
+          "parent": "LEG_R_ANKLE",
+          "position_m": [
+            -0.09,
+            0.1399999999999999,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_LEG_R",
+        "DISTANCE_SURFACE",
+        "LEG_R_ANKLE",
+        "LEG_R_FRAME",
+        "LEG_R_GEOMETRY",
+        "LEG_R_GEOMETRY_FRAME",
+        "LEG_R_HIP",
+        "LEG_R_KNEE",
+        "PART_LEG_R",
+        "SOCKET_ANKLE_R",
+        "SOCKET_LEG_R_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    }
+  ],
+  "module": "leg_r"
+}

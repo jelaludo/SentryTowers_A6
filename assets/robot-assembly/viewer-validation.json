@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "scope": "Six assembled head/tier combinations, real renderer counts, eleven isolated modules, motion, playback/seeking, rest lockout, wireframe, PNG/download targets and 390px layout. No FPS claims.",
+  "checks": [
+    {
+      "head": "frame",
+      "lod": 0,
+      "triangles": 343032,
+      "draw_calls": 11
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "triangles": 23576,
+      "draw_calls": 11
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "triangles": 2794,
+      "draw_calls": 1
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 344308,
+      "draw_calls": 11
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 23692,
+      "draw_calls": 11
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 2788,
+      "draw_calls": 1
+    }
+  ],
+  "screenshots": [
+    "previews/game-assembly.png",
+    "previews/frame-distance.png",
+    "previews/sensor-distance.png",
+    "previews/sensor-assembly.png",
+    "previews/ribcage-master.png",
+    "previews/front-master.png",
+    "previews/side-master.png",
+    "previews/back-master.png",
+    "previews/exploded.png",
+    "previews/joint-inspection.png",
+    "previews/mobile.png"
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "robot-assembly/index.html": "ac1a540fc7728e4b43365817e115cd8654fcb59b65683656cb98719290c729be",
+    "robot-assembly/style.css": "d1c3b986f49fa1242f5c3dba2cbc3e323e5fd431f678b16c83386a1f275282b3",
+    "robot-assembly/viewer.js": "a0f5659e762d1f412a5474454eb0861bfda92a8c9a87324413afe4ebb2730446",
+    "assets/robot-assembly/runtime.js": "6908563a084818a003df46fa0d90f817dbb7965f9fac130d2e89c98629fb709e",
+    "assets/robot-assembly/manifest.json": "eb08a486727f0ba1652c49a260a346b6966879e686dd1662346fbe5fd9c581e6"
+  }
+}

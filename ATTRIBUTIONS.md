@@ -1,5 +1,11 @@
 # Asset attributions and provenance
 
+## AUREL-03 / Robotic anatomy / 8 November 2026
+
+Original procedural rib cage, pelvis, limb shafts, heads, assembly rig, runtime and viewer by jelaludo / Model Workshop. Reuses the original AUREL-01 hand at uniform 0.82 scale and AUREL-02 foot at source scale, with mirrored right-side frames and economical game variants. The assembly combines each component’s material groups into one shared vertex-color finish. Original component sources/exports and all older robot families remain unchanged. No imported Hand Lab reference geometry is included.
+
+Thoracic arrangement was informed by OpenStax’s explanation of twelve paired ribs, sternum and floating ribs: https://openstax.org/books/anatomy-and-physiology/pages/7-4-the-thoracic-cage . Anatomical facts only; no source image, passage or mesh data was copied. Overall proportions are an authored lean-adult design study. Source hashes, measured geometry, socket frames and credits are in `assets/robot-assembly/manifest.json`. Static distance surfaces and preview renders are marked derivatives. Original Workshop reuse terms apply.
+
 ## STRIDE-02 r2 / Exact pallet envelope / 5 November 2026
 
 Original miniature packing mechanism, support/guide hardware, runtime, comparison viewer and derived renders by jelaludo / Model Workshop. Reuses the exact original P-01 body and baked 23%-size STRIDE-01 leg surfaces; source hashes, topology/attribute derivation checks and the original 1,200 × 1,000 × 160 mm envelope are recorded in `assets/stride-02/`. Original sources remain unchanged. The former full-size-leg STRIDE-02 release is preserved in `revisions/r1/` from `7b539417eb3e59763de164d4f36ac50720c9f613`. Static tiers and preview renders are derivatives. No third-party geometry is introduced; original Workshop reuse terms apply.

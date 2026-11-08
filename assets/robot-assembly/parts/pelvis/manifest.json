@@ -1,0 +1,427 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "robot-assembly",
+  "designation": "AUREL-03",
+  "label": "Robotic anatomy / Modular adult frame",
+  "version": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Shared ground datum below assembly centre; standalone modules keep assembly-space placement"
+  },
+  "dimensions": {
+    "height": 1.8,
+    "headHeight": 0.23,
+    "hipY": 0.945,
+    "hipX": 0.09,
+    "thigh": 0.42,
+    "shin": 0.385,
+    "ankleY": 0.14,
+    "shoulderY": 1.475,
+    "shoulderX": 0.19,
+    "upperArm": 0.3,
+    "forearm": 0.255,
+    "handScale": 0.82,
+    "footScale": 1,
+    "chestWidth": 0.306
+  },
+  "proportions": {
+    "intent": "Lean adult design study, not a population-average anatomical specification",
+    "head_units": 7.826086956521739,
+    "rib_pairs": 12,
+    "body": "Tapered thoracic basket, lumbar interval, open pelvis and separate limb shafts"
+  },
+  "damage_states": {
+    "d0": "intact",
+    "d1_d3": "not authored"
+  },
+  "budgets": {
+    "unit_game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "lod_selection": {
+    "initial": 2,
+    "articulated": 1,
+    "close_inspection": 0,
+    "game_distance_m": 30,
+    "hysteresis_m": 8,
+    "provisional": true,
+    "static_policy": "Use LOD1 for motion or assembly; LOD2 freezes the same rest pose and retains lookup markers only"
+  },
+  "components": {
+    "hands": "Original AUREL-01 full master / economical biped game, uniformly scaled 0.82; mirrored on right",
+    "feet": "Original AUREL-02 full master / economical biped game, original scale; mirrored on right",
+    "heads": [
+      "head",
+      "head_sensor"
+    ]
+  },
+  "runtime": {
+    "file": "../../runtime.js",
+    "motions": {
+      "assembly": {
+        "name": "Anatomy_Assembly_Cycle",
+        "duration_s": 20,
+        "loop": true
+      },
+      "inspection": {
+        "name": "Anatomy_Articulation_Cycle",
+        "duration_s": 12,
+        "loop": true
+      }
+    },
+    "baked_clips": [],
+    "scope": "Engine-driven modular separation, upper-body articulation and original hand/foot axes; no force/contact simulation"
+  },
+  "sources": {
+    "body": "tools/asset-pipeline/robot-assembly-shape.mjs",
+    "builder": "tools/asset-pipeline/build-robot-assembly.mjs",
+    "anatomy_reference": "https://openstax.org/books/anatomy-and-physiology/pages/7-4-the-thoracic-cage",
+    "reference_use": "Facts about thoracic arrangement only; no images, text passages or mesh data incorporated",
+    "originals_preserved": true,
+    "source_sha256": {
+      "tools/asset-pipeline/robot-assembly-shape.mjs": "517a17ff693f56d70f7c6f9da4e2d4eddb51b0893b209ccebbd454ddbd29ca2b",
+      "tools/asset-pipeline/build-robot-assembly.mjs": "097b3d082b66dd66afa52fc5cedb36ad97b3969cc084ecc0c17fdc66b2e4b0a7",
+      "assets/robot-assembly/runtime.js": "6908563a084818a003df46fa0d90f817dbb7965f9fac130d2e89c98629fb709e",
+      "tools/asset-pipeline/hand-lab-shape.mjs": "d0a652799947fabf92cff8b7d685a52005ef851a64cb1b2797e3262e46b3bab7",
+      "tools/asset-pipeline/foot-lab-shape.mjs": "ca31163ea6f068120323935d39bfd3dd687b0b2703952231b7e9ac7b4035f79f",
+      "assets/hand-lab/runtime.js": "84f77f2c1396576967cf1698688e33f465654291249f7151ea562ac3373e416e",
+      "assets/hand-lab/biped.js": "98d5be1e49ee1f87824bf810096209fde69b452d3e5382e71e0796674d46e096",
+      "assets/foot-lab/runtime.js": "e0ae5159038ce75f0146ff7f37ba45d7ba8c89929a318b3bc81ac254e5209b01"
+    }
+  },
+  "assets": [
+    {
+      "module": "pelvis",
+      "file": "aurel03_pelvis_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 76708,
+      "sha256": "139a4fd55d20211dd21bd14267ce803efa155262229936e12c9bf915c588f7c9",
+      "triangles": 2056,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.15016400814056396,
+          0.873503930568695,
+          -0.06599999964237213
+        ],
+        "max": [
+          0.15016400814056396,
+          1.1155675721168516,
+          0.08443335443735123
+        ],
+        "dimensions_m": [
+          0.30032801628112793,
+          0.24206364154815663,
+          0.15043335407972336
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PELVIS_ATTACH",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_R",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_L",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_LUMBAR",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            1.095,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_PELVIS",
+        "DISTANCE_SURFACE",
+        "PART_PELVIS",
+        "PELVIS_FRAME",
+        "PELVIS_GEOMETRY",
+        "PELVIS_GEOMETRY_FRAME",
+        "SOCKET_HIP_L",
+        "SOCKET_HIP_R",
+        "SOCKET_LUMBAR",
+        "SOCKET_PELVIS_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "pelvis",
+      "file": "aurel03_pelvis_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 32144,
+      "sha256": "bf1e9e598a00b79572558cd9fb638d47a115b5318ecdf877eafb8910dec7486a",
+      "triangles": 800,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.14856025576591492,
+          0.8737995100021362,
+          -0.06599999964237213
+        ],
+        "max": [
+          0.14856025576591492,
+          1.1150455546379088,
+          0.08525702357292175
+        ],
+        "dimensions_m": [
+          0.29712051153182983,
+          0.2412460446357726,
+          0.15125702321529388
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PELVIS_ATTACH",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_R",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_L",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_LUMBAR",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            1.095,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_PELVIS",
+        "DISTANCE_SURFACE",
+        "PART_PELVIS",
+        "PELVIS_FRAME",
+        "PELVIS_GEOMETRY",
+        "PELVIS_GEOMETRY_FRAME",
+        "SOCKET_HIP_L",
+        "SOCKET_HIP_R",
+        "SOCKET_LUMBAR",
+        "SOCKET_PELVIS_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "module": "pelvis",
+      "file": "aurel03_pelvis_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "bytes": 7436,
+      "sha256": "181d8a19a45e4f9c1991770f7af0247967956354cfeb182e318eec6bf540cd76",
+      "triangles": 158,
+      "draw_calls": 1,
+      "plot_m": [
+        1.4,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.14856025576591492,
+          0.8737995028495789,
+          -0.06599999964237213
+        ],
+        "max": [
+          0.14856025576591492,
+          1.1150455474853516,
+          0.08525702357292175
+        ],
+        "dimensions_m": [
+          0.29712051153182983,
+          0.2412460446357727,
+          0.15125702321529388
+        ]
+      },
+      "sockets": [
+        {
+          "node": "SOCKET_PELVIS_ATTACH",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_R",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            -0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HIP_L",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0.09,
+            0.945,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_LUMBAR",
+          "parent": "PELVIS_FRAME",
+          "position_m": [
+            0,
+            1.095,
+            0
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "required_nodes": [
+        "AUREL_03_PELVIS",
+        "DISTANCE_SURFACE",
+        "PART_PELVIS",
+        "PELVIS_FRAME",
+        "PELVIS_GEOMETRY",
+        "PELVIS_GEOMETRY_FRAME",
+        "SOCKET_HIP_L",
+        "SOCKET_HIP_R",
+        "SOCKET_LUMBAR",
+        "SOCKET_PELVIS_ATTACH"
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    }
+  ],
+  "module": "pelvis"
+}

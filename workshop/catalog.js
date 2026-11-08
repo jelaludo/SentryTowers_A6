@@ -1,4 +1,5 @@
 const collectionImages={
+'robot-assembly':'assets/robot-assembly/preview.png',
 'shuttle-02':'assets/shuttle-02/preview.png',
 'shuttle-01':'assets/shuttle-01/preview.png',
 'elevator-city-diorama':'assets/elevator-city-diorama/preview.png',
@@ -53,6 +54,7 @@ const collectionImages={
 };
 
 export const collections=[
+['robot-assembly','AUREL-03 / Robotic Anatomy','Characters','An adult mechanical frame built around a tapered metal rib cage, curved spine and open pelvis. Inspect its separate arms, legs, AUREL hands and feet, or assemble the complete robot with either head.','12 modules · 2 heads · Assembly + joint studies · 3 tiers','Modular anatomy study'],
 ['shuttle-02','SHUTTLE-02 / Industrial VTOL','Industry','An armored transport with exposed rotary mounts and independently tilting thruster pods. Transition from vertical lift to cruise, then dock its shared underbelly airlock at the Space Elevator orbital station.','90° rotating engines · VTOL + docking cycles · 3 tiers','Interactive prototype'],
 ['shuttle-01','SHUTTLE-01 / Orbital Shuttle','Industry','A smooth swept lifting body with twin recessed engines and an underbelly airlock. Roll belly-first toward the Space Elevator terminal, extend the collar, capture, open the hatch and depart.','72-second docking cycle · Working airlock · 3 detail tiers','Interactive prototype'],
 ['elevator-city-diorama','Above the City / Elevator Diorama','Industry','Explore an eight-dome settlement, zoom onto the elevator, climb at 20×, pass KORP and arrive at the orbital terminal with SOL-82 and SOL-88 drifting behind it.','112 seconds · 9 chapters · Connected city · 2 tiers','Animated diorama'],
