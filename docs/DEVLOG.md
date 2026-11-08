@@ -1,5 +1,15 @@
 # Devlog
 
+## 9 November 2026 / AUREL-03 — downloadable animation handoff
+
+Added a prominent animation-kit ZIP download and complete-robot GLB link to the anatomy viewer. The kit contains four derived, self-contained rigged GLBs: open-frame and sensor heads in articulated game and detailed tiers, with skeleton and muscle geometry together. The muscle layer remains separately identifiable/removable. All original source GLBs and runtimes are unchanged. The direct GLB follows the selected head and animated tier; selecting static distance still offers the articulated game file for animation.
+
+Included a target joint/rest-frame map, muscle-follow adapter, all local runtime dependencies, a standalone import/joint-study preview, per-file hashes and Kimodo/MotionBricks handoff notes. The adapter updates muscle endpoints after external native-rig animation without resetting the body pose. Scene-root skins and original control frames are preserved. The package is a custom retarget target, not a SOMA/G1 model or an automatic retargeter; external tools must apply the adapter or bake its muscle transforms. No model weights or generated AI motions are bundled.
+
+Combined frame/sensor game files: 42,320 / 42,436 triangles, 17 draws, 1,749,504 / 1,753,588 plain bytes. Master files: 628,416 / 629,692 triangles, 17 draws, 21,850,100 / 21,891,920 bytes. The existing combined game budget excess is retained and documented. Four exports validate with zero glTF errors/warnings; 125,358 posed-surface samples match the separate models, 528 endpoint checks follow an external pose/root transform, and original hashes match source commit `dffaad6`. The 16.9 MB archive is reproducible and includes checksums. A fresh extraction passes every payload hash; Chromium loads all four models using only the extracted local files, checks layer/motion controls, verifies the ZIP and GLB download bytes, and exercises six head/tier links and mobile layout with no console errors.
+
+Completed: one-click downloadable character package, complete GLBs, import notes and target-side animation support. Pending: the user's RTX 4090 generation/retargeting experiment, motion/contact review, production composite budgets, release packing/decoded validation and device profiling. The received collaboration contract remains unchanged.
+
 ## 8 November 2026 / AUREL-03 — removable hybrid muscle layer
 
 Added 66 charcoal muscle bodies with braided tendon ends as an optional layer over the anatomical frame. Fusiform limb volumes, broad chest fans, abdominal straps and overlapping shoulder caps follow the original adult proportions. The detailed master includes fibre grooves and modeled helical braids; game uses simpler sheaths and tendons. Heads, hands and feet keep their exposed mechanisms. All 42 original anatomy GLBs, original manifest/runtime and procedural rig sources remain byte-for-byte identical to parent commit `f2ab7a8aa9d85f461afd3ba81d25017ed62f9e57`.

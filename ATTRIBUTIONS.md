@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## AUREL-03 / Animation handoff / 9 November 2026
+
+Combined robot GLBs, target joint/rest map, adapter, preview, packaging and validation are original derived work by jelaludo / Model Workshop, based on the preserved AUREL-03 skeleton and muscle sources at `dffaad650cd7fb4ea7ec5ba51caf2d500ff36caa`. No NVIDIA model weights, third-party motion or inference output is included. The NVIDIA documentation links explain the external retargeting requirement; they do not certify compatibility. Original Workshop reuse terms apply. Source hashes and measured files are in `assets/robot-assembly/animation-kit/manifest.json`.
+
 ## AUREL-03 / Optional muscle layer / 8 November 2026
 
 Original procedural muscle sheaths, braided tendon strands, attachment rig, runtime adapter, viewer changes and derived review renders by jelaludo / Model Workshop. This separate layer extends our own AUREL-03 frame without modifying its original 42 GLBs or rig sources. The charcoal carbon-like finish is an artistic material treatment. No third-party geometry, image textures or source implementation is included. Source hashes, parent commit, measurements and attachment definitions are recorded in `assets/robot-assembly/muscles/manifest.json`; static surfaces and screenshots are derived exports. Original Workshop reuse terms apply.

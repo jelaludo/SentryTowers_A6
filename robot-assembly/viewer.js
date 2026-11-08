@@ -31,6 +31,9 @@ function visibility(){
  $('metrics').innerHTML=`<div><b>${triangles.toLocaleString()}</b><small>Triangles</small></div><div><b>${calls}</b><small>Draws</small></div><div><b>${Math.round(bytes/1024)}</b><small>KiB / files</small></div>`;
  $('download').href=base+e.file;$('download').textContent=`Download ${part==='all'?'skeleton':part.replace('_',' ')} GLB ↓`;
  $('download-muscles').href=muscleBase+muscleEntry.file;
+ const animationLod=Number($('lod').value)===0?0:1;
+ $('download-character').href=base+`animation-kit/models/aurel03_${$('head').value}_lod${animationLod}.glb`;
+ $('download-character').textContent=`Complete robot GLB / ${animationLod===0?'Master':'Game'} ↓`;
  $('status').textContent=`AUREL-03 / ${Number($('lod').value)===0?'Detailed master':Number($('lod').value)===1?'Articulated game':'Static rest pose'} / ${layer==='both'?'Skeleton + muscles':layer==='muscles'?'Muscles only':'Original skeleton'}`;
  $('layer-note').textContent=layer==='skeleton'?'Original skeleton. The muscle layer is hidden.':part!=='all'&&!addition?'This module retains its original mechanism; no muscle sheath is added.':`${muscleManifest.muscles.length} muscle bundles / charcoal sheaths and braided tendons. Separate, removable geometry.`;
 }

@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "files": [
+    {
+      "file": "models/aurel03_frame_lod1.glb",
+      "triangles": 42320,
+      "draw_calls": 17,
+      "bytes": 1749504,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/aurel03_frame_lod0.glb",
+      "triangles": 628416,
+      "draw_calls": 17,
+      "bytes": 21850100,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/aurel03_sensor_lod1.glb",
+      "triangles": 42436,
+      "draw_calls": 17,
+      "bytes": 1753588,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "models/aurel03_sensor_lod0.glb",
+      "triangles": 629692,
+      "draw_calls": 17,
+      "bytes": 21891920,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "surface_samples": 125358,
+  "attachment_checks": 528,
+  "external_pose_preserved": true,
+  "checks": [
+    "Source GLBs match pinned source commit",
+    "Four combined GLBs validate with no errors/warnings",
+    "Scene-root skins and unique native names retained",
+    "Posed surfaces match the separate source models",
+    "External body pose retained with muscle attachments following root motion",
+    "Layer visibility is reversible"
+  ]
+}

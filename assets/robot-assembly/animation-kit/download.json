@@ -1,0 +1,8 @@
+{
+  "file": "aurel03-animation-kit.zip",
+  "bytes": 16904329,
+  "sha256": "e8cfedaddb6e26f2ea1c77311f30d9f9e5c5d896ba6e86769f8e031300c3ab03",
+  "files": 20,
+  "source_commit": "dffaad650cd7fb4ea7ec5ba51caf2d500ff36caa",
+  "contains": "Four complete rigged GLBs (two heads, game/master), target rig map, muscle follow adapter, runtime dependencies, preview, notes and file hashes. No model weights or generated AI motions."
+}

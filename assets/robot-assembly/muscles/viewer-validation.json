@@ -148,9 +148,9 @@
   ],
   "console_errors": [],
   "source_sha256": {
-    "robot-assembly/index.html": "23fec6cffabd2925204b57e0a1907be2017c6ff59f0ccdad445b79c0074b12ce",
-    "robot-assembly/style.css": "4df06d6a26bdb45612fd105d1d439e3862028357e71abcb97c18c47ffaf3c158",
-    "robot-assembly/viewer.js": "9ef17828f92621255d91ad46e928a3293bfb989b838ce61b550fd8710739531e",
+    "robot-assembly/index.html": "60b8ce69bde1d3dbeaa68943499c48d34ea8cc99c214591b0410701f2e4863cb",
+    "robot-assembly/style.css": "f4e67093d6b5dd6edec8d809b831c20f2c5e7063f922f1fc88058b21295c7125",
+    "robot-assembly/viewer.js": "22df3bd69fe63bf8f6daa1d766a3eabd5ef72c63785749e71fa7a5c3efb6aa26",
     "assets/robot-assembly/muscles/runtime.js": "3c217da56377642938aa92c35f5808ff3339f54c250b60d65b3546f7523a36af",
     "assets/robot-assembly/muscles/specs.js": "53181285079bea26e349868d9838144b2c20e75cc1a0585500077ea3f30c1946",
     "assets/robot-assembly/muscles/manifest.json": "4d6f31097edd800db3c174bd968b30eb230b123bb5b5d78309b2296c5fa6ff58"

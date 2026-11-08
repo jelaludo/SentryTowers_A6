@@ -14,6 +14,12 @@ http://localhost:8788/robot-assembly/?layer=skeleton
 
 Choose **Skeleton + muscles**, **Original skeleton** or **Muscles only**. Part isolation, both head variants, assembled/exploded views, joint motion, wireframe and all three tiers remain available. Select the detailed master and isolate an arm to inspect the braided tendons. Skeleton and muscle downloads are separate; the muscle download always contains the complete layer, even when a single part is visible. Muscles-only selection returns to the complete layer when the selected head, hand or foot has no muscle surface.
 
+## Complete robot download
+
+For animation work, the [animation kit](../animation-kit/README.md) includes both layers already assembled in one GLB, both heads and game/master tiers, plus a target rig map, runtime dependencies and a preview. Kimodo/MotionBricks motion requires retargeting; the included muscle adapter runs afterward.
+
+https://jelaludo.github.io/SentryTowers_A6/assets/robot-assembly/animation-kit/aurel03-animation-kit.zip
+
 ## Files and measured costs
 
 Plain, self-contained GLBs are authoritative. Each uses one vertex-colour material, with no external textures or buffers. `manifest.json` includes source and parent hashes, dimensions, attachment specs, sockets, named nodes, clips, credits, measured costs and provisional LOD selection. D0 is intact; D1–D3 are not authored. Static meshes and preview PNGs are derived assets.

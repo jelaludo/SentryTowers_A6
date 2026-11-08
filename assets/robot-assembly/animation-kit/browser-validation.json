@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "archive_sha256": "e8cfedaddb6e26f2ea1c77311f30d9f9e5c5d896ba6e86769f8e031300c3ab03",
+  "archive_files": 20,
+  "checks": [
+    {
+      "head": "frame",
+      "lod": 1,
+      "triangles": 42320,
+      "draw_calls": 17
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "triangles": 628416,
+      "draw_calls": 17
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 42436,
+      "draw_calls": 17
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 629692,
+      "draw_calls": 17
+    }
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "robot-assembly/index.html": "60b8ce69bde1d3dbeaa68943499c48d34ea8cc99c214591b0410701f2e4863cb",
+    "robot-assembly/style.css": "f4e67093d6b5dd6edec8d809b831c20f2c5e7063f922f1fc88058b21295c7125",
+    "robot-assembly/viewer.js": "22df3bd69fe63bf8f6daa1d766a3eabd5ef72c63785749e71fa7a5c3efb6aa26",
+    "assets/robot-assembly/animation-kit/character.js": "b60a48de445967519419d080b90437986bbbfd21cd23c6ef6d18edde37db61a9",
+    "assets/robot-assembly/animation-kit/example.html": "46159f293b80ab066afd9b759d5af2fb483b7239bbba9df23113e65959738f18"
+  },
+  "checks_description": [
+    "Fresh ZIP extraction and every payload checksum",
+    "All four combined rigs load from extracted files only",
+    "Layer controls and muscle joint study",
+    "Actual ZIP and combined GLB downloads match hashes",
+    "Six head/tier download links; distance maps to articulated game",
+    "390px layout without horizontal overflow"
+  ]
+}

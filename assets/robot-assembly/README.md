@@ -12,6 +12,12 @@ https://jelaludo.github.io/SentryTowers_A6/robot-assembly/
 
 The viewer has assembled/exploded states, independent part inspection, both heads, orthographic front/side/back and three-quarter views, proportion guides, an assembly sequence, a joint study, hand opening, seeking, playback speeds, wireframe, fullscreen, PNG capture and selected-model downloads. The complete assembly download follows the chosen head. The separate original Hand Lab and Foot Lab remain unchanged.
 
+## Complete animation download
+
+[Animation kit and import notes](animation-kit/README.md) provide a single ZIP with complete rigged skeleton + muscle GLBs, both heads, game/master tiers, the target rest-pose map and muscle adapter. Use this package for Kimodo/MotionBricks retargeting experiments. The original individual GLB links remain available.
+
+https://jelaludo.github.io/SentryTowers_A6/assets/robot-assembly/animation-kit/aurel03-animation-kit.zip
+
 ## Optional muscle layer
 
 `muscles/` adds 66 charcoal muscle bodies with braided tendon ends as a separate, removable layer. The viewer now switches between skeleton, muscles and both, with the original joint and assembly controls. All original GLBs and rig sources remain unchanged. Layer exports, combined budgets and integration notes are in [muscles/README.md](muscles/README.md). Original `validation-report.json`, `viewer-validation.json` and previews describe the skeleton-only baseline at `f2ab7a8`; `muscles/viewer-validation.json` verifies the current viewer.
