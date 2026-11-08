@@ -1,4 +1,5 @@
 const collectionImages={
+'shuttle-01':'assets/shuttle-01/preview.png',
 'elevator-city-diorama':'assets/elevator-city-diorama/preview.png',
 'space-elevator':'assets/space-elevator/preview.png',
 'stalheart-diorama':'assets/stalheart-diorama/preview.png',
@@ -51,6 +52,7 @@ const collectionImages={
 };
 
 export const collections=[
+['shuttle-01','SHUTTLE-01 / Orbital Shuttle','Industry','A smooth swept lifting body with twin recessed engines and an underbelly airlock. Roll belly-first toward the Space Elevator terminal, extend the collar, capture, open the hatch and depart.','72-second docking cycle · Working airlock · 3 detail tiers','Interactive prototype'],
 ['elevator-city-diorama','Above the City / Elevator Diorama','Industry','Explore an eight-dome settlement, zoom onto the elevator, climb at 20×, pass KORP and arrive at the orbital terminal with SOL-82 and SOL-88 drifting behind it.','112 seconds · 9 chapters · Connected city · 2 tiers','Animated diorama'],
 ['space-elevator','Space Elevator / Surface + Orbit','Industry','A compact single-bay surface station, a ring-shaped orbital harbour and a shared tether climber. Compare four Dome City plots, operate the hangar doors and solar wings, and inspect both terminals.','3 modules · 9 GLBs · Four-dome scale · Local climber cycle','Interactive prototype'],
 ['stalheart-diorama','STALHEART / From Builder to Settlement','Industry','A longer animated diorama: ISAO prints the left leg, right leg and top of the mobile gantry in order, its surfaces appear, then STALHEART prints a MÖRK, moves to a second site and builds a scaled Dome City habitat.','144 seconds · Cinematic camera · Scrubber + chapters · 2 tiers','Animated diorama'],

@@ -1,5 +1,17 @@
 # Devlog
 
+## 8 November 2026 / SHUTTLE-01 — underbelly orbital docking
+
+Created the first shuttle from the supplied smooth lifting-body concept: a continuous ivory swept hull, pointed nose, narrow dark canopy, recessed paired engines, restrained amber edge and an underbelly airlock. Its stowed envelope is 23.600 m wide × 37.205 m long × approximately 3.874 m high, with a centred 24 × 38 m reservation and a common seal-plane datum. The real ventral opening contains two sliding hatch leaves, a 1.2 m telescoping collar, four capture latches and a 2.5 m clear passage. Nozzle gimbals retain separate engine-driven pivots.
+
+The `shuttle-01/` viewer adds a 72-second reversible docking cycle at the existing orbital station's east port: approach, roll 90° belly-first, extend, close, capture, open, hold, close, release, retreat, retract, level and depart. Socket positions match exactly with opposing outward normals. The original station remains unchanged, including its closed inner pressure cap; this is external coupling and an opening outer airlock, not a walkable passenger transfer or pressure/flight simulation. Manual controls, thirteen chapter jumps, inspection cameras/free orbit, speed/pause/loop, wireframe, exhaust effects, fullscreen, PNG capture and selected GLB downloads are included.
+
+Measured plain exports: detailed master 38,194 triangles / 11 draws / 876,244 bytes; articulated game 9,282 / 11 / 233,396; static distance 2,681 / one / 93,604. Game meets the 25k mobile-unit triangle target and exceeds the stricter stationary-landmark 8k/10-draw references. Distance meets 3k/one draw/250 KB. Two palette materials become one in the static tier. LOD1 retains all active pivots; LOD2 is explicitly frozen for cruise/map/loading and must not replace an actively docking unit. No compressed copies or FPS claims.
+
+All three decoded plain GLBs validate with zero errors/warnings, finite nondegenerate geometry, unique dot-free names, matching local frames and socket transforms, and envelopes within 1 mm. Checks cover 1,442 sampled cycle states, hatch aperture rays, extension interlock, capture/release ordering and at least 1.440 m separation between non-coupling shuttle meshes and the station's bounding plane. Chromium verifies actual model-only triangle/draw counts, all three tiers, thirteen phases in both articulated tiers, controls, downloads and 390 px framing with no console errors. Added derived previews, provenance, integration notes, gallery entry, station cross-link and shared navigation.
+
+Completed: first shuttle, underbelly mechanism, orbital docking demonstration and measured three-tier hand-off in `assets/shuttle-01/`. Pending: visual acceptance, additional shuttle designs, crew/cargo interiors, production flight/navigation/collision, D1–D3, consuming-game gltfpack/decode acceptance and reference-device/game-camera profiling. The received collaboration contract remains verbatim.
+
 ## 7 November 2026 / Above the city — elevator journey
 
 Created a separate 112-second continuous diorama linking eight original-scale Dome City modules and the new surface elevator station. Eight canonical elevated halls form a connected ring around a civic plaza; an added pedestrian transfer joins logistics to the station's observation facade. Roads, utility banks, a parked MÖRK in the single bay and a slow patrol MÖRK complete the scene. Transfer supports span the vehicle approach. Canonical models, clips, node names and source GLBs remain unchanged.

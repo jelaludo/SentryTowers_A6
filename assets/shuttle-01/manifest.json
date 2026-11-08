@@ -1,0 +1,692 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "shuttle-01",
+  "label": "SHUTTLE-01 / Lifting-body orbital shuttle",
+  "revision": 1,
+  "status": "interactive_docking_prototype_pending_game_integration",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Plot centre at closed docking seal plane Y=0; the underbelly seal centre is Z=-5.3975 m"
+  },
+  "supported_damage_levels": [
+    0
+  ],
+  "spec": {
+    "length_m": 37.205,
+    "span_m": 23.6,
+    "belly_z_m": -5.3975,
+    "origin_z_offset_m": 3.3975,
+    "collar_stroke_m": 1.2,
+    "seal_radius_m": 1.7,
+    "clear_radius_m": 1.25,
+    "hatch_travel_m": 1.45,
+    "station_socket": "SOCKET_DOCK_E",
+    "station_port_m": [
+      30.8,
+      15,
+      0
+    ],
+    "docked_roll_rad": -1.5707963267948966,
+    "demo_duration_s": 72
+  },
+  "sources": [
+    {
+      "file": "assets/space-elevator/orbital_d0_lod0.glb",
+      "lod": 0,
+      "bytes": 702572,
+      "sha256": "c39c2a2d956d468fcdcb0408f15958f3940f2578aeb9b0a44740aade93914eda",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    },
+    {
+      "file": "assets/space-elevator/orbital_d0_lod1.glb",
+      "lod": 1,
+      "bytes": 275012,
+      "sha256": "f2c9954c15b5daa297a1fad1f906292f5381655e567f5a77596b4125aa6ce9ef",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    },
+    {
+      "file": "assets/space-elevator/orbital_d0_lod2.glb",
+      "lod": 2,
+      "bytes": 98956,
+      "sha256": "f8fe243eae2a0010edda49b6867f6a1337326a74205e926c5a0b2dbf6c719fdf",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    }
+  ],
+  "assets": [
+    {
+      "file": "shuttle_01_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "bytes": 876244,
+      "sha256": "ac6be4894e4a8bf4736ef072949c98cf2913ebb097035d5445f453549cdd45f1",
+      "triangles": 38194,
+      "draw_calls": 11,
+      "materials": 2,
+      "textures": 0,
+      "plot_m": [
+        24,
+        38
+      ],
+      "root": "SHUTTLE_01_ROOT",
+      "bounds": {
+        "min": [
+          -11.800000190734863,
+          -3.725293129530627e-10,
+          -18.602499971389772
+        ],
+        "max": [
+          11.800000190734863,
+          3.8740196228027344,
+          18.6025
+        ],
+        "dimensions_m": [
+          23.600000381469727,
+          3.8740196231752635,
+          37.20499997138977
+        ]
+      },
+      "nodes": [
+        "SHUTTLE_01_ROOT",
+        "DOCK_EXTEND",
+        "SOCKET_BELLY_DOCK",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_E_SURFACE",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_N_SURFACE",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_W_SURFACE",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "CAPTURE_S_SURFACE",
+        "DOCK_COLLAR_SURFACE",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_L_SURFACE",
+        "BELLY_HATCH_R",
+        "BELLY_HATCH_R_SURFACE",
+        "ENGINE_L",
+        "SOCKET_EXHAUST_L",
+        "ENGINE_L_SURFACE",
+        "ENGINE_R",
+        "SOCKET_EXHAUST_R",
+        "ENGINE_R_SURFACE",
+        "SOCKET_NOSE",
+        "SOCKET_CENTRE_OF_MASS",
+        "HULL",
+        "CANOPY"
+      ],
+      "engine_nodes": [
+        "DOCK_EXTEND",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_R",
+        "ENGINE_L",
+        "ENGINE_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_BELLY_DOCK",
+          "position_m": [
+            0,
+            0,
+            -5.3975
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_L",
+          "position_m": [
+            -3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_R",
+          "position_m": [
+            3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_NOSE",
+          "position_m": [
+            0,
+            1.18,
+            18.6025
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CENTRE_OF_MASS",
+          "position_m": [
+            0,
+            1.7,
+            -3.3975
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "clips": [],
+      "static": false,
+      "derived": false,
+      "credit": "Models by jelaludo; original procedural shuttle inspired by a user-supplied concept."
+    },
+    {
+      "file": "shuttle_01_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "bytes": 233396,
+      "sha256": "dad190d8c026e066bad612f803f2117176ee579549a4c3fd79ccea8deb4576c2",
+      "triangles": 9282,
+      "draw_calls": 11,
+      "materials": 2,
+      "textures": 0,
+      "plot_m": [
+        24,
+        38
+      ],
+      "root": "SHUTTLE_01_ROOT",
+      "bounds": {
+        "min": [
+          -11.800000190734863,
+          -3.725293129530627e-10,
+          -18.602499971389772
+        ],
+        "max": [
+          11.800000190734863,
+          3.8741345405578613,
+          18.6025
+        ],
+        "dimensions_m": [
+          23.600000381469727,
+          3.8741345409303904,
+          37.20499997138977
+        ]
+      },
+      "nodes": [
+        "SHUTTLE_01_ROOT",
+        "DOCK_EXTEND",
+        "SOCKET_BELLY_DOCK",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_E_SURFACE",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_N_SURFACE",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_W_SURFACE",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "CAPTURE_S_SURFACE",
+        "DOCK_COLLAR_SURFACE",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_L_SURFACE",
+        "BELLY_HATCH_R",
+        "BELLY_HATCH_R_SURFACE",
+        "ENGINE_L",
+        "SOCKET_EXHAUST_L",
+        "ENGINE_L_SURFACE",
+        "ENGINE_R",
+        "SOCKET_EXHAUST_R",
+        "ENGINE_R_SURFACE",
+        "SOCKET_NOSE",
+        "SOCKET_CENTRE_OF_MASS",
+        "HULL",
+        "CANOPY"
+      ],
+      "engine_nodes": [
+        "DOCK_EXTEND",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_R",
+        "ENGINE_L",
+        "ENGINE_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_BELLY_DOCK",
+          "position_m": [
+            0,
+            0,
+            -5.3975
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_L",
+          "position_m": [
+            -3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_R",
+          "position_m": [
+            3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_NOSE",
+          "position_m": [
+            0,
+            1.18,
+            18.6025
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CENTRE_OF_MASS",
+          "position_m": [
+            0,
+            1.7,
+            -3.3975
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "clips": [],
+      "static": false,
+      "derived": true,
+      "credit": "Models by jelaludo; original procedural shuttle inspired by a user-supplied concept."
+    },
+    {
+      "file": "shuttle_01_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "bytes": 93604,
+      "sha256": "9f4a88cee6f5520c406c55a4502bd14da023b37e420667eb942702403959f601",
+      "triangles": 2681,
+      "draw_calls": 1,
+      "materials": 1,
+      "textures": 0,
+      "plot_m": [
+        24,
+        38
+      ],
+      "root": "SHUTTLE_01_ROOT",
+      "bounds": {
+        "min": [
+          -11.800000190734863,
+          -3.725293129530627e-10,
+          -18.602500915527344
+        ],
+        "max": [
+          11.800000190734863,
+          3.8741345405578613,
+          18.602500915527344
+        ],
+        "dimensions_m": [
+          23.600000381469727,
+          3.8741345409303904,
+          37.20500183105469
+        ]
+      },
+      "nodes": [
+        "SHUTTLE_01_ROOT",
+        "DOCK_EXTEND",
+        "SOCKET_BELLY_DOCK",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_E_SURFACE",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_N_SURFACE",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_W_SURFACE",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "CAPTURE_S_SURFACE",
+        "DOCK_COLLAR_SURFACE",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_L_SURFACE",
+        "BELLY_HATCH_R",
+        "BELLY_HATCH_R_SURFACE",
+        "ENGINE_L",
+        "SOCKET_EXHAUST_L",
+        "ENGINE_L_SURFACE",
+        "ENGINE_R",
+        "SOCKET_EXHAUST_R",
+        "ENGINE_R_SURFACE",
+        "SOCKET_NOSE",
+        "SOCKET_CENTRE_OF_MASS",
+        "HULL",
+        "CANOPY",
+        "SHUTTLE_DISTANCE_SURFACE"
+      ],
+      "engine_nodes": [
+        "DOCK_EXTEND",
+        "CAPTURE_E_FRAME",
+        "CAPTURE_E",
+        "CAPTURE_N_FRAME",
+        "CAPTURE_N",
+        "CAPTURE_W_FRAME",
+        "CAPTURE_W",
+        "CAPTURE_S_FRAME",
+        "CAPTURE_S",
+        "BELLY_HATCH_L",
+        "BELLY_HATCH_R",
+        "ENGINE_L",
+        "ENGINE_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_BELLY_DOCK",
+          "position_m": [
+            0,
+            0,
+            -5.3975
+          ],
+          "quaternion": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_L",
+          "position_m": [
+            -3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_EXHAUST_R",
+          "position_m": [
+            3,
+            2,
+            -18.6175
+          ],
+          "quaternion": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_NOSE",
+          "position_m": [
+            0,
+            1.18,
+            18.6025
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_CENTRE_OF_MASS",
+          "position_m": [
+            0,
+            1.7,
+            -3.3975
+          ],
+          "quaternion": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "clips": [],
+      "static": true,
+      "derived": true,
+      "credit": "Models by jelaludo; original procedural shuttle inspired by a user-supplied concept."
+    }
+  ],
+  "runtime": {
+    "adapter": "runtime.js",
+    "engine_driven": true,
+    "baked_clips": [],
+    "demo": {
+      "name": "Shuttle_Orbital_Docking_Cycle",
+      "duration_s": 72,
+      "phases": [
+        {
+          "id": "approach",
+          "start": 0,
+          "end": 10,
+          "title": "Approach the terminal"
+        },
+        {
+          "id": "roll",
+          "start": 10,
+          "end": 16,
+          "title": "Roll belly toward the port"
+        },
+        {
+          "id": "extend",
+          "start": 16,
+          "end": 20,
+          "title": "Extend the docking collar"
+        },
+        {
+          "id": "capture",
+          "start": 20,
+          "end": 30,
+          "title": "Close to soft capture"
+        },
+        {
+          "id": "lock",
+          "start": 30,
+          "end": 32,
+          "title": "Engage four capture latches"
+        },
+        {
+          "id": "open",
+          "start": 32,
+          "end": 35,
+          "title": "Open the underbelly hatch"
+        },
+        {
+          "id": "transfer",
+          "start": 35,
+          "end": 42,
+          "title": "Docked / airlock exposed"
+        },
+        {
+          "id": "close",
+          "start": 42,
+          "end": 45,
+          "title": "Close the underbelly hatch"
+        },
+        {
+          "id": "unlock",
+          "start": 45,
+          "end": 47,
+          "title": "Release capture latches"
+        },
+        {
+          "id": "backoff",
+          "start": 47,
+          "end": 54,
+          "title": "Back away from the terminal"
+        },
+        {
+          "id": "retract",
+          "start": 54,
+          "end": 57,
+          "title": "Retract the docking collar"
+        },
+        {
+          "id": "level",
+          "start": 57,
+          "end": 63,
+          "title": "Return to level attitude"
+        },
+        {
+          "id": "depart",
+          "start": 63,
+          "end": 72,
+          "title": "Depart the terminal"
+        }
+      ]
+    },
+    "pivots": {
+      "DOCK_EXTEND": "Local Y 0 to -1.2 m; opens a telescoping collar",
+      "BELLY_HATCH_L_R": "Local X ±1.45 m; doors slide only with the collar extended",
+      "CAPTURE_N_E_S_W": "Local Z 0 to 0.55 rad in radial frames",
+      "ENGINE_L_R": "Local X ±6 degrees nozzle gimbal"
+    },
+    "interlock": "Any nonzero requested hatch opening holds the collar fully extended; docking choreography opens doors only after capture locks engage.",
+    "physics": "Kinematic approach/capture demonstration; no flight-force, pressure or structural simulation"
+  },
+  "docking": {
+    "station_socket": "SOCKET_DOCK_E",
+    "shuttle_socket": "SOCKET_BELLY_DOCK",
+    "normal_convention": "Socket local +Z points outward; mating normals oppose",
+    "station_frame": {
+      "position_m": [
+        30.8,
+        15,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    "docked_shuttle_root": {
+      "position_m": [
+        32,
+        15,
+        5.3975
+      ],
+      "rotation_xyz_rad": [
+        0,
+        0,
+        -1.5707963267948966
+      ]
+    },
+    "seal_radius_m": 1.7,
+    "pressure_clear_diameter_m": 2.5,
+    "station_geometry": "Existing orbital terminal is preserved; its inner pressure cap stays closed. This model provides exterior coupling and an opening outer airlock hatch."
+  },
+  "lod_selection": {
+    "lod0": "Detailed recording/close-shot master",
+    "lod1": "Articulated game unit",
+    "lod2": "Frozen stowed cruise silhouette; lookup nodes are static, do not animate",
+    "game_enter_m": 150,
+    "distance_return_m": 170,
+    "active_unit_swap": false,
+    "threshold_status": "Provisional; keep LOD1 for approach, docking or any visible mechanism motion"
+  },
+  "budget_targets": {
+    "game": {
+      "triangles": 25000,
+      "category": "Articulated unit; landmark draw/byte targets reported separately"
+    },
+    "distance": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "plain_bytes": 250000
+    }
+  },
+  "handoff": {
+    "folder": "assets/shuttle-01/",
+    "viewer": "shuttle-01/",
+    "authoring": "tools/asset-pipeline/shuttle-01-shape.mjs",
+    "build": "node tools/asset-pipeline/build-shuttle-01.mjs",
+    "derived": "LOD1 uses reduced surface tessellation; LOD2 is merged and simplified. Plain GLBs only; no upstream compressed copies.",
+    "pending": [
+      "Visual acceptance",
+      "Pressure-sealed interior transfer, collision and flight dynamics",
+      "Damage D1–D3",
+      "Consuming Three r160/release gltfpack validation",
+      "Reference-device/game-camera profiling"
+    ]
+  }
+}

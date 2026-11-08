@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain GLBs, names, socket frames, conservative station separation, door aperture rays and sampled kinematic docking. No force, pressure or general collision simulation.",
+  "files": [
+    {
+      "file": "shuttle_01_d0_lod0.glb",
+      "triangles": 38194,
+      "draw_calls": 11,
+      "bytes": 876244,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "shuttle_01_d0_lod1.glb",
+      "triangles": 9282,
+      "draw_calls": 11,
+      "bytes": 233396,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "shuttle_01_d0_lod2.glb",
+      "triangles": 2681,
+      "draw_calls": 1,
+      "bytes": 93604,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "cycle_samples": 1442,
+  "aperture_checks": [
+    {
+      "lod": 0,
+      "hatch": 0,
+      "first_surface": "BELLY_HATCH_R_SURFACE",
+      "first_hit_y_m": 1.75
+    },
+    {
+      "lod": 0,
+      "hatch": 1,
+      "first_surface": "HULL",
+      "first_hit_y_m": 2.819999933242798
+    },
+    {
+      "lod": 1,
+      "hatch": 0,
+      "first_surface": "BELLY_HATCH_R_SURFACE",
+      "first_hit_y_m": 1.75
+    },
+    {
+      "lod": 1,
+      "hatch": 1,
+      "first_surface": "HULL",
+      "first_hit_y_m": 2.819999933242798
+    }
+  ],
+  "checks": [
+    "All three plain GLBs validate with zero errors and warnings; finite, nondegenerate geometry",
+    "Unique dot-free names, same hierarchy/TRS and sockets across tiers; envelope difference below 1 mm",
+    "Game triangle target and all distance targets met; 11 articulated draws reported",
+    "Outer doors close the aperture and clear it when open; collar extension interlock holds",
+    "Two animated tiers sampled through all 72 seconds: opposing mating normals, latch-before-open and close-before-release",
+    "Non-coupling meshes remain outside station bounding plane through entire cycle; contact geometry is excluded",
+    "Distance adapter preserves every local transform; original station exports remain byte-identical"
+  ],
+  "docking": {
+    "max_socket_error_m": 0,
+    "min_non_coupling_separation_m": 1.440000832080841,
+    "station_max_x_m": 30.8799991607666
+  }
+}

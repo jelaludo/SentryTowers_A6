@@ -1,5 +1,7 @@
 # Model Workshop
 
+**SHUTTLE-01 / Orbital shuttle** starts the shuttle series with a smooth ivory lifting body, twin recessed engines and an underbelly docking hatch. Inspect the extending collar, sliding doors, four latches and gimballed nozzles, or play the 72-second docking/departure cycle at the Space Elevator orbital terminal. Master, articulated game and static distance GLBs are in `assets/shuttle-01/`; open `shuttle-01/`.
+
 **Above the City / Elevator diorama** follows a connected eight-dome settlement into orbit: zoom onto the climber, accelerate its ascent to 20×, pass KORP, then arrive at the orbital terminal with SOL-82 and SOL-88 drifting behind it at different rates. The 112-second scene has reversible scrubbing, nine chapters and master/game compositions. Open `elevator-city-diorama/`; source pins and measured hand-off are in `assets/elevator-city-diorama/`.
 
 **Space Elevator / Surface + Orbit** adds a 60 × 60 m single-bay base station, an annular orbital terminal and a shared tether climber. Includes a four-dome scale comparison, working doors and solar hinges, local climber movement, nine master/game/static GLBs and measured integration notes. Open `space-elevator/`; hand-off folder is `assets/space-elevator/`.
