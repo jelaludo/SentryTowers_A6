@@ -252,3 +252,10 @@ Models by jelaludo. The `elevator-city-diorama/` presentation composes unchanged
 Models by jelaludo. Original procedural shuttle geometry, underbelly collar and sliding hatch rig, engine nozzles, runtime and viewer are in `tools/asset-pipeline/shuttle-01-shape.mjs`, `assets/shuttle-01/` and `shuttle-01/`. The user-supplied 8 November 2026 smooth spaceplane concept informed the silhouette, canopy and recessed twin drives; its path and SHA-256 are pinned in `reference-provenance.json`. The original reference remains unchanged outside the repository. Reference creator/license was not supplied; no additional reference-image rights are claimed.
 
 The docking demonstration loads the unchanged Space Elevator orbital station at its original scale, with all three source exports pinned by hash. Plain shuttle GLBs are authoritative; reduced game/static tiers and browser previews are derived. No third-party mesh, texture or animation was incorporated.
+
+
+## SHUTTLE-02 / Industrial VTOL
+
+Models by jelaludo. The second shuttle is original procedural geometry inspired by the user-supplied 8 November 2026 industrial shuttle concept: armored spine, side shields, exposed rotary mounts and tilting engine pods. Its underbelly mechanism follows the SHUTTLE-01 interface, with new engine pivots and a self-contained VTOL/docking runtime. Authoring sources are `tools/asset-pipeline/shuttle-02-shape.mjs` and `shuttle-docking-kit.mjs`. Concept filename/hash and reference rights limits are pinned in `assets/shuttle-02/reference-provenance.json`; the image remains unchanged outside the repository. Reference creator/license was not supplied; no additional image rights are claimed.
+
+The viewer loads the unchanged Space Elevator orbital station, pinned by hash, and preserves the first shuttle's GLBs and runtime. Plain shuttle exports are authoritative; reduced game/static-hover tiers and browser previews are derived. No third-party meshes, textures or animations were incorporated.

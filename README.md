@@ -1,5 +1,7 @@
 # Model Workshop
 
+**SHUTTLE-02 / Industrial VTOL** adds a long armored transport with two independently rotating thruster pods, exposed mounts and the shared underbelly airlock. Includes a 24-second lift/transition cycle, 72-second orbital docking cycle, manual controls and master/game/static-hover GLBs. Open `shuttle-02/`; measured hand-off is in `assets/shuttle-02/`.
+
 **SHUTTLE-01 / Orbital shuttle** starts the shuttle series with a smooth ivory lifting body, twin recessed engines and an underbelly docking hatch. Inspect the extending collar, sliding doors, four latches and gimballed nozzles, or play the 72-second docking/departure cycle at the Space Elevator orbital terminal. Master, articulated game and static distance GLBs are in `assets/shuttle-01/`; open `shuttle-01/`.
 
 **Above the City / Elevator diorama** follows a connected eight-dome settlement into orbit: zoom onto the climber, accelerate its ascent to 20×, pass KORP, then arrive at the orbital terminal with SOL-82 and SOL-88 drifting behind it at different rates. The 112-second scene has reversible scrubbing, nine chapters and master/game compositions. Open `elevator-city-diorama/`; source pins and measured hand-off are in `assets/elevator-city-diorama/`.

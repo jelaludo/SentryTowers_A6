@@ -1,0 +1,33 @@
+{
+  "reference": {
+    "path": "/Users/jela/Downloads/ChatGPT Image Nov 8, 2026, 10_46_59 AM.png",
+    "sha256": "1b7e6b805de341db272fa899413b8d735461bae4ec402be304e3c5a4c345bb20",
+    "preserved": true
+  },
+  "role": "User supplied industrial shuttle with rotating VTOL thrusters; same orbital docking interface requested",
+  "rights": "Reference creator/license not supplied; no additional image rights claimed",
+  "source_commit": "e53b36e501b05c20c26a503f6b8d3578ab028311",
+  "sources": [
+    {
+      "file": "assets/space-elevator/orbital_d0_lod0.glb",
+      "lod": 0,
+      "bytes": 702572,
+      "sha256": "c39c2a2d956d468fcdcb0408f15958f3940f2578aeb9b0a44740aade93914eda",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    },
+    {
+      "file": "assets/space-elevator/orbital_d0_lod1.glb",
+      "lod": 1,
+      "bytes": 275012,
+      "sha256": "f2c9954c15b5daa297a1fad1f906292f5381655e567f5a77596b4125aa6ce9ef",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    },
+    {
+      "file": "assets/space-elevator/orbital_d0_lod2.glb",
+      "lod": 2,
+      "bytes": 98956,
+      "sha256": "f8fe243eae2a0010edda49b6867f6a1337326a74205e926c5a0b2dbf6c719fdf",
+      "role": "Unchanged orbital station used only in the docking viewer"
+    }
+  ]
+}

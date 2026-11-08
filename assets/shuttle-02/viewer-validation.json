@@ -1,0 +1,1025 @@
+{
+  "status": "passed",
+  "browser": "Headless Chromium / Three r180; functionality and render counts, no FPS benchmark",
+  "samples": [
+    {
+      "kind": "model-only",
+      "lod": 1,
+      "triangles": 8372,
+      "draws": 11
+    },
+    {
+      "lod": 1,
+      "mode": "vtol",
+      "time": 3,
+      "pose": {
+        "time": 3,
+        "phase": {
+          "id": "lift",
+          "start": 0,
+          "end": 5,
+          "title": "Vertical lift"
+        },
+        "position": [
+          0,
+          3.24,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 0,
+        "tiltR": 0,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 1,
+      "mode": "vtol",
+      "time": 8,
+      "pose": {
+        "time": 8,
+        "phase": {
+          "id": "transition",
+          "start": 5,
+          "end": 11,
+          "title": "Rotate to forward thrust"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 45,
+        "tiltR": 45,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 1,
+      "mode": "vtol",
+      "time": 13,
+      "pose": {
+        "time": 13,
+        "phase": {
+          "id": "cruise",
+          "start": 11,
+          "end": 15,
+          "title": "Cruise attitude"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 90,
+        "tiltR": 90,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 1,
+      "mode": "vtol",
+      "time": 18,
+      "pose": {
+        "time": 18,
+        "phase": {
+          "id": "return",
+          "start": 15,
+          "end": 21,
+          "title": "Return to hover"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 45,
+        "tiltR": 45,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 1,
+      "mode": "vtol",
+      "time": 23,
+      "pose": {
+        "time": 23,
+        "phase": {
+          "id": "settle",
+          "start": 21,
+          "end": 24,
+          "title": "Settle into hover"
+        },
+        "position": [
+          0,
+          1.2962962962962965,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 0,
+        "tiltR": 0,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 1,
+      "time": 6,
+      "pose": {
+        "time": 6,
+        "phase": {
+          "id": "approach",
+          "start": 0,
+          "end": 10,
+          "title": "Approach the terminal"
+        },
+        "position": [
+          48.704,
+          15,
+          -26.863999999999997
+        ],
+        "roll": 0,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0.10559999999999999,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 19,
+      "status": "Docking socket gap · 33.966 m"
+    },
+    {
+      "lod": 1,
+      "time": 13,
+      "pose": {
+        "time": 13,
+        "phase": {
+          "id": "roll",
+          "start": 10,
+          "end": 16,
+          "title": "Roll belly toward the port"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -0.7853981633974483,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 17.200 m"
+    },
+    {
+      "lod": 1,
+      "time": 18,
+      "pose": {
+        "time": 18,
+        "phase": {
+          "id": "extend",
+          "start": 16,
+          "end": 20,
+          "title": "Extend the docking collar"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 0.5,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 16.600 m"
+    },
+    {
+      "lod": 1,
+      "time": 26,
+      "pose": {
+        "time": 26,
+        "phase": {
+          "id": "capture",
+          "start": 20,
+          "end": 30,
+          "title": "Close to soft capture"
+        },
+        "position": [
+          37.632,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 5.632 m"
+    },
+    {
+      "lod": 1,
+      "time": 31,
+      "pose": {
+        "time": 31,
+        "phase": {
+          "id": "lock",
+          "start": 30,
+          "end": 32,
+          "title": "Engage four capture latches"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0.5,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 1,
+      "time": 34,
+      "pose": {
+        "time": 34,
+        "phase": {
+          "id": "open",
+          "start": 32,
+          "end": 35,
+          "title": "Open the underbelly hatch"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 0.7407407407407407,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 1,
+      "time": 37,
+      "pose": {
+        "time": 37,
+        "phase": {
+          "id": "transfer",
+          "start": 35,
+          "end": 42,
+          "title": "Docked / airlock exposed"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 1,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 1,
+      "time": 44,
+      "pose": {
+        "time": 44,
+        "phase": {
+          "id": "close",
+          "start": 42,
+          "end": 45,
+          "title": "Close the underbelly hatch"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 0.2592592592592593,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 1,
+      "time": 46,
+      "pose": {
+        "time": 46,
+        "phase": {
+          "id": "unlock",
+          "start": 45,
+          "end": 47,
+          "title": "Release capture latches"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0.5,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 1,
+      "time": 50,
+      "pose": {
+        "time": 50,
+        "phase": {
+          "id": "backoff",
+          "start": 47,
+          "end": 54,
+          "title": "Back away from the terminal"
+        },
+        "position": [
+          38.29737609329446,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 6.297 m"
+    },
+    {
+      "lod": 1,
+      "time": 55,
+      "pose": {
+        "time": 55,
+        "phase": {
+          "id": "retract",
+          "start": 54,
+          "end": 57,
+          "title": "Retract the docking collar"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 0.7407407407407407,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 16.311 m"
+    },
+    {
+      "lod": 1,
+      "time": 60,
+      "pose": {
+        "time": 60,
+        "phase": {
+          "id": "level",
+          "start": 57,
+          "end": 63,
+          "title": "Return to level attitude"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -0.7853981633974483,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 17.200 m"
+    },
+    {
+      "lod": 1,
+      "time": 68,
+      "pose": {
+        "time": 68,
+        "phase": {
+          "id": "depart",
+          "start": 63,
+          "end": 72,
+          "title": "Depart the terminal"
+        },
+        "position": [
+          50.33196159122085,
+          17.914951989026065,
+          53.30315500685872
+        ],
+        "roll": 0,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0.6280326701397837,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 19,
+      "status": "Docking socket gap · 54.973 m"
+    },
+    {
+      "kind": "model-only",
+      "lod": 0,
+      "triangles": 17852,
+      "draws": 11
+    },
+    {
+      "lod": 0,
+      "mode": "vtol",
+      "time": 3,
+      "pose": {
+        "time": 3,
+        "phase": {
+          "id": "lift",
+          "start": 0,
+          "end": 5,
+          "title": "Vertical lift"
+        },
+        "position": [
+          0,
+          3.24,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 0,
+        "tiltR": 0,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 0,
+      "mode": "vtol",
+      "time": 8,
+      "pose": {
+        "time": 8,
+        "phase": {
+          "id": "transition",
+          "start": 5,
+          "end": 11,
+          "title": "Rotate to forward thrust"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 45,
+        "tiltR": 45,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 0,
+      "mode": "vtol",
+      "time": 13,
+      "pose": {
+        "time": 13,
+        "phase": {
+          "id": "cruise",
+          "start": 11,
+          "end": 15,
+          "title": "Cruise attitude"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 90,
+        "tiltR": 90,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 0,
+      "mode": "vtol",
+      "time": 18,
+      "pose": {
+        "time": 18,
+        "phase": {
+          "id": "return",
+          "start": 15,
+          "end": 21,
+          "title": "Return to hover"
+        },
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 45,
+        "tiltR": 45,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 0,
+      "mode": "vtol",
+      "time": 23,
+      "pose": {
+        "time": 23,
+        "phase": {
+          "id": "settle",
+          "start": 21,
+          "end": 24,
+          "title": "Settle into hover"
+        },
+        "position": [
+          0,
+          1.2962962962962965,
+          0
+        ],
+        "roll": 0,
+        "tiltL": 0,
+        "tiltR": 0,
+        "extension": 0,
+        "hatch": 0,
+        "lock": 0,
+        "thrust": 0.65
+      }
+    },
+    {
+      "lod": 0,
+      "time": 6,
+      "pose": {
+        "time": 6,
+        "phase": {
+          "id": "approach",
+          "start": 0,
+          "end": 10,
+          "title": "Approach the terminal"
+        },
+        "position": [
+          48.704,
+          15,
+          -26.863999999999997
+        ],
+        "roll": 0,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0.10559999999999999,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 19,
+      "status": "Docking socket gap · 33.966 m"
+    },
+    {
+      "lod": 0,
+      "time": 13,
+      "pose": {
+        "time": 13,
+        "phase": {
+          "id": "roll",
+          "start": 10,
+          "end": 16,
+          "title": "Roll belly toward the port"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -0.7853981633974483,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 17.200 m"
+    },
+    {
+      "lod": 0,
+      "time": 18,
+      "pose": {
+        "time": 18,
+        "phase": {
+          "id": "extend",
+          "start": 16,
+          "end": 20,
+          "title": "Extend the docking collar"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 0.5,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 16.600 m"
+    },
+    {
+      "lod": 0,
+      "time": 26,
+      "pose": {
+        "time": 26,
+        "phase": {
+          "id": "capture",
+          "start": 20,
+          "end": 30,
+          "title": "Close to soft capture"
+        },
+        "position": [
+          37.632,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 5.632 m"
+    },
+    {
+      "lod": 0,
+      "time": 31,
+      "pose": {
+        "time": 31,
+        "phase": {
+          "id": "lock",
+          "start": 30,
+          "end": 32,
+          "title": "Engage four capture latches"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0.5,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 0,
+      "time": 34,
+      "pose": {
+        "time": 34,
+        "phase": {
+          "id": "open",
+          "start": 32,
+          "end": 35,
+          "title": "Open the underbelly hatch"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 0.7407407407407407,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 0,
+      "time": 37,
+      "pose": {
+        "time": 37,
+        "phase": {
+          "id": "transfer",
+          "start": 35,
+          "end": 42,
+          "title": "Docked / airlock exposed"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 1,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 0,
+      "time": 44,
+      "pose": {
+        "time": 44,
+        "phase": {
+          "id": "close",
+          "start": 42,
+          "end": 45,
+          "title": "Close the underbelly hatch"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 1,
+        "hatch": 0.2592592592592593,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 0,
+      "time": 46,
+      "pose": {
+        "time": 46,
+        "phase": {
+          "id": "unlock",
+          "start": 45,
+          "end": 47,
+          "title": "Release capture latches"
+        },
+        "position": [
+          32,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0.5,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 0.000 m"
+    },
+    {
+      "lod": 0,
+      "time": 50,
+      "pose": {
+        "time": 50,
+        "phase": {
+          "id": "backoff",
+          "start": 47,
+          "end": 54,
+          "title": "Back away from the terminal"
+        },
+        "position": [
+          38.29737609329446,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 1,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 13,
+      "status": "Docking socket gap · 6.297 m"
+    },
+    {
+      "lod": 0,
+      "time": 55,
+      "pose": {
+        "time": 55,
+        "phase": {
+          "id": "retract",
+          "start": 54,
+          "end": 57,
+          "title": "Retract the docking collar"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -1.5707963267948966,
+        "extension": 0.7407407407407407,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 16.311 m"
+    },
+    {
+      "lod": 0,
+      "time": 60,
+      "pose": {
+        "time": 60,
+        "phase": {
+          "id": "level",
+          "start": 57,
+          "end": 63,
+          "title": "Return to level attitude"
+        },
+        "position": [
+          48,
+          15,
+          2
+        ],
+        "roll": -0.7853981633974483,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 15,
+      "status": "Docking socket gap · 17.200 m"
+    },
+    {
+      "lod": 0,
+      "time": 68,
+      "pose": {
+        "time": 68,
+        "phase": {
+          "id": "depart",
+          "start": 63,
+          "end": 72,
+          "title": "Depart the terminal"
+        },
+        "position": [
+          50.33196159122085,
+          17.914951989026065,
+          53.30315500685872
+        ],
+        "roll": 0,
+        "extension": 0,
+        "lock": 0,
+        "hatch": 0,
+        "thrust": 0.6280326701397837,
+        "gimbal": 0,
+        "tiltL": 90,
+        "tiltR": 90
+      },
+      "draws": 19,
+      "status": "Docking socket gap · 54.973 m"
+    },
+    {
+      "kind": "model-only",
+      "lod": 2,
+      "triangles": 2693,
+      "draws": 1
+    }
+  ],
+  "mobile_framing": {
+    "x": 0.6963828692486767,
+    "y": 0.3455665583609128
+  },
+  "checks": [
+    "All three GLB downloads and measured unculled model-only counts match manifest",
+    "Both articulated tiers: manual airlock interlock, latches and independent 0–90 degree thruster tilt",
+    "Thirteen docking phases and five VTOL phases in both tiers; exact displayed dock gap; independent cycle durations and chapter seeking",
+    "Playback, pause, speed, endpoint clamp, loop, reset, fullscreen and image download",
+    "Camera presets, wireframe and exhaust controls; static tier disables articulation and docking",
+    "Shared navigation and 390 px layout; complete shuttle framed without horizontal overflow"
+  ],
+  "errors": []
+}

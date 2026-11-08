@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain GLBs, names, socket frames, conservative station separation, door aperture rays and sampled kinematic docking. No force, pressure or general collision simulation.",
+  "files": [
+    {
+      "file": "shuttle_02_d0_lod0.glb",
+      "triangles": 17852,
+      "draw_calls": 11,
+      "bytes": 511400,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "shuttle_02_d0_lod1.glb",
+      "triangles": 8372,
+      "draw_calls": 11,
+      "bytes": 256560,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "shuttle_02_d0_lod2.glb",
+      "triangles": 2693,
+      "draw_calls": 1,
+      "bytes": 120108,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "cycle_samples": 1442,
+  "aperture_checks": [
+    {
+      "lod": 0,
+      "hatch": 0,
+      "first_surface": "BELLY_HATCH_R_SURFACE",
+      "first_hit_y_m": 1.75
+    },
+    {
+      "lod": 0,
+      "hatch": 1,
+      "first_surface": "HULL",
+      "first_hit_y_m": 2.819999933242798
+    },
+    {
+      "lod": 1,
+      "hatch": 0,
+      "first_surface": "BELLY_HATCH_R_SURFACE",
+      "first_hit_y_m": 1.7499999999999991
+    },
+    {
+      "lod": 1,
+      "hatch": 1,
+      "first_surface": "HULL",
+      "first_hit_y_m": 2.819999933242798
+    }
+  ],
+  "checks": [
+    "All three plain GLBs validate with zero errors and warnings; finite, nondegenerate geometry",
+    "Unique dot-free names, same hierarchy/TRS and sockets across tiers; envelope difference below 1 mm",
+    "Game triangle target and all distance targets met; 11 articulated draws reported",
+    "Outer doors close the aperture and clear it when open; collar extension interlock holds",
+    "Two animated tiers sampled through all 72 seconds: opposing mating normals, latch-before-open and close-before-release",
+    "Non-coupling meshes remain outside station bounding plane through entire cycle; contact geometry is excluded",
+    "Distance adapter preserves every local transform; original station exports remain byte-identical",
+    "Full thruster swept cylinders clear fixed non-interface geometry; open airlock stays outside their axial slabs",
+    "722 independent left/right angle combinations preserve the fully open, captured docking interface",
+    "Exhaust centreline directions follow every integer degree of tilt and clear fixed hull for 9 m",
+    "482 VTOL cycle samples retain finite transforms, 0–90 degree limits and matching loop endpoints"
+  ],
+  "vtol": {
+    "sweeps": [
+      {
+        "lod": 0,
+        "pod": "L",
+        "rotor_radius_m": 4.342913851126626,
+        "fixed_triangle_checks": 63,
+        "rotary_interface_triangles_excluded": 351,
+        "min_radial_clearance_m": 0.5081476577662034,
+        "min_airlock_axial_clearance_m": 2.6899999380111694
+      },
+      {
+        "lod": 0,
+        "pod": "R",
+        "rotor_radius_m": 4.342913851126626,
+        "fixed_triangle_checks": 61,
+        "rotary_interface_triangles_excluded": 351,
+        "min_radial_clearance_m": 0.5081476577662034,
+        "min_airlock_axial_clearance_m": 2.6899999380111694
+      },
+      {
+        "lod": 1,
+        "pod": "L",
+        "rotor_radius_m": 4.342913851126626,
+        "fixed_triangle_checks": 63,
+        "rotary_interface_triangles_excluded": 183,
+        "min_radial_clearance_m": 0.5081476577662034,
+        "min_airlock_axial_clearance_m": 2.6899999380111694
+      },
+      {
+        "lod": 1,
+        "pod": "R",
+        "rotor_radius_m": 4.342913851126626,
+        "fixed_triangle_checks": 61,
+        "rotary_interface_triangles_excluded": 183,
+        "min_radial_clearance_m": 0.5081476577662034,
+        "min_airlock_axial_clearance_m": 2.6899999380111694
+      }
+    ],
+    "dock_angle_samples": 722,
+    "cycle_samples": 482
+  },
+  "docking": {
+    "max_socket_error_m": 0,
+    "min_non_coupling_separation_m": 1.440000832080841,
+    "station_max_x_m": 30.8799991607666
+  }
+}
