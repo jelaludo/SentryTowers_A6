@@ -2,7 +2,7 @@
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "shuttle-02",
   "label": "SHUTTLE-02 / Industrial VTOL shuttle",
-  "revision": 1,
+  "revision": 2,
   "status": "interactive_vtol_docking_prototype_pending_game_integration",
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
@@ -580,26 +580,26 @@
         {
           "id": "approach",
           "start": 0,
-          "end": 10,
+          "end": 2,
           "title": "Approach the terminal"
         },
         {
           "id": "roll",
-          "start": 10,
-          "end": 16,
-          "title": "Roll belly toward the port"
+          "start": 2,
+          "end": 12,
+          "title": "Roll during approach"
         },
         {
           "id": "extend",
-          "start": 16,
+          "start": 12,
           "end": 20,
-          "title": "Extend the docking collar"
+          "title": "Align and extend the collar"
         },
         {
           "id": "capture",
           "start": 20,
           "end": 30,
-          "title": "Close to soft capture"
+          "title": "Ease into soft capture"
         },
         {
           "id": "lock",
@@ -655,7 +655,17 @@
           "end": 72,
           "title": "Depart the terminal"
         }
-      ]
+      ],
+      "arrival_timing": {
+        "roll_start_s": 2,
+        "roll_end_s": 14,
+        "lateral_start_s": 3,
+        "forward_align_s": 18,
+        "collar_start_s": 12,
+        "collar_end_s": 20,
+        "capture_s": 30
+      },
+      "arrival_easing": "Quintic smoothstep; overlapping translation, roll and collar extension with continuous velocity and acceleration"
     },
     "vtol_demo": {
       "name": "Shuttle_VTOL_Transition_Cycle",

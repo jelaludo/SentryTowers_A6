@@ -1,5 +1,11 @@
 # Devlog
 
+## 8 November 2026 / SHUTTLE-02 — flowing docking approach
+
+Started the belly roll at 2 seconds instead of 10 and spread it over 12 seconds. Forward approach now continues until 18 seconds, lateral closure overlaps from 3–30 seconds, and collar extension runs during 12–20 seconds. Quintic easing keeps velocity and acceleration continuous at the arrival joins, removes the stop-and-turn pause, and reduces peak roll rate from 22.5°/s to about 14.06°/s. The shuttle settles into the same socket frame at 30 seconds; capture, hatch operation, departure timing and the 72-second duration remain intact.
+
+Updated chapter labels, manifest revision/timing, integration notes, viewer cache versions and arrival previews. Regression checks verify rolling while travelling, no intermediate stop or reversal, continuous arrival velocity/acceleration, station clearance and exact final mating. Browser checks cover both animated tiers and both sequences. All source GLBs, names, pivots, dimensions, VTOL behaviour, SHUTTLE-01 and the received collaboration contract are unchanged. Completed: requested earlier, smoother docking rotation; visual acceptance and the previously listed game-integration work remain pending.
+
 ## 8 November 2026 / SHUTTLE-02 — industrial VTOL and shared docking
 
 Created the second shuttle from the supplied industrial concept: a long armored spine, pointed split-channel nose, low control blister, layered sloping side shields, exposed trunnions and two independent engine pods. Each complete nacelle rotates from downward lift at 0° to aft thrust at 90°, with its exhaust socket and viewer plume following the pivot. Low rear bridges and short chassis braces leave the engine sweep and exhaust centrelines clear. Neutral bounds are 25.200 × 42.000 × 7.650 m; the sampled tilt envelope reaches 7.8203 m high.

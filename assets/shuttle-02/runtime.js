@@ -1,11 +1,15 @@
 export const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export const smooth=v=>{v=clamp(v);return v*v*(3-2*v);};
 export const SPEC={length_m:42,span_m:25.2,belly_z_m:-2,collar_stroke_m:1.2,seal_radius_m:1.7,clear_radius_m:1.25,hatch_travel_m:1.45,station_socket:'SOCKET_DOCK_E',station_port_m:[30.8,15,0],docked_roll_rad:-Math.PI/2,demo_duration_s:72,vtol_duration_s:24,thruster_centres_m:[[-7.2,4.5,0],[7.2,4.5,0]],thruster_tilt_deg:[0,90]};
+export const DOCK_TIMING={roll_start_s:2,roll_end_s:14,lateral_start_s:3,forward_align_s:18,collar_start_s:12,collar_end_s:20,capture_s:30};
+// Zero velocity and acceleration at either end let arrival motions overlap
+// without a stop-and-turn beat or a snap into the final mating attitude.
+const arrivalEase=v=>{v=clamp(v);return v*v*v*(v*(v*6-15)+10);};
 export const PHASES=[
- {id:'approach',start:0,end:10,title:'Approach the terminal'},
- {id:'roll',start:10,end:16,title:'Roll belly toward the port'},
- {id:'extend',start:16,end:20,title:'Extend the docking collar'},
- {id:'capture',start:20,end:30,title:'Close to soft capture'},
+ {id:'approach',start:0,end:2,title:'Approach the terminal'},
+ {id:'roll',start:2,end:12,title:'Roll during approach'},
+ {id:'extend',start:12,end:20,title:'Align and extend the collar'},
+ {id:'capture',start:20,end:30,title:'Ease into soft capture'},
  {id:'lock',start:30,end:32,title:'Engage four capture latches'},
  {id:'open',start:32,end:35,title:'Open the underbelly hatch'},
  {id:'transfer',start:35,end:42,title:'Docked / airlock exposed'},
@@ -16,11 +20,8 @@ export const PHASES=[
  {id:'level',start:57,end:63,title:'Return to level attitude'},
  {id:'depart',start:63,end:72,title:'Depart the terminal'}
 ];
-function baseDocking(value){const t=clamp(value,0,72),f=(a,b)=>smooth((t-a)/(b-a));const dockZ=-SPEC.belly_z_m;let position=[48,15,dockZ],roll=0,extension=0,lock=0,hatch=0,thrust=0;
- if(t<10){const u=f(0,10);position=[50-2*u,15,-80+(80+dockZ)*u];thrust=.3*(1-u);}
- if(t>=10)roll=-Math.PI/2*f(10,16);
- if(t>=16)extension=f(16,20);
- if(t>=20)position=[48-16*f(20,30),15,dockZ];
+function baseDocking(value){const t=clamp(value,0,72),f=(a,b)=>smooth((t-a)/(b-a)),q=(a,b)=>arrivalEase((t-a)/(b-a)),d=DOCK_TIMING;const dockZ=-SPEC.belly_z_m;
+ let position=[50-18*q(d.lateral_start_s,d.capture_s),15,-80+(80+dockZ)*q(0,d.forward_align_s)],roll=-Math.PI/2*q(d.roll_start_s,d.roll_end_s),extension=q(d.collar_start_s,d.collar_end_s),lock=0,hatch=0,thrust=.3*(1-q(0,d.forward_align_s));
  if(t>=30)lock=f(30,32);
  if(t>=32)hatch=f(32,35);
  if(t>=42)hatch=1-f(42,45);

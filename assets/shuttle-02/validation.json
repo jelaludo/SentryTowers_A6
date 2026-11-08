@@ -65,8 +65,33 @@
     "Full thruster swept cylinders clear fixed non-interface geometry; open airlock stays outside their axial slabs",
     "722 independent left/right angle combinations preserve the fully open, captured docking interface",
     "Exhaust centreline directions follow every integer degree of tilt and clear fixed hull for 9 m",
-    "482 VTOL cycle samples retain finite transforms, 0–90 degree limits and matching loop endpoints"
+    "482 VTOL cycle samples retain finite transforms, 0–90 degree limits and matching loop endpoints",
+    "Early roll overlaps continuous forward/lateral approach; no intermediate stop, reversal or velocity/acceleration discontinuity at arrival joins"
   ],
+  "arrival": {
+    "timing": {
+      "roll_start_s": 2,
+      "roll_end_s": 14,
+      "lateral_start_s": 3,
+      "forward_align_s": 18,
+      "collar_start_s": 12,
+      "collar_end_s": 20,
+      "capture_s": 30
+    },
+    "moving_roll_samples": 119,
+    "min_sampled_approach_speed_m_s": 0.0002723289256323369,
+    "peak_roll_rate_deg_s": 14.062499739586439,
+    "velocity_and_acceleration_joins_s": [
+      0,
+      2,
+      3,
+      12,
+      14,
+      18,
+      20,
+      30
+    ]
+  },
   "vtol": {
     "sweeps": [
       {

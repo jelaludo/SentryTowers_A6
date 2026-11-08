@@ -140,87 +140,87 @@
     },
     {
       "lod": 1,
-      "time": 6,
+      "time": 1,
       "pose": {
-        "time": 6,
+        "time": 1,
         "phase": {
           "id": "approach",
           "start": 0,
-          "end": 10,
+          "end": 2,
           "title": "Approach the terminal"
         },
         "position": [
-          48.704,
+          50,
           15,
-          -26.863999999999997
+          -79.8708530203729
         ],
         "roll": 0,
         "extension": 0,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0.10559999999999999,
+        "thrust": 0.2995275110501448,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
       "draws": 19,
-      "status": "Docking socket gap · 33.966 m"
+      "status": "Docking socket gap · 84.092 m"
     },
     {
       "lod": 1,
-      "time": 13,
+      "time": 8,
       "pose": {
-        "time": 13,
+        "time": 8,
         "phase": {
           "id": "roll",
-          "start": 10,
-          "end": 16,
-          "title": "Roll belly toward the port"
+          "start": 2,
+          "end": 12,
+          "title": "Roll during approach"
         },
         "position": [
-          48,
+          49.150893514049535,
           15,
-          2
+          -47.47162526037698
         ],
         "roll": -0.7853981633974483,
         "extension": 0,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0,
+        "thrust": 0.1809937509525987,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
-      "draws": 15,
-      "status": "Docking socket gap · 17.200 m"
+      "draws": 19,
+      "status": "Docking socket gap · 52.765 m"
     },
     {
       "lod": 1,
-      "time": 18,
+      "time": 16,
       "pose": {
-        "time": 18,
+        "time": 16,
         "phase": {
           "id": "extend",
-          "start": 16,
+          "start": 12,
           "end": 20,
-          "title": "Extend the docking collar"
+          "title": "Align and extend the collar"
         },
         "position": [
-          48,
+          41.624428675996015,
           15,
-          2
+          1.0543108266015793
         ],
         "roll": -1.5707963267948966,
         "extension": 0.5,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0,
+        "thrust": 0.003459838439262497,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
       "draws": 15,
-      "status": "Docking socket gap · 16.600 m"
+      "status": "Docking socket gap · 10.268 m"
     },
     {
       "lod": 1,
@@ -231,10 +231,10 @@
           "id": "capture",
           "start": 20,
           "end": 30,
-          "title": "Close to soft capture"
+          "title": "Ease into soft capture"
         },
         "position": [
-          37.632,
+          32.46292250691987,
           15,
           2
         ],
@@ -248,7 +248,7 @@
         "tiltR": 90
       },
       "draws": 13,
-      "status": "Docking socket gap · 5.632 m"
+      "status": "Docking socket gap · 0.463 m"
     },
     {
       "lod": 1,
@@ -640,87 +640,87 @@
     },
     {
       "lod": 0,
-      "time": 6,
+      "time": 1,
       "pose": {
-        "time": 6,
+        "time": 1,
         "phase": {
           "id": "approach",
           "start": 0,
-          "end": 10,
+          "end": 2,
           "title": "Approach the terminal"
         },
         "position": [
-          48.704,
+          50,
           15,
-          -26.863999999999997
+          -79.8708530203729
         ],
         "roll": 0,
         "extension": 0,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0.10559999999999999,
+        "thrust": 0.2995275110501448,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
       "draws": 19,
-      "status": "Docking socket gap · 33.966 m"
+      "status": "Docking socket gap · 84.092 m"
     },
     {
       "lod": 0,
-      "time": 13,
+      "time": 8,
       "pose": {
-        "time": 13,
+        "time": 8,
         "phase": {
           "id": "roll",
-          "start": 10,
-          "end": 16,
-          "title": "Roll belly toward the port"
+          "start": 2,
+          "end": 12,
+          "title": "Roll during approach"
         },
         "position": [
-          48,
+          49.150893514049535,
           15,
-          2
+          -47.47162526037698
         ],
         "roll": -0.7853981633974483,
         "extension": 0,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0,
+        "thrust": 0.1809937509525987,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
-      "draws": 15,
-      "status": "Docking socket gap · 17.200 m"
+      "draws": 19,
+      "status": "Docking socket gap · 52.765 m"
     },
     {
       "lod": 0,
-      "time": 18,
+      "time": 16,
       "pose": {
-        "time": 18,
+        "time": 16,
         "phase": {
           "id": "extend",
-          "start": 16,
+          "start": 12,
           "end": 20,
-          "title": "Extend the docking collar"
+          "title": "Align and extend the collar"
         },
         "position": [
-          48,
+          41.624428675996015,
           15,
-          2
+          1.0543108266015793
         ],
         "roll": -1.5707963267948966,
         "extension": 0.5,
         "lock": 0,
         "hatch": 0,
-        "thrust": 0,
+        "thrust": 0.003459838439262497,
         "gimbal": 0,
         "tiltL": 90,
         "tiltR": 90
       },
       "draws": 15,
-      "status": "Docking socket gap · 16.600 m"
+      "status": "Docking socket gap · 10.268 m"
     },
     {
       "lod": 0,
@@ -731,10 +731,10 @@
           "id": "capture",
           "start": 20,
           "end": 30,
-          "title": "Close to soft capture"
+          "title": "Ease into soft capture"
         },
         "position": [
-          37.632,
+          32.46292250691987,
           15,
           2
         ],
@@ -748,7 +748,7 @@
         "tiltR": 90
       },
       "draws": 13,
-      "status": "Docking socket gap · 5.632 m"
+      "status": "Docking socket gap · 0.463 m"
     },
     {
       "lod": 0,

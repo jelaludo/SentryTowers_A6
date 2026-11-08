@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import validator from 'gltf-validator';
-import {poseShuttle,applyDocking,dockingState,applyVTOL,vtolState,PHASES,VTOL_PHASES,SPEC} from '../../assets/shuttle-02/runtime.js';
+import {poseShuttle,applyDocking,dockingState,applyVTOL,vtolState,PHASES,VTOL_PHASES,SPEC,DOCK_TIMING} from '../../assets/shuttle-02/runtime.js';
 const out=new URL('../../assets/shuttle-02/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const load=async bytes=>new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
 const roots=[],frames=[],report={status:'passed',scope:'Decoded plain GLBs, names, socket frames, conservative station separation, door aperture rays and sampled kinematic docking. No force, pressure or general collision simulation.',files:[],cycle_samples:0,aperture_checks:[],checks:[]};
@@ -45,6 +45,14 @@ for(const lod of [0,1]){
   report.cycle_samples++;
  }
 }
+// Arrival must keep travelling while rolling, then settle into the same seal frame.
+const channels=t=>{const s=dockingState(t);return[...s.position,s.roll,s.extension];};
+let movingRollSamples=0,minArrivalSpeed=Infinity,peakRollRate=0;
+for(let i=1;i<300;i++){const t=i/10,h=.001,a=channels(t-h),b=channels(t+h),v=b.map((x,j)=>(x-a[j])/(2*h)),s=dockingState(t);const speed=Math.hypot(...v.slice(0,3));assert(speed>1e-4,'arrival pauses at '+t);assert(v[0]<=1e-7&&v[2]>=-1e-7&&v[3]<=1e-7,'arrival reverses at '+t);minArrivalSpeed=Math.min(minArrivalSpeed,speed);peakRollRate=Math.max(peakRollRate,Math.abs(v[3])*180/Math.PI);if(t>2&&t<14&&Math.abs(v[3])>1e-5&&speed>.01)movingRollSamples++;if(t>2&&t<10)assert(s.roll<0,'roll begins before previous stop');}
+const joins=[0,...new Set(Object.values(DOCK_TIMING))].sort((a,b)=>a-b);
+for(const t of joins){const h=.001,a=channels(t-2*h),b=channels(t-h),c=channels(t),d=channels(t+h),e=channels(t+2*h);for(let j=0;j<c.length;j++){assert(Math.abs((c[j]-b[j])/h-(d[j]-c[j])/h)<.005,'arrival velocity continuity '+t);assert(Math.abs((c[j]-2*b[j]+a[j])/(h*h)-(e[j]-2*d[j]+c[j])/(h*h))<.005,'arrival acceleration continuity '+t);}}
+near(dockingState(8).roll,-Math.PI/4);near(dockingState(14).roll,-Math.PI/2);assert(dockingState(12).position[2]<-SPEC.belly_z_m);assert.deepEqual(dockingState(30).position,[32,15,2]);assert(movingRollSamples>100);
+report.arrival={timing:DOCK_TIMING,moving_roll_samples:movingRollSamples,min_sampled_approach_speed_m_s:minArrivalSpeed,peak_roll_rate_deg_s:peakRollRate,velocity_and_acceleration_joins_s:joins};
 for(const p of PHASES.slice(1)){const a=dockingState(p.start-1e-6),b=dockingState(p.start+1e-6);assert(new T.Vector3(...a.position).distanceTo(new T.Vector3(...b.position))<1e-4);for(const k of ['roll','extension','lock','hatch'])near(a[k],b[k]);}
 for(const s of manifest.sources){const b=await fs.readFile(new URL('../../'+s.file,import.meta.url));assert.equal(b.length,s.bytes);assert.equal(sha(b),s.sha256);}
 // Conservatively clip fixed triangles into each pod's axial slab, then compare
@@ -71,4 +79,5 @@ for(const lod of [0,1]){
 report.docking={max_socket_error_m:maxSocketError,min_non_coupling_separation_m:minSeparation,station_max_x_m:stationMaxX};
 report.checks=['All three plain GLBs validate with zero errors and warnings; finite, nondegenerate geometry','Unique dot-free names, same hierarchy/TRS and sockets across tiers; envelope difference below 1 mm','Game triangle target and all distance targets met; 11 articulated draws reported','Outer doors close the aperture and clear it when open; collar extension interlock holds','Two animated tiers sampled through all 72 seconds: opposing mating normals, latch-before-open and close-before-release','Non-coupling meshes remain outside station bounding plane through entire cycle; contact geometry is excluded','Distance adapter preserves every local transform; original station exports remain byte-identical'];
 report.checks.push('Full thruster swept cylinders clear fixed non-interface geometry; open airlock stays outside their axial slabs','722 independent left/right angle combinations preserve the fully open, captured docking interface','Exhaust centreline directions follow every integer degree of tilt and clear fixed hull for 9 m','482 VTOL cycle samples retain finite transforms, 0–90 degree limits and matching loop endpoints');
+report.checks.push('Early roll overlaps continuous forward/lateral approach; no intermediate stop, reversal or velocity/acceleration discontinuity at arrival joins');
 await fs.writeFile(new URL('validation.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
