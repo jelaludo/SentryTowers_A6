@@ -1,0 +1,40 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'/Users/jela/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/jela/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell',args:['--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--no-sandbox']});
+const family=new URL('../../assets/robot-assembly/',import.meta.url),out=new URL('muscles/',family),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),original=JSON.parse(await fs.readFile(new URL('manifest.json',family))),base=process.env.ANATOMY_LAB_BASE||'http://localhost:8788',errors=[],checks=[],screens=[];
+await fs.mkdir(new URL('previews/',out),{recursive:true});
+const page=await browser.newPage({viewport:{width:1440,height:1100},deviceScaleFactor:1,acceptDownloads:true});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+const ready=()=>page.waitForFunction(()=>window.anatomyLab?.ready);
+const shot=async name=>{await page.waitForTimeout(130);const file=`previews/${name}.png`;await page.screenshot({path:new URL(file,out).pathname});screens.push(file);};
+await page.goto(base+'/robot-assembly/');await ready();assert.equal(await page.locator('#layer').inputValue(),'both');
+const measure=()=>page.evaluate(()=>{const a=window.anatomyLab,visibility=a.scene.children.map(n=>[n,n.visible]);for(const[n]of visibility)if(n!==a.model&&n!==a.muscleModel&&!n.isLight)n.visible=false;a.renderer.render(a.scene,a.camera);const result={triangles:a.renderer.info.render.triangles,draw_calls:a.renderer.info.render.calls};for(const[n,v]of visibility)n.visible=v;return result;});
+for(const head of ['frame','sensor']){
+ await page.selectOption('#head',head);await ready();
+ for(const lod of [0,1,2]){
+  await page.selectOption('#lod',String(lod));await ready();const skin=original.assets.find(e=>e.module===(head==='frame'?'assembly':'assembly_sensor')&&e.lod===lod),muscles=manifest.assets.find(e=>e.lod===lod);
+  for(const layer of ['skeleton','both','muscles']){await page.selectOption('#layer',layer);const result=await measure();assert.equal(result.triangles,(layer!=='muscles'?skin.triangles:0)+(layer!=='skeleton'?muscles.triangles:0));assert.equal(result.draw_calls,(layer!=='muscles'?skin.draw_calls:0)+(layer!=='skeleton'?muscles.draw_calls:0));checks.push({head,lod,layer,...result});}
+  assert.equal(await page.locator('#play').isDisabled(),lod===2);assert.equal(await page.locator('#part').isDisabled(),lod===2);assert((await page.locator('#download-muscles').getAttribute('href')).endsWith(muscles.file));assert((await page.locator('#download').getAttribute('href')).endsWith(skin.file));
+ }
+}
+await page.selectOption('#lod','1');await ready();await page.selectOption('#head','frame');await ready();await page.selectOption('#layer','both');await shot('combined-hero');
+for(const view of ['front','side','back']){await page.click('[data-view='+view+']');await shot('combined-'+view);}
+await page.click('[data-view=front]');await page.selectOption('#layer','skeleton');await shot('original-skeleton');await page.selectOption('#layer','muscles');await shot('layer-only');
+await page.selectOption('#layer','both');
+for(const part of ['ribcage','pelvis','arm_l','arm_r','leg_l','leg_r','hand_l','hand_r','foot_l','foot_r','head']){await page.selectOption('#part',part);const skin=original.assets.find(e=>e.module===part&&e.lod===1),muscles=manifest.assets[1].modules[part],result=await measure();assert.equal(result.triangles,skin.triangles+(muscles?.triangles||0));assert.equal(result.draw_calls,skin.draw_calls+(muscles?.draw_calls||0));}
+await page.selectOption('#layer','muscles');assert.equal(await page.locator('#part').inputValue(),'all');await page.selectOption('#part','hand_l');assert.equal(await page.locator('#layer').inputValue(),'both');
+await page.selectOption('#part','arm_l');await page.selectOption('#lod','0');await ready();await page.click('[data-view=hero]');await shot('arm-master');
+await page.selectOption('#motion','inspection');await page.locator('#time').fill('6');await page.locator('#time').dispatchEvent('input');await shot('arm-flexion');const scale=await page.evaluate(()=>window.anatomyLab.muscleModel.getObjectByName('MUSCLE_BICEPS_L').scale.toArray());assert(scale[0]>1);
+await page.click('#reset');await page.selectOption('#part','ribcage');await shot('thorax-master');await page.selectOption('#part','leg_l');await shot('leg-master');
+await page.selectOption('#lod','1');await ready();await page.selectOption('#part','all');await page.click('#exploded');await shot('exploded');
+await page.selectOption('#layer','skeleton');const skeletonPose=await page.evaluate(()=>window.anatomyLab.rig.nodes.ARM_L_ELBOW.quaternion.toArray());await page.selectOption('#layer','both');assert.deepEqual(await page.evaluate(()=>window.anatomyLab.rig.nodes.ARM_L_ELBOW.quaternion.toArray()),skeletonPose);
+await page.click('#reset');await page.selectOption('#motion','inspection');await page.locator('#time').fill('6');await page.locator('#time').dispatchEvent('input');await shot('joint-inspection');
+await page.click('#reset');await page.selectOption('#motion','assembly');await page.click('#play');await page.waitForTimeout(400);assert.equal(await page.locator('#play').textContent(),'Pause');assert(Number(await page.locator('#time').inputValue())>0);await page.click('#play');const stopped=await page.locator('#time').inputValue();await page.waitForTimeout(150);assert.equal(await page.locator('#time').inputValue(),stopped);
+await page.click('#reset');await page.check('#wire');assert(await page.evaluate(()=>window.anatomyLab.muscleModel.getObjectByName('MUSCLE_SURFACE_ARM_L').material.wireframe));await page.uncheck('#wire');
+const photo=page.waitForEvent('download');await page.click('#photo');assert((await photo).suggestedFilename().endsWith('.png'));const layerDownload=page.waitForEvent('download');await page.click('#download-muscles');assert.equal((await layerDownload).suggestedFilename(),manifest.assets[1].file);
+await page.selectOption('#lod','2');await ready();await shot('distance');await page.selectOption('#lod','1');await ready();await page.setViewportSize({width:390,height:844});await page.waitForTimeout(150);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await shot('mobile');
+await page.setViewportSize({width:1940,height:960});await page.click('[data-view=hero]');await page.uncheck('#guides');await page.waitForTimeout(150);await page.locator('#stage').screenshot({path:new URL('preview.png',out).pathname});
+await page.goto(base+'/robot-assembly/?layer=skeleton');await ready();assert.equal(await page.locator('#layer').inputValue(),'skeleton');const reverted=await measure();assert.equal(reverted.triangles,original.assets.find(e=>e.module==='assembly'&&e.lod===1).triangles);
+assert.deepEqual(errors,[]);const source_sha256={},sha=b=>crypto.createHash('sha256').update(b).digest('hex');for(const file of ['robot-assembly/index.html','robot-assembly/style.css','robot-assembly/viewer.js','assets/robot-assembly/muscles/runtime.js','assets/robot-assembly/muscles/specs.js','assets/robot-assembly/muscles/manifest.json'])source_sha256[file]=sha(await fs.readFile(new URL('../../'+file,import.meta.url)));
+await fs.writeFile(new URL('viewer-validation.json',out),JSON.stringify({status:'passed',browser:'Chromium / SwiftShader',scope:'18 head/tier/layer combinations with actual renderer costs; original skeleton restoration, component isolation, both sequences, downloads, wireframe and mobile layout. No FPS claim.',checks,screenshots:screens,console_errors:errors,source_sha256},null,2)+'\n');await browser.close();console.log(JSON.stringify({status:'passed',combinations:checks.length,screenshots:screens.length,errors}));

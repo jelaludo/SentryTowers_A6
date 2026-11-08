@@ -1,0 +1,28 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {NodeIO} from '@gltf-transform/core';
+import {dedup,prune} from '@gltf-transform/functions';
+import {simplify,geometryFor} from './stalheart-kidou-utils.mjs';
+import {buildMuscles} from './robot-muscles-shape.mjs';
+import {MUSCLES} from '../../assets/robot-assembly/muscles/specs.js';
+const family=new URL('../../assets/robot-assembly/',import.meta.url),out=new URL('muscles/',family),io=new NodeIO(),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),parent=JSON.parse(await fs.readFile(new URL('manifest.json',family)));
+globalThis.FileReader=class{readAsArrayBuffer(b){b.arrayBuffer().then(x=>{this.result=x;this.onloadend?.();});}};
+const loader=new GLTFLoader(),parse=b=>loader.parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');
+const host=(await parse(await fs.readFile(new URL('aurel03_assembly_d0_lod1.glb',family)))).scene;
+const preserved={commit:'f2ab7a8aa9d85f461afd3ba81d25017ed62f9e57',files:{}};
+for(const file of ['manifest.json','runtime.js',...parent.assets.map(e=>e.file)])preserved.files[file]=sha(await fs.readFile(new URL(file,family)));
+const assets=[];
+for(const lod of [0,1,2]){
+ const scene=buildMuscles(host,lod===0?0:1);scene.updateMatrixWorld(true);
+ if(lod===2){const gs=[],old=[];scene.traverse(n=>{if(n.isMesh){gs.push(geometryFor(n,scene));old.push(n);}});for(const n of old){const marker=new T.Group();marker.name=n.name;marker.userData={...n.userData,static_lookup_only:true};scene.add(marker);n.removeFromParent();}scene.getObjectByName('MUSCLE_DISTANCE_SURFACE').removeFromParent();const mesh=new T.Mesh(await simplify(mergeGeometries(gs),1450),new T.MeshStandardMaterial({name:'MUSCLE_DISTANCE_PALETTE',vertexColors:true,metalness:.42,roughness:.49}));mesh.name='MUSCLE_DISTANCE_SURFACE';mesh.userData={layer:'muscles'};scene.add(mesh);scene.traverse(n=>{n.userData.static_lookup_only=true;if(n.name==='AUREL_03_MUSCLE_ROOT')n.userData.static=true;});}
+ const raw=await new GLTFExporter().parseAsync(scene,{binary:true,trs:true}),doc=await io.readBinary(new Uint8Array(raw));await doc.transform(dedup(),prune({keepLeaves:true,keepAttributes:true}));const bytes=await io.writeBinary(doc),file=`aurel03_muscles_d0_lod${lod}.glb`;await fs.writeFile(new URL(file,out),bytes);
+ const g=(await parse(bytes)).scene;g.updateMatrixWorld(true);g.traverse(n=>{if(n.isSkinnedMesh)n.skeleton.update();});const bounds=new T.Box3().setFromObject(g,true),sockets=[],nodes=[],modules={};let triangles=0,draw_calls=0;
+ g.traverse(n=>{if(n.name)nodes.push(n.name);if(n.isMesh){const tris=(n.geometry.index?.count||n.geometry.attributes.position.count)/3;triangles+=tris;draw_calls++;if(n.userData.module)modules[n.userData.module.toLowerCase()]={triangles:tris,draw_calls:1};}if(n.name.startsWith('SOCKET_'))sockets.push({node:n.name,parent:n.parent.name,position_m:n.getWorldPosition(new T.Vector3()).toArray(),host_node:n.userData.host_node,host_local_m:n.userData.host_local_m});});
+ const skeleton=parent.assets.find(e=>e.module==='assembly'&&e.lod===lod),e={file,lod,damage_level:0,static:lod===2,derived:lod===2,bytes:bytes.length,sha256:sha(bytes),triangles,draw_calls,plot_m:[1.4,1],bounds:{min:bounds.min.toArray(),max:bounds.max.toArray(),dimensions_m:bounds.getSize(new T.Vector3()).toArray()},required_nodes:nodes.sort(),sockets,modules,clips:[],credit:'Models by jelaludo / Model Workshop',combined_with_original:{triangles:triangles+skeleton.triangles,draw_calls:draw_calls+skeleton.draw_calls,bytes:bytes.length+skeleton.bytes}};assets.push(e);console.log({lod,triangles,draw_calls,bytes:bytes.length,combined:e.combined_with_original});
+}
+const source_sha256={};for(const file of ['assets/robot-assembly/muscles/specs.js','assets/robot-assembly/muscles/runtime.js','tools/asset-pipeline/robot-muscles-shape.mjs','tools/asset-pipeline/build-robot-muscles.mjs'])source_sha256[file]=sha(await fs.readFile(new URL('../../'+file,import.meta.url)));
+await fs.writeFile(new URL('manifest.json',out),JSON.stringify({schema:'jelaludo.asset-layer/v1',family:'aurel03-muscles',version:1,label:'Carbon sheaths / braided tendons',optional_layer:true,plain_glb_source_of_truth:true,parent:preserved,coordinate_system:{units:'metres',up:'+Y',forward:'+Z',origin:'Same ground datum as AUREL-03; independent scene-root skin and muscle frames'},damage_states:{d0:'intact',d1_d3:'not authored'},runtime:{file:'runtime.js',driver:'createMuscleRig(layerScene,hostScene).update({spread}) after the host pose',motions:'Follows the original 20 s assembly and 12 s joint cycles; no baked clips',thickness:'Approximate volume preservation from endpoint distance, limited to 0.82–1.28; not force simulation',explosion:'Remove anchor-module separation and apply owner-module separation so each muscle stays with its module'},lod_selection:{game_distance_m:30,hysteresis_m:8,provisional:true,lod0:'Detailed sheath and modeled braided tendon strands',lod1:'Articulated smooth sheaths and simplified tendons',lod2:'Frozen original rest pose; static markers, never animate'},budget_note:'The original skeleton is retained in full. Report combined costs; the additional layer pushes the combined game model above 25k and combined static view above 3k/one draw. Consumer occlusion stripping/rebudgeting remains pending.',source_sha256,muscles:MUSCLES,assets},null,2)+'\n');

@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## AUREL-03 / Optional muscle layer / 8 November 2026
+
+Original procedural muscle sheaths, braided tendon strands, attachment rig, runtime adapter, viewer changes and derived review renders by jelaludo / Model Workshop. This separate layer extends our own AUREL-03 frame without modifying its original 42 GLBs or rig sources. The charcoal carbon-like finish is an artistic material treatment. No third-party geometry, image textures or source implementation is included. Source hashes, parent commit, measurements and attachment definitions are recorded in `assets/robot-assembly/muscles/manifest.json`; static surfaces and screenshots are derived exports. Original Workshop reuse terms apply.
+
 ## AUREL-03 / Robotic anatomy / 8 November 2026
 
 Original procedural rib cage, pelvis, limb shafts, heads, assembly rig, runtime and viewer by jelaludo / Model Workshop. Reuses the original AUREL-01 hand at uniform 0.82 scale and AUREL-02 foot at source scale, with mirrored right-side frames and economical game variants. The assembly combines each component’s material groups into one shared vertex-color finish. Original component sources/exports and all older robot families remain unchanged. No imported Hand Lab reference geometry is included.

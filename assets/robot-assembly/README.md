@@ -12,6 +12,10 @@ https://jelaludo.github.io/SentryTowers_A6/robot-assembly/
 
 The viewer has assembled/exploded states, independent part inspection, both heads, orthographic front/side/back and three-quarter views, proportion guides, an assembly sequence, a joint study, hand opening, seeking, playback speeds, wireframe, fullscreen, PNG capture and selected-model downloads. The complete assembly download follows the chosen head. The separate original Hand Lab and Foot Lab remain unchanged.
 
+## Optional muscle layer
+
+`muscles/` adds 66 charcoal muscle bodies with braided tendon ends as a separate, removable layer. The viewer now switches between skeleton, muscles and both, with the original joint and assembly controls. All original GLBs and rig sources remain unchanged. Layer exports, combined budgets and integration notes are in [muscles/README.md](muscles/README.md). Original `validation-report.json`, `viewer-validation.json` and previews describe the skeleton-only baseline at `f2ab7a8`; `muscles/viewer-validation.json` verifies the current viewer.
+
 ## Files and measured budgets
 
 The authoritative assets are **plain self-contained GLBs**. `manifest.json` records byte sizes, SHA-256, bounds, required names, sockets, draw calls, triangles and credit for all 42 exports. Each `parts/<module>/` folder has its own manifest with filenames relative to that folder. No compressed upstream copies are included; consuming-game release packing and decoded validation remain pending.

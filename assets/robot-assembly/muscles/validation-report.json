@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "scope": "Original asset byte preservation; plain layer validation; source-frame matching, endpoint attachment, deformation, explosion and independent toggling. No pressure, force or arbitrary collision proof.",
+  "preserved_commit": "f2ab7a8aa9d85f461afd3ba81d25017ed62f9e57",
+  "preserved_files": 44,
+  "muscle_groups": 66,
+  "files": [
+    {
+      "file": "aurel03_muscles_d0_lod0.glb",
+      "sha256": "59dd00105df3497dca7c76a45a3f67881a4163b923a8630ba554e76b64c1001e",
+      "triangles": 285384,
+      "draw_calls": 6,
+      "bytes": 10065424,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_muscles_d0_lod1.glb",
+      "sha256": "ff06893ce664380b412636d344eb924ee89ede32ad260f64a1d27aee874ebb9e",
+      "triangles": 18744,
+      "draw_calls": 6,
+      "bytes": 815440,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "aurel03_muscles_d0_lod2.glb",
+      "sha256": "44e02d9a93e21381006915585650a5789985830298e081e26bd68a8de143f0f3",
+      "triangles": 1426,
+      "draw_calls": 1,
+      "bytes": 115008,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0
+    }
+  ],
+  "motion_samples": 442,
+  "attachment_checks": 31812,
+  "min_muscle_length_m": 0.08391066678319271,
+  "max_thickness_factor": 1.1424976944332108,
+  "biceps": {
+    "neutral_m": 0.31717889460765103,
+    "flexed_m": 0.25840212311362204
+  },
+  "combined_costs": [
+    {
+      "lod": 0,
+      "triangles": 628416,
+      "draw_calls": 17,
+      "bytes": 21831044
+    },
+    {
+      "lod": 1,
+      "triangles": 42320,
+      "draw_calls": 17,
+      "bytes": 1730440
+    },
+    {
+      "lod": 2,
+      "triangles": 4220,
+      "draw_calls": 2,
+      "bytes": 277460
+    }
+  ],
+  "checks": [
+    "All 42 original GLBs, original manifest/runtime and original procedural sources unchanged",
+    "Three self-contained plain GLBs with no validator errors/warnings",
+    "Same unique names, root placement and driver/socket frames across layer tiers",
+    "Original skeleton receives no TRS edits from muscle updates",
+    "All tendon endpoints remain on authored attachment points during inspection",
+    "Muscle thickness responds to endpoint distance while tendon radius remains constant",
+    "Exploded modules preserve muscle lengths and orientation",
+    "Shared translated/rotated/scaled instance wrapper does not double-transform the layer",
+    "Distance layer preserves game bounds and does not animate",
+    "Combined geometry costs reported separately; production composite remains over budget"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "scope": "18 head/tier/layer combinations with actual renderer costs; original skeleton restoration, component isolation, both sequences, downloads, wireframe and mobile layout. No FPS claim.",
+  "checks": [
+    {
+      "head": "frame",
+      "lod": 0,
+      "layer": "skeleton",
+      "triangles": 343032,
+      "draw_calls": 11
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "layer": "both",
+      "triangles": 628416,
+      "draw_calls": 17
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "layer": "muscles",
+      "triangles": 285384,
+      "draw_calls": 6
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "layer": "skeleton",
+      "triangles": 23576,
+      "draw_calls": 11
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "layer": "both",
+      "triangles": 42320,
+      "draw_calls": 17
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "layer": "muscles",
+      "triangles": 18744,
+      "draw_calls": 6
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "layer": "skeleton",
+      "triangles": 2794,
+      "draw_calls": 1
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "layer": "both",
+      "triangles": 4220,
+      "draw_calls": 2
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "layer": "muscles",
+      "triangles": 1426,
+      "draw_calls": 1
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "layer": "skeleton",
+      "triangles": 344308,
+      "draw_calls": 11
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "layer": "both",
+      "triangles": 629692,
+      "draw_calls": 17
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "layer": "muscles",
+      "triangles": 285384,
+      "draw_calls": 6
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "layer": "skeleton",
+      "triangles": 23692,
+      "draw_calls": 11
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "layer": "both",
+      "triangles": 42436,
+      "draw_calls": 17
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "layer": "muscles",
+      "triangles": 18744,
+      "draw_calls": 6
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "layer": "skeleton",
+      "triangles": 2788,
+      "draw_calls": 1
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "layer": "both",
+      "triangles": 4214,
+      "draw_calls": 2
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "layer": "muscles",
+      "triangles": 1426,
+      "draw_calls": 1
+    }
+  ],
+  "screenshots": [
+    "previews/combined-hero.png",
+    "previews/combined-front.png",
+    "previews/combined-side.png",
+    "previews/combined-back.png",
+    "previews/original-skeleton.png",
+    "previews/layer-only.png",
+    "previews/arm-master.png",
+    "previews/arm-flexion.png",
+    "previews/thorax-master.png",
+    "previews/leg-master.png",
+    "previews/exploded.png",
+    "previews/joint-inspection.png",
+    "previews/distance.png",
+    "previews/mobile.png"
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "robot-assembly/index.html": "23fec6cffabd2925204b57e0a1907be2017c6ff59f0ccdad445b79c0074b12ce",
+    "robot-assembly/style.css": "4df06d6a26bdb45612fd105d1d439e3862028357e71abcb97c18c47ffaf3c158",
+    "robot-assembly/viewer.js": "9ef17828f92621255d91ad46e928a3293bfb989b838ce61b550fd8710739531e",
+    "assets/robot-assembly/muscles/runtime.js": "3c217da56377642938aa92c35f5808ff3339f54c250b60d65b3546f7523a36af",
+    "assets/robot-assembly/muscles/specs.js": "53181285079bea26e349868d9838144b2c20e75cc1a0585500077ea3f30c1946",
+    "assets/robot-assembly/muscles/manifest.json": "4d6f31097edd800db3c174bd968b30eb230b123bb5b5d78309b2296c5fa6ff58"
+  }
+}
