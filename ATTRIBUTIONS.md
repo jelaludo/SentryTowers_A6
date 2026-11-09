@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Helmet Lab / RK-MG02 / 9 November 2026
+
+RK-MG02 is an authored variation of jelaludo / Model Workshop's original Hex Witness family at `84713783451299097150ca80eb8f6552b7e353ed`, requested by the user: wider crown band and raised lower sensor pair. All tiers and previews are marked as derived; base exports/source are preserved. The original user-supplied `HexWitness.png` remains external and is fingerprinted in the manifest. No image pixels, third-party meshes or reference-head geometry are bundled. Original Workshop reuse terms apply.
+
 ## Helmet Lab / Hex Witness / 9 November 2026
 
 Original procedural helmet geometry, vertex colours, eight-module runtime and shared-viewer additions by jelaludo / Model Workshop, guided by the user-supplied `HexWitness.png`. Its external path and SHA-256 are recorded in `assets/helmet-lab/hex-witness/manifest.json`; no reference pixels or third-party meshes are distributed. LOD1/2 and previews are derived. The unchanged AUREL-03 sensor head is a viewer fit reference, excluded from the helmet package. Original Workshop reuse terms apply.

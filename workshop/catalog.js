@@ -1,4 +1,5 @@
 const collectionImages={
+'rk-mg02':'assets/helmet-lab/rk-mg02/preview.png',
 'hex-witness':'assets/helmet-lab/hex-witness/preview.png',
 'helmet-lab':'assets/helmet-lab/breach-warden/preview.png',
 'robot-assembly':'assets/robot-assembly/muscles/preview.png',
@@ -56,6 +57,7 @@ const collectionImages={
 };
 
 export const collections=[
+['rk-mg02','Helmet Lab / RK-MG02','Characters','A broader smooth crown band and a raised lower sensor pair. Five red optics, curved honeycomb armor and eight separable modules with human and robot fit references.','Broader crown · Raised sensors · 3 tiers · GLB + ZIP','Helmet studies / 03','helmet-lab/?helmet=rk-mg02'],
 ['hex-witness','Helmet Lab / Hex Witness','Characters','A rounded honeycomb cowl with a smooth crown band, five red optics, curved jaw armor and a vented chin. Inspect eight modules, human and robot fit, and three downloadable tiers.','8 modules · Five optics · 3 tiers · GLB + ZIP','Helmet studies / 02','helmet-lab/?helmet=hex-witness'],
 ['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],
 ['robot-assembly','AUREL-03 / Robotic Anatomy','Characters','An adult mechanical frame with an optional layer of charcoal muscle bodies and braided tendons. Inspect the original skeleton, the muscles or both as they assemble and follow the joint study. Separate arms, legs, hands, feet and two heads remain available.','66 muscle bundles · Removable layer · 2 heads · 3 tiers','Modular anatomy study'],

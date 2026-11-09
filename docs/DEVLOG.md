@@ -1,5 +1,16 @@
 # Devlog
 
+## 9 November 2026 / Helmet Lab — RK-MG02
+
+Created the requested independent Hex Witness variant. The smooth crown band is 120.7 mm wide versus 80.6 mm on the original, approximately 50% broader. The lower sensor mounting parameters rise 31 mm and spread outward 12 mm per side, placing the pair beside the lower half of the large central optic as sketched. Surface-mounted lens sockets rise 33.49 mm. The front copper tabs move outward to remain on the side panels; the broader band leaves 144 honeycomb cells. Central/upper optics, jaw, collar, liner, head fit and overall dimensions retain the base design.
+
+Added RK-MG02 to the shared Helmet selector and gallery at `helmet-lab/?helmet=rk-mg02`, with eight module isolates, explosion, fit references, cameras, cutaway, wireframe, capture and GLB/ZIP downloads. Base Hex Witness, Breach Warden and robot assets remain byte-identical to `8471378`. All new tiers are marked derived and retain their own stable names/sockets. Detailed/game/static measurements are 102,544 / 15,242 / 2,994 triangles, 10 / 10 / one draws and 2,977,632 / 638,440 / 134,364 plain bytes. All RK-MG02 tiers keep the original 278.6 × 379.0 × 355.3 mm envelope. Game meets the unit triangle reference but exceeds stationary-landmark triangle/byte references; a full-character budget remains necessary. Distance meets 3k/one-draw/250 KB. No FPS claim.
+
+All three plain exports pass glTF validation without errors/warnings, geometry/fit checks, 96 module poses, optical and grille rays, and socket/name/bounds parity. Variant comparison verifies the wider band and raised lower sensors with unchanged remaining attachment frames. Browser checks cover all tiers, actual render costs, controls, downloads, mobile layout and preserved original-family switching. Updated attribution, integration notes, previews and generated documentation; the received collaboration contract is unchanged.
+
+Completed: RK-MG02 and its downloadable three-tier handoff. Pending: visual acceptance, character-specific moving fit/donning, gameplay damage, consuming-game release packing/decoded validation and device/game-camera profiling. Handoff: containing commit plus `assets/helmet-lab/rk-mg02/`.
+
+
 ## 9 November 2026 / Helmet Lab — Hex Witness
 
 Added the requested second helmet as a separate family: a rounded pale ceramic cowl with 166 curved honeycomb cells, a smooth crown band, central red optic and four smaller lenses, recessed faceplate, curved jaw armor, six-slot chin filter and connected neck collar. Eight modules separate for inspection; the shell and liner preserve a human/humanoid head cavity. Plate surfaces, bevels and borders use matching curved samples to avoid gaps in reduced geometry. Lens housings sit along the local face normals and keep their optical surfaces unobstructed.

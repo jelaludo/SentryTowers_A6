@@ -1,5 +1,7 @@
 # Model Workshop
 
+**Helmet Lab / RK-MG02** derives from Hex Witness with a 50% wider crown band and raised lower sensors flanking the main lens. The independent variant has eight inspectable modules, unchanged head/neck fit and three downloadable GLB tiers plus ZIP at `helmet-lab/?helmet=rk-mg02`. Original helmets are preserved; handoff notes are in `assets/helmet-lab/rk-mg02/`.
+
 **Helmet Lab / Hex Witness** adds a second standalone helmet: rounded honeycomb cowl, smooth crown band, five red optics and curved vented jaw. Eight separable modules, human/AUREL fit references, detailed/game/static GLBs and a complete ZIP are available at `helmet-lab/?helmet=hex-witness`. Measurements and mounting notes are in `assets/helmet-lab/hex-witness/`. The viewer's Helmet selector switches between both designs.
 
 **Helmet Lab / Breach Warden** starts a standalone helmet series for humans and humanoid robots: broad flattened brow, recessed visor, overlapping cheek armour, compact respirator, suspended ceramic temple bar and a replacement jaw plate. Eleven separable modules, human/AUREL fit references, half section and detailed/game/static exports are available at `helmet-lab/`. The viewer offers individual GLBs and a complete ZIP; measurements and mounting notes are in `assets/helmet-lab/breach-warden/`.
