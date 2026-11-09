@@ -1,4 +1,5 @@
 const collectionImages={
+'helmet-lab':'assets/helmet-lab/breach-warden/preview.png',
 'robot-assembly':'assets/robot-assembly/muscles/preview.png',
 'shuttle-02':'assets/shuttle-02/preview.png',
 'shuttle-01':'assets/shuttle-01/preview.png',
@@ -54,6 +55,7 @@ const collectionImages={
 };
 
 export const collections=[
+['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],
 ['robot-assembly','AUREL-03 / Robotic Anatomy','Characters','An adult mechanical frame with an optional layer of charcoal muscle bodies and braided tendons. Inspect the original skeleton, the muscles or both as they assemble and follow the joint study. Separate arms, legs, hands, feet and two heads remain available.','66 muscle bundles · Removable layer · 2 heads · 3 tiers','Modular anatomy study'],
 ['shuttle-02','SHUTTLE-02 / Industrial VTOL','Industry','An armored transport with exposed rotary mounts and independently tilting thruster pods. Transition from vertical lift to cruise, then dock its shared underbelly airlock at the Space Elevator orbital station.','90° rotating engines · VTOL + docking cycles · 3 tiers','Interactive prototype'],
 ['shuttle-01','SHUTTLE-01 / Orbital Shuttle','Industry','A smooth swept lifting body with twin recessed engines and an underbelly airlock. Roll belly-first toward the Space Elevator terminal, extend the collar, capture, open the hatch and depart.','72-second docking cycle · Working airlock · 3 detail tiers','Interactive prototype'],

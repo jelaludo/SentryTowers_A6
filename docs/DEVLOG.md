@@ -1,5 +1,17 @@
 # Devlog
 
+## 9 November 2026 / Helmet Lab — Breach Warden
+
+Started the requested helmet-only series with an independent human/humanoid boarding helmet. Broad flattened brow and shallow impact craters, a recessed dark visor, overlapping cheek and jaw plates, compact three-slot respirator with recessed filter, segmented crown/rear shell, hollow liner and neck collar establish the construction. An ivory ceramic bar stands clear of one temple on two small brackets; a contrasting pale jaw plate and small etched service marks record a repair. Wear is carried by geometry and vertex colours, without external image textures.
+
+Added `helmet-lab/` with eleven module-isolation choices, assembled/exploded inspection, half section, human and unchanged AUREL-03 sensor-head fit references, wireframe, five cameras/free orbit, turntable, fullscreen, PNG capture, tier-specific GLB downloads and a reproducible 3.30 MB ZIP. Shared navigation, Workshop gallery, attribution, mounting notes and readiness records are updated. Original hands, feet and all robot exports remain untouched.
+
+Detailed master: 170,876 triangles / 11 draws / 4,836,548 plain bytes. Game: 11,708 / 11 / 439,036. Static distance: 2,798 / one / 164,444. Bounds remain exactly 358.8 × 367.0 × 360.5 mm across tiers; the side device creates the asymmetric width. Game is below the 25k unit triangle reference, but is only one part of a complete character budget; its 11 draws and 439 KB exceed the stationary-landmark references. Distance meets 3k/one-draw/250 KB. LOD1/2 are marked derived; no upstream compressed copies or FPS claims.
+
+Three decoded plain files validate with zero glTF errors/warnings, finite nondegenerate geometry, unique dot-free names, matching socket/rest frames and 132 module pose checks. No helmet triangle intersects the authored head/nose ellipsoids; the unchanged 1,740-triangle AUREL sensor head has no rest-pose surface intersections. The temple bar has 20.75 mm master / 21.00 mm game clearance at its centre. Rays confirm all three grille slots reach their filter bed in both inspectable tiers. Browser review covers actual tier/isolated-part render costs, all controls, desktop/mobile layouts and downloaded file hashes.
+
+Completed: first standalone helmet, detailed and reduced exports, reusable attachment frames, fit inspection and downloads. Pending: user visual acceptance, additional helmet designs, character-specific moving fit and donning mechanics, D1–D3, consuming-game gltfpack/decoded validation and reference-device profiling. Handoff is the containing commit plus `assets/helmet-lab/breach-warden/`. The received collaboration contract remains unchanged.
+
 ## 9 November 2026 / AUREL-03 — downloadable animation handoff
 
 Added a prominent animation-kit ZIP download and complete-robot GLB link to the anatomy viewer. The kit contains four derived, self-contained rigged GLBs: open-frame and sensor heads in articulated game and detailed tiers, with skeleton and muscle geometry together. The muscle layer remains separately identifiable/removable. All original source GLBs and runtimes are unchanged. The direct GLB follows the selected head and animated tier; selecting static distance still offers the articulated game file for animation.

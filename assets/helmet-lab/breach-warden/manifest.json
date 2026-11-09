@@ -1,0 +1,690 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "breach-warden",
+  "series": "Helmet Lab",
+  "number": 1,
+  "label": "Breach Warden / Boarding helmet",
+  "revision": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Helmet collar ground datum at plot centre; use SOCKET_NECK for attachment"
+  },
+  "spec": {
+    "height_m": 0.367,
+    "head_envelope": {
+      "center": [
+        0,
+        0.207,
+        0
+      ],
+      "radii": [
+        0.087,
+        0.117,
+        0.111
+      ]
+    },
+    "head_datum_m": [
+      0,
+      0.09,
+      0
+    ],
+    "neck_radius_m": 0.049,
+    "robot_head_offset_m": [
+      0,
+      -1.465,
+      0
+    ],
+    "temple_bar_clearance_design_m": 0.012
+  },
+  "modules": {
+    "SHELL": {
+      "label": "Crown + rear shell",
+      "offset": [
+        0,
+        0.07,
+        -0.035
+      ]
+    },
+    "BROW": {
+      "label": "Flattened brow / impact scars",
+      "offset": [
+        0,
+        0.035,
+        0.075
+      ]
+    },
+    "VISOR": {
+      "label": "Recessed visor + seal",
+      "offset": [
+        0,
+        0,
+        0.1
+      ]
+    },
+    "CHEEK_L": {
+      "label": "Left overlapping cheek armor",
+      "offset": [
+        0.09,
+        0,
+        0.015
+      ]
+    },
+    "CHEEK_R": {
+      "label": "Right overlapping cheek armor",
+      "offset": [
+        -0.09,
+        0,
+        0.015
+      ]
+    },
+    "JAW_L": {
+      "label": "Replacement jaw plate",
+      "offset": [
+        0.08,
+        -0.025,
+        0.04
+      ]
+    },
+    "JAW_R": {
+      "label": "Original jaw plate",
+      "offset": [
+        -0.08,
+        -0.025,
+        0.04
+      ]
+    },
+    "RESPIRATOR": {
+      "label": "Compact respirator cassette",
+      "offset": [
+        0,
+        -0.025,
+        0.12
+      ]
+    },
+    "TEMPLE_BAR": {
+      "label": "Suspended ceramic temple bar",
+      "offset": [
+        0.1,
+        0.025,
+        0
+      ]
+    },
+    "COLLAR": {
+      "label": "Neck seal + locking collar",
+      "offset": [
+        0,
+        -0.065,
+        0
+      ]
+    },
+    "LINER": {
+      "label": "Inner impact liner",
+      "offset": [
+        0,
+        0.02,
+        -0.08
+      ]
+    }
+  },
+  "damage_states": {
+    "d0": "Intact service-worn helmet; dents and replacement plate are authored appearance, not damage progression",
+    "d1_d3": "Not authored"
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "engine_driven": "Module separation for inspection only; no operational opening/pressure simulation",
+    "clips": []
+  },
+  "lod_selection": {
+    "lod0": "Detailed close-shot/recording master",
+    "lod1": "Separate inspectable game modules",
+    "lod2": "One merged static surface; retained names are lookup markers only",
+    "game_enter_m": 12,
+    "distance_return_m": 16,
+    "provisional": true
+  },
+  "reference": {
+    "path": "/Users/jela/Downloads/01BreachWarden.png",
+    "sha256": "d08fad79ae1c53e66ec4b980183c2133779b8813845c323982b9ced5a6ee18f5",
+    "redistributed": false
+  },
+  "fit_reference": {
+    "robot_file": "assets/robot-assembly/parts/head_sensor/aurel03_head_sensor_d0_lod1.glb",
+    "sha256": "df1d46b149d875c57e7deb30a64a3e73675050a2995b77fa28d5235654f046b3",
+    "position_offset_m": [
+      0,
+      -1.465,
+      0
+    ],
+    "scale": 1,
+    "human": "Authored generic head envelope; not a population anthropometric or safety certification"
+  },
+  "source_sha256": {
+    "tools/asset-pipeline/breach-warden-shape.mjs": "365407fdc669f38613743ddb9b251e6718d40a8794c0ee6950b5f29b666437f4",
+    "tools/asset-pipeline/build-breach-warden.mjs": "29a530bd59770b87c69c14f999f990eb248a845799e7392046e6899008301780",
+    "assets/helmet-lab/breach-warden/runtime.js": "54e620defd4f2dd34147757ec4b4025ede59be7b1fdd80c555bd9fa4506a4472"
+  },
+  "assets": [
+    {
+      "file": "breach_warden_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 4836548,
+      "sha256": "2a292860d73f64a23c9fd56caf8e94cb51cdbf6be28534b37efee7c8043224ff",
+      "triangles": 170876,
+      "draw_calls": 11,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.16750000417232513,
+          -3.7252903539730653e-10,
+          -0.15471836924552917
+        ],
+        "max": [
+          0.19130000472068787,
+          0.367000013589859,
+          0.20579999685287476
+        ],
+        "dimensions_m": [
+          0.358800008893013,
+          0.367000013962388,
+          0.36051836609840393
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "BREACH_WARDEN_ROOT",
+        "DISTANCE_SURFACE",
+        "PART_BROW",
+        "PART_CHEEK_L",
+        "PART_CHEEK_R",
+        "PART_COLLAR",
+        "PART_JAW_L",
+        "PART_JAW_R",
+        "PART_LINER",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "PART_TEMPLE_BAR",
+        "PART_VISOR",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_RESPIRATOR",
+        "SOCKET_TEMPLE_DEVICE",
+        "SOCKET_VISOR",
+        "SURFACE_BROW",
+        "SURFACE_CHEEK_L",
+        "SURFACE_CHEEK_R",
+        "SURFACE_COLLAR",
+        "SURFACE_JAW_L",
+        "SURFACE_JAW_R",
+        "SURFACE_LINER",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL",
+        "SURFACE_TEMPLE_BAR",
+        "SURFACE_VISOR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_VISOR",
+          "position_m": [
+            0,
+            0.231,
+            0.145
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.166,
+            0.181
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TEMPLE_DEVICE",
+          "position_m": [
+            0.19,
+            0.28,
+            0.012
+          ],
+          "quaternion_xyzw": [
+            0,
+            0.7071067811865475,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {
+        "SHELL": {
+          "triangles": 31240,
+          "draw_calls": 1
+        },
+        "BROW": {
+          "triangles": 29332,
+          "draw_calls": 1
+        },
+        "VISOR": {
+          "triangles": 5680,
+          "draw_calls": 1
+        },
+        "CHEEK_L": {
+          "triangles": 21600,
+          "draw_calls": 1
+        },
+        "CHEEK_R": {
+          "triangles": 20256,
+          "draw_calls": 1
+        },
+        "JAW_L": {
+          "triangles": 12336,
+          "draw_calls": 1
+        },
+        "JAW_R": {
+          "triangles": 11832,
+          "draw_calls": 1
+        },
+        "RESPIRATOR": {
+          "triangles": 13044,
+          "draw_calls": 1
+        },
+        "TEMPLE_BAR": {
+          "triangles": 6192,
+          "draw_calls": 1
+        },
+        "COLLAR": {
+          "triangles": 10748,
+          "draw_calls": 1
+        },
+        "LINER": {
+          "triangles": 8616,
+          "draw_calls": 1
+        }
+      },
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Breach Warden concept"
+    },
+    {
+      "file": "breach_warden_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": true,
+      "bytes": 439036,
+      "sha256": "1f7466449f8d54ba5791172cae208e7a97bffdfe1b7e470cc029da9601251400",
+      "triangles": 11708,
+      "draw_calls": 11,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.16750000417232513,
+          -3.7252903539730653e-10,
+          -0.15471836924552917
+        ],
+        "max": [
+          0.19130000472068787,
+          0.367000013589859,
+          0.20579999685287476
+        ],
+        "dimensions_m": [
+          0.358800008893013,
+          0.367000013962388,
+          0.36051836609840393
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "BREACH_WARDEN_ROOT",
+        "DISTANCE_SURFACE",
+        "PART_BROW",
+        "PART_CHEEK_L",
+        "PART_CHEEK_R",
+        "PART_COLLAR",
+        "PART_JAW_L",
+        "PART_JAW_R",
+        "PART_LINER",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "PART_TEMPLE_BAR",
+        "PART_VISOR",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_RESPIRATOR",
+        "SOCKET_TEMPLE_DEVICE",
+        "SOCKET_VISOR",
+        "SURFACE_BROW",
+        "SURFACE_CHEEK_L",
+        "SURFACE_CHEEK_R",
+        "SURFACE_COLLAR",
+        "SURFACE_JAW_L",
+        "SURFACE_JAW_R",
+        "SURFACE_LINER",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL",
+        "SURFACE_TEMPLE_BAR",
+        "SURFACE_VISOR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_VISOR",
+          "position_m": [
+            0,
+            0.231,
+            0.145
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.166,
+            0.181
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TEMPLE_DEVICE",
+          "position_m": [
+            0.19,
+            0.28,
+            0.012
+          ],
+          "quaternion_xyzw": [
+            0,
+            0.7071067811865475,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {
+        "SHELL": {
+          "triangles": 3064,
+          "draw_calls": 1
+        },
+        "BROW": {
+          "triangles": 2420,
+          "draw_calls": 1
+        },
+        "VISOR": {
+          "triangles": 850,
+          "draw_calls": 1
+        },
+        "CHEEK_L": {
+          "triangles": 749,
+          "draw_calls": 1
+        },
+        "CHEEK_R": {
+          "triangles": 749,
+          "draw_calls": 1
+        },
+        "JAW_L": {
+          "triangles": 449,
+          "draw_calls": 1
+        },
+        "JAW_R": {
+          "triangles": 450,
+          "draw_calls": 1
+        },
+        "RESPIRATOR": {
+          "triangles": 849,
+          "draw_calls": 1
+        },
+        "TEMPLE_BAR": {
+          "triangles": 430,
+          "draw_calls": 1
+        },
+        "COLLAR": {
+          "triangles": 848,
+          "draw_calls": 1
+        },
+        "LINER": {
+          "triangles": 850,
+          "draw_calls": 1
+        }
+      },
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Breach Warden concept"
+    },
+    {
+      "file": "breach_warden_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "bytes": 164444,
+      "sha256": "3b0d684d6927f240b9c85b1955c4eeb0f41cf21800388445c98029f25d2f9ad5",
+      "triangles": 2798,
+      "draw_calls": 1,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.16750000417232513,
+          -3.7252903539730653e-10,
+          -0.15471836924552917
+        ],
+        "max": [
+          0.19130000472068787,
+          0.367000013589859,
+          0.20579999685287476
+        ],
+        "dimensions_m": [
+          0.358800008893013,
+          0.367000013962388,
+          0.36051836609840393
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "BREACH_WARDEN_ROOT",
+        "DISTANCE_SURFACE",
+        "PART_BROW",
+        "PART_CHEEK_L",
+        "PART_CHEEK_R",
+        "PART_COLLAR",
+        "PART_JAW_L",
+        "PART_JAW_R",
+        "PART_LINER",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "PART_TEMPLE_BAR",
+        "PART_VISOR",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_RESPIRATOR",
+        "SOCKET_TEMPLE_DEVICE",
+        "SOCKET_VISOR",
+        "SURFACE_BROW",
+        "SURFACE_CHEEK_L",
+        "SURFACE_CHEEK_R",
+        "SURFACE_COLLAR",
+        "SURFACE_JAW_L",
+        "SURFACE_JAW_R",
+        "SURFACE_LINER",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL",
+        "SURFACE_TEMPLE_BAR",
+        "SURFACE_VISOR"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_VISOR",
+          "position_m": [
+            0,
+            0.231,
+            0.145
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.166,
+            0.181
+          ],
+          "quaternion_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "node": "SOCKET_TEMPLE_DEVICE",
+          "position_m": [
+            0.19,
+            0.28,
+            0.012
+          ],
+          "quaternion_xyzw": [
+            0,
+            0.7071067811865475,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {},
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Breach Warden concept"
+    }
+  ],
+  "handoff": {
+    "folder": "assets/helmet-lab/breach-warden/",
+    "viewer": "helmet-lab/",
+    "pending": [
+      "Visual acceptance",
+      "Character-specific fit, collision and donning mechanics",
+      "Production wear/damage states",
+      "Consuming-game gltfpack decoded validation",
+      "Reference-device profiling"
+    ]
+  }
+}

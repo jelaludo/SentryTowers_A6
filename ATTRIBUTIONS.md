@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Helmet Lab / Breach Warden / 9 November 2026
+
+Original procedural helmet geometry, vertex-colour wear, eleven-part inspection runtime, viewer, exports and previews by jelaludo / Model Workshop, guided by the user-supplied `01BreachWarden.png`. The image remains external and its SHA-256 is recorded in `assets/helmet-lab/breach-warden/manifest.json`. No image pixels or third-party meshes are distributed. The viewer references our unchanged AUREL-03 sensor head at 1:1 scale; it is not bundled in the helmet GLBs or ZIP. LOD1, static LOD2 and screenshots are derived exports. Original Workshop reuse terms apply.
+
 ## AUREL-03 / Animation handoff / 9 November 2026
 
 Combined robot GLBs, target joint/rest map, adapter, preview, packaging and validation are original derived work by jelaludo / Model Workshop, based on the preserved AUREL-03 skeleton and muscle sources at `dffaad650cd7fb4ea7ec5ba51caf2d500ff36caa`. No NVIDIA model weights, third-party motion or inference output is included. The NVIDIA documentation links explain the external retargeting requirement; they do not certify compatibility. Original Workshop reuse terms apply. Source hashes and measured files are in `assets/robot-assembly/animation-kit/manifest.json`.

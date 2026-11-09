@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain exports; geometry, rest frames, inspection separation, authored head/nose clearance and open grille. Reference envelopes are visual fit checks, not certification or donning simulation.",
+  "files": [
+    {
+      "file": "breach_warden_d0_lod0.glb",
+      "sha256": "2a292860d73f64a23c9fd56caf8e94cb51cdbf6be28534b37efee7c8043224ff",
+      "bytes": 4836548,
+      "triangles": 170876,
+      "draw_calls": 11,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.1707417973565333,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.3556079565088277,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      }
+    },
+    {
+      "file": "breach_warden_d0_lod1.glb",
+      "sha256": "1f7466449f8d54ba5791172cae208e7a97bffdfe1b7e470cc029da9601251400",
+      "bytes": 439036,
+      "triangles": 11708,
+      "draw_calls": 11,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.1708341878813868,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.3531742553222694,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      }
+    },
+    {
+      "file": "breach_warden_d0_lod2.glb",
+      "sha256": "3b0d684d6927f240b9c85b1955c4eeb0f41cf21800388445c98029f25d2f9ad5",
+      "bytes": 164444,
+      "triangles": 2798,
+      "draw_calls": 1,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.2854485479090734,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.5860282634992315,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      }
+    }
+  ],
+  "module_pose_checks": 132,
+  "robot_fit": [
+    {
+      "lod": 0,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 1,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 2,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    }
+  ],
+  "temple_bar": [
+    {
+      "lod": 0,
+      "center_clearance_m": 0.020745722280542556
+    },
+    {
+      "lod": 1,
+      "center_clearance_m": 0.02099776254934152
+    }
+  ],
+  "grille": [
+    {
+      "lod": 0,
+      "x": -0.018,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 0,
+      "x": -0.018,
+      "y": 0.135,
+      "first_hit_z": 0.20035000145435333
+    },
+    {
+      "lod": 0,
+      "x": -0.018,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 0,
+      "x": 0,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 0,
+      "x": 0,
+      "y": 0.135,
+      "first_hit_z": 0.20035000145435333
+    },
+    {
+      "lod": 0,
+      "x": 0,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 0,
+      "x": 0.018,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 0,
+      "x": 0.018,
+      "y": 0.135,
+      "first_hit_z": 0.20035000145435333
+    },
+    {
+      "lod": 0,
+      "x": 0.018,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": -0.018,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": -0.018,
+      "y": 0.135,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": -0.018,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0,
+      "y": 0.135,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0.018,
+      "y": 0.125,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0.018,
+      "y": 0.135,
+      "first_hit_z": 0.19949999451637268
+    },
+    {
+      "lod": 1,
+      "x": 0.018,
+      "y": 0.145,
+      "first_hit_z": 0.19949999451637268
+    }
+  ],
+  "checks": [
+    "Three plain self-contained GLBs with zero validator errors/warnings",
+    "Finite nondegenerate triangles and measured costs",
+    "Unique dot-free names, same rest frames, sockets and bounds in all tiers",
+    "Eleven independent inspectable modules; static distance cannot explode",
+    "No triangle intersects the authored head or nose ellipsoid",
+    "No surface intersections with the original AUREL sensor head at the specified rest placement",
+    "Temple bar centre has at least 12 mm shell clearance",
+    "All three grille slots reach the recessed filter",
+    "Original AUREL head source hash preserved"
+  ]
+}
