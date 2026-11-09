@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "browser": "Chromium / SwiftShader",
-  "scope": "Eighteen helmet/head/tier fits, model draw costs, layer visibility, reversible compact replacement heads, live swaps preserve pose, follows motion/explosion, part isolation, source GLB/PNG downloads and mobile layout; original default route retained",
+  "scope": "Eighteen helmet/head/tier fits, model draw costs, layer visibility, reversible compact replacement heads, live swaps preserve pose, follows motion/explosion, part isolation, source GLB/PNG downloads and mobile layout; carbon Hex Witness default and explicit original-head route retained",
   "checks": [
     {
       "helmet": "rk-mg02",
@@ -152,14 +152,16 @@
     "previews/head.png",
     "previews/exploded.png",
     "previews/posed.png",
-    "previews/mobile.png"
+    "previews/mobile.png",
+    "previews/carbon-default.png",
+    "previews/carbon-head.png"
   ],
   "console_errors": [],
   "source_sha256": {
-    "robot-assembly/viewer.js": "ab65b06172f3a6e7eff27aec27468aa14cc02cf2636f37ad7847f709db8a294b",
-    "robot-assembly/index.html": "b34d6bbff405bdca8492b9c55e0bc2e58783ac5ca61e17b60a7301afe64c9a26",
+    "robot-assembly/viewer.js": "53218d24d5d8eeba3c81cd1f365b2df07f70dfb3c2aab6532c1287b41f59794d",
+    "robot-assembly/index.html": "bed55aed1e76ba93e1d7d7babea9bc0e05da19afe13119693883911648adc1b6",
     "robot-assembly/style.css": "f3fb044e6b40fd894c9d92e3ad0ae255037a5c627c2740e97e012c5cd08986a4",
-    "assets/robot-assembly/helmet-fit/runtime.js": "00d805b7755bd81154a6505dc74327ed6edd5ff806b3cd5f9101b682294e4acb",
-    "assets/robot-assembly/helmet-fit/manifest.json": "e2457527fb88c89f905c16f62e9b3de5d72a55eb2e21e259f3e83184794d13b7"
+    "assets/robot-assembly/helmet-fit/runtime.js": "82edbcc09c558e15015cb9a9e9c977b7cbe973b9db919e2daccbdf5ccbee9d42",
+    "assets/robot-assembly/helmet-fit/manifest.json": "dc2b8b535709b9e50b87c13156264b1afc7919720a1dd5053a507a43517f0e05"
   }
 }

@@ -54,7 +54,7 @@ try {
   assert.notEqual(await page.evaluate(()=>window.kitPreview.character.nodes.ARM_L_ELBOW.rotation.x),before);
   await fs.mkdir(new URL('previews/',base),{recursive:true});await page.screenshot({path:new URL('previews/extracted-preview.png',base).pathname});
   await page.setViewportSize({width:390,height:844});await page.waitForFunction(()=>document.documentElement.scrollWidth<=innerWidth,{},{timeout:5000});
-  const main=process.env.ANATOMY_LAB_BASE||'http://localhost:8788';await page.goto(main+'/robot-assembly/');await page.waitForFunction(()=>window.anatomyLab?.ready);
+  const main=process.env.ANATOMY_LAB_BASE||'http://localhost:8788';await page.goto(main+'/robot-assembly/?helmet=none&head=frame');await page.waitForFunction(()=>window.anatomyLab?.ready);
   const downloadPromise=page.waitForEvent('download');await page.click('#download-kit');const download=await downloadPromise;
   assert.equal(download.suggestedFilename(),record.file);assert.equal(sha(await fs.readFile(await download.path())),record.sha256);
   for(const head of ['frame','sensor'])for(const lod of [0,1,2]){
@@ -65,7 +65,7 @@ try {
   assert.equal(sha(await fs.readFile(await glb.path())),manifest.assets.find(e=>e.head==='sensor'&&e.lod===1).sha256);
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.screenshot({path:new URL('previews/mobile-download.png',base).pathname});
-  await page.setViewportSize({width:1440,height:1000});await page.goto(main+'/robot-assembly/');await page.waitForFunction(()=>window.anatomyLab?.ready);await page.screenshot({path:new URL('previews/viewer-download.png',base).pathname});
+  await page.setViewportSize({width:1440,height:1000});await page.goto(main+'/robot-assembly/?helmet=none&head=frame');await page.waitForFunction(()=>window.anatomyLab?.ready);await page.screenshot({path:new URL('previews/viewer-download.png',base).pathname});
   assert.deepEqual(errors,[]);
   const source_sha256={};for(const name of ['robot-assembly/index.html','robot-assembly/style.css','robot-assembly/viewer.js','assets/robot-assembly/animation-kit/character.js','assets/robot-assembly/animation-kit/example.html'])source_sha256[name]=sha(await fs.readFile(new URL('../../'+name,import.meta.url)));
   const report={status:'passed',browser:'Chromium / SwiftShader',archive_sha256:record.sha256,archive_files:record.files,checks,console_errors:errors,source_sha256,checks_description:['Fresh ZIP extraction and every payload checksum','All four combined rigs load from extracted files only','Layer controls and muscle joint study','Actual ZIP and combined GLB downloads match hashes','Six head/tier download links; distance maps to articulated game','390px layout without horizontal overflow']};

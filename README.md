@@ -1,6 +1,6 @@
 # Model Workshop
 
-**AUREL-03 / Swappable heads** offers compact RK-MG02, Hex Witness and Breach Warden replacements at `robot-assembly/?helmet=rk-mg02&head=sensor`. RK-MG02 is 20% smaller; all three share a 1.785 m crown height, preserve AUREL's neck and follow its head motion. Choose **Head** to swap or restore the original. Sources remain unchanged; notes: `assets/robot-assembly/helmet-fit/`.
+**AUREL-03 / Swappable heads** now defaults to compact **Hex Witness / Carbon**, matching the charcoal muscle layer at `robot-assembly/`. RK-MG02 and Breach Warden remain selectable. RK-MG02 is 20% smaller; all three share a 1.785 m crown height, preserve AUREL's neck and follow its head motion. Choose **Head** to swap or restore the original. Sources remain unchanged; notes: `assets/robot-assembly/helmet-fit/`.
 
 **Helmet Lab / RK-MG02** revision 3 has a fitted motocross enclosure: narrower/lower crown, returned brow, continuous vented chin guard, recessed optics, distinct materials and a compact seal. Review it with plain-gray and contact-shading controls and download all three tiers at `helmet-lab/?helmet=rk-mg02`. Earlier shapes remain under `assets/helmet-lab/rk-mg02/originals/`; current handoff notes are in `assets/helmet-lab/rk-mg02/`.
 

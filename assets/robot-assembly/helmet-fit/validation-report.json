@@ -1,6 +1,44 @@
 {
+  "finish_checks": [
+    {
+      "head": "sensor",
+      "lod": 0,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "carbon_materials": true,
+      "red_optics_retained": true
+    }
+  ],
   "status": "passed",
-  "source_commit": "4278676ce9bea072b1053f987cf1e6c2380865ad",
+  "source_commit": "0b6332bbb24ff5cc2cf1cf1f8fd02c9efb67f6e8",
   "source_files": 18,
   "variants": [
     {

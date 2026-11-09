@@ -3,7 +3,7 @@ const collectionImages={
 'rk-mg02':'assets/helmet-lab/rk-mg02/preview.png',
 'hex-witness':'assets/helmet-lab/hex-witness/preview.png',
 'helmet-lab':'assets/helmet-lab/breach-warden/preview.png',
-'robot-assembly':'assets/robot-assembly/muscles/preview.png',
+'robot-assembly':'assets/robot-assembly/helmet-fit/preview.png',
 'shuttle-02':'assets/shuttle-02/preview.png',
 'shuttle-01':'assets/shuttle-01/preview.png',
 'elevator-city-diorama':'assets/elevator-city-diorama/preview.png',
@@ -58,7 +58,7 @@ const collectionImages={
 };
 
 export const collections=[
-['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Compact RK-MG02, Hex Witness and Breach Warden heads on the complete AUREL body. Swap designs, compare layers and inspect moving neck connections.','3 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=rk-mg02&head=sensor'],
+['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Default carbon Hex Witness, with compact RK-MG02 and Breach Warden alternatives on the complete AUREL body. Swap designs, compare layers and inspect moving neck connections.','3 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=hex-witness&head=sensor'],
 ['rk-mg02','Helmet Lab / RK-MG02','Characters','A fitted motocross enclosure with a structural brow, continuous vented guard, recessed optics and distinct ceramic, metal and rubber finishes.','Fitted MX enclosure · Gray inspection · 3 tiers · GLB + ZIP','Helmet studies / 03','helmet-lab/?helmet=rk-mg02'],
 ['hex-witness','Helmet Lab / Hex Witness','Characters','A rounded honeycomb cowl with a smooth crown band, five red optics, curved jaw armor and a vented chin. Inspect eight modules, human and robot fit, and three downloadable tiers.','8 modules · Five optics · 3 tiers · GLB + ZIP','Helmet studies / 02','helmet-lab/?helmet=hex-witness'],
 ['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],

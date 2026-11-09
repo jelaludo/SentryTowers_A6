@@ -1,5 +1,7 @@
 # AUREL-03 / Robotic anatomy kit
 
+Current Workshop default: compact **Hex Witness / Carbon**, with all three helmet heads available in the Head selector. The original body exports documented below remain unchanged. Use `robot-assembly/?helmet=none&head=frame` for their original viewer configuration; see `helmet-fit/README.md` for the replacement-head runtime and source manifest.
+
 A separate adult-proportioned mechanical frame built around a tapered thoracic cage: twelve paired metal ribs, a narrow sternum, clavicles, scapular supports, curved spine and exposed conduits. An open pelvis, distinct arm/leg segments and compact bearings establish the silhouette before adding armor. Two heads share a neck interface: an open cranial frame and a sensor crown. This is a lean adult design study, not a population-average anatomical specification.
 
 Local viewer:

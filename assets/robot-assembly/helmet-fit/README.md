@@ -1,13 +1,19 @@
 # AUREL-03 / Compact swappable heads
 
-Revision 2 replaces the original oversized fitting with smaller, interchangeable robot heads. Select **RK-MG02**, **Hex Witness** or **Breach Warden** in the viewer's **Head** control. Selecting **Original AUREL head** restores the untouched cranial frame/sensor crown. The source GLBs and animation kit remain unchanged.
+Revision 3 makes **compact Hex Witness / Carbon** the default AUREL-03 head. It retains revision 2’s smaller, interchangeable head mounting. Select **RK-MG02**, **Hex Witness** or **Breach Warden** in the viewer's **Head** control. Selecting **Original AUREL head** restores the untouched cranial frame/sensor crown. The source GLBs and animation kit remain unchanged.
 
-http://localhost:8788/robot-assembly/?helmet=rk-mg02&head=sensor
+http://localhost:8788/robot-assembly/
 
 Public route after publication:
-https://jelaludo.github.io/SentryTowers_A6/robot-assembly/?helmet=rk-mg02&head=sensor
+https://jelaludo.github.io/SentryTowers_A6/robot-assembly/
 
-Use `helmet=hex-witness` or `helmet=breach-warden` for direct links to the other heads.
+Explicit links support `helmet=hex-witness`, `helmet=rk-mg02`, `helmet=breach-warden` and `helmet=none`. The last option restores the original head and remains selected on reload.
+
+## Carbon finish
+
+Hex Witness uses the muscle sheath’s **#303b3e** charcoal, with a **#3d484b** crown band, **#343f42** jaw, **#4a5659** edge trim and a deeper **#1e282b** face. Its opaque material matches the muscle layer’s roughness **0.59** and metalness **0.32**. Vertex palette remapping preserves the original cell/grain shading, copper accents, red lenses and luminous cores. The same remapping applies to the merged distance surface without adding geometry, textures or draw calls.
+
+This is an AUREL assembly finish. Standalone Hex Witness source GLBs and the Helmet Lab retain their original light finish. Download links still identify those original source files; reproduce the carbon appearance using this attachment helper. Other swappable helmets retain their own finishes.
 
 ## Proportions and shared mount
 
@@ -27,7 +33,7 @@ The original pitch-bound cranial surfaces are omitted from the in-memory body, r
 
 ## Viewer and downloads
 
-**Head** swaps among all three standalone Helmet Lab designs. **Original head** is enabled when using AUREL's own head. **Head / fit** frames the neck and shoulders. Full-body/front/side/rear views, skeleton/muscle layers, isolated parts, wireframe, hand controls, exploded view, motion seeking and PNG capture remain available. The base `/robot-assembly/` route still opens the original unhelmeted frame.
+**Head** swaps among all three standalone Helmet Lab designs. **Original head** is enabled when using AUREL's own head. **Head / fit** frames the neck and shoulders. Full-body/front/side/rear views, skeleton/muscle layers, isolated parts, wireframe, hand controls, exploded view, motion seeking and PNG capture remain available. The base `/robot-assembly/` route opens compact Hex Witness / Carbon; `?helmet=none&head=frame` opens the original frame.
 
 Downloads remain clearly separate: original body/animation kit and the selected **original standalone helmet**, at its authored size. **No combined equipped-character GLB or ZIP is authored.** Use the recorded source files plus this attachment helper to reproduce the scaled replacement head. Standalone Helmet Lab viewers retain their full-sized human-compatible designs.
 
@@ -51,9 +57,9 @@ These compositions exceed the 25k unit reference and the 3k/one-draw distance re
 
 ## Validation and handoff
 
-`validation-report.json` checks **18 original GLB hashes** against source commit `4278676ce9bea072b1053f987cf1e6c2380865ad`, unique dot-free names, all **18 helmet/body-head/tier combinations**, scale/crown/mount consistency, removed pitch-bound skull geometry and **246 attachment poses**. **72 sampled body/muscle intersection checks** passed: each helmet with both source heads, master at rest/maximum study, game at nine study times and distance at rest. This is not an arbitrary-pose collision certification.
+`validation-report.json` checks **18 original GLB hashes** against source commit `0b6332bbb24ff5cc2cf1cf1f8fd02c9efb67f6e8`, unique dot-free names, all **18 helmet/body-head/tier combinations**, scale/crown/mount consistency, removed pitch-bound skull geometry and **246 attachment poses**. **72 sampled body/muscle intersection checks** passed: each helmet with both source heads, master at rest/maximum study, game at nine study times and distance at rest. This is not an arbitrary-pose collision certification.
 
-`viewer-validation.json` checks actual rendered costs, source downloads, three layers, live helmet swaps at a posed head, original-head restoration, part isolation, wireframe, PNG capture, default-route regression and 390 px layout. Plain GLB remains the source of truth. No new compressed exports or release-decode claims.
+`viewer-validation.json` checks actual rendered costs, source downloads, three layers, live helmet swaps at a posed head, original-head restoration, part isolation, wireframe, PNG capture, carbon default, persistent original-head selection and 390 px layout. Plain GLB remains the source of truth. No new compressed exports or release-decode claims.
 
 ```sh
 node tools/asset-pipeline/build-aurel-helmet-fit.mjs
@@ -64,7 +70,7 @@ node tools/asset-pipeline/test-aurel-helmet-fit.mjs
 
 Handoff: containing commit plus **assets/robot-assembly/helmet-fit/**, with original source files pinned by the manifest. The earlier 1:1 RK fitting is preserved at commit `4278676`.
 
-Completed: smaller RK head, all three interchangeable helmet heads, original-head restoration, inherited tiers, sampled motion clearance, source downloads and viewer checks. Pending: visual acceptance, unrestricted motion clearance, optimized combined export, game integration and device profiling.
+Completed: carbon Hex Witness default, smaller RK head, all three interchangeable helmet heads, original-head restoration, inherited tiers, sampled motion clearance, source downloads and viewer checks. Pending: visual acceptance, unrestricted motion clearance, optimized combined export, game integration and device profiling.
 
 Original models and attachment preview by **jelaludo / Model Workshop**. No third-party geometry or reference pixels incorporated.
 

@@ -1,10 +1,22 @@
 {
   "schema": "workshop.attachment-preview/v1",
   "label": "AUREL-03 / Compact swappable heads",
-  "revision": 2,
-  "source_commit": "4278676ce9bea072b1053f987cf1e6c2380865ad",
+  "revision": 3,
+  "source_commit": "0b6332bbb24ff5cc2cf1cf1f8fd02c9efb67f6e8",
   "plain_glb_source_of_truth": true,
-  "viewer": "robot-assembly/?helmet=rk-mg02&head=sensor",
+  "viewer": "robot-assembly/",
+  "default_helmet": "hex-witness",
+  "carbon_finish": {
+    "name": "AUREL_03_HEX_CARBON",
+    "shell": "#303b3e",
+    "band": "#3d484b",
+    "jaw": "#343f42",
+    "edge": "#4a5659",
+    "face": "#1e282b",
+    "steel": "#697b80",
+    "roughness": 0.59,
+    "metalness": 0.32
+  },
   "scope": "Reversible viewer composition of original plain GLBs; no combined or optimized character export is authored",
   "fit": {
     "parent": "HEAD_PITCH",
@@ -21,7 +33,8 @@
       "collar_cutoff_m": 0.07
     },
     "hex-witness": {
-      "label": "Hex Witness",
+      "label": "Hex Witness / Carbon",
+      "finish": "carbon",
       "scale": 0.72,
       "source_crown_m": 0.379,
       "collar_cutoff_m": 0.075
@@ -74,11 +87,11 @@
     "assets/helmet-lab/breach-warden/breach_warden_d0_lod0.glb": "fd72d5a21ee2dcae218e6b7d4e2b47805d15aaad4e9ca0854b885c91286d9133",
     "assets/helmet-lab/breach-warden/breach_warden_d0_lod1.glb": "f4cac2efba49c0a49b179d8eb6d78202bf5eafba183ee1cc8dc9236aa376be20",
     "assets/helmet-lab/breach-warden/breach_warden_d0_lod2.glb": "181bdd6ada7e66a736c0f74ccd63833c0639f9ccd245be000273008c56357bd0",
-    "tools/asset-pipeline/build-aurel-helmet-fit.mjs": "22f44bd9ce9bb30e8fe25a53ffbc1e649bb18524e063e44b10167ecdf5300e04",
+    "tools/asset-pipeline/build-aurel-helmet-fit.mjs": "84d261dcfca679a8e6b728f84b89da32f12ec42ff5428d60bbd52024d114823d",
     "assets/robot-assembly/runtime.js": "6908563a084818a003df46fa0d90f817dbb7965f9fac130d2e89c98629fb709e",
     "assets/robot-assembly/muscles/runtime.js": "3c217da56377642938aa92c35f5808ff3339f54c250b60d65b3546f7523a36af",
     "assets/robot-assembly/muscles/specs.js": "53181285079bea26e349868d9838144b2c20e75cc1a0585500077ea3f30c1946",
-    "assets/robot-assembly/helmet-fit/runtime.js": "00d805b7755bd81154a6505dc74327ed6edd5ff806b3cd5f9101b682294e4acb"
+    "assets/robot-assembly/helmet-fit/runtime.js": "82edbcc09c558e15015cb9a9e9c977b7cbe973b9db919e2daccbdf5ccbee9d42"
   },
   "variants": [
     {
@@ -125,6 +138,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 125144,
@@ -806,6 +820,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 19758,
@@ -1487,6 +1502,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2440,
@@ -2168,6 +2184,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 125144,
@@ -2849,6 +2866,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 19758,
@@ -3530,6 +3548,7 @@
       "attachment": {
         "id": "rk-mg02",
         "label": "RK-MG02",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2440,
@@ -4210,7 +4229,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 91888,
@@ -4890,7 +4910,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 13922,
@@ -5570,7 +5591,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2698,
@@ -6250,7 +6272,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 91888,
@@ -6930,7 +6953,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 13922,
@@ -7610,7 +7634,8 @@
       },
       "attachment": {
         "id": "hex-witness",
-        "label": "Hex Witness",
+        "label": "Hex Witness / Carbon",
+        "finish": "carbon",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2698,
@@ -8291,6 +8316,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 172700,
@@ -8971,6 +8997,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 10857,
@@ -9651,6 +9678,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2674,
@@ -10331,6 +10359,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 172700,
@@ -11011,6 +11040,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 10857,
@@ -11691,6 +11721,7 @@
       "attachment": {
         "id": "breach-warden",
         "label": "Breach Warden",
+        "finish": "original",
         "parent": "HEAD_PITCH",
         "visible_cost": {
           "triangles": 2674,

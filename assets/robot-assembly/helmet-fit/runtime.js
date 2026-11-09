@@ -1,7 +1,9 @@
 // Reversible replacement heads. Original GLBs remain untouched; metres, +Y up, +Z forward.
+export const DEFAULT_HELMET = 'hex-witness';
+export const CARBON_FINISH = Object.freeze({name:'AUREL_03_HEX_CARBON',shell:'#303b3e',band:'#3d484b',jaw:'#343f42',edge:'#4a5659',face:'#1e282b',steel:'#697b80',roughness:.59,metalness:.32});
 export const HELMET_FITS = Object.freeze({
  'rk-mg02': {label:'RK-MG02', scale:.80, source_crown_m:.3478, collar_cutoff_m:.070},
- 'hex-witness': {label:'Hex Witness', scale:.72, source_crown_m:.379, collar_cutoff_m:.075},
+ 'hex-witness': {label:'Hex Witness / Carbon', finish:'carbon', scale:.72, source_crown_m:.379, collar_cutoff_m:.075},
  'breach-warden': {label:'Breach Warden', scale:.76, source_crown_m:.367, collar_cutoff_m:.090},
 });
 export const FIT = Object.freeze({parent:'HEAD_PITCH', crown_above_pitch_m:.215, replace_original_head:true, omit_standalone_collar:true, namespace:'HELMET_'});
@@ -37,7 +39,28 @@ export function visibleCost(root) {
  root.traverse(n=>{if(n.isMesh&&!n.userData.helmet_fit_hidden){triangles+=(n.geometry.index?.count||n.geometry.attributes.position.count)/3;draw_calls+=Math.max(1,n.geometry.groups.length);}});
  return {triangles,draw_calls};
 }
-export function attachHelmet(host,helmet,id='rk-mg02') {
+// Re-map the source vertex palette, retaining its cell/grain shading and red optics.
+// The same palette mapping works on the merged distance surface without extra draws.
+function applyCarbonFinish(helmet) {
+ const original={shell:0x899992,band:0x9caaa3,edge:0x727d72,dark:0x242b2b,black:0x10191a,rubber:0x1b2323,jaw:0xb0b1a4,copper:0xac6d3d,steel:0x6f7772,red:0x511714,redEdge:0x77392e,glow:0xffbca3};
+ const replacement={shell:CARBON_FINISH.shell,band:CARBON_FINISH.band,edge:CARBON_FINISH.edge,dark:CARBON_FINISH.face,jaw:CARBON_FINISH.jaw,steel:CARBON_FINISH.steel},materials=new Map();
+ helmet.traverse(mesh=>{
+  if(!mesh.isMesh||/OPTICAL_GLASS|OPTICAL_CORES/.test(mesh.name))return;
+  const source=mesh.geometry,colors=source.attributes.color;if(!colors)return;
+  const palette=Object.entries(original).map(([key,hex])=>{const c=mesh.material.color.clone().set(hex);return {key,r:c.r,g:c.g,b:c.b,target:replacement[key]?c.clone().set(replacement[key]):null};});
+  // GLTF attributes may be interleaved. Clone before editing the loaded copy.
+  mesh.geometry=source.clone();const output=mesh.geometry.attributes.color;
+  for(let i=0;i<colors.count;i++){
+   const r=colors.getX(i),g=colors.getY(i),b=colors.getZ(i);let closest,shade=1,error=Infinity;
+   for(const c of palette){const k=Math.max(.9,Math.min(1.1,(r*c.r+g*c.g+b*c.b)/(c.r*c.r+c.g*c.g+c.b*c.b))),e=(r-c.r*k)**2+(g-c.g*k)**2+(b-c.b*k)**2;if(e<error){error=e;closest=c;shade=k;}}
+   if(closest.target)output.setXYZ(i,closest.target.r*shade,closest.target.g*shade,closest.target.b*shade);
+  }
+  output.needsUpdate=true;source.dispose();
+  if(!materials.has(mesh.material)){const material=mesh.material.clone();material.name=CARBON_FINISH.name;material.roughness=CARBON_FINISH.roughness;material.metalness=CARBON_FINISH.metalness;materials.set(mesh.material,material);}
+  mesh.material=materials.get(mesh.material);
+ });
+}
+export function attachHelmet(host,helmet,id=DEFAULT_HELMET) {
  const config=HELMET_FITS[id],parent=host.getObjectByName(FIT.parent);
  if(!config||!parent)throw Error('Unknown replacement helmet or missing head pivot');
  const bodyBefore=visibleCost(host),head=host.getObjectByName('HEAD_GEOMETRY'),farBody=host.getObjectByName('DISTANCE_SURFACE');
@@ -54,7 +77,8 @@ export function attachHelmet(host,helmet,id='rk-mg02') {
  const collar=helmet.getObjectByName('PART_COLLAR');collar?.traverse(n=>{if(n.isMesh){n.visible=false;n.userData.helmet_fit_hidden=true;}});
  const far=helmet.getObjectByName('DISTANCE_SURFACE');let omittedTriangles=0;
  if(far?.isMesh){const range=componentRanges(far);omittedTriangles=retainTriangles(far,ids=>range(ids).max>config.collar_cutoff_m);}
+ if(config.finish==='carbon')applyCarbonFinish(helmet);
  helmet.traverse(n=>{if(n.name){n.userData.source_node=n.name;n.name=FIT.namespace+n.name;}if(n.isMesh){n.userData.helmet_fit=true;n.castShadow=n.receiveShadow=true;n.frustumCulled=false;}});
  host.updateMatrixWorld(true);
- return {id,label:config.label,root:helmet,parent,visible_cost:visibleCost(helmet),body_removed_cost:{triangles:removedBodyTriangles,draw_calls:0},body_original_cost:bodyBefore,omitted_distance_triangles:omittedTriangles,local_position_m:helmet.position.toArray(),rest_world_position_m:helmet.getWorldPosition(parent.position.clone()).toArray(),scale:helmet.scale.toArray()};
+ return {id,label:config.label,finish:config.finish||'original',root:helmet,parent,visible_cost:visibleCost(helmet),body_removed_cost:{triangles:removedBodyTriangles,draw_calls:0},body_original_cost:bodyBefore,omitted_distance_triangles:omittedTriangles,local_position_m:helmet.position.toArray(),rest_world_position_m:helmet.getWorldPosition(parent.position.clone()).toArray(),scale:helmet.scale.toArray()};
 }

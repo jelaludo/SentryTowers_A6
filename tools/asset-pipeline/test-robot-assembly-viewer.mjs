@@ -8,7 +8,7 @@ await fs.mkdir(new URL('previews/',out),{recursive:true});
 const page=await browser.newPage({viewport:{width:1440,height:1100},deviceScaleFactor:1,acceptDownloads:true});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
 const ready=()=>page.waitForFunction(()=>window.anatomyLab?.ready);
 const shot=async name=>{await page.waitForTimeout(180);const file=`previews/${name}.png`;await page.screenshot({path:new URL(file,out).pathname});screens.push(file);};
-await page.goto(base+'/robot-assembly/');await ready();await shot('game-assembly');
+await page.goto(base+'/robot-assembly/?helmet=none&head=frame');await ready();await shot('game-assembly');
 const measure=()=>page.evaluate(()=>{const a=window.anatomyLab,visibility=a.scene.children.map(n=>[n,n.visible]);for(const [n]of visibility)if(n!==a.model&&!n.isLight)n.visible=false;a.renderer.render(a.scene,a.camera);const counts={triangles:a.renderer.info.render.triangles,draw_calls:a.renderer.info.render.calls};for(const [n,v]of visibility)n.visible=v;return counts;});
 for(const head of ['frame','sensor']){
  await page.selectOption('#head',head);await ready();

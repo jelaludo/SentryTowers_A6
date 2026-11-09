@@ -1,5 +1,13 @@
 # Devlog
 
+## 9 November 2026 / AUREL-03 — Hex Witness carbon default
+
+Compact Hex Witness is now the default head on the AUREL-03 route. Its shell uses the muscle sheath’s #303b3e charcoal and the same 0.59 roughness / 0.32 metalness, with lighter band/edge tones, darker face, retained copper details and red optics. The in-memory palette applies across master, game and merged distance tiers without changing triangle/draw counts, scale, mount or motion.
+
+Original AUREL heads remain selectable through `helmet=none`, which now survives reload; the other helmet selections still work. Standalone source models and download files retain their authored finish. Updated gallery/default previews, current notes and the original-source test routes. Source/fit validation and browser checks cover the carbon finish, default entry, source restoration and tier switching. No new compressed export or performance claim.
+
+Completed: requested default and carbon appearance. Pending: visual acceptance and the existing combined-export/game/device review. Handoff: containing commit plus `assets/robot-assembly/helmet-fit/`.
+
 ## 9 November 2026 / AUREL-03 — smaller, swappable helmet heads
 
 Reduced RK-MG02 to 80% and added Hex Witness at 72% and Breach Warden at 76%. Each keeps uniform proportions and shares a crown 0.215 m above `HEAD_PITCH` (1.785 m above ground). They replace the original cranial surface while retaining AUREL's yaw-bearing neck and muscles. The viewer's Head selector swaps all three, retains the current pose and restores the original head on demand. Existing standalone models and download sources are unchanged.
