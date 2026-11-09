@@ -1,6 +1,6 @@
 # Helmet Lab 03 / RK-MG02
 
-RK-MG02 revision 2 has a restrained motocross profile: short brow peak, lower crown, flatter rear, forward chin guard and vented cheek rails. It keeps the broad central band and all five sensor positions from revision 1. The pale green honeycomb carries 144 cells; ivory bands and guard panels give the silhouette distinct edges. Eight inspectable modules retain a hollow head cavity and open neck bore. Vertex colours replace external textures.
+Revision 3 rebuilds RK-MG02 as a fitted motocross enclosure. The shell is narrower and lower, the brow has a thick root and short tapered lip, and a continuous U-shaped guard connects both temples to the chin. Real recessed side vents, a recessed face insert, shallow optical barrels and a compact rubber seal replace the thin overlays of revision 2. The broad crown band and five-sensor formation remain.
 
 Local viewer:
 http://localhost:8788/helmet-lab/?helmet=rk-mg02
@@ -8,62 +8,58 @@ http://localhost:8788/helmet-lab/?helmet=rk-mg02
 Public route after the containing commit is published:
 https://jelaludo.github.io/SentryTowers_A6/helmet-lab/?helmet=rk-mg02
 
-## Revision 2 / Compact MX profile
+## Revision 3 / Construction and proportion
 
-The crown is 14.7 mm lower and the rear extent is about 26 mm shallower. A short peak reaches only about 9 mm beyond the main lens, while the chin guard projects roughly 13 mm beyond it. Swept cheek rails and a thin transverse brace give the shell a more angular outline. The chin filter keeps six genuine openings; the side/peak dark panels are visual vent details rather than simulated airflow passages.
+- Overall width reduces from 298.0 to **272.0 mm**; height from 364.3 to **347.8 mm**; depth from 341.9 to **322.2 mm**. The crown is 16.5 mm lower. Flatter temples and a tighter rear break up the old ellipsoid.
+- The crown band remains broad: **122.1 mm** versus Hex Witness's 80.6 mm. The cowl now has **112 cells**, with a separate lower rear skirt.
+- The brow has a **4–13 mm tapered section**, actual apertures with recessed backing, and supporting temple seats. The guard has a **10 mm section**, upper and underside returns, four side vent openings with backing approximately **6 mm behind the surface**, and six actual chin grille openings with an 8 mm recessed filter.
+- Main optical rim projection reduces from about 21 to **14 mm** relative to its face mounting surface; main glass projection reduces from about 29 to **11.8 mm**. The central socket moves 30.6 mm rearward overall with the rebuilt insert. The upper pair moves approximately 5.3 mm rearward; the lower pair moves 4.1 mm forward as the face becomes flatter. This is not a uniform translation of the old array.
+- Six shared material finishes distinguish ceramic, anodized metal, face polymer, rubber, red glass and a restrained emitter. The emitter sits behind slightly transparent glass. Edge wear is limited to bevels; there are no raised scratch tubes or external textures.
+- Compressed rubber folds and the guard's underside return tuck the seal into the helmet. The collar and head/neck attachment datums remain fixed.
 
-The previous model, exports, source, notes, reports, previews and ZIP are preserved byte-for-byte under `originals/r1/`, pinned to `40bd38b55635726721d419ed6512017794b08474`. The archive is repository-only and excluded from the current ZIP. Names, module rest frames, head/neck datums and all five optical socket transforms are unchanged. The respirator socket moves with the new chin guard. The new overall envelope is intentionally different, and matches across all revision-2 tiers.
+The supplied F-STACK / MX image guides construction and silhouette. RK-MG02 retains one large central optic and four small surrounding optics; it does not adopt the reference's two stacked large lenses.
 
-## Changes from Hex Witness
+## Preservation and upgrade notes
 
-- Crown-band overall width: **120.8 mm**, previously **80.6 mm** — approximately **50% wider**. The angular half-width changes from 0.28 to 0.43 radians.
-- Lower sensor mounting parameters move from Y = 132 to 163 mm, and X = ±61 to ±73 mm. Their surface-normal-mounted lens sockets consequently rise **33.49 mm** in world Y. The outward shift gives the housings room beside the central lens.
-- Front copper tabs move outward onto the remaining side cells. The wider band leaves 144 cowl cells rather than 166.
-- Central optic size, upper sensor locations, collar and head/neck interfaces retain the original design. Revision 2 reshapes the cowl, liner and jaw and updates the overall dimensions.
+Complete preceding files and authoring sources are archived byte-for-byte under `originals/r1/` (commit `40bd38b55635726721d419ed6512017794b08474`) and `originals/r2/` (commit `aa89bcfddc9b84e829d05845aa7bdb8bbee0b12e`). Archives are repository-only and excluded from the current ZIP. Hex Witness, Breach Warden, robot models and the received collaboration contract are unchanged.
 
-Base family is pinned to `84713783451299097150ca80eb8f6552b7e353ed`, folder `assets/helmet-lab/hex-witness/`. All original exports and source remain unchanged. The new root/material names use the `RK_MG02` prefix; module/socket identifiers follow the same structure. Lower optical socket transforms intentionally differ from Hex Witness; frames match across all current RK-MG02 tiers.
+All existing node names and module rest frames are retained. **`SOCKET_NECK` and `SOCKET_HEAD_DATUM` are unchanged.** Exact optical, front and respirator frames intentionally change with the reshaped assembly: refresh attachments from this manifest when upgrading. `SURFACE_COLLAR_SEAL` is a new named surface under `PART_COLLAR` in master/game and a static marker in distance. Names, frames and the new bounds match across all three current tiers.
 
 ## Downloads and measured costs
 
-`rk-mg02.zip` contains all three self-contained plain GLBs, this README, manifest, runtime, decoded validation report and SHA-256 checksums. The viewer's GLB download follows its selected detail tier. Hex Witness and Breach Warden remain available from the Helmet selector; Breach Warden retains the original default route.
+`rk-mg02.zip` includes three self-contained plain GLBs, this README, manifest, runtime, decoded validation report and SHA-256 checksums. The viewer GLB download follows the selected detail tier. Plain GLB remains the source of truth; upstream compressed copies are not supplied.
 
 | File | Triangles | Draws | Plain bytes | Role |
 | --- | ---: | ---: | ---: | --- |
-| `rk_mg02_d0_lod0.glb` | 117,656 | 10 | 3,427,076 | Detailed recording / close inspection |
-| `rk_mg02_d0_lod1.glb` | 17,310 | 10 | 730,116 | Inspectable game modules |
-| `rk_mg02_d0_lod2.glb` | 2,610 | 1 | 121,896 | Static distance / loading |
+| `rk_mg02_d0_lod0.glb` | 137,960 | 11 | 3,915,716 | Detailed recording / close inspection |
+| `rk_mg02_d0_lod1.glb` | 21,438 | 11 | 812,632 | Inspectable game modules |
+| `rk_mg02_d0_lod2.glb` | 2,704 | 1 | 125,816 | Static distance / loading |
 
-Costs are measured from decoded models, excluding the viewer floor and fit references. All tiers are marked as derived from Hex Witness; LOD0 is the authored design variation, while LOD1/2 reduce that variant. Master/game use eight inspectable modules and three shared materials; optics use a metal barrel surface, red glass and emissive cores. The game tier meets the contract's 25k unit triangle reference, but exceeds the stationary-landmark 8k/400 KB references. Its ten draws and geometry still consume part of a complete character budget. Distance meets 3k triangles / one draw / 250 KB. No FPS claim.
+Costs are measured from decoded model geometry and browser model renders, excluding the viewer floor, fit references and postprocessing. Master/game retain eight inspectable modules. A separate rubber seal adds one draw: **11 draws**, above the landmark ten-draw reference. Game stays below the unit 25k triangle reference but exceeds the landmark 8k/400 KB references. Distance meets 3k triangles / one draw / 250 KB. These helmet costs are part of a complete character budget. No FPS claim.
 
-Game retains all 144 cells with fewer curved-surface samples, simpler hardware and optical etchings. Distance uses an explicitly authored coarse exterior merged to one matte surface, with the five-lens silhouette, crown band, peak and chin guard but no fine honeycomb, liner, transverse brace, vent microdetail or active emission. All node names remain as static lookup markers. Start with distance at load time, enter game inside 12 m and return to distance beyond 16 m; these provisional values need game-camera review. Choose master explicitly for close shots/recordings.
+Game retains all cowl cells, the real vent/filter openings and inspection pivots, with simpler curves and hardware. Distance is an explicitly authored coarse exterior merged to one matte surface; no cell geometry, fine vent recesses, liner or active optical emission. Its visible geometry is `DISTANCE_SURFACE`; all other names are static markers. Damage identifiers are separate from LOD: only D0 is authored; D1–D3 remain pending.
 
-## Coordinates, fit and attachment
+Load distance first. Provisional selection: enter game inside 12 m and return to distance beyond 16 m. Use master explicitly for close shots and recordings. Review these distances in the consuming game's camera.
 
-- Metres; +Y up, +Z forward. `RK_MG02_ROOT` is on the collar ground datum at plot centre; reserve 0.36 × 0.40 m.
-- Identical assembled bounds in all tiers: X ±0.148986, Y 0 to 0.364300, Z −0.142997 to +0.198939 m. Width × height × depth: **298.0 × 364.3 × 341.9 mm**.
-- `SOCKET_NECK`: [0, 0.055, 0], local +Z points down −Y.
-- `SOCKET_HEAD_DATUM`: [0, 0.090, 0], local +Z points up +Y.
-- `SOCKET_FRONT`, `SOCKET_RESPIRATOR` and five `SOCKET_OPTIC_*` frames follow their respective modules. Lens sockets point outward along each local face normal; exact positions/quaternions are in the manifest. L/R is wearer left/right, with +X wearer left.
+## Coordinates and fit
 
-The human reference is an authored 174 × 234 × 222 mm head ellipsoid centred at [0, 0.207, 0], plus a nose and 98 mm neck diameter. Geometry checks find no helmet triangles intersecting the head or nose envelope in any tier. This is an authored proportion check; character-specific fit, moving collar/shoulder clearance and donning remain to be designed.
+Metres, +Y up, +Z forward; `RK_MG02_ROOT` is on the collar ground datum at plot centre. Reserve 0.36 × 0.40 m. All current tiers share X ±0.136023, Y 0 to 0.347800, Z −0.132987 to +0.189197 m. Width × height × depth: **272.0 × 347.8 × 322.2 mm**.
 
-The viewer references the original AUREL-03 sensor head at scale 1, translated [0, −1.465, 0]. Its attachment socket meets the helmet's head datum with opposing normals. All 1,740 reference-head triangles are checked: no rest-pose surface intersections in any helmet tier. The reference head is unchanged and is not bundled in these GLBs or ZIP.
+`SOCKET_NECK` is [0, 0.055, 0], with local +Z pointing down −Y. `SOCKET_HEAD_DATUM` is [0, 0.090, 0], with local +Z pointing up +Y. Lens sockets point outward along their respective face normals. Exact positions and quaternions are in the manifest; L/R is wearer left/right, +X wearer left.
 
-To place the helmet over AUREL's neutral full-body pose, translate the helmet root by [0, +1.465, 0] with no scaling. Parent it to the head transform while preserving that neutral alignment to follow animation. The original robot is not modified or automatically equipped.
+The human reference is an authored 174 × 234 × 222 mm head ellipsoid centred at [0, 0.207, 0], plus nose and a 98 mm neck diameter. No helmet triangle intersects the head or nose envelope in any tier. This is a rest-fit proportion check, not a donning or moving-character clearance claim.
 
-## Modules and runtime
+The original AUREL-03 sensor head is displayed unchanged at scale 1, translated [0, −1.465, 0]. Its attachment socket meets the helmet head datum with opposing normals. All 1,740 head triangles are checked for rest-pose surface intersection. To equip the full neutral robot, translate this helmet root by [0, +1.465, 0] without scaling, then parent to the head transform while preserving that neutral alignment. Reference-head geometry is not in the GLBs/ZIP.
 
-Eight `PART_*` modules: `SHELL`, `CROWN_BAND`, `FACEPLATE`, `OPTICS`, `JAW`, `RESPIRATOR`, `COLLAR`, `LINER`. `SURFACE_*` meshes belong to their corresponding modules; `OPTICAL_GLASS` and `OPTICAL_CORES` also belong to `PART_OPTICS`.
+## Runtime and viewer
 
-Use `createRig(scene).pose({spread: 0…1})` from `runtime.js` to separate master/game for inspection. `spread: 0` restores assembly. It is an inspection transform, not an operational opening or breathing animation. The optics are fixed and have no tracking simulation. No baked clips are included. Distance returns `static: true` and ignores separation; its visible geometry is `DISTANCE_SURFACE` and all other names are markers only.
+Eight `PART_*` modules: `SHELL`, `CROWN_BAND`, `FACEPLATE`, `OPTICS`, `JAW`, `RESPIRATOR`, `COLLAR`, `LINER`. `SURFACE_*` meshes belong to their respective modules. `OPTICAL_GLASS` and `OPTICAL_CORES` belong to `PART_OPTICS`; the new `SURFACE_COLLAR_SEAL` belongs to `PART_COLLAR`.
 
-D0 is the intact design with restrained surface variation. Gameplay damage states D1–D3 have not been authored. Damage and detail are separate identifiers.
+`createRig(scene).pose({spread: 0…1})` separates master/game for inspection; zero restores assembly. This is an inspection transformation, not an operational opening or breathing animation. Optics are fixed. There are no baked clips. Distance returns `static: true` and ignores separation.
 
-## Review and validation
+Viewer controls: helmet and module selectors, assembled/exploded states and slider, six camera presets/free orbit, human/robot fit, half section, wireframe, turntable, fullscreen, PNG, selected-tier GLB and all-tier ZIP. **Plain gray** temporarily substitutes one neutral material for silhouette/construction review and restores original materials when unchecked. **Contact shading** toggles RK-MG02's GTAO; it is bypassed during half section, wireframe and fit inspection. Soft area lights, a subtle directional shadow, tone mapping and FXAA make up its studio presentation. Other helmets retain their original lighting. All rendering effects and fit references are viewer-only, excluded from exports. Contact shading adds rendering cost; disable it as needed. No reference-device performance claim.
 
-Viewer controls include the helmet selector, eight module isolates, assembled/exploded states and separation slider, six camera presets/free orbit, human/robot fit references, half section, wireframe, turntable, fullscreen, PNG capture and GLB/ZIP downloads. Half section clips only the viewer. Fit references render through surfaces for inspection and are excluded from download geometry.
-
-From the repository root:
+## Validation and handoff
 
 ```sh
 node tools/asset-pipeline/build-rk-mg02.mjs
@@ -73,16 +69,12 @@ python3 tools/build-workshop-docs.py
 node tools/asset-pipeline/test-rk-mg02-viewer.mjs
 ```
 
-`validation-report.json` records zero glTF errors/warnings, finite/nondegenerate geometry, matching names/rest frames/sockets/bounds, head/nose and original robot-head clearance, five unobstructed outward-facing optics, six actual chin slots reaching a recessed filter and 96 module pose checks. Lens-centre and off-centre rays check that housings do not obscure the glass. A base comparison checks the broad band and raised lower sensors. Revision checks verify the archived original, unchanged identifiers/optical frames, and the intentionally lower, flatter and more projecting profile. All Hex Witness, Breach Warden and robot assembly files plus the received collaboration contract remain byte-identical to baseline commit `84713783451299097150ca80eb8f6552b7e353ed`.
+Decoded checks cover zero glTF errors/warnings, finite nondegenerate geometry, unique dot-free names, current-tier frames/bounds, head/nose and unchanged AUREL clearance, 96 module poses, unobstructed lenses, six chin openings, four cheek vents, sampled brow thickness, distinct material finishes, archive hashes and preserved original families. Browser checks cover costs, isolates, all controls, gray/material restoration, contact shading, downloads, original-family regression and 390 px layout. Reports are `validation-report.json` and `viewer-validation.json`.
 
-`viewer-validation.json` records browser cost measurements, controls, downloads, layout and shared-viewer regression. The game owns release-time gltfpack compression. No upstream compressed copies are supplied; decoded release validation and reference-device/game-camera profiling remain pending.
+Pin the containing Git commit plus **`assets/helmet-lab/rk-mg02/`**, using manifest hashes. Procedural source: `tools/asset-pipeline/rk-mg02-shape.mjs`; builder: `build-rk-mg02.mjs`; pipeline dependencies are locked. Current exports are marked derived from the original Hex Witness family at `84713783451299097150ca80eb8f6552b7e353ed`; LOD0 is the authored revision and LOD1/2 are reduced derivatives.
 
-## Handoff and provenance
+Completed: enclosure/proportion rebuild, materials, viewer inspection, three tiers, archive and downloads. Pending: visual acceptance, character-specific moving fit/donning, D1–D3, consuming-game gltfpack release decode and game/device profiling. The game owns release compression; no compressed-validation claim is made here.
 
-Pin the containing Git commit plus **`assets/helmet-lab/rk-mg02/`**, with file hashes from the manifest. Procedural source is `tools/asset-pipeline/rk-mg02-shape.mjs`; builder is `build-rk-mg02.mjs`. Shared pipeline dependencies are locked in `tools/asset-pipeline/package-lock.json`.
-
-Original Hex Witness geometry and this requested RK-MG02 variation, runtime, viewer additions and derived previews by **jelaludo / Model Workshop**, guided by user-supplied `HexWitness.png` and the F-STACK / MX sheet `ChatGPT Image Nov 9, 2026, 01_44_23 PM.png`. The current reference image stays external and is fingerprinted in the manifest; the earlier fingerprint is preserved in revision 1; no image pixels or third-party geometry are distributed. Original Workshop reuse terms apply. Credit:
+Original models, revisions, runtime and previews by **jelaludo / Model Workshop**, guided by user-supplied `HexWitness.png` and `ChatGPT Image Nov 9, 2026, 01_44_23 PM.png`. Reference images remain external, with fingerprints retained in the manifests; no concept pixels or third-party geometry are distributed. Original Workshop reuse terms apply.
 
 Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/
-
-Completed: RK-MG02 compact MX silhouette revision, detailed/game/static exports, inspection controls, fit references and downloads. Pending: visual acceptance, character-specific moving fit/donning, gameplay damage and consuming-game integration.

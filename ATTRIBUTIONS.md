@@ -2,6 +2,8 @@
 
 ## Helmet Lab / RK-MG02 / 9 November 2026
 
+Revision 3 rebuilds the enclosure and materials following the user-approved critique: a narrower/lower shell, structural brow, continuous vented guard, flatter recessed face, compact seal and six material finishes. Earlier revisions and sources remain archived; the same external F-STACK / MX reference is retained. Models, derived LODs, inspection controls and studio presentation by jelaludo / Model Workshop.
+
 Revision 2 adds the requested restrained motocross silhouette, guided by the user's F-STACK / MX sheet `ChatGPT Image Nov 9, 2026, 01_44_23 PM.png`. The image remains external; its fingerprint is recorded in the current manifest. Revision 1 assets and authoring sources are preserved under `originals/r1/` at `40bd38b`.
 
 RK-MG02 is an authored variation of jelaludo / Model Workshop's original Hex Witness family at `84713783451299097150ca80eb8f6552b7e353ed`, requested by the user: wider crown band and raised lower sensor pair. All tiers and previews are marked as derived; base exports/source are preserved. The original user-supplied `HexWitness.png` remains external and is fingerprinted in the manifest. No image pixels, third-party meshes or reference-head geometry are bundled. Original Workshop reuse terms apply.

@@ -1,6 +1,6 @@
 # Model Workshop
 
-**Helmet Lab / RK-MG02** now has a restrained motocross silhouette: short peak, lower crown, flatter rear, defined chin guard and vented cheek rails, retaining the broad band and raised lower sensors. Inspect and download all three tiers at `helmet-lab/?helmet=rk-mg02`. The earlier shape is preserved in `assets/helmet-lab/rk-mg02/originals/r1/`; current integration notes are in `assets/helmet-lab/rk-mg02/`.
+**Helmet Lab / RK-MG02** revision 3 has a fitted motocross enclosure: narrower/lower crown, returned brow, continuous vented chin guard, recessed optics, distinct materials and a compact seal. Review it with plain-gray and contact-shading controls and download all three tiers at `helmet-lab/?helmet=rk-mg02`. Earlier shapes remain under `assets/helmet-lab/rk-mg02/originals/`; current handoff notes are in `assets/helmet-lab/rk-mg02/`.
 
 **Helmet Lab / Hex Witness** adds a second standalone helmet: rounded honeycomb cowl, smooth crown band, five red optics and curved vented jaw. Eight separable modules, human/AUREL fit references, detailed/game/static GLBs and a complete ZIP are available at `helmet-lab/?helmet=hex-witness`. Measurements and mounting notes are in `assets/helmet-lab/hex-witness/`. The viewer's Helmet selector switches between both designs.
 

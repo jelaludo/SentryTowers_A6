@@ -4,60 +4,60 @@
   "files": [
     {
       "file": "rk_mg02_d0_lod0.glb",
-      "sha256": "4167215fdba767bac1932ac23d55ef9b87942137e292d1046c1dc0cf81b4991e",
-      "bytes": 3427076,
-      "triangles": 117656,
-      "draw_calls": 10,
+      "sha256": "9c43cc223d8cf56bb513753e2b2d2064a94731cceb6edee6ece8d8c875ce90df",
+      "bytes": 3915716,
+      "triangles": 137960,
+      "draw_calls": 11,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.1168557320951866,
+        "minimum_normalized_radius": 1.0267010280169728,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.837823510817796,
+        "minimum_normalized_radius": 1.2094452101447906,
         "nearest_mesh": "SURFACE_FACEPLATE",
         "intersects": false
       }
     },
     {
       "file": "rk_mg02_d0_lod1.glb",
-      "sha256": "b3b5d3f6a80c608678daef184ddde93eb414e2242668e93e463b2505ebfd2453",
-      "bytes": 730116,
-      "triangles": 17310,
-      "draw_calls": 10,
+      "sha256": "380685c2b90c95ee0a319f7e149593b73d092ef0d652cdb19e207a80d9689ed3",
+      "bytes": 812632,
+      "triangles": 21438,
+      "draw_calls": 11,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.1163420975677625,
+        "minimum_normalized_radius": 1.025417510322372,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.8288217939496836,
+        "minimum_normalized_radius": 1.2032265003660598,
         "nearest_mesh": "SURFACE_FACEPLATE",
         "intersects": false
       }
     },
     {
       "file": "rk_mg02_d0_lod2.glb",
-      "sha256": "37186fc65b9fd77fb720ee4bb3517b688c7b6eb034f9a3298e504c1afa014616",
-      "bytes": 121896,
-      "triangles": 2610,
+      "sha256": "457e64ad1e3051d946d3e8b30b96498009a272169a9a8e6c41a4faafe76bbc43",
+      "bytes": 125816,
+      "triangles": 2704,
       "draw_calls": 1,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.2479899065439017,
+        "minimum_normalized_radius": 1.1467361274995194,
         "nearest_mesh": "DISTANCE_SURFACE",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 2.1141784887296273,
+        "minimum_normalized_radius": 1.5050708828365555,
         "nearest_mesh": "DISTANCE_SURFACE",
         "intersects": false
       }
@@ -71,94 +71,85 @@
   "variant_changes": {
     "base_commit": "84713783451299097150ca80eb8f6552b7e353ed",
     "base_band_width_m": 0.08064695447683334,
-    "band_width_m": 0.1208130419254303,
-    "band_width_ratio": 1.4980484100008398,
+    "band_width_m": 0.12209202349185944,
+    "band_width_ratio": 1.513907428791147,
     "lower_sensors": [
       {
         "lod": 0,
         "node": "SOCKET_OPTIC_LOWER_L",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       },
       {
         "lod": 0,
         "node": "SOCKET_OPTIC_LOWER_R",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          -0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          -0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       },
       {
         "lod": 1,
         "node": "SOCKET_OPTIC_LOWER_L",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       },
       {
         "lod": 1,
         "node": "SOCKET_OPTIC_LOWER_R",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          -0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          -0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       },
       {
         "lod": 2,
         "node": "SOCKET_OPTIC_LOWER_L",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       },
       {
         "lod": 2,
         "node": "SOCKET_OPTIC_LOWER_R",
-        "raise_m": 0.033494347146211384,
+        "raise_m": 0.03642887529788291,
         "position_m": [
-          -0.08142043473471616,
-          0.1596248980192282,
-          0.13637083778924824
+          -0.07466894129424606,
+          0.16255942617089972,
+          0.1404772071386331
         ]
       }
     ]
   },
-  "preserved_revision": {
-    "commit": "40bd38b55635726721d419ed6512017794b08474",
-    "files": 28
-  },
+  "preserved_revisions": [
+    {
+      "revision": "r1",
+      "commit": "40bd38b55635726721d419ed6512017794b08474",
+      "files": 28
+    },
+    {
+      "revision": "r2",
+      "commit": "aa89bcfddc9b84e829d05845aa7bdb8bbee0b12e",
+      "files": 29
+    }
+  ],
   "profile": {
     "previous_bounds": {
-      "min": [
-        -0.13928870856761932,
-        -2.6822088994293836e-10,
-        -0.16899113357067108
-      ],
-      "max": [
-        0.13928870856761932,
-        0.3790000081062317,
-        0.1863306760787964
-      ],
-      "dimensions_m": [
-        0.27857741713523865,
-        0.3790000083744526,
-        0.35532180964946747
-      ]
-    },
-    "bounds": {
       "min": [
         -0.1489863097667694,
         -2.6822088994293836e-10,
@@ -174,8 +165,47 @@
         0.36430001285672187,
         0.3419362008571625
       ]
+    },
+    "bounds": {
+      "min": [
+        -0.1360226571559906,
+        -2.6822088994293836e-10,
+        -0.1329866200685501
+      ],
+      "max": [
+        0.1360226571559906,
+        0.34779998660087585,
+        0.1891968548297882
+      ],
+      "dimensions_m": [
+        0.2720453143119812,
+        0.34779998686909674,
+        0.3221834748983383
+      ]
     }
   },
+  "optic_retraction": [
+    {
+      "node": "SOCKET_OPTIC_CENTRAL",
+      "retracted_m": 0.03062631212260758
+    },
+    {
+      "node": "SOCKET_OPTIC_UPPER_L",
+      "retracted_m": 0.005322818192714879
+    },
+    {
+      "node": "SOCKET_OPTIC_UPPER_R",
+      "retracted_m": 0.005322818192714879
+    },
+    {
+      "node": "SOCKET_OPTIC_LOWER_L",
+      "retracted_m": -0.004106369349384853
+    },
+    {
+      "node": "SOCKET_OPTIC_LOWER_R",
+      "retracted_m": -0.004106369349384853
+    }
+  ],
   "robot_fit": [
     {
       "lod": 0,
@@ -200,62 +230,62 @@
     {
       "lod": 0,
       "optic": "CENTRAL",
-      "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9999320970681193
+      "first_hit": "OPTICAL_GLASS",
+      "outward_normal_dot": 0.9999955088692385
     },
     {
       "lod": 0,
       "optic": "UPPER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9998574723760204
+      "outward_normal_dot": 0.9999709380756711
     },
     {
       "lod": 0,
       "optic": "UPPER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9998574723760204
+      "outward_normal_dot": 0.9999709380756711
     },
     {
       "lod": 0,
       "optic": "LOWER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9998343312765516
+      "outward_normal_dot": 0.9999662691908922
     },
     {
       "lod": 0,
       "optic": "LOWER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9998343312765516
+      "outward_normal_dot": 0.9999662691908922
     },
     {
       "lod": 1,
       "optic": "CENTRAL",
-      "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9994543985439991
+      "first_hit": "OPTICAL_GLASS",
+      "outward_normal_dot": 0.9999638521584022
     },
     {
       "lod": 1,
       "optic": "UPPER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9996191669894416
+      "outward_normal_dot": 0.9999237523212278
     },
     {
       "lod": 1,
       "optic": "UPPER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9996191669894416
+      "outward_normal_dot": 0.9999237523212278
     },
     {
       "lod": 1,
       "optic": "LOWER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9995586286482558
+      "outward_normal_dot": 0.9999114355673601
     },
     {
       "lod": 1,
       "optic": "LOWER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9995586286482558
+      "outward_normal_dot": 0.9999114355673601
     }
   ],
   "grille": [
@@ -263,217 +293,331 @@
       "lod": 0,
       "slot": 0,
       "y": 0.088,
-      "filter_recess_m": 0.006003968776960147
+      "filter_recess_m": 0.008003975029979807
     },
     {
       "lod": 0,
       "slot": 0,
       "y": 0.1,
-      "filter_recess_m": 0.006003976587208026
+      "filter_recess_m": 0.008003971376319537
     },
     {
       "lod": 0,
       "slot": 0,
       "y": 0.112,
-      "filter_recess_m": 0.006003973419015353
+      "filter_recess_m": 0.008003973287123677
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.088,
-      "filter_recess_m": 0.006013110320833563
+      "filter_recess_m": 0.008013116729138597
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.1,
-      "filter_recess_m": 0.006013107131366734
+      "filter_recess_m": 0.008013122789702294
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.112,
-      "filter_recess_m": 0.006013114892932617
+      "filter_recess_m": 0.00801311717999393
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.088,
-      "filter_recess_m": 0.006021885803229918
+      "filter_recess_m": 0.008021895863450111
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.1,
-      "filter_recess_m": 0.006021880610466553
+      "filter_recess_m": 0.008021891770252067
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.112,
-      "filter_recess_m": 0.006021882823378309
+      "filter_recess_m": 0.008021898119824934
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.088,
-      "filter_recess_m": 0.006021893199850546
+      "filter_recess_m": 0.008021901980681388
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.1,
-      "filter_recess_m": 0.006021889062797735
+      "filter_recess_m": 0.00802190325755836
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.112,
-      "filter_recess_m": 0.006021885128376807
+      "filter_recess_m": 0.008021900338084267
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.088,
-      "filter_recess_m": 0.00601313375470193
+      "filter_recess_m": 0.008013141181554016
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.1,
-      "filter_recess_m": 0.006013129771697025
+      "filter_recess_m": 0.00801314348793978
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.112,
-      "filter_recess_m": 0.006013138005302079
+      "filter_recess_m": 0.008013143162049971
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.088,
-      "filter_recess_m": 0.0060039374736865075
+      "filter_recess_m": 0.00800394360892346
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.1,
-      "filter_recess_m": 0.0060039447887452885
+      "filter_recess_m": 0.00800393954204702
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.112,
-      "filter_recess_m": 0.006003941496754948
+      "filter_recess_m": 0.008003941977066387
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.088,
-      "filter_recess_m": 0.006094594705212786
+      "filter_recess_m": 0.008092315447915416
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.1,
-      "filter_recess_m": 0.006224504232910585
+      "filter_recess_m": 0.0082215093392363
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.112,
-      "filter_recess_m": 0.0060965678937734
+      "filter_recess_m": 0.008092914883378578
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.088,
-      "filter_recess_m": 0.006031795011641382
+      "filter_recess_m": 0.008030004778523891
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.1,
-      "filter_recess_m": 0.006322827524295527
+      "filter_recess_m": 0.008319949752790504
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.112,
-      "filter_recess_m": 0.006078863239214347
+      "filter_recess_m": 0.008075725786361176
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.088,
-      "filter_recess_m": 0.006080536301012851
+      "filter_recess_m": 0.008078884578420223
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.1,
-      "filter_recess_m": 0.006145808571193304
+      "filter_recess_m": 0.008143246201613025
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.112,
-      "filter_recess_m": 0.00608251956317115
+      "filter_recess_m": 0.008079483468850873
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.088,
-      "filter_recess_m": 0.0060805086397373725
+      "filter_recess_m": 0.008078876514376152
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.1,
-      "filter_recess_m": 0.006145709051300657
+      "filter_recess_m": 0.008143186402663961
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.112,
-      "filter_recess_m": 0.006082491900448857
+      "filter_recess_m": 0.008079475403955289
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.088,
-      "filter_recess_m": 0.006031853470753613
+      "filter_recess_m": 0.008030082892141598
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.1,
-      "filter_recess_m": 0.006322815099896038
+      "filter_recess_m": 0.008319976925074413
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.112,
-      "filter_recess_m": 0.006078851100438043
+      "filter_recess_m": 0.008075752309816484
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.088,
-      "filter_recess_m": 0.006094597772489593
+      "filter_recess_m": 0.008092377005540226
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.1,
-      "filter_recess_m": 0.0062245788090358675
+      "filter_recess_m": 0.008221623494004147
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.112,
-      "filter_recess_m": 0.006096570962593341
+      "filter_recess_m": 0.008092976441779032
+    }
+  ],
+  "side_vents": [
+    {
+      "lod": 0,
+      "side": -1,
+      "u": 0.51,
+      "recess_m": 0.00599999956154474
+    },
+    {
+      "lod": 0,
+      "side": -1,
+      "u": 0.775,
+      "recess_m": 0.005999998384978042
+    },
+    {
+      "lod": 0,
+      "side": 1,
+      "u": 0.51,
+      "recess_m": 0.005999999560342355
+    },
+    {
+      "lod": 0,
+      "side": 1,
+      "u": 0.775,
+      "recess_m": 0.005999998386012444
+    },
+    {
+      "lod": 1,
+      "side": -1,
+      "u": 0.51,
+      "recess_m": 0.006001133296815536
+    },
+    {
+      "lod": 1,
+      "side": -1,
+      "u": 0.775,
+      "recess_m": 0.00599367357979548
+    },
+    {
+      "lod": 1,
+      "side": 1,
+      "u": 0.51,
+      "recess_m": 0.0060016028781800235
+    },
+    {
+      "lod": 1,
+      "side": 1,
+      "u": 0.775,
+      "recess_m": 0.005994293009798764
+    }
+  ],
+  "brow_sections": [
+    {
+      "lod": 0,
+      "x": 0.11,
+      "z": -0.1,
+      "thickness_m": 0.013000000000000001
+    },
+    {
+      "lod": 0,
+      "x": 0,
+      "z": -0.175,
+      "thickness_m": 0.005028999999999999
+    },
+    {
+      "lod": 1,
+      "x": 0.11,
+      "z": -0.1,
+      "thickness_m": 0.012999999999999998
+    },
+    {
+      "lod": 1,
+      "x": 0,
+      "z": -0.175,
+      "thickness_m": 0.005027999999999998
+    }
+  ],
+  "materials": [
+    {
+      "name": "RK_MG02_CERAMIC",
+      "roughness": 0.65,
+      "metalness": 0.03,
+      "opacity": 1
+    },
+    {
+      "name": "RK_MG02_FACE_POLYMER",
+      "roughness": 0.56,
+      "metalness": 0.04,
+      "opacity": 1
+    },
+    {
+      "name": "RK_MG02_ANODIZED_METAL",
+      "roughness": 0.36,
+      "metalness": 0.82,
+      "opacity": 1
+    },
+    {
+      "name": "RK_MG02_RED_OPTICAL_GLASS",
+      "roughness": 0.1,
+      "metalness": 0,
+      "opacity": 0.88
+    },
+    {
+      "name": "RK_MG02_OPTICAL_CORES",
+      "roughness": 0.25,
+      "metalness": 0,
+      "opacity": 1
+    },
+    {
+      "name": "RK_MG02_RUBBER",
+      "roughness": 0.9,
+      "metalness": 0,
+      "opacity": 1
     }
   ],
   "checks": [
@@ -485,6 +629,8 @@
     "No surface intersections with the unchanged AUREL sensor head at the specified rest placement",
     "Five outward-facing optical sockets and visible optical surfaces in both inspectable tiers",
     "All six chin openings reach the recessed filter",
+    "Four cheek vent apertures reach recessed backing; brow root and lip thickness sampled",
+    "Six material finishes; preserved r1/r2 archives and head/neck frames",
     "Hex Witness, Breach Warden, robot assembly originals and the received collaboration contract remain byte-identical"
   ]
 }

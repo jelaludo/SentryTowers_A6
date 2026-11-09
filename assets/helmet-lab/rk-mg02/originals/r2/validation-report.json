@@ -1,0 +1,490 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain exports; geometry, rest frames, inspection separation, authored head/nose clearance and open grille. Reference envelopes are visual fit checks, not certification or donning simulation.",
+  "files": [
+    {
+      "file": "rk_mg02_d0_lod0.glb",
+      "sha256": "4167215fdba767bac1932ac23d55ef9b87942137e292d1046c1dc0cf81b4991e",
+      "bytes": 3427076,
+      "triangles": 117656,
+      "draw_calls": 10,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.1168557320951866,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.837823510817796,
+        "nearest_mesh": "SURFACE_FACEPLATE",
+        "intersects": false
+      }
+    },
+    {
+      "file": "rk_mg02_d0_lod1.glb",
+      "sha256": "b3b5d3f6a80c608678daef184ddde93eb414e2242668e93e463b2505ebfd2453",
+      "bytes": 730116,
+      "triangles": 17310,
+      "draw_calls": 10,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.1163420975677625,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.8288217939496836,
+        "nearest_mesh": "SURFACE_FACEPLATE",
+        "intersects": false
+      }
+    },
+    {
+      "file": "rk_mg02_d0_lod2.glb",
+      "sha256": "37186fc65b9fd77fb720ee4bb3517b688c7b6eb034f9a3298e504c1afa014616",
+      "bytes": 121896,
+      "triangles": 2610,
+      "draw_calls": 1,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.2479899065439017,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 2.1141784887296273,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      }
+    }
+  ],
+  "module_pose_checks": 96,
+  "preserved_originals": {
+    "commit": "84713783451299097150ca80eb8f6552b7e353ed",
+    "files": 185
+  },
+  "variant_changes": {
+    "base_commit": "84713783451299097150ca80eb8f6552b7e353ed",
+    "base_band_width_m": 0.08064695447683334,
+    "band_width_m": 0.1208130419254303,
+    "band_width_ratio": 1.4980484100008398,
+    "lower_sensors": [
+      {
+        "lod": 0,
+        "node": "SOCKET_OPTIC_LOWER_L",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      },
+      {
+        "lod": 0,
+        "node": "SOCKET_OPTIC_LOWER_R",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          -0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      },
+      {
+        "lod": 1,
+        "node": "SOCKET_OPTIC_LOWER_L",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      },
+      {
+        "lod": 1,
+        "node": "SOCKET_OPTIC_LOWER_R",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          -0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      },
+      {
+        "lod": 2,
+        "node": "SOCKET_OPTIC_LOWER_L",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      },
+      {
+        "lod": 2,
+        "node": "SOCKET_OPTIC_LOWER_R",
+        "raise_m": 0.033494347146211384,
+        "position_m": [
+          -0.08142043473471616,
+          0.1596248980192282,
+          0.13637083778924824
+        ]
+      }
+    ]
+  },
+  "preserved_revision": {
+    "commit": "40bd38b55635726721d419ed6512017794b08474",
+    "files": 28
+  },
+  "profile": {
+    "previous_bounds": {
+      "min": [
+        -0.13928870856761932,
+        -2.6822088994293836e-10,
+        -0.16899113357067108
+      ],
+      "max": [
+        0.13928870856761932,
+        0.3790000081062317,
+        0.1863306760787964
+      ],
+      "dimensions_m": [
+        0.27857741713523865,
+        0.3790000083744526,
+        0.35532180964946747
+      ]
+    },
+    "bounds": {
+      "min": [
+        -0.1489863097667694,
+        -2.6822088994293836e-10,
+        -0.14299693703651428
+      ],
+      "max": [
+        0.1489863097667694,
+        0.364300012588501,
+        0.1989392638206482
+      ],
+      "dimensions_m": [
+        0.2979726195335388,
+        0.36430001285672187,
+        0.3419362008571625
+      ]
+    }
+  },
+  "robot_fit": [
+    {
+      "lod": 0,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 1,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 2,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    }
+  ],
+  "optical_mounts": [
+    {
+      "lod": 0,
+      "optic": "CENTRAL",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9999320970681193
+    },
+    {
+      "lod": 0,
+      "optic": "UPPER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998574723760204
+    },
+    {
+      "lod": 0,
+      "optic": "UPPER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998574723760204
+    },
+    {
+      "lod": 0,
+      "optic": "LOWER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998343312765516
+    },
+    {
+      "lod": 0,
+      "optic": "LOWER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998343312765516
+    },
+    {
+      "lod": 1,
+      "optic": "CENTRAL",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9994543985439991
+    },
+    {
+      "lod": 1,
+      "optic": "UPPER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9996191669894416
+    },
+    {
+      "lod": 1,
+      "optic": "UPPER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9996191669894416
+    },
+    {
+      "lod": 1,
+      "optic": "LOWER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9995586286482558
+    },
+    {
+      "lod": 1,
+      "optic": "LOWER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9995586286482558
+    }
+  ],
+  "grille": [
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.088,
+      "filter_recess_m": 0.006003968776960147
+    },
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.1,
+      "filter_recess_m": 0.006003976587208026
+    },
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.112,
+      "filter_recess_m": 0.006003973419015353
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.088,
+      "filter_recess_m": 0.006013110320833563
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.1,
+      "filter_recess_m": 0.006013107131366734
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.112,
+      "filter_recess_m": 0.006013114892932617
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.088,
+      "filter_recess_m": 0.006021885803229918
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.1,
+      "filter_recess_m": 0.006021880610466553
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.112,
+      "filter_recess_m": 0.006021882823378309
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.088,
+      "filter_recess_m": 0.006021893199850546
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.1,
+      "filter_recess_m": 0.006021889062797735
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.112,
+      "filter_recess_m": 0.006021885128376807
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.088,
+      "filter_recess_m": 0.00601313375470193
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.1,
+      "filter_recess_m": 0.006013129771697025
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.112,
+      "filter_recess_m": 0.006013138005302079
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.088,
+      "filter_recess_m": 0.0060039374736865075
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.1,
+      "filter_recess_m": 0.0060039447887452885
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.112,
+      "filter_recess_m": 0.006003941496754948
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.088,
+      "filter_recess_m": 0.006094594705212786
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.1,
+      "filter_recess_m": 0.006224504232910585
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.112,
+      "filter_recess_m": 0.0060965678937734
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.088,
+      "filter_recess_m": 0.006031795011641382
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.1,
+      "filter_recess_m": 0.006322827524295527
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.112,
+      "filter_recess_m": 0.006078863239214347
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.088,
+      "filter_recess_m": 0.006080536301012851
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.1,
+      "filter_recess_m": 0.006145808571193304
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.112,
+      "filter_recess_m": 0.00608251956317115
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.088,
+      "filter_recess_m": 0.0060805086397373725
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.1,
+      "filter_recess_m": 0.006145709051300657
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.112,
+      "filter_recess_m": 0.006082491900448857
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.088,
+      "filter_recess_m": 0.006031853470753613
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.1,
+      "filter_recess_m": 0.006322815099896038
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.112,
+      "filter_recess_m": 0.006078851100438043
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.088,
+      "filter_recess_m": 0.006094597772489593
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.1,
+      "filter_recess_m": 0.0062245788090358675
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.112,
+      "filter_recess_m": 0.006096570962593341
+    }
+  ],
+  "checks": [
+    "Three plain self-contained GLBs with zero validator errors/warnings",
+    "Finite nondegenerate triangles and measured costs",
+    "Unique dot-free names, same rest frames, sockets and bounds in all tiers",
+    "Eight independent inspectable modules; static distance cannot explode",
+    "No triangle intersects the authored head or nose ellipsoid",
+    "No surface intersections with the unchanged AUREL sensor head at the specified rest placement",
+    "Five outward-facing optical sockets and visible optical surfaces in both inspectable tiers",
+    "All six chin openings reach the recessed filter",
+    "Hex Witness, Breach Warden, robot assembly originals and the received collaboration contract remain byte-identical"
+  ]
+}

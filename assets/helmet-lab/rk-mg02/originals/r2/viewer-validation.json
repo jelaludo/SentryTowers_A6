@@ -1,0 +1,177 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "scope": "Three tier costs, 16 module isolates, preserved Hex Witness and Breach Warden costs/downloads and original-family controls and family selector, explosion, fit references, cameras, section, wireframe, turntable, fullscreen, PNG/GLB/ZIP downloads and 390px layout; no FPS claim.",
+  "checks": [
+    {
+      "lod": 0,
+      "triangles": 117656,
+      "draw_calls": 10
+    },
+    {
+      "lod": 0,
+      "part": "SHELL",
+      "triangles": 39240,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "CROWN_BAND",
+      "triangles": 9968,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "FACEPLATE",
+      "triangles": 12140,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "OPTICS",
+      "triangles": 22800,
+      "draw_calls": 3
+    },
+    {
+      "lod": 0,
+      "part": "JAW",
+      "triangles": 13192,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "RESPIRATOR",
+      "triangles": 2396,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "COLLAR",
+      "triangles": 12816,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "LINER",
+      "triangles": 5104,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "triangles": 17310,
+      "draw_calls": 10
+    },
+    {
+      "lod": 1,
+      "part": "SHELL",
+      "triangles": 5540,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "CROWN_BAND",
+      "triangles": 1648,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "FACEPLATE",
+      "triangles": 1776,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "OPTICS",
+      "triangles": 3946,
+      "draw_calls": 3
+    },
+    {
+      "lod": 1,
+      "part": "JAW",
+      "triangles": 1452,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "RESPIRATOR",
+      "triangles": 492,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "COLLAR",
+      "triangles": 1680,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "LINER",
+      "triangles": 776,
+      "draw_calls": 1
+    },
+    {
+      "lod": 2,
+      "triangles": 2610,
+      "draw_calls": 1
+    },
+    {
+      "family": "breach-warden",
+      "lod": 0,
+      "triangles": 183448,
+      "draw_calls": 11
+    },
+    {
+      "family": "breach-warden",
+      "lod": 1,
+      "triangles": 11706,
+      "draw_calls": 11
+    },
+    {
+      "family": "breach-warden",
+      "lod": 2,
+      "triangles": 2922,
+      "draw_calls": 1
+    },
+    {
+      "family": "hex-witness",
+      "lod": 0,
+      "triangles": 104704,
+      "draw_calls": 10
+    },
+    {
+      "family": "hex-witness",
+      "lod": 1,
+      "triangles": 15602,
+      "draw_calls": 10
+    },
+    {
+      "family": "hex-witness",
+      "lod": 2,
+      "triangles": 2994,
+      "draw_calls": 1
+    }
+  ],
+  "screenshots": [
+    "previews/master.png",
+    "previews/game.png",
+    "previews/distance.png",
+    "previews/exploded.png",
+    "previews/hero-right.png",
+    "previews/front.png",
+    "previews/temple.png",
+    "previews/rear.png",
+    "previews/inside.png",
+    "previews/human-fit.png",
+    "previews/robot-fit.png",
+    "previews/mobile.png"
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "helmet-lab/index.html": "fd3d9b55a2268dc1fe60548bc42181eaed4886e7bedf04eb776a78d14ae26e21",
+    "helmet-lab/style.css": "a0375350a13311a6170ba686c1bdf210e76f6211395f8961908d68ee1c18b422",
+    "helmet-lab/viewer.js": "38ea23417a25f3cd5a934007775bfdb355d4e5df26d17b51e26e2320c1790c7a",
+    "helmet-lab/helmets.js": "2a556778cec37f7ebff9dc727f562c555be03a0050426de89364362d28a7db92",
+    "assets/helmet-lab/rk-mg02/runtime.js": "b02648db1b74180bd784982336b251bc7c4cafba13fa11efd9722f33dc140d64",
+    "assets/helmet-lab/rk-mg02/manifest.json": "f64057436310e80a7e881efc68b368fcfde994712df2e7c4c272de2512c2c830"
+  }
+}

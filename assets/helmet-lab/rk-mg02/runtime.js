@@ -1,10 +1,10 @@
-export const SPEC=Object.freeze({height_m:.3643,head_envelope:{center:[0,.207,0],radii:[.087,.117,.111]},head_datum_m:[0,.09,0],neck_radius_m:.049,robot_head_offset_m:[0,-1.465,0]});
+export const SPEC=Object.freeze({height_m:.3478,head_envelope:{center:[0,.207,0],radii:[.087,.117,.111]},head_datum_m:[0,.09,0],neck_radius_m:.049,robot_head_offset_m:[0,-1.465,0]});
 export const MODULES={
- SHELL:{label:'Cowl and short brow peak',offset:[0,.07,-.045]},
+ SHELL:{label:'Cowl and structural brow',offset:[0,.07,-.045]},
  CROWN_BAND:{label:'Broad crown band',offset:[0,.11,0]},
  FACEPLATE:{label:'Recessed sensor faceplate',offset:[0,0,.065]},
  OPTICS:{label:'Five-lens optical array',offset:[0,0,.125]},
- JAW:{label:'Chin guard and cheek rails',offset:[0,-.035,.06]},
+ JAW:{label:'Continuous vented chin guard',offset:[0,-.035,.06]},
  RESPIRATOR:{label:'Vented chin cassette',offset:[0,-.025,.125]},
  COLLAR:{label:'Neck seal and collar',offset:[0,-.07,0]},
  LINER:{label:'Interior liner',offset:[0,.015,-.10]}

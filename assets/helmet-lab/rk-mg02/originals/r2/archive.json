@@ -1,0 +1,150 @@
+{
+  "commit": "aa89bcfddc9b84e829d05845aa7bdb8bbee0b12e",
+  "files": [
+    {
+      "source": "assets/helmet-lab/rk-mg02/README.md",
+      "archive": "README.md",
+      "sha256": "89d3457ba1a0264f1700dca6ca8ed3efb7ce97e529313571be053186dcdb7dc1"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/download.json",
+      "archive": "download.json",
+      "sha256": "ee46e56cfdcf84235ef01cc60cbfb14f23fc02a5164b7d8f8a6881b7dbdfdcf8"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/manifest.json",
+      "archive": "manifest.json",
+      "sha256": "f64057436310e80a7e881efc68b368fcfde994712df2e7c4c272de2512c2c830"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/preview.png",
+      "archive": "preview.png",
+      "sha256": "17dc258c753d7db7415c9fc15cea33ecf655fcfc60510ea8550f671930825eed"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/distance.png",
+      "archive": "previews/distance.png",
+      "sha256": "8a7aa985b77187016864932309a33ecaf1bb71f35e389a107934f717e3921bc3"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/exploded.png",
+      "archive": "previews/exploded.png",
+      "sha256": "508ec4f474048e94cd35e1c331fbdc7788e6b199bc3245b6200056c93c9f0786"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/front.png",
+      "archive": "previews/front.png",
+      "sha256": "77a4154dc33224aeb30f2d6a7046103d5781e2ebf2825af5769a2cbcf513f893"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/game.png",
+      "archive": "previews/game.png",
+      "sha256": "35c505f8644c19bc012bd1ad21d436b3f1984b547717599cdbd752af30a7281f"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/hero-right.png",
+      "archive": "previews/hero-right.png",
+      "sha256": "ef7e08a973d14786071b067b4cc2aa8e121eab52ca7631322f8ca03611f4c79b"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/human-fit.png",
+      "archive": "previews/human-fit.png",
+      "sha256": "1dc0eda1b4ce570e13d5100e9d4d4faf8a377cea5498e64ad0abb4940d525d53"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/inside.png",
+      "archive": "previews/inside.png",
+      "sha256": "8989be186ab1ee532f90f666c7f4cd663b76976b9649ef744a0496b0f2ecc9b5"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/master.png",
+      "archive": "previews/master.png",
+      "sha256": "cb841efb630563723184fdbb486db9632cdcf89e9912647763bf2dcf4ad1973d"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/mobile.png",
+      "archive": "previews/mobile.png",
+      "sha256": "9db696661a235ee71551e0ae877489284de98e5a260a7a4d690865edd027d6f2"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/rear.png",
+      "archive": "previews/rear.png",
+      "sha256": "2813731b2c58be0d11e5f545a2f54861cfb088ada9b2cbbc2fa54c3c9fff36cc"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/robot-fit.png",
+      "archive": "previews/robot-fit.png",
+      "sha256": "7528fcb5bf60ddfe0b32fd4166ba8a45faffa116eeebe034cd09350e57b535b3"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/previews/temple.png",
+      "archive": "previews/temple.png",
+      "sha256": "0762fc367a0f8de66678c6f4bebc48d583be182cc3729e8663464ec4cf920328"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/rk-mg02.zip",
+      "archive": "rk-mg02.zip",
+      "sha256": "a03717162c8dd2f22dea045de736b19fcf21185a10691a0d372831eee9745815"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/rk_mg02_d0_lod0.glb",
+      "archive": "rk_mg02_d0_lod0.glb",
+      "sha256": "4167215fdba767bac1932ac23d55ef9b87942137e292d1046c1dc0cf81b4991e"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/rk_mg02_d0_lod1.glb",
+      "archive": "rk_mg02_d0_lod1.glb",
+      "sha256": "b3b5d3f6a80c608678daef184ddde93eb414e2242668e93e463b2505ebfd2453"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/rk_mg02_d0_lod2.glb",
+      "archive": "rk_mg02_d0_lod2.glb",
+      "sha256": "37186fc65b9fd77fb720ee4bb3517b688c7b6eb034f9a3298e504c1afa014616"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/runtime.js",
+      "archive": "runtime.js",
+      "sha256": "b02648db1b74180bd784982336b251bc7c4cafba13fa11efd9722f33dc140d64"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/validation-report.json",
+      "archive": "validation-report.json",
+      "sha256": "3c71506173f8d9338bd78b1acaf040f10845eef560c6aed1a4da6bbcbb71d127"
+    },
+    {
+      "source": "assets/helmet-lab/rk-mg02/viewer-validation.json",
+      "archive": "viewer-validation.json",
+      "sha256": "b1c1a0a1a15206b8d0932ca52624d35a0ebb489cc827c6b07d11a4f823ee5eb6"
+    },
+    {
+      "source": "tools/asset-pipeline/rk-mg02-shape.mjs",
+      "archive": "source/rk-mg02-shape.mjs",
+      "sha256": "86653bb462adc940a00dc94d340ad054c9275660ad6dd76cea8f5f8f8e154013"
+    },
+    {
+      "source": "tools/asset-pipeline/build-rk-mg02.mjs",
+      "archive": "source/build-rk-mg02.mjs",
+      "sha256": "5440d281752f7301fdbf1eeb3224384be68942a7f0fb2b7a10a0390146d13150"
+    },
+    {
+      "source": "tools/asset-pipeline/validate-rk-mg02.mjs",
+      "archive": "source/validate-rk-mg02.mjs",
+      "sha256": "5ad6bd3f1331520833b96382b166b9e9cce113ba59f79142b712552c8efcd15c"
+    },
+    {
+      "source": "tools/asset-pipeline/test-rk-mg02-viewer.mjs",
+      "archive": "source/test-rk-mg02-viewer.mjs",
+      "sha256": "dee104fedc24dc52e9503ca73e9773ef17b23f29b6b33f1ef0e1aa3c8068cc2d"
+    },
+    {
+      "source": "tools/package-rk-mg02.py",
+      "archive": "source/package-rk-mg02.py",
+      "sha256": "0d0b56d5c6142c5b3fab61c38b36e05f8140ab2640d960bb7282f1f56869c58f"
+    },
+    {
+      "source": "helmet-lab/viewer.js",
+      "archive": "source/viewer.js",
+      "sha256": "38ea23417a25f3cd5a934007775bfdb355d4e5df26d17b51e26e2320c1790c7a"
+    }
+  ]
+}

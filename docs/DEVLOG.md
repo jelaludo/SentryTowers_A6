@@ -1,5 +1,15 @@
 # Devlog
 
+## 9 November 2026 / RK-MG02 — fitted enclosure and materials
+
+Implemented the approved construction critique. RK-MG02 is now 272.0 × 347.8 × 322.2 mm: 26 mm narrower and 16.5 mm lower than revision 2. A tapered 4–13 mm brow, continuous 10 mm U-shaped guard, four recessed side vents, closed upper/underside returns, six-slot chin filter, flatter recessed face and compact seal replace the former thin overlays. The broad band and five-sensor formation remain; the cowl has 112 cells. Six shared finishes separate ceramic, metal, face polymer, rubber, glass and emitters; wear is restrained to bevels.
+
+Preserved revision 2 and its source/viewer at `aa89bcf` under `assets/helmet-lab/rk-mg02/originals/r2/`, alongside r1. All original node names persist, with `SURFACE_COLLAR_SEAL` added consistently. Head/neck frames are unchanged. Optical/front/respirator frames intentionally follow the rebuilt insert and must be refreshed by consumers; the manifest lists them. All three current tiers share frames and bounds.
+
+LOD0: 137,960 triangles / 11 draws / 3,915,716 bytes; LOD1: 21,438 triangles / 11 draws / 812,632 bytes; LOD2: 2,704 triangles / 1 draws / 125,816 bytes. Game meets the unit triangle reference; eleven draws and its byte size exceed the landmark references. Distance meets 3k/one-draw/250 KB. No FPS claim. RK-MG02's viewer gains plain-gray inspection, optional contact shading and soft studio lights; other helmets retain their lighting. Updated GLB/ZIP downloads, previews, gallery, integration notes and shared navigation.
+
+Decoded geometry, head/nose/AUREL fit, poses, optics, grille/vent apertures, brow sections, materials and preservation are validated. Browser review covers costs, controls, gray restoration/contact shading, downloads and original-family regression. Completed: approved construction/material revision and handoff. Pending: visual acceptance, moving character fit/donning, gameplay damage, release compression decode and game/device profiling. Handoff: containing commit plus `assets/helmet-lab/rk-mg02/`.
+
 ## 9 November 2026 / RK-MG02 — compact motocross profile
 
 Reshaped RK-MG02 to reduce the egg-like outline using the supplied F-STACK / MX reference. A short brow peak, 14.7 mm lower crown, approximately 26 mm flatter rear, forward chin guard, swept cheek rails and slim transverse brace establish a restrained dirt-bike shape. Ivory bands/guard panels contrast with the retained green honeycomb. The five sensor positions, broad crown band, module names and head/neck attachment frames remain. The respirator frame follows the new chin guard; its six openings remain clear. Side/peak vent details are visual surfaces, not simulated ducts.

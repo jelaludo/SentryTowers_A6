@@ -1,17 +1,17 @@
 {
   "status": "passed",
   "browser": "Chromium / SwiftShader",
-  "scope": "Three tier costs, 16 module isolates, preserved Hex Witness and Breach Warden costs/downloads and original-family controls and family selector, explosion, fit references, cameras, section, wireframe, turntable, fullscreen, PNG/GLB/ZIP downloads and 390px layout; no FPS claim.",
+  "scope": "Three tier costs, 16 module isolates, preserved Hex Witness and Breach Warden costs/downloads and original-family controls and family selector, explosion, fit references, cameras, section, wireframe, turntable, fullscreen, plain-gray material restoration, contact shading, PNG/GLB/ZIP downloads and 390px layout; no FPS claim.",
   "checks": [
     {
       "lod": 0,
-      "triangles": 117656,
-      "draw_calls": 10
+      "triangles": 137960,
+      "draw_calls": 11
     },
     {
       "lod": 0,
       "part": "SHELL",
-      "triangles": 39240,
+      "triangles": 42472,
       "draw_calls": 1
     },
     {
@@ -23,7 +23,7 @@
     {
       "lod": 0,
       "part": "FACEPLATE",
-      "triangles": 12140,
+      "triangles": 12296,
       "draw_calls": 1
     },
     {
@@ -35,7 +35,7 @@
     {
       "lod": 0,
       "part": "JAW",
-      "triangles": 13192,
+      "triangles": 30108,
       "draw_calls": 1
     },
     {
@@ -48,7 +48,7 @@
       "lod": 0,
       "part": "COLLAR",
       "triangles": 12816,
-      "draw_calls": 1
+      "draw_calls": 2
     },
     {
       "lod": 0,
@@ -58,13 +58,13 @@
     },
     {
       "lod": 1,
-      "triangles": 17310,
-      "draw_calls": 10
+      "triangles": 21438,
+      "draw_calls": 11
     },
     {
       "lod": 1,
       "part": "SHELL",
-      "triangles": 5540,
+      "triangles": 6232,
       "draw_calls": 1
     },
     {
@@ -76,7 +76,7 @@
     {
       "lod": 1,
       "part": "FACEPLATE",
-      "triangles": 1776,
+      "triangles": 1704,
       "draw_calls": 1
     },
     {
@@ -88,7 +88,7 @@
     {
       "lod": 1,
       "part": "JAW",
-      "triangles": 1452,
+      "triangles": 4960,
       "draw_calls": 1
     },
     {
@@ -101,7 +101,7 @@
       "lod": 1,
       "part": "COLLAR",
       "triangles": 1680,
-      "draw_calls": 1
+      "draw_calls": 2
     },
     {
       "lod": 1,
@@ -111,7 +111,7 @@
     },
     {
       "lod": 2,
-      "triangles": 2610,
+      "triangles": 2704,
       "draw_calls": 1
     },
     {
@@ -163,15 +163,16 @@
     "previews/inside.png",
     "previews/human-fit.png",
     "previews/robot-fit.png",
+    "previews/clay.png",
     "previews/mobile.png"
   ],
   "console_errors": [],
   "source_sha256": {
-    "helmet-lab/index.html": "fd3d9b55a2268dc1fe60548bc42181eaed4886e7bedf04eb776a78d14ae26e21",
+    "helmet-lab/index.html": "195caaea38c0f9e065210d262fc536a4ddb07cea07197fd68bb6172e138a30d1",
     "helmet-lab/style.css": "a0375350a13311a6170ba686c1bdf210e76f6211395f8961908d68ee1c18b422",
-    "helmet-lab/viewer.js": "38ea23417a25f3cd5a934007775bfdb355d4e5df26d17b51e26e2320c1790c7a",
-    "helmet-lab/helmets.js": "2a556778cec37f7ebff9dc727f562c555be03a0050426de89364362d28a7db92",
-    "assets/helmet-lab/rk-mg02/runtime.js": "b02648db1b74180bd784982336b251bc7c4cafba13fa11efd9722f33dc140d64",
-    "assets/helmet-lab/rk-mg02/manifest.json": "f64057436310e80a7e881efc68b368fcfde994712df2e7c4c272de2512c2c830"
+    "helmet-lab/viewer.js": "acbc9a1ea076df5a8b725ad3997d3865a9c829b01ed8686e5bbd2c4179c4ea1e",
+    "helmet-lab/helmets.js": "7eb51167eda6edc67fbaae61e52f6d306b1824ea0de17fd7d860b14220f61207",
+    "assets/helmet-lab/rk-mg02/runtime.js": "c6e6d284f3f167b56c185da4e3255d8d233127d5dd5d65defc8e14f50c08c36f",
+    "assets/helmet-lab/rk-mg02/manifest.json": "7573394d99749c69d270471c3a7cbb1629e7fbca8140b280869d46bafcd0ebb0"
   }
 }
