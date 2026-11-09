@@ -1,0 +1,382 @@
+{
+  "status": "passed",
+  "scope": "Decoded plain exports; geometry, rest frames, inspection separation, authored head/nose clearance and open grille. Reference envelopes are visual fit checks, not certification or donning simulation.",
+  "files": [
+    {
+      "file": "hex_witness_d0_lod0.glb",
+      "sha256": "66ec5eacb34d7863de0cf373a3030f607f657da179fec885021a4c7e6ab33fd9",
+      "bytes": 3060392,
+      "triangles": 104704,
+      "draw_calls": 10,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.2359277507732613,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.837823510817796,
+        "nearest_mesh": "SURFACE_FACEPLATE",
+        "intersects": false
+      }
+    },
+    {
+      "file": "hex_witness_d0_lod1.glb",
+      "sha256": "49b0811660507b6bdae704fb21179d2ab0913794c4b98129c289754db706322a",
+      "bytes": 671516,
+      "triangles": 15602,
+      "draw_calls": 10,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.2357793559079933,
+        "nearest_mesh": "SURFACE_LINER",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 1.8282039769805145,
+        "nearest_mesh": "SURFACE_FACEPLATE",
+        "intersects": false
+      }
+    },
+    {
+      "file": "hex_witness_d0_lod2.glb",
+      "sha256": "2dbed09dc4a0ba5fba0662dada0ef67a4aef90e2c8414bfbfb744895e172403b",
+      "bytes": 134388,
+      "triangles": 2994,
+      "draw_calls": 1,
+      "gltf_errors": 0,
+      "gltf_warnings": 0,
+      "degenerate_triangles": 0,
+      "human_fit": {
+        "minimum_normalized_radius": 1.351148193880123,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      },
+      "nose_fit": {
+        "minimum_normalized_radius": 2.1667234924593486,
+        "nearest_mesh": "DISTANCE_SURFACE",
+        "intersects": false
+      }
+    }
+  ],
+  "module_pose_checks": 96,
+  "preserved_breach_warden": {
+    "commit": "ed6d5ca",
+    "files": 161
+  },
+  "robot_fit": [
+    {
+      "lod": 0,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 1,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    },
+    {
+      "lod": 2,
+      "reference_triangles": 1740,
+      "surface_intersections": 0,
+      "reference_scale": 1
+    }
+  ],
+  "optical_mounts": [
+    {
+      "lod": 0,
+      "optic": "CENTRAL",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9999320970681193
+    },
+    {
+      "lod": 0,
+      "optic": "UPPER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998574723760204
+    },
+    {
+      "lod": 0,
+      "optic": "UPPER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998574723760204
+    },
+    {
+      "lod": 0,
+      "optic": "LOWER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998343778210108
+    },
+    {
+      "lod": 0,
+      "optic": "LOWER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9998343778210108
+    },
+    {
+      "lod": 1,
+      "optic": "CENTRAL",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9994552676030259
+    },
+    {
+      "lod": 1,
+      "optic": "UPPER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9996330102840294
+    },
+    {
+      "lod": 1,
+      "optic": "UPPER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9996330102840294
+    },
+    {
+      "lod": 1,
+      "optic": "LOWER_L",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9995735777098465
+    },
+    {
+      "lod": 1,
+      "optic": "LOWER_R",
+      "first_hit": "OPTICAL_CORES",
+      "outward_normal_dot": 0.9995735777098465
+    }
+  ],
+  "grille": [
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.088,
+      "filter_recess_m": 0.006024814246745329
+    },
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.1,
+      "filter_recess_m": 0.006036665746036389
+    },
+    {
+      "lod": 0,
+      "slot": 0,
+      "y": 0.112,
+      "filter_recess_m": 0.006039247964529676
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.088,
+      "filter_recess_m": 0.006038734033266005
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.1,
+      "filter_recess_m": 0.00605028693606767
+    },
+    {
+      "lod": 0,
+      "slot": 1,
+      "y": 0.112,
+      "filter_recess_m": 0.006052122646054751
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.088,
+      "filter_recess_m": 0.006049387919584925
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.1,
+      "filter_recess_m": 0.006061129483466168
+    },
+    {
+      "lod": 0,
+      "slot": 2,
+      "y": 0.112,
+      "filter_recess_m": 0.00606352889074669
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.088,
+      "filter_recess_m": 0.006048732217166002
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.1,
+      "filter_recess_m": 0.006059972063279004
+    },
+    {
+      "lod": 0,
+      "slot": 3,
+      "y": 0.112,
+      "filter_recess_m": 0.006062227716715232
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.088,
+      "filter_recess_m": 0.006036781582786872
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.1,
+      "filter_recess_m": 0.006048104370056588
+    },
+    {
+      "lod": 0,
+      "slot": 4,
+      "y": 0.112,
+      "filter_recess_m": 0.006050409581327923
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.088,
+      "filter_recess_m": 0.006022988941059106
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.1,
+      "filter_recess_m": 0.006035266599557908
+    },
+    {
+      "lod": 0,
+      "slot": 5,
+      "y": 0.112,
+      "filter_recess_m": 0.006038140252743324
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.088,
+      "filter_recess_m": 0.00655396655200189
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.1,
+      "filter_recess_m": 0.006407726416828886
+    },
+    {
+      "lod": 1,
+      "slot": 0,
+      "y": 0.112,
+      "filter_recess_m": 0.006405520990246431
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.088,
+      "filter_recess_m": 0.006134197142852883
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.1,
+      "filter_recess_m": 0.006531335561714251
+    },
+    {
+      "lod": 1,
+      "slot": 1,
+      "y": 0.112,
+      "filter_recess_m": 0.006225187266857543
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.088,
+      "filter_recess_m": 0.006665761411608184
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.1,
+      "filter_recess_m": 0.00628675371008143
+    },
+    {
+      "lod": 1,
+      "slot": 2,
+      "y": 0.112,
+      "filter_recess_m": 0.006492097221106427
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.088,
+      "filter_recess_m": 0.00666587069888732
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.1,
+      "filter_recess_m": 0.006286618532427395
+    },
+    {
+      "lod": 1,
+      "slot": 3,
+      "y": 0.112,
+      "filter_recess_m": 0.006492167108973185
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.088,
+      "filter_recess_m": 0.006134424321358037
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.1,
+      "filter_recess_m": 0.006531316191294746
+    },
+    {
+      "lod": 1,
+      "slot": 4,
+      "y": 0.112,
+      "filter_recess_m": 0.00622517693617073
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.088,
+      "filter_recess_m": 0.006553818987505504
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.1,
+      "filter_recess_m": 0.006407824359552519
+    },
+    {
+      "lod": 1,
+      "slot": 5,
+      "y": 0.112,
+      "filter_recess_m": 0.006405412743998404
+    }
+  ],
+  "checks": [
+    "Three plain self-contained GLBs with zero validator errors/warnings",
+    "Finite nondegenerate triangles and measured costs",
+    "Unique dot-free names, same rest frames, sockets and bounds in all tiers",
+    "Eight independent inspectable modules; static distance cannot explode",
+    "No triangle intersects the authored head or nose ellipsoid",
+    "No surface intersections with the unchanged AUREL sensor head at the specified rest placement",
+    "Five outward-facing optical sockets and visible optical surfaces in both inspectable tiers",
+    "All six chin openings reach the recessed filter",
+    "Breach Warden, robot assembly originals and the received collaboration contract remain byte-identical"
+  ]
+}

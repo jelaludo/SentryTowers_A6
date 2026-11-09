@@ -1,5 +1,18 @@
 # Devlog
 
+## 9 November 2026 / Helmet Lab — Hex Witness
+
+Added the requested second helmet as a separate family: a rounded pale ceramic cowl with 166 curved honeycomb cells, a smooth crown band, central red optic and four smaller lenses, recessed faceplate, curved jaw armor, six-slot chin filter and connected neck collar. Eight modules separate for inspection; the shell and liner preserve a human/humanoid head cavity. Plate surfaces, bevels and borders use matching curved samples to avoid gaps in reduced geometry. Lens housings sit along the local face normals and keep their optical surfaces unobstructed.
+
+The shared `helmet-lab/` viewer now has a Helmet selector; Breach Warden remains the default and Hex Witness has the direct route `helmet-lab/?helmet=hex-witness`. Added tier-specific downloads, a complete ZIP, part isolation/explosion, fit references, six cameras, half section, wireframe, turntable, capture and mobile inspection. The Workshop gallery, attribution, mounting notes, readiness record and generated website documentation are updated. All Breach Warden and robot assembly assets, and the received collaboration contract, remain byte-identical to `ed6d5ca`.
+
+Detailed/game/static measurements: **104,704 / 15,602 / 2,994 triangles**, **10 / 10 / one draws**, **3,060,392 / 671,516 / 134,388 plain bytes**. All tiers share a 278.6 × 379.0 × 355.3 mm envelope, node names and socket frames. Game meets the 25k unit triangle reference but consumes part of the character budget and exceeds the stationary-landmark triangle/byte references. Distance is an authored coarse exterior merged to one material; it meets 3k/one-draw/250 KB. LOD1/2 are marked derived; no upstream compressed copies or FPS claims.
+
+All three plain exports validate with zero glTF errors/warnings, finite nondegenerate geometry, stable names/frames/bounds, no triangle intersections with the authored head/nose envelopes, and no surface intersections with the unchanged AUREL sensor head at its mounting datum. Checks include 96 module poses, optical centre/off-centre rays and 36 rays through the six chin slots. Chromium verifies actual render costs, module isolation, controls, hashed downloads, both helmet selections, preserved Breach Warden behaviour, gallery and 390px layout, without console errors.
+
+Completed: Hex Witness, three tiers, shared series selector, inspection and downloads. Pending: user visual acceptance, character-specific moving fit/donning, D1–D3, consuming-game gltfpack/decoded validation and device/game-camera profiling. Handoff: containing commit plus `assets/helmet-lab/hex-witness/`.
+
+
 ## 9 November 2026 / Breach Warden — plate-angle correction
 
 Corrected the skewed pieces shown in the user's side view. Curved plates now use local surface normals for thickness and uniform bevel offsets. Front and side cheek/jaw pieces share curved profiles with deliberate shingle clearances, and their bolts follow the actual plate normals. The front cheeks and jaw returns tuck around the visor instead of flaring forward. Contoured crown strips meet the brow with smaller seams; the side carrier closes the visible backing gaps. The ceramic temple bar, replacement plate, wear, eleven modules and overall silhouette remain.

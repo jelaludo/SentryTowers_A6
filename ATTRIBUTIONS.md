@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Helmet Lab / Hex Witness / 9 November 2026
+
+Original procedural helmet geometry, vertex colours, eight-module runtime and shared-viewer additions by jelaludo / Model Workshop, guided by the user-supplied `HexWitness.png`. Its external path and SHA-256 are recorded in `assets/helmet-lab/hex-witness/manifest.json`; no reference pixels or third-party meshes are distributed. LOD1/2 and previews are derived. The unchanged AUREL-03 sensor head is a viewer fit reference, excluded from the helmet package. Original Workshop reuse terms apply.
+
 ## Helmet Lab / Breach Warden / 9 November 2026
 
 Revision 2 corrects plate curvature, thickness, bevels, crown seams and hardware alignment. Revision 1 is preserved under `originals/r1/`, pinned to `68a7a45`; all current exports and comparison renders are original/derived Workshop work.

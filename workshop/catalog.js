@@ -1,4 +1,5 @@
 const collectionImages={
+'hex-witness':'assets/helmet-lab/hex-witness/preview.png',
 'helmet-lab':'assets/helmet-lab/breach-warden/preview.png',
 'robot-assembly':'assets/robot-assembly/muscles/preview.png',
 'shuttle-02':'assets/shuttle-02/preview.png',
@@ -55,6 +56,7 @@ const collectionImages={
 };
 
 export const collections=[
+['hex-witness','Helmet Lab / Hex Witness','Characters','A rounded honeycomb cowl with a smooth crown band, five red optics, curved jaw armor and a vented chin. Inspect eight modules, human and robot fit, and three downloadable tiers.','8 modules · Five optics · 3 tiers · GLB + ZIP','Helmet studies / 02','helmet-lab/?helmet=hex-witness'],
 ['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],
 ['robot-assembly','AUREL-03 / Robotic Anatomy','Characters','An adult mechanical frame with an optional layer of charcoal muscle bodies and braided tendons. Inspect the original skeleton, the muscles or both as they assemble and follow the joint study. Separate arms, legs, hands, feet and two heads remain available.','66 muscle bundles · Removable layer · 2 heads · 3 tiers','Modular anatomy study'],
 ['shuttle-02','SHUTTLE-02 / Industrial VTOL','Industry','An armored transport with exposed rotary mounts and independently tilting thruster pods. Transition from vertical lift to cruise, then dock its shared underbelly airlock at the Space Elevator orbital station.','90° rotating engines · VTOL + docking cycles · 3 tiers','Interactive prototype'],
@@ -137,4 +139,4 @@ export const collections=[
 ['ctf-flags','Capture the Flag','Props','Faction banners, pole styles and capture sockets with animated flag behavior.','6 banners · 3 pole styles · animated','Original'],
 ['station-crew','Station crew','Characters','Suited astronauts, scientists and workers with shared animation controls.','3 roles · 7 clips · animated','Original'],
 ['animation-tests','KESTREL / Frontier EVA','Characters','An original detailed astronaut with a lean weathered suit, opaque visor and circular walk/run previews.','Original EVA · 7 clips · animated','Original']
-].map(([id,title,category,description,meta,tag])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:`${id}/`}));
+].map(([id,title,category,description,meta,tag,url])=>({id,title,category,description,meta,tag,image:collectionImages[id]||`assets/workshop/${id}.jpg`,url:url||`${id}/`}));

@@ -1,0 +1,854 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "hex-witness",
+  "series": "Helmet Lab",
+  "number": 2,
+  "label": "Hex Witness / Optical helmet",
+  "revision": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Collar ground datum at plot centre; use SOCKET_NECK for attachment"
+  },
+  "spec": {
+    "height_m": 0.379,
+    "head_envelope": {
+      "center": [
+        0,
+        0.207,
+        0
+      ],
+      "radii": [
+        0.087,
+        0.117,
+        0.111
+      ]
+    },
+    "head_datum_m": [
+      0,
+      0.09,
+      0
+    ],
+    "neck_radius_m": 0.049,
+    "robot_head_offset_m": [
+      0,
+      -1.465,
+      0
+    ]
+  },
+  "modules": {
+    "SHELL": {
+      "label": "Honeycomb cowl",
+      "offset": [
+        0,
+        0.07,
+        -0.045
+      ]
+    },
+    "CROWN_BAND": {
+      "label": "Continuous crown band",
+      "offset": [
+        0,
+        0.11,
+        0
+      ]
+    },
+    "FACEPLATE": {
+      "label": "Recessed sensor faceplate",
+      "offset": [
+        0,
+        0,
+        0.065
+      ]
+    },
+    "OPTICS": {
+      "label": "Five-lens optical array",
+      "offset": [
+        0,
+        0,
+        0.125
+      ]
+    },
+    "JAW": {
+      "label": "Curved jaw armor",
+      "offset": [
+        0,
+        -0.035,
+        0.06
+      ]
+    },
+    "RESPIRATOR": {
+      "label": "Vented chin cassette",
+      "offset": [
+        0,
+        -0.025,
+        0.125
+      ]
+    },
+    "COLLAR": {
+      "label": "Neck seal and collar",
+      "offset": [
+        0,
+        -0.07,
+        0
+      ]
+    },
+    "LINER": {
+      "label": "Interior liner",
+      "offset": [
+        0,
+        0.015,
+        -0.1
+      ]
+    }
+  },
+  "optics": [
+    {
+      "id": "CENTRAL",
+      "x": 0,
+      "y": 0.19,
+      "r": 0.051,
+      "glass": 0.043
+    },
+    {
+      "id": "UPPER_L",
+      "x": 0.063,
+      "y": 0.236,
+      "r": 0.019,
+      "glass": 0.0138
+    },
+    {
+      "id": "UPPER_R",
+      "x": -0.063,
+      "y": 0.236,
+      "r": 0.019,
+      "glass": 0.0138
+    },
+    {
+      "id": "LOWER_L",
+      "x": 0.061,
+      "y": 0.132,
+      "r": 0.018,
+      "glass": 0.0128
+    },
+    {
+      "id": "LOWER_R",
+      "x": -0.061,
+      "y": 0.132,
+      "r": 0.018,
+      "glass": 0.0128
+    }
+  ],
+  "damage_states": {
+    "d0": "Intact helmet with restrained surface wear",
+    "d1_d3": "Not authored"
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "engine_driven": "Module separation for inspection only; fixed optical sockets, no tracking or breathing simulation",
+    "clips": []
+  },
+  "lod_selection": {
+    "lod0": "Detailed cowl cells and optical etchings for close shots",
+    "lod1": "Eight inspectable game modules with simpler cell faces",
+    "lod2": "Merged static exterior, no honeycomb microgeometry or active emission; all names retained as lookup markers",
+    "game_enter_m": 12,
+    "distance_return_m": 16,
+    "provisional": true
+  },
+  "reference": {
+    "path": "/Users/jela/Downloads/HexWitness.png",
+    "sha256": "6a7fec579627a8f0b010490b31866ee4653271a58603439cf85c82779722a06c",
+    "redistributed": false
+  },
+  "fit_reference": {
+    "robot_file": "assets/robot-assembly/parts/head_sensor/aurel03_head_sensor_d0_lod1.glb",
+    "sha256": "df1d46b149d875c57e7deb30a64a3e73675050a2995b77fa28d5235654f046b3",
+    "position_offset_m": [
+      0,
+      -1.465,
+      0
+    ],
+    "scale": 1,
+    "human": "Authored generic proportion envelope"
+  },
+  "preserved_breach_warden": {
+    "commit": "ed6d5ca",
+    "folder": "assets/helmet-lab/breach-warden/"
+  },
+  "source_sha256": {
+    "tools/asset-pipeline/hex-witness-shape.mjs": "cc58f7ba00063d802e4362e10017658923db694dae636d5bd70caebad65ca649",
+    "tools/asset-pipeline/build-hex-witness.mjs": "442b41a08a6161329666bc253cd9583077b86c8134be9b6171d65698104cac1b",
+    "tools/asset-pipeline/stalheart-kidou-utils.mjs": "d27511be62d28c1914176bee7f346db40d49fac5b788d6a66f3d8de75eb8dc07",
+    "assets/helmet-lab/hex-witness/runtime.js": "4cb25b61c1df1f026442594a0277ea6d67afc2d2dc0cf587477ca29afff64f26"
+  },
+  "assets": [
+    {
+      "file": "hex_witness_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 3060392,
+      "sha256": "66ec5eacb34d7863de0cf373a3030f607f657da179fec885021a4c7e6ab33fd9",
+      "triangles": 104704,
+      "draw_calls": 10,
+      "plot_m": [
+        0.36,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.13928870856761932,
+          -2.6822088994293836e-10,
+          -0.16899113357067108
+        ],
+        "max": [
+          0.13928870856761932,
+          0.3790000081062317,
+          0.1863306760787964
+        ],
+        "dimensions_m": [
+          0.27857741713523865,
+          0.3790000083744526,
+          0.35532180964946747
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "DISTANCE_SURFACE",
+        "HEX_WITNESS_ROOT",
+        "OPTICAL_CORES",
+        "OPTICAL_GLASS",
+        "PART_COLLAR",
+        "PART_CROWN_BAND",
+        "PART_FACEPLATE",
+        "PART_JAW",
+        "PART_LINER",
+        "PART_OPTICS",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "SOCKET_FRONT",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_OPTIC_CENTRAL",
+        "SOCKET_OPTIC_LOWER_L",
+        "SOCKET_OPTIC_LOWER_R",
+        "SOCKET_OPTIC_UPPER_L",
+        "SOCKET_OPTIC_UPPER_R",
+        "SOCKET_RESPIRATOR",
+        "SURFACE_COLLAR",
+        "SURFACE_CROWN_BAND",
+        "SURFACE_FACEPLATE",
+        "SURFACE_JAW",
+        "SURFACE_LINER",
+        "SURFACE_OPTICS",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FRONT",
+          "position_m": [
+            0,
+            0.19019402948698522,
+            0.15418303242621534
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_CENTRAL",
+          "position_m": [
+            0,
+            0.18728358717700036,
+            0.18404152075969013
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_L",
+          "position_m": [
+            0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            0.2713893728915282,
+            1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_R",
+          "position_m": [
+            -0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            -0.2713893728915282,
+            -1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_L",
+          "position_m": [
+            0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            0.27143199328083034,
+            -7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_R",
+          "position_m": [
+            -0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            -0.27143199328083034,
+            7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.09255128263494687,
+            0.12953006764444458
+          ],
+          "quaternion_xyzw": [
+            0.3286128286539626,
+            0,
+            0,
+            0.9444647208043514
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {
+        "SHELL": {
+          "triangles": 34616,
+          "draw_calls": 1
+        },
+        "CROWN_BAND": {
+          "triangles": 9968,
+          "draw_calls": 1
+        },
+        "FACEPLATE": {
+          "triangles": 12140,
+          "draw_calls": 1
+        },
+        "OPTICS": {
+          "triangles": 22800,
+          "draw_calls": 3
+        },
+        "JAW": {
+          "triangles": 4864,
+          "draw_calls": 1
+        },
+        "RESPIRATOR": {
+          "triangles": 2396,
+          "draw_calls": 1
+        },
+        "COLLAR": {
+          "triangles": 12816,
+          "draw_calls": 1
+        },
+        "LINER": {
+          "triangles": 5104,
+          "draw_calls": 1
+        }
+      },
+      "clips": [],
+      "honeycomb_cells": 166,
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Hex Witness concept"
+    },
+    {
+      "file": "hex_witness_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": true,
+      "bytes": 671516,
+      "sha256": "49b0811660507b6bdae704fb21179d2ab0913794c4b98129c289754db706322a",
+      "triangles": 15602,
+      "draw_calls": 10,
+      "plot_m": [
+        0.36,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.13928870856761932,
+          -2.6822088994293836e-10,
+          -0.16899113357067108
+        ],
+        "max": [
+          0.13928870856761932,
+          0.3790000081062317,
+          0.1863306760787964
+        ],
+        "dimensions_m": [
+          0.27857741713523865,
+          0.3790000083744526,
+          0.35532180964946747
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "DISTANCE_SURFACE",
+        "HEX_WITNESS_ROOT",
+        "OPTICAL_CORES",
+        "OPTICAL_GLASS",
+        "PART_COLLAR",
+        "PART_CROWN_BAND",
+        "PART_FACEPLATE",
+        "PART_JAW",
+        "PART_LINER",
+        "PART_OPTICS",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "SOCKET_FRONT",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_OPTIC_CENTRAL",
+        "SOCKET_OPTIC_LOWER_L",
+        "SOCKET_OPTIC_LOWER_R",
+        "SOCKET_OPTIC_UPPER_L",
+        "SOCKET_OPTIC_UPPER_R",
+        "SOCKET_RESPIRATOR",
+        "SURFACE_COLLAR",
+        "SURFACE_CROWN_BAND",
+        "SURFACE_FACEPLATE",
+        "SURFACE_JAW",
+        "SURFACE_LINER",
+        "SURFACE_OPTICS",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FRONT",
+          "position_m": [
+            0,
+            0.19019402948698522,
+            0.15418303242621534
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_CENTRAL",
+          "position_m": [
+            0,
+            0.18728358717700036,
+            0.18404152075969013
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_L",
+          "position_m": [
+            0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            0.2713893728915282,
+            1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_R",
+          "position_m": [
+            -0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            -0.2713893728915282,
+            -1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_L",
+          "position_m": [
+            0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            0.27143199328083034,
+            -7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_R",
+          "position_m": [
+            -0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            -0.27143199328083034,
+            7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.09255128263494687,
+            0.12953006764444458
+          ],
+          "quaternion_xyzw": [
+            0.3286128286539626,
+            0,
+            0,
+            0.9444647208043514
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {
+        "SHELL": {
+          "triangles": 4880,
+          "draw_calls": 1
+        },
+        "CROWN_BAND": {
+          "triangles": 1648,
+          "draw_calls": 1
+        },
+        "FACEPLATE": {
+          "triangles": 1776,
+          "draw_calls": 1
+        },
+        "OPTICS": {
+          "triangles": 3946,
+          "draw_calls": 3
+        },
+        "JAW": {
+          "triangles": 404,
+          "draw_calls": 1
+        },
+        "RESPIRATOR": {
+          "triangles": 492,
+          "draw_calls": 1
+        },
+        "COLLAR": {
+          "triangles": 1680,
+          "draw_calls": 1
+        },
+        "LINER": {
+          "triangles": 776,
+          "draw_calls": 1
+        }
+      },
+      "clips": [],
+      "honeycomb_cells": 166,
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Hex Witness concept"
+    },
+    {
+      "file": "hex_witness_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": true,
+      "bytes": 134388,
+      "sha256": "2dbed09dc4a0ba5fba0662dada0ef67a4aef90e2c8414bfbfb744895e172403b",
+      "triangles": 2994,
+      "draw_calls": 1,
+      "plot_m": [
+        0.36,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.13928870856761932,
+          -2.6822088994293836e-10,
+          -0.16899113357067108
+        ],
+        "max": [
+          0.13928870856761932,
+          0.3790000081062317,
+          0.1863306760787964
+        ],
+        "dimensions_m": [
+          0.27857741713523865,
+          0.3790000083744526,
+          0.35532180964946747
+        ]
+      },
+      "required_nodes": [
+        "AuxScene",
+        "DISTANCE_SURFACE",
+        "HEX_WITNESS_ROOT",
+        "OPTICAL_CORES",
+        "OPTICAL_GLASS",
+        "PART_COLLAR",
+        "PART_CROWN_BAND",
+        "PART_FACEPLATE",
+        "PART_JAW",
+        "PART_LINER",
+        "PART_OPTICS",
+        "PART_RESPIRATOR",
+        "PART_SHELL",
+        "SOCKET_FRONT",
+        "SOCKET_HEAD_DATUM",
+        "SOCKET_NECK",
+        "SOCKET_OPTIC_CENTRAL",
+        "SOCKET_OPTIC_LOWER_L",
+        "SOCKET_OPTIC_LOWER_R",
+        "SOCKET_OPTIC_UPPER_L",
+        "SOCKET_OPTIC_UPPER_R",
+        "SOCKET_RESPIRATOR",
+        "SURFACE_COLLAR",
+        "SURFACE_CROWN_BAND",
+        "SURFACE_FACEPLATE",
+        "SURFACE_JAW",
+        "SURFACE_LINER",
+        "SURFACE_OPTICS",
+        "SURFACE_RESPIRATOR",
+        "SURFACE_SHELL"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FRONT",
+          "position_m": [
+            0,
+            0.19019402948698522,
+            0.15418303242621534
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_CENTRAL",
+          "position_m": [
+            0,
+            0.18728358717700036,
+            0.18404152075969013
+          ],
+          "quaternion_xyzw": [
+            0.04856467621039201,
+            0,
+            0,
+            0.9988200399594414
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_L",
+          "position_m": [
+            0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            0.2713893728915282,
+            1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_UPPER_R",
+          "position_m": [
+            -0.07034887242916889,
+            0.23824957629356155,
+            0.14808503037473497
+          ],
+          "quaternion_xyzw": [
+            -0.08307547935372403,
+            -0.2713893728915282,
+            -1.80911876129915e-18,
+            0.9588776110701992
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_L",
+          "position_m": [
+            0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            0.27143199328083034,
+            -7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_OPTIC_LOWER_R",
+          "position_m": [
+            -0.06817865933892771,
+            0.1261305508730168,
+            0.13161283911006286
+          ],
+          "quaternion_xyzw": [
+            0.22192949981780363,
+            -0.27143199328083034,
+            7.40922240319098e-18,
+            0.9365212064519494
+          ]
+        },
+        {
+          "node": "SOCKET_RESPIRATOR",
+          "position_m": [
+            0,
+            0.09255128263494687,
+            0.12953006764444458
+          ],
+          "quaternion_xyzw": [
+            0.3286128286539626,
+            0,
+            0,
+            0.9444647208043514
+          ]
+        },
+        {
+          "node": "SOCKET_NECK",
+          "position_m": [
+            0,
+            0.055,
+            0
+          ],
+          "quaternion_xyzw": [
+            0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD_DATUM",
+          "position_m": [
+            0,
+            0.09,
+            0
+          ],
+          "quaternion_xyzw": [
+            -0.7071067811865475,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "modules": {},
+      "clips": [],
+      "honeycomb_cells": 0,
+      "credit": "Models by jelaludo / Model Workshop; original geometry guided by user-supplied Hex Witness concept"
+    }
+  ],
+  "handoff": {
+    "folder": "assets/helmet-lab/hex-witness/",
+    "viewer": "helmet-lab/?helmet=hex-witness",
+    "pending": [
+      "Visual acceptance",
+      "Character-specific moving fit and donning",
+      "Gameplay damage",
+      "Consuming-game release gltfpack decoded validation",
+      "Reference-device profiling"
+    ]
+  }
+}
