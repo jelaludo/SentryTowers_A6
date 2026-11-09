@@ -1,5 +1,15 @@
 # Devlog
 
+## 9 November 2026 / LATENT — animated optic-fiber field
+
+Added a separate abstract study: a 32 m dark filament sphere, gently floating and swaying, with 13–14 emerald strands awake at once. Forty-eight candidate strands extend, carry light pulses to small ring-shaped tips, fade and retract in a seamless 48-second cycle. Fine companion glass lines, reflective tips, ray-marched atmospheric haze and bloom create the dense field without a hidden solid sphere.
+
+The viewer includes orbit/macro cameras, timeline, pause/restart, speed, a fully dormant state, atmosphere/glow controls, cinema mode, PNG capture and selected-tier GLB downloads. Master: 200,640 triangles / two model draws / 8,054,628 bytes. Game: 21,072 / two / 1,047,276. Static distance: 2,976 / one / 183,324. Full master/game presentation, including effects and postprocessing, measures 21 render calls; these are distinct from source model draws. The game study exceeds landmark triangle/byte targets; distance meets its target. No FPS claim.
+
+All three plain GLBs pass validator checks with zero errors/warnings and preserve 199 names, units and mount frames. Validation covers bounds, 480 temporal samples, loop continuity and static behavior. Browser checks cover measured draws, matching downloads, real motion, controls, capture and mobile layout. No compressed copy is shipped; release decode remains a consuming-game check. Reference pixels remain external.
+
+Completed: requested floating, lighting and extending/retracting fiber study, three exports, viewer and integration notes. Pending: visual acceptance, game shader/release packing, camera thresholds, device profiling and damage states. Handoff: containing commit plus `assets/latent-field/`; companion viewer `latent-field/`.
+
 ## 9 November 2026 / AUREL-03 — Hex Witness carbon default
 
 Compact Hex Witness is now the default head on the AUREL-03 route. Its shell uses the muscle sheath’s #303b3e charcoal and the same 0.59 roughness / 0.32 metalness, with lighter band/edge tones, darker face, retained copper details and red optics. The in-memory palette applies across master, game and merged distance tiers without changing triangle/draw counts, scale, mount or motion.

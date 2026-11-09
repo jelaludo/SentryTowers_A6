@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "exports": [
+    {
+      "lod": 0,
+      "triangles": 200640,
+      "draw_calls": 2,
+      "bytes": 8054628,
+      "unique_nodes": 199,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 1
+      }
+    },
+    {
+      "lod": 1,
+      "triangles": 21072,
+      "draw_calls": 2,
+      "bytes": 1047276,
+      "unique_nodes": 199,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 1
+      }
+    },
+    {
+      "lod": 2,
+      "triangles": 2976,
+      "draw_calls": 1,
+      "bytes": 183324,
+      "unique_nodes": 199,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 0
+      }
+    }
+  ],
+  "motion": {
+    "samples": 480,
+    "min_active": 13,
+    "max_active": 14,
+    "maximum_tip_radius_m": 20.154555864333524
+  },
+  "scope": "Plain GLB validation, stable nodes and coordinates, counts and hashes, engine-driven motion, a seamless 48-second cycle and static distance state. No compressed export or FPS claim."
+}

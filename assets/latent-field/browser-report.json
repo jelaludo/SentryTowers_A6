@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader, 1500×1100 and 390×844; functional review, not device performance",
+  "exports": [
+    {
+      "lod": 1,
+      "download_sha256": "a934501a9bda4e007b584c8d630b58d685974b438cc2dea4acd2ce4439ea7713",
+      "model_render": {
+        "frame": 166,
+        "calls": 2,
+        "triangles": 21072,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 181,
+        "calls": 21,
+        "triangles": 21088,
+        "points": 24048,
+        "lines": 72384
+      }
+    },
+    {
+      "lod": 0,
+      "download_sha256": "ad68ad5febee1c27a1d4ed1a12a77dc5f65a3f67b01ea7323264b76199651c28",
+      "model_render": {
+        "frame": 422,
+        "calls": 2,
+        "triangles": 200640,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 437,
+        "calls": 21,
+        "triangles": 200656,
+        "points": 48048,
+        "lines": 144384
+      }
+    },
+    {
+      "lod": 2,
+      "download_sha256": "18468dd3c31ae6c422d81b64386bfa8f4db57ab0dee1033e896c467dc9ba3e87",
+      "model_render": {
+        "frame": 663,
+        "calls": 1,
+        "triangles": 2976,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 678,
+        "calls": 16,
+        "triangles": 2992,
+        "points": 0,
+        "lines": 0
+      }
+    }
+  ],
+  "checks": [
+    "All 3 LODs render with measured model cost and byte-identical source downloads",
+    "Pause, play, scrub, restart; moving frame, axial lengths and light levels",
+    "Dormant extinguishes all attention; awake restores sparse lights",
+    "Whole-field and macro cameras, fog/bloom, speed selector, cinema/Escape and PNG capture",
+    "390px layout: no horizontal overflow, toolbar fits and settings/download remain accessible"
+  ],
+  "source_sha256": {
+    "latent-field/viewer.js": "c3de37bb9decb670e1f0a84255cb3f75fb72e80a55e634d8cd856cd813eba4b5",
+    "latent-field/effects.js": "20825c1d5c60d11f5b480e849bbec9bfc3c7538713b79cb7fea4138dc973330e",
+    "latent-field/index.html": "5eb233cb2cb9f141d0bbe55db3d17a5e3c4bb8f27d4873346f541772281c42d4",
+    "latent-field/style.css": "2e36d2219bc64035c183bfc1f3cfa3da2715daf559e120eefa6a9115e2240931",
+    "assets/latent-field/runtime.js": "6de1df89a887c22859dead1a3e6b02968e916c749a4927fe2d6a8eea9b3f9de3",
+    "tools/asset-pipeline/test-latent-field.mjs": "f3b0083f0a919730466a3fb10337fcb92444ed0451b0e2162e2d8232ca8143af"
+  },
+  "errors": []
+}

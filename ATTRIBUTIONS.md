@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## LATENT / Optic-fiber field / 9 November 2026
+
+Original procedural fiber geometry, emerald attention rig, animation and atmospheric viewer by jelaludo / Model Workshop. Reduced game and static distance exports are marked derived from the detailed design. Guided by the user-supplied `photo_2026-11-09 23.07.42.jpeg`; its external path and SHA-256 are recorded in `assets/latent-field/reference-provenance.json`. No reference image pixels or third-party meshes are distributed. Workshop attribution/reuse terms apply to the authored assets.
+
 ## AUREL-03 / Swappable helmet heads / 9 November 2026
 
 Reversible replacement-head preview by jelaludo / Model Workshop, composed from the original AUREL skeleton/muscles and Breach Warden r2, Hex Witness r1 and RK-MG02 r3, pinned at `4278676`. Revision 2 scales the heads, removes the original cranial surfaces in memory and retains the neck. Collar visibility, static component filtering and names are also in-memory derivatives. All original GLBs remain byte-identical; their Workshop attribution applies. Revision 3 makes compact Hex Witness the default and applies an in-memory carbon palette matching AUREL’s muscle sheath; original optics and source GLBs remain intact. The earlier full-scale RK-only fitting remains in commit `4278676`.
