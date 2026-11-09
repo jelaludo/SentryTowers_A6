@@ -1,10 +1,12 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import validator from 'gltf-validator';
 import {createRig,MODULES,SPEC} from '../../assets/helmet-lab/breach-warden/runtime.js';
+import {cheekSideMap,jawSideMap,plateNormal} from './breach-warden-shape.mjs';
 const out=new URL('../../assets/helmet-lab/breach-warden/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),loader=new GLTFLoader(),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const near=(a,b,e=1e-6)=>assert(Math.abs(a-b)<e,`${a} != ${b}`),load=async b=>(await loader.parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'')).scene;
 const report={status:'passed',scope:'Decoded plain exports; geometry, rest frames, inspection separation, authored head/nose clearance and open grille. Reference envelopes are visual fit checks, not certification or donning simulation.',files:[],module_pose_checks:0},scenes=[];
@@ -37,6 +39,16 @@ for(const e of manifest.assets){
  report.files.push({file:e.file,sha256:e.sha256,bytes:bytes.length,triangles,draw_calls:draws,gltf_errors:validation.issues.numErrors,gltf_warnings:validation.issues.numWarnings,degenerate_triangles:degenerate,human_fit:human,nose_fit:nose});
 }
 const reference=frames(scenes[0]);for(const scene of scenes.slice(1)){const f=frames(scene);assert.deepEqual(Object.keys(f).sort(),Object.keys(reference).sort());for(const n of Object.keys(f))f[n].forEach((v,i)=>near(v,reference[n][i]));}
+const original=JSON.parse(await fs.readFile(new URL('originals/r1/manifest.json',out)));report.preserved_revision={commit:manifest.previous_revision.commit,folder:'originals/r1/',files:0};
+for(const name of [...original.assets.map(e=>e.file),'manifest.json','runtime.js','README.md','validation-report.json','viewer-validation.json']){const bytes=await fs.readFile(new URL('originals/r1/'+name,out)),old=execFileSync('git',['show',manifest.previous_revision.commit+':assets/helmet-lab/breach-warden/'+name],{maxBuffer:8e6});assert.equal(sha(bytes),sha(old),'Archived original changed: '+name);report.preserved_revision.files++;}
+for(const e of manifest.assets){const old=original.assets[e.lod];assert.deepEqual(e.required_nodes,old.required_nodes);assert.deepEqual(e.sockets,old.sockets);for(const k of ['min','max'])e.bounds[k].forEach((v,i)=>near(v,old.bounds[k][i]));}
+report.plate_laps=[];
+for(const lod of[0,1])for(const[id,map,z0,y0]of[['CHEEK',cheekSideMap,.10,.184],['JAW',jawSideMap,.13,.120]])for(const side of[1,-1])for(const dz of[-.002,0,.002])for(const dy of[-.002,0,.002]){
+ const p=map(-(z0+dz),y0+dy),n=plateNormal(map,-(z0+dz),y0+dy);p.x*=side;n.x*=side;const mesh=scenes[lod].getObjectByName('SURFACE_'+id+'_'+(side===1?'L':'R'));mesh.material.side=T.DoubleSide;
+ const ray=new T.Raycaster(p.clone().addScaledVector(n,.04),n.clone().negate()),hits=ray.intersectObject(mesh).filter((h,i,a)=>!i||h.distance-a[i-1].distance>1e-5);assert(hits.length>=4,'Missing overlap layers');
+ for(let i=0;i<4;i++)assert(hits[i].face.normal.dot(n)*(i%2?-1:1)>.97,'Wrong-facing plate at overlap');const gap=hits[2].distance-hits[1].distance;assert(gap>.0008&&gap<.005,'Crossing or floating plate overlap');
+ report.plate_laps.push({lod,module:id,side:side===1?'L':'R',z:z0+dz,y:y0+dy,layer_clearance_m:gap});
+}
 const robot=await load(await fs.readFile(new URL('../../'+manifest.fit_reference.robot_file,import.meta.url)));robot.position.fromArray(SPEC.robot_head_offset_m);const robotTriangles=trianglesOf(robot);report.robot_fit=[];
 const attachment=robot.getObjectByName('SOCKET_HEAD_ATTACH'),headDatum=scenes[0].getObjectByName('SOCKET_HEAD_DATUM');near(attachment.getWorldPosition(new T.Vector3()).distanceTo(headDatum.getWorldPosition(new T.Vector3())),0);near(new T.Vector3(0,0,1).transformDirection(attachment.matrixWorld).dot(new T.Vector3(0,0,1).transformDirection(headDatum.matrixWorld)),-1);
 for(const scene of scenes){const hits=[],bvh=tree(trianglesOf(scene));for(const t of robotTriangles)collisions(bvh,t,hits);assert.equal(hits.length,0,JSON.stringify(hits.slice(0,10)));report.robot_fit.push({lod:createRig(scene).root.userData.lod,reference_triangles:robotTriangles.length,surface_intersections:hits.length,reference_scale:1});}

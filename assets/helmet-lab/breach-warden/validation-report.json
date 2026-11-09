@@ -4,49 +4,49 @@
   "files": [
     {
       "file": "breach_warden_d0_lod0.glb",
-      "sha256": "2a292860d73f64a23c9fd56caf8e94cb51cdbf6be28534b37efee7c8043224ff",
-      "bytes": 4836548,
-      "triangles": 170876,
+      "sha256": "fd72d5a21ee2dcae218e6b7d4e2b47805d15aaad4e9ca0854b885c91286d9133",
+      "bytes": 5098892,
+      "triangles": 183448,
       "draw_calls": 11,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.1707417973565333,
+        "minimum_normalized_radius": 1.1706960867699316,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.3556079565088277,
-        "nearest_mesh": "SURFACE_LINER",
+        "minimum_normalized_radius": 1.57877893234715,
+        "nearest_mesh": "SURFACE_VISOR",
         "intersects": false
       }
     },
     {
       "file": "breach_warden_d0_lod1.glb",
-      "sha256": "1f7466449f8d54ba5791172cae208e7a97bffdfe1b7e470cc029da9601251400",
-      "bytes": 439036,
-      "triangles": 11708,
+      "sha256": "f4cac2efba49c0a49b179d8eb6d78202bf5eafba183ee1cc8dc9236aa376be20",
+      "bytes": 446080,
+      "triangles": 11706,
       "draw_calls": 11,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.1708341878813868,
+        "minimum_normalized_radius": 1.1696615599174525,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.3531742553222694,
-        "nearest_mesh": "SURFACE_LINER",
+        "minimum_normalized_radius": 1.5777503763092262,
+        "nearest_mesh": "SURFACE_VISOR",
         "intersects": false
       }
     },
     {
       "file": "breach_warden_d0_lod2.glb",
-      "sha256": "3b0d684d6927f240b9c85b1955c4eeb0f41cf21800388445c98029f25d2f9ad5",
-      "bytes": 164444,
-      "triangles": 2798,
+      "sha256": "181bdd6ada7e66a736c0f74ccd63833c0639f9ccd245be000273008c56357bd0",
+      "bytes": 166412,
+      "triangles": 2922,
       "draw_calls": 1,
       "gltf_errors": 0,
       "gltf_warnings": 0,
@@ -57,13 +57,596 @@
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.5860282634992315,
+        "minimum_normalized_radius": 1.7105388106174115,
         "nearest_mesh": "DISTANCE_SURFACE",
         "intersects": false
       }
     }
   ],
   "module_pose_checks": 132,
+  "preserved_revision": {
+    "commit": "68a7a45235c3c76f9187dcafcea871246378ffc3",
+    "folder": "originals/r1/",
+    "files": 8
+  },
+  "plate_laps": [
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.182,
+      "layer_clearance_m": 0.0020045156801921857
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.184,
+      "layer_clearance_m": 0.002001473462723488
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.186,
+      "layer_clearance_m": 0.0019980318342700115
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.182,
+      "layer_clearance_m": 0.001992648457937403
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.184,
+      "layer_clearance_m": 0.001989525461168422
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.186,
+      "layer_clearance_m": 0.001987497461136453
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.182,
+      "layer_clearance_m": 0.00199616937384868
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.184,
+      "layer_clearance_m": 0.0019997528224440994
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.186,
+      "layer_clearance_m": 0.001993044916364997
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.182,
+      "layer_clearance_m": 0.0020045156801921857
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.184,
+      "layer_clearance_m": 0.002001473462723488
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.186,
+      "layer_clearance_m": 0.0019980318342700046
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.182,
+      "layer_clearance_m": 0.001992648457937403
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.184,
+      "layer_clearance_m": 0.001989525461168422
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.186,
+      "layer_clearance_m": 0.001987497461136467
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.182,
+      "layer_clearance_m": 0.001996169373848701
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.184,
+      "layer_clearance_m": 0.0019997528224440994
+    },
+    {
+      "lod": 0,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.186,
+      "layer_clearance_m": 0.001993044916364997
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.118,
+      "layer_clearance_m": 0.0030185128099054215
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.12,
+      "layer_clearance_m": 0.0029990157363929126
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.122,
+      "layer_clearance_m": 0.003000878583823849
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.118,
+      "layer_clearance_m": 0.002980560638996481
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.12,
+      "layer_clearance_m": 0.002992044440598418
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.122,
+      "layer_clearance_m": 0.0029757411555159027
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.118,
+      "layer_clearance_m": 0.0029889871057220407
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.12,
+      "layer_clearance_m": 0.0030411120963713886
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.122,
+      "layer_clearance_m": 0.003026472219403595
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.118,
+      "layer_clearance_m": 0.0030185128099054215
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.12,
+      "layer_clearance_m": 0.0029990157363929126
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.122,
+      "layer_clearance_m": 0.003000878583823849
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.118,
+      "layer_clearance_m": 0.002980560638996481
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.12,
+      "layer_clearance_m": 0.002992044440598418
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.122,
+      "layer_clearance_m": 0.002975741155515896
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.118,
+      "layer_clearance_m": 0.0029889871057220407
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.12,
+      "layer_clearance_m": 0.0030411120963713886
+    },
+    {
+      "lod": 0,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.122,
+      "layer_clearance_m": 0.003026472219403595
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.182,
+      "layer_clearance_m": 0.0019472578231452264
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.184,
+      "layer_clearance_m": 0.001935035140384192
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.098,
+      "y": 0.186,
+      "layer_clearance_m": 0.0019443046778379047
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.182,
+      "layer_clearance_m": 0.0019931640754674157
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.184,
+      "layer_clearance_m": 0.00202585898074565
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.1,
+      "y": 0.186,
+      "layer_clearance_m": 0.002058553886023849
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.182,
+      "layer_clearance_m": 0.0021085944566098733
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.184,
+      "layer_clearance_m": 0.0021412712275901344
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "L",
+      "z": 0.10200000000000001,
+      "y": 0.186,
+      "layer_clearance_m": 0.0021739479985704024
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.182,
+      "layer_clearance_m": 0.0019624269485288004
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.184,
+      "layer_clearance_m": 0.0019996729248558387
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.098,
+      "y": 0.186,
+      "layer_clearance_m": 0.002036918901182891
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.182,
+      "layer_clearance_m": 0.0020724941757155266
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.184,
+      "layer_clearance_m": 0.002109713462061409
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.1,
+      "y": 0.186,
+      "layer_clearance_m": 0.0021307817469150697
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.182,
+      "layer_clearance_m": 0.002180728781081373
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.184,
+      "layer_clearance_m": 0.002159454384320164
+    },
+    {
+      "lod": 1,
+      "module": "CHEEK",
+      "side": "R",
+      "z": 0.10200000000000001,
+      "y": 0.186,
+      "layer_clearance_m": 0.002138179987558976
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.118,
+      "layer_clearance_m": 0.0034507096113317315
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.12,
+      "layer_clearance_m": 0.0034204057004234914
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.128,
+      "y": 0.122,
+      "layer_clearance_m": 0.0033693549265727055
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.118,
+      "layer_clearance_m": 0.0032716425368045227
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.12,
+      "layer_clearance_m": 0.0032414093460781043
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.13,
+      "y": 0.122,
+      "layer_clearance_m": 0.003190847087974659
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.118,
+      "layer_clearance_m": 0.0030838984986175724
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.12,
+      "layer_clearance_m": 0.0030613800708591266
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "L",
+      "z": 0.132,
+      "y": 0.122,
+      "layer_clearance_m": 0.003011297197486315
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.118,
+      "layer_clearance_m": 0.0034507096113317454
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.12,
+      "layer_clearance_m": 0.0034204057004234914
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.128,
+      "y": 0.122,
+      "layer_clearance_m": 0.0033693549265727193
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.118,
+      "layer_clearance_m": 0.0032716425368045365
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.12,
+      "layer_clearance_m": 0.0032414093460781043
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.13,
+      "y": 0.122,
+      "layer_clearance_m": 0.003190847087974666
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.118,
+      "layer_clearance_m": 0.0030838984986175655
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.12,
+      "layer_clearance_m": 0.0030613800708591196
+    },
+    {
+      "lod": 1,
+      "module": "JAW",
+      "side": "R",
+      "z": 0.132,
+      "y": 0.122,
+      "layer_clearance_m": 0.003011297197486315
+    }
+  ],
   "robot_fit": [
     {
       "lod": 0,
@@ -87,7 +670,7 @@
   "temple_bar": [
     {
       "lod": 0,
-      "center_clearance_m": 0.020745722280542556
+      "center_clearance_m": 0.020750777480289417
     },
     {
       "lod": 1,

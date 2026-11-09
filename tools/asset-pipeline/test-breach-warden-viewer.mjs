@@ -10,21 +10,21 @@ const measure=()=>page.evaluate(()=>{const a=window.helmetLab,states=a.scene.chi
 await page.goto(base+'/helmet-lab/');await ready();assert.equal(await page.locator('#lod').inputValue(),'0');
 for(const lod of[0,1,2]){
  await page.selectOption('#lod',String(lod));await ready();const e=manifest.assets[lod],m=await measure();assert.equal(m.triangles,e.triangles);assert.equal(m.draw_calls,e.draw_calls);checks.push({lod,...m});
- assert.equal(await page.locator('#part').isDisabled(),lod===2);assert.equal(await page.locator('#exploded').isDisabled(),lod===2);assert((await page.locator('#download').getAttribute('href')).endsWith(e.file));await shot(['master','game','distance'][lod]);
+ assert.equal(await page.locator('#part').isDisabled(),lod===2);assert.equal(await page.locator('#exploded').isDisabled(),lod===2);assert((await page.locator('#download').getAttribute('href')).split('?')[0].endsWith(e.file));await shot(['master','game','distance'][lod]);
  const download=page.waitForEvent('download');await page.click('#download');const d=await download;assert.equal(d.suggestedFilename(),e.file);assert.equal(sha(await fs.readFile(await d.path())),e.sha256);
  if(lod!==2)for(const[id,cost]of Object.entries(e.modules)){await page.selectOption('#part',id);const m=await measure();assert.equal(m.triangles,cost.triangles);assert.equal(m.draw_calls,1);checks.push({lod,part:id,...m});}
  if(lod!==2)await page.selectOption('#part','all');
 }
 await page.selectOption('#lod','0');await ready();await page.click('#exploded');assert.equal(await page.locator('#spread').inputValue(),'1');await shot('exploded');await page.click('#assembled');
 await page.locator('#spread').fill('0.5');await page.locator('#spread').dispatchEvent('input');assert.equal(await page.locator('#spread-value').textContent(),'50%');assert.equal(await page.locator('#assembled').getAttribute('aria-pressed'),'false');assert.equal(await page.locator('#exploded').getAttribute('aria-pressed'),'false');await page.click('#assembled');
-for(const view of['front','temple','rear','inside']){await page.click('[data-view='+view+']');await shot(view);}await page.click('[data-view=hero]');
+for(const view of['hero-right','front','temple','rear','inside']){await page.click('[data-view='+view+']');await shot(view);}await page.click('[data-view=hero]');
 await page.check('#cutaway');await page.selectOption('#fit','human');assert(await page.evaluate(()=>window.helmetLab.human.visible));assert(await page.evaluate(()=>window.helmetLab.model.getObjectByName('SURFACE_BROW').material.clippingPlanes.length===1));await shot('human-fit');
 await page.selectOption('#fit','robot');await page.waitForFunction(()=>window.helmetLab.robot?.visible);assert(await page.evaluate(()=>!window.helmetLab.human.visible));await shot('robot-fit');await page.selectOption('#fit','none');await page.uncheck('#cutaway');
 await page.check('#wire');assert(await page.evaluate(()=>window.helmetLab.model.getObjectByName('SURFACE_SHELL').material.wireframe));await page.uncheck('#wire');
 const before=await page.evaluate(()=>window.helmetLab.camera.position.toArray());await page.click('#rotate');await page.waitForFunction(p=>window.helmetLab.camera.position.toArray().some((v,i)=>Math.abs(v-p[i])>1e-5),before,{timeout:10000});await page.click('#rotate');
 await page.click('#fullscreen');await page.waitForFunction(()=>!!document.fullscreenElement);await page.click('#fullscreen');await page.waitForFunction(()=>!document.fullscreenElement);
 const png=page.waitForEvent('download');await page.click('#photo');const pngFile=await png;assert.equal(pngFile.suggestedFilename(),'breach-warden.png');assert((await fs.readFile(await pngFile.path())).length>10000);
-const zip=page.waitForEvent('download');await page.click('a[href$="breach-warden.zip"]');const zipFile=await zip;assert.equal(zipFile.suggestedFilename(),'breach-warden.zip');assert.equal(sha(await fs.readFile(await zipFile.path())),sha(await fs.readFile(new URL('breach-warden.zip',out))));
+const zip=page.waitForEvent('download');await page.click('a[href*="breach-warden.zip"]');const zipFile=await zip;assert.equal(zipFile.suggestedFilename(),'breach-warden.zip');assert.equal(sha(await fs.readFile(await zipFile.path())),sha(await fs.readFile(new URL('breach-warden.zip',out))));
 for(const href of await page.locator('.links a,.workshop-tabs a').evaluateAll(a=>a.map(a=>a.href))){const response=await page.request.get(href);assert(response.ok(),href);}
 await page.setViewportSize({width:390,height:844});await page.waitForTimeout(180);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await shot('mobile');
 await page.setViewportSize({width:1940,height:1060});await page.click('[data-view=hero]');await page.waitForTimeout(180);await page.locator('#stage').screenshot({path:new URL('preview.png',out).pathname});

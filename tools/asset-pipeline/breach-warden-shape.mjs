@@ -10,14 +10,23 @@ function paint(g,color){g.deleteAttribute('uv');g.clearGroups();const c=new T.Co
 function transformed(g,p=[0,0,0],r=[0,0,0]){g.applyMatrix4(new T.Matrix4().makeRotationFromEuler(new T.Euler(...r)));g.translate(...p);return g;}
 function mirror(g){g=g.clone();g.scale(-1,1,1);if(g.index){for(let i=0;i<g.index.count;i+=3){const a=g.index.getX(i);g.index.setX(i,g.index.getX(i+2));g.index.setX(i+2,a);}}else{for(const a of Object.values(g.attributes))for(let i=0;i<a.count;i+=3)for(let j=0;j<a.itemSize;j++){const v=a.getComponent(i,j);a.setComponent(i,j,a.getComponent(i+2,j));a.setComponent(i+2,j,v);}}return g;}
 const distSegment=(p,a,b)=>{const x=b[0]-a[0],y=b[1]-a[1],t=T.MathUtils.clamp(((p[0]-a[0])*x+(p[1]-a[1])*y)/(x*x+y*y),0,1);return Math.hypot(p[0]-a[0]-t*x,p[1]-a[1]-t*y);};
+// Extrude along each curved surface's local normal, never a fixed world axis.
+export function plateNormal(map,u,v){const h=1e-5;return map(u+h,v).sub(map(u-h,v)).cross(map(u,v+h).sub(map(u,v-h))).normalize();}
+const offsetMap=(map,d)=>(u,v)=>map(u,v).addScaledVector(plateNormal(map,u,v),d);
+const wrapZ=(x,w,d,p=1)=>d*Math.max(0,1-(Math.abs(x)/w)**(2/p))**(p/2);
+const wrapX=(z,w,d,p=1)=>w*Math.max(0,1-(Math.abs(z)/d)**(2/p))**(p/2);
+export const cheekFrontMap=offsetMap((x,y)=>V(x,y,wrapZ(x,.142,.170)),.008);
+export const cheekSideMap=(u,y)=>V(wrapX(-u,.142,.170),y,-u);
+export const jawFrontMap=offsetMap((x,y)=>V(x,y,wrapZ(x,.141,.181,.85)),.010);
+export const jawSideMap=(u,y)=>V(wrapX(-u,.141,.181,.85),y,-u);
+const lowerFace=(u,v)=>{const t=(u-.5)*3.30,a=Math.abs(t)/1.65,y=T.MathUtils.lerp(.088+.016*a,.196+.074*T.MathUtils.smoothstep(a,.66,.82),v);return V(.134*Math.sin(t),y,.008+.142*Math.cos(t));};
 
 // Closed, bevelled armor plates. Fine front tessellation carries chips and dents.
 function plate(points,map,{color=C.olive,normal=[0,0,1],thickness=.006,bevel=.002,lod=0,scars=[],stripe=false}={}){
   if(lod!==0){scars=[];stripe=false;}
   if(T.ShapeUtils.isClockWise(points.map(p=>new T.Vector2(...p))))points=[...points].reverse();
-  const mid=points.reduce((a,p)=>[a[0]+p[0]/points.length,a[1]+p[1]/points.length],[0,0]);
-  const inset=points.map(p=>{const d=Math.hypot(p[0]-mid[0],p[1]-mid[1]);return[p[0]+(mid[0]-p[0])*bevel/d,p[1]+(mid[1]-p[1])*bevel/d];});
-  const n=V(...normal),parts=[],base=new T.Color(color),steel=new T.Color(C.steel),rust=new T.Color(C.rust);
+  const inset=points.map((p,i)=>{const prev=points[(i+points.length-1)%points.length],next=points[(i+1)%points.length],a=new T.Vector2(p[0]-prev[0],p[1]-prev[1]).normalize(),b=new T.Vector2(next[0]-p[0],next[1]-p[1]).normalize(),na=new T.Vector2(-a.y,a.x),nb=new T.Vector2(-b.y,b.x),bisector=na.clone().add(nb).normalize(),amount=Math.min(bevel*3,bevel/Math.max(.1,bisector.dot(na)));return[p[0]+bisector.x*amount,p[1]+bisector.y*amount];});
+  const parts=[],base=new T.Color(color),steel=new T.Color(C.steel),rust=new T.Color(C.rust);
   const make=(triangles,front)=>{const pos=[],col=[];
     const emit=(a,b,c,depth=0)=>{
       if(depth<7&&Math.max(Math.hypot(a[0]-b[0],a[1]-b[1]),Math.hypot(a[0]-c[0],a[1]-c[1]),Math.hypot(b[0]-c[0],b[1]-c[1]))>(lod===0?.0058:lod===1?.023:.075)){
@@ -28,7 +37,7 @@ function plate(points,map,{color=C.olive,normal=[0,0,1],thickness=.006,bevel=.00
         if(stripe&&p[1]>.299&&p[1]<.327){const t=p[0]-(p[1]-.30)*.4;if((t>-.073&&t<-.059)||(t>-.053&&t<-.039))tone.setHex(C.gold).multiplyScalar(.83+.17*grain);}
         if(lod===0&&edge<.0013*(.35+grain)&&front)tone.copy(grain>.45?steel:rust);
         for(const[sx,sy,r]of scars){const d=Math.hypot(p[0]-sx,p[1]-sy),angle=Math.atan2(p[1]-sy,p[0]-sx),rad=r*(.87+.15*Math.sin(angle*7));dent+=.006*Math.exp(-((d/(r*.47))**2));if(d<rad){tone.copy(d<r*.3?new T.Color(C.dark):steel).multiplyScalar(.72+grain*.3);}else if(d<r*1.65&&Math.abs(Math.sin(angle*6+d*23))<.12)tone.copy(steel);}
-        v.addScaledVector(n,-(front?dent:thickness));pos.push(...v.toArray());col.push(...tone.toArray());
+        v.addScaledVector(plateNormal(map,...p),-(front?dent:thickness));pos.push(...v.toArray());col.push(...tone.toArray());
       }
     };
     for(const tri of triangles)emit(...tri);let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('color',new T.Float32BufferAttribute(col,3));g=mergeVertices(g,1e-7);g.computeVertexNormals();return g;
@@ -37,13 +46,13 @@ function plate(points,map,{color=C.olive,normal=[0,0,1],thickness=.006,bevel=.00
   parts.push(make(triangulation.map(t=>t.map(i=>inset[i])),true));
   parts.push(make(triangulation.map(t=>[inset[t[2]],inset[t[1]],inset[t[0]]]),false));
   const ps=[],cs=[];const add=(a,b,c,tone)=>{for(const p of[a,b,c]){ps.push(...p.toArray());cs.push(...new T.Color(tone).toArray());}};
-  for(let i=0;i<points.length;i++){const j=(i+1)%points.length,steps=Math.ceil(Math.hypot(points[i][0]-points[j][0],points[i][1]-points[j][1])/(lod===0?.004:lod===1?.012:.06)),lerp=(a,b,t)=>[T.MathUtils.lerp(a[0],b[0],t),T.MathUtils.lerp(a[1],b[1],t)];for(let k=0;k<steps;k++){const u=k/steps,v=(k+1)/steps,ai=lerp(inset[i],inset[j],u),bi=lerp(inset[i],inset[j],v),ao=lerp(points[i],points[j],u),bo=lerp(points[i],points[j],v),a=map(...ai),b=map(...bi),c=map(...bo).addScaledVector(n,-bevel),d=map(...ao).addScaledVector(n,-bevel),e=map(...ai).addScaledVector(n,-thickness),f=map(...bi).addScaledVector(n,-thickness);const chipped=lod===0&&noise(...a.toArray())>.93;add(a,c,b,chipped?C.edge:color);add(a,d,c,chipped?C.edge:color);add(d,e,f,color);add(d,f,c,color);}}
+  for(let i=0;i<points.length;i++){const j=(i+1)%points.length,steps=Math.ceil(Math.hypot(points[i][0]-points[j][0],points[i][1]-points[j][1])/(lod===0?.004:lod===1?.012:.06)),lerp=(a,b,t)=>[T.MathUtils.lerp(a[0],b[0],t),T.MathUtils.lerp(a[1],b[1],t)];for(let k=0;k<steps;k++){const u=k/steps,v=(k+1)/steps,ai=lerp(inset[i],inset[j],u),bi=lerp(inset[i],inset[j],v),ao=lerp(points[i],points[j],u),bo=lerp(points[i],points[j],v),a=map(...ai),b=map(...bi),c=map(...bo).addScaledVector(plateNormal(map,...bo),-bevel),d=map(...ao).addScaledVector(plateNormal(map,...ao),-bevel),e=map(...ai).addScaledVector(plateNormal(map,...ai),-thickness),f=map(...bi).addScaledVector(plateNormal(map,...bi),-thickness);const chipped=lod===0&&noise(...a.toArray())>.93;add(a,c,b,chipped?C.edge:color);add(a,d,c,chipped?C.edge:color);add(d,e,f,color);add(d,f,c,color);}}
   const edgeGeo=new T.BufferGeometry();edgeGeo.setAttribute('position',new T.Float32BufferAttribute(ps,3));edgeGeo.setAttribute('color',new T.Float32BufferAttribute(cs,3));edgeGeo.computeVertexNormals();parts.push(edgeGeo);
   return mergeGeometries(parts.map(g=>g.index?g.toNonIndexed():g));
 }
 
 function patch(map,nu,nv,{color=C.olive,thickness=.007,normalPoint=[0,.21,0],wrap=false,exteriorOnly=false}={}){
-  const p=[],ix=[];for(let layer=0;layer<(exteriorOnly?1:2);layer++)for(let j=0;j<=nv;j++)for(let i=0;i<=nu;i++){const v=map(i/nu,j/nv),normal=v.clone().sub(V(...normalPoint)).normalize();v.addScaledVector(normal,-layer*thickness);p.push(...v.toArray());}
+  const p=[],ix=[];for(let layer=0;layer<(exteriorOnly?1:2);layer++)for(let j=0;j<=nv;j++)for(let i=0;i<=nu;i++){const v=map(i/nu,j/nv);v.addScaledVector(plateNormal(map,i/nu,j/nv),-layer*thickness);p.push(...v.toArray());}
   const k=(nu+1)*(nv+1);for(let j=0;j<nv;j++)for(let i=0;i<nu;i++){const a=j*(nu+1)+i,b=a+1,c=a+nu+1,d=c+1;ix.push(a,b,c,b,d,c);if(!exteriorOnly)ix.push(a+k,c+k,b+k,b+k,c+k,d+k);}
   if(!exteriorOnly)for(const sequence of [Array.from({length:nu+1},(_,i)=>i),Array.from({length:nu+1},(_,i)=>nv*(nu+1)+nu-i),...(wrap?[]:[Array.from({length:nv+1},(_,j)=>(nv-j)*(nu+1)),Array.from({length:nv+1},(_,j)=>j*(nu+1)+nu)])])for(let i=0;i<sequence.length-1;i++){const a=sequence[i],b=sequence[i+1];ix.push(a,a+k,b,b,a+k,b+k);}
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();return paint(g,color);
@@ -65,8 +74,10 @@ export async function buildBreachWarden(lod,referenceBounds){
   add('SHELL',patch((u,v)=>{const t=u*Math.PI*2,lo=.247+.024*Math.max(0,Math.cos(t))**2;return surface(lo+(.367-lo)*v,t);},detail===0?80:32,detail===0?25:9,{wrap:true,color:C.dark}));
   add('SHELL',patch((u,v)=>{const t=1.35+u*(Math.PI*2-2.7);return surface(.079+v*(.253-.079),t);},detail===0?64:22,detail===0?25:9,{color:C.dark}));
   // Raised segmented crown strips and rear service plates.
-  for(const s of[-1,1])for(let j=0;j<3;j++){const t0=s*(.72+j*.86),g=patch((u,v)=>surface(.265+v*(.359-.265),t0+(u-.5)*.77,.004),detail===0?18:6,detail===0?20:7,{color:j===0?0x565a52:C.olive,thickness:.005});add('SHELL',g);}
-  add('SHELL',patch((u,v)=>surface(.329+v*.033,(u-.5)*1.10,.005),detail===0?28:10,detail===0?12:5,{color:C.olive,thickness:.005}));
+  const browEdge=[[.264,.113],[.277,.137],[.305,.124],[.329,.088],[.337,0]],crownFrontEdge=y=>{let i=0;while(i<browEdge.length-2&&y>browEdge[i+1][0])i++;const a=browEdge[i],b=browEdge[i+1],x=T.MathUtils.lerp(a[1],b[1],T.MathUtils.clamp((y-a[0])/(b[0]-a[0]),0,1)),w=surface(y,Math.PI/2).x;return T.MathUtils.clamp(Math.asin(Math.min(.995,(x/w)**(1/.82)))+.035,.32,1.132);};
+  for(const s of[-1,1])for(let j=0;j<3;j++){const t0=s*(.72+j*.86),g=patch((u,v)=>{const y=.265+v*(.359-.265),lo=crownFrontEdge(y),t=j===0?(s===1?T.MathUtils.lerp(lo,1.14,u):T.MathUtils.lerp(-1.14,-lo,u)):t0+(u-.5)*.84;return surface(y,t,.004);},detail===0?18:6,detail===0?24:9,{color:j===0?0x565a52:C.olive,thickness:.005});add('SHELL',g);}
+  add('SHELL',patch((u,v)=>surface(.265+v*.094,Math.PI+(u-.5)*.52,.004),detail===0?18:6,detail===0?24:9,{color:C.olive,thickness:.005}));
+  add('SHELL',patch((u,v)=>surface(.329+v*.033,(u-.5)*.60,.005),detail===0?20:8,detail===0?12:5,{color:C.olive,thickness:.005}));
   for(const y of [.115,.173,.224]){const g=patch((u,v)=>surface(y+v*.037,1.7+u*2.88,.006),detail===0?38:14,3,{color:C.olive,thickness:.006});add('SHELL',g);}
   add('SHELL',patch((u,v)=>surface(.351+v*.016,u*Math.PI*2,.002),detail===0?64:24,detail===0?10:4,{color:C.olive,thickness:.004,wrap:true}));
   add('SHELL',cyl(.004,.0004,[0,.3668,-.001],C.olive,[0,0,0],detail===0?24:10));
@@ -84,10 +95,9 @@ export async function buildBreachWarden(lod,referenceBounds){
   for(const v of [0,1])add('VISOR',tube(Array.from({length:33},(_,i)=>visor(i/32,v).toArray()),.0038,C.rubber,detail===0?64:24));
   for(const u of[0,1])add('VISOR',tube(Array.from({length:5},(_,i)=>visor(u,i/4).toArray()),.0038,C.rubber,8));
   // Cheeks sweep around the visor; three layers remain readable in profile.
-  const cheekFront=(x,y)=>V(x,y,.170-.090*(Math.abs(x)/.145)**2);
-  for(const side of ['L','R']){const s=side==='L'?1:-1,id='CHEEK_'+side,front=plate([[.038,.195],[.063,.218],[.127,.238],[.144,.218],[.132,.173],[.089,.132],[.045,.141]],cheekFront,{lod:detail,bevel:.0025});add(id,s===1?front:mirror(front));
-    const sideMap=(u,y)=>V(.145-.014*((-u-.01)/.13)**2,y,-u),poly=[[.105,.204],[.027,.231],[-.038,.217],[-.066,.169],[-.031,.142],[.041,.141],[.090,.169]].map(([z,y])=>[-z,y]);const sidePlate=plate(poly,sideMap,{lod:detail,normal:[1,0,0],thickness:.007,bevel:.0025});add(id,s===1?sidePlate:mirror(sidePlate));
-    for(const[z,y]of[[.022,.221],[-.036,.172],[.074,.173]])bolt(id,[s*(.147-.014*((z-.01)/.13)**2),y,z],[s,0,0],.0025);
+  for(const side of ['L','R']){const s=side==='L'?1:-1,id='CHEEK_'+side,front=plate([[.038,.195],[.063,.218],[.127,.238],[.139,.218],[.132,.173],[.089,.132],[.045,.141]],cheekFrontMap,{lod:detail,bevel:.0025});add(id,s===1?front:mirror(front));
+    const sideMap=cheekSideMap,poly=[[.115,.216],[.027,.231],[-.038,.217],[-.066,.169],[-.031,.142],[.095,.139],[.158,.146],[.135,.180]].map(([z,y])=>[-z,y]);const sidePlate=plate(poly,sideMap,{lod:detail,normal:[1,0,0],thickness:.007,bevel:.0025});add(id,s===1?sidePlate:mirror(sidePlate));
+    for(const[z,y]of[[.022,.221],[-.036,.172],[.074,.173]]){const n=plateNormal(sideMap,-z,y),p=sideMap(-z,y).addScaledVector(n,.0008);p.x*=s;n.x*=s;bolt(id,p.toArray(),n.toArray(),.0025);}
     // Ear cassette, dark seat, armored oval and exposed catches.
     for(const[r,h,x,c]of[[.045,.010,.146,C.dark]]){const g=cyl(r,h,[0,0,0],c,[0,0,Math.PI/2],detail===0?32:12);g.scale(1,1.22,1);g.translate(s*x,.192,-.063);add(id,g);}
     const earPoints=Array.from({length:10},(_,i)=>{const a=i*Math.PI/5;return[.063+.035*Math.cos(a),.192+.046*Math.sin(a)];});const ear=plate(earPoints,(u,y)=>V(.161,y,-u),{lod:detail,normal:[1,0,0],color:C.olive,thickness:.007,bevel:.003});add(id,s===1?ear:mirror(ear));
@@ -95,9 +105,9 @@ export async function buildBreachWarden(lod,referenceBounds){
     for(const z of[-.086,-.040])add(id,box([.005,.020,.005],[s*.164,.185,z],C.edge));
     for(const y of [.155,.229])bolt(id,[s*.162,y,-.063],[s,0,0],.0026);
     // Removable lower jaw; port side is a lighter replacement ceramic plate.
-    const jawMap=(u,y)=>V(.141-.030*((-u)/.15)**2,y,-u),jaw=plate([[.128,.153],[.030,.143],[-.041,.123],[-.046,.079],[.009,.065],[.103,.092],[.142,.121]].map(([z,y])=>[-z,y]),jawMap,{lod:detail,normal:[1,0,0],color:side==='L'?C.ivory:C.olive,thickness:.008,bevel:.0025});add('JAW_'+side,s===1?jaw:mirror(jaw));
-    const frontJaw=plate([[.033,.148],[.071,.153],[.130,.130],[.123,.091],[.070,.076],[.033,.102]],(x,y)=>V(x,y,.181-.075*(x/.145)**2),{lod:detail,color:side==='L'?C.ivory:C.olive,thickness:.007,bevel:.002});add('JAW_'+side,s===1?frontJaw:mirror(frontJaw));
-    for(const[z,y]of [[.118,.125],[-.030,.097]])bolt('JAW_'+side,[s*(.143-.030*(z/.15)**2),y,z],[s,0,0],.0034);
+    const jawMap=jawSideMap,jaw=plate([[.128,.143],[.030,.135],[-.041,.123],[-.046,.079],[.009,.065],[.103,.092],[.142,.121]].map(([z,y])=>[-z,y]),jawMap,{lod:detail,normal:[1,0,0],color:side==='L'?C.ivory:C.olive,thickness:.008,bevel:.0025});add('JAW_'+side,s===1?jaw:mirror(jaw));
+    const frontJaw=plate([[.033,.148],[.071,.153],[.130,.130],[.123,.091],[.070,.076],[.033,.102]],jawFrontMap,{lod:detail,color:side==='L'?C.ivory:C.olive,thickness:.007,bevel:.002});add('JAW_'+side,s===1?frontJaw:mirror(frontJaw));
+    for(const[z,y]of [[.118,.125],[-.030,.097]]){const n=plateNormal(jawMap,-z,y),p=jawMap(-z,y).addScaledVector(n,.0008);p.x*=s;n.x*=s;bolt('JAW_'+side,p.toArray(),n.toArray(),.0034);}
     for(const z of[-.028,.009])add(id,box([.007,.009,.022],[s*.147,.149,z],C.dark));
   }
   // Compact central respirator, with open vent slots over a recessed filter bed.
@@ -123,7 +133,7 @@ export async function buildBreachWarden(lod,referenceBounds){
   add('COLLAR',plate([[-.017,.006],[.017,.006],[.019,.045],[.012,.053],[-.012,.053],[-.019,.045]],(x,y)=>V(x,y,.130),{lod:detail,color:C.edge,thickness:.005,bevel:.0015}));
   add('COLLAR',box([.012,.030,.004],[0,.030,.134],C.dark));
   // Continuous lower-face carrier behind the overlapping cheek/jaw plates.
-  add('LINER',patch((u,v)=>{const t=(u-.5)*2.76,a=Math.abs(t)/1.38,y=T.MathUtils.lerp(.095+.014*a,.196+.029*a,v);return V(.132*Math.sin(t),y,.008+.137*Math.cos(t));},detail===0?48:20,detail===0?12:5,{color:C.dark,thickness:.005}));
+  add('LINER',patch(lowerFace,detail===0?64:32,detail===0?12:5,{color:C.dark,thickness:.005}));
   // Segmented interior liner is open at the face and neck.
   add('LINER',patch((u,v)=>{const t=1.40+u*(Math.PI*2-2.80),y=.110+v*.185;return surface(y,t,-.012);},detail===0?48:18,detail===0?24:8,{color:C.liner,thickness:.004}));
   for(const s of[-1,1])add('LINER',box([.010,.065,.045],[s*.112,.191,-.025],C.rubber,[0,0,s*.08],.004));
@@ -131,7 +141,7 @@ export async function buildBreachWarden(lod,referenceBounds){
   if(detail===0){
     for(let i=0;i<28;i++){const y=.26+noise(i,2,1)*.095,t=.50+noise(i,1,2)*2.5,a=surface(y,t,.001),b=surface(y+.001+noise(i,4,1)*.003,t+.012,.001);add('SHELL',tube([a.toArray(),b.toArray()],.00032,C.edge,2,3));}
     // Replacement identifier: three etched strokes and two boxed service marks.
-    for(const[z,y,w]of [[.062,.100,.026],[.065,.104,.021],[.056,.108,.014]])add('JAW_L',box([.0006,.0007,w],[.143-.03*(z/.15)**2,y,z],C.dark,[0,0,0],.0001));
+    for(const[z,y,w]of [[.062,.100,.026],[.065,.104,.021],[.056,.108,.014]])add('JAW_L',patch((u,v)=>jawSideMap(-(z+(.5-u)*w),y+v*.0007).addScaledVector(plateNormal(jawSideMap,-(z+(.5-u)*w),y+v*.0007),.0005),6,1,{color:C.dark,exteriorOnly:true}));
     for(const y of [.185,.194])for(const[dz,dy,w,h]of[[0,0,.007,.0006],[0,.006,.007,.0006],[-.0032,.003,.0006,.006],[.0032,.003,.0006,.006]])add('CHEEK_L',box([.0006,h,w],[.146,y+dy,.025+dz],C.gold,[0,0,0],.0001));
   }
   // Reduced tiers use continuous crown surfaces instead of simplifying overlapping
@@ -144,7 +154,7 @@ export async function buildBreachWarden(lod,referenceBounds){
     if(!far){for(const t of[-2.9,-2.2,-1.35,-.50,.50,1.35,2.2,2.9])add('SHELL',patch((u,v)=>surface(.270+.080*v,t+(u-.5)*.019,.0085),1,10,{color:C.dark,exteriorOnly:true}));for(const y of[.145,.204])add('SHELL',patch((u,v)=>surface(y+v*.004,1.5+u*(Math.PI*2-3),.0085),24,1,{color:C.dark,exteriorOnly:true}));}
     if(far){
       parts.VISOR=[patch(visor,12,3,{color:C.glass,exteriorOnly:true})];parts.LINER=[];parts.COLLAR=[];
-      add('LINER',patch((u,v)=>{const t=(u-.5)*2.76,a=Math.abs(t)/1.38,y=T.MathUtils.lerp(.095+.014*a,.196+.029*a,v);return V(.132*Math.sin(t),y,.008+.137*Math.cos(t));},12,4,{color:C.dark,exteriorOnly:true}));
+      add('LINER',patch(lowerFace,12,4,{color:C.dark,exteriorOnly:true}));
       const seal=new T.TorusGeometry(.079,.012,4,24);seal.rotateX(Math.PI/2);seal.scale(1,1,1.09);seal.translate(0,.074,0);add('COLLAR',paint(seal,C.rubber));
       for(let i=0;i<8;i++)add('COLLAR',patch((u,v)=>{const a=i*Math.PI/4+(u-.5)*.68;return V(.111*Math.sin(a),.014+v*.033,.116*Math.cos(a));},2,1,{color:C.olive,exteriorOnly:true}));
       add('COLLAR',box([.044,.050,.012],[0,.025,.120],C.dark));add('COLLAR',box([.034,.040,.005],[0,.025,.129],C.edge));

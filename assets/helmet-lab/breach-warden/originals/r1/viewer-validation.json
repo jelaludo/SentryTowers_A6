@@ -1,0 +1,175 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "scope": "Three tier costs, 22 module isolates, explosion, fit references, cameras, section, wireframe, turntable, fullscreen, PNG/GLB/ZIP downloads and 390px layout; no FPS claim.",
+  "checks": [
+    {
+      "lod": 0,
+      "triangles": 170876,
+      "draw_calls": 11
+    },
+    {
+      "lod": 0,
+      "part": "SHELL",
+      "triangles": 31240,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "BROW",
+      "triangles": 29332,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "VISOR",
+      "triangles": 5680,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "CHEEK_L",
+      "triangles": 21600,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "CHEEK_R",
+      "triangles": 20256,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "JAW_L",
+      "triangles": 12336,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "JAW_R",
+      "triangles": 11832,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "RESPIRATOR",
+      "triangles": 13044,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "TEMPLE_BAR",
+      "triangles": 6192,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "COLLAR",
+      "triangles": 10748,
+      "draw_calls": 1
+    },
+    {
+      "lod": 0,
+      "part": "LINER",
+      "triangles": 8616,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "triangles": 11708,
+      "draw_calls": 11
+    },
+    {
+      "lod": 1,
+      "part": "SHELL",
+      "triangles": 3064,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "BROW",
+      "triangles": 2420,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "VISOR",
+      "triangles": 850,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "CHEEK_L",
+      "triangles": 749,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "CHEEK_R",
+      "triangles": 749,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "JAW_L",
+      "triangles": 449,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "JAW_R",
+      "triangles": 450,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "RESPIRATOR",
+      "triangles": 849,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "TEMPLE_BAR",
+      "triangles": 430,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "COLLAR",
+      "triangles": 848,
+      "draw_calls": 1
+    },
+    {
+      "lod": 1,
+      "part": "LINER",
+      "triangles": 850,
+      "draw_calls": 1
+    },
+    {
+      "lod": 2,
+      "triangles": 2798,
+      "draw_calls": 1
+    }
+  ],
+  "screenshots": [
+    "previews/master.png",
+    "previews/game.png",
+    "previews/distance.png",
+    "previews/exploded.png",
+    "previews/front.png",
+    "previews/temple.png",
+    "previews/rear.png",
+    "previews/inside.png",
+    "previews/human-fit.png",
+    "previews/robot-fit.png",
+    "previews/mobile.png"
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "helmet-lab/index.html": "a76f2559a18fe7d52a0f2eef0753b20ff87b5e02f6c90003fe05d953bd22f17d",
+    "helmet-lab/style.css": "a0375350a13311a6170ba686c1bdf210e76f6211395f8961908d68ee1c18b422",
+    "helmet-lab/viewer.js": "49bf112175c2394054c630f8c8c8423d59bc7f7793dcb04f2295f85730ca313a",
+    "assets/helmet-lab/breach-warden/runtime.js": "54e620defd4f2dd34147757ec4b4025ede59be7b1fdd80c555bd9fa4506a4472",
+    "assets/helmet-lab/breach-warden/manifest.json": "be5af03e3558963635e36ca1565599fb9ae9a770f8cb67a8d2e7077b2b92fd23"
+  }
+}

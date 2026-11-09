@@ -8,15 +8,19 @@ http://localhost:8788/helmet-lab/
 Public route after the containing commit is published:
 https://jelaludo.github.io/SentryTowers_A6/helmet-lab/
 
+## Revision 2 / Panel alignment
+
+The front and side cheek/jaw plates now follow matching curved profiles. Thickness and bevels follow local surface normals, fasteners sit normal to their plates, and the crown panels meet the brow with narrow seams. The original revision is preserved in `originals/r1/` and at commit `68a7a45235c3c76f9187dcafcea871246378ffc3`. Names, sockets and overall bounds are unchanged. The archive is repository-only and excluded from the current download ZIP.
+
 ## Download and tiers
 
 `breach-warden.zip` includes all three self-contained plain GLBs, this README, the manifest, runtime, validation report and SHA-256 checksums. The browser's **Download helmet GLB** follows the selected tier. Master/game contain eleven independent modules; distance is one static merged surface.
 
 | File | Triangles | Draws | Plain bytes | Role |
 | --- | ---: | ---: | ---: | --- |
-| `breach_warden_d0_lod0.glb` | 170,876 | 11 | 4,836,548 | Close shots, recording and detailed inspection |
-| `breach_warden_d0_lod1.glb` | 11,708 | 11 | 439,036 | Inspectable game modules |
-| `breach_warden_d0_lod2.glb` | 2,798 | 1 | 164,444 | Static distance/loading surface |
+| `breach_warden_d0_lod0.glb` | 183,448 | 11 | 5,098,892 | Close shots, recording and detailed inspection |
+| `breach_warden_d0_lod1.glb` | 11,706 | 11 | 446,080 | Inspectable game modules |
+| `breach_warden_d0_lod2.glb` | 2,922 | 1 | 166,412 | Static distance/loading surface |
 
 Counts are measured from decoded exports, excluding viewer lights, floor and fit references. LOD1 and LOD2 are derived reductions. Game falls below the contract's 25k unit triangle target, but a helmet consumes part of the complete character's budget. Eleven draws retain module isolation; game also exceeds the stationary-landmark references of 8k triangles, ten draws and 400 KB. Distance meets 3k triangles / one draw / 250 KB. No FPS performance claim.
 
@@ -48,7 +52,7 @@ The D0 design includes service wear, dents and a replacement plate. D1–D3 game
 
 ## Review and validation
 
-The viewer provides full orbit/zoom, hero/front/temple/rear/inside cameras, eleven part choices, explosion slider, half section, human and AUREL fit references, wireframe, turntable, fullscreen, PNG capture and GLB/ZIP downloads. Half section is a viewer clipping plane; it does not cut the downloaded geometry. Fit wireframes are rendered through the surface for inspection.
+The viewer provides full orbit/zoom, left/right three-quarter, front, temple, rear and inside cameras, eleven part choices, explosion slider, half section, human and AUREL fit references, wireframe, turntable, fullscreen, PNG capture and GLB/ZIP downloads. Half section is a viewer clipping plane; it does not cut the downloaded geometry. Fit wireframes are rendered through the surface for inspection.
 
 Rebuild and check from the repository root:
 
@@ -60,7 +64,7 @@ node tools/asset-pipeline/test-breach-warden-viewer.mjs
 python3 tools/build-workshop-docs.py
 ```
 
-`validation-report.json` records decoded glTF validation, finite/nondegenerate geometry, names, frames, bounds, sockets, head clearance, grille aperture rays, temple clearance and 132 module pose checks. `viewer-validation.json` records browser review separately. The consuming game owns release-time gltfpack compression; no upstream compressed copies are provided. Decoded release validation and reference-device/game-camera profiling remain pending.
+`validation-report.json` records decoded glTF validation, finite/nondegenerate geometry, names, frames, bounds, sockets, head clearance, grille aperture rays, temple clearance and 132 module pose checks. Seventy-two rays across both cheek and jaw overlaps verify outward/back-face order and at least 0.8 mm clearance between the front plate’s back and the side plate’s face in master/game. This is a targeted overlap check, not an all-surface collision proof. `viewer-validation.json` records browser review separately. The consuming game owns release-time gltfpack compression; no upstream compressed copies are provided. Decoded release validation and reference-device/game-camera profiling remain pending.
 
 ## Handoff and provenance
 

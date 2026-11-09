@@ -1,5 +1,15 @@
 # Devlog
 
+## 9 November 2026 / Breach Warden — plate-angle correction
+
+Corrected the skewed pieces shown in the user's side view. Curved plates now use local surface normals for thickness and uniform bevel offsets. Front and side cheek/jaw pieces share curved profiles with deliberate shingle clearances, and their bolts follow the actual plate normals. The front cheeks and jaw returns tuck around the visor instead of flaring forward. Contoured crown strips meet the brow with smaller seams; the side carrier closes the visible backing gaps. The ceramic temple bar, replacement plate, wear, eleven modules and overall silhouette remain.
+
+Preserved revision 1 byte-for-byte under `assets/helmet-lab/breach-warden/originals/r1/`, pinned to `68a7a45`. Revision 2 retains every node name, socket frame and 358.8 × 367.0 × 360.5 mm envelope across tiers. Detailed/game/static measurements are 183,448 / 11,706 / 2,922 triangles, 11 / 11 / one draws, and 5,098,892 / 446,080 / 166,412 plain bytes. Game remains below the unit triangle target while exceeding the stationary-landmark references; distance meets its 3k/one-draw/250 KB targets. No FPS claim.
+
+All three exports pass the existing decoded geometry, head-fit, attachment, aperture and pose checks. Seventy-two additional rays through both cheek and jaw overlaps verify surface orientation and positive separation of the plate layers. Added a right three-quarter camera and same-angle before/after review images, refreshed tier previews, mobile/control/download checks, ZIP, source hashes and shared documentation. Original hands, feet, robot assets and the received collaboration contract are unchanged.
+
+Completed: the requested angle/overlap correction and all derived exports. Pending: user visual acceptance and the previously documented character-specific moving fit, donning, damage and consuming-game integration work. Handoff: the containing commit plus `assets/helmet-lab/breach-warden/`.
+
 ## 9 November 2026 / Helmet Lab — Breach Warden
 
 Started the requested helmet-only series with an independent human/humanoid boarding helmet. Broad flattened brow and shallow impact craters, a recessed dark visor, overlapping cheek and jaw plates, compact three-slot respirator with recessed filter, segmented crown/rear shell, hollow liner and neck collar establish the construction. An ivory ceramic bar stands clear of one temple on two small brackets; a contrasting pale jaw plate and small etched service marks record a repair. Wear is carried by geometry and vertex colours, without external image textures.

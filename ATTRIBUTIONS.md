@@ -2,6 +2,8 @@
 
 ## Helmet Lab / Breach Warden / 9 November 2026
 
+Revision 2 corrects plate curvature, thickness, bevels, crown seams and hardware alignment. Revision 1 is preserved under `originals/r1/`, pinned to `68a7a45`; all current exports and comparison renders are original/derived Workshop work.
+
 Original procedural helmet geometry, vertex-colour wear, eleven-part inspection runtime, viewer, exports and previews by jelaludo / Model Workshop, guided by the user-supplied `01BreachWarden.png`. The image remains external and its SHA-256 is recorded in `assets/helmet-lab/breach-warden/manifest.json`. No image pixels or third-party meshes are distributed. The viewer references our unchanged AUREL-03 sensor head at 1:1 scale; it is not bundled in the helmet GLBs or ZIP. LOD1, static LOD2 and screenshots are derived exports. Original Workshop reuse terms apply.
 
 ## AUREL-03 / Animation handoff / 9 November 2026

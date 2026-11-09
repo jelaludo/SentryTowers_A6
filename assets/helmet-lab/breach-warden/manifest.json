@@ -4,7 +4,12 @@
   "series": "Helmet Lab",
   "number": 1,
   "label": "Breach Warden / Boarding helmet",
-  "revision": 1,
+  "revision": 2,
+  "previous_revision": {
+    "commit": "68a7a45235c3c76f9187dcafcea871246378ffc3",
+    "folder": "originals/r1/",
+    "changes": "Conformal plate thickness, matched cheek/jaw curvature and hardware normals, fitted crown seams"
+  },
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
     "units": "metres",
@@ -163,8 +168,8 @@
     "human": "Authored generic head envelope; not a population anthropometric or safety certification"
   },
   "source_sha256": {
-    "tools/asset-pipeline/breach-warden-shape.mjs": "365407fdc669f38613743ddb9b251e6718d40a8794c0ee6950b5f29b666437f4",
-    "tools/asset-pipeline/build-breach-warden.mjs": "29a530bd59770b87c69c14f999f990eb248a845799e7392046e6899008301780",
+    "tools/asset-pipeline/breach-warden-shape.mjs": "f506880106175e629b2016f9ffd1ba58f9492473b839a28f30a32f919abbd887",
+    "tools/asset-pipeline/build-breach-warden.mjs": "884d050de829d8a8f09607916c01741eb23ca1d0c7563c951f5ba76a00f0aa95",
     "assets/helmet-lab/breach-warden/runtime.js": "54e620defd4f2dd34147757ec4b4025ede59be7b1fdd80c555bd9fa4506a4472"
   },
   "assets": [
@@ -174,9 +179,9 @@
       "damage_level": 0,
       "static": false,
       "derived": false,
-      "bytes": 4836548,
-      "sha256": "2a292860d73f64a23c9fd56caf8e94cb51cdbf6be28534b37efee7c8043224ff",
-      "triangles": 170876,
+      "bytes": 5098892,
+      "sha256": "fd72d5a21ee2dcae218e6b7d4e2b47805d15aaad4e9ca0854b885c91286d9133",
+      "triangles": 183448,
       "draw_calls": 11,
       "plot_m": [
         0.4,
@@ -305,7 +310,7 @@
       ],
       "modules": {
         "SHELL": {
-          "triangles": 31240,
+          "triangles": 34544,
           "draw_calls": 1
         },
         "BROW": {
@@ -317,19 +322,19 @@
           "draw_calls": 1
         },
         "CHEEK_L": {
-          "triangles": 21600,
+          "triangles": 26060,
           "draw_calls": 1
         },
         "CHEEK_R": {
-          "triangles": 20256,
+          "triangles": 24716,
           "draw_calls": 1
         },
         "JAW_L": {
-          "triangles": 12336,
+          "triangles": 11860,
           "draw_calls": 1
         },
         "JAW_R": {
-          "triangles": 11832,
+          "triangles": 11824,
           "draw_calls": 1
         },
         "RESPIRATOR": {
@@ -345,7 +350,7 @@
           "draw_calls": 1
         },
         "LINER": {
-          "triangles": 8616,
+          "triangles": 9448,
           "draw_calls": 1
         }
       },
@@ -358,9 +363,9 @@
       "damage_level": 0,
       "static": false,
       "derived": true,
-      "bytes": 439036,
-      "sha256": "1f7466449f8d54ba5791172cae208e7a97bffdfe1b7e470cc029da9601251400",
-      "triangles": 11708,
+      "bytes": 446080,
+      "sha256": "f4cac2efba49c0a49b179d8eb6d78202bf5eafba183ee1cc8dc9236aa376be20",
+      "triangles": 11706,
       "draw_calls": 11,
       "plot_m": [
         0.4,
@@ -517,7 +522,7 @@
           "draw_calls": 1
         },
         "RESPIRATOR": {
-          "triangles": 849,
+          "triangles": 846,
           "draw_calls": 1
         },
         "TEMPLE_BAR": {
@@ -525,7 +530,7 @@
           "draw_calls": 1
         },
         "COLLAR": {
-          "triangles": 848,
+          "triangles": 849,
           "draw_calls": 1
         },
         "LINER": {
@@ -542,9 +547,9 @@
       "damage_level": 0,
       "static": true,
       "derived": true,
-      "bytes": 164444,
-      "sha256": "3b0d684d6927f240b9c85b1955c4eeb0f41cf21800388445c98029f25d2f9ad5",
-      "triangles": 2798,
+      "bytes": 166412,
+      "sha256": "181bdd6ada7e66a736c0f74ccd63833c0639f9ccd245be000273008c56357bd0",
+      "triangles": 2922,
       "draw_calls": 1,
       "plot_m": [
         0.4,
