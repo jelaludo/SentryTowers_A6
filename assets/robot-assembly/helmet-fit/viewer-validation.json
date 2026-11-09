@@ -1,42 +1,132 @@
 {
   "status": "passed",
   "browser": "Chromium / SwiftShader",
-  "scope": "Six head/tier fits, model draw costs, layer visibility, reversible helmet selection, follows motion/explosion, part isolation, source GLB/PNG downloads and mobile layout; original default route retained",
+  "scope": "Eighteen helmet/head/tier fits, model draw costs, layer visibility, reversible compact replacement heads, live swaps preserve pose, follows motion/explosion, part isolation, source GLB/PNG downloads and mobile layout; original default route retained",
   "checks": [
     {
+      "helmet": "rk-mg02",
       "head": "sensor",
       "lod": 0,
-      "triangles": 754836,
+      "triangles": 750144,
       "draw_calls": 26
     },
     {
+      "helmet": "rk-mg02",
       "head": "sensor",
       "lod": 1,
-      "triangles": 62194,
+      "triangles": 60734,
       "draw_calls": 26
     },
     {
+      "helmet": "rk-mg02",
       "head": "sensor",
       "lod": 2,
-      "triangles": 6650,
+      "triangles": 6440,
       "draw_calls": 3
     },
     {
+      "helmet": "rk-mg02",
       "head": "frame",
       "lod": 0,
-      "triangles": 753560,
+      "triangles": 750144,
       "draw_calls": 26
     },
     {
+      "helmet": "rk-mg02",
       "head": "frame",
       "lod": 1,
-      "triangles": 62078,
+      "triangles": 60734,
       "draw_calls": 26
     },
     {
+      "helmet": "rk-mg02",
       "head": "frame",
       "lod": 2,
-      "triangles": 6656,
+      "triangles": 6498,
+      "draw_calls": 3
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 716888,
+      "draw_calls": 26
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 54898,
+      "draw_calls": 26
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6698,
+      "draw_calls": 3
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "frame",
+      "lod": 0,
+      "triangles": 716888,
+      "draw_calls": 26
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "frame",
+      "lod": 1,
+      "triangles": 54898,
+      "draw_calls": 26
+    },
+    {
+      "helmet": "hex-witness",
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6756,
+      "draw_calls": 3
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 797700,
+      "draw_calls": 27
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 51833,
+      "draw_calls": 27
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6674,
+      "draw_calls": 3
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "frame",
+      "lod": 0,
+      "triangles": 797700,
+      "draw_calls": 27
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "frame",
+      "lod": 1,
+      "triangles": 51833,
+      "draw_calls": 27
+    },
+    {
+      "helmet": "breach-warden",
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6732,
       "draw_calls": 3
     }
   ],
@@ -44,6 +134,15 @@
     "previews/master.png",
     "previews/game.png",
     "previews/distance.png",
+    "previews/hex-witness-master.png",
+    "previews/hex-witness-game.png",
+    "previews/hex-witness-distance.png",
+    "previews/breach-warden-master.png",
+    "previews/breach-warden-game.png",
+    "previews/breach-warden-distance.png",
+    "previews/hex-witness-head.png",
+    "previews/breach-warden-head.png",
+    "previews/rk-mg02-head.png",
     "previews/both.png",
     "previews/skeleton.png",
     "previews/muscles.png",
@@ -57,10 +156,10 @@
   ],
   "console_errors": [],
   "source_sha256": {
-    "robot-assembly/viewer.js": "61af66f00eb7e5a8ba48db8315a0bcbb47848a1da695580bb5e995511c74856b",
-    "robot-assembly/index.html": "cc660262dc15f8c059b46b32ec00a02e567aeef487ff83b9e3e1cc8328aff821",
+    "robot-assembly/viewer.js": "ab65b06172f3a6e7eff27aec27468aa14cc02cf2636f37ad7847f709db8a294b",
+    "robot-assembly/index.html": "b34d6bbff405bdca8492b9c55e0bc2e58783ac5ca61e17b60a7301afe64c9a26",
     "robot-assembly/style.css": "f3fb044e6b40fd894c9d92e3ad0ae255037a5c627c2740e97e012c5cd08986a4",
-    "assets/robot-assembly/helmet-fit/runtime.js": "ea057b9cddde1e7da558040845183eef3785f406d0583cb230b679c3e395274a",
-    "assets/robot-assembly/helmet-fit/manifest.json": "d394e6177cfd5cf1df18f1eb7af5f50b0eca90c004735deeff90328d31814b64"
+    "assets/robot-assembly/helmet-fit/runtime.js": "00d805b7755bd81154a6505dc74327ed6edd5ff806b3cd5f9101b682294e4acb",
+    "assets/robot-assembly/helmet-fit/manifest.json": "e2457527fb88c89f905c16f62e9b3de5d72a55eb2e21e259f3e83184794d13b7"
   }
 }

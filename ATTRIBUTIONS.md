@@ -1,8 +1,8 @@
 # Asset attributions and provenance
 
-## AUREL-03 × RK-MG02 / 9 November 2026
+## AUREL-03 / Swappable helmet heads / 9 November 2026
 
-Non-destructive full-body fitting preview by jelaludo / Model Workshop, composed from the original AUREL skeleton/muscles and RK-MG02 r3 pinned at `44573d5`. Only in-memory attachment, names and collar visibility/low-tier collar geometry change; all original GLBs remain byte-identical. The source models' Workshop attribution applies.
+Reversible replacement-head preview by jelaludo / Model Workshop, composed from the original AUREL skeleton/muscles and Breach Warden r2, Hex Witness r1 and RK-MG02 r3, pinned at `4278676`. Revision 2 scales the heads, removes the original cranial surfaces in memory and retains the neck. Collar visibility, static component filtering and names are also in-memory derivatives. All original GLBs remain byte-identical; their Workshop attribution applies. The earlier full-scale RK-only fitting remains in commit `4278676`.
 
 ## Helmet Lab / RK-MG02 / 9 November 2026
 

@@ -58,7 +58,7 @@ const collectionImages={
 };
 
 export const collections=[
-['aurel03-rkmg02','AUREL-03 × RK-MG02','Characters','Try the RK-MG02 helmet on the complete AUREL body. Compare muscles and skeleton, inspect the neck connection and watch the helmet follow head motion.','Full-scale fit · Reversible helmet · 3 tiers','Fitting study','robot-assembly/?helmet=rk-mg02&head=sensor'],
+['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Compact RK-MG02, Hex Witness and Breach Warden heads on the complete AUREL body. Swap designs, compare layers and inspect moving neck connections.','3 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=rk-mg02&head=sensor'],
 ['rk-mg02','Helmet Lab / RK-MG02','Characters','A fitted motocross enclosure with a structural brow, continuous vented guard, recessed optics and distinct ceramic, metal and rubber finishes.','Fitted MX enclosure · Gray inspection · 3 tiers · GLB + ZIP','Helmet studies / 03','helmet-lab/?helmet=rk-mg02'],
 ['hex-witness','Helmet Lab / Hex Witness','Characters','A rounded honeycomb cowl with a smooth crown band, five red optics, curved jaw armor and a vented chin. Inspect eight modules, human and robot fit, and three downloadable tiers.','8 modules · Five optics · 3 tiers · GLB + ZIP','Helmet studies / 02','helmet-lab/?helmet=hex-witness'],
 ['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],

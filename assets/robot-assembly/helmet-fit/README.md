@@ -1,46 +1,59 @@
-# AUREL-03 × RK-MG02 / Helmet fitting study
+# AUREL-03 / Compact swappable heads
 
-A reversible full-body preview using the original AUREL-03 skeleton, optional muscle layer and RK-MG02 revision 3. The original GLBs, runtime sources, animation kit and standalone helmet remain unchanged.
+Revision 2 replaces the original oversized fitting with smaller, interchangeable robot heads. Select **RK-MG02**, **Hex Witness** or **Breach Warden** in the viewer's **Head** control. Selecting **Original AUREL head** restores the untouched cranial frame/sensor crown. The source GLBs and animation kit remain unchanged.
 
-Open the fitted sensor-head body:
 http://localhost:8788/robot-assembly/?helmet=rk-mg02&head=sensor
 
 Public route after publication:
 https://jelaludo.github.io/SentryTowers_A6/robot-assembly/?helmet=rk-mg02&head=sensor
 
-## Attachment
+Use `helmet=hex-witness` or `helmet=breach-warden` for direct links to the other heads.
 
-Metres, +Y up, +Z forward, original AUREL ground origin. Helmet scale is **[1, 1, 1]**. At neutral pose its source root is placed at **[0, 1.485, 0] m**: 20 mm higher than the isolated-head datum match, to clear the full body's clavicles, rear neck structure and muscles. It attaches to `HEAD_PITCH` at local **[0, −0.085, 0] m**, with no added rotation. Crown height is **1.8328 m** above the body ground datum.
+## Proportions and shared mount
 
-The standalone helmet collar and its rubber seal are hidden in master/game, using AUREL's original neck joint instead. The static helmet's merged surface omits the 268 triangles wholly below local Y = 69 mm, the collar region. That is an in-memory derivative only; source files and downloads retain the original complete helmet. Exact head-datum coincidence is intentionally replaced by the 20 mm fit clearance. All three tiers share the same attachment transform and scale.
+RK-MG02 is **20% smaller in every axis** than the previous full-scale fit. The other designs use individually chosen uniform scales to match its crown height while preserving their silhouettes. The helmet is now a replacement robotic head; it does not need to enclose the original full-size skull.
 
-`attachHelmet(host, helmet)` in `runtime.js` must run after `createRig(host)`, before animation. It parents the helmet to the moving pitch joint; no per-frame copy or baked clip is needed. It also prefixes helmet node names with `HELMET_` in memory to avoid the body's `DISTANCE_SURFACE` name; `userData.source_node` retains each original name. All source head surfaces remain inside the helmet. This is a proportion/fit preview, not a hidden-internals or draw-call optimization pass.
+Metres, +Y up, +Z forward; original body ground origin. All heads attach to **HEAD_PITCH** with no added rotation. Crown height is **1.785 m**, or **0.215 m above HEAD_PITCH**. Local X/Z and neutral world X/Z are zero; the table gives Y translations. The same mount and scale apply at all tiers.
 
-The helmet follows the original 12-second articulation study and 20-second assembly separation. Head yaw/pitch and chest motion remain engine-driven. The optional muscle adapter continues to follow the original body. No new baked clips or automatic motion-retargeting claims.
+| Head | Uniform scale | Local Y / m | Neutral world Y / m |
+| --- | ---: | ---: | ---: |
+| RK-MG02 | 80% | -0.06324 | 1.50676 |
+| Hex Witness | 72% | -0.05788 | 1.51212 |
+| Breach Warden | 76% | -0.06392 | 1.50608 |
+
+The original pitch-bound cranial surfaces are omitted from the in-memory body, retaining its yaw-bearing neck and the existing neck muscles. Master/game filtering uses the original skin bindings. Static filtering removes complete disconnected source components extending above Y = 1.581 m. Standalone helmet collars are hidden in master/game; distance collars are omitted as complete disconnected components below each recorded cutoff. This avoids slicing through the jaw or shell. Original downloads still include all source geometry.
+
+`attachHelmet(host, helmet, id)` in `runtime.js` runs **after** `createRig(host)`, before posing. Pass a fresh body/helmet load when changing heads; the viewer does this automatically and preserves the current pose, detail and layer selections. Head yaw/pitch, chest motion and assembly separation remain engine-driven. Names receive `HELMET_` prefixes in memory; `userData.source_node` retains original identifiers. No new baked clips. Original motion studies remain 12 seconds for articulation and 20 seconds for assembly.
 
 ## Viewer and downloads
 
-Use **Helmet** to switch between RK-MG02 and the original head. **Head / fit** frames the helmet, neck and shoulders; front, side, rear and full-body views remain available. The layer selector switches skeleton, muscles or both. Part isolation, wireframe, hand controls, motion seeking, exploded view and PNG capture continue to work. Default `/robot-assembly/` remains the original unhelmeted cranial frame.
+**Head** swaps among all three standalone Helmet Lab designs. **Original head** is enabled when using AUREL's own head. **Head / fit** frames the neck and shoulders. Full-body/front/side/rear views, skeleton/muscle layers, isolated parts, wireframe, hand controls, exploded view, motion seeking and PNG capture remain available. The base `/robot-assembly/` route still opens the original unhelmeted frame.
 
-The GLB and ZIP links are explicitly separate: the existing original body/animation kit plus the selected standalone RK-MG02 tier. **There is no combined equipped-character GLB or ZIP in this study.** To reproduce the equipped fit, use the pinned source GLBs and the attachment helper. A combined optimized export is a separate future handoff.
+Downloads remain clearly separate: original body/animation kit and the selected **original standalone helmet**, at its authored size. **No combined equipped-character GLB or ZIP is authored.** Use the recorded source files plus this attachment helper to reproduce the scaled replacement head. Standalone Helmet Lab viewers retain their full-sized human-compatible designs.
 
 ## Measured composition costs
 
-Default sensor head, skeleton + muscles + fitted helmet; source byte totals include collar data hidden or omitted by the fitting helper:
+Sensor-source body, skeleton + muscles + replacement head. Source bytes include geometry omitted in memory. Master is for close shots; game is the default articulated study; distance is static and retains three source surfaces.
 
-| Tier | Visible triangles | Model draws | Source bytes |
-| --- | ---: | ---: | ---: |
-| LOD0 | 754,836 | 26 | 25,788,580 |
-| LOD1 | 62,194 | 26 | 2,547,156 |
-| LOD2 | 6,650 | 3 | 402,916 |
+| Head | Tier | Visible triangles | Model draws | Source bytes |
+| --- | --- | ---: | ---: | ---: |
+| RK-MG02 | LOD0 | 750,144 | 26 | 25,788,580 |
+| RK-MG02 | LOD1 | 60,734 | 26 | 2,547,156 |
+| RK-MG02 | LOD2 | 6,440 | 3 | 402,916 |
+| Hex Witness | LOD0 | 716,888 | 26 | 24,933,256 |
+| Hex Witness | LOD1 | 54,898 | 26 | 2,406,040 |
+| Hex Witness | LOD2 | 6,698 | 3 | 411,488 |
+| Breach Warden | LOD0 | 797,700 | 27 | 26,971,756 |
+| Breach Warden | LOD1 | 51,833 | 27 | 2,180,604 |
+| Breach Warden | LOD2 | 6,674 | 3 | 443,512 |
 
-Game is the default for this articulated study; select master for close inspection. Static distance freezes the original rest pose and retains three separate source surfaces/materials. This composition exceeds the 25k unit reference and the 3k/one-draw distance reference. It is not an optimized equipped unit. Numbers exclude floor, grid and proportion guides; no FPS claim. Source bounds vary slightly across the pre-existing body tiers (about 3.3 mm total width master versus game); they are preserved rather than silently rescaled. Exact per-variant bounds, files, costs and hashes are in `manifest.json`.
+These compositions exceed the 25k unit reference and the 3k/one-draw distance reference; they remain fitting studies, not optimized equipped characters. Counts exclude floor, grid and guides. No FPS claim. The inherited body bounds/neck reductions differ slightly between source tiers and original frame/sensor distance variants; exact costs, bounds, source files and hashes for all 18 combinations are in `manifest.json`. Damage remains d0; tiers are not damage states.
 
 ## Validation and handoff
 
-`validation-report.json` checks 12 source GLB hashes against commit `44573d5c64f229866e301f3a5b7c20ba9da6ba7c`, unique names, six head/tier combinations, exact scale and mount, and 82 sampled attachment poses. Surface intersection checks cover both original head variants against the complete body and muscle layer: master at rest/maximum joint study, game at nine study times and static distance at rest. No intersections occur in these 24 sampled combinations. General motion, arbitrary poses, donning and external animation still need review.
+`validation-report.json` checks **18 original GLB hashes** against source commit `4278676ce9bea072b1053f987cf1e6c2380865ad`, unique dot-free names, all **18 helmet/body-head/tier combinations**, scale/crown/mount consistency, removed pitch-bound skull geometry and **246 attachment poses**. **72 sampled body/muscle intersection checks** passed: each helmet with both source heads, master at rest/maximum study, game at nine study times and distance at rest. This is not an arbitrary-pose collision certification.
 
-`viewer-validation.json` checks rendered costs, three visible-layer modes, reversible helmet selection, motion/separation, part isolation, wireframe, source GLB/PNG downloads, default-route regression and 390 px layout. Plain source GLBs remain the source of truth; there are no new compressed exports or release-decode claims.
+`viewer-validation.json` checks actual rendered costs, source downloads, three layers, live helmet swaps at a posed head, original-head restoration, part isolation, wireframe, PNG capture, default-route regression and 390 px layout. Plain GLB remains the source of truth. No new compressed exports or release-decode claims.
 
 ```sh
 node tools/asset-pipeline/build-aurel-helmet-fit.mjs
@@ -49,10 +62,10 @@ python3 tools/build-workshop-docs.py
 node tools/asset-pipeline/test-aurel-helmet-fit.mjs
 ```
 
-Handoff: containing commit plus **`assets/robot-assembly/helmet-fit/`**, including the source manifest and attachment runtime. Preserve the linked original sources at their recorded hashes.
+Handoff: containing commit plus **assets/robot-assembly/helmet-fit/**, with original source files pinned by the manifest. The earlier 1:1 RK fitting is preserved at commit `4278676`.
 
-Completed: requested full-body fitting preview, three source tiers, both head options, pose/clearance checks and source downloads. Pending: visual acceptance, unrestricted movement clearance, optimized combined character export, consuming-game integration and device profiling.
+Completed: smaller RK head, all three interchangeable helmet heads, original-head restoration, inherited tiers, sampled motion clearance, source downloads and viewer checks. Pending: visual acceptance, unrestricted motion clearance, optimized combined export, game integration and device profiling.
 
-Original models and derived attachment preview by **jelaludo / Model Workshop**. No third-party geometry or concept pixels incorporated.
+Original models and attachment preview by **jelaludo / Model Workshop**. No third-party geometry or reference pixels incorporated.
 
 Models by jelaludo — https://jelaludo.github.io/SentryTowers_A6/

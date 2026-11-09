@@ -1,5 +1,13 @@
 # Devlog
 
+## 9 November 2026 / AUREL-03 — smaller, swappable helmet heads
+
+Reduced RK-MG02 to 80% and added Hex Witness at 72% and Breach Warden at 76%. Each keeps uniform proportions and shares a crown 0.215 m above `HEAD_PITCH` (1.785 m above ground). They replace the original cranial surface while retaining AUREL's yaw-bearing neck and muscles. The viewer's Head selector swaps all three, retains the current pose and restores the original head on demand. Existing standalone models and download sources are unchanged.
+
+The shared attachment helper filters original skull/collar geometry in memory, including whole components in the merged static sources. Updated costs, attachment metadata, gallery preview and notes. All 18 helmet/body-head/tier variants, 246 attachment poses and 72 sampled body/muscle collision checks pass. Browser checks cover rendered costs, swaps, downloads, layers, motion and mobile layout. Game compositions remain 51,833–60,734 triangles and 26–27 draws; this is a fitting study, with no FPS or optimized export claim.
+
+Completed: requested reduced head and all current standalone helmets as swappable heads. Pending: visual acceptance, arbitrary-pose clearance, combined optimized export, consuming-game integration and device profiling. Handoff: containing commit plus `assets/robot-assembly/helmet-fit/`.
+
 ## 9 November 2026 / AUREL-03 × RK-MG02 — full-body fitting study
 
 Added an optional RK-MG02 to the AUREL-03 viewer. It follows `HEAD_PITCH` at full scale, local [0, −0.085, 0] m. Full-body checks exposed collar/clavicle and rear-neck intersections absent from the isolated-head review. The fitting helper raises the helmet 20 mm and omits the standalone collar, using the original AUREL neck structure. Crown height is 1.8328 m. Both original head choices, optional muscles, assembly separation and joint inspection remain available; the default route is unchanged.
