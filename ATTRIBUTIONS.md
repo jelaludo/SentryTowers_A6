@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## AUREL-03 × RK-MG02 / 9 November 2026
+
+Non-destructive full-body fitting preview by jelaludo / Model Workshop, composed from the original AUREL skeleton/muscles and RK-MG02 r3 pinned at `44573d5`. Only in-memory attachment, names and collar visibility/low-tier collar geometry change; all original GLBs remain byte-identical. The source models' Workshop attribution applies.
+
 ## Helmet Lab / RK-MG02 / 9 November 2026
 
 Revision 3 rebuilds the enclosure and materials following the user-approved critique: a narrower/lower shell, structural brow, continuous vented guard, flatter recessed face, compact seal and six material finishes. Earlier revisions and sources remain archived; the same external F-STACK / MX reference is retained. Models, derived LODs, inspection controls and studio presentation by jelaludo / Model Workshop.

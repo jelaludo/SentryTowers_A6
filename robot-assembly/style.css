@@ -3,3 +3,5 @@
 .layer-control select{border-color:#8d8060;background:#2d393b}.layer-download{display:block;margin-top:13px;font-size:10px}#layer-note{margin-top:-4px;margin-bottom:17px}
 
 .kit-download{margin:0 0 26px;padding:16px;border:1px solid #aa965f;border-radius:4px;background:#283d44}.kit-download a{display:block;color:#e1c383;text-decoration:none;font-size:12px;line-height:1.7}.kit-download #download-kit{background:#d4b675;color:#172b34;font-size:13px;font-weight:700;text-align:center;padding:10px;border-radius:3px}.kit-download p{font-size:11px;line-height:1.6;color:#bbc9c9;margin:10px 0}.kit-download .kit-notes{font-size:10px;margin-top:8px}
+
+#helmet-download[hidden]{display:none}

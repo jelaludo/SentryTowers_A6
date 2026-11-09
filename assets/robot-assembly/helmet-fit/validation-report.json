@@ -1,0 +1,782 @@
+{
+  "status": "passed",
+  "source_commit": "44573d5c64f229866e301f3a5b7c20ba9da6ba7c",
+  "source_files": 12,
+  "variants": [
+    {
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 754836,
+      "draw_calls": 26,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 62194,
+      "draw_calls": 26,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 1.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 3,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 4.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 7.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 9,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 10.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 11.99,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6650,
+      "draw_calls": 3,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "triangles": 753560,
+      "draw_calls": 26,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "triangles": 62078,
+      "draw_calls": 26,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 1.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 3,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 4.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 7.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 9,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 10.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 11.99,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6656,
+      "draw_calls": 3,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    }
+  ],
+  "scope": "Source preservation, 1:1 attachment and sampled motion fit. No general collision/retargeting guarantee."
+}

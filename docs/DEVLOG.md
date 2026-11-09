@@ -1,5 +1,15 @@
 # Devlog
 
+## 9 November 2026 / AUREL-03 × RK-MG02 — full-body fitting study
+
+Added an optional RK-MG02 to the AUREL-03 viewer. It follows `HEAD_PITCH` at full scale, local [0, −0.085, 0] m. Full-body checks exposed collar/clavicle and rear-neck intersections absent from the isolated-head review. The fitting helper raises the helmet 20 mm and omits the standalone collar, using the original AUREL neck structure. Crown height is 1.8328 m. Both original head choices, optional muscles, assembly separation and joint inspection remain available; the default route is unchanged.
+
+Preserved all source GLBs. The helper namespaces helmet nodes, hides the separate collar surfaces in master/game and omits 268 collar-region triangles from the static copy in memory. Source downloads remain original and separate; no combined equipped export is claimed. Added a helmet selector, neck/shoulder camera, explicit original-body versus helmet download labels, gallery entry, previews and handoff notes under `assets/robot-assembly/helmet-fit/`.
+
+Sensor-head composition costs: master 754,836 triangles / 26 draws; game 62,194 / 26; distance 6,650 / three. These exceed unit/distance reference budgets and are documented as a fitting study. Validation checks six head/tier combinations, 82 attachment poses, and 24 full-body/muscle collision samples with zero intersections. Browser checks cover controls, layers, costs, source downloads, original-route regression and mobile layout. No FPS claim.
+
+Completed: requested wearable preview. Pending: visual acceptance, unrestricted motion clearance, an optimized equipped-character export and consuming-game/device review. Handoff: containing commit plus `assets/robot-assembly/helmet-fit/`.
+
 ## 9 November 2026 / RK-MG02 — fitted enclosure and materials
 
 Implemented the approved construction critique. RK-MG02 is now 272.0 × 347.8 × 322.2 mm: 26 mm narrower and 16.5 mm lower than revision 2. A tapered 4–13 mm brow, continuous 10 mm U-shaped guard, four recessed side vents, closed upper/underside returns, six-slot chin filter, flatter recessed face and compact seal replace the former thin overlays. The broad band and five-sensor formation remain; the cowl has 112 cells. Six shared finishes separate ceramic, metal, face polymer, rubber, glass and emitters; wear is restrained to bevels.

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**AUREL-03 × RK-MG02** is available as a reversible full-body fitting study at `robot-assembly/?helmet=rk-mg02&head=sensor`. The full-scale helmet follows the head joint; a 20 mm clearance lift and omission of its standalone collar let AUREL's neck mechanism remain visible. Original sources are preserved. Notes: `assets/robot-assembly/helmet-fit/`.
+
 **Helmet Lab / RK-MG02** revision 3 has a fitted motocross enclosure: narrower/lower crown, returned brow, continuous vented chin guard, recessed optics, distinct materials and a compact seal. Review it with plain-gray and contact-shading controls and download all three tiers at `helmet-lab/?helmet=rk-mg02`. Earlier shapes remain under `assets/helmet-lab/rk-mg02/originals/`; current handoff notes are in `assets/helmet-lab/rk-mg02/`.
 
 **Helmet Lab / Hex Witness** adds a second standalone helmet: rounded honeycomb cowl, smooth crown band, five red optics and curved vented jaw. Eight separable modules, human/AUREL fit references, detailed/game/static GLBs and a complete ZIP are available at `helmet-lab/?helmet=hex-witness`. Measurements and mounting notes are in `assets/helmet-lab/hex-witness/`. The viewer's Helmet selector switches between both designs.

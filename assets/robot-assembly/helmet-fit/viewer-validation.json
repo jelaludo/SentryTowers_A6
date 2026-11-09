@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader",
+  "scope": "Six head/tier fits, model draw costs, layer visibility, reversible helmet selection, follows motion/explosion, part isolation, source GLB/PNG downloads and mobile layout; original default route retained",
+  "checks": [
+    {
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 754836,
+      "draw_calls": 26
+    },
+    {
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 62194,
+      "draw_calls": 26
+    },
+    {
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6650,
+      "draw_calls": 3
+    },
+    {
+      "head": "frame",
+      "lod": 0,
+      "triangles": 753560,
+      "draw_calls": 26
+    },
+    {
+      "head": "frame",
+      "lod": 1,
+      "triangles": 62078,
+      "draw_calls": 26
+    },
+    {
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6656,
+      "draw_calls": 3
+    }
+  ],
+  "screenshots": [
+    "previews/master.png",
+    "previews/game.png",
+    "previews/distance.png",
+    "previews/both.png",
+    "previews/skeleton.png",
+    "previews/muscles.png",
+    "previews/front.png",
+    "previews/side.png",
+    "previews/back.png",
+    "previews/head.png",
+    "previews/exploded.png",
+    "previews/posed.png",
+    "previews/mobile.png"
+  ],
+  "console_errors": [],
+  "source_sha256": {
+    "robot-assembly/viewer.js": "61af66f00eb7e5a8ba48db8315a0bcbb47848a1da695580bb5e995511c74856b",
+    "robot-assembly/index.html": "cc660262dc15f8c059b46b32ec00a02e567aeef487ff83b9e3e1cc8328aff821",
+    "robot-assembly/style.css": "f3fb044e6b40fd894c9d92e3ad0ae255037a5c627c2740e97e012c5cd08986a4",
+    "assets/robot-assembly/helmet-fit/runtime.js": "ea057b9cddde1e7da558040845183eef3785f406d0583cb230b679c3e395274a",
+    "assets/robot-assembly/helmet-fit/manifest.json": "d394e6177cfd5cf1df18f1eb7af5f50b0eca90c004735deeff90328d31814b64"
+  }
+}
