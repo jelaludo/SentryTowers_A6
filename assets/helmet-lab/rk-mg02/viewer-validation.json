@@ -5,13 +5,13 @@
   "checks": [
     {
       "lod": 0,
-      "triangles": 102544,
+      "triangles": 117656,
       "draw_calls": 10
     },
     {
       "lod": 0,
       "part": "SHELL",
-      "triangles": 32456,
+      "triangles": 39240,
       "draw_calls": 1
     },
     {
@@ -35,7 +35,7 @@
     {
       "lod": 0,
       "part": "JAW",
-      "triangles": 4864,
+      "triangles": 13192,
       "draw_calls": 1
     },
     {
@@ -58,13 +58,13 @@
     },
     {
       "lod": 1,
-      "triangles": 15242,
+      "triangles": 17310,
       "draw_calls": 10
     },
     {
       "lod": 1,
       "part": "SHELL",
-      "triangles": 4520,
+      "triangles": 5540,
       "draw_calls": 1
     },
     {
@@ -88,7 +88,7 @@
     {
       "lod": 1,
       "part": "JAW",
-      "triangles": 404,
+      "triangles": 1452,
       "draw_calls": 1
     },
     {
@@ -111,7 +111,7 @@
     },
     {
       "lod": 2,
-      "triangles": 2994,
+      "triangles": 2610,
       "draw_calls": 1
     },
     {
@@ -167,11 +167,11 @@
   ],
   "console_errors": [],
   "source_sha256": {
-    "helmet-lab/index.html": "6a98f72910fc126bb82a63cd9d67709b4c2bfed1610047c9dd77b56db8108887",
+    "helmet-lab/index.html": "fd3d9b55a2268dc1fe60548bc42181eaed4886e7bedf04eb776a78d14ae26e21",
     "helmet-lab/style.css": "a0375350a13311a6170ba686c1bdf210e76f6211395f8961908d68ee1c18b422",
-    "helmet-lab/viewer.js": "e78ec2ccb034d5d1927b60bca0bd34e1809a4330646927d70f38c4f0fae84c67",
-    "helmet-lab/helmets.js": "9b97916b5ca74ca05d589842e97fc4801edd652752df7d4cb76349033256d368",
-    "assets/helmet-lab/rk-mg02/runtime.js": "d9ba853db414eead9a9fc557787a8444651c8d0e7355db892cf6e0a8a543cce2",
-    "assets/helmet-lab/rk-mg02/manifest.json": "fd507ec67e0748390d01eef1411533b493d53d08b0b05e0cd0ba18e67ef31d42"
+    "helmet-lab/viewer.js": "38ea23417a25f3cd5a934007775bfdb355d4e5df26d17b51e26e2320c1790c7a",
+    "helmet-lab/helmets.js": "2a556778cec37f7ebff9dc727f562c555be03a0050426de89364362d28a7db92",
+    "assets/helmet-lab/rk-mg02/runtime.js": "b02648db1b74180bd784982336b251bc7c4cafba13fa11efd9722f33dc140d64",
+    "assets/helmet-lab/rk-mg02/manifest.json": "f64057436310e80a7e881efc68b368fcfde994712df2e7c4c272de2512c2c830"
   }
 }

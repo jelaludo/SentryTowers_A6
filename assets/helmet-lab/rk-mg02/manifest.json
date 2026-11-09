@@ -3,8 +3,8 @@
   "family": "rk-mg02",
   "series": "Helmet Lab",
   "number": 3,
-  "label": "RK-MG02 / Optical helmet",
-  "revision": 1,
+  "label": "RK-MG02 / Compact MX profile",
+  "revision": 2,
   "plain_glb_source_of_truth": true,
   "coordinate_system": {
     "units": "metres",
@@ -13,7 +13,7 @@
     "origin": "Collar ground datum at plot centre; use SOCKET_NECK for attachment"
   },
   "spec": {
-    "height_m": 0.379,
+    "height_m": 0.3643,
     "head_envelope": {
       "center": [
         0,
@@ -40,7 +40,7 @@
   },
   "modules": {
     "SHELL": {
-      "label": "Honeycomb cowl",
+      "label": "Cowl and short brow peak",
       "offset": [
         0,
         0.07,
@@ -72,7 +72,7 @@
       ]
     },
     "JAW": {
-      "label": "Curved jaw armor",
+      "label": "Chin guard and cheek rails",
       "offset": [
         0,
         -0.035,
@@ -107,7 +107,13 @@
   "design": {
     "band_half_angle_rad": 0.43,
     "lower_pair_raise_m": 0.031,
-    "lower_pair_outward_m": 0.012
+    "lower_pair_outward_m": 0.012,
+    "crown_compression_start_m": 0.326,
+    "crown_compression": 0.7,
+    "rear_flatten_start_m": -0.125,
+    "rear_compression": 0.35,
+    "peak_front_m": 0.195,
+    "chin_front_m": 0.199
   },
   "optics": [
     {
@@ -164,8 +170,8 @@
     "provisional": true
   },
   "reference": {
-    "path": "/Users/jela/Downloads/HexWitness.png",
-    "sha256": "6a7fec579627a8f0b010490b31866ee4653271a58603439cf85c82779722a06c",
+    "path": "/Users/jela/Downloads/ChatGPT Image Nov 9, 2026, 01_44_23 PM.png",
+    "sha256": "eb9882fb9e6066c40136f245cb79e13db3e95b8783292accfdf9e978222ebda6",
     "redistributed": false
   },
   "fit_reference": {
@@ -186,7 +192,8 @@
     "changes": [
       "Crown half-angle 0.28 to 0.43 rad",
       "Lower pair raised 31 mm and separated 12 mm outward per side",
-      "Front copper tabs moved onto the remaining side cells"
+      "Front copper tabs moved onto the remaining side cells",
+      "Revision 2 adds compact MX profile while retaining the optical layout"
     ]
   },
   "preserved_originals": {
@@ -197,11 +204,21 @@
       "assets/robot-assembly/"
     ]
   },
+  "previous_revision": {
+    "commit": "40bd38b55635726721d419ed6512017794b08474",
+    "folder": "originals/r1/",
+    "changes": [
+      "Short brow peak and projecting chin guard",
+      "Lower crown and flatter rear",
+      "Cheek rails and transverse brace",
+      "Original five-optic layout and broad band retained"
+    ]
+  },
   "source_sha256": {
-    "tools/asset-pipeline/rk-mg02-shape.mjs": "5182cd89d5feac413d071331296996110844f79ef197eafcf45f4a24d73312e3",
-    "tools/asset-pipeline/build-rk-mg02.mjs": "96b52b07003183595988c24105a49647c680683564fc93373fdbc2c430b4175a",
+    "tools/asset-pipeline/rk-mg02-shape.mjs": "86653bb462adc940a00dc94d340ad054c9275660ad6dd76cea8f5f8f8e154013",
+    "tools/asset-pipeline/build-rk-mg02.mjs": "5440d281752f7301fdbf1eeb3224384be68942a7f0fb2b7a10a0390146d13150",
     "tools/asset-pipeline/stalheart-kidou-utils.mjs": "d27511be62d28c1914176bee7f346db40d49fac5b788d6a66f3d8de75eb8dc07",
-    "assets/helmet-lab/rk-mg02/runtime.js": "d9ba853db414eead9a9fc557787a8444651c8d0e7355db892cf6e0a8a543cce2"
+    "assets/helmet-lab/rk-mg02/runtime.js": "b02648db1b74180bd784982336b251bc7c4cafba13fa11efd9722f33dc140d64"
   },
   "assets": [
     {
@@ -210,10 +227,10 @@
       "damage_level": 0,
       "static": false,
       "derived": true,
-      "derivation": "Authored Hex Witness variant with wider band and raised lower optics",
-      "bytes": 2977632,
-      "sha256": "c8fd7c541d117e03f4571a443983412c8e9f53f5e6047996bb0b0a1e5f442c6d",
-      "triangles": 102544,
+      "derivation": "Authored RK-MG02 compact MX revision with short peak, chin guard and flatter shell",
+      "bytes": 3427076,
+      "sha256": "4167215fdba767bac1932ac23d55ef9b87942137e292d1046c1dc0cf81b4991e",
+      "triangles": 117656,
       "draw_calls": 10,
       "plot_m": [
         0.36,
@@ -221,19 +238,19 @@
       ],
       "bounds": {
         "min": [
-          -0.13928870856761932,
+          -0.1489863097667694,
           -2.6822088994293836e-10,
-          -0.16899113357067108
+          -0.14299693703651428
         ],
         "max": [
-          0.13928870856761932,
-          0.3790000081062317,
-          0.1863306760787964
+          0.1489863097667694,
+          0.364300012588501,
+          0.1989392638206482
         ],
         "dimensions_m": [
-          0.27857741713523865,
-          0.3790000083744526,
-          0.35532180964946747
+          0.2979726195335388,
+          0.36430001285672187,
+          0.3419362008571625
         ]
       },
       "required_nodes": [
@@ -357,14 +374,14 @@
           "node": "SOCKET_RESPIRATOR",
           "position_m": [
             0,
-            0.09255128263494687,
-            0.12953006764444458
+            0.1,
+            0.187
           ],
           "quaternion_xyzw": [
-            0.3286128286539626,
+            -0.18910752115518623,
             0,
             0,
-            0.9444647208043514
+            0.9819563867313768
           ]
         },
         {
@@ -398,7 +415,7 @@
       ],
       "modules": {
         "SHELL": {
-          "triangles": 32456,
+          "triangles": 39240,
           "draw_calls": 1
         },
         "CROWN_BAND": {
@@ -414,7 +431,7 @@
           "draw_calls": 3
         },
         "JAW": {
-          "triangles": 4864,
+          "triangles": 13192,
           "draw_calls": 1
         },
         "RESPIRATOR": {
@@ -441,9 +458,9 @@
       "static": false,
       "derived": true,
       "derivation": "Reduced RK-MG02 variant",
-      "bytes": 638440,
-      "sha256": "dcfa906a47093e43423dce37152ce7de6583c68d043867821c293d3268286b81",
-      "triangles": 15242,
+      "bytes": 730116,
+      "sha256": "b3b5d3f6a80c608678daef184ddde93eb414e2242668e93e463b2505ebfd2453",
+      "triangles": 17310,
       "draw_calls": 10,
       "plot_m": [
         0.36,
@@ -451,19 +468,19 @@
       ],
       "bounds": {
         "min": [
-          -0.13928870856761932,
+          -0.1489863097667694,
           -2.6822088994293836e-10,
-          -0.16899113357067108
+          -0.14299693703651428
         ],
         "max": [
-          0.13928870856761932,
-          0.3790000081062317,
-          0.1863306760787964
+          0.1489863097667694,
+          0.364300012588501,
+          0.1989392638206482
         ],
         "dimensions_m": [
-          0.27857741713523865,
-          0.3790000083744526,
-          0.35532180964946747
+          0.2979726195335388,
+          0.36430001285672187,
+          0.3419362008571625
         ]
       },
       "required_nodes": [
@@ -587,14 +604,14 @@
           "node": "SOCKET_RESPIRATOR",
           "position_m": [
             0,
-            0.09255128263494687,
-            0.12953006764444458
+            0.1,
+            0.187
           ],
           "quaternion_xyzw": [
-            0.3286128286539626,
+            -0.18910752115518623,
             0,
             0,
-            0.9444647208043514
+            0.9819563867313768
           ]
         },
         {
@@ -628,7 +645,7 @@
       ],
       "modules": {
         "SHELL": {
-          "triangles": 4520,
+          "triangles": 5540,
           "draw_calls": 1
         },
         "CROWN_BAND": {
@@ -644,7 +661,7 @@
           "draw_calls": 3
         },
         "JAW": {
-          "triangles": 404,
+          "triangles": 1452,
           "draw_calls": 1
         },
         "RESPIRATOR": {
@@ -671,9 +688,9 @@
       "static": true,
       "derived": true,
       "derivation": "Reduced RK-MG02 variant",
-      "bytes": 134364,
-      "sha256": "7135dd7702831d657290a0d2c432a4103c64ac0165832d1896d43e449bea00d4",
-      "triangles": 2994,
+      "bytes": 121896,
+      "sha256": "37186fc65b9fd77fb720ee4bb3517b688c7b6eb034f9a3298e504c1afa014616",
+      "triangles": 2610,
       "draw_calls": 1,
       "plot_m": [
         0.36,
@@ -681,19 +698,19 @@
       ],
       "bounds": {
         "min": [
-          -0.13928870856761932,
+          -0.1489863097667694,
           -2.6822088994293836e-10,
-          -0.16899113357067108
+          -0.14299693703651428
         ],
         "max": [
-          0.13928870856761932,
-          0.3790000081062317,
-          0.1863306760787964
+          0.1489863097667694,
+          0.364300012588501,
+          0.1989392638206482
         ],
         "dimensions_m": [
-          0.27857741713523865,
-          0.3790000083744526,
-          0.35532180964946747
+          0.2979726195335388,
+          0.36430001285672187,
+          0.3419362008571625
         ]
       },
       "required_nodes": [
@@ -817,14 +834,14 @@
           "node": "SOCKET_RESPIRATOR",
           "position_m": [
             0,
-            0.09255128263494687,
-            0.12953006764444458
+            0.1,
+            0.187
           ],
           "quaternion_xyzw": [
-            0.3286128286539626,
+            -0.18910752115518623,
             0,
             0,
-            0.9444647208043514
+            0.9819563867313768
           ]
         },
         {

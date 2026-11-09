@@ -6,7 +6,7 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import validator from 'gltf-validator';
 import {createRig,MODULES,SPEC} from '../../assets/helmet-lab/rk-mg02/runtime.js';
-import {faceMap,OPTICS} from './rk-mg02-shape.mjs';
+import {faceMap,OPTICS,chinMap} from './rk-mg02-shape.mjs';
 const out=new URL('../../assets/helmet-lab/rk-mg02/',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),loader=new GLTFLoader(),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const near=(a,b,e=1e-6)=>assert(Math.abs(a-b)<e,`${a} != ${b}`),load=async b=>(await loader.parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'')).scene;
 const report={status:'passed',scope:'Decoded plain exports; geometry, rest frames, inspection separation, authored head/nose clearance and open grille. Reference envelopes are visual fit checks, not certification or donning simulation.',files:[],module_pose_checks:0},scenes=[];
@@ -47,12 +47,20 @@ const bandWidth=scene=>new T.Box3().setFromObject(scene.getObjectByName('PART_CR
 const oldWidth=bandWidth(baseScene),newWidth=bandWidth(scenes[0]);assert(newWidth>oldWidth*1.45);assert(newWidth<oldWidth*1.60);
 report.variant_changes={base_commit:manifest.based_on.commit,base_band_width_m:oldWidth,band_width_m:newWidth,band_width_ratio:newWidth/oldWidth,lower_sensors:[]};
 for(const e of manifest.assets){
- for(const k of['min','max'])e.bounds[k].forEach((v,i)=>near(v,baseManifest.assets[e.lod].bounds[k][i]));
+
  for(const socket of e.sockets){const old=baseManifest.assets[e.lod].sockets.find(s=>s.node===socket.node);assert(old);
   if(socket.node.includes('OPTIC_LOWER')){const dy=socket.position_m[1]-old.position_m[1];assert(dy>.030&&dy<.034);assert(socket.position_m[1]>.155&&socket.position_m[1]<.190);assert(Math.abs(socket.position_m[0])>Math.abs(old.position_m[0]));report.variant_changes.lower_sensors.push({lod:e.lod,node:socket.node,raise_m:dy,position_m:socket.position_m});}
-  else assert.deepEqual(socket,old,'Unrelated attachment frame changed: '+socket.node);
+  else if(socket.node!=='SOCKET_RESPIRATOR')assert.deepEqual(socket,old,'Unrelated attachment frame changed: '+socket.node);
  }
 }
+const archive=JSON.parse(await fs.readFile(new URL('originals/r1/archive.json',out)));report.preserved_revision={commit:archive.commit,files:0};
+for(const f of archive.files){const bytes=await fs.readFile(new URL('originals/r1/'+f.archive,out)),old=execFileSync('git',['show',archive.commit+':'+f.source],{maxBuffer:8e7});assert.equal(sha(bytes),f.sha256);assert.equal(sha(bytes),sha(old));report.preserved_revision.files++;}
+const previous=JSON.parse(await fs.readFile(new URL('originals/r1/manifest.json',out)));
+for(const e of manifest.assets){assert.deepEqual(e.required_nodes,previous.assets[e.lod].required_nodes);for(const socket of e.sockets)if(socket.node!=='SOCKET_RESPIRATOR')assert.deepEqual(socket,previous.assets[e.lod].sockets.find(s=>s.node===socket.node));}
+report.profile={previous_bounds:previous.assets[0].bounds,bounds:manifest.assets[0].bounds};
+assert(manifest.assets[0].bounds.max[1]<previous.assets[0].bounds.max[1]-.010);
+assert(manifest.assets[0].bounds.min[2]>previous.assets[0].bounds.min[2]+.020);
+assert(manifest.assets[0].bounds.max[2]>previous.assets[0].bounds.max[2]+.010);
 const robot=await load(await fs.readFile(new URL('../../'+manifest.fit_reference.robot_file,import.meta.url)));robot.position.fromArray(SPEC.robot_head_offset_m);const robotTriangles=trianglesOf(robot);report.robot_fit=[];
 const attachment=robot.getObjectByName('SOCKET_HEAD_ATTACH'),headDatum=scenes[0].getObjectByName('SOCKET_HEAD_DATUM');near(attachment.getWorldPosition(new T.Vector3()).distanceTo(headDatum.getWorldPosition(new T.Vector3())),0);near(new T.Vector3(0,0,1).transformDirection(attachment.matrixWorld).dot(new T.Vector3(0,0,1).transformDirection(headDatum.matrixWorld)),-1);
 for(const scene of scenes){const hits=[],bvh=tree(trianglesOf(scene));for(const t of robotTriangles)collisions(bvh,t,hits);assert.equal(hits.length,0,JSON.stringify(hits.slice(0,10)));report.robot_fit.push({lod:createRig(scene).root.userData.lod,reference_triangles:robotTriangles.length,surface_intersections:hits.length,reference_scale:1});}
@@ -69,7 +77,7 @@ for(const scene of scenes.slice(0,2)){
   for(const [u,v]of[[.55,0],[-.55,0],[0,.55],[0,-.55]]){const q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),n),start=p.clone().add(new T.Vector3(u*spec.glass,v*spec.glass,.10).applyQuaternion(q)),probe=new T.Raycaster(start,n.clone().negate()),h=probe.intersectObject(scene,true)[0];assert(h?.object.name==='OPTICAL_GLASS','Housing covers lens '+spec.id);}
   report.optical_mounts.push({lod:createRig(scene).root.userData.lod,optic:spec.id,first_hit:hits[0].object.name,outward_normal_dot:glassHits[0].face.normal.dot(n)});
  }
- const chin=(x,y)=>faceMap(x,y).addScaledVector(normal(faceMap,x,y),.014);
+ const chin=chinMap;
  scene.traverse(n=>{if(n.isMesh)n.material.side=T.DoubleSide;});
  for(let i=0;i<6;i++)for(const y of[.088,.100,.112]){
   const x=-.019+(i+.5)*.006333,p=chin(x,y),n=normal(chin,x,y),ray=new T.Raycaster(p.clone().addScaledVector(n,.04),n.clone().negate()),hit=ray.intersectObject(scene.getObjectByName('SURFACE_RESPIRATOR'))[0];assert(hit&&hit.distance>.044&&hit.distance<.050,'Blocked chin opening');report.grille.push({lod:createRig(scene).root.userData.lod,slot:i,y,filter_recess_m:hit.distance-.04});

@@ -6,18 +6,25 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {clean,geometryFor} from './stalheart-kidou-utils.mjs';
 import {SPEC,MODULES} from '../../assets/helmet-lab/rk-mg02/runtime.js';
 
-const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z),C={shell:0x899992,band:0x9caaa3,edge:0x727d72,dark:0x242b2b,black:0x10191a,rubber:0x1b2323,jaw:0xb0b1a4,copper:0xac6d3d,steel:0x6f7772,red:0x511714,redEdge:0x77392e,glow:0xffbca3};
+const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z),C={shell:0x899992,band:0xb0b1a4,edge:0x727d72,dark:0x242b2b,black:0x10191a,rubber:0x1b2323,jaw:0xb0b1a4,copper:0xac6d3d,steel:0x6f7772,red:0x511714,redEdge:0x77392e,glow:0xffbca3};
 const CENTER=V(0,.207,-.004),RADIUS=V(.137,.168,.161),BAND=.43;
 const noise=(x,y,z)=>{const a=Math.sin(x*17931+y*3491+z*10713)*43758.5453;return a-Math.floor(a);};
 const normal=(map,u,v)=>map(u+1e-5,v).sub(map(u-1e-5,v)).cross(map(u,v+1e-5).sub(map(u,v-1e-5))).normalize();
-const ellipsoidNormal=n=>V(n.x/RADIUS.x,n.y/RADIUS.y,n.z/RADIUS.z).normalize();
-const surface=(n,d=0)=>n.clone().multiply(RADIUS).add(CENTER).addScaledVector(ellipsoidNormal(n),d);
+// Flatten the crown and rear without touching the sensor face or mounting datums.
+const shellPoint=n=>{const p=n.clone().multiply(RADIUS).add(CENTER);if(p.y>.326)p.y=.326+(p.y-.326)*.70;if(p.z<-.125)p.z=-.125+(p.z+.125)*.35;return p;};
+const ellipsoidNormal=n=>{const p=n.clone().multiply(RADIUS).add(CENTER),v=V(n.x/RADIUS.x,n.y/RADIUS.y,n.z/RADIUS.z);if(p.y>.326)v.y/=.70;if(p.z<-.125)v.z/=.35;return v.normalize();};
+const surface=(n,d=0)=>shellPoint(n).addScaledVector(ellipsoidNormal(n),d);
+const normalFromShellPoint=p=>{if(p.y>.326)p.y=.326+(p.y-.326)/.70;if(p.z<-.125)p.z=-.125+(p.z+.125)/.35;return ellipsoidNormal(p.sub(CENTER).divide(RADIUS).normalize());};
 const lowerY=t=>.067+.205*Math.max(0,(Math.cos(t)-.15)/.85)**.45;
 const keep=n=>surface(n).y-lowerY(Math.atan2(n.x,n.z));
 const direction=(y,t)=>{const yy=(y-CENTER.y)/RADIUS.y,r=Math.sqrt(Math.max(0,1-yy*yy));return V(r*Math.sin(t),yy,r*Math.cos(t));};
 export const faceMap=(x,y)=>surface(V(x/RADIUS.x,(y-CENTER.y)/RADIUS.y,Math.sqrt(Math.max(0,1-(x/RADIUS.x)**2-((y-CENTER.y)/RADIUS.y)**2))),-.002);
-export const DESIGN={band_half_angle_rad:BAND,lower_pair_raise_m:.031,lower_pair_outward_m:.012};
+export const DESIGN={band_half_angle_rad:BAND,lower_pair_raise_m:.031,lower_pair_outward_m:.012,crown_compression_start_m:.326,crown_compression:.70,rear_flatten_start_m:-.125,rear_compression:.35,peak_front_m:.195,chin_front_m:.199};
 export const OPTICS=[{id:'CENTRAL',x:0,y:.190,r:.051,glass:.043},{id:'UPPER_L',x:.063,y:.236,r:.019,glass:.0138},{id:'UPPER_R',x:-.063,y:.236,r:.019,glass:.0138},{id:'LOWER_L',x:.073,y:.163,r:.018,glass:.0128},{id:'LOWER_R',x:-.073,y:.163,r:.018,glass:.0128}];
+
+export const chinMap=(x,y)=>V(x,y,.193-.40*(y-.085)-.003*(x/.028)**2);
+export const guardMap=(x,y)=>V(x,y,chinMap(.025,y).z-.90*Math.max(0,Math.abs(x)-.025));
+export const peakMap=(x,negativeZ)=>{const z=-negativeZ;return V(x,.285-.042*(x/.126)**2-.06*(z-.138),z);};
 
 function colorize(g,color,grain=.025){g.deleteAttribute('uv');g.clearGroups();const c=new T.Color(color),p=g.attributes.position,a=[];for(let i=0;i<p.count;i++){const k=1-grain/2+grain*noise(p.getX(i),p.getY(i),p.getZ(i));a.push(...c.clone().multiplyScalar(k).toArray().map(v=>Math.min(1,v)));}g.setAttribute('color',new T.Float32BufferAttribute(a,3));if(!g.attributes.normal)g.computeVertexNormals();return g;}
 function meshFromTriangles(triangles,color){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(triangles.flatMap(t=>t.flatMap(v=>v.toArray())),3));g.computeVertexNormals();return colorize(g,color);}
@@ -25,7 +32,7 @@ function curvedPatch(map,nu,nv,{color=C.shell,depth=.004,exterior=false,wrap=fal
 function curvedPlate(points,map,{color=C.jaw,depth=.005,lod=0,bevel=.0014}={}){
  if(T.ShapeUtils.isClockWise(points.map(p=>new T.Vector2(...p))))points=[...points].reverse();const middle=points.reduce((a,p)=>[a[0]+p[0]/points.length,a[1]+p[1]/points.length],[0,0]),inner=points.map(p=>{const d=Math.hypot(p[0]-middle[0],p[1]-middle[1]);return[p[0]+(middle[0]-p[0])*bevel/d,p[1]+(middle[1]-p[1])*bevel/d];}),triangles=[],normals=[];
  const push=(t,ns)=>{triangles.push(t);const n=new T.Triangle(...t).getNormal(V());normals.push(ns||[n,n,n]);};
- const at=(p,d=0)=>map(...p).addScaledVector(normal(map,...p),d),step=lod===0?.009:lod===1?.025:.040,vertices=inner.map(p=>[...p]);
+ const at=(p,d=0)=>map(...p).addScaledVector(normal(map,...p),d),step=lod===0?.009:lod===1?.025:.050,vertices=inner.map(p=>[...p]);
  // Split shared edges together. Matching binary boundary samples keep the
  // bevel and face watertight even at low tessellation.
  let faces=T.ShapeUtils.triangulateShape(inner.map(p=>new T.Vector2(...p)),[]);
@@ -57,7 +64,7 @@ export async function buildRKMG02(lod,referenceBounds){
  const hardware=(id,p,n,r=.002)=>{if(!master)return;const q=new T.Quaternion().setFromUnitVectors(V(0,0,1),n);add(id,cylinder(r*1.3,.0008,p,C.black,q,master?12:6));add(id,cylinder(r,.001,p.clone().addScaledVector(n,.0006),C.copper,q,master?12:6));if(master)add(id,box([r*1.25,.0004,.0004],p.clone().addScaledVector(n,.0012),C.dark,q));};
  // One hollow carrier, with cells fitted to its analytic curvature.
  const cowl=(u,v)=>{const t=u*Math.PI*2,y=T.MathUtils.lerp(lowerY(t),.375,v);return surface(direction(y,t));};
- add('SHELL',curvedPatch(cowl,master?96:far?24:32,master?32:far?9:12,{color:far?C.shell:C.dark,depth:.006,exterior:far,wrap:true}));
+ add('SHELL',curvedPatch(cowl,master?96:far?20:32,master?32:far?8:12,{color:far?C.shell:C.dark,depth:.006,exterior:far,wrap:true}));
  // Dual geodesic cells are predominantly hexagons, with curvature-closing pentagons.
  let cellCount=0;
  if(!far)for(const cell of dualCells())for(const side of[-1,1]){
@@ -65,15 +72,15 @@ export async function buildRKMG02(lod,referenceBounds){
    const centroid=poly.reduce((a,n)=>a.add(n),V()).normalize(),inset=poly.map(n=>n.clone().lerp(centroid,.045).normalize()),front=[],edges=[];
    const subdivide=(a,b,c,level)=>{if(level){const ab=a.clone().add(b).normalize(),ac=a.clone().add(c).normalize(),bc=b.clone().add(c).normalize();subdivide(a,ab,ac,level-1);subdivide(ab,b,bc,level-1);subdivide(ac,bc,c,level-1);subdivide(ab,bc,ac,level-1);}else front.push([surface(a,.002),surface(b,.002),surface(c,.002)]);};
    for(let i=0;i<inset.length;i++){const j=(i+1)%inset.length;subdivide(centroid,inset[i],inset[j],master?2:0);const ai=inset[i].clone().lerp(centroid,.025).normalize(),bi=inset[j].clone().lerp(centroid,.025).normalize();edges.push([surface(ai,.0026),surface(inset[i],.0017),surface(inset[j],.0017)],[surface(ai,.0026),surface(inset[j],.0017),surface(bi,.0026)]);}
-   const tone=new T.Color(C.shell).multiplyScalar(.96+noise(cellCount,side,1)*.07);const face=meshFromTriangles(front,tone),fp=face.attributes.position,fn=[];for(let i=0;i<fp.count;i++)fn.push(...V().fromBufferAttribute(fp,i).sub(CENTER).divide(RADIUS).divide(RADIUS).normalize().toArray());face.setAttribute('normal',new T.Float32BufferAttribute(fn,3));add('SHELL',face);add('SHELL',meshFromTriangles(edges,C.edge));cellCount++;
+   const tone=new T.Color(C.shell).multiplyScalar(.96+noise(cellCount,side,1)*.07);const face=meshFromTriangles(front,tone),fp=face.attributes.position,fn=[];for(let i=0;i<fp.count;i++)fn.push(...normalFromShellPoint(V().fromBufferAttribute(fp,i)).toArray());face.setAttribute('normal',new T.Float32BufferAttribute(fn,3));add('SHELL',face);add('SHELL',meshFromTriangles(edges,C.edge));cellCount++;
  }
  root.userData.honeycomb_cells=cellCount;
- add('CROWN_BAND',curvedPatch((u,v)=>crownBand(u,v),master?20:6,master?88:far?24:28,{color:C.band,depth:.004,exterior:far}));
+ add('CROWN_BAND',curvedPatch((u,v)=>crownBand(u,v),master?20:far?4:6,master?88:far?18:28,{color:C.band,depth:.004,exterior:far}));
  if(far){
-  const edges=[Array.from({length:7},(_,i)=>[i/6,0]),Array.from({length:25},(_,i)=>[1,i/24]),Array.from({length:7},(_,i)=>[1-i/6,1]),Array.from({length:25},(_,i)=>[0,1-i/24])],walls=[];
+  const edges=[Array.from({length:5},(_,i)=>[i/4,0]),Array.from({length:19},(_,i)=>[1,i/18]),Array.from({length:5},(_,i)=>[1-i/4,1]),Array.from({length:19},(_,i)=>[0,1-i/18])],walls=[];
   for(const edge of edges)for(let i=0;i<edge.length-1;i++){const a=crownBand(...edge[i]),b=crownBand(...edge[i+1]),c=crownBand(...edge[i+1],0),d=crownBand(...edge[i],0);walls.push([a,d,b],[b,d,c]);}add('CROWN_BAND',meshFromTriangles(walls,C.band));
  }
- add('CROWN_BAND',cylinder(.002,.0004,V(0,.3788,-.004),C.band,new T.Quaternion().setFromUnitVectors(V(0,0,1),V(0,1,0)),N));
+ add('CROWN_BAND',cylinder(.002,.0004,V(0,.3641,-.004),C.band,new T.Quaternion().setFromUnitVectors(V(0,0,1),V(0,1,0)),far?3:N));
  if(!far)for(const u of[0,1])add('CROWN_BAND',tube(Array.from({length:49},(_,i)=>crownBand(u,i/48,.005)),master?.0008:.001,C.edge,master?96:far?20:48,master?6:4));
  // The opening and inset face share the same cowl boundary.
  const maxTheta=Math.acos(.15),outline=Array.from({length:master?65:far?17:25},(_,i)=>{const t=-maxTheta+i*maxTheta*2/((master?65:far?17:25)-1),p=surface(direction(lowerY(t),t));return[p.x,p.y];});
@@ -82,6 +89,17 @@ export async function buildRKMG02(lod,referenceBounds){
  if(master){
    for(let j=0;j<8;j++){const y=.11+j*.017,x=.105*Math.sin(j*2.2);if((x/.137)**2+((y-.207)/.168)**2<.85){const a=faceMap(x,y),b=faceMap(x+.012,y+.007);add('FACEPLATE',tube([a.addScaledVector(normal(faceMap,x,y),.0006),b.addScaledVector(normal(faceMap,x+.012,y+.007),.0006)],.00025,C.steel,2,3));}}
  }
+ // Compact motocross peak. Its rear crescent seats into the brow; the lip
+ // extends only 9 mm beyond the central lens, avoiding a long racing beak.
+ const peakOutline=[[-.124,-.066],[-.126,-.116],[-.105,-.162],[-.058,-.190],[0,-.195],[.058,-.190],[.105,-.162],[.126,-.116],[.124,-.066],[.084,-.112],[0,-.138],[-.084,-.112]];
+ add('SHELL',curvedPlate(peakOutline,peakMap,{color:C.band,depth:.006,lod,bevel:.002}));
+ for(const side of[-1,1]){
+  const p=peakMap(side*.116,-.116),n=normal(peakMap,side*.116,-.116);hardware('SHELL',p,n,.0035);
+  // Short dark intake faces with a raised forward lip, no tall crest.
+  if(!far){const x=side*.071,z=.155,q=new T.Quaternion().setFromUnitVectors(V(0,0,1),normal(peakMap,x,-z));add('SHELL',box([.025,.006,.001],peakMap(x,-z).addScaledVector(normal(peakMap,x,-z),.0008),C.dark,q));}
+ }
+ // A slim transverse brace breaks up the uninterrupted cowl height.
+ if(!far)for(const side of[-1,1])add('SHELL',curvedPatch((u,v)=>{const t=side*(.51+u*2.12);return surface(direction(.291+v*.009,t),.005);},master?44:16,1,{color:C.band,depth:.003}));
  // All lens parts are authored in local optical planes and mounted normal to the face.
  for(const spec of OPTICS){const {x,y,r,glass:gr}=spec,p=faceMap(x,y),n=normal(faceMap,x,y),q=new T.Quaternion().setFromUnitVectors(V(0,0,1),n),at=z=>p.clone().addScaledVector(n,z*(spec.id==='CENTRAL'?1:.62)),big=spec.id==='CENTRAL';
    if(!far){add('OPTICS',cylinder(r,.010*(big?1:.62),at(.006),C.black,q,N));add('OPTICS',cylinder(r*.91,.009*(big?1:.62),at(.013),C.steel,q,N));add('OPTICS',cylinder(r*.83,.008*(big?1:.62),at(.018),C.black,q,N));}else add('OPTICS',cylinder(r,.016*(big?1:.62),at(.012),C.black,q,N));
@@ -90,15 +108,27 @@ export async function buildRKMG02(lod,referenceBounds){
    // A centre fan plus concentric annuli avoids degenerate pole triangles.
    const tri=[],rings=master?(big?14:8):far?2:5;for(let j=0;j<rings;j++)for(let i=0;i<N;i++){const a=lensMap(i/N,j/rings),b=lensMap((i+1)/N,j/rings),c=lensMap(i/N,(j+1)/rings),d=lensMap((i+1)/N,(j+1)/rings);if(j)tri.push([a,c,b]);tri.push([b,c,d]);}let lens=meshFromTriangles(tri,C.red);const lp=lens.attributes.position,ln=[];for(let i=0;i<lp.count;i++)ln.push(...V(2*(big?.007:.003)*lp.getX(i)/gr**2,2*(big?.007:.003)*lp.getY(i)/gr**2,1).normalize().toArray());lens.setAttribute('normal',new T.Float32BufferAttribute(ln,3));if(!big)lens.scale(1,1,.62);lensParts.push(placed(lens,p,q));
    if(!far){for(const f of big?(master?[.22,.44,.66,.88]:[.44,.88]):(master?[.52,.86]:[])){const rr=gr*f,z=.022+(big?.007:.003)*(1-f*f)+.0003,ring=new T.TorusGeometry(rr,big?.0003:.0002,master?5:3,N);lensParts.push(colorize(placed(ring,at(z),q),C.redEdge));}if(master&&big)for(let k=0;k<12;k++){const a=k*Math.PI/6,pts=Array.from({length:9},(_,i)=>{const f=.12+i*.10;return V(gr*f*Math.cos(a),gr*f*Math.sin(a),.022+.007*(1-f*f)+.0004);});lensParts.push(placed(tube(pts,.00017,C.redEdge,12,3),p,q));}}
-   if(far)glowParts.push(cylinder(big?.0023:.0015,.0002,at(big?.030:.026),C.glow,q,6));else glowParts.push(colorize(placed(new T.SphereGeometry(big?.0023:.0015,master?16:8,master?10:6),at(big?.030:.026),q),C.glow,0));
+   if(far)glowParts.push(colorize(placed(new T.CircleGeometry(big?.0023:.0015,6),at(big?.030:.026),q),C.glow,0));else glowParts.push(colorize(placed(new T.SphereGeometry(big?.0023:.0015,master?16:8,master?10:6),at(big?.030:.026),q),C.glow,0));
    socket('SOCKET_OPTIC_'+spec.id,'OPTICS',at(big?.030:.026),n);
  }
  // Jaw panels sit over the same face surface; no independent tilted flat slabs.
- const jawMap=(x,y)=>faceMap(x,y).addScaledVector(normal(faceMap,x,y),.008),jawOutline=[[.025,.120],[.057,.111],[.088,.139],[.101,.173],[.117,.168],[.116,.129],[.091,.089],[.032,.073]];
+ const jawMap=guardMap,jawOutline=[[.025,.120],[.057,.111],[.088,.139],[.101,.173],[.117,.168],[.116,.129],[.091,.089],[.032,.073]];
  for(const side of[-1,1]){const points=jawOutline.map(([x,y])=>[side*x,y]);add('JAW',curvedPlate(points,jawMap,{color:C.jaw,depth:.006,lod}));for(const[x,y]of[[.104,.156],[.038,.084]])hardware('JAW',jawMap(side*x,y),normal(jawMap,side*x,y));
    for(const x of[.043,.055]){const center=jawMap(side*x,.097),n=normal(jawMap,side*x,.097),q=new T.Quaternion().setFromUnitVectors(V(0,0,1),n);add('JAW',box([.003,.014,.0015],center.clone().addScaledVector(n,.001),C.copper,q));}
  }
- const chin=(x,y)=>faceMap(x,y).addScaledVector(normal(faceMap,x,y),.014);
+ for(const side of[-1,1]){
+  // Sweep one continuous cheek rail from beneath the front guard to the rear.
+  const rail=(distance,y)=>{const u=distance/.16,x=side*(.112+.032*Math.sin(Math.PI*u)+.005*u),frontZ=guardMap(.112,y).z-.008;return V(x,y,T.MathUtils.lerp(frontZ,-.080,u));};
+  const outline=[[0,.160],[.24,.185],[.82,.175],[1,.148],[.88,.106],[.20,.091],[0,.120]];
+  const map=(u,y)=>rail(side*u,y),poly=outline.map(([u,y])=>[side*u*.16,y]);
+  add('JAW',curvedPlate(poly,map,{color:C.band,lod,depth:.005,bevel:.0018}));
+  if(!far){const vent=[[.28,.116],[.30,.147],[.70,.150],[.72,.122]].map(([u,y])=>[side*u*.16,y]),ventMap=(u,y)=>map(u,y).addScaledVector(normal(map,u,y),.001);
+   add('JAW',curvedPlate(vent,ventMap,{color:C.black,lod,depth:.001,bevel:.0004}));
+   for(let j=0;j<4;j++){const u=side*(.35+j*.10)*.16,p=ventMap(u,.133),n=normal(map,u,.133),q=new T.Quaternion().setFromUnitVectors(V(0,0,1),n);add('JAW',box([.0012,.023,.0014],p.clone().addScaledVector(n,.0008),C.steel,q));}
+  }
+ }
+
+ const chin=chinMap;
  // Frame strips and seven curved slats leave six genuine openings to a black filter.
  for(const poly of[[[-.028,.078],[-.026,.119],[-.020,.119],[-.020,.078]],[[.020,.078],[.020,.119],[.026,.119],[.028,.078]],[[-.026,.119],[-.016,.132],[.016,.132],[.026,.119]],[[-.028,.078],[.028,.078],[.018,.070],[-.018,.070]]])add('RESPIRATOR',curvedPlate(poly,chin,{color:C.jaw,lod,depth:.005,bevel:.0007}));
  for(let i=0;i<7;i++){const x=-.019+i*.006333;add('RESPIRATOR',curvedPlate([[x-.001,.078],[x+.001,.078],[x+.001,.119],[x-.001,.119]],chin,{color:C.steel,lod,depth:.005,bevel:.0002}));}
@@ -106,7 +136,7 @@ export async function buildRKMG02(lod,referenceBounds){
  socket('SOCKET_RESPIRATOR','RESPIRATOR',chin(0,.100),normal(chin,0,.100));
  // Low collar, ribbed neck seal, bronze latches and rear service recesses.
  add('COLLAR',curvedPatch((u,v)=>{const a=u*Math.PI*2,r=T.MathUtils.lerp(.087,.064,v);return V(r*Math.sin(a),.024+.026*v,-.006+r*1.10*Math.cos(a));},master?80:far?16:28,master?6:2,{color:C.rubber,depth:.005,exterior:far,wrap:true}));
- for(const y of far?[.056]:[.049,.058,.067]){const torus=new T.TorusGeometry(.063,far?.008:.0045,master?10:4,master?80:far?20:40);torus.rotateX(Math.PI/2);torus.scale(1,1,1.10);torus.translate(0,y,-.006);add('COLLAR',colorize(torus,C.rubber));}
+ for(const y of far?[.056]:[.049,.058,.067]){const torus=new T.TorusGeometry(.063,far?.008:.0045,master?10:4,master?80:far?16:40);torus.rotateX(Math.PI/2);torus.scale(1,1,1.10);torus.translate(0,y,-.006);add('COLLAR',colorize(torus,C.rubber));}
  for(let i=0;i<12;i++){const t=i*Math.PI/6,plate=curvedPatch((u,v)=>{const a=t+(u-.5)*.48;return V(.095*Math.sin(a),.006+.025*v,-.006+.102*Math.cos(a));},master?8:far?1:3,1,{color:i%3===0?C.steel:C.dark,depth:.007,exterior:far});add('COLLAR',plate);const p=V(.096*Math.sin(t),.018,-.006+.103*Math.cos(t)),n=V(Math.sin(t),0,Math.cos(t));hardware('COLLAR',p,n,.0017);}
  add('COLLAR',box([.036,.026,.011],V(0,.013,.099),C.dark));add('COLLAR',box([.021,.004,.002],V(0,.016,.1055),C.copper));add('COLLAR',box([.038,.020,.009],V(0,.016,-.108),C.steel));add('COLLAR',box([.020,.004,.002],V(0,.016,-.113),C.copper));
  for(const side of[-1,1])for(const t0 of[.63,1.23,2.7]){const t=side*t0,y=lowerY(t)+.008,p=surface(direction(y,t),.003),n=ellipsoidNormal(direction(y,t)),q=new T.Quaternion().setFromUnitVectors(V(0,0,1),n);add('SHELL',box([.018,.006,.0025],p,C.copper,q));hardware('SHELL',p,n,.0014);}

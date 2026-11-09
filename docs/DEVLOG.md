@@ -1,5 +1,16 @@
 # Devlog
 
+## 9 November 2026 / RK-MG02 — compact motocross profile
+
+Reshaped RK-MG02 to reduce the egg-like outline using the supplied F-STACK / MX reference. A short brow peak, 14.7 mm lower crown, approximately 26 mm flatter rear, forward chin guard, swept cheek rails and slim transverse brace establish a restrained dirt-bike shape. Ivory bands/guard panels contrast with the retained green honeycomb. The five sensor positions, broad crown band, module names and head/neck attachment frames remain. The respirator frame follows the new chin guard; its six openings remain clear. Side/peak vent details are visual surfaces, not simulated ducts.
+
+Archived the complete previous model family and authoring sources byte-for-byte under `assets/helmet-lab/rk-mg02/originals/r1/`, pinned to `40bd38b`. Current tiers share a new 298.0 × 364.3 × 341.9 mm envelope; Hex Witness, Breach Warden, robot assets and the received collaboration contract are unchanged. Master/game/static counts are 117,656 / 17,310 / 2,610 triangles, 10 / 10 / one draws, and 3,427,076 / 730,116 / 121,896 plain bytes. Game remains below the unit triangle reference and above stationary-landmark triangle/byte references; distance meets 3k/one-draw/250 KB. No FPS claim.
+
+All decoded plain exports pass glTF/geometry, rest-fit, optical aperture, chin grille, node/frame parity and 96 module-pose checks. Revision checks verify preservation and the measured profile changes. Updated viewer copy, three-tier downloads/ZIP, previews, gallery, integration notes and shared documentation. Browser review covers costs, controls, downloads, original-family switching and mobile layout.
+
+Completed: requested restrained motocross reshaping and current handoff. Pending: visual acceptance and previously documented moving fit/donning, damage and consuming-game release/profile work. Handoff: containing commit plus `assets/helmet-lab/rk-mg02/`.
+
+
 ## 9 November 2026 / Helmet Lab — RK-MG02
 
 Created the requested independent Hex Witness variant. The smooth crown band is 120.7 mm wide versus 80.6 mm on the original, approximately 50% broader. The lower sensor mounting parameters rise 31 mm and spread outward 12 mm per side, placing the pair beside the lower half of the large central optic as sketched. Surface-mounted lens sockets rise 33.49 mm. The front copper tabs move outward to remain on the side panels; the broader band leaves 144 honeycomb cells. Central/upper optics, jaw, collar, liner, head fit and overall dimensions retain the base design.

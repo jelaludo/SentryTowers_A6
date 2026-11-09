@@ -4,15 +4,15 @@
   "files": [
     {
       "file": "rk_mg02_d0_lod0.glb",
-      "sha256": "c8fd7c541d117e03f4571a443983412c8e9f53f5e6047996bb0b0a1e5f442c6d",
-      "bytes": 2977632,
-      "triangles": 102544,
+      "sha256": "4167215fdba767bac1932ac23d55ef9b87942137e292d1046c1dc0cf81b4991e",
+      "bytes": 3427076,
+      "triangles": 117656,
       "draw_calls": 10,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.2359277507732613,
+        "minimum_normalized_radius": 1.1168557320951866,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
@@ -24,40 +24,40 @@
     },
     {
       "file": "rk_mg02_d0_lod1.glb",
-      "sha256": "dcfa906a47093e43423dce37152ce7de6583c68d043867821c293d3268286b81",
-      "bytes": 638440,
-      "triangles": 15242,
+      "sha256": "b3b5d3f6a80c608678daef184ddde93eb414e2242668e93e463b2505ebfd2453",
+      "bytes": 730116,
+      "triangles": 17310,
       "draw_calls": 10,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.2357793559079933,
+        "minimum_normalized_radius": 1.1163420975677625,
         "nearest_mesh": "SURFACE_LINER",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 1.8282039769805145,
+        "minimum_normalized_radius": 1.8288217939496836,
         "nearest_mesh": "SURFACE_FACEPLATE",
         "intersects": false
       }
     },
     {
       "file": "rk_mg02_d0_lod2.glb",
-      "sha256": "7135dd7702831d657290a0d2c432a4103c64ac0165832d1896d43e449bea00d4",
-      "bytes": 134364,
-      "triangles": 2994,
+      "sha256": "37186fc65b9fd77fb720ee4bb3517b688c7b6eb034f9a3298e504c1afa014616",
+      "bytes": 121896,
+      "triangles": 2610,
       "draw_calls": 1,
       "gltf_errors": 0,
       "gltf_warnings": 0,
       "degenerate_triangles": 0,
       "human_fit": {
-        "minimum_normalized_radius": 1.351148193880123,
+        "minimum_normalized_radius": 1.2479899065439017,
         "nearest_mesh": "DISTANCE_SURFACE",
         "intersects": false
       },
       "nose_fit": {
-        "minimum_normalized_radius": 2.1667234924593486,
+        "minimum_normalized_radius": 2.1141784887296273,
         "nearest_mesh": "DISTANCE_SURFACE",
         "intersects": false
       }
@@ -71,8 +71,8 @@
   "variant_changes": {
     "base_commit": "84713783451299097150ca80eb8f6552b7e353ed",
     "base_band_width_m": 0.08064695447683334,
-    "band_width_m": 0.12072449177503586,
-    "band_width_ratio": 1.496950412550485,
+    "band_width_m": 0.1208130419254303,
+    "band_width_ratio": 1.4980484100008398,
     "lower_sensors": [
       {
         "lod": 0,
@@ -136,6 +136,46 @@
       }
     ]
   },
+  "preserved_revision": {
+    "commit": "40bd38b55635726721d419ed6512017794b08474",
+    "files": 28
+  },
+  "profile": {
+    "previous_bounds": {
+      "min": [
+        -0.13928870856761932,
+        -2.6822088994293836e-10,
+        -0.16899113357067108
+      ],
+      "max": [
+        0.13928870856761932,
+        0.3790000081062317,
+        0.1863306760787964
+      ],
+      "dimensions_m": [
+        0.27857741713523865,
+        0.3790000083744526,
+        0.35532180964946747
+      ]
+    },
+    "bounds": {
+      "min": [
+        -0.1489863097667694,
+        -2.6822088994293836e-10,
+        -0.14299693703651428
+      ],
+      "max": [
+        0.1489863097667694,
+        0.364300012588501,
+        0.1989392638206482
+      ],
+      "dimensions_m": [
+        0.2979726195335388,
+        0.36430001285672187,
+        0.3419362008571625
+      ]
+    }
+  },
   "robot_fit": [
     {
       "lod": 0,
@@ -191,31 +231,31 @@
       "lod": 1,
       "optic": "CENTRAL",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9994552676030259
+      "outward_normal_dot": 0.9994543985439991
     },
     {
       "lod": 1,
       "optic": "UPPER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9996330102840294
+      "outward_normal_dot": 0.9996191669894416
     },
     {
       "lod": 1,
       "optic": "UPPER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9996330102840294
+      "outward_normal_dot": 0.9996191669894416
     },
     {
       "lod": 1,
       "optic": "LOWER_L",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9995735456007886
+      "outward_normal_dot": 0.9995586286482558
     },
     {
       "lod": 1,
       "optic": "LOWER_R",
       "first_hit": "OPTICAL_CORES",
-      "outward_normal_dot": 0.9995735456007886
+      "outward_normal_dot": 0.9995586286482558
     }
   ],
   "grille": [
@@ -223,217 +263,217 @@
       "lod": 0,
       "slot": 0,
       "y": 0.088,
-      "filter_recess_m": 0.006024814246745329
+      "filter_recess_m": 0.006003968776960147
     },
     {
       "lod": 0,
       "slot": 0,
       "y": 0.1,
-      "filter_recess_m": 0.006036665746036389
+      "filter_recess_m": 0.006003976587208026
     },
     {
       "lod": 0,
       "slot": 0,
       "y": 0.112,
-      "filter_recess_m": 0.006039247964529676
+      "filter_recess_m": 0.006003973419015353
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.088,
-      "filter_recess_m": 0.006038734033266005
+      "filter_recess_m": 0.006013110320833563
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.1,
-      "filter_recess_m": 0.00605028693606767
+      "filter_recess_m": 0.006013107131366734
     },
     {
       "lod": 0,
       "slot": 1,
       "y": 0.112,
-      "filter_recess_m": 0.006052122646054751
+      "filter_recess_m": 0.006013114892932617
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.088,
-      "filter_recess_m": 0.006049387919584925
+      "filter_recess_m": 0.006021885803229918
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.1,
-      "filter_recess_m": 0.006061129483466168
+      "filter_recess_m": 0.006021880610466553
     },
     {
       "lod": 0,
       "slot": 2,
       "y": 0.112,
-      "filter_recess_m": 0.00606352889074669
+      "filter_recess_m": 0.006021882823378309
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.088,
-      "filter_recess_m": 0.006048732217166002
+      "filter_recess_m": 0.006021893199850546
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.1,
-      "filter_recess_m": 0.006059972063279004
+      "filter_recess_m": 0.006021889062797735
     },
     {
       "lod": 0,
       "slot": 3,
       "y": 0.112,
-      "filter_recess_m": 0.006062227716715232
+      "filter_recess_m": 0.006021885128376807
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.088,
-      "filter_recess_m": 0.006036781582786872
+      "filter_recess_m": 0.00601313375470193
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.1,
-      "filter_recess_m": 0.006048104370056588
+      "filter_recess_m": 0.006013129771697025
     },
     {
       "lod": 0,
       "slot": 4,
       "y": 0.112,
-      "filter_recess_m": 0.006050409581327923
+      "filter_recess_m": 0.006013138005302079
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.088,
-      "filter_recess_m": 0.006022988941059106
+      "filter_recess_m": 0.0060039374736865075
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.1,
-      "filter_recess_m": 0.006035266599557908
+      "filter_recess_m": 0.0060039447887452885
     },
     {
       "lod": 0,
       "slot": 5,
       "y": 0.112,
-      "filter_recess_m": 0.006038140252743324
+      "filter_recess_m": 0.006003941496754948
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.088,
-      "filter_recess_m": 0.00655396655200189
+      "filter_recess_m": 0.006094594705212786
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.1,
-      "filter_recess_m": 0.006407726416828886
+      "filter_recess_m": 0.006224504232910585
     },
     {
       "lod": 1,
       "slot": 0,
       "y": 0.112,
-      "filter_recess_m": 0.006405520990246431
+      "filter_recess_m": 0.0060965678937734
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.088,
-      "filter_recess_m": 0.006134197142852883
+      "filter_recess_m": 0.006031795011641382
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.1,
-      "filter_recess_m": 0.006531335561714251
+      "filter_recess_m": 0.006322827524295527
     },
     {
       "lod": 1,
       "slot": 1,
       "y": 0.112,
-      "filter_recess_m": 0.006225187266857543
+      "filter_recess_m": 0.006078863239214347
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.088,
-      "filter_recess_m": 0.006665761411608184
+      "filter_recess_m": 0.006080536301012851
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.1,
-      "filter_recess_m": 0.00628675371008143
+      "filter_recess_m": 0.006145808571193304
     },
     {
       "lod": 1,
       "slot": 2,
       "y": 0.112,
-      "filter_recess_m": 0.006492097221106427
+      "filter_recess_m": 0.00608251956317115
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.088,
-      "filter_recess_m": 0.00666587069888732
+      "filter_recess_m": 0.0060805086397373725
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.1,
-      "filter_recess_m": 0.006286618532427395
+      "filter_recess_m": 0.006145709051300657
     },
     {
       "lod": 1,
       "slot": 3,
       "y": 0.112,
-      "filter_recess_m": 0.006492167108973185
+      "filter_recess_m": 0.006082491900448857
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.088,
-      "filter_recess_m": 0.006134424321358037
+      "filter_recess_m": 0.006031853470753613
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.1,
-      "filter_recess_m": 0.006531316191294746
+      "filter_recess_m": 0.006322815099896038
     },
     {
       "lod": 1,
       "slot": 4,
       "y": 0.112,
-      "filter_recess_m": 0.00622517693617073
+      "filter_recess_m": 0.006078851100438043
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.088,
-      "filter_recess_m": 0.006553818987505504
+      "filter_recess_m": 0.006094597772489593
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.1,
-      "filter_recess_m": 0.006407824359552519
+      "filter_recess_m": 0.0062245788090358675
     },
     {
       "lod": 1,
       "slot": 5,
       "y": 0.112,
-      "filter_recess_m": 0.006405412743998404
+      "filter_recess_m": 0.006096570962593341
     }
   ],
   "checks": [
