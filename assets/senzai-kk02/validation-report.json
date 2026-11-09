@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "exports": [
+    {
+      "lod": 0,
+      "triangles": 204576,
+      "draw_calls": 2,
+      "bytes": 7011280,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 49
+      }
+    },
+    {
+      "lod": 1,
+      "triangles": 23088,
+      "draw_calls": 2,
+      "bytes": 791336,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 49
+      }
+    },
+    {
+      "lod": 2,
+      "triangles": 2904,
+      "draw_calls": 1,
+      "bytes": 140628,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 50
+      }
+    }
+  ],
+  "preserved_v1": 14,
+  "motion": {
+    "samples": 720,
+    "min_active": 11,
+    "max_active": 18,
+    "peak_shift_speed_m_s": 26.23011244406179,
+    "max_curve_deviation_m": 2.018604440383719,
+    "minimum_ground_clearance_m": 9.17584798864446
+  },
+  "scope": "Plain GLB structure, geometry, curves and source preservation; engine-driven pose/loop validation. No compressed release or FPS claim."
+}

@@ -1,5 +1,7 @@
 # Model Workshop
 
+**Senzai-KK02 / Living attention** is a separate LATENT evolution with gracefully curving fibers, emerald attention aimed at three signals, swift eased travel and a slowly shifting projected 4D setting. Includes scale references, tracking macro view, 72-second cycle, spatial/camera controls and three GLB tiers. Open `senzai-kk02/`; notes: `assets/senzai-kk02/`. LATENT v1 remains intact.
+
 **LATENT / Optic-fiber field** adds a floating near-black sphere of fine glass filaments, with sparse emerald strands waking, extending and retracting through a 48-second loop. Includes a dormant state, macro camera, fog/glow controls, cinema and PNG capture, plus master/game/static GLB downloads. Open `latent-field/`; measured integration notes are in `assets/latent-field/`.
 
 **AUREL-03 / Swappable heads** now defaults to compact **Hex Witness / Carbon**, matching the charcoal muscle layer at `robot-assembly/`. RK-MG02 and Breach Warden remain selectable. RK-MG02 is 20% smaller; all three share a 1.785 m crown height, preserve AUREL's neck and follow its head motion. Choose **Head** to swap or restore the original. Sources remain unchanged; notes: `assets/robot-assembly/helmet-fit/`.

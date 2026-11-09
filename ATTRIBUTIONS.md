@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Senzai-KK02 / Living attention / 10 November 2026
+
+Separate authored evolution of LATENT at `d8cc09d`, with curved model geometry, living fiber shaders, attention motion and a projected four-dimensional spatial presentation by jelaludo / Model Workshop. Reduced game/distance exports are explicitly derived. All LATENT assets and its viewer are preserved and hashed in `assets/senzai-kk02/manifest.json`. The original user concept remains external; no image pixels or third-party meshes are bundled. Workshop attribution/reuse terms apply to the original work.
+
 ## LATENT / Optic-fiber field / 9 November 2026
 
 Original procedural fiber geometry, emerald attention rig, animation and atmospheric viewer by jelaludo / Model Workshop. Reduced game and static distance exports are marked derived from the detailed design. Guided by the user-supplied `photo_2026-11-09 23.07.42.jpeg`; its external path and SHA-256 are recorded in `assets/latent-field/reference-provenance.json`. No reference image pixels or third-party meshes are distributed. Workshop attribution/reuse terms apply to the authored assets.

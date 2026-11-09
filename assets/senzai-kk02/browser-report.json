@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader, 1500×1100 and 390×844; functional review, not device performance",
+  "exports": [
+    {
+      "lod": 1,
+      "download_sha256": "3bb022711939c2979ed926c8cc39cb540858465a3c77775ce4d4e550a630b676",
+      "model_render": {
+        "frame": 151,
+        "calls": 2,
+        "triangles": 23088,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 166,
+        "calls": 36,
+        "triangles": 24352,
+        "points": 18698,
+        "lines": 221625
+      }
+    },
+    {
+      "lod": 0,
+      "download_sha256": "30062797bf42fc93b9d78a14e3c3dfb8c3d842260be02de76d2c78a6d5e7bb61",
+      "model_render": {
+        "frame": 407,
+        "calls": 2,
+        "triangles": 204576,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 422,
+        "calls": 36,
+        "triangles": 205840,
+        "points": 36698,
+        "lines": 581625
+      }
+    },
+    {
+      "lod": 2,
+      "download_sha256": "3b70f5b58d97afe06e94b5e93f827e7a6eae1b786e9c96a9872a271568c10ef6",
+      "model_render": {
+        "frame": 648,
+        "calls": 1,
+        "triangles": 2904,
+        "points": 0,
+        "lines": 0
+      },
+      "viewer_with_effects_and_postprocessing": {
+        "frame": 663,
+        "calls": 31,
+        "triangles": 4168,
+        "points": 650,
+        "lines": 2553
+      }
+    }
+  ],
+  "checks": [
+    "All 3 LODs render with measured model cost and byte-identical source downloads",
+    "Pause, play, scrub, restart, next focus; swift field movement, curved tip movement, light changes and projected 4D space motion",
+    "Dormant extinguishes all attention; awake restores sparse lights",
+    "Whole-field and tracking macro cameras, space/follow toggles, fog/bloom, speed, cinema/Escape and PNG capture",
+    "390px layout: no horizontal overflow, toolbar fits and settings/download remain accessible"
+  ],
+  "source_sha256": {
+    "senzai-kk02/viewer.js": "1e72d3d22e35847760dc43f9952a7ec86b4102f7d7aef96ce6da300e3e244429",
+    "senzai-kk02/effects.js": "02e91cb66e26cc52de7b801b0d4a6b187c55dac0df0555be7b2445f2f5645ec1",
+    "senzai-kk02/space.js": "d548695b9b1c438292ee46b58ade9610da3e13628254279f8c238721b9186b1d",
+    "senzai-kk02/index.html": "523b1387e35b3d3420868e4fd39a307c847a3ad99e6f997073975408696822cb",
+    "senzai-kk02/style.css": "46b5fefbf9cd337cc6652a1617a215d8bd55ac22390e1959f88863d276fa56e6",
+    "assets/senzai-kk02/runtime.js": "7678bc75884fcce51c3d3a03a1156e76a802ff8b0a9975cbadd2685f147d202c",
+    "tools/asset-pipeline/test-senzai-kk02.mjs": "fe7e1ec3070ec024188d7da1ca4bad5f60e4316bb2bf00f80f27f1d7780a968a"
+  },
+  "errors": []
+}

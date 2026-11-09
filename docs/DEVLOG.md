@@ -1,5 +1,15 @@
 # Devlog
 
+## 10 November 2026 / Senzai-KK02 — living fibers in dimensional space
+
+Created a separate evolution of LATENT, keeping every v1 asset/viewer file byte-identical. Curved fiber geometry and a living companion surface replace the straight radial presentation. Sparse emerald strands lean toward three attention signals, while the field makes quick, eased shifts, trails its fibers and settles. A 72-second loop combines slow drift, three 1.5–1.6 s shifts and a two-second return. Projected 4D tesseracts, gently folded spatial grids, parallax dust and 2 m reference posts establish scale; the camera follows softly.
+
+Added living-field/macro views, next-focus preview, reversible timeline, dormant state, chamber/camera-follow toggles, atmosphere/glow, cinema, PNG capture and three source GLB downloads. Master: 204,576 triangles / two model draws / 7,011,280 bytes. Game: 23,088 / two / 791,336. Static distance: 2,904 / one / 140,628. The complete animated presentation measures 36 render calls, including fine fibers, chamber and postprocessing. Game exceeds landmark triangle/byte targets; distance meets its targets. No FPS claim.
+
+Three plain GLBs pass validation with zero errors/warnings, 151-name parity, preserved socket conventions, no degenerate triangles and runtime/loop checks. Across 720 temporal samples: 11–18 awake fibers, 26.2301 m/s peak shift speed, 2.0186 m maximum curve departure from its chord and 9.1758 m minimum sampled attention clearance. Browser checks cover actual motion and spatial projection, controls, matching downloads, screenshots and mobile layout. The full living surface and chamber are companion shaders/scene geometry, distinct from the source model.
+
+Completed: separate Senzai-KK02, organic curves, slow dimensional setting, purposeful swift attention shifts and measured handoff. Pending: visual acceptance, consuming-game shader/release decode, camera thresholds, device profiling and damage states. Handoff: containing commit plus `assets/senzai-kk02/`; companion viewer `senzai-kk02/`.
+
 ## 9 November 2026 / LATENT — animated optic-fiber field
 
 Added a separate abstract study: a 32 m dark filament sphere, gently floating and swaying, with 13–14 emerald strands awake at once. Forty-eight candidate strands extend, carry light pulses to small ring-shaped tips, fade and retract in a seamless 48-second cycle. Fine companion glass lines, reflective tips, ray-marched atmospheric haze and bloom create the dense field without a hidden solid sphere.
