@@ -10,18 +10,20 @@ LATENT remains at http://localhost:8788/latent-field/
 
 `Senzai_Attention_Cycle` is a deterministic, seamless **72-second engine-driven cycle**. Forty-eight tendrils independently probe, hold, curl and withdraw, with **27–46 visibly awake** across sampled poses. Broad S-curves, changing tip direction, shared breeze and a lag along each filament replace the earlier small radial oscillations. The fine glass field breathes and leans with that same breeze, including during dormancy.
 
-Each attention tip changes its distance from the field center by **8.01–15.45 m** across the cycle. A strand can retract below the surrounding fiber canopy, curl, then extend beyond it. Length changes are independent of illumination: dimming is no longer the only sign of withdrawal.
+Each attention tip changes its distance from the field center by **7.16–38.57 m** across the cycle. A strand can retract below the surrounding fiber canopy, curl, then extend beyond it. Length changes are independent of illumination: dimming is no longer the only sign of withdrawal.
 
-Six detection events recruit **21–24 tendrils within 0.7 seconds**. Tips acquire their shared target over 0.48 s, with 25–185 ms individual response delays and up to 220 ms more lag along the shaft. The group extends, points its distal tangents toward the target, holds briefly and releases over 3.1 s. The remaining strands keep foraging. Mean locked-tip target alignment is 0.9746 (dot product); these are procedural visual attention signals, not gameplay prey detection.
+Five broad detection events recruit **21–24 tendrils within 0.7 seconds**. The 27-second Echo event instead recruits exactly fifteen into a precision inspection. Tips acquire their shared target over 0.48 s, with 25–185 ms individual response delays and up to 220 ms more lag along the shaft. The group extends, points its distal tangents toward the target, holds briefly and releases over 3.1 s. The remaining strands keep foraging. Mean locked-tip target alignment is 0.9778 (dot product); these are procedural visual attention signals, not gameplay prey detection.
 
 | Detection | Focus |
 | --- | --- |
 | 8 s | Signal / first collective acquisition |
 | 19 s | Trace |
-| 27 s | Echo |
+| 27 s | Echo / fifteen-tip precision inspection |
 | 40 s | Signal |
 | 47 s | Trace |
 | 65 s | Signal / return |
+
+At **27 s**, fifteen stable front-facing tendrils converge around the fixed world-space Echo spot at `[-38,24,20]` m. Their tips form a small irregular ring, measuring at most **2.037 m across**, and point inward toward that same spot. They close over 0.8 s plus individual response delay, remain tightly grouped through 31.1 s, then release over 2.4 s. Small independent tip motions (up to 0.236 m over the measured hold) suggest close examination. Their ends stay at the world-space spot while the body moves toward it at 29–30.6 s. The readout shows **EXAMINING**. Dormancy cancels the inspection; the first focus and other events retain their earlier motion.
 
 The original whole-field travel remains: 10–11.5 s toward Signal, 29–30.6 s toward Echo, 49–50.5 s toward Trace and 67–69 s returning home, with drift between shifts. Sampled peak shift speed remains 26.2301 m/s. Attention can investigate another signal without moving the whole field there. The **Next focus** control jumps 0.6 s before the next detection so its sudden recruitment is visible.
 
@@ -54,17 +56,19 @@ With chamber, fine fibers and postprocessing enabled, browser measurements are *
 
 ## Revision preservation / 10 November 2026
 
-Revision 2 regenerates all three plain tiers at the new time-zero pose. Triangle counts, model draws, root/mount positions, node names, coordinate system and plot reservation remain consistent. Tip socket positions follow the revised curves and are refreshed in the manifest across all tiers. The earlier revision from commit `f27b371` is preserved in `originals/r1/`, including its three GLBs, runtime, source snapshots and reports. Archived reports describe that older revision only.
+Revision 2 regenerated all three plain tiers at the new time-zero pose. Triangle counts, model draws, root/mount positions, node names, coordinate system and plot reservation remain consistent. Tip socket positions follow the revised curves and are refreshed in the manifest across all tiers. The earlier revision from commit `f27b371` is preserved in `originals/r1/`, including its three GLBs, runtime, source snapshots and reports. Archived reports describe that older revision only.
+
+Revision 3 changes only the runtime attention at 27 s and its release. All three GLBs, their costs, time-zero sockets and static distance pose remain byte-identical to revision 2 at `fad5afc`. The previous runtime is preserved by that commit. The manifest records the precision-inspection settings.
 
 ## WebKit rendering fix / 10 November 2026
 
-The fiber shader clamps its along-fiber and rim-light inputs before fractional powers. WebKit line interpolation could previously undershoot zero and produce NaN colors, which bloom spread into a large black rectangle. The original fix reproduced the prior defect in native WebKit. After this motion revision, `webkit-report.json` verifies zero non-finite scene/bloom pixels in **42 cases** across display scales 1/2, all three tiers, field/macro cameras, group acquisitions, travel and the cycle boundary. Browser module cache versions were advanced again for this revision. The original fix evidence is preserved in `originals/r1/webkit-report.json`.
+The fiber shader clamps its along-fiber and rim-light inputs before fractional powers. WebKit line interpolation could previously undershoot zero and produce NaN colors, which bloom spread into a large black rectangle. The original fix reproduced the prior defect in native WebKit. After this motion revision, `webkit-report.json` verifies zero non-finite scene/bloom pixels in **48 cases** across display scales 1/2, all three tiers, field/macro cameras, group acquisitions, precision convergence/hold/release, travel and the cycle boundary. Browser module cache versions were advanced again for this revision. The original fix evidence is preserved in `originals/r1/webkit-report.json`.
 
 ## Validation and preservation
 
 `manifest.json` provides file hashes, source fingerprints, measurements, reserved bounds, sockets, tier policy and the hashes of all fourteen LATENT asset/viewer files. **LATENT at commit `d8cc09d` is byte-identical.** Its source builders are also unchanged. KK02 is a new family with no changes to v1's route, models, runtime or visual defaults.
 
-`validation-report.json` records all three GLBs with zero validator errors/warnings and no degenerate triangles; informational empty nodes are intentional attachment/lookup frames. It checks 151-name parity, hashes, custom attributes, actual decoded runtime deformation, tip attachments, finite geometry, bounds, static behavior, loop geometry/colors and 720 temporal samples. Maximum sampled curve departure from its straight chord is 5.0889 m; minimum sampled attention clearance is 5.6362 m. Additional 1,440-pose checks measure endpoint radius swings, fixed origins, target-facing tangents, group recruitment, dormant tip motion and continuity at acquisitions and the cycle boundary. The 100 × 100 × 64 m reservation is also checked against decoded model geometry at motion and hold poses. This is not a general collision solver.
+`validation-report.json` records all three GLBs with zero validator errors/warnings and no degenerate triangles; informational empty nodes are intentional attachment/lookup frames. It checks 151-name parity, hashes, custom attributes, actual decoded runtime deformation, tip attachments, finite geometry, bounds, static behavior, loop geometry/colors and 720 temporal samples. Maximum sampled curve departure from its straight chord is 5.0889 m; minimum sampled attention clearance is 5.6362 m. Additional 1,440-pose checks measure endpoint radius swings, fixed origins, target-facing tangents, group recruitment, dormant tip motion and continuity at acquisitions and the cycle boundary. Sixty-one precision-hold samples verify stable fifteen-strand membership, a maximum 2.037 m tip diameter, target-facing tangents and a fixed world-space inspection region while the body travels. The 100 × 100 × 64 m reservation is also checked against decoded model geometry at motion and hold poses. This is not a general collision solver.
 
 `browser-report.json` records all tiers, rendered counts, matching GLB downloads, curve/field movement, projected-space motion, controls, PNG capture and 390 px layout. Visual review covers probing, collective acquisition, swift travel, each focus, macro, dormant and mobile views. No compressed copy is shipped; consuming-game gltfpack output still requires decoded validation, especially custom-attribute retention.
 

@@ -2,7 +2,7 @@
   "status": "passed",
   "browser": "Playwright WebKit 2370 / macOS, native WebGL, device scale factors 1 and 2",
   "checks": [
-    "Half-float scene and bloom buffers contain no NaN/Infinity in 42 rendered cases",
+    "Half-float scene and bloom buffers contain no NaN/Infinity in 48 rendered cases",
     "Both display densities; all three detail tiers; whole-field and macro; attention shifts and cycle boundary",
     "Cinema screenshots visually reviewed with bloom enabled"
   ],
@@ -116,7 +116,52 @@
       "dpr": 1,
       "lod": 1,
       "view": "field",
+      "time": 28.2,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
       "time": 29.8,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 31,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 32.5,
       "scene": {
         "nonfinite": 0,
         "components": 5616000
@@ -431,7 +476,52 @@
       "dpr": 2,
       "lod": 1,
       "view": "field",
+      "time": 28.2,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
       "time": 29.8,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 31,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 32.5,
       "scene": {
         "nonfinite": 0,
         "components": 12636000
@@ -640,9 +730,10 @@
   ],
   "errors": [],
   "source_sha256": {
-    "senzai-kk02/effects.js": "fa3d593b3603ed7e56da10c2b96cc6ed3d3bff81e3cd473fe07352c497b97745",
-    "senzai-kk02/viewer.js": "2fe05dd7ce0536e7095a2310085eb6061409d732ff594be0b8b528c8d9913804",
-    "senzai-kk02/index.html": "8ed61e8c23b3eb7a7be06e1009c73d78b59f9e26b7f3c8b2b93818203ba96d40",
-    "tools/asset-pipeline/test-senzai-kk02-webkit.mjs": "bb9be4c0c3b4408045a867e217f94d77d3f12c11db7555c0e66b10afbb09bb2d"
+    "assets/senzai-kk02/runtime.js": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7",
+    "senzai-kk02/effects.js": "ac5e3f7b78ab30d1e138eb89b823a02a82e50f2a6e8b4dc2b75cb11e13cc8821",
+    "senzai-kk02/viewer.js": "da8ba30402ff39703f1c2463d197be06ac4af839346709f32e8686ca00718aa3",
+    "senzai-kk02/index.html": "51ee2302f7d02d71f281e843b8fb903100b8db548059222c23fbf1a5025e765a",
+    "tools/asset-pipeline/test-senzai-kk02-webkit.mjs": "becd003b71edda0f61a39e399a82c72a79143e339dea4c1a734faba9f78746eb"
   }
 }

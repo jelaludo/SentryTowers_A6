@@ -1,5 +1,13 @@
 # Devlog
 
+## 10 November 2026 / Senzai-KK02 — tight fifteen-strand inspection at 27 seconds
+
+Tightened the requested second major focus: at 27 s, fifteen tendrils coalesce around one small Echo spot. They reach into the scene, form an irregular ring, direct their tips inward and make tiny scanning motions. The spot stays fixed while the field approaches at 29–30.6 s. The group holds through 31.1 s, releases over 2.4 s and resumes foraging. The readout shows EXAMINING. The first focus and sampled motion outside this event remain identical to revision 2.
+
+Across 61 hold samples, the fifteen tips span at most 2.037 m and stay within 1.827 m of the target; scanning travel stays below 0.236 m. Minimum tip-to-target alignment is 0.9998. Validation covers fixed membership, dormancy, continuity, decoded geometry, plot bounds and controls. Chromium confirms the actual loaded eye positions form the cluster; native WebKit has finite scene/bloom buffers in 48 cases, including convergence, hold and release.
+
+All three plain GLBs remain byte-identical to `fad5afc`; root placement, sockets, geometry budgets and static distance pose are unchanged. Runtime settings and documentation are updated. Completed: requested smaller circumference and specific-spot examination. Pending: visual acceptance and existing consuming-game/release/device work. Handoff: containing commit plus `assets/senzai-kk02/` and `senzai-kk02/`.
+
 ## 10 November 2026 / Senzai-KK02 — foraging tendrils and sudden collective attention
 
 Reworked the living motion around the requested organic behavior. Tendrils independently probe, hold, curl, lengthen and withdraw while the whole fine-fiber canopy sways and breathes in a shared gentle breeze. Six unevenly spaced detections make a group turn and reach toward one focus, with tips leading the shafts, a brief hold and a slower release. Background probing continues between and during these events. Next focus now previews each collective detection.

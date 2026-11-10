@@ -24,14 +24,14 @@
       "lod": 0,
       "download_sha256": "3376af9f11447cfd1a401cb7e039159fe15c1f089675dabcf8b222d751a526e3",
       "model_render": {
-        "frame": 452,
+        "frame": 437,
         "calls": 2,
         "triangles": 204576,
         "points": 0,
         "lines": 0
       },
       "viewer_with_effects_and_postprocessing": {
-        "frame": 467,
+        "frame": 452,
         "calls": 36,
         "triangles": 205840,
         "points": 36698,
@@ -42,14 +42,14 @@
       "lod": 2,
       "download_sha256": "94edce40601eb52b1c4f802b4a625aead428d1c86501d7a1c37e8a40c78dd81d",
       "model_render": {
-        "frame": 693,
+        "frame": 678,
         "calls": 1,
         "triangles": 2904,
         "points": 0,
         "lines": 0
       },
       "viewer_with_effects_and_postprocessing": {
-        "frame": 708,
+        "frame": 693,
         "calls": 31,
         "triangles": 4168,
         "points": 650,
@@ -65,13 +65,18 @@
     "390px layout: no horizontal overflow, toolbar fits and settings/download remain accessible"
   ],
   "source_sha256": {
-    "senzai-kk02/viewer.js": "2fe05dd7ce0536e7095a2310085eb6061409d732ff594be0b8b528c8d9913804",
-    "senzai-kk02/effects.js": "fa3d593b3603ed7e56da10c2b96cc6ed3d3bff81e3cd473fe07352c497b97745",
+    "senzai-kk02/viewer.js": "da8ba30402ff39703f1c2463d197be06ac4af839346709f32e8686ca00718aa3",
+    "senzai-kk02/effects.js": "ac5e3f7b78ab30d1e138eb89b823a02a82e50f2a6e8b4dc2b75cb11e13cc8821",
     "senzai-kk02/space.js": "d548695b9b1c438292ee46b58ade9610da3e13628254279f8c238721b9186b1d",
-    "senzai-kk02/index.html": "8ed61e8c23b3eb7a7be06e1009c73d78b59f9e26b7f3c8b2b93818203ba96d40",
+    "senzai-kk02/index.html": "51ee2302f7d02d71f281e843b8fb903100b8db548059222c23fbf1a5025e765a",
     "senzai-kk02/style.css": "46b5fefbf9cd337cc6652a1617a215d8bd55ac22390e1959f88863d276fa56e6",
-    "assets/senzai-kk02/runtime.js": "fee210cedb4ad726c833dccbbe16c91271d0b226a8bb05ec8380aa6486cd575b",
-    "tools/asset-pipeline/test-senzai-kk02.mjs": "505105b4f697b5c8dac69e0a3c22f1820af583d20bcc555f19d8dcea26ef59cb"
+    "assets/senzai-kk02/runtime.js": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7",
+    "tools/asset-pipeline/test-senzai-kk02.mjs": "a4bc0f99bc37748a7d71b7830bea008129b8e6cab2cdb955c7cea585d1b4a68a"
+  },
+  "precision_focus": {
+    "count": 15,
+    "diameter": 1.9994005087680646,
+    "phase": "EXAMINING"
   },
   "errors": []
 }

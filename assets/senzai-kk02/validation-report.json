@@ -49,9 +49,9 @@
     "peak_shift_speed_m_s": 26.23011244406179,
     "max_curve_deviation_m": 5.088926115190354,
     "minimum_ground_clearance_m": 5.6361938068952355,
-    "minimum_tip_radius_swing_m": 8.00757866469437,
-    "maximum_tip_radius_swing_m": 15.447439383585303,
-    "mean_locked_tip_target_alignment": 0.974596128729634,
+    "minimum_tip_radius_swing_m": 7.161264150496285,
+    "maximum_tip_radius_swing_m": 38.566400927750145,
+    "mean_locked_tip_target_alignment": 0.9778470967734539,
     "acquisitions": [
       {
         "at_s": 8,
@@ -66,7 +66,7 @@
       {
         "at_s": 27,
         "focus": 1,
-        "recruited_after_700ms": 23
+        "recruited_after_700ms": 15
       },
       {
         "at_s": 40,
@@ -84,7 +84,15 @@
         "recruited_after_700ms": 24
       }
     ],
-    "mean_dormant_tip_travel_over_2s_m": 2.100425410887984
+    "mean_dormant_tip_travel_over_2s_m": 2.100425410887984,
+    "precision_focus": {
+      "samples": 61,
+      "members": 15,
+      "max_tip_diameter_m": 2.0364615620281676,
+      "max_distance_to_spot_m": 1.826156422692338,
+      "max_scanning_travel_m": 0.2355138399591435,
+      "min_tip_alignment": 0.9998296316056118
+    }
   },
   "scope": "Plain GLB structure, geometry, curves and source preservation; engine-driven pose/loop validation. No compressed release or FPS claim."
 }

@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {TIERS,direction,hash,curve} from '../assets/senzai-kk02/runtime.js?v=3';
+import {TIERS,direction,hash,curve} from '../assets/senzai-kk02/runtime.js?v=4';
 // Clamp shader inputs to their physical range: WebKit line interpolation can undershoot zero.
 // Fractional pow of a negative value produces NaN, which spreads through the bloom mip chain.
 const livingVertex=`attribute vec3 strandDirection;attribute float seed;attribute float along;

@@ -1,8 +1,8 @@
-import fs from 'node:fs/promises';import crypto from 'node:crypto';import assert from 'node:assert/strict';import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import validator from 'gltf-validator';import {createRig,fieldState,strandState,curve,curveFrame,FOCI,dot,sub,norm,ATTENTION_EVENTS,attentionDirection} from '../../assets/senzai-kk02/runtime.js';
+import fs from 'node:fs/promises';import crypto from 'node:crypto';import assert from 'node:assert/strict';import * as T from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import validator from 'gltf-validator';import {createRig,fieldState,strandState,curve,curveFrame,FOCI,dot,sub,norm,ATTENTION_EVENTS,attentionDirection,PRECISION_FOCUS} from '../../assets/senzai-kk02/runtime.js';
 const root=new URL('../../',import.meta.url),out=new URL('assets/senzai-kk02/',root),manifest=JSON.parse(await fs.readFile(new URL('manifest.json',out))),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),report={status:'passed',exports:[],preserved_v1:0,motion:{samples:0,min_active:48,max_active:0,peak_shift_speed_m_s:0,max_curve_deviation_m:0,minimum_ground_clearance_m:100},scope:'Plain GLB structure, geometry, curves and source preservation; engine-driven pose/loop validation. No compressed release or FPS claim.'};
 for(const [p,h]of Object.entries({...manifest.source_sha256,...manifest.based_on.preserved_v1}))assert.equal(sha(await fs.readFile(new URL(p,root))),h,p);report.preserved_v1=Object.keys(manifest.based_on.preserved_v1).length;
 let namesRef;for(const entry of manifest.assets){const bytes=await fs.readFile(new URL(entry.file,out));assert.equal(bytes.length,entry.bytes);assert.equal(sha(bytes),entry.sha256);const v=await validator.validateBytes(bytes,{maxIssues:1000});assert.equal(v.issues.numErrors,0,JSON.stringify(v.issues));assert.equal(v.issues.numWarnings,0,JSON.stringify(v.issues));const scene=(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene,rig=createRig(scene),names=[];let tris=0,draws=0,degenerate=0;scene.traverse(n=>{if(n.name)names.push(n.name);if(!n.isMesh)return;draws++;const g=n.geometry,p=g.attributes.position,ix=g.index,count=ix?.count||p.count;tris+=count/3;const a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3();for(let j=0;j<count;j+=3){a.fromBufferAttribute(p,ix?ix.getX(j):j);b.fromBufferAttribute(p,ix?ix.getX(j+1):j+1);c.fromBufferAttribute(p,ix?ix.getX(j+2):j+2);if(b.sub(a).cross(c.sub(a)).lengthSq()<1e-20)degenerate++;}for(const v of p.array)assert(Number.isFinite(v));});assert.equal(degenerate,0);assert.equal(tris,entry.triangles);assert.equal(draws,entry.draw_calls);assert.equal(new Set(names).size,names.length);assert(names.every(n=>!n.includes('.')));if(namesRef)assert.deepEqual(names.sort(),namesRef);else namesRef=names.sort();
- if(entry.lod<2){const mesh=scene.getObjectByName('LIVING_ATTENTION');for(const name of ['_fiberid','_along','_offset','_localnormal','_glow'])assert(mesh.geometry.attributes[name]);for(const t of [0,5,10.75,15,29.8,35,49.75,58,68,71.999,72]){const state=rig.pose(t);assert.deepEqual(rig.frame.position.toArray(),state.center);const box=new T.Box3().setFromObject(scene,true);assert(box.min.y>0&&box.max.y<64);for(const a of ['x','z'])assert(box.min[a]>-50&&box.max[a]<50);for(let i=0;i<48;i++){const tip=curve(i,1,state);assert(rig.tips[i].position.distanceTo(new T.Vector3(...tip))<1e-7);}}
+ if(entry.lod<2){const mesh=scene.getObjectByName('LIVING_ATTENTION');for(const name of ['_fiberid','_along','_offset','_localnormal','_glow'])assert(mesh.geometry.attributes[name]);for(const t of [0,5,10.75,15,27.5,28.1,29.8,31,32.5,35,49.75,58,68,71.999,72]){const state=rig.pose(t);assert.deepEqual(rig.frame.position.toArray(),state.center);const box=new T.Box3().setFromObject(scene,true);assert(box.min.y>0&&box.max.y<64);for(const a of ['x','z'])assert(box.min[a]>-50&&box.max[a]<50);for(let i=0;i<48;i++){const tip=curve(i,1,state);assert(rig.tips[i].position.distanceTo(new T.Vector3(...tip))<1e-7);}}
   rig.pose(0);const before=Float32Array.from(mesh.geometry.attributes.position.array),color=Float32Array.from(mesh.geometry.attributes.color.array);rig.pose(72);assert.deepEqual(mesh.geometry.attributes.position.array,before);assert.deepEqual(mesh.geometry.attributes.color.array,color);rig.pose(15,{awake:0});assert.equal(rig.pose(15,{awake:0}).active,0);
  }else{assert.equal(draws,1);assert(tris<=3000);assert(entry.bytes<=250000);rig.pose(0);const before=rig.frame.position.clone();rig.pose(35);assert(rig.frame.position.equals(before));}
  report.exports.push({lod:entry.lod,triangles:tris,draw_calls:draws,bytes:entry.bytes,unique_nodes:names.length,degenerate_triangles:0,validator:{errors:v.issues.numErrors,warnings:v.issues.numWarnings,info:v.issues.numInfos}});
@@ -30,13 +30,34 @@ assert(motion.minimum_tip_radius_swing_m>7);assert(motion.mean_locked_tip_target
 motion.acquisitions=ATTENTION_EVENTS.map(({at,to})=>{
  const before=fieldState(at),locked=fieldState(at+.7);
  const count=s=>Array.from({length:48},(_,i)=>strandState(i,s)).filter(f=>f.commit>.3).length;
- assert.equal(count(before),0);assert(count(locked)>=18);assert.equal(locked.index,to);
+ assert.equal(count(before),0);if(at===PRECISION_FOCUS.at_s)assert.equal(count(locked),15);else assert(count(locked)>=18);assert.equal(locked.index,to);
  return {at_s:at,focus:to,recruited_after_700ms:count(locked)};
 });
 let dormantMotion=0;for(let i=0;i<48;i++)dormantMotion+=Math.hypot(...sub(curve(i,1,fieldState(3,0)),curve(i,1,fieldState(5,0))));
 motion.mean_dormant_tip_travel_over_2s_m=dormantMotion/48;assert(motion.mean_dormant_tip_travel_over_2s_m>.5);
-for(const t of [0,72,...ATTENTION_EVENTS.flatMap(e=>[e.at,e.at+.48,e.at+4.75])]){
+for(const t of [0,72,...ATTENTION_EVENTS.flatMap(e=>[e.at,e.at+.48,e.at+4.75,...(e.at===27?[27.8,31.1,33.5,33.7]:[])])]){
  const before=fieldState(t-.00001),after=fieldState(t+.00001);
  for(let i=0;i<48;i++)for(const u of [.25,.5,1])assert(Math.hypot(...sub(curve(i,u,before),curve(i,u,after)))<.01,`Discontinuous strand ${i} at ${t}`);
 }
+// Inspect the actual endpoints in world space throughout the moving-body hold.
+motion.precision_focus={samples:0,members:15,max_tip_diameter_m:0,max_distance_to_spot_m:0,max_scanning_travel_m:0,min_tip_alignment:1};
+const precisionReport=motion.precision_focus,firstTips=new Map();let memberIds;
+for(let step=0;step<=60;step++){
+ const state=fieldState(28.1+step*.05);state.states=Array.from({length:48},(_,i)=>strandState(i,state));
+ const ids=state.states.map((s,i)=>s.precision>.999?i:-1).filter(i=>i>=0);assert.equal(ids.length,15);
+ if(memberIds)assert.deepEqual(ids,memberIds);else memberIds=ids;
+ const positions=ids.map(i=>curve(i,1,state).map((v,k)=>v+state.center[k]));
+ for(let j=0;j<ids.length;j++){
+  const p=positions[j],id=ids[j];if(!firstTips.has(id))firstTips.set(id,p);
+  precisionReport.max_distance_to_spot_m=Math.max(precisionReport.max_distance_to_spot_m,Math.hypot(...sub(p,FOCI[1])));
+  precisionReport.max_scanning_travel_m=Math.max(precisionReport.max_scanning_travel_m,Math.hypot(...sub(p,firstTips.get(id))));
+  precisionReport.min_tip_alignment=Math.min(precisionReport.min_tip_alignment,dot(curveFrame(id,1,state).t,norm(sub(FOCI[1],p))));
+  for(const other of positions)precisionReport.max_tip_diameter_m=Math.max(precisionReport.max_tip_diameter_m,Math.hypot(...sub(p,other)));
+ }
+ precisionReport.samples++;
+}
+assert(precisionReport.max_tip_diameter_m<2.2);assert(precisionReport.max_distance_to_spot_m<1.9);
+assert(precisionReport.max_scanning_travel_m>.05&&precisionReport.max_scanning_travel_m<.5);
+assert(precisionReport.min_tip_alignment>.99);
+assert(Array.from({length:48},(_,i)=>strandState(i,fieldState(29.8,0))).every(s=>s.precision===0));
 await fs.writeFile(new URL('validation-report.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

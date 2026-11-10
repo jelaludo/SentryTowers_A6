@@ -34,7 +34,14 @@ try{
  const sample=()=>page.evaluate(()=>{const f=window.senzai;return {time:f.time,frame:f.rig.frame.matrixWorld.elements,eyes:f.rig.tips.map(i=>i.position.toArray()),levels:f.state.states.map(s=>s.level),space:Array.from(f.space.group.children[0].geometry.attributes.position.array)};});
  await page.evaluate(()=>window.senzai.seek(10));const at7=await sample();await page.waitForTimeout(450);assert.deepEqual(await sample(),at7);
  await page.click('#play');await page.waitForTimeout(1100);await page.click('#play');const moving=await sample();assert(moving.time>at7.time);assert.notDeepEqual(moving.frame,at7.frame);assert.notDeepEqual(moving.eyes,at7.eyes);assert.notDeepEqual(moving.levels,at7.levels);assert.notDeepEqual(moving.space,at7.space);await page.click('#next-focus');assert(await page.evaluate(()=>window.senzai.playing));await page.evaluate(()=>window.senzai.setPlaying(false));
- for(const time of [0,5,8.7,10.75,15,19.7,27.7,29.8,37,40.7,47.7,49.75,58,65.7]){await page.locator('#time').fill(String(time));await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.senzai.time),time);await snap(`time-${time}`);}
+ for(const time of [0,5,8.7,10.75,15,19.7,27.7,28.2,29.8,31,32.5,37,40.7,47.7,49.75,58,65.7]){await page.locator('#time').fill(String(time));await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.senzai.time),time);await snap(`time-${time}`);}
+ await page.evaluate(()=>window.senzai.seek(29.8));
+ const precision=await page.evaluate(()=>{
+  const f=window.senzai,ids=f.state.states.map((s,i)=>s.precision>.999?i:-1).filter(i=>i>=0);
+  const tips=ids.map(i=>{const p=f.rig.tips[i].position.clone();return f.rig.frame.localToWorld(p);});
+  return {count:ids.length,diameter:Math.max(...tips.flatMap(a=>tips.map(b=>a.distanceTo(b)))),phase:f.state.phase};
+ });
+ assert.equal(precision.count,15);assert(precision.diameter<2.2);assert.equal(precision.phase,'EXAMINING');report.precision_focus=precision;
  await page.click('#dormant');assert.equal(await page.evaluate(()=>window.senzai.state.active),0);await snap('dormant');await page.click('#dormant');assert((await page.evaluate(()=>window.senzai.state.active))>=24);
  await page.evaluate(()=>window.senzai.seek(15));await page.click('[data-view=macro]');await page.waitForTimeout(250);await snap('macro');await page.click('[data-view=field]');
  await page.click('#settings');await page.uncheck('#space');await page.uncheck('#follow');await page.uncheck('#bloom');await page.locator('#fog').fill('0');await snap('no-atmosphere');await page.check('#space');await page.check('#follow');await page.check('#bloom');await page.locator('#fog').fill('1');await page.selectOption('#speed','.5');await page.selectOption('#speed','1');await page.click('#settings');

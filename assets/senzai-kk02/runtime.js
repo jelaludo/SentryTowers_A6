@@ -18,14 +18,21 @@ const HOME=[-8,25,3],STOPS=[[10,30,4],[-12,26,3],[2,31,-12]],LEGS=[{at:10,durati
 // Unevenly spaced detections interrupt otherwise independent foraging. Their envelope
 // is analytic, so scrubbing, backwards time and the 72 s seam remain deterministic.
 export const ATTENTION_EVENTS=[{at:8,to:0},{at:19,to:2},{at:27,to:1},{at:40,to:0},{at:47,to:2},{at:65,to:0}];
+export const PRECISION_FOCUS={at_s:27,focus:1,strands:15,radius_m:1.1,standoff_m:1.4,acquire_s:.8,hold_until_s:31.1,release_end_s:33.5};
+// Pick the same fifteen front-facing roots throughout the inspection; no membership
+// changes as the body travels. Their target stays fixed in world space.
+const precisionAxis=norm(sub(FOCI[1],STOPS[0]));
+const precisionMembers=Array.from({length:48},(_,i)=>i).sort((a,b)=>dot(attentionDirection(b),precisionAxis)-dot(attentionDirection(a),precisionAxis)).slice(0,PRECISION_FOCUS.strands);
+const precisionRanks=new Map(precisionMembers.map((id,rank)=>[id,rank]));
 const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
 export function attentionAt(time,delay=0){
  time=((time-delay)%72+72)%72;
- let from=FOCI[0],to=FOCI[0],index=0,age=100;
- for(const event of ATTENTION_EVENTS){if(time<event.at)break;from=to;to=FOCI[event.to];index=event.to;age=time-event.at;}
+ let from=FOCI[0],to=FOCI[0],index=0,age=100,at=-1;
+ for(const event of ATTENTION_EVENTS){if(time<event.at)break;from=to;to=FOCI[event.to];index=event.to;age=time-event.at;at=event.at;}
  const focus=mix(from,to,ease(age/.48));
  const gather=smooth(age/.38)*(1-smooth((age-1.65)/3.1));
- return {focus,index,age,gather};
+ const precision=at===PRECISION_FOCUS.at_s?smooth(age/PRECISION_FOCUS.acquire_s)*(1-smooth((time-PRECISION_FOCUS.hold_until_s)/(PRECISION_FOCUS.release_end_s-PRECISION_FOCUS.hold_until_s))):0;
+ return {focus,index,age,gather,precision};
 }
 export function fieldState(seconds=0,awake=1){
  const time=((seconds%72)+72)%72,w=time*Math.PI*2/72;let center=[...HOME],velocity=[0,0,0],swift=0;
@@ -34,19 +41,20 @@ export function fieldState(seconds=0,awake=1){
  const attention=attentionAt(time),facing=norm(sub(attention.focus,center));
  // A common breeze supplies spatial coherence; individual filaments lag behind it.
  const breeze=[Math.sin(w*7)*.9+Math.sin(w*11+.8)*.32,Math.sin(w*5+1.1)*.24,Math.cos(w*6+.4)*.8+Math.sin(w*9)*.3];
- return {time,center,velocity,swift,...attention,facing,breeze,awake:clamp(awake),phase:attention.gather>.72?'FOCUS LOCK':attention.gather>.12?'SENSING':swift>.02?'FOLLOWING':'FORAGING',cycle_s:72};
+ return {time,center,velocity,swift,...attention,facing,breeze,awake:clamp(awake),phase:attention.precision>.72?'EXAMINING':attention.gather>.72?'FOCUS LOCK':attention.gather>.12?'SENSING':swift>.02?'FOLLOWING':'FORAGING',cycle_s:72};
 }
 export function strandState(i,state){
  const d=attentionDirection(i),seed=hash(i+53),w=state.time*Math.PI*2/72;
  const notice=attentionAt(state.time,.025+hash(i+91)*.16),facing=norm(sub(notice.focus,state.center)),alignment=dot(d,facing);
- const cohort=smooth((alignment+.28)/.85),commit=notice.gather*cohort*state.awake;
+ const precision=precisionRanks.has(i)?notice.precision*state.awake:0;
+ const cohort=smooth((alignment+.28)/.85),commit=Math.max(notice.gather*cohort*(1-notice.precision*.9)*state.awake,precision);
  // Slow extension/hold/withdraw cycles, each strand with a different phase and pace.
  const cycle=(state.time/(72/(7+i%4))+hash(i+107))%1;
  const probe=smooth(cycle/.24)*(1-smooth((cycle-.48)/.42));
  const scout=smooth((Math.sin(w*(3+i%3)+i*2.4)+.35)/1.1);
  const level=state.awake*Math.max(probe*(.14+.38*scout),commit*(.82+.18*Math.sin(w*5+i)*Math.sin(w*5+i)));
  const extension=state.awake*((probe-.45)*(5.2+seed*2.4)+commit*(4.8+seed*2.3));
- return {level,extension,alignment,commit,probe,scout,facing};
+ return {level,extension,alignment,commit,probe,scout,facing,precision};
 }
 export function curve(i,u,state,active=true,count=48){
  const d=active?attentionDirection(i):direction(i,count),a=norm(cross(d,Math.abs(d[1])>.92?[1,0,0]:[0,1,0])),b=cross(d,a),seed=hash(i+7),w=state.time*Math.PI*2/72;
@@ -64,18 +72,30 @@ export function curve(i,u,state,active=true,count=48){
  const delayed=attentionAt(state.time,.025+hash(i+91)*.16+(1-u)*.22);
  const aim=norm(sub(delayed.focus,state.center)),tangent=sub(aim,mul(d,dot(d,aim)));
  const reach=15.9+ss.extension;
- const tip=add(mul(d,reach),add(mul(tangent,ss.commit*6.8),mul(sideWind,1.5*(1-ss.commit*.65))));
+ let tip=add(mul(d,reach),add(mul(tangent,ss.commit*6.8),mul(sideWind,1.5*(1-ss.commit*.65))));
  const localAim=norm(add(mul(d,.85),add(mul(a,Math.sin(w*(4+i%3)+seed*9)*.75),mul(b,Math.cos(w*5+seed*13)*.55))));
- const tipAim=norm(mix(localAim,norm(sub(sub(delayed.focus,state.center),tip)),ss.commit*.92));
+ let tipAim=norm(mix(localAim,norm(sub(sub(delayed.focus,state.center),tip)),ss.commit*.92));
+ if(ss.precision>0){
+  // An irregular, gently searching ring around one tiny volume in latent space.
+  // Its world-space frame stays put even while FLOAT_FRAME approaches it.
+  const target=sub(FOCI[PRECISION_FOCUS.focus],state.center),axis=precisionAxis;
+  const pa=norm(cross(axis,[0,1,0])),pb=cross(axis,pa),rank=precisionRanks.get(i);
+  const angle=rank/PRECISION_FOCUS.strands*Math.PI*2+.045*Math.sin(w*13+seed*8);
+  const radius=PRECISION_FOCUS.radius_m*(.87+.09*Math.sin(w*11+seed*9));
+  const ring=add(mul(pa,Math.cos(angle)*radius),mul(pb,Math.sin(angle)*radius));
+  const inspecting=add(sub(target,mul(axis,PRECISION_FOCUS.standoff_m+.09*Math.sin(w*9+seed*7))),ring);
+  tip=mix(tip,inspecting,ss.precision);
+  tipAim=norm(mix(tipAim,norm(sub(target,inspecting)),ss.precision));
+ }
  const p0=mul(d,8.2),p1=add(mul(d,10.7),mul(a,Math.sin(w*4+seed*8)*.7)),p3=tip,p2=sub(p3,mul(tipAim,3.0+ss.probe*1.8));
  const v=1-u;let p=add(add(mul(p0,v*v*v),mul(p1,3*v*v*u)),add(mul(p2,3*v*uu),mul(p3,uu*u)));
  // Broad S-bends and a curling distal section relax when a target is acquired.
  const curl=(1-ss.commit*.84)*(1.1+(1-ss.probe)*1.25);
  const ca=Math.sin(Math.PI*u)*(seed-.30)*2.6+Math.sin(u*Math.PI*2.3-w*(5+i%3)+seed*9)*Math.sin(Math.PI*u)*curl;
  const cb=Math.sin(u*Math.PI*1.8+w*4+seed*13)*Math.sin(Math.PI*u)*curl*.60;
- p=add(p,add(mul(a,ca),mul(b,cb)));
- p=add(p,mul(sideWind,(.8*Math.sin(Math.PI*u)+.65*uu)*(1-ss.commit*.65)));
- return add(p,mul(state.velocity,-.075*uu));
+ p=add(p,mul(add(mul(a,ca),mul(b,cb)),1-ss.precision));
+ p=add(p,mul(sideWind,(.8*Math.sin(Math.PI*u)+.65*uu)*(1-ss.commit*.65)*(1-ss.precision)));
+ return add(p,mul(state.velocity,-.075*uu*(1-ss.precision)));
 }
 export function curveFrame(i,u,state){const p=curve(i,u,state),t=norm(sub(curve(i,Math.min(1,u+.002),state),curve(i,Math.max(0,u-.002),state))),a=norm(cross(t,Math.abs(t[1])>.92?[1,0,0]:[0,1,0]));return {p,t,a,b:cross(t,a)};}
 export function createRig(scene){

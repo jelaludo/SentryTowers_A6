@@ -2,7 +2,7 @@
   "schema": "jelaludo.asset-family/v2-candidate",
   "family": "senzai-kk02",
   "label": "Senzai-KK02 / Living attention",
-  "revision": 2,
+  "revision": 3,
   "status": "Original / animated spatial study",
   "based_on": {
     "family": "LATENT v1",
@@ -1838,9 +1838,9 @@
     }
   ],
   "source_sha256": {
-    "tools/asset-pipeline/build-senzai-kk02.mjs": "f8b743ec78a665a6491cabd2db844a855a51c56ef74d29c06786ceb0fe7e9cbe",
+    "tools/asset-pipeline/build-senzai-kk02.mjs": "3e2987499d46b0a7702ee827a414f9adf32d3693b8f6345ef9e25e7989549e69",
     "tools/asset-pipeline/senzai-kk02-shape.mjs": "af27f9d747476a6d1345a6be7fc852e2f6f1de79c8539a801addc218cec53d1b",
-    "assets/senzai-kk02/runtime.js": "fee210cedb4ad726c833dccbbe16c91271d0b226a8bb05ec8380aa6486cd575b"
+    "assets/senzai-kk02/runtime.js": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7"
   },
   "runtime": {
     "file": "runtime.js",
@@ -1868,6 +1868,16 @@
       47,
       65
     ],
+    "precision_focus": {
+      "at_s": 27,
+      "focus": 1,
+      "strands": 15,
+      "radius_m": 1.1,
+      "standoff_m": 1.4,
+      "acquire_s": 0.8,
+      "hold_until_s": 31.1,
+      "release_end_s": 33.5
+    },
     "attention_response_s": 0.48,
     "attention_release_s": 3.1,
     "originals": {
