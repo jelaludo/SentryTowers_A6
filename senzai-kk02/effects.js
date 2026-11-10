@@ -1,18 +1,29 @@
 import * as T from 'three';
-import {TIERS,direction,hash,curve} from '../assets/senzai-kk02/runtime.js';
+import {TIERS,direction,hash,curve} from '../assets/senzai-kk02/runtime.js?v=3';
 // Clamp shader inputs to their physical range: WebKit line interpolation can undershoot zero.
 // Fractional pow of a negative value produces NaN, which spreads through the bloom mip chain.
-const livingVertex=`attribute vec3 strandDirection;attribute float seed;attribute float along;uniform float uTime;uniform vec3 uVelocity;varying float vLight;varying float vAlong;
-vec3 living(vec3 d,float u){float w=uTime*6.2831853/72.;vec3 a=normalize(cross(d,abs(d.y)>.92?vec3(1.,0.,0.):vec3(0.,1.,0.))),b=cross(d,a);float ca=1.5*sin(3.14159265*u)*(seed-.30)+sin(w*2.+seed*9.+u*2.3)*.50*u*u;float cb=sin(3.14159265*u*1.6+seed*4.)*sin(3.14159265*u)*.9+cos(w*3.+seed*13.)*.22*u*u;return d*(3.2+12.8*u)+a*ca+b*cb-uVelocity*.05225*u*u;}
+const livingVertex=`attribute vec3 strandDirection;attribute float seed;attribute float along;
+uniform float uTime;uniform vec3 uVelocity;uniform vec3 uBreeze;uniform vec3 uFacing;uniform float uGather;
+varying float vLight;varying float vAlong;
+vec3 living(vec3 d,float u){
+ float w=uTime*6.2831853/72.,uu=u*u,bend=uu*(3.-2.*u);
+ vec3 a=normalize(cross(d,abs(d.y)>.92?vec3(1.,0.,0.):vec3(0.,1.,0.))),b=cross(d,a);
+ float breathing=.42*sin(w*4.+dot(d,vec3(2.1,1.3,-1.7)))+.26*sin(w*9.+seed*8.);
+ float ca=1.5*sin(3.14159265*u)*(seed-.30)+sin(w*7.+seed*9.-u*2.3)*.70*uu;
+ float cb=sin(3.14159265*u*1.6+seed*4.)*sin(3.14159265*u)*.9+cos(w*5.+seed*13.-u*1.4)*.42*uu;
+ vec3 wind=uBreeze-d*dot(d,uBreeze),tangent=uFacing-d*dot(d,uFacing);
+ float gather=uGather*smoothstep(0.,1.,(dot(d,uFacing)+.2)/.9);
+ return d*(3.2+12.8*u+breathing*bend+gather*.65*uu)+a*ca+b*cb+wind*1.35*bend+tangent*gather*1.6*uu-uVelocity*.05225*uu;
+}
 void main(){vec3 p=living(strandDirection,along);vec4 world=modelMatrix*vec4(p,1.);vec3 normal=normalize(mat3(modelMatrix)*strandDirection),toEye=normalize(cameraPosition-world.xyz);float rim=pow(clamp(1.-abs(dot(normal,toEye)),0.,1.),1.65);float key=.12+.88*max(dot(normal,normalize(vec3(.5,.8,-.3))),0.);vLight=(.045+.955*rim)*key*(.15+.85*pow(seed,2.));vAlong=along;gl_Position=projectionMatrix*viewMatrix*world;gl_PointSize=.8+pow(seed,4.)*1.5;}`;
 export function createFibers(lod){
- const count=TIERS[lod].visual_fibers,group=new T.Group();group.name='FX_LIVING_GLASS';const uniforms={uTime:{value:0},uVelocity:{value:new T.Vector3()}};if(!count)return {group,update(){}};
+ const count=TIERS[lod].visual_fibers,group=new T.Group();group.name='FX_LIVING_GLASS';const uniforms={uTime:{value:0},uVelocity:{value:new T.Vector3()},uBreeze:{value:new T.Vector3()},uFacing:{value:new T.Vector3()},uGather:{value:0}};if(!count)return {group,update(){}};
  const segments=lod===0?16:12,directions=[],seeds=[],along=[],zero=[],tipD=[],tipS=[];
  for(let i=0;i<count;i++){const d=direction(i,count),seed=hash(i+7);for(let j=0;j<segments;j++)for(const k of [0,1]){directions.push(...d);seeds.push(seed);along.push((j+k)/segments);zero.push(0,0,0);}tipD.push(...d);tipS.push(seed);}
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(zero,3));g.setAttribute('strandDirection',new T.Float32BufferAttribute(directions,3));g.setAttribute('seed',new T.Float32BufferAttribute(seeds,1));g.setAttribute('along',new T.Float32BufferAttribute(along,1));
  const material=new T.ShaderMaterial({uniforms,transparent:true,depthWrite:false,vertexShader:livingVertex,fragmentShader:`varying float vLight;varying float vAlong;void main(){float tip=pow(clamp(vAlong,0.,1.),2.2);gl_FragColor=vec4(vec3(.17,.27,.24)*vLight*(.12+.88*tip),.62);}`});const lines=new T.LineSegments(g,material);lines.frustumCulled=false;group.add(lines);
  const pg=new T.BufferGeometry();pg.setAttribute('position',new T.Float32BufferAttribute(new Float32Array(count*3),3));pg.setAttribute('strandDirection',new T.Float32BufferAttribute(tipD,3));pg.setAttribute('seed',new T.Float32BufferAttribute(tipS,1));pg.setAttribute('along',new T.Float32BufferAttribute(new Float32Array(count).fill(1),1));const points=new T.Points(pg,new T.ShaderMaterial({uniforms,transparent:true,depthWrite:false,vertexShader:livingVertex,fragmentShader:`varying float vLight;void main(){float r=length(gl_PointCoord-.5)*2.;if(r>1.)discard;gl_FragColor=vec4(vec3(.41,.56,.49)*vLight,(1.-r*r)*.7);}`}));points.frustumCulled=false;group.add(points);
- return {group,update(state){uniforms.uTime.value=state.time;uniforms.uVelocity.value.set(...state.velocity);}};
+ return {group,update(state){uniforms.uTime.value=state.time;uniforms.uVelocity.value.set(...state.velocity);uniforms.uBreeze.value.set(...state.breeze);uniforms.uFacing.value.set(...state.facing);uniforms.uGather.value=state.gather*state.awake;}};
 }
 export function createAttention(){
  const group=new T.Group();group.name='FX_LIVING_EMERALD';const steps=64,p=new Float32Array(48*steps*6),c=new Float32Array(p.length),tips=new Float32Array(48*3),levels=new Float32Array(48),g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3).setUsage(T.DynamicDrawUsage));g.setAttribute('color',new T.BufferAttribute(c,3).setUsage(T.DynamicDrawUsage));const lines=new T.LineSegments(g,new T.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.66,depthWrite:false,blending:T.AdditiveBlending,toneMapped:false}));lines.frustumCulled=false;group.add(lines);

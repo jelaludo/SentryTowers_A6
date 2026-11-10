@@ -23,7 +23,7 @@ try{
  if(process.argv.includes('--baseline')){const page=await setup(2,true),before=await readFrame(page,15);assert(before.scene.nonfinite>0);assert(before.bloom.nonfinite>before.scene.nonfinite);report.baseline={commit:'1628143',...before};await page.screenshot({path:review+'/before.png'});await page.close();}
  for(const dpr of [1,2]){
   const page=await setup(dpr);
-  for(const time of [0,5,10.75,15,29.8,37,49.75,58,68,72]){const frame=await readFrame(page,time);assert.equal(frame.scene.nonfinite,0,JSON.stringify(frame));assert.equal(frame.bloom.nonfinite,0,JSON.stringify(frame));assert.equal(frame.gl_error,0);report.frames.push({dpr,lod:1,view:'field',...frame});}
+  for(const time of [0,5,8.7,10.75,15,19.7,27.7,29.8,37,40.7,47.7,49.75,58,65.7,68,72]){const frame=await readFrame(page,time);assert.equal(frame.scene.nonfinite,0,JSON.stringify(frame));assert.equal(frame.bloom.nonfinite,0,JSON.stringify(frame));assert.equal(frame.gl_error,0);report.frames.push({dpr,lod:1,view:'field',...frame});}
   await readFrame(page,15);await page.screenshot({path:review+`/after-dpr${dpr}.png`});
   await page.evaluate(()=>window.senzai.setView('macro'));for(const time of [15,37,58]){const frame=await readFrame(page,time);assert.equal(frame.scene.nonfinite+frame.bloom.nonfinite,0);assert.equal(frame.gl_error,0);report.frames.push({dpr,lod:1,view:'macro',...frame});}
   await page.screenshot({path:review+`/macro-dpr${dpr}.png`});await page.evaluate(()=>window.senzai.setView('field'));
@@ -31,7 +31,7 @@ try{
   for(const lod of [0,2]){await page.selectOption('#lod',String(lod));await ready(page);const frame=await readFrame(page,15);assert.equal(frame.scene.nonfinite+frame.bloom.nonfinite,0);assert.equal(frame.gl_error,0);report.frames.push({dpr,lod,view:'field',...frame});}
   await page.close();
  }
- assert.deepEqual(report.errors,[]);report.checks=['Half-float scene and bloom buffers contain no NaN/Infinity in 30 rendered cases','Both display densities; all three detail tiers; whole-field and macro; attention shifts and cycle boundary','Cinema screenshots visually reviewed with bloom enabled'];
+ assert.deepEqual(report.errors,[]);report.checks=['Half-float scene and bloom buffers contain no NaN/Infinity in 42 rendered cases','Both display densities; all three detail tiers; whole-field and macro; attention shifts and cycle boundary','Cinema screenshots visually reviewed with bloom enabled'];
  for(const path of ['senzai-kk02/effects.js','senzai-kk02/viewer.js','senzai-kk02/index.html','tools/asset-pipeline/test-senzai-kk02-webkit.mjs'])report.source_sha256[path]=crypto.createHash('sha256').update(await fs.readFile(new URL(path,root))).digest('hex');
  await fs.writeFile(new URL('webkit-report.json',out),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,frames:report.frames.length,baseline:report.baseline,errors:report.errors}));
 }finally{await browser.close();}

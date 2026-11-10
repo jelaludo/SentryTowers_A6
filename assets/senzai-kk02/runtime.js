@@ -15,24 +15,67 @@ export const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1
 export function direction(i,n){const y=1-2*(i+.5)/n,a=i*2.399963229728653+.41,r=Math.sqrt(1-y*y);return [r*Math.cos(a),y,r*Math.sin(a)];}
 export const attentionDirection=i=>direction(i*19%48,48);
 const HOME=[-8,25,3],STOPS=[[10,30,4],[-12,26,3],[2,31,-12]],LEGS=[{at:10,duration:1.5,from:HOME,to:STOPS[0]},{at:29,duration:1.6,from:STOPS[0],to:STOPS[1]},{at:49,duration:1.5,from:STOPS[1],to:STOPS[2]},{at:67,duration:2,from:STOPS[2],to:HOME}];
+// Unevenly spaced detections interrupt otherwise independent foraging. Their envelope
+// is analytic, so scrubbing, backwards time and the 72 s seam remain deterministic.
+export const ATTENTION_EVENTS=[{at:8,to:0},{at:19,to:2},{at:27,to:1},{at:40,to:0},{at:47,to:2},{at:65,to:0}];
+const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
+export function attentionAt(time,delay=0){
+ time=((time-delay)%72+72)%72;
+ let from=FOCI[0],to=FOCI[0],index=0,age=100;
+ for(const event of ATTENTION_EVENTS){if(time<event.at)break;from=to;to=FOCI[event.to];index=event.to;age=time-event.at;}
+ const focus=mix(from,to,ease(age/.48));
+ const gather=smooth(age/.38)*(1-smooth((age-1.65)/3.1));
+ return {focus,index,age,gather};
+}
 export function fieldState(seconds=0,awake=1){
  const time=((seconds%72)+72)%72,w=time*Math.PI*2/72;let center=[...HOME],velocity=[0,0,0],swift=0;
  for(const leg of LEGS){if(time>=leg.at){const u=clamp((time-leg.at)/leg.duration),e=ease(u),derivative=30*u*u*(u-1)*(u-1)/leg.duration;center=leg.from.map((v,i)=>v+(leg.to[i]-v)*e);velocity=mul(sub(leg.to,leg.from),derivative);swift=Math.max(swift,Math.sin(Math.PI*u));}}
  center=add(center,[.5*Math.sin(w),.55*Math.sin(w*2),.4*(Math.cos(w)-1)]);
- const events=[{at:8,to:0},{at:27,to:1},{at:47,to:2},{at:65,to:0}];let focus=[...FOCI[0]],index=0;
- for(const e of events){if(time>=e.at){const u=ease((time-e.at)/2),next=FOCI[e.to];focus=focus.map((v,i)=>v+(next[i]-v)*u);index=e.to;}}
- const facing=norm(sub(focus,center));
- return {time,center,velocity,swift,focus,index,facing,awake,phase:swift>.02?'SHIFTING ATTENTION':time<8||time>69?'LISTENING':'ATTENDING',cycle_s:72};
+ const attention=attentionAt(time),facing=norm(sub(attention.focus,center));
+ // A common breeze supplies spatial coherence; individual filaments lag behind it.
+ const breeze=[Math.sin(w*7)*.9+Math.sin(w*11+.8)*.32,Math.sin(w*5+1.1)*.24,Math.cos(w*6+.4)*.8+Math.sin(w*9)*.3];
+ return {time,center,velocity,swift,...attention,facing,breeze,awake:clamp(awake),phase:attention.gather>.72?'FOCUS LOCK':attention.gather>.12?'SENSING':swift>.02?'FOLLOWING':'FORAGING',cycle_s:72};
 }
-export function strandState(i,state){const d=attentionDirection(i),alignment=dot(d,state.facing),w=state.time*Math.PI*2/72,attention=smooth((alignment-.45)/.42),breath=.82+.18*Math.sin(w*3+i*1.7),search=smooth((Math.sin(w*2+i*2.4)-.94)/.06)*.12;const level=Math.max(attention,search)*breath*state.awake;return {level,extension:level*(2.7+hash(i+53)*3.2),alignment};}
+export function strandState(i,state){
+ const d=attentionDirection(i),seed=hash(i+53),w=state.time*Math.PI*2/72;
+ const notice=attentionAt(state.time,.025+hash(i+91)*.16),facing=norm(sub(notice.focus,state.center)),alignment=dot(d,facing);
+ const cohort=smooth((alignment+.28)/.85),commit=notice.gather*cohort*state.awake;
+ // Slow extension/hold/withdraw cycles, each strand with a different phase and pace.
+ const cycle=(state.time/(72/(7+i%4))+hash(i+107))%1;
+ const probe=smooth(cycle/.24)*(1-smooth((cycle-.48)/.42));
+ const scout=smooth((Math.sin(w*(3+i%3)+i*2.4)+.35)/1.1);
+ const level=state.awake*Math.max(probe*(.14+.38*scout),commit*(.82+.18*Math.sin(w*5+i)*Math.sin(w*5+i)));
+ const extension=state.awake*((probe-.45)*(5.2+seed*2.4)+commit*(4.8+seed*2.3));
+ return {level,extension,alignment,commit,probe,scout,facing};
+}
 export function curve(i,u,state,active=true,count=48){
- const d=active?attentionDirection(i):direction(i,count),a=norm(cross(d,Math.abs(d[1])>.92?[1,0,0]:[0,1,0])),b=cross(d,a),seed=hash(i+7),w=state.time*Math.PI*2/72,ss=active?strandState(i,state):{level:0,extension:0};
- const radius=(active?8.2:3.2)+(active?7.7:12.8)*u+ss.extension*u*u;
- const curveA=(active?2.0:1.5)*Math.sin(Math.PI*u)*(seed-.30)+Math.sin(w*2+seed*9+u*2.3)*(active?.82:.50)*u*u;
- const curveB=Math.sin(Math.PI*u*1.6+seed*4)*Math.sin(Math.PI*u)*(active?1.35:.9)+Math.cos(w*3+seed*13)*(active?.45:.22)*u*u;
- let p=add(mul(d,radius),add(mul(a,curveA),mul(b,curveB)));
- if(active){const tangent=sub(state.facing,mul(d,dot(d,state.facing)));p=add(p,mul(tangent,ss.level*3.5*u*u));}
- return add(p,mul(state.velocity,-.095*u*u*(active?1:.55)));
+ const d=active?attentionDirection(i):direction(i,count),a=norm(cross(d,Math.abs(d[1])>.92?[1,0,0]:[0,1,0])),b=cross(d,a),seed=hash(i+7),w=state.time*Math.PI*2/72;
+ const ss=active?(state.states?.[i]||strandState(i,state)):{extension:0,commit:0,probe:0};
+ const uu=u*u,bend=u*u*(3-2*u),breeze=state.breeze||[0,0,0],sideWind=sub(breeze,mul(d,dot(d,breeze)));
+ if(!active){
+  const breathing=.42*Math.sin(w*4+dot(d,[2.1,1.3,-1.7]))+.26*Math.sin(w*9+seed*8);
+  const ca=1.5*Math.sin(Math.PI*u)*(seed-.30)+Math.sin(w*7+seed*9-u*2.3)*.70*uu;
+  const cb=Math.sin(Math.PI*u*1.6+seed*4)*Math.sin(Math.PI*u)*.9+Math.cos(w*5+seed*13-u*1.4)*.42*uu;
+  const facing=state.facing,tangent=sub(facing,mul(d,dot(d,facing))),gather=state.gather*state.awake*smooth((dot(d,facing)+.2)/.9);
+  return add(add(mul(d,3.2+12.8*u+breathing*bend+gather*.65*uu),add(mul(a,ca),mul(b,cb))),add(mul(sideWind,1.35*bend),add(mul(tangent,gather*1.6*uu),mul(state.velocity,-.05225*uu))));
+ }
+ // The tip notices first; the bend follows down the shaft. A cubic curve retains a
+ // rooted first tangent while its far tangent points toward a shared sensed target.
+ const delayed=attentionAt(state.time,.025+hash(i+91)*.16+(1-u)*.22);
+ const aim=norm(sub(delayed.focus,state.center)),tangent=sub(aim,mul(d,dot(d,aim)));
+ const reach=15.9+ss.extension;
+ const tip=add(mul(d,reach),add(mul(tangent,ss.commit*6.8),mul(sideWind,1.5*(1-ss.commit*.65))));
+ const localAim=norm(add(mul(d,.85),add(mul(a,Math.sin(w*(4+i%3)+seed*9)*.75),mul(b,Math.cos(w*5+seed*13)*.55))));
+ const tipAim=norm(mix(localAim,norm(sub(sub(delayed.focus,state.center),tip)),ss.commit*.92));
+ const p0=mul(d,8.2),p1=add(mul(d,10.7),mul(a,Math.sin(w*4+seed*8)*.7)),p3=tip,p2=sub(p3,mul(tipAim,3.0+ss.probe*1.8));
+ const v=1-u;let p=add(add(mul(p0,v*v*v),mul(p1,3*v*v*u)),add(mul(p2,3*v*uu),mul(p3,uu*u)));
+ // Broad S-bends and a curling distal section relax when a target is acquired.
+ const curl=(1-ss.commit*.84)*(1.1+(1-ss.probe)*1.25);
+ const ca=Math.sin(Math.PI*u)*(seed-.30)*2.6+Math.sin(u*Math.PI*2.3-w*(5+i%3)+seed*9)*Math.sin(Math.PI*u)*curl;
+ const cb=Math.sin(u*Math.PI*1.8+w*4+seed*13)*Math.sin(Math.PI*u)*curl*.60;
+ p=add(p,add(mul(a,ca),mul(b,cb)));
+ p=add(p,mul(sideWind,(.8*Math.sin(Math.PI*u)+.65*uu)*(1-ss.commit*.65)));
+ return add(p,mul(state.velocity,-.075*uu));
 }
 export function curveFrame(i,u,state){const p=curve(i,u,state),t=norm(sub(curve(i,Math.min(1,u+.002),state),curve(i,Math.max(0,u-.002),state))),a=norm(cross(t,Math.abs(t[1])>.92?[1,0,0]:[0,1,0]));return {p,t,a,b:cross(t,a)};}
 export function createRig(scene){
@@ -40,7 +83,7 @@ export function createRig(scene){
  const tips=Array.from({length:48},(_,i)=>scene.getObjectByName('EYE_'+String(i+1).padStart(2,'0'))),geometry=mesh?.isMesh?mesh.geometry:null,attrs=geometry?.attributes;
  const attr=n=>attrs?.[n]||attrs?.['_'+n.toLowerCase()],ids=attr('fiberId'),along=attr('along'),offset=attr('offset'),localNormal=attr('localNormal'),glow=attr('glow');
  return {root,frame,tips,static:!!root.userData.static,pose(seconds,{awake=1,hdr=false}={}){
-  const state=fieldState(this.static?0:seconds,this.static?1:awake),states=Array.from({length:48},(_,i)=>strandState(i,state));
+  const state=fieldState(this.static?0:seconds,this.static?1:awake),states=Array.from({length:48},(_,i)=>strandState(i,state));state.states=states;
   if(!this.static){frame.position.set(...state.center);for(let i=0;i<48;i++){const f=curveFrame(i,1,state);tips[i].position.set(...f.p);tips[i].quaternion.setFromUnitVectors(tips[i].up,tips[i].position.clone().set(...f.t));}
    if(ids){const cache=new Map();for(let j=0;j<ids.count;j++){const id=Math.round(ids.getX(j)),u=along.getX(j),key=id+':'+u;let f=cache.get(key);if(!f){f=curveFrame(id,u,state);cache.set(key,f);}const axes=[f.a,f.b,f.t],p=[...f.p],n=[0,0,0];for(let a=0;a<3;a++)for(let k=0;k<3;k++){p[k]+=axes[a][k]*offset.getComponent(j,a);n[k]+=axes[a][k]*localNormal.getComponent(j,a);}attrs.position.setXYZ(j,...p);attrs.normal.setXYZ(j,...n);const power=states[id].level*glow.getX(j)*(.72+.28*Math.exp(-Math.pow((u-(state.time/6+id*.13)%1)*7,2)))*(hdr?2.8:1);attrs.color.setXYZ(j,.003+power*.14,.006+power,.005+power*.47);}for(const n of ['position','normal','color'])attrs[n].needsUpdate=true;geometry.computeBoundingSphere();}
   }

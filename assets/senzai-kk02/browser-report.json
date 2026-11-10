@@ -4,16 +4,16 @@
   "exports": [
     {
       "lod": 1,
-      "download_sha256": "3bb022711939c2979ed926c8cc39cb540858465a3c77775ce4d4e550a630b676",
+      "download_sha256": "f50638a24d4b091792eebb002f0c6190bbc7457fb8b19036eb0dd764a230a4b3",
       "model_render": {
-        "frame": 196,
+        "frame": 181,
         "calls": 2,
         "triangles": 23088,
         "points": 0,
         "lines": 0
       },
       "viewer_with_effects_and_postprocessing": {
-        "frame": 211,
+        "frame": 196,
         "calls": 36,
         "triangles": 24352,
         "points": 18698,
@@ -22,16 +22,16 @@
     },
     {
       "lod": 0,
-      "download_sha256": "30062797bf42fc93b9d78a14e3c3dfb8c3d842260be02de76d2c78a6d5e7bb61",
+      "download_sha256": "3376af9f11447cfd1a401cb7e039159fe15c1f089675dabcf8b222d751a526e3",
       "model_render": {
-        "frame": 467,
+        "frame": 452,
         "calls": 2,
         "triangles": 204576,
         "points": 0,
         "lines": 0
       },
       "viewer_with_effects_and_postprocessing": {
-        "frame": 482,
+        "frame": 467,
         "calls": 36,
         "triangles": 205840,
         "points": 36698,
@@ -40,16 +40,16 @@
     },
     {
       "lod": 2,
-      "download_sha256": "3b70f5b58d97afe06e94b5e93f827e7a6eae1b786e9c96a9872a271568c10ef6",
+      "download_sha256": "94edce40601eb52b1c4f802b4a625aead428d1c86501d7a1c37e8a40c78dd81d",
       "model_render": {
-        "frame": 708,
+        "frame": 693,
         "calls": 1,
         "triangles": 2904,
         "points": 0,
         "lines": 0
       },
       "viewer_with_effects_and_postprocessing": {
-        "frame": 723,
+        "frame": 708,
         "calls": 31,
         "triangles": 4168,
         "points": 650,
@@ -60,18 +60,18 @@
   "checks": [
     "All 3 LODs render with measured model cost and byte-identical source downloads",
     "Pause, play, scrub, restart, next focus; swift field movement, curved tip movement, light changes and projected 4D space motion",
-    "Dormant extinguishes all attention; awake restores sparse lights",
+    "Dormant extinguishes all attention; awake restores the active foraging field",
     "Whole-field and tracking macro cameras, space/follow toggles, fog/bloom, speed, cinema/Escape and PNG capture",
     "390px layout: no horizontal overflow, toolbar fits and settings/download remain accessible"
   ],
   "source_sha256": {
-    "senzai-kk02/viewer.js": "c83f98ef5d5bd80069ebe6327b6e672c486646cff895767435a0f37ddd44932e",
-    "senzai-kk02/effects.js": "ede5ed4dc79ab16862ae4292aed245acebcf55e1efcc3898e4fcbcd22d3b2c08",
+    "senzai-kk02/viewer.js": "2fe05dd7ce0536e7095a2310085eb6061409d732ff594be0b8b528c8d9913804",
+    "senzai-kk02/effects.js": "fa3d593b3603ed7e56da10c2b96cc6ed3d3bff81e3cd473fe07352c497b97745",
     "senzai-kk02/space.js": "d548695b9b1c438292ee46b58ade9610da3e13628254279f8c238721b9186b1d",
-    "senzai-kk02/index.html": "8f80309084d870f96945c20fa9ece9d025fdedbb8afe9738e4f5111424266f29",
+    "senzai-kk02/index.html": "8ed61e8c23b3eb7a7be06e1009c73d78b59f9e26b7f3c8b2b93818203ba96d40",
     "senzai-kk02/style.css": "46b5fefbf9cd337cc6652a1617a215d8bd55ac22390e1959f88863d276fa56e6",
-    "assets/senzai-kk02/runtime.js": "7678bc75884fcce51c3d3a03a1156e76a802ff8b0a9975cbadd2685f147d202c",
-    "tools/asset-pipeline/test-senzai-kk02.mjs": "fe7e1ec3070ec024188d7da1ca4bad5f60e4316bb2bf00f80f27f1d7780a968a"
+    "assets/senzai-kk02/runtime.js": "fee210cedb4ad726c833dccbbe16c91271d0b226a8bb05ec8380aa6486cd575b",
+    "tools/asset-pipeline/test-senzai-kk02.mjs": "505105b4f697b5c8dac69e0a3c22f1820af583d20bcc555f19d8dcea26ef59cb"
   },
   "errors": []
 }

@@ -1,5 +1,5 @@
 const collectionImages={
-'senzai-kk02':'assets/senzai-kk02/preview.png',
+'senzai-kk02':'assets/senzai-kk02/preview.png?v=2',
 'latent-field':'assets/latent-field/preview.png',
 'aurel03-rkmg02':'assets/robot-assembly/helmet-fit/preview.png',
 'rk-mg02':'assets/helmet-lab/rk-mg02/preview.png',
@@ -60,7 +60,7 @@ const collectionImages={
 };
 
 export const collections=[
-['senzai-kk02','Senzai-KK02 / Living attention','Abstract','Organic glass fibers breathe and curl toward three signals. The field shifts swiftly through a slowly folding dimensional space, then settles into stillness. LATENT v1 is preserved.','72-second cycle · Living curves · Dimensional space · 3 tiers','Animated spatial study'],
+['senzai-kk02','Senzai-KK02 / Living attention','Abstract','Organic glass fibers breathe and curl toward three signals. Independent tendrils forage and sway, then suddenly gather their attention while the field moves through slowly folding space. LATENT v1 is preserved.','72-second cycle · Foraging tendrils · Collective attention · 3 tiers','Animated spatial study'],
 ['latent-field','LATENT / Optic-fiber field','Abstract','A suspended sphere of dormant glass filaments. A sparse handful of emerald strands wake, extend and draw back into the dark while the field floats in a shifting haze.','48-second cycle · Fiber macro · 3 tiers · GLB','Animated field study'],
 ['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Default carbon Hex Witness, with compact RK-MG02 and Breach Warden alternatives on the complete AUREL body. Swap designs, compare layers and inspect moving neck connections.','3 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=hex-witness&head=sensor'],
 ['rk-mg02','Helmet Lab / RK-MG02','Characters','A fitted motocross enclosure with a structural brow, continuous vented guard, recessed optics and distinct ceramic, metal and rubber finishes.','Fitted MX enclosure · Gray inspection · 3 tiers · GLB + ZIP','Helmet studies / 03','helmet-lab/?helmet=rk-mg02'],

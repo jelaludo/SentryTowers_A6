@@ -5,7 +5,7 @@
       "lod": 0,
       "triangles": 204576,
       "draw_calls": 2,
-      "bytes": 7011280,
+      "bytes": 7011300,
       "unique_nodes": 151,
       "degenerate_triangles": 0,
       "validator": {
@@ -31,7 +31,7 @@
       "lod": 2,
       "triangles": 2904,
       "draw_calls": 1,
-      "bytes": 140628,
+      "bytes": 140648,
       "unique_nodes": 151,
       "degenerate_triangles": 0,
       "validator": {
@@ -44,11 +44,47 @@
   "preserved_v1": 14,
   "motion": {
     "samples": 720,
-    "min_active": 11,
-    "max_active": 18,
+    "min_active": 27,
+    "max_active": 46,
     "peak_shift_speed_m_s": 26.23011244406179,
-    "max_curve_deviation_m": 2.018604440383719,
-    "minimum_ground_clearance_m": 9.17584798864446
+    "max_curve_deviation_m": 5.088926115190354,
+    "minimum_ground_clearance_m": 5.6361938068952355,
+    "minimum_tip_radius_swing_m": 8.00757866469437,
+    "maximum_tip_radius_swing_m": 15.447439383585303,
+    "mean_locked_tip_target_alignment": 0.974596128729634,
+    "acquisitions": [
+      {
+        "at_s": 8,
+        "focus": 0,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 19,
+        "focus": 2,
+        "recruited_after_700ms": 23
+      },
+      {
+        "at_s": 27,
+        "focus": 1,
+        "recruited_after_700ms": 23
+      },
+      {
+        "at_s": 40,
+        "focus": 0,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 47,
+        "focus": 2,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 65,
+        "focus": 0,
+        "recruited_after_700ms": 24
+      }
+    ],
+    "mean_dormant_tip_travel_over_2s_m": 2.100425410887984
   },
   "scope": "Plain GLB structure, geometry, curves and source preservation; engine-driven pose/loop validation. No compressed release or FPS claim."
 }

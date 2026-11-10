@@ -1,5 +1,15 @@
 # Devlog
 
+## 10 November 2026 / Senzai-KK02 — foraging tendrils and sudden collective attention
+
+Reworked the living motion around the requested organic behavior. Tendrils independently probe, hold, curl, lengthen and withdraw while the whole fine-fiber canopy sways and breathes in a shared gentle breeze. Six unevenly spaced detections make a group turn and reach toward one focus, with tips leading the shafts, a brief hold and a slower release. Background probing continues between and during these events. Next focus now previews each collective detection.
+
+Measured over the 72-second loop: 27–46 awake strands, 8.01–15.45 m per-tip radial range, 21–24 tendrils recruited within 0.7 s and 0.9746 mean locked-tip target alignment. Fixed origins, reversible time, loop continuity, plot bounds and living dormant motion pass validation. Whole-field travel is retained. These are visual/procedural attention cues, not gameplay sensing or a performance claim.
+
+Regenerated the master, game and static distance GLBs with the new time-zero pose. Costs remain 204,576 / 23,088 / 2,904 triangles and 2 / 2 / 1 model draws; byte sizes are 7,011,300 / 791,336 / 140,648. Preserved revision 1 from `f27b371` under `assets/senzai-kk02/originals/r1/`. All 151 node names and root/mount frames persist across tiers; tip sockets follow the updated curves. LATENT v1 and the received collaboration contract remain unchanged.
+
+All plain tiers validate with zero errors/warnings. Chromium checks cover rendered motion, controls, downloads and mobile layout; native WebKit checks retain finite scene/bloom output in 42 cases, including the new acquisitions. Shared navigation, runtime notes and preview are updated. Completed: requested animation revision. Pending: user's visual acceptance, consuming-game shader/release decode, LOD thresholds, device profiling and damage states. Handoff: containing commit plus `assets/senzai-kk02/` and companion viewer `senzai-kk02/`.
+
 ## 10 November 2026 / Senzai-KK02 — WebKit black-rectangle fix
 
 Reproduced the reported large black rectangle in native WebKit. Fine-fiber line interpolation could undershoot zero before a fractional `pow`, producing NaN colors which spread through bloom. Clamped the along-fiber and rim-light inputs to their valid ranges; bloom and the existing appearance remain enabled. Cache-versioned the viewer and effect module so reloads use the fix. Geometry, motion, model exports and LATENT v1 are unchanged.

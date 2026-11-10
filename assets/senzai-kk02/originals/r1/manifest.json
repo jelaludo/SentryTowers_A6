@@ -1,0 +1,1934 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "senzai-kk02",
+  "label": "Senzai-KK02 / Living attention",
+  "revision": 1,
+  "status": "Original / animated spatial study",
+  "based_on": {
+    "family": "LATENT v1",
+    "commit": "d8cc09d",
+    "policy": "Separate family; source files remain byte-identical",
+    "preserved_v1": {
+      "latent-field/effects.js": "20825c1d5c60d11f5b480e849bbec9bfc3c7538713b79cb7fea4138dc973330e",
+      "latent-field/index.html": "5eb233cb2cb9f141d0bbe55db3d17a5e3c4bb8f27d4873346f541772281c42d4",
+      "latent-field/style.css": "2e36d2219bc64035c183bfc1f3cfa3da2715daf559e120eefa6a9115e2240931",
+      "latent-field/viewer.js": "c3de37bb9decb670e1f0a84255cb3f75fb72e80a55e634d8cd856cd813eba4b5",
+      "assets/latent-field/README.md": "71fd34b8cc74bf00850db0f39f1821b3f4ec14122e749524aedd70ccb1f27abe",
+      "assets/latent-field/browser-report.json": "0eda0881f196c18f311268a0a09bb2cc60e8423171326f935ab9e340ab336ff0",
+      "assets/latent-field/latent_field_d0_lod0.glb": "ad68ad5febee1c27a1d4ed1a12a77dc5f65a3f67b01ea7323264b76199651c28",
+      "assets/latent-field/latent_field_d0_lod1.glb": "a934501a9bda4e007b584c8d630b58d685974b438cc2dea4acd2ce4439ea7713",
+      "assets/latent-field/latent_field_d0_lod2.glb": "18468dd3c31ae6c422d81b64386bfa8f4db57ab0dee1033e896c467dc9ba3e87",
+      "assets/latent-field/manifest.json": "348087e03650eb4c213d56e096c88ddd2e5ee9a6eaf6ca25a97800fda72e5ba3",
+      "assets/latent-field/preview.png": "e5655684ed1147c3be9952d7d1e65f61d1460ee4c530823f56484ff5398a55dc",
+      "assets/latent-field/reference-provenance.json": "5cad67aa7e58c576de5f9331e1c8c361843d4d7d284b30de7e52076a2b99d98e",
+      "assets/latent-field/runtime.js": "6de1df89a887c22859dead1a3e6b02968e916c749a4927fe2d6a8eea9b3f9de3",
+      "assets/latent-field/validation-report.json": "14771635ad2794c5561bc93c449b25e3ef7e0e2d222783c6e031e1c88c4b6c34"
+    }
+  },
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Ground plot center; moving field centre starts at [-8,25,3]"
+  },
+  "spec": {
+    "radius_m": 16,
+    "center_y_m": 25,
+    "cycle_s": 72,
+    "attention_strands": 48,
+    "plot_m": [
+      100,
+      100
+    ]
+  },
+  "tiers": [
+    {
+      "lod": 0,
+      "fibers": 5000,
+      "segments": 6,
+      "sides": 3,
+      "attention_segments": 40,
+      "attention_sides": 5,
+      "visual_fibers": 36000
+    },
+    {
+      "lod": 1,
+      "fibers": 650,
+      "segments": 4,
+      "sides": 3,
+      "attention_segments": 20,
+      "attention_sides": 3,
+      "visual_fibers": 18000
+    },
+    {
+      "lod": 2,
+      "fibers": 108,
+      "segments": 3,
+      "sides": 3,
+      "attention_segments": 2,
+      "attention_sides": 3,
+      "visual_fibers": 0
+    }
+  ],
+  "assets": [
+    {
+      "file": "senzai_kk02_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "derived": false,
+      "static": false,
+      "bytes": 7011280,
+      "sha256": "30062797bf42fc93b9d78a14e3c3dfb8c3d842260be02de76d2c78a6d5e7bb61",
+      "triangles": 204576,
+      "draw_calls": 2,
+      "plot_m": [
+        100,
+        100
+      ],
+      "bounds": {
+        "min": [
+          -24.001882553100586,
+          8.993566513061523,
+          -13.000106811523438
+        ],
+        "max": [
+          11.00836181640625,
+          41.010419845581055,
+          19.03178596496582
+        ]
+      },
+      "reserved_motion_bounds": {
+        "min": [
+          -50,
+          0,
+          -50
+        ],
+        "max": [
+          50,
+          64,
+          50
+        ]
+      },
+      "required_nodes": [
+        "CURVED_DORMANT_FIBERS",
+        "DISTANCE_SURFACE",
+        "EYE_01",
+        "EYE_02",
+        "EYE_03",
+        "EYE_04",
+        "EYE_05",
+        "EYE_06",
+        "EYE_07",
+        "EYE_08",
+        "EYE_09",
+        "EYE_10",
+        "EYE_11",
+        "EYE_12",
+        "EYE_13",
+        "EYE_14",
+        "EYE_15",
+        "EYE_16",
+        "EYE_17",
+        "EYE_18",
+        "EYE_19",
+        "EYE_20",
+        "EYE_21",
+        "EYE_22",
+        "EYE_23",
+        "EYE_24",
+        "EYE_25",
+        "EYE_26",
+        "EYE_27",
+        "EYE_28",
+        "EYE_29",
+        "EYE_30",
+        "EYE_31",
+        "EYE_32",
+        "EYE_33",
+        "EYE_34",
+        "EYE_35",
+        "EYE_36",
+        "EYE_37",
+        "EYE_38",
+        "EYE_39",
+        "EYE_40",
+        "EYE_41",
+        "EYE_42",
+        "EYE_43",
+        "EYE_44",
+        "EYE_45",
+        "EYE_46",
+        "EYE_47",
+        "EYE_48",
+        "FIBER_ROOT_01",
+        "FIBER_ROOT_02",
+        "FIBER_ROOT_03",
+        "FIBER_ROOT_04",
+        "FIBER_ROOT_05",
+        "FIBER_ROOT_06",
+        "FIBER_ROOT_07",
+        "FIBER_ROOT_08",
+        "FIBER_ROOT_09",
+        "FIBER_ROOT_10",
+        "FIBER_ROOT_11",
+        "FIBER_ROOT_12",
+        "FIBER_ROOT_13",
+        "FIBER_ROOT_14",
+        "FIBER_ROOT_15",
+        "FIBER_ROOT_16",
+        "FIBER_ROOT_17",
+        "FIBER_ROOT_18",
+        "FIBER_ROOT_19",
+        "FIBER_ROOT_20",
+        "FIBER_ROOT_21",
+        "FIBER_ROOT_22",
+        "FIBER_ROOT_23",
+        "FIBER_ROOT_24",
+        "FIBER_ROOT_25",
+        "FIBER_ROOT_26",
+        "FIBER_ROOT_27",
+        "FIBER_ROOT_28",
+        "FIBER_ROOT_29",
+        "FIBER_ROOT_30",
+        "FIBER_ROOT_31",
+        "FIBER_ROOT_32",
+        "FIBER_ROOT_33",
+        "FIBER_ROOT_34",
+        "FIBER_ROOT_35",
+        "FIBER_ROOT_36",
+        "FIBER_ROOT_37",
+        "FIBER_ROOT_38",
+        "FIBER_ROOT_39",
+        "FIBER_ROOT_40",
+        "FIBER_ROOT_41",
+        "FIBER_ROOT_42",
+        "FIBER_ROOT_43",
+        "FIBER_ROOT_44",
+        "FIBER_ROOT_45",
+        "FIBER_ROOT_46",
+        "FIBER_ROOT_47",
+        "FIBER_ROOT_48",
+        "FLOAT_FRAME",
+        "LIVING_ATTENTION",
+        "SENZAI_KK02_SCENE",
+        "SENZAI_ROOT",
+        "SOCKET_EYE_01",
+        "SOCKET_EYE_02",
+        "SOCKET_EYE_03",
+        "SOCKET_EYE_04",
+        "SOCKET_EYE_05",
+        "SOCKET_EYE_06",
+        "SOCKET_EYE_07",
+        "SOCKET_EYE_08",
+        "SOCKET_EYE_09",
+        "SOCKET_EYE_10",
+        "SOCKET_EYE_11",
+        "SOCKET_EYE_12",
+        "SOCKET_EYE_13",
+        "SOCKET_EYE_14",
+        "SOCKET_EYE_15",
+        "SOCKET_EYE_16",
+        "SOCKET_EYE_17",
+        "SOCKET_EYE_18",
+        "SOCKET_EYE_19",
+        "SOCKET_EYE_20",
+        "SOCKET_EYE_21",
+        "SOCKET_EYE_22",
+        "SOCKET_EYE_23",
+        "SOCKET_EYE_24",
+        "SOCKET_EYE_25",
+        "SOCKET_EYE_26",
+        "SOCKET_EYE_27",
+        "SOCKET_EYE_28",
+        "SOCKET_EYE_29",
+        "SOCKET_EYE_30",
+        "SOCKET_EYE_31",
+        "SOCKET_EYE_32",
+        "SOCKET_EYE_33",
+        "SOCKET_EYE_34",
+        "SOCKET_EYE_35",
+        "SOCKET_EYE_36",
+        "SOCKET_EYE_37",
+        "SOCKET_EYE_38",
+        "SOCKET_EYE_39",
+        "SOCKET_EYE_40",
+        "SOCKET_EYE_41",
+        "SOCKET_EYE_42",
+        "SOCKET_EYE_43",
+        "SOCKET_EYE_44",
+        "SOCKET_EYE_45",
+        "SOCKET_EYE_46",
+        "SOCKET_EYE_47",
+        "SOCKET_EYE_48",
+        "SOCKET_FIELD_CENTER"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FIELD_CENTER",
+          "time_zero_position_m": [
+            -8,
+            25,
+            3
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_01",
+          "time_zero_position_m": [
+            -5.39509994739962,
+            40.574759467023014,
+            5.033668682007837
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_02",
+          "time_zero_position_m": [
+            -14.668675102395804,
+            28.114218063091357,
+            17.096406584377455
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_03",
+          "time_zero_position_m": [
+            -19.262460192173627,
+            15.04480781229454,
+            -2.263925953922427
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_04",
+          "time_zero_position_m": [
+            -20.404326297396427,
+            34.94651828262043,
+            2.4677907827743337
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_05",
+          "time_zero_position_m": [
+            -6.203049712501638,
+            22.264645510694347,
+            -12.581342250201546
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_06",
+          "time_zero_position_m": [
+            -4.397739444696166,
+            9.496368844567092,
+            2.6614369005510836
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_07",
+          "time_zero_position_m": [
+            9.079363911852731,
+            28.96958686478591,
+            -3.253767051737995
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_08",
+          "time_zero_position_m": [
+            -3.5928385847861497,
+            16.055421630590025,
+            15.386314958838147
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_09",
+          "time_zero_position_m": [
+            5.052980124631437,
+            37.3831138110028,
+            13.491075404658968
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_10",
+          "time_zero_position_m": [
+            -19.00985682830104,
+            22.961976755423365,
+            14.305362172074947
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_11",
+          "time_zero_position_m": [
+            -11.92175364859311,
+            10.105797767244693,
+            -0.9638964903503942
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_12",
+          "time_zero_position_m": [
+            -22.73018033591581,
+            28.929495775353065,
+            -1.8249401630989848
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_13",
+          "time_zero_position_m": [
+            -3.0590945620724064,
+            17.045560274521858,
+            -9.873070516348458
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_14",
+          "time_zero_position_m": [
+            -8.332663817281025,
+            36.25775184517291,
+            -8.2410433737815
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_15",
+          "time_zero_position_m": [
+            10.965488173626593,
+            23.65259259496571,
+            3.3990241001280133
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_16",
+          "time_zero_position_m": [
+            -7.811107262021295,
+            10.677834110776121,
+            9.914039761005554
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_17",
+          "time_zero_position_m": [
+            2.385740615183682,
+            31.070725266620325,
+            18.74185347613902
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_18",
+          "time_zero_position_m": [
+            -20.66077636261023,
+            17.76972783833228,
+            9.40479001115418
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_19",
+          "time_zero_position_m": [
+            -15.408121120828422,
+            36.34725483660827,
+            11.345847727767671
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_20",
+          "time_zero_position_m": [
+            -19.82774203813205,
+            23.915469702213763,
+            -8.54458570012023
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_21",
+          "time_zero_position_m": [
+            -2.29506868838663,
+            11.185591068635532,
+            -2.4535709882407666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_22",
+          "time_zero_position_m": [
+            -3.5671245716273363,
+            30.31021940781442,
+            -11.32341421603397
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_23",
+          "time_zero_position_m": [
+            8.650671462856696,
+            17.619744392007668,
+            9.144759580822694
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_24",
+          "time_zero_position_m": [
+            4.005590953572744,
+            38.526745369210765,
+            1.468120558915269
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_25",
+          "time_zero_position_m": [
+            -7.000604742121503,
+            24.848139527464586,
+            18.964334872225216
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_26",
+          "time_zero_position_m": [
+            -16.957487074476795,
+            11.853385276705788,
+            3.193907663209686
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_27",
+          "time_zero_position_m": [
+            -20.16901873273344,
+            31.307074229840396,
+            11.077981981265951
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_28",
+          "time_zero_position_m": [
+            -14.81249370983696,
+            19.105814418926087,
+            -10.11336221205917
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_29",
+          "time_zero_position_m": [
+            -15.779340770418582,
+            37.688315348344986,
+            -2.6220465679897735
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_30",
+          "time_zero_position_m": [
+            0.7383901544638114,
+            24.899225131485505,
+            -10.31438915389876
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_31",
+          "time_zero_position_m": [
+            -0.511011580870715,
+            12.51852216403624,
+            9.415231253514833
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_32",
+          "time_zero_position_m": [
+            8.50433353137209,
+            32.74025668050112,
+            6.1680901361490825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_33",
+          "time_zero_position_m": [
+            -10.74251905679995,
+            19.153904650268025,
+            17.768818395966825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_34",
+          "time_zero_position_m": [
+            -5.635005639642813,
+            38.735373856337496,
+            11.024544079662398
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_35",
+          "time_zero_position_m": [
+            -23.7159615039852,
+            25.767603123506326,
+            5.410111186959878
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_36",
+          "time_zero_position_m": [
+            -10.476881186344485,
+            13.652681100978674,
+            -7.894350298945911
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_37",
+          "time_zero_position_m": [
+            -15.80105648073903,
+            32.383682511914344,
+            -8.746931962459666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_38",
+          "time_zero_position_m": [
+            4.567058388123643,
+            19.60686972194648,
+            -5.126831824302364
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_39",
+          "time_zero_position_m": [
+            -4.435504944251268,
+            39.4434353077358,
+            -2.6466608245944387
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_40",
+          "time_zero_position_m": [
+            7.544031212060663,
+            27.468416392991934,
+            12.949986195198452
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_41",
+          "time_zero_position_m": [
+            -14.283769662768215,
+            13.549503272596372,
+            12.641996153611542
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_42",
+          "time_zero_position_m": [
+            -8.672600215685915,
+            33.65029349343468,
+            16.351829147954383
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_43",
+          "time_zero_position_m": [
+            -23.0023130595981,
+            20.682595655368488,
+            -0.1242722565642973
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_44",
+          "time_zero_position_m": [
+            -13.541066450460065,
+            39.83003302755407,
+            4.533089570195431
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_45",
+          "time_zero_position_m": [
+            -12.292203854317318,
+            26.88672985790583,
+            -12.200129165323196
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_46",
+          "time_zero_position_m": [
+            3.6413763757485835,
+            14.396480271790594,
+            0.6945991706047372
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_47",
+          "time_zero_position_m": [
+            1.2850333859089247,
+            34.14600389836348,
+            -6.158814113646406
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_48",
+          "time_zero_position_m": [
+            5.090204001914419,
+            21.004270855399394,
+            16.52605121007576
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "file": "senzai_kk02_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true,
+      "static": false,
+      "bytes": 791336,
+      "sha256": "3bb022711939c2979ed926c8cc39cb540858465a3c77775ce4d4e550a630b676",
+      "triangles": 23088,
+      "draw_calls": 2,
+      "plot_m": [
+        100,
+        100
+      ],
+      "bounds": {
+        "min": [
+          -24.00758171081543,
+          9.011466026306152,
+          -12.955472946166992
+        ],
+        "max": [
+          11.002737045288086,
+          40.979854583740234,
+          19.026329040527344
+        ]
+      },
+      "reserved_motion_bounds": {
+        "min": [
+          -50,
+          0,
+          -50
+        ],
+        "max": [
+          50,
+          64,
+          50
+        ]
+      },
+      "required_nodes": [
+        "CURVED_DORMANT_FIBERS",
+        "DISTANCE_SURFACE",
+        "EYE_01",
+        "EYE_02",
+        "EYE_03",
+        "EYE_04",
+        "EYE_05",
+        "EYE_06",
+        "EYE_07",
+        "EYE_08",
+        "EYE_09",
+        "EYE_10",
+        "EYE_11",
+        "EYE_12",
+        "EYE_13",
+        "EYE_14",
+        "EYE_15",
+        "EYE_16",
+        "EYE_17",
+        "EYE_18",
+        "EYE_19",
+        "EYE_20",
+        "EYE_21",
+        "EYE_22",
+        "EYE_23",
+        "EYE_24",
+        "EYE_25",
+        "EYE_26",
+        "EYE_27",
+        "EYE_28",
+        "EYE_29",
+        "EYE_30",
+        "EYE_31",
+        "EYE_32",
+        "EYE_33",
+        "EYE_34",
+        "EYE_35",
+        "EYE_36",
+        "EYE_37",
+        "EYE_38",
+        "EYE_39",
+        "EYE_40",
+        "EYE_41",
+        "EYE_42",
+        "EYE_43",
+        "EYE_44",
+        "EYE_45",
+        "EYE_46",
+        "EYE_47",
+        "EYE_48",
+        "FIBER_ROOT_01",
+        "FIBER_ROOT_02",
+        "FIBER_ROOT_03",
+        "FIBER_ROOT_04",
+        "FIBER_ROOT_05",
+        "FIBER_ROOT_06",
+        "FIBER_ROOT_07",
+        "FIBER_ROOT_08",
+        "FIBER_ROOT_09",
+        "FIBER_ROOT_10",
+        "FIBER_ROOT_11",
+        "FIBER_ROOT_12",
+        "FIBER_ROOT_13",
+        "FIBER_ROOT_14",
+        "FIBER_ROOT_15",
+        "FIBER_ROOT_16",
+        "FIBER_ROOT_17",
+        "FIBER_ROOT_18",
+        "FIBER_ROOT_19",
+        "FIBER_ROOT_20",
+        "FIBER_ROOT_21",
+        "FIBER_ROOT_22",
+        "FIBER_ROOT_23",
+        "FIBER_ROOT_24",
+        "FIBER_ROOT_25",
+        "FIBER_ROOT_26",
+        "FIBER_ROOT_27",
+        "FIBER_ROOT_28",
+        "FIBER_ROOT_29",
+        "FIBER_ROOT_30",
+        "FIBER_ROOT_31",
+        "FIBER_ROOT_32",
+        "FIBER_ROOT_33",
+        "FIBER_ROOT_34",
+        "FIBER_ROOT_35",
+        "FIBER_ROOT_36",
+        "FIBER_ROOT_37",
+        "FIBER_ROOT_38",
+        "FIBER_ROOT_39",
+        "FIBER_ROOT_40",
+        "FIBER_ROOT_41",
+        "FIBER_ROOT_42",
+        "FIBER_ROOT_43",
+        "FIBER_ROOT_44",
+        "FIBER_ROOT_45",
+        "FIBER_ROOT_46",
+        "FIBER_ROOT_47",
+        "FIBER_ROOT_48",
+        "FLOAT_FRAME",
+        "LIVING_ATTENTION",
+        "SENZAI_KK02_SCENE",
+        "SENZAI_ROOT",
+        "SOCKET_EYE_01",
+        "SOCKET_EYE_02",
+        "SOCKET_EYE_03",
+        "SOCKET_EYE_04",
+        "SOCKET_EYE_05",
+        "SOCKET_EYE_06",
+        "SOCKET_EYE_07",
+        "SOCKET_EYE_08",
+        "SOCKET_EYE_09",
+        "SOCKET_EYE_10",
+        "SOCKET_EYE_11",
+        "SOCKET_EYE_12",
+        "SOCKET_EYE_13",
+        "SOCKET_EYE_14",
+        "SOCKET_EYE_15",
+        "SOCKET_EYE_16",
+        "SOCKET_EYE_17",
+        "SOCKET_EYE_18",
+        "SOCKET_EYE_19",
+        "SOCKET_EYE_20",
+        "SOCKET_EYE_21",
+        "SOCKET_EYE_22",
+        "SOCKET_EYE_23",
+        "SOCKET_EYE_24",
+        "SOCKET_EYE_25",
+        "SOCKET_EYE_26",
+        "SOCKET_EYE_27",
+        "SOCKET_EYE_28",
+        "SOCKET_EYE_29",
+        "SOCKET_EYE_30",
+        "SOCKET_EYE_31",
+        "SOCKET_EYE_32",
+        "SOCKET_EYE_33",
+        "SOCKET_EYE_34",
+        "SOCKET_EYE_35",
+        "SOCKET_EYE_36",
+        "SOCKET_EYE_37",
+        "SOCKET_EYE_38",
+        "SOCKET_EYE_39",
+        "SOCKET_EYE_40",
+        "SOCKET_EYE_41",
+        "SOCKET_EYE_42",
+        "SOCKET_EYE_43",
+        "SOCKET_EYE_44",
+        "SOCKET_EYE_45",
+        "SOCKET_EYE_46",
+        "SOCKET_EYE_47",
+        "SOCKET_EYE_48",
+        "SOCKET_FIELD_CENTER"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FIELD_CENTER",
+          "time_zero_position_m": [
+            -8,
+            25,
+            3
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_01",
+          "time_zero_position_m": [
+            -5.39509994739962,
+            40.574759467023014,
+            5.033668682007837
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_02",
+          "time_zero_position_m": [
+            -14.668675102395804,
+            28.114218063091357,
+            17.096406584377455
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_03",
+          "time_zero_position_m": [
+            -19.262460192173627,
+            15.04480781229454,
+            -2.263925953922427
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_04",
+          "time_zero_position_m": [
+            -20.404326297396427,
+            34.94651828262043,
+            2.4677907827743337
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_05",
+          "time_zero_position_m": [
+            -6.203049712501638,
+            22.264645510694347,
+            -12.581342250201546
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_06",
+          "time_zero_position_m": [
+            -4.397739444696166,
+            9.496368844567092,
+            2.6614369005510836
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_07",
+          "time_zero_position_m": [
+            9.079363911852731,
+            28.96958686478591,
+            -3.253767051737995
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_08",
+          "time_zero_position_m": [
+            -3.5928385847861497,
+            16.055421630590025,
+            15.386314958838147
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_09",
+          "time_zero_position_m": [
+            5.052980124631437,
+            37.3831138110028,
+            13.491075404658968
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_10",
+          "time_zero_position_m": [
+            -19.00985682830104,
+            22.961976755423365,
+            14.305362172074947
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_11",
+          "time_zero_position_m": [
+            -11.92175364859311,
+            10.105797767244693,
+            -0.9638964903503942
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_12",
+          "time_zero_position_m": [
+            -22.73018033591581,
+            28.929495775353065,
+            -1.8249401630989848
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_13",
+          "time_zero_position_m": [
+            -3.0590945620724064,
+            17.045560274521858,
+            -9.873070516348458
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_14",
+          "time_zero_position_m": [
+            -8.332663817281025,
+            36.25775184517291,
+            -8.2410433737815
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_15",
+          "time_zero_position_m": [
+            10.965488173626593,
+            23.65259259496571,
+            3.3990241001280133
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_16",
+          "time_zero_position_m": [
+            -7.811107262021295,
+            10.677834110776121,
+            9.914039761005554
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_17",
+          "time_zero_position_m": [
+            2.385740615183682,
+            31.070725266620325,
+            18.74185347613902
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_18",
+          "time_zero_position_m": [
+            -20.66077636261023,
+            17.76972783833228,
+            9.40479001115418
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_19",
+          "time_zero_position_m": [
+            -15.408121120828422,
+            36.34725483660827,
+            11.345847727767671
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_20",
+          "time_zero_position_m": [
+            -19.82774203813205,
+            23.915469702213763,
+            -8.54458570012023
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_21",
+          "time_zero_position_m": [
+            -2.29506868838663,
+            11.185591068635532,
+            -2.4535709882407666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_22",
+          "time_zero_position_m": [
+            -3.5671245716273363,
+            30.31021940781442,
+            -11.32341421603397
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_23",
+          "time_zero_position_m": [
+            8.650671462856696,
+            17.619744392007668,
+            9.144759580822694
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_24",
+          "time_zero_position_m": [
+            4.005590953572744,
+            38.526745369210765,
+            1.468120558915269
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_25",
+          "time_zero_position_m": [
+            -7.000604742121503,
+            24.848139527464586,
+            18.964334872225216
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_26",
+          "time_zero_position_m": [
+            -16.957487074476795,
+            11.853385276705788,
+            3.193907663209686
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_27",
+          "time_zero_position_m": [
+            -20.16901873273344,
+            31.307074229840396,
+            11.077981981265951
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_28",
+          "time_zero_position_m": [
+            -14.81249370983696,
+            19.105814418926087,
+            -10.11336221205917
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_29",
+          "time_zero_position_m": [
+            -15.779340770418582,
+            37.688315348344986,
+            -2.6220465679897735
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_30",
+          "time_zero_position_m": [
+            0.7383901544638114,
+            24.899225131485505,
+            -10.31438915389876
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_31",
+          "time_zero_position_m": [
+            -0.511011580870715,
+            12.51852216403624,
+            9.415231253514833
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_32",
+          "time_zero_position_m": [
+            8.50433353137209,
+            32.74025668050112,
+            6.1680901361490825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_33",
+          "time_zero_position_m": [
+            -10.74251905679995,
+            19.153904650268025,
+            17.768818395966825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_34",
+          "time_zero_position_m": [
+            -5.635005639642813,
+            38.735373856337496,
+            11.024544079662398
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_35",
+          "time_zero_position_m": [
+            -23.7159615039852,
+            25.767603123506326,
+            5.410111186959878
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_36",
+          "time_zero_position_m": [
+            -10.476881186344485,
+            13.652681100978674,
+            -7.894350298945911
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_37",
+          "time_zero_position_m": [
+            -15.80105648073903,
+            32.383682511914344,
+            -8.746931962459666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_38",
+          "time_zero_position_m": [
+            4.567058388123643,
+            19.60686972194648,
+            -5.126831824302364
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_39",
+          "time_zero_position_m": [
+            -4.435504944251268,
+            39.4434353077358,
+            -2.6466608245944387
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_40",
+          "time_zero_position_m": [
+            7.544031212060663,
+            27.468416392991934,
+            12.949986195198452
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_41",
+          "time_zero_position_m": [
+            -14.283769662768215,
+            13.549503272596372,
+            12.641996153611542
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_42",
+          "time_zero_position_m": [
+            -8.672600215685915,
+            33.65029349343468,
+            16.351829147954383
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_43",
+          "time_zero_position_m": [
+            -23.0023130595981,
+            20.682595655368488,
+            -0.1242722565642973
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_44",
+          "time_zero_position_m": [
+            -13.541066450460065,
+            39.83003302755407,
+            4.533089570195431
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_45",
+          "time_zero_position_m": [
+            -12.292203854317318,
+            26.88672985790583,
+            -12.200129165323196
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_46",
+          "time_zero_position_m": [
+            3.6413763757485835,
+            14.396480271790594,
+            0.6945991706047372
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_47",
+          "time_zero_position_m": [
+            1.2850333859089247,
+            34.14600389836348,
+            -6.158814113646406
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_48",
+          "time_zero_position_m": [
+            5.090204001914419,
+            21.004270855399394,
+            16.52605121007576
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    },
+    {
+      "file": "senzai_kk02_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "derived": true,
+      "static": true,
+      "bytes": 140628,
+      "sha256": "3b70f5b58d97afe06e94b5e93f827e7a6eae1b786e9c96a9872a271568c10ef6",
+      "triangles": 2904,
+      "draw_calls": 1,
+      "plot_m": [
+        100,
+        100
+      ],
+      "bounds": {
+        "min": [
+          -23.82377338409424,
+          9.163543701171875,
+          -12.774393081665039
+        ],
+        "max": [
+          11.081920623779297,
+          40.88262939453125,
+          19.06784439086914
+        ]
+      },
+      "reserved_motion_bounds": {
+        "min": [
+          -50,
+          0,
+          -50
+        ],
+        "max": [
+          50,
+          64,
+          50
+        ]
+      },
+      "required_nodes": [
+        "CURVED_DORMANT_FIBERS",
+        "DISTANCE_SURFACE",
+        "EYE_01",
+        "EYE_02",
+        "EYE_03",
+        "EYE_04",
+        "EYE_05",
+        "EYE_06",
+        "EYE_07",
+        "EYE_08",
+        "EYE_09",
+        "EYE_10",
+        "EYE_11",
+        "EYE_12",
+        "EYE_13",
+        "EYE_14",
+        "EYE_15",
+        "EYE_16",
+        "EYE_17",
+        "EYE_18",
+        "EYE_19",
+        "EYE_20",
+        "EYE_21",
+        "EYE_22",
+        "EYE_23",
+        "EYE_24",
+        "EYE_25",
+        "EYE_26",
+        "EYE_27",
+        "EYE_28",
+        "EYE_29",
+        "EYE_30",
+        "EYE_31",
+        "EYE_32",
+        "EYE_33",
+        "EYE_34",
+        "EYE_35",
+        "EYE_36",
+        "EYE_37",
+        "EYE_38",
+        "EYE_39",
+        "EYE_40",
+        "EYE_41",
+        "EYE_42",
+        "EYE_43",
+        "EYE_44",
+        "EYE_45",
+        "EYE_46",
+        "EYE_47",
+        "EYE_48",
+        "FIBER_ROOT_01",
+        "FIBER_ROOT_02",
+        "FIBER_ROOT_03",
+        "FIBER_ROOT_04",
+        "FIBER_ROOT_05",
+        "FIBER_ROOT_06",
+        "FIBER_ROOT_07",
+        "FIBER_ROOT_08",
+        "FIBER_ROOT_09",
+        "FIBER_ROOT_10",
+        "FIBER_ROOT_11",
+        "FIBER_ROOT_12",
+        "FIBER_ROOT_13",
+        "FIBER_ROOT_14",
+        "FIBER_ROOT_15",
+        "FIBER_ROOT_16",
+        "FIBER_ROOT_17",
+        "FIBER_ROOT_18",
+        "FIBER_ROOT_19",
+        "FIBER_ROOT_20",
+        "FIBER_ROOT_21",
+        "FIBER_ROOT_22",
+        "FIBER_ROOT_23",
+        "FIBER_ROOT_24",
+        "FIBER_ROOT_25",
+        "FIBER_ROOT_26",
+        "FIBER_ROOT_27",
+        "FIBER_ROOT_28",
+        "FIBER_ROOT_29",
+        "FIBER_ROOT_30",
+        "FIBER_ROOT_31",
+        "FIBER_ROOT_32",
+        "FIBER_ROOT_33",
+        "FIBER_ROOT_34",
+        "FIBER_ROOT_35",
+        "FIBER_ROOT_36",
+        "FIBER_ROOT_37",
+        "FIBER_ROOT_38",
+        "FIBER_ROOT_39",
+        "FIBER_ROOT_40",
+        "FIBER_ROOT_41",
+        "FIBER_ROOT_42",
+        "FIBER_ROOT_43",
+        "FIBER_ROOT_44",
+        "FIBER_ROOT_45",
+        "FIBER_ROOT_46",
+        "FIBER_ROOT_47",
+        "FIBER_ROOT_48",
+        "FLOAT_FRAME",
+        "LIVING_ATTENTION",
+        "SENZAI_KK02_SCENE",
+        "SENZAI_ROOT",
+        "SOCKET_EYE_01",
+        "SOCKET_EYE_02",
+        "SOCKET_EYE_03",
+        "SOCKET_EYE_04",
+        "SOCKET_EYE_05",
+        "SOCKET_EYE_06",
+        "SOCKET_EYE_07",
+        "SOCKET_EYE_08",
+        "SOCKET_EYE_09",
+        "SOCKET_EYE_10",
+        "SOCKET_EYE_11",
+        "SOCKET_EYE_12",
+        "SOCKET_EYE_13",
+        "SOCKET_EYE_14",
+        "SOCKET_EYE_15",
+        "SOCKET_EYE_16",
+        "SOCKET_EYE_17",
+        "SOCKET_EYE_18",
+        "SOCKET_EYE_19",
+        "SOCKET_EYE_20",
+        "SOCKET_EYE_21",
+        "SOCKET_EYE_22",
+        "SOCKET_EYE_23",
+        "SOCKET_EYE_24",
+        "SOCKET_EYE_25",
+        "SOCKET_EYE_26",
+        "SOCKET_EYE_27",
+        "SOCKET_EYE_28",
+        "SOCKET_EYE_29",
+        "SOCKET_EYE_30",
+        "SOCKET_EYE_31",
+        "SOCKET_EYE_32",
+        "SOCKET_EYE_33",
+        "SOCKET_EYE_34",
+        "SOCKET_EYE_35",
+        "SOCKET_EYE_36",
+        "SOCKET_EYE_37",
+        "SOCKET_EYE_38",
+        "SOCKET_EYE_39",
+        "SOCKET_EYE_40",
+        "SOCKET_EYE_41",
+        "SOCKET_EYE_42",
+        "SOCKET_EYE_43",
+        "SOCKET_EYE_44",
+        "SOCKET_EYE_45",
+        "SOCKET_EYE_46",
+        "SOCKET_EYE_47",
+        "SOCKET_EYE_48",
+        "SOCKET_FIELD_CENTER"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_FIELD_CENTER",
+          "time_zero_position_m": [
+            -8,
+            25,
+            3
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_01",
+          "time_zero_position_m": [
+            -5.39509994739962,
+            40.574759467023014,
+            5.033668682007837
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_02",
+          "time_zero_position_m": [
+            -14.668675102395804,
+            28.114218063091357,
+            17.096406584377455
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_03",
+          "time_zero_position_m": [
+            -19.262460192173627,
+            15.04480781229454,
+            -2.263925953922427
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_04",
+          "time_zero_position_m": [
+            -20.404326297396427,
+            34.94651828262043,
+            2.4677907827743337
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_05",
+          "time_zero_position_m": [
+            -6.203049712501638,
+            22.264645510694347,
+            -12.581342250201546
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_06",
+          "time_zero_position_m": [
+            -4.397739444696166,
+            9.496368844567092,
+            2.6614369005510836
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_07",
+          "time_zero_position_m": [
+            9.079363911852731,
+            28.96958686478591,
+            -3.253767051737995
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_08",
+          "time_zero_position_m": [
+            -3.5928385847861497,
+            16.055421630590025,
+            15.386314958838147
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_09",
+          "time_zero_position_m": [
+            5.052980124631437,
+            37.3831138110028,
+            13.491075404658968
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_10",
+          "time_zero_position_m": [
+            -19.00985682830104,
+            22.961976755423365,
+            14.305362172074947
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_11",
+          "time_zero_position_m": [
+            -11.92175364859311,
+            10.105797767244693,
+            -0.9638964903503942
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_12",
+          "time_zero_position_m": [
+            -22.73018033591581,
+            28.929495775353065,
+            -1.8249401630989848
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_13",
+          "time_zero_position_m": [
+            -3.0590945620724064,
+            17.045560274521858,
+            -9.873070516348458
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_14",
+          "time_zero_position_m": [
+            -8.332663817281025,
+            36.25775184517291,
+            -8.2410433737815
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_15",
+          "time_zero_position_m": [
+            10.965488173626593,
+            23.65259259496571,
+            3.3990241001280133
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_16",
+          "time_zero_position_m": [
+            -7.811107262021295,
+            10.677834110776121,
+            9.914039761005554
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_17",
+          "time_zero_position_m": [
+            2.385740615183682,
+            31.070725266620325,
+            18.74185347613902
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_18",
+          "time_zero_position_m": [
+            -20.66077636261023,
+            17.76972783833228,
+            9.40479001115418
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_19",
+          "time_zero_position_m": [
+            -15.408121120828422,
+            36.34725483660827,
+            11.345847727767671
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_20",
+          "time_zero_position_m": [
+            -19.82774203813205,
+            23.915469702213763,
+            -8.54458570012023
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_21",
+          "time_zero_position_m": [
+            -2.29506868838663,
+            11.185591068635532,
+            -2.4535709882407666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_22",
+          "time_zero_position_m": [
+            -3.5671245716273363,
+            30.31021940781442,
+            -11.32341421603397
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_23",
+          "time_zero_position_m": [
+            8.650671462856696,
+            17.619744392007668,
+            9.144759580822694
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_24",
+          "time_zero_position_m": [
+            4.005590953572744,
+            38.526745369210765,
+            1.468120558915269
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_25",
+          "time_zero_position_m": [
+            -7.000604742121503,
+            24.848139527464586,
+            18.964334872225216
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_26",
+          "time_zero_position_m": [
+            -16.957487074476795,
+            11.853385276705788,
+            3.193907663209686
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_27",
+          "time_zero_position_m": [
+            -20.16901873273344,
+            31.307074229840396,
+            11.077981981265951
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_28",
+          "time_zero_position_m": [
+            -14.81249370983696,
+            19.105814418926087,
+            -10.11336221205917
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_29",
+          "time_zero_position_m": [
+            -15.779340770418582,
+            37.688315348344986,
+            -2.6220465679897735
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_30",
+          "time_zero_position_m": [
+            0.7383901544638114,
+            24.899225131485505,
+            -10.31438915389876
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_31",
+          "time_zero_position_m": [
+            -0.511011580870715,
+            12.51852216403624,
+            9.415231253514833
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_32",
+          "time_zero_position_m": [
+            8.50433353137209,
+            32.74025668050112,
+            6.1680901361490825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_33",
+          "time_zero_position_m": [
+            -10.74251905679995,
+            19.153904650268025,
+            17.768818395966825
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_34",
+          "time_zero_position_m": [
+            -5.635005639642813,
+            38.735373856337496,
+            11.024544079662398
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_35",
+          "time_zero_position_m": [
+            -23.7159615039852,
+            25.767603123506326,
+            5.410111186959878
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_36",
+          "time_zero_position_m": [
+            -10.476881186344485,
+            13.652681100978674,
+            -7.894350298945911
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_37",
+          "time_zero_position_m": [
+            -15.80105648073903,
+            32.383682511914344,
+            -8.746931962459666
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_38",
+          "time_zero_position_m": [
+            4.567058388123643,
+            19.60686972194648,
+            -5.126831824302364
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_39",
+          "time_zero_position_m": [
+            -4.435504944251268,
+            39.4434353077358,
+            -2.6466608245944387
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_40",
+          "time_zero_position_m": [
+            7.544031212060663,
+            27.468416392991934,
+            12.949986195198452
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_41",
+          "time_zero_position_m": [
+            -14.283769662768215,
+            13.549503272596372,
+            12.641996153611542
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_42",
+          "time_zero_position_m": [
+            -8.672600215685915,
+            33.65029349343468,
+            16.351829147954383
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_43",
+          "time_zero_position_m": [
+            -23.0023130595981,
+            20.682595655368488,
+            -0.1242722565642973
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_44",
+          "time_zero_position_m": [
+            -13.541066450460065,
+            39.83003302755407,
+            4.533089570195431
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_45",
+          "time_zero_position_m": [
+            -12.292203854317318,
+            26.88672985790583,
+            -12.200129165323196
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_46",
+          "time_zero_position_m": [
+            3.6413763757485835,
+            14.396480271790594,
+            0.6945991706047372
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_47",
+          "time_zero_position_m": [
+            1.2850333859089247,
+            34.14600389836348,
+            -6.158814113646406
+          ]
+        },
+        {
+          "node": "SOCKET_EYE_48",
+          "time_zero_position_m": [
+            5.090204001914419,
+            21.004270855399394,
+            16.52605121007576
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Models by jelaludo / Model Workshop"
+    }
+  ],
+  "source_sha256": {
+    "tools/asset-pipeline/build-senzai-kk02.mjs": "6750696a0bc087de194876f8f9c95b1ed9ee076cfbc93e2ccdad5f23c0a0a4cd",
+    "tools/asset-pipeline/senzai-kk02-shape.mjs": "af27f9d747476a6d1345a6be7fc852e2f6f1de79c8539a801addc218cec53d1b",
+    "assets/senzai-kk02/runtime.js": "7678bc75884fcce51c3d3a03a1156e76a802ff8b0a9975cbadd2685f147d202c"
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "cycle": {
+      "name": "Senzai_Attention_Cycle",
+      "duration_s": 72,
+      "loop": true,
+      "engine_driven": true
+    },
+    "clips": [],
+    "frames": "FLOAT_FRAME translation; EYE_01–48 tip position/orientation; FIBER_ROOT_01–48 fixed attachment origins",
+    "custom_attributes": [
+      "_FIBERID",
+      "_ALONG",
+      "_OFFSET",
+      "_LOCALNORMAL",
+      "_GLOW"
+    ],
+    "deformation": "CPU curve deformation for active fibers; companion GPU deformation for fine dormant field",
+    "static_policy": "LOD2 frozen at time zero; retain game tier for motion"
+  },
+  "space": {
+    "source": "senzai-kk02/space.js",
+    "foci_m": [
+      [
+        35,
+        36,
+        22
+      ],
+      [
+        -38,
+        24,
+        20
+      ],
+      [
+        7,
+        34,
+        -42
+      ]
+    ],
+    "description": "Projected 4D tesseracts, gently folded spatial grids, parallax dust and 2m reference posts; viewer-only presentation"
+  },
+  "lod_selection": {
+    "default": 1,
+    "master": 0,
+    "distance": 2,
+    "game_enter_m": 130,
+    "distance_return_m": 160,
+    "provisional": true,
+    "active_policy": "Keep LOD1 when observing attention"
+  },
+  "budget_targets": {
+    "landmark": {
+      "triangles": 8000,
+      "draw_calls": 10,
+      "bytes": 400000
+    },
+    "unit": {
+      "triangles": 25000
+    },
+    "distance": {
+      "triangles": 3000,
+      "draw_calls": 1,
+      "bytes": 250000
+    }
+  },
+  "viewer_effects": {
+    "source": "senzai-kk02/effects.js",
+    "not_baked_in_glb": true,
+    "visual_fibers": [
+      36000,
+      18000,
+      0
+    ],
+    "no_fps_claim": true
+  },
+  "damage_states": {
+    "d0": "Authored; attention is runtime state, not damage",
+    "d1_d3": "Not authored"
+  },
+  "handoff": {
+    "folder": "assets/senzai-kk02/",
+    "viewer": "senzai-kk02/",
+    "pending": [
+      "Visual acceptance",
+      "Game shader/packing and decoded release validation",
+      "LOD selection and device profiling",
+      "Damage states"
+    ]
+  }
+}

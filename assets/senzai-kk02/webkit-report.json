@@ -2,7 +2,7 @@
   "status": "passed",
   "browser": "Playwright WebKit 2370 / macOS, native WebGL, device scale factors 1 and 2",
   "checks": [
-    "Half-float scene and bloom buffers contain no NaN/Infinity in 30 rendered cases",
+    "Half-float scene and bloom buffers contain no NaN/Infinity in 42 rendered cases",
     "Both display densities; all three detail tiers; whole-field and macro; attention shifts and cycle boundary",
     "Cinema screenshots visually reviewed with bloom enabled"
   ],
@@ -27,6 +27,21 @@
       "lod": 1,
       "view": "field",
       "time": 5,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 8.7,
       "scene": {
         "nonfinite": 0,
         "components": 5616000
@@ -71,6 +86,36 @@
       "dpr": 1,
       "lod": 1,
       "view": "field",
+      "time": 19.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 27.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
       "time": 29.8,
       "scene": {
         "nonfinite": 0,
@@ -101,6 +146,36 @@
       "dpr": 1,
       "lod": 1,
       "view": "field",
+      "time": 40.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 47.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
       "time": 49.75,
       "scene": {
         "nonfinite": 0,
@@ -117,6 +192,21 @@
       "lod": 1,
       "view": "field",
       "time": 58,
+      "scene": {
+        "nonfinite": 0,
+        "components": 5616000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 1404000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 1,
+      "lod": 1,
+      "view": "field",
+      "time": 65.7,
       "scene": {
         "nonfinite": 0,
         "components": 5616000
@@ -266,6 +356,21 @@
       "dpr": 2,
       "lod": 1,
       "view": "field",
+      "time": 8.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
       "time": 10.75,
       "scene": {
         "nonfinite": 0,
@@ -282,6 +387,36 @@
       "lod": 1,
       "view": "field",
       "time": 15,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 19.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 27.7,
       "scene": {
         "nonfinite": 0,
         "components": 12636000
@@ -326,6 +461,36 @@
       "dpr": 2,
       "lod": 1,
       "view": "field",
+      "time": 40.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 47.7,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
       "time": 49.75,
       "scene": {
         "nonfinite": 0,
@@ -342,6 +507,21 @@
       "lod": 1,
       "view": "field",
       "time": 58,
+      "scene": {
+        "nonfinite": 0,
+        "components": 12636000
+      },
+      "bloom": {
+        "nonfinite": 0,
+        "components": 3159000
+      },
+      "gl_error": 0
+    },
+    {
+      "dpr": 2,
+      "lod": 1,
+      "view": "field",
+      "time": 65.7,
       "scene": {
         "nonfinite": 0,
         "components": 12636000
@@ -460,22 +640,9 @@
   ],
   "errors": [],
   "source_sha256": {
-    "senzai-kk02/effects.js": "ede5ed4dc79ab16862ae4292aed245acebcf55e1efcc3898e4fcbcd22d3b2c08",
-    "senzai-kk02/viewer.js": "c83f98ef5d5bd80069ebe6327b6e672c486646cff895767435a0f37ddd44932e",
-    "senzai-kk02/index.html": "8f80309084d870f96945c20fa9ece9d025fdedbb8afe9738e4f5111424266f29",
-    "tools/asset-pipeline/test-senzai-kk02-webkit.mjs": "212914cb60727df92bbc060d4a455a23d0aee3b0db579923d14d061504a2037f"
-  },
-  "baseline": {
-    "commit": "1628143",
-    "time": 15,
-    "scene": {
-      "nonfinite": 8760,
-      "components": 12636000
-    },
-    "bloom": {
-      "nonfinite": 1120452,
-      "components": 3159000
-    },
-    "gl_error": 0
+    "senzai-kk02/effects.js": "fa3d593b3603ed7e56da10c2b96cc6ed3d3bff81e3cd473fe07352c497b97745",
+    "senzai-kk02/viewer.js": "2fe05dd7ce0536e7095a2310085eb6061409d732ff594be0b8b528c8d9913804",
+    "senzai-kk02/index.html": "8ed61e8c23b3eb7a7be06e1009c73d78b59f9e26b7f3c8b2b93818203ba96d40",
+    "tools/asset-pipeline/test-senzai-kk02-webkit.mjs": "bb9be4c0c3b4408045a867e217f94d77d3f12c11db7555c0e66b10afbb09bb2d"
   }
 }
