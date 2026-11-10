@@ -7,10 +7,10 @@
   "based_on": {
     "family": "LATENT v1",
     "commit": "d8cc09d",
-    "policy": "Separate family; source files remain byte-identical",
+    "policy": "Original LATENT assets remain byte-identical; original entry HTML is archived, live route now opens KK01",
     "preserved_v1": {
       "latent-field/effects.js": "20825c1d5c60d11f5b480e849bbec9bfc3c7538713b79cb7fea4138dc973330e",
-      "latent-field/index.html": "5eb233cb2cb9f141d0bbe55db3d17a5e3c4bb8f27d4873346f541772281c42d4",
+      "source/archive/latent-field-v1/viewer/index.html": "5eb233cb2cb9f141d0bbe55db3d17a5e3c4bb8f27d4873346f541772281c42d4",
       "latent-field/style.css": "2e36d2219bc64035c183bfc1f3cfa3da2715daf559e120eefa6a9115e2240931",
       "latent-field/viewer.js": "c3de37bb9decb670e1f0a84255cb3f75fb72e80a55e634d8cd856cd813eba4b5",
       "assets/latent-field/README.md": "71fd34b8cc74bf00850db0f39f1821b3f4ec14122e749524aedd70ccb1f27abe",
@@ -1838,7 +1838,7 @@
     }
   ],
   "source_sha256": {
-    "tools/asset-pipeline/build-senzai-kk02.mjs": "3e2987499d46b0a7702ee827a414f9adf32d3693b8f6345ef9e25e7989549e69",
+    "tools/asset-pipeline/build-senzai-kk02.mjs": "e1e7f04857a21c13705e5bd8df6e90fdb3598a5a9a563abda5ae42fdf79b7f58",
     "tools/asset-pipeline/senzai-kk02-shape.mjs": "af27f9d747476a6d1345a6be7fc852e2f6f1de79c8539a801addc218cec53d1b",
     "assets/senzai-kk02/runtime.js": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7"
   },

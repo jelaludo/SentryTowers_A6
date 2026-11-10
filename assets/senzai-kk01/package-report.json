@@ -1,0 +1,175 @@
+{
+  "status": "packaged",
+  "file": "senzai-kk01-developer-package.zip",
+  "derived": true,
+  "bytes": 3941463,
+  "sha256": "f37c88434b5f6c60a326b5b72e7934d5a04940031e87aaf7d8bf543ba61a9fe4",
+  "files": {
+    "ATTRIBUTIONS.md": {
+      "bytes": 1466,
+      "sha256": "a0b4dd7b688d31a88ece745f8f1831e151ed8b1dd1757d05abf1f5a8ed3584e8"
+    },
+    "LICENSE.md": {
+      "bytes": 1006,
+      "sha256": "aabc0b44999d1a3bd8128263da9c1976142997d88f2224aefa26304e568712d0"
+    },
+    "PACKAGE-CONTENTS.txt": {
+      "bytes": 1444,
+      "sha256": "223446311da90079d3c29ea73d093ab1328a1a397e3c7164952f19b7886c9090"
+    },
+    "README.md": {
+      "bytes": 7758,
+      "sha256": "d2639d137328a59c6dc212177af9f985000332eedbf8f9968f1563e97c5f4936"
+    },
+    "SHA256SUMS": {
+      "bytes": 3978,
+      "sha256": "ba1b718f89c1001768e0babf35a43c2562a79b4b4e35299c798bbc2e7577bf86"
+    },
+    "assets/senzai-kk01/ATTRIBUTIONS.md": {
+      "bytes": 1466,
+      "sha256": "a0b4dd7b688d31a88ece745f8f1831e151ed8b1dd1757d05abf1f5a8ed3584e8"
+    },
+    "assets/senzai-kk01/LICENSE.md": {
+      "bytes": 1006,
+      "sha256": "aabc0b44999d1a3bd8128263da9c1976142997d88f2224aefa26304e568712d0"
+    },
+    "assets/senzai-kk01/LORE.md": {
+      "bytes": 4729,
+      "sha256": "3d5b5cd68d0693dd20dc9953079652bd6c7e8854727c2f0e18c0b1c5be419cdf"
+    },
+    "assets/senzai-kk01/README.md": {
+      "bytes": 7758,
+      "sha256": "d2639d137328a59c6dc212177af9f985000332eedbf8f9968f1563e97c5f4936"
+    },
+    "assets/senzai-kk01/behaviors.js": {
+      "bytes": 1194,
+      "sha256": "2ed5eaf57fef6d8c64c742c9d1a3dda9b62b9e8add31d31ed2638245f4aa40c0"
+    },
+    "assets/senzai-kk01/manifest.json": {
+      "bytes": 50793,
+      "sha256": "611c21afa6b5ea2579286d66543d2f503d25cf4234d3e2f8c0c98f390d714f84"
+    },
+    "assets/senzai-kk01/runtime.js": {
+      "bytes": 10388,
+      "sha256": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7"
+    },
+    "assets/senzai-kk01/senzai_kk01_d0_lod0.glb": {
+      "bytes": 7011448,
+      "sha256": "fda48ac6b8415b6978e0ab58f8b0f207efd09ad319738364aaec26de3588a813"
+    },
+    "assets/senzai-kk01/senzai_kk01_d0_lod1.glb": {
+      "bytes": 791484,
+      "sha256": "78fd661d1ed83cda4f6f6369bf4ba1a72c20562531806ed3bfa3b85b9b129e15"
+    },
+    "assets/senzai-kk01/senzai_kk01_d0_lod2.glb": {
+      "bytes": 140796,
+      "sha256": "2036b8745ec5060bc08f987fc3f45a804420fc7f7da2077094c143b94bec974f"
+    },
+    "assets/senzai-kk01/validation-report.json": {
+      "bytes": 2288,
+      "sha256": "9e329b96c6a4147f7e02a537f3bc41e3147252ec23c1e89474cfc211671c42fb"
+    },
+    "index.html": {
+      "bytes": 197,
+      "sha256": "088fee50377323d93301749bf8910e831ba8025fba4b63349fa86ea0f87112fb"
+    },
+    "senzai-kk01/effects.js": {
+      "bytes": 7810,
+      "sha256": "d183e00374242b1c1d573b515b973e598a9c1694e2884f9f038cb94cc31a1c00"
+    },
+    "senzai-kk01/index.html": {
+      "bytes": 6285,
+      "sha256": "80b75b25dd94fd0ad23debafd69dcb2dbfa90d275cfe96c9431722af7f7a37d8"
+    },
+    "senzai-kk01/space.js": {
+      "bytes": 4340,
+      "sha256": "8519d83796c66409c5d5e02ed73bbe1403e74824a7ea9e9e7d999a28457be2f4"
+    },
+    "senzai-kk01/style.css": {
+      "bytes": 8425,
+      "sha256": "33339e895cd0f2a680908c8652b6379ac575f03e4b2e63c4f12ee9571b69e329"
+    },
+    "senzai-kk01/viewer.js": {
+      "bytes": 9367,
+      "sha256": "ed0850a1d8485a99f0c5821ef27a067c8677178273adff8e377383bc0bf9c9d5"
+    },
+    "vendor/three/LICENSE": {
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    "vendor/three/build/three.core.js": {
+      "bytes": 1403455,
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+    },
+    "vendor/three/build/three.module.js": {
+      "bytes": 603113,
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+    },
+    "vendor/three/examples/jsm/controls/OrbitControls.js": {
+      "bytes": 38703,
+      "sha256": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c"
+    },
+    "vendor/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114739,
+      "sha256": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a"
+    },
+    "vendor/three/examples/jsm/postprocessing/EffectComposer.js": {
+      "bytes": 8477,
+      "sha256": "4b8c855f28eed2570bed898adc0ab89c585a8a281ecb6d905c09d00697f9f50a"
+    },
+    "vendor/three/examples/jsm/postprocessing/MaskPass.js": {
+      "bytes": 4694,
+      "sha256": "7cd08eee9d5d6f5578beaddbdcbe9c384f6873810af27f22ab7db3ceeb127aa3"
+    },
+    "vendor/three/examples/jsm/postprocessing/OutputPass.js": {
+      "bytes": 4029,
+      "sha256": "f5b81c96e76b6b28b4b3ba8c41c4aeb982b1e03f3d82883242d951b2ab082fa2"
+    },
+    "vendor/three/examples/jsm/postprocessing/Pass.js": {
+      "bytes": 4218,
+      "sha256": "444b409c235ead986893c472e720da1b779a56985c7d10b279c7944b52bd61c5"
+    },
+    "vendor/three/examples/jsm/postprocessing/RenderPass.js": {
+      "bytes": 4112,
+      "sha256": "fd91229aacc5830e3984b0f2bdefcf566163ea028f4c1f1ab233fa6665a133ac"
+    },
+    "vendor/three/examples/jsm/postprocessing/ShaderPass.js": {
+      "bytes": 3228,
+      "sha256": "e2500a5913b26bbf5148ceaae644c6edcff06a18b01494ee37bf856353d2ab9d"
+    },
+    "vendor/three/examples/jsm/postprocessing/UnrealBloomPass.js": {
+      "bytes": 14388,
+      "sha256": "d92742959879b461f25348b2abddc7ca0d48527e7718340bcfa29fa771e2799a"
+    },
+    "vendor/three/examples/jsm/shaders/CopyShader.js": {
+      "bytes": 729,
+      "sha256": "a33057d5ac91c43304c186ac0e8816e62bb2ed471d3a00ff3018dfd5c0389718"
+    },
+    "vendor/three/examples/jsm/shaders/LuminosityHighPassShader.js": {
+      "bytes": 1291,
+      "sha256": "5044f780b6e6cf863947f64c36fe1587132f7fbe395ada863cd1e5f0388dcf1e"
+    },
+    "vendor/three/examples/jsm/shaders/OutputShader.js": {
+      "bytes": 1876,
+      "sha256": "353479f77a8d7e2629d49ccac9fc2f5dbfdda5442e0adf867b00377a2fcb0cb2"
+    },
+    "vendor/three/examples/jsm/utils/BufferGeometryUtils.js": {
+      "bytes": 35539,
+      "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+    },
+    "workshop/navigation.css": {
+      "bytes": 2148,
+      "sha256": "6ef4f03dbfe6f251a40c9d7adc9c7ce8408644135055361ff3caaa15933506a5"
+    },
+    "workshop/navigation.js": {
+      "bytes": 492,
+      "sha256": "9ac5f3fd39b904ad21b7b67275f041e0f0d55d6048c2c3fac8d77a07f4b7991e"
+    }
+  },
+  "vendor": {
+    "three": "0.180.0",
+    "license": "MIT"
+  },
+  "attribution": "Jelaludo required; all three GLBs embed credit",
+  "scope": "Deterministic archive and asset hashes. Browser report separately verifies extraction and offline rendering."
+}

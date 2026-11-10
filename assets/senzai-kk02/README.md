@@ -4,7 +4,7 @@ A separate evolution of **LATENT v1**: the 32 m dark fiber field now breathes, b
 
 Open http://localhost:8788/senzai-kk02/
 
-LATENT remains at http://localhost:8788/latent-field/
+The former LATENT route now opens the upgraded Senzai-KK01 developer edition: http://localhost:8788/senzai-kk01/
 
 ## Motion and presentation
 
@@ -66,7 +66,7 @@ The fiber shader clamps its along-fiber and rim-light inputs before fractional p
 
 ## Validation and preservation
 
-`manifest.json` provides file hashes, source fingerprints, measurements, reserved bounds, sockets, tier policy and the hashes of all fourteen LATENT asset/viewer files. **LATENT at commit `d8cc09d` is byte-identical.** Its source builders are also unchanged. KK02 is a new family with no changes to v1's route, models, runtime or visual defaults.
+`manifest.json` provides file hashes, source fingerprints, measurements, reserved bounds, sockets, tier policy and the hashes of all fourteen LATENT asset/viewer files. **Original LATENT assets at commit `d8cc09d` remain byte-identical.** The original viewer is preserved under `source/archive/latent-field-v1/viewer/`; the preservation map points its entry HTML there. The live LATENT route now opens Senzai-KK01 by request. KK02's model and animation remain separate from that viewer upgrade.
 
 `validation-report.json` records all three GLBs with zero validator errors/warnings and no degenerate triangles; informational empty nodes are intentional attachment/lookup frames. It checks 151-name parity, hashes, custom attributes, actual decoded runtime deformation, tip attachments, finite geometry, bounds, static behavior, loop geometry/colors and 720 temporal samples. Maximum sampled curve departure from its straight chord is 5.0889 m; minimum sampled attention clearance is 5.6362 m. Additional 1,440-pose checks measure endpoint radius swings, fixed origins, target-facing tangents, group recruitment, dormant tip motion and continuity at acquisitions and the cycle boundary. Sixty-one precision-hold samples verify stable fifteen-strand membership, a maximum 2.037 m tip diameter, target-facing tangents and a fixed world-space inspection region while the body travels. The 100 × 100 × 64 m reservation is also checked against decoded model geometry at motion and hold poses. This is not a general collision solver.
 

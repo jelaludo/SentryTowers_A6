@@ -1,5 +1,17 @@
 # Devlog
 
+## 10 November 2026 / Senzai-KK01 — LATENT upgrade, behavior controls and developer package
+
+Upgraded LATENT into Senzai-KK01 using the current KK02 model and complete 72-second motion. The new canonical route is senzai-kk01/; the old latent-field/ address opens it. A persistent right panel launches Living cycle, Foraging, Focus Lock, Examining, Following and Dormant. Each named cue includes its lead-in and returns to the cycle; dormancy persists until another response is chosen. Static-distance behavior launches switch to the game tier. The camera frames the fifteen-tip inspection beside the panel; mobile controls scroll back to the scene when a behavior launches.
+
+Added a lore card and an expanded developer brief: Senzai as an intelligence whose dark fibers hold unresolved possibilities and whose emerald attention turns curiosity into shared focus and close examination. Proposed memory, confidence and target-selection systems are clearly distinguished from the implemented animation. A complete 3.94 MB ZIP includes all three GLBs, runtime, behavior cues, companion effects/viewer, lore, integration notes, validation evidence and vendored Three.js 0.180.0 with its MIT license. The extracted viewer runs without external requests. Original models, animation, code, concepts and adaptations require attribution to Jelaludo; each downloadable GLB embeds that credit, and the viewer/package carry explicit reuse notices.
+
+Geometry and all 151 engine-facing names match KK02; only GLB attribution metadata is added. Master: 204,576 triangles / two model draws / 7,011,448 bytes. Game: 23,088 / two / 791,484. Static distance: 2,904 / one / 140,796. Full presentation remains 36 render calls for master/game. Game exceeds landmark triangle/byte targets; no performance claim. KK02 sources are retained, original LATENT assets remain unchanged, and its four viewer sources are archived under source/archive/latent-field-v1/viewer/. The received collaboration contract is unchanged.
+
+Plain/decoded validation passes with zero glTF errors/warnings, binary-geometry preservation, names, bounds, motion/loop and precision-focus checks. Chromium covers all six controls, three credited model downloads, alias routing, mobile/reduced-motion behavior, cinema/settings/capture, ZIP hashes and extracted offline rendering. Native WebKit passes 48 scene/bloom cases. KK02 regression checks also pass. Updated the gallery, readiness notes, Devlog and shared navigation.
+
+Completed: rename/upgrade, all movements, right-panel behavior controls, lore/developer card, complete downloadable package and Jelaludo attribution requirements. Pending: visual acceptance, consuming-game shader/release decode, LOD thresholds, device profiling, target AI/collision and damage states. Handoff: containing commit plus assets/senzai-kk01/ and senzai-kk01/.
+
 ## 10 November 2026 / Senzai-KK02 — tight fifteen-strand inspection at 27 seconds
 
 Tightened the requested second major focus: at 27 s, fifteen tendrils coalesce around one small Echo spot. They reach into the scene, form an irregular ring, direct their tips inward and make tiny scanning motions. The spot stays fixed while the field approaches at 29–30.6 s. The group holds through 31.1 s, releases over 2.4 s and resumes foraging. The readout shows EXAMINING. The first focus and sampled motion outside this event remain identical to revision 2.

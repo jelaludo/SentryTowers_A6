@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "exports": [
+    {
+      "lod": 0,
+      "triangles": 204576,
+      "draw_calls": 2,
+      "bytes": 7011448,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 49
+      }
+    },
+    {
+      "lod": 1,
+      "triangles": 23088,
+      "draw_calls": 2,
+      "bytes": 791484,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 49
+      }
+    },
+    {
+      "lod": 2,
+      "triangles": 2904,
+      "draw_calls": 1,
+      "bytes": 140796,
+      "unique_nodes": 151,
+      "degenerate_triangles": 0,
+      "validator": {
+        "errors": 0,
+        "warnings": 0,
+        "info": 50
+      }
+    }
+  ],
+  "preserved_v1": 14,
+  "motion": {
+    "samples": 720,
+    "min_active": 27,
+    "max_active": 46,
+    "peak_shift_speed_m_s": 26.23011244406179,
+    "max_curve_deviation_m": 5.088926115190354,
+    "minimum_ground_clearance_m": 5.6361938068952355,
+    "minimum_tip_radius_swing_m": 7.161264150496285,
+    "maximum_tip_radius_swing_m": 38.566400927750145,
+    "mean_locked_tip_target_alignment": 0.9778470967734539,
+    "acquisitions": [
+      {
+        "at_s": 8,
+        "focus": 0,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 19,
+        "focus": 2,
+        "recruited_after_700ms": 23
+      },
+      {
+        "at_s": 27,
+        "focus": 1,
+        "recruited_after_700ms": 15
+      },
+      {
+        "at_s": 40,
+        "focus": 0,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 47,
+        "focus": 2,
+        "recruited_after_700ms": 21
+      },
+      {
+        "at_s": 65,
+        "focus": 0,
+        "recruited_after_700ms": 24
+      }
+    ],
+    "mean_dormant_tip_travel_over_2s_m": 2.100425410887984,
+    "precision_focus": {
+      "samples": 61,
+      "members": 15,
+      "max_tip_diameter_m": 2.0364615620281676,
+      "max_distance_to_spot_m": 1.826156422692338,
+      "max_scanning_travel_m": 0.2355138399591435,
+      "min_tip_alignment": 0.9998296316056118
+    }
+  },
+  "scope": "Plain GLB structure, geometry, curves and source preservation; engine-driven pose/loop validation. No compressed release or FPS claim."
+}

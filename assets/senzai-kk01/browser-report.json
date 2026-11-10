@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "browser": "Chromium / SwiftShader; functional checks, not device profiling",
+  "exports": [
+    {
+      "lod": 1,
+      "model": {
+        "frame": 271,
+        "calls": 2,
+        "triangles": 23088,
+        "points": 0,
+        "lines": 0
+      },
+      "full": {
+        "frame": 286,
+        "calls": 36,
+        "triangles": 24352,
+        "points": 18698,
+        "lines": 221625
+      },
+      "static": false,
+      "download_sha256": "78fd661d1ed83cda4f6f6369bf4ba1a72c20562531806ed3bfa3b85b9b129e15"
+    },
+    {
+      "lod": 0,
+      "model": {
+        "frame": 407,
+        "calls": 2,
+        "triangles": 204576,
+        "points": 0,
+        "lines": 0
+      },
+      "full": {
+        "frame": 422,
+        "calls": 36,
+        "triangles": 205840,
+        "points": 36698,
+        "lines": 581625
+      },
+      "static": false,
+      "download_sha256": "fda48ac6b8415b6978e0ab58f8b0f207efd09ad319738364aaec26de3588a813"
+    },
+    {
+      "lod": 2,
+      "model": {
+        "frame": 513,
+        "calls": 1,
+        "triangles": 2904,
+        "points": 0,
+        "lines": 0
+      },
+      "full": {
+        "frame": 528,
+        "calls": 31,
+        "triangles": 4168,
+        "points": 650,
+        "lines": 2553
+      },
+      "static": true,
+      "download_sha256": "2036b8745ec5060bc08f987fc3f45a804420fc7f7da2077094c143b94bec974f"
+    }
+  ],
+  "checks": [
+    "Legacy LATENT URL opens KK01; right-panel behavior and lore cards; attribution visible",
+    "Three credited GLB downloads, measured model/full-scene costs, static tier behavior switches to game",
+    "All six behavior cues; actual broad recruitment, 15-tip convergence, body travel and dormant sway",
+    "Pause/scrub/restart/next focus, cameras, settings, cinema, PNG, lore expansion and ZIP download",
+    "390px layout and reachable behavior panel; reduced motion starts paused and explicit cue plays",
+    "Downloaded ZIP hash, all extracted hashes, vendored Three.js license and offline rendered examination with zero external requests"
+  ],
+  "source_sha256": {
+    "senzai-kk01/index.html": "a3d937f44f0f5895c8e85ee2cc75bc7eebb6659e87e52a0614dd9ef58a2e5287",
+    "senzai-kk01/viewer.js": "ed0850a1d8485a99f0c5821ef27a067c8677178273adff8e377383bc0bf9c9d5",
+    "senzai-kk01/effects.js": "d183e00374242b1c1d573b515b973e598a9c1694e2884f9f038cb94cc31a1c00",
+    "senzai-kk01/space.js": "8519d83796c66409c5d5e02ed73bbe1403e74824a7ea9e9e7d999a28457be2f4",
+    "senzai-kk01/style.css": "33339e895cd0f2a680908c8652b6379ac575f03e4b2e63c4f12ee9571b69e329",
+    "assets/senzai-kk01/runtime.js": "7190030e490f6df421505ff0efb635ca31ecdec5dac3197656f3f80e8effbbb7",
+    "assets/senzai-kk01/behaviors.js": "2ed5eaf57fef6d8c64c742c9d1a3dda9b62b9e8add31d31ed2638245f4aa40c0",
+    "tools/asset-pipeline/test-senzai-kk01.mjs": "126dd6eaed69170f7f689e69080983c5c3348c1b511bd02c1570bf4e531662c9"
+  },
+  "precision_focus": {
+    "count": 15,
+    "diameter": 2.035719663735966,
+    "visible": true
+  },
+  "package": {
+    "file": "senzai-kk01-developer-package.zip",
+    "sha256": "f37c88434b5f6c60a326b5b72e7934d5a04940031e87aaf7d8bf543ba61a9fe4",
+    "verified_files": 40,
+    "external_requests": [],
+    "extracted_offline_viewer": "passed"
+  },
+  "errors": []
+}
