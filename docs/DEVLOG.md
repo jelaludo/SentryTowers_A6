@@ -1,5 +1,11 @@
 # Devlog
 
+## 10 November 2026 / Senzai-KK02 — WebKit black-rectangle fix
+
+Reproduced the reported large black rectangle in native WebKit. Fine-fiber line interpolation could undershoot zero before a fractional `pow`, producing NaN colors which spread through bloom. Clamped the along-fiber and rim-light inputs to their valid ranges; bloom and the existing appearance remain enabled. Cache-versioned the viewer and effect module so reloads use the fix. Geometry, motion, model exports and LATENT v1 are unchanged.
+
+The regression reproduces 8,760 non-finite scene components and 1,120,452 after bloom with the prior shader. The corrected shader has zero non-finite scene/bloom components across 30 WebKit cases: display scales 1/2, all detail tiers, field/macro views, attention shifts and loop boundary. Reviewed before/after cinema captures and reran Chromium controls/download/mobile checks. Completed: rendering defect; existing visual/game/device acceptance remains pending. Evidence: `assets/senzai-kk02/webkit-report.json`.
+
 ## 10 November 2026 / Senzai-KK02 — living fibers in dimensional space
 
 Created a separate evolution of LATENT, keeping every v1 asset/viewer file byte-identical. Curved fiber geometry and a living companion surface replace the straight radial presentation. Sparse emerald strands lean toward three attention signals, while the field makes quick, eased shifts, trails its fibers and settles. A 72-second loop combines slow drift, three 1.5–1.6 s shifts and a two-second return. Projected 4D tesseracts, gently folded spatial grids, parallax dust and 2 m reference posts establish scale; the camera follows softly.

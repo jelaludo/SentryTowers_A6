@@ -48,6 +48,10 @@ With chamber, fine fibers and postprocessing enabled, browser measurements are *
 - LOD2 is a **static time-zero proxy** with a deliberately coarse filament silhouette. Retained names are lookup markers; do not animate them. Provisional game-entry/distance-return thresholds are 130/160 m; keep LOD1 whenever motion is readable. LOD0 serves close shots and recordings. The viewer selects tiers manually.
 - Only `d0` is authored. Awake/dormant and focus changes are runtime states, not damage states or LOD identifiers. D1–D3 are pending.
 
+## WebKit rendering fix / 10 November 2026
+
+The fiber shader clamps its along-fiber and rim-light inputs before fractional powers. WebKit line interpolation could previously undershoot zero and produce NaN colors, which bloom spread into a large black rectangle. The same native-WebKit setup reproduces the prior defect and renders the corrected version without non-finite scene/bloom pixels in 30 cases across display scales 1/2, all three tiers, field/macro cameras and motion phases. See `webkit-report.json`; run `node tools/asset-pipeline/test-senzai-kk02-webkit.mjs --baseline` to compare against the original shader at `1628143`. Browser module cache versions were advanced; model files, geometry, motion, export counts and v1 remain unchanged.
+
 ## Validation and preservation
 
 `manifest.json` provides file hashes, source fingerprints, measurements, reserved bounds, sockets, tier policy and the hashes of all fourteen LATENT asset/viewer files. **LATENT at commit `d8cc09d` is byte-identical.** Its source builders are also unchanged. KK02 is a new family with no changes to v1's route, models, runtime or visual defaults.
