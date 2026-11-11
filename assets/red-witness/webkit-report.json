@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "engine": "webkit",
+  "checks": [
+    {
+      "family": "figure",
+      "lod": 0,
+      "triangles": 95523,
+      "draw_calls": 17,
+      "texture_surfaces": 17,
+      "download_sha256": "41b319aa32ce5d5e4488397b5d8db8ff6fcf1fc8d4d27a63c05e4abc3a9eddbe"
+    },
+    {
+      "family": "figure",
+      "lod": 1,
+      "triangles": 21032,
+      "draw_calls": 17,
+      "texture_surfaces": 17,
+      "download_sha256": "fc2376b0fb85c91a009eb7c8f4342467376758133579a1c2932e4405009811ee"
+    },
+    {
+      "family": "figure",
+      "lod": 2,
+      "triangles": 2850,
+      "draw_calls": 1,
+      "texture_surfaces": 0,
+      "download_sha256": "3d8a71c19f640f05bdbb50174a0441afcb9479bbc1ceb68f5158fed424dd2c7b"
+    },
+    {
+      "family": "helmet",
+      "lod": 0,
+      "triangles": 18565,
+      "draw_calls": 1,
+      "texture_surfaces": 1,
+      "download_sha256": "d381773d71eeeab7186958bda9672cae13d020975f6dcab3041cc793e3006ab4"
+    },
+    {
+      "family": "helmet",
+      "lod": 1,
+      "triangles": 5600,
+      "draw_calls": 1,
+      "texture_surfaces": 1,
+      "download_sha256": "547a3128f5ad7ca73d2c68e77aba9eee557c55445d3cba80199b71b9027a1d19"
+    },
+    {
+      "family": "helmet",
+      "lod": 2,
+      "triangles": 2999,
+      "draw_calls": 1,
+      "texture_surfaces": 0,
+      "download_sha256": "7e3aa81d9369c8719299276b126c3bd5978e9763b0a67c2a624c268343ea325b"
+    },
+    {
+      "family": "AUREL fit",
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 640067,
+      "draw_calls": 18
+    },
+    {
+      "family": "AUREL fit",
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 45381,
+      "draw_calls": 18
+    },
+    {
+      "family": "AUREL fit",
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6286,
+      "draw_calls": 3
+    },
+    {
+      "family": "AUREL fit",
+      "head": "frame",
+      "lod": 0,
+      "triangles": 640067,
+      "draw_calls": 18
+    },
+    {
+      "family": "AUREL fit",
+      "head": "frame",
+      "lod": 1,
+      "triangles": 45381,
+      "draw_calls": 18
+    },
+    {
+      "family": "AUREL fit",
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6344,
+      "draw_calls": 3
+    }
+  ],
+  "mobile_width": 390,
+  "controls": "Detail, head/arm pose and reset, wire, clay, scale, comparison, five cameras, PNG capture, fit overlays",
+  "errors": []
+}

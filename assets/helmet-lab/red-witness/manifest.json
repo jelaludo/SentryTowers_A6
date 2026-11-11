@@ -1,0 +1,284 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "red-witness-helmet",
+  "label": "Red Witness / Optical helmet",
+  "revision": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Original neck-ring ground datum"
+  },
+  "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+  "damage_states": {
+    "d0": "Intact authored finish",
+    "d1_d3": "Not authored"
+  },
+  "assets": [
+    {
+      "file": "red_witness_helmet_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "derived": true,
+      "static": false,
+      "bytes": 15002772,
+      "sha256": "d381773d71eeeab7186958bda9672cae13d020975f6dcab3041cc793e3006ab4",
+      "triangles": 18565,
+      "draw_calls": 1,
+      "materials": 1,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.13237902522087097,
+          0,
+          -0.14015723764896393
+        ],
+        "max": [
+          0.13237902522087097,
+          0.34010764956474304,
+          0.1599999964237213
+        ],
+        "dimensions_m": [
+          0.26475805044174194,
+          0.34010764956474304,
+          0.30015723407268524
+        ]
+      },
+      "required_nodes": [
+        "DISTANCE_SURFACE",
+        "PART_SHELL",
+        "RED_WITNESS_HELMET_ROOT",
+        "SOCKET_HEAD",
+        "SOCKET_NECK",
+        "SOCKET_OPTICS"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_NECK",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.17,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_OPTICS",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.19,
+            0.145
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "export/gltf/RedWitnessHelmet_LOD0.gltf",
+      "texture_resolution": 4096
+    },
+    {
+      "file": "red_witness_helmet_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true,
+      "static": false,
+      "bytes": 3914216,
+      "sha256": "547a3128f5ad7ca73d2c68e77aba9eee557c55445d3cba80199b71b9027a1d19",
+      "triangles": 5600,
+      "draw_calls": 1,
+      "materials": 1,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.13237902522087097,
+          -0.000059027141105616465,
+          -0.13769248127937317
+        ],
+        "max": [
+          0.13237902522087097,
+          0.33928367495536804,
+          0.1599999964237213
+        ],
+        "dimensions_m": [
+          0.26475805044174194,
+          0.33934270209647366,
+          0.2976924777030945
+        ]
+      },
+      "required_nodes": [
+        "DISTANCE_SURFACE",
+        "PART_SHELL",
+        "RED_WITNESS_HELMET_ROOT",
+        "SOCKET_HEAD",
+        "SOCKET_NECK",
+        "SOCKET_OPTICS"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_NECK",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.17,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_OPTICS",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.19,
+            0.145
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "export/gltf/RedWitnessHelmet_LOD2.gltf",
+      "texture_resolution": 2048
+    },
+    {
+      "file": "red_witness_helmet_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "derived": true,
+      "static": true,
+      "bytes": 94676,
+      "sha256": "7e3aa81d9369c8719299276b126c3bd5978e9763b0a67c2a624c268343ea325b",
+      "triangles": 2999,
+      "draw_calls": 1,
+      "materials": 1,
+      "plot_m": [
+        0.4,
+        0.4
+      ],
+      "bounds": {
+        "min": [
+          -0.1302998960018158,
+          0.00020045980636496097,
+          -0.1378038227558136
+        ],
+        "max": [
+          0.1302998960018158,
+          0.338558554649353,
+          0.1599999964237213
+        ],
+        "dimensions_m": [
+          0.2605997920036316,
+          0.33835809484298807,
+          0.2978038191795349
+        ]
+      },
+      "required_nodes": [
+        "DISTANCE_SURFACE",
+        "PART_SHELL",
+        "RED_WITNESS_HELMET_ROOT",
+        "SOCKET_HEAD",
+        "SOCKET_NECK",
+        "SOCKET_OPTICS"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_NECK",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_HEAD",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.17,
+            0
+          ]
+        },
+        {
+          "node": "SOCKET_OPTICS",
+          "parent": "RED_WITNESS_HELMET_ROOT",
+          "position_m": [
+            0,
+            0.19,
+            0.145
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "export/gltf/RedWitnessHelmet_LOD3.gltf",
+      "texture_resolution": null,
+      "reduction": {
+        "method": "Source helmet LOD3 with texture-to-vertex color sampling",
+        "relative_error": 0,
+        "derived": true
+      }
+    }
+  ],
+  "lod_selection": {
+    "default": 1,
+    "lod0": "Detailed recording master; 4K authored PBR texture maps re-encoded as JPEG",
+    "lod1": "Game geometry with 2K PBR textures; articulated rigid joints on figure",
+    "lod2": "Static merged silhouette; one material and texture-sampled vertex colors",
+    "game_enter_m": 12,
+    "distance_return_m": 16,
+    "provisional": true,
+    "static_policy": "Use game before any motion; distance nodes retain rest-frame lookup only"
+  },
+  "source": {
+    "project": "/Users/jela/Dev/3d_assets/red_witness_helmet",
+    "originals": "External source project preserved unchanged; hashes in provenance.json",
+    "hand": "AUREL-01 biped LOD2, 1.2x, by Jelaludo",
+    "foot": "AUREL-02 biped LOD2, 1.2x, by Jelaludo",
+    "builder": "tools/asset-pipeline/build-red-witness.mjs"
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "clips": [],
+    "engine_driven": "Fixed shell. No separate authored inspection modules."
+  },
+  "fit_reference": {
+    "robot_file": "assets/robot-assembly/parts/head_sensor/aurel03_head_sensor_d0_lod1.glb",
+    "scope": "Proportion overlay only; replacement-head fit is in robot-assembly/helmet-fit"
+  },
+  "handoff": {
+    "folder": "assets/helmet-lab/red-witness/",
+    "viewer": "helmet-lab/?helmet=red-witness",
+    "pending": [
+      "Visual acceptance",
+      "Arbitrary motion and collision",
+      "Damage states",
+      "Consuming-game texture/release decode and LOD thresholds",
+      "Device profiling"
+    ]
+  }
+}

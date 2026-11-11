@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "file": "red-witness.zip",
+  "bytes": 17971410,
+  "sha256": "651bb197fe652e1d22b98d2326b6d13730a985be76a60db4becdbaf2f2a5078b",
+  "files": {
+    "ATTRIBUTIONS.md": {
+      "bytes": 580,
+      "sha256": "5bcd938d472ccb747e70f92c4fdfa67d4e7b663e75ad135697ddcca7a5e5ab58"
+    },
+    "LICENSE.md": {
+      "bytes": 660,
+      "sha256": "bc42769846475c91b6834c07b7683dbaebb5ff6d13b3215be977d010fbe2febc"
+    },
+    "PACKAGE-CONTENTS.txt": {
+      "bytes": 683,
+      "sha256": "54ce83481745ca4788885a9dd0b33d71d11a68f95212c1503354dbdcf9686023"
+    },
+    "README.md": {
+      "bytes": 4267,
+      "sha256": "13c4307cd56c96e80702a3b96630f45417447bc3a187df1a3f5ff5d9a6685ca2"
+    },
+    "SHA256SUMS": {
+      "bytes": 1476,
+      "sha256": "f16c4056aed5152a81e26fe6d4c547c3914187c357d211828eca60a1e1297a3d"
+    },
+    "assets/helmet-lab/red-witness/ATTRIBUTIONS.md": {
+      "bytes": 580,
+      "sha256": "5bcd938d472ccb747e70f92c4fdfa67d4e7b663e75ad135697ddcca7a5e5ab58"
+    },
+    "assets/helmet-lab/red-witness/LICENSE.md": {
+      "bytes": 660,
+      "sha256": "bc42769846475c91b6834c07b7683dbaebb5ff6d13b3215be977d010fbe2febc"
+    },
+    "assets/helmet-lab/red-witness/README.md": {
+      "bytes": 4267,
+      "sha256": "13c4307cd56c96e80702a3b96630f45417447bc3a187df1a3f5ff5d9a6685ca2"
+    },
+    "assets/helmet-lab/red-witness/manifest.json": {
+      "bytes": 7692,
+      "sha256": "d7376b55802851efc89dcc8d1bd06e58d3b5a5636ee23aea8e1ba2ce9bce971e"
+    },
+    "assets/helmet-lab/red-witness/provenance.json": {
+      "bytes": 5768,
+      "sha256": "ec9f48017de947a7c2d959ac36561bb7d1067259bf8d8be2e396ffde0ddd7bee"
+    },
+    "assets/helmet-lab/red-witness/red_witness_helmet_d0_lod0.glb": {
+      "bytes": 15002772,
+      "sha256": "d381773d71eeeab7186958bda9672cae13d020975f6dcab3041cc793e3006ab4"
+    },
+    "assets/helmet-lab/red-witness/red_witness_helmet_d0_lod1.glb": {
+      "bytes": 3914216,
+      "sha256": "547a3128f5ad7ca73d2c68e77aba9eee557c55445d3cba80199b71b9027a1d19"
+    },
+    "assets/helmet-lab/red-witness/red_witness_helmet_d0_lod2.glb": {
+      "bytes": 94676,
+      "sha256": "7e3aa81d9369c8719299276b126c3bd5978e9763b0a67c2a624c268343ea325b"
+    },
+    "assets/helmet-lab/red-witness/runtime.js": {
+      "bytes": 362,
+      "sha256": "2bc1d9fdf85c18d84620e1670e92f2dbc7cb3b6a2e27e3a0c7442d4f46a62f79"
+    },
+    "assets/helmet-lab/red-witness/validation-report.json": {
+      "bytes": 1028,
+      "sha256": "ec104256b130699e5fe2b1db4272e166daae976bb9cfc4e2acc3814f106883ed"
+    }
+  },
+  "scope": "ZIP extraction and exact file hashes; model/runtime package, not an offline viewer or Blender source distribution."
+}

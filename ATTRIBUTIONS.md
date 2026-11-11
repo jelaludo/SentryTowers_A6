@@ -1,5 +1,9 @@
 # Asset attributions and provenance
 
+## Red Witness / Humanoid and helmet / 11 November 2026
+
+Imported from Jelaludo’s local Red Witness authoring project with the original graphite/ivory body and worn optical helmet. Original Blender files, PNG bakes and four source LODs remain unchanged in that project; provenance hashes are recorded in assets/red-witness/provenance.json. Workshop exports, normalized joint origins/names, JPEG texture encodings and static distance reductions are explicitly derived. Original AUREL-01 hands and AUREL-02 feet by Jelaludo are retained at the source’s 1.2x scale. The AUREL replacement-head adapter trims the joined collar on the loaded copy only. Models and adaptations require attribution to **Jelaludo**. No reference image pixels or third-party meshes are distributed.
+
 ## Senzai-KK02 / Living attention / 10 November 2026
 
 Separate authored evolution of LATENT at `d8cc09d`, with curved model geometry, living fiber shaders, attention motion and a projected four-dimensional spatial presentation by jelaludo / Model Workshop. Reduced game/distance exports are explicitly derived. All LATENT assets and its viewer are preserved and hashed in `assets/senzai-kk02/manifest.json`. The original user concept remains external; no image pixels or third-party meshes are bundled. Workshop attribution/reuse terms apply to the original work.

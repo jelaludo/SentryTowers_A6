@@ -5,6 +5,7 @@ export const HELMET_FITS = Object.freeze({
  'rk-mg02': {label:'RK-MG02', scale:.80, source_crown_m:.3478, collar_cutoff_m:.070},
  'hex-witness': {label:'Hex Witness / Carbon', finish:'carbon', scale:.72, source_crown_m:.379, collar_cutoff_m:.075},
  'breach-warden': {label:'Breach Warden', scale:.76, source_crown_m:.367, collar_cutoff_m:.090},
+ 'red-witness': {label:'Red Witness', scale:.80, source_crown_m:.34010764956474304, collar_cutoff_m:.055, merged_shell:true, trim_neck_below_m:.075},
 });
 export const FIT = Object.freeze({parent:'HEAD_PITCH', crown_above_pitch_m:.215, replace_original_head:true, omit_standalone_collar:true, namespace:'HELMET_'});
 
@@ -77,6 +78,10 @@ export function attachHelmet(host,helmet,id=DEFAULT_HELMET) {
  const collar=helmet.getObjectByName('PART_COLLAR');collar?.traverse(n=>{if(n.isMesh){n.visible=false;n.userData.helmet_fit_hidden=true;}});
  const far=helmet.getObjectByName('DISTANCE_SURFACE');let omittedTriangles=0;
  if(far?.isMesh){const range=componentRanges(far);omittedTriangles=retainTriangles(far,ids=>range(ids).max>config.collar_cutoff_m);}
+ if(config.merged_shell){const shell=helmet.getObjectByName('PART_SHELL');if(shell?.isMesh){const range=componentRanges(shell);omittedTriangles+=retainTriangles(shell,ids=>range(ids).max>config.collar_cutoff_m);}}
+ // Red Witness has its neck ring joined into the shell. Omit the basal collar
+ // in this derived attachment only; standalone exports retain the entire ring.
+ if(config.trim_neck_below_m)for(const mesh of [helmet.getObjectByName('PART_SHELL'),far])if(mesh?.isMesh){const p=mesh.geometry.attributes.position;omittedTriangles+=retainTriangles(mesh,ids=>ids.every(i=>p.getY(i)>=config.trim_neck_below_m));}
  if(config.finish==='carbon')applyCarbonFinish(helmet);
  helmet.traverse(n=>{if(n.name){n.userData.source_node=n.name;n.name=FIT.namespace+n.name;}if(n.isMesh){n.userData.helmet_fit=true;n.castShadow=n.receiveShadow=true;n.frustumCulled=false;}});
  host.updateMatrixWorld(true);

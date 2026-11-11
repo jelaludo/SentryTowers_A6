@@ -1,0 +1,160 @@
+{
+  "source_project": "/Users/jela/Dev/3d_assets/red_witness_helmet",
+  "imported_at": "2026-11-11",
+  "originals_modified": false,
+  "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+  "files": [
+    {
+      "file": "export/figure/RedWitnessFigure_LOD0.gltf",
+      "bytes": 26952,
+      "sha256": "02cbb9502aa574c09131026532319540bf4054040f8169bc2c14793f587f89e4"
+    },
+    {
+      "file": "export/figure/RedWitnessFigure_LOD0.bin",
+      "bytes": 4894004,
+      "sha256": "7cc14e5886b6ae50f749336bf3b4126581f1393fcd925bd5281b5a110285c0dc"
+    },
+    {
+      "file": "export/figure/textures/RedWitness_Emissive.png",
+      "bytes": 357123,
+      "sha256": "29e1c8105b63255a5b0465e5c53f7a329411f54e2651c18e7a522c09c59544f1"
+    },
+    {
+      "file": "export/figure/textures/RedWitness_Normal.png",
+      "bytes": 20916056,
+      "sha256": "e061468d3c47d44c3e7bae409588664ddb837819fb2fe23a9bc6d188a969d7e2"
+    },
+    {
+      "file": "export/figure/textures/RedWitness_ORM.png",
+      "bytes": 15718023,
+      "sha256": "65b4b1ddc461b85ac4a5b92cab76cd3482c85beddbcb725a211d5c5bc0ac4d7a"
+    },
+    {
+      "file": "export/figure/textures/RedWitness_BaseColor.png",
+      "bytes": 17820555,
+      "sha256": "8fc73e13c0bf10147bac9ac0b822e5d0c720fc748cc457be8556c01101818e90"
+    },
+    {
+      "file": "export/figure/textures/RedWitnessBody_Normal.png",
+      "bytes": 24152003,
+      "sha256": "8b71942f82ba454858857943b316fd25cd862e3269de213a59a632fda1afbb99"
+    },
+    {
+      "file": "export/figure/textures/RedWitnessBody_ORM.png",
+      "bytes": 17951881,
+      "sha256": "c79589a8c724f6683922722aea52c042077fc1b72be0532648f11080ab1d7682"
+    },
+    {
+      "file": "export/figure/textures/RedWitnessBody_BaseColor.png",
+      "bytes": 20151046,
+      "sha256": "7ae51b996d60aaac650fdba6f4a0c96d357f3e3c3e55f7bd566f4f73dcb6d2bf"
+    },
+    {
+      "file": "export/figure/RedWitnessFigure_LOD3.gltf",
+      "bytes": 26772,
+      "sha256": "7b1ffe0c48343df1c78e787c3dede187cdaa5e11a86a1def8874e93774fbd7ee"
+    },
+    {
+      "file": "export/figure/RedWitnessFigure_LOD3.bin",
+      "bytes": 1016792,
+      "sha256": "2388d883708c661489e364edd71e18c30b63585e2c642b12e951415b94b864a8"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD1.gltf",
+      "bytes": 2859,
+      "sha256": "09c22a350e81f155f857b0983473f142205ec8200ca49f11761031e40aa6c5ab"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD1.bin",
+      "bytes": 593516,
+      "sha256": "45e6d3998c5debef766ea1fa07536e336539d273aa7a97711976d748aa8ea0f4"
+    },
+    {
+      "file": "export/gltf/textures/RedWitness_Emissive.png",
+      "bytes": 357123,
+      "sha256": "29e1c8105b63255a5b0465e5c53f7a329411f54e2651c18e7a522c09c59544f1"
+    },
+    {
+      "file": "export/gltf/textures/RedWitness_Normal.png",
+      "bytes": 20916056,
+      "sha256": "e061468d3c47d44c3e7bae409588664ddb837819fb2fe23a9bc6d188a969d7e2"
+    },
+    {
+      "file": "export/gltf/textures/RedWitness_ORM.png",
+      "bytes": 15718023,
+      "sha256": "65b4b1ddc461b85ac4a5b92cab76cd3482c85beddbcb725a211d5c5bc0ac4d7a"
+    },
+    {
+      "file": "export/gltf/textures/RedWitness_BaseColor.png",
+      "bytes": 17820555,
+      "sha256": "8fc73e13c0bf10147bac9ac0b822e5d0c720fc748cc457be8556c01101818e90"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD0.gltf",
+      "bytes": 2861,
+      "sha256": "a1b54382198cea04d8adafe36cde89153c547f3bc7cebdbe203713214e6089e9"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD0.bin",
+      "bytes": 917312,
+      "sha256": "7f643ee184f0b0858b34c9673ae48d4e7f7e9f79244873497cb7daec3c1f4a4b"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD2.gltf",
+      "bytes": 2874,
+      "sha256": "499e594d12de450618eb0be5bc512a4ace059579b082c3af6c08bce0c5a03e56"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD2.bin",
+      "bytes": 384576,
+      "sha256": "f0f86672ccca9b87c0fa496a22aefda512d9cb7ae55364fff59f855146d4a76a"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD3.gltf",
+      "bytes": 2865,
+      "sha256": "ec838af71e15934d2aa6130ed0fe4e6de5e36cddd6df36798530f8b0e0ac0fb1"
+    },
+    {
+      "file": "export/gltf/RedWitnessHelmet_LOD3.bin",
+      "bytes": 211772,
+      "sha256": "ac0692c71193ea4f0f979134861fcebf4692a5f6a218610f17149320214537b0"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4496,
+      "sha256": "b7468c25e0f5c3ca7a5d33ba6a720735bc0cd730ba6463a996417899b185d98b"
+    },
+    {
+      "file": "blend/RedWitness_source.blend",
+      "bytes": 10227956,
+      "sha256": "5a34c03d9d2bb5b0f23cd619c616fd6325f15977de5993c3d6528a461e662214"
+    },
+    {
+      "file": "blend/RedWitness_game.blend",
+      "bytes": 1181058,
+      "sha256": "02139e300d3d317cd4c0846f4b7c93ee26a33bc31ffa98a796f4be13eeef7b32"
+    },
+    {
+      "file": "blend/RedWitness_figure.blend",
+      "bytes": 5030967,
+      "sha256": "a0db91b079aa494bbf51603b8bf8e1194040b4b4275abfa4dba50f67487c8645"
+    },
+    {
+      "file": "scripts/build_figure.py",
+      "bytes": 17983,
+      "sha256": "33fe04d24d33a419b48bc11d7661a2484267fddfb370aad058114fd73c1fd13a"
+    },
+    {
+      "file": "scripts/rw/body.py",
+      "bytes": 17388,
+      "sha256": "786fd13607ec53c2c007cce029b2d3798f4b98c81e69f56ac326e087ebcba955"
+    }
+  ],
+  "adaptations": [
+    "Dot-free stable node names and shared rest sockets",
+    "Hand and foot origins rebased to the actual wrist/ankle without changing rest geometry",
+    "Game figure combines original body LOD3 and original helmet LOD1",
+    "Master/game embedded JPEG PBR maps derived from original PNGs",
+    "Distance tier derived by simplification and texture-to-vertex color sampling"
+  ]
+}

@@ -38,7 +38,7 @@
     }
   ],
   "status": "passed",
-  "source_commit": "0b6332bbb24ff5cc2cf1cf1f8fd02c9efb67f6e8",
+  "source_commit": "c1901e8",
   "source_files": 18,
   "variants": [
     {
@@ -644,6 +644,210 @@
         0.76,
         0.76,
         0.76
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "triangles": 640067,
+      "draw_calls": 18,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "triangles": 45381,
+      "draw_calls": 18,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 1.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 3,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 4.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 7.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 9,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 10.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 11.99,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 2,
+      "triangles": 6286,
+      "draw_calls": 3,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "triangles": 640067,
+      "draw_calls": 18,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "triangles": 45381,
+      "draw_calls": 18,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "collision_samples": [
+        {
+          "time": 0,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 1.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 3,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 4.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 6,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 7.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 9,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 10.5,
+          "intersections": 0,
+          "pairs": {}
+        },
+        {
+          "time": 11.99,
+          "intersections": 0,
+          "pairs": {}
+        }
+      ]
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 2,
+      "triangles": 6344,
+      "draw_calls": 3,
+      "scale": [
+        0.8,
+        0.8,
+        0.8
       ],
       "collision_samples": [
         {
@@ -2617,6 +2821,662 @@
     },
     {
       "helmet": "breach-warden",
+      "head": "frame",
+      "lod": 2,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "sensor",
+      "lod": 2,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 0,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0.5,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 1,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 0,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 3,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 6,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 9,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
+      "head": "frame",
+      "lod": 1,
+      "spread": 0,
+      "time": 11.99,
+      "attachment_error": 0
+    },
+    {
+      "helmet": "red-witness",
       "head": "frame",
       "lod": 2,
       "spread": 0,

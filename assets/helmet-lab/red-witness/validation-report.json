@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "scope": "Plain GLB decode, measured geometry, names, socket frames, rigid posing and original-source hashes. No compressed derivative shipped.",
+  "assets": [
+    {
+      "file": "red_witness_helmet_d0_lod0.glb",
+      "triangles": 18565,
+      "draw_calls": 1,
+      "bytes": 15002772,
+      "nodes": 6,
+      "minimum_triangle_area_m2": 6.142381104688492e-7,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "red_witness_helmet_d0_lod1.glb",
+      "triangles": 5600,
+      "draw_calls": 1,
+      "bytes": 3914216,
+      "nodes": 6,
+      "minimum_triangle_area_m2": 0.0000038363162294551094,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "red_witness_helmet_d0_lod2.glb",
+      "triangles": 2999,
+      "draw_calls": 1,
+      "bytes": 94676,
+      "nodes": 6,
+      "minimum_triangle_area_m2": 0.0000012671209405402216,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 0,
+  "external_source_files_verified": 29
+}

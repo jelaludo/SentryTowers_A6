@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "scope": "Plain GLB decode, measured geometry, names, socket frames, rigid posing and original-source hashes. No compressed derivative shipped.",
+  "assets": [
+    {
+      "file": "red_witness_d0_lod0.glb",
+      "triangles": 95523,
+      "draw_calls": 17,
+      "bytes": 40618416,
+      "nodes": 24,
+      "minimum_triangle_area_m2": 5.759759911711647e-7,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "red_witness_d0_lod1.glb",
+      "triangles": 21032,
+      "draw_calls": 17,
+      "bytes": 10206588,
+      "nodes": 24,
+      "minimum_triangle_area_m2": 8.482009420693935e-7,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "red_witness_d0_lod2.glb",
+      "triangles": 2850,
+      "draw_calls": 1,
+      "bytes": 78212,
+      "nodes": 24,
+      "minimum_triangle_area_m2": 3.417702736293683e-9,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "pose_samples": 27,
+  "external_source_files_verified": 29
+}

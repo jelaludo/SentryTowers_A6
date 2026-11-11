@@ -1,0 +1,388 @@
+{
+  "schema": "jelaludo.asset-family/v2-candidate",
+  "family": "red-witness",
+  "label": "Red Witness / Humanoid",
+  "revision": 1,
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "Original ground datum at stance centre"
+  },
+  "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+  "damage_states": {
+    "d0": "Intact authored finish",
+    "d1_d3": "Not authored"
+  },
+  "assets": [
+    {
+      "file": "red_witness_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "derived": true,
+      "static": false,
+      "bytes": 40618416,
+      "sha256": "41b319aa32ce5d5e4488397b5d8db8ff6fcf1fc8d4d27a63c05e4abc3a9eddbe",
+      "triangles": 95523,
+      "draw_calls": 17,
+      "materials": 2,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.36998656392097473,
+          0.002642171859741249,
+          -0.22050556167960167
+        ],
+        "max": [
+          0.36998656392097473,
+          2.0821076333522797,
+          0.21540925025939942
+        ],
+        "dimensions_m": [
+          0.7399731278419495,
+          2.0794654614925383,
+          0.43591481193900106
+        ]
+      },
+      "required_nodes": [
+        "CHEST",
+        "DISTANCE_SURFACE",
+        "FOOT_L",
+        "FOOT_R",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "NECK",
+        "PELVIS",
+        "RED_WITNESS_ROOT",
+        "SHIN_L",
+        "SHIN_R",
+        "SOCKET_FOOT_L",
+        "SOCKET_FOOT_R",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HELMET",
+        "SPINE",
+        "THIGH_L",
+        "THIGH_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HELMET",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7419999837875366,
+            -0.011999998241662979
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_L",
+          "parent": "FOOT_L",
+          "position_m": [
+            0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_R",
+          "parent": "FOOT_R",
+          "position_m": [
+            -0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "export/figure/RedWitnessFigure_LOD0.gltf",
+      "texture_resolution": 4096
+    },
+    {
+      "file": "red_witness_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "derived": true,
+      "static": false,
+      "bytes": 10206588,
+      "sha256": "fc2376b0fb85c91a009eb7c8f4342467376758133579a1c2932e4405009811ee",
+      "triangles": 21032,
+      "draw_calls": 17,
+      "materials": 2,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.3707335367798805,
+          0.002642171859741249,
+          -0.22336707636713982
+        ],
+        "max": [
+          0.3707335367798805,
+          2.0812836587429047,
+          0.21162907898426056
+        ],
+        "dimensions_m": [
+          0.741467073559761,
+          2.0786414868831633,
+          0.43499615535140035
+        ]
+      },
+      "required_nodes": [
+        "CHEST",
+        "DISTANCE_SURFACE",
+        "FOOT_L",
+        "FOOT_R",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "NECK",
+        "PELVIS",
+        "RED_WITNESS_ROOT",
+        "SHIN_L",
+        "SHIN_R",
+        "SOCKET_FOOT_L",
+        "SOCKET_FOOT_R",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HELMET",
+        "SPINE",
+        "THIGH_L",
+        "THIGH_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HELMET",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7419999837875366,
+            -0.011999998241662979
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_L",
+          "parent": "FOOT_L",
+          "position_m": [
+            0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_R",
+          "parent": "FOOT_R",
+          "position_m": [
+            -0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "Original body LOD3 + helmet LOD1",
+      "texture_resolution": 2048
+    },
+    {
+      "file": "red_witness_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "derived": true,
+      "static": true,
+      "bytes": 78212,
+      "sha256": "3d8a71c19f640f05bdbb50174a0441afcb9479bbc1ceb68f5158fed424dd2c7b",
+      "triangles": 2850,
+      "draw_calls": 1,
+      "materials": 1,
+      "plot_m": [
+        1.2,
+        1
+      ],
+      "bounds": {
+        "min": [
+          -0.3677361011505127,
+          0.0018144899513572454,
+          -0.21776169538497925
+        ],
+        "max": [
+          0.3665215075016022,
+          2.081587791442871,
+          0.1935279667377472
+        ],
+        "dimensions_m": [
+          0.7342576086521149,
+          2.079773301491514,
+          0.41128966212272644
+        ]
+      },
+      "required_nodes": [
+        "CHEST",
+        "DISTANCE_SURFACE",
+        "FOOT_L",
+        "FOOT_R",
+        "FOREARM_L",
+        "FOREARM_R",
+        "HAND_L",
+        "HAND_R",
+        "HEAD",
+        "NECK",
+        "PELVIS",
+        "RED_WITNESS_ROOT",
+        "SHIN_L",
+        "SHIN_R",
+        "SOCKET_FOOT_L",
+        "SOCKET_FOOT_R",
+        "SOCKET_HAND_L",
+        "SOCKET_HAND_R",
+        "SOCKET_HELMET",
+        "SPINE",
+        "THIGH_L",
+        "THIGH_R",
+        "UPPER_ARM_L",
+        "UPPER_ARM_R"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_HELMET",
+          "parent": "HEAD",
+          "position_m": [
+            0,
+            1.7419999837875366,
+            -0.011999998241662979
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_L",
+          "parent": "HAND_L",
+          "position_m": [
+            0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_L",
+          "parent": "FOOT_L",
+          "position_m": [
+            0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        },
+        {
+          "node": "SOCKET_HAND_R",
+          "parent": "HAND_R",
+          "position_m": [
+            -0.295,
+            0.93,
+            0.020000000000000004
+          ]
+        },
+        {
+          "node": "SOCKET_FOOT_R",
+          "parent": "FOOT_R",
+          "position_m": [
+            -0.115,
+            2.7755575615628914e-17,
+            -0.03
+          ]
+        }
+      ],
+      "clips": [],
+      "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/",
+      "source_geometry": "Original body LOD3 + helmet LOD1",
+      "texture_resolution": null,
+      "reduction": {
+        "method": "Derived 16 mm voxel-union silhouette, Blender collapse reduction and nearest-surface color transfer",
+        "relative_error": null,
+        "derived": true
+      }
+    }
+  ],
+  "lod_selection": {
+    "default": 1,
+    "lod0": "Detailed recording master; 4K authored PBR texture maps re-encoded as JPEG",
+    "lod1": "Game geometry with 2K PBR textures; articulated rigid joints on figure",
+    "lod2": "Static merged silhouette; one material and texture-sampled vertex colors",
+    "game_enter_m": 12,
+    "distance_return_m": 16,
+    "provisional": true,
+    "static_policy": "Use game before any motion; distance nodes retain rest-frame lookup only"
+  },
+  "source": {
+    "project": "/Users/jela/Dev/3d_assets/red_witness_helmet",
+    "originals": "External source project preserved unchanged; hashes in provenance.json",
+    "hand": "AUREL-01 biped LOD2, 1.2x, by Jelaludo",
+    "foot": "AUREL-02 biped LOD2, 1.2x, by Jelaludo",
+    "builder": "tools/asset-pipeline/build-red-witness.mjs"
+  },
+  "runtime": {
+    "file": "runtime.js",
+    "clips": [],
+    "engine_driven": "Rigid named joints. No skinning, muscle stretch, finger articulation or walk clip. Hand/foot pivots rebased without moving their rest geometry."
+  },
+  "handoff": {
+    "folder": "assets/red-witness/",
+    "viewer": "red-witness/",
+    "pending": [
+      "Visual acceptance",
+      "Arbitrary motion and collision",
+      "Damage states",
+      "Consuming-game texture/release decode and LOD thresholds",
+      "Device profiling"
+    ]
+  }
+}
