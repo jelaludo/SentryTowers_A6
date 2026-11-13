@@ -1,5 +1,18 @@
 # Model Workshop
 
+Current model releases:
+
+- **Red Witness / humanoid:** original 2.08 m figure, three tiers, joint inspection, AUREL comparison and credited downloads.
+  https://jelaludo.github.io/SentryTowers_A6/red-witness/
+- **Red Witness / helmet:** three standalone tiers and the AUREL replacement-head fitting.
+  https://jelaludo.github.io/SentryTowers_A6/helmet-lab/?helmet=red-witness
+- **Senzai-KK01 / developer edition:** the former LATENT, with the complete living motion, Focus Lock/Examining controls, lore and downloadable package.
+  https://jelaludo.github.io/SentryTowers_A6/senzai-kk01/
+- **Senzai-KK02 / Observatory:** the authored 72-second living-attention animation.
+  https://jelaludo.github.io/SentryTowers_A6/senzai-kk02/
+- **Senzai-KK02 / Pilot:** the newer standalone flight/capture experience, including touch controls and installable offline play. The Workshop card opens its own published project; its PWA remains scoped to that project. Original models, animation, code and concepts require attribution to Jelaludo.
+  https://jelaludo.github.io/senzai-kk02/
+
 **Senzai-KK02 / Living attention** is a separate LATENT evolution with gracefully curving fibers, emerald attention aimed at three signals, swift eased travel and a slowly shifting projected 4D setting. Includes scale references, tracking macro view, 72-second cycle, spatial/camera controls and three GLB tiers. Open `senzai-kk02/`; notes: `assets/senzai-kk02/`. LATENT v1 remains intact.
 
 **LATENT / Optic-fiber field** adds a floating near-black sphere of fine glass filaments, with sparse emerald strands waking, extending and retracting through a 48-second loop. Includes a dormant state, macro camera, fog/glow controls, cinema and PNG capture, plus master/game/static GLB downloads. Open `latent-field/`; measured integration notes are in `assets/latent-field/`.

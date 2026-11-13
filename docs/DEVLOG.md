@@ -1,5 +1,13 @@
 # Devlog
 
+## 13 November 2026 / Published model synchronization and Senzai Pilot discovery
+
+Checked the Workshop against GitHub and the running local model servers. All 166 checked published HTML pages and top-level asset manifests matched the local files byte for byte. Red Witness humanoid and helmet provenance hashes still match their external authoring sources; both viewers and both Senzai viewers are already on main and published. No open SentryTowers pull request, alternate branch or uncommitted model export was waiting to merge.
+
+Found the newer Senzai-KK02 Pilot in its separate repository at afc7c1a, already published with the same current flight, natural-pursuit, capture, touch and PWA code. It was missing from the Workshop gallery. Added a distinct Pilot card with an actual gameplay preview, a link from the KK02 Observatory and direct release URLs for Red Witness and all Senzai editions in README.md. The Pilot opens its existing standalone release; its source, service worker and offline cache remain in that project. Original models and motion are unchanged, and attribution to Jelaludo remains required. Corrected the AUREL gallery card to list all four available helmet heads, including Red Witness. Advanced the gallery's module cache version.
+
+Completed: publication audit, missing Pilot gallery entry and release links, desktop/mobile link and layout checks, shared-navigation rebuild, validated release changes. Pending: any additional unnamed local model family needs its source identified; this audit covers the discovered Red Witness and Senzai servers and the existing Workshop pages/manifests. Handoff: containing commit plus workshop/catalog.js, assets/workshop/senzai-kk02-pilot.png and senzai-kk02/index.html; Pilot source remains https://github.com/jelaludo/senzai-kk02 at afc7c1a.
+
 ## 13 November 2026 / Blender 5.3 and MCP upgrade — verified workflow
 
 Upgraded the application and CLI from Blender 5.2.1 to 5.3.0 (build 02f0899d78e3), and the community MCP from blender-mcp 1.9.1 to mcp-for-blender 2.2.8 with its matching add-on 2.0 / protocol 16. Homebrew and PyPI report these as current on this date. Preserved the previous application, profile, server environment and private configuration backup outside Git. Loopback access and disabled telemetry are retained. The configured executable is updated; a fresh MCP client passes status, code execution and the new multi-angle/material animation capture. Restart Codex to refresh this conversation's cached tools and discover the installed workflow skill.

@@ -1,6 +1,7 @@
 const collectionImages={
 'red-witness':'assets/red-witness/preview.png',
 'red-witness-helmet':'assets/helmet-lab/red-witness/preview.png',
+'senzai-kk02-pilot':'assets/workshop/senzai-kk02-pilot.png',
 'senzai-kk02':'assets/senzai-kk02/preview.png?v=2',
 'senzai-kk01':'assets/senzai-kk01/preview.png?v=1',
 'aurel03-rkmg02':'assets/robot-assembly/helmet-fit/preview.png',
@@ -64,9 +65,10 @@ const collectionImages={
 export const collections=[
 ['red-witness','Red Witness / Humanoid','Characters','An ivory frame, graphite muscle bundles and a watchful red optical helmet. Original 2.08 m proportions with AUREL hands and feet, joint inspection and true-scale comparison.','17 joint parts · 3 tiers · Figure + helmet ZIP','Imported humanoid'],
 ['red-witness-helmet','Helmet Lab / Red Witness','Characters','The Red Witness optical helmet: worn steel plates, red lenses, routed cables and an ivory respirator. Also available as an AUREL replacement head.','Authored PBR · AUREL fit · 3 tiers · GLB + ZIP','Helmet studies / 04','helmet-lab/?helmet=red-witness'],
+['senzai-kk02-pilot','Senzai-KK02 / Pilot','Abstract','Fly the living field through latent space. Sweep for concepts, follow their movement and align two reticles while fifteen tendrils converge to capture a thought. The latest standalone experience, by Jelaludo.','Desktop + touch · 7 concepts · Installable offline app','Interactive standalone release','https://jelaludo.github.io/senzai-kk02/'],
 ['senzai-kk02','Senzai-KK02 / Living attention','Abstract','Organic glass fibers breathe and curl toward three signals. Independent tendrils forage and sway, then suddenly gather their attention while the field moves through slowly folding space. The animation study behind the reusable Senzai-KK01 edition.','72-second cycle · Foraging tendrils · Collective attention · 3 tiers','Animated spatial study'],
 ['senzai-kk01','Senzai-KK01 / Living intelligence','Abstract','The former LATENT, upgraded with Senzai’s complete living motion. Launch Focus Lock, Examining and more; explore its lore and download the developer package. Reuse requires attribution to Jelaludo.','Behavior controls · Lore · 3 tiers · Complete package','Animated developer edition'],
-['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Default carbon Hex Witness, with compact RK-MG02 and Breach Warden alternatives on the complete AUREL body. Swap designs, compare layers and inspect moving neck connections.','3 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=hex-witness&head=sensor'],
+['aurel03-rkmg02','AUREL-03 / Swappable heads','Characters','Four helmet heads on the complete AUREL body: carbon Hex Witness, compact RK-MG02, Breach Warden and Red Witness. Swap designs, compare layers and inspect moving neck connections.','4 helmet heads · Compact proportions · 3 tiers','Fitting study','robot-assembly/?helmet=hex-witness&head=sensor'],
 ['rk-mg02','Helmet Lab / RK-MG02','Characters','A fitted motocross enclosure with a structural brow, continuous vented guard, recessed optics and distinct ceramic, metal and rubber finishes.','Fitted MX enclosure · Gray inspection · 3 tiers · GLB + ZIP','Helmet studies / 03','helmet-lab/?helmet=rk-mg02'],
 ['hex-witness','Helmet Lab / Hex Witness','Characters','A rounded honeycomb cowl with a smooth crown band, five red optics, curved jaw armor and a vented chin. Inspect eight modules, human and robot fit, and three downloadable tiers.','8 modules · Five optics · 3 tiers · GLB + ZIP','Helmet studies / 02','helmet-lab/?helmet=hex-witness'],
 ['helmet-lab','Helmet Lab / Breach Warden','Characters','A standalone boarding helmet with a flattened brow, recessed visor, overlapping cheeks, compact respirator and suspended ceramic temple bar. Inspect eleven modules, human and robot fit, impact scars and the replacement jaw plate.','11 modules · Head fit · 3 tiers · GLB + ZIP','Helmet studies / 01'],
