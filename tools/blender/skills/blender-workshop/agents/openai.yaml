@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Workshop"
+  short_description: "Build and verify Blender 5.3 game assets"
+  default_prompt: "Use $blender-workshop to build and validate this asset through Blender 5.3 and MCP."

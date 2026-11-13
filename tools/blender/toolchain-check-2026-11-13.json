@@ -1,0 +1,290 @@
+{
+  "verified_on": "2026-11-13",
+  "blender": {
+    "installed": "5.3.0",
+    "build_hash": "02f0899d78e3",
+    "package_manager": "Homebrew",
+    "current_homebrew_version": "5.3.0"
+  },
+  "mcp": {
+    "package": "mcp-for-blender",
+    "installed": "2.2.8",
+    "latest_pypi_version": "2.2.8",
+    "addon_version": [
+      2,
+      0
+    ],
+    "protocol": 16,
+    "telemetry_disabled": true,
+    "host": "127.0.0.1",
+    "port": 9876,
+    "fresh_connection_passed": true,
+    "current_conversation_tool_cache": "Requires Codex restart to discover new tools",
+    "advertised_tools": [
+      "get_addon_status",
+      "disable_telemetry",
+      "get_scene_info",
+      "execute_blender_code",
+      "record_trajectory_feedback",
+      "look",
+      "generate_3d",
+      "generate_gaussian_world",
+      "search_assets",
+      "import_asset"
+    ],
+    "visual_checks": [
+      "multi-angle default cube",
+      "material-shaded probe animation frames 0,24,48"
+    ],
+    "scene_restored": [
+      "Cube",
+      "Light",
+      "Camera"
+    ],
+    "installed_addon_sha256": "d7f7359f06b77e3d2ea10ff527e7010eebaf18bc48049795dfcbad3f69b3953c"
+  },
+  "workflow_probe": {
+    "blender": "5.3.0",
+    "build_hash": "02f0899d78e3",
+    "triangles": 24,
+    "draw_calls": 1,
+    "bytes": 9488,
+    "sha256": "02e1c1ad548d827eee983ecd336047052d623f9bdd87b7505a6ff5bdfe6602d2",
+    "nodes": [
+      "BASE_JOINT",
+      "ENGINE_YAW",
+      "PROBE_BODY",
+      "PROBE_RIG",
+      "PROBE_ROOT",
+      "SOCKET_TOOL",
+      "TIP_JOINT"
+    ],
+    "clip": "Probe_Cycle",
+    "duration_seconds": 2.0,
+    "sampled_frames": [
+      0,
+      24,
+      48
+    ],
+    "max_vertex_roundtrip_error_m": 5.960464477539063e-08,
+    "color_roles": {
+      "PROBE_COLOR": "srgb_rec709_display",
+      "PROBE_NORMAL": "data"
+    },
+    "engine_pivot_unkeyed": true,
+    "socket_blender_m": [
+      0.0,
+      -0.3499999940395355,
+      2.0
+    ],
+    "credit": "Jelaludo",
+    "passed": true
+  },
+  "decoded_probe": {
+    "plain": {
+      "nodes": [
+        "BASE_JOINT",
+        "ENGINE_YAW",
+        "PROBE_BODY",
+        "PROBE_RIG",
+        "PROBE_ROOT",
+        "SOCKET_TOOL",
+        "TIP_JOINT"
+      ],
+      "triangles": 24,
+      "draw_calls": 1,
+      "bounds": {
+        "min": [
+          -0.3499999940395355,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.3499999940395355,
+          2,
+          0.25
+        ]
+      },
+      "clips": [
+        {
+          "name": "Probe_Cycle",
+          "duration_seconds": 2
+        }
+      ],
+      "joints": [
+        [
+          "BASE_JOINT",
+          "TIP_JOINT"
+        ]
+      ],
+      "textures": 2,
+      "socket": [
+        0,
+        2,
+        0.3499999940395355
+      ],
+      "animated_nodes": [
+        "BASE_JOINT",
+        "TIP_JOINT"
+      ]
+    },
+    "plain_bytes": 9488,
+    "derived_meshopt_bytes": 8424,
+    "plain_errors": 0,
+    "plain_warnings": 0,
+    "decoded_errors": 0,
+    "decoded_warnings": 0,
+    "runtime_sample_times_seconds": [
+      0,
+      1,
+      1.999
+    ],
+    "max_compressed_vertex_error_m": 4.1680004676856295e-05,
+    "scope": "Scratch probe only; glTF Transform Meshopt, not consuming-game gltfpack release validation",
+    "passed": true
+  },
+  "representative_assets": [
+    {
+      "source": "assets/red-witness/red_witness_d0_lod1.glb",
+      "sha256_unchanged": "fc2376b0fb85c91a009eb7c8f4342467376758133579a1c2932e4405009811ee",
+      "triangles": 21032,
+      "node_count": 24,
+      "bounds": {
+        "min": [
+          -0.3707335293292999,
+          0.0026421844959259033,
+          -0.22336708009243011
+        ],
+        "max": [
+          0.3707335293292999,
+          2.0812835693359375,
+          0.21162907779216766
+        ]
+      },
+      "sockets_blender": {
+        "SOCKET_HELMET": [
+          0,
+          0.011999998241662979,
+          1.7419999837875366
+        ],
+        "SOCKET_HAND_L": [
+          0.29499998688697815,
+          -0.020000001415610313,
+          0.9300000071525574
+        ],
+        "SOCKET_HAND_R": [
+          -0.29499998688697815,
+          -0.020000001415610313,
+          0.9300000071525574
+        ],
+        "SOCKET_FOOT_L": [
+          0.11500000208616257,
+          0.029999999329447746,
+          1.4901161193847656e-08
+        ],
+        "SOCKET_FOOT_R": [
+          -0.11500000208616257,
+          0.029999999329447746,
+          1.4901161193847656e-08
+        ]
+      },
+      "passed": false,
+      "original_validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "roundtrip_check": {
+        "triangles": 21032,
+        "draw_calls": 17,
+        "nodes": 24,
+        "material_count": 2,
+        "identical_material_texture_images": 8,
+        "differing_images": [],
+        "errors": 2,
+        "warnings": 0,
+        "issues": [
+          {
+            "code": "ACCESSOR_VECTOR3_NON_UNIT",
+            "message": "Vector3 at accessor indices 2808..2810 is not of unit length: 0.",
+            "severity": 0,
+            "pointer": "/meshes/10/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "ACCESSOR_VECTOR3_NON_UNIT",
+            "message": "Vector3 at accessor indices 2764..2766 is not of unit length: 0.",
+            "severity": 0,
+            "pointer": "/meshes/13/primitives/0/attributes/TANGENT"
+          }
+        ],
+        "all_node_world_matrices_preserved": true,
+        "passed": false
+      }
+    },
+    {
+      "source": "assets/helmet-lab/red-witness/red_witness_helmet_d0_lod1.glb",
+      "sha256_unchanged": "547a3128f5ad7ca73d2c68e77aba9eee557c55445d3cba80199b71b9027a1d19",
+      "triangles": 5600,
+      "node_count": 6,
+      "bounds": {
+        "min": [
+          -0.13237902522087097,
+          -5.9027141105616465e-05,
+          -0.13769248127937317
+        ],
+        "max": [
+          0.13237902522087097,
+          0.33928367495536804,
+          0.1599999964237213
+        ]
+      },
+      "sockets_blender": {
+        "SOCKET_NECK": [
+          0,
+          0,
+          0
+        ],
+        "SOCKET_HEAD": [
+          0,
+          0,
+          0.17000000178813934
+        ],
+        "SOCKET_OPTICS": [
+          0,
+          -0.14499999582767487,
+          0.1899999976158142
+        ]
+      },
+      "passed": true,
+      "original_validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "roundtrip_check": {
+        "triangles": 5600,
+        "draw_calls": 1,
+        "nodes": 6,
+        "material_count": 1,
+        "identical_material_texture_images": 4,
+        "differing_images": [],
+        "errors": 0,
+        "warnings": 0,
+        "issues": [],
+        "all_node_world_matrices_preserved": true,
+        "passed": true
+      }
+    }
+  ],
+  "production_assets_modified": false,
+  "limitations": [
+    "The direct Blender 5.3 Red Witness humanoid game re-export has two zero-length tangents and must not replace the valid original. Geometry, names, node matrices, material factors and texture image bytes were preserved.",
+    "The scratch skin intentionally has a scene-root mesh; Blender emits an armature-parent warning. Its single non-instanced armature binding and sampled deformation are verified.",
+    "glTF Transform Meshopt scratch validation does not certify consuming-game gltfpack release assets, every existing builder, FPS, or SOTA superiority."
+  ],
+  "references": [
+    "https://www.blender.org/releases/5-3/",
+    "https://developer.blender.org/docs/release_notes/5.3/python_api/",
+    "https://pypi.org/project/mcp-for-blender/2.2.8/",
+    "https://github.com/ahujasid/mcp-for-blender",
+    "https://learn.chatgpt.com/docs/extend/mcp"
+  ]
+}

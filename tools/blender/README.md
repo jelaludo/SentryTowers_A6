@@ -1,61 +1,55 @@
 # Installed Blender tooling
 
-## Current-version audit / 13 November 2026
+## Verified upgrade / 13 November 2026
 
-The installed application and community MCP connection work, but they are **not current and not yet validated on Blender 5.3**. This audit did not upgrade the application, server, add-on or global configuration.
+Blender and the community MCP are upgraded to the current stable releases checked on this date. The application, CLI and a fresh MCP connection agree. This is a tested 5.3 workflow; release dates and feature counts alone do not establish “SOTA” superiority.
 
-| Component | Installed and verified | Current upstream reference |
-| --- | --- | --- |
-| Blender application and CLI | 5.2.1 LTS, build `9e2066aef7ef` | Blender 5.3.0 stable, released 10 November 2026; Homebrew also lists 5.3.0 |
-| Community MCP server | `blender-mcp` 1.9.1, uv-managed Python 3.12.14 | Renamed package `mcp-for-blender` 2.2.8, released 12 November 2026 |
-| Community Blender add-on | Add-on version 1.6, protocol 5; exact match to the installed 1.9.1 package's bundled add-on | Upstream source advertises add-on 2.0 / protocol 16; server and matching bundled add-on must be upgraded together |
-| Blender skill | No Blender-specific SKILL.md found in the active local skill folders or current session skill catalog | Current upstream supplies bpy, animation, rigging, materials, retopology, scene and level-design guides; these are not a locally installed 5.3 skill |
+| Component | Installed and verified |
+| --- | --- |
+| Blender application and CLI | 5.3.0, build `02f0899d78e3`; Homebrew at `/Applications/Blender.app`, CLI `/opt/homebrew/bin/blender` |
+| Community MCP server | `mcp-for-blender==2.2.8`, uv-managed Python 3.12; `/Users/jela/.local/bin/mcp-for-blender` |
+| Blender add-on | Bundled add-on 2.0 / protocol 16 in the 5.3 profile; live server expects protocol 16 |
+| Connection | `127.0.0.1:9876`; telemetry disabled in both server environment and add-on preferences |
+| Workflow skill | `tools/blender/skills/blender-workshop/`, linked into `~/.codex/skills/blender-workshop` |
 
-The initial MCP connection failed because Blender was closed. Opening `/Applications/Blender.app` started the saved add-on automatically. A read-only MCP probe then confirmed Blender 5.2.1 LTS, the expected application path, glTF exporter availability and three default scene objects. `get_addon_status` returned matching protocol 5 with telemetry disabled. Its `up_to_date: true` checks compatibility with the **installed server**, not the newest PyPI release. No model or scene object was changed.
+The new package name replaces `blender-mcp`. The global Codex `blender` server now points to the new executable; unrelated configuration is preserved. Blender's enabled add-on starts the bridge on GUI launch. Optional asset/generation providers remain off.
 
-The maintained community integration now includes richer visual inspection, consolidated asset tools, guides and a Codex plugin with an inline viewport and scene mentions. These are upstream capabilities, not claims about the installed 1.9.1 server. Upstream source inspected at commit `578360f8007ce6818b1a3c8b2cfe731f9283ed45`; plugin wrapper metadata and Python package versions have independent numbering.
+**Restart Codex to refresh this conversation's cached tools and load the new skill.** A fresh MCP client already initialized the new server, discovered ten tools including `look`, and verified status, code execution, multi-angle capture and a material-shaded animation strip. The old conversation still advertises its original tool metadata. The optional Codex plugin wrapper and inline viewport app were not installed or certified by this upgrade.
 
-There is also a separate Blender Lab MCP implementation from the Blender project. Its documentation targets Blender 5.1 or newer and emphasizes Python/API documentation and scene inspection. It is not the `blender-mcp` package installed here. Neither alternative has been benchmarked against this repository, so “SOTA” is not established by its name, tool count or release date.
+Open Blender normally for MCP. Use a separate background process for repeatable exports; avoid multiple GUI instances competing for port 9876. `get_addon_status.up_to_date` checks compatibility with the installed server, not PyPI freshness.
 
-Recommended migration, pending implementation:
+### Repeatable workflow checks
 
-1. Preserve the current application/configuration for rollback, then install the official Blender 5.3.0 stable build and verify both the CLI and live MCP report 5.3.0.
-2. Move to a pinned `mcp-for-blender==2.2.8` server and its bundled add-on in Blender's 5.3 profile. Keep the existing loopback-only connection and disabled telemetry. Reconnect the client and verify the newly advertised tools and matching protocol.
-3. Use versioned Blender 5.3 API references and RNA inspection rather than assuming node socket names, enum values or operator context. New color-space interoperability IDs are useful for texture import; older name-based API remains supported. Preserve the Workshop's axes, sockets, named pivots, tier and attribution contract.
-4. Validate a scratch scene through live inspection, viewport capture, deterministic CLI export, GLB decode and representative material/rig/animation checks. Rebuild comparison assets into a temporary folder and compare geometry, sockets and motion before replacing production outputs. Keep 5.3 compatibility explicitly unverified until those checks pass.
+```sh
+blender --background --factory-startup --python-exit-code 1 \
+  --python tools/blender/skills/blender-workshop/scripts/check_workflow.py \
+  -- --out /tmp/blender53-check
+node tools/asset-pipeline/validate-blender-workflow.mjs /tmp/blender53-check/workflow-probe.glb
+```
 
-Primary references:
+Use an empty output folder. The Node validator uses dependencies in `tools/asset-pipeline/`. The skill covers live RNA inspection, current material/color-space APIs, slotted actions, operator context, tangents, zero-based clip timing, named engine pivots, sockets, detail tiers and the received asset contract.
+
+Verified evidence is recorded in `toolchain-check-2026-11-13.json`:
+
+- The scratch probe exports 24 triangles, one draw, seven named nodes, a two-joint skin, two embedded textures and a two-second `Probe_Cycle`. Plain GLB: 9,488 bytes. Both sRGB color and data-map interoperability IDs survive re-import. Socket position and unkeyed engine pivot survive; sampled Blender vertex error is below 0.000000060 m.
+- Plain GLB and decoded derived Meshopt payload pass the glTF validator with zero errors/warnings. The 8,424-byte derived probe retains names, joints, timings and socket transforms. Three.js samples at 0, 1 and 1.999 seconds differ from the plain model by at most 0.0000417 m after quantization. This uses glTF Transform Meshopt; it does not replace the game's gltfpack release validation.
+- MCP multi-angle and material animation captures were inspected. The original live scene was restored with Cube, Light and Camera.
+- Red Witness game humanoid and helmet import with unchanged triangle counts, names, world transforms and bounds. Temporary re-exports preserve all node matrices, material factors and embedded texture image bytes. The helmet re-export validates with zero errors/warnings.
+- **Direct humanoid re-export is not approved:** Blender 5.3 generates two zero-length tangent vectors, at mesh primitive indices 10 and 13. The temporary file fails `ACCESSOR_VECTOR3_NON_UNIT`. Repair UV/tangent generation and validate a comparison before replacing it. Both original game GLBs remain byte-identical and validate with zero errors/warnings.
+
+The scratch skin intentionally keeps its mesh at scene root for glTF skin semantics; Blender emits an armature-parent warning. Its single, non-instanced armature binding and sampled deformation are checked. This small test does not certify instanced armatures, every production builder, rendering performance or all older assets. No production model was regenerated into the library.
+
+### Rollback and references
+
+The previous Blender 5.2.1 application, 5.2 profile and private Codex configuration backup are preserved outside Git at `~/Library/Application Support/Blender/toolchain-backups/2026-11-13-pre-5.3/`. The older `blender-mcp` 1.9.1 uv environment remains available. To roll back, close Blender, restore the saved application/profile, and restore only the Blender MCP command to the older executable; preserve unrelated Codex settings. Restart the client and confirm matching protocol 5. Private configuration backups are never part of the repository handoff.
+
+The previous audit and installation are recorded in Git at `4984586`. The separate Blender Lab implementation was reviewed during that audit but is not the community integration installed here.
 
 - https://www.blender.org/releases/5-3/
 - https://developer.blender.org/docs/release_notes/5.3/python_api/
 - https://pypi.org/project/mcp-for-blender/2.2.8/
 - https://github.com/ahujasid/mcp-for-blender
-- https://www.blender.org/lab/mcp-server/
-- https://projects.blender.org/lab/blender_mcp
-
-## Existing installation / verified 6 September 2026, rechecked 13 November
-
-- Blender **5.2.1 LTS**, installed with Homebrew at `/Applications/Blender.app`.
-- CLI wrapper: `/opt/homebrew/bin/blender`.
-- Blender MCP **1.9.1**, installed with `uv tool install blender-mcp --python 3.12`.
-- MCP executable: `/Users/jela/.local/bin/blender-mcp`.
-- Blender add-on: `~/Library/Application Support/Blender/5.2/scripts/addons/blender_mcp.py`, enabled in saved preferences.
-- Codex server name: `blender`, registered in the user's global configuration.
-- Connection: loopback `127.0.0.1:9876`. Telemetry is disabled in both server environment and Blender add-on preferences. Optional asset-provider integrations were not enabled.
-
-Blender's application and CLI are the same installation. Use CLI for repeatable background generation/export:
-
-```sh
-blender --background --python-exit-code 1 --python /path/to/build_asset.py
-```
-
-MCP requires a running Blender GUI. Open Blender normally; this installed add-on enables its auto-start behavior. If needed, use the viewport sidebar's MCP for Blender tab to start the connection. The upstream button may say “Connect to Claude”; it starts the same bridge used by Codex. Avoid multiple Blender instances competing for port 9876.
-
-Codex configuration can be checked with `codex mcp get blender`. A running Codex session may need to reconnect or restart before its tool list includes the new server. Do not launch a second MCP stdio server manually for normal use; Codex starts it.
-
-Validation completed: background CLI GLB export, MCP initialization and discovery of 28 tools, scene inspection, and creation/removal of a temporary mesh object through MCP. The Blender scene was left with its original default objects. No project asset was modified by the connection test.
-
-References: [Blender MCP installation and telemetry options](https://github.com/ahujasid/blender-mcp), [Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
+- https://learn.chatgpt.com/docs/extend/mcp
 
 ## Alien research outpost builder
 
