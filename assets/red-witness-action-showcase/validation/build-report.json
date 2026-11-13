@@ -1,0 +1,95 @@
+{
+  "status": "built",
+  "clips": [
+    {
+      "clip": "T_Pose",
+      "frames": 2,
+      "minimum_before_m": 0.002642171859741249,
+      "maximum_floor_adjustment_m": 0.003357828140258751,
+      "max_segment_length_error_m": 1.6653345369377348e-16,
+      "tpose_arm_height_error_m": 2.220446049250313e-16,
+      "minimum_head_height_m": 1.7453578119277953
+    },
+    {
+      "clip": "Crouch",
+      "frames": 85,
+      "minimum_before_m": 0.002642171859741027,
+      "maximum_floor_adjustment_m": 0.003357828140258973,
+      "max_segment_length_error_m": 3.3306690738754696e-16,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 1.2730296316921748
+    },
+    {
+      "clip": "Walk",
+      "frames": 79,
+      "minimum_before_m": 0.008000047770604257,
+      "maximum_floor_adjustment_m": 0,
+      "max_segment_length_error_m": 1.771997515387369e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 1.6992629980976142
+    },
+    {
+      "clip": "Jog",
+      "frames": 82,
+      "minimum_before_m": 0.004604969729106373,
+      "maximum_floor_adjustment_m": 0.0013950302708936272,
+      "max_segment_length_error_m": 5.202219083288995e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 1.6700639915106374
+    },
+    {
+      "clip": "Run",
+      "frames": 73,
+      "minimum_before_m": -0.0028932474264772856,
+      "maximum_floor_adjustment_m": 0.008893247426477286,
+      "max_segment_length_error_m": 3.824317551526235e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 1.6882008257770218
+    },
+    {
+      "clip": "Jump",
+      "frames": 50,
+      "minimum_before_m": -0.0029988467119398954,
+      "maximum_floor_adjustment_m": 0.008998846711939896,
+      "max_segment_length_error_m": 8.603946866081458e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 1.480089477581542
+    },
+    {
+      "clip": "Ukemi_Front",
+      "frames": 106,
+      "minimum_before_m": -0.1513519655971197,
+      "maximum_floor_adjustment_m": 0.1573519655971197,
+      "max_segment_length_error_m": 6.383568962320396e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 0.2625629484281968
+    },
+    {
+      "clip": "Ukemi_Left",
+      "frames": 151,
+      "minimum_before_m": -0.20358232719114822,
+      "maximum_floor_adjustment_m": 0.20958232719114822,
+      "max_segment_length_error_m": 7.451792122248335e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 0.22606225807483848
+    },
+    {
+      "clip": "Ukemi_Right",
+      "frames": 151,
+      "minimum_before_m": -0.13007449154672485,
+      "maximum_floor_adjustment_m": 0.13607449154672485,
+      "max_segment_length_error_m": 9.674285872396382e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 0.1999441443241303
+    },
+    {
+      "clip": "Ukemi_Back",
+      "frames": 98,
+      "minimum_before_m": -0.22499740789826606,
+      "maximum_floor_adjustment_m": 0.23099740789826606,
+      "max_segment_length_error_m": 9.722459237693215e-8,
+      "tpose_arm_height_error_m": 0,
+      "minimum_head_height_m": 0.1895231890504114
+    }
+  ]
+}

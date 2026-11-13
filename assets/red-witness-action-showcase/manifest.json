@@ -1,0 +1,169 @@
+{
+  "schema": "jelaludo.red-witness-action-showcase/1",
+  "version": 1,
+  "label": "Red Witness / Action Showcase",
+  "asset": "red-witness-showcase.glb",
+  "adapter": "red-witness-showcase.js",
+  "preview": "index.html",
+  "instructions": "README.txt",
+  "units": "metres",
+  "up": "+Y",
+  "forward": "+Z",
+  "source_height_m": 2.0786414868831633,
+  "source": {
+    "repository": "jelaludo/SentryTowers_A6",
+    "commit": "9b0adbceb76a372d0a982404c7fafbb870954e59",
+    "asset_sha256": "fc2376b0fb85c91a009eb7c8f4342467376758133579a1c2932e4405009811ee",
+    "lod": 1,
+    "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo — https://jelaludo.github.io/SentryTowers_A6/"
+  },
+  "rig_sha256": "04ded5651d82e74113df618475dfcef4a46ef1a18bf214c6cc87b02227ed768b",
+  "credit": "Red Witness models and adaptations by Jelaludo. Reuse requires attribution to Jelaludo.",
+  "usage": "Display-only baked animation. No controller, inference, collision system or separate muscle driver needed.",
+  "clips": [
+    {
+      "name": "T_Pose",
+      "label": "T-pose",
+      "duration": 2,
+      "kind": "authored",
+      "loop": true,
+      "root_motion_baked": true
+    },
+    {
+      "name": "Crouch",
+      "label": "Crouch",
+      "duration": 2.8,
+      "kind": "authored",
+      "loop": true,
+      "root_motion_baked": true
+    },
+    {
+      "name": "Walk",
+      "label": "Walk",
+      "motion": "game-walk-forward",
+      "seed": 411,
+      "kind": "gait",
+      "loop": true,
+      "duration": 2.6,
+      "source_take": "game-walk-forward-seed411",
+      "source_motion_sha256": "8f85f4603284eb618ea4d566f34cc03916da4048cd85d2220b5f4101ae4993d8",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Jog",
+      "label": "Jog",
+      "motion": "game-jog-forward",
+      "seed": 411,
+      "kind": "gait",
+      "loop": true,
+      "duration": 2.666668,
+      "source_take": "game-jog-forward-seed411",
+      "source_motion_sha256": "609b5e9de5c7a40fac0bdf377d6802e0fb97dfe05273ed1d2f8c0c833cdfe18e",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Run",
+      "label": "Run",
+      "motion": "game-run-forward",
+      "seed": 411,
+      "kind": "gait",
+      "loop": true,
+      "duration": 2.4,
+      "source_take": "game-run-forward-seed411",
+      "source_motion_sha256": "4005b3b2b478f3144ee78b456a0a5b35569dc3cacf516145172e74dee66df3b1",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Jump",
+      "label": "Jump",
+      "motion": "game-jump-standing",
+      "seed": 411,
+      "kind": "jump",
+      "loop": false,
+      "duration": 1.633333,
+      "source_take": "game-jump-standing-seed411",
+      "source_motion_sha256": "0f94487bd6c281c549bc1f5cf401f79f0de3f39b47834593c5ee99a2f4d1dcd0",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Ukemi_Front",
+      "label": "Front ukemi",
+      "motion": "game-ukemi-forward",
+      "seed": 1101,
+      "kind": "roll",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "loop": false,
+      "duration": 3.466667,
+      "source_take": "game-ukemi-forward-seed1101",
+      "source_motion_sha256": "70eb67bff23b70c287f71d8e7d735c9cb6dd0dd067ec2814c7128fe4d0f0b3c8",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Ukemi_Left",
+      "label": "Side ukemi / left",
+      "motion": "game-ukemi-side-left",
+      "seed": 4411,
+      "kind": "roll",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "loop": false,
+      "duration": 4.966667,
+      "source_take": "game-ukemi-side-left-seed4411",
+      "source_motion_sha256": "7765027313607316d146fe6a1bfca1e1a1ab06b3dfa749ce11d3e9abe9403ac6",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Ukemi_Right",
+      "label": "Side ukemi / right",
+      "motion": "game-ukemi-side-right",
+      "seed": 4411,
+      "kind": "roll",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "loop": false,
+      "duration": 4.966667,
+      "source_take": "game-ukemi-side-right-seed4411",
+      "source_motion_sha256": "972f8af33c3176a9bea8281dffea8cdde61341f9462c8f8f7aa9f98ef740a86d",
+      "root_motion_baked": true
+    },
+    {
+      "name": "Ukemi_Back",
+      "label": "Back ukemi",
+      "motion": "game-ukemi-backward",
+      "seed": 101,
+      "kind": "roll",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "loop": false,
+      "duration": 3.233333,
+      "source_take": "game-ukemi-backward-seed101",
+      "source_motion_sha256": "fe3c0007ef48d34d512643d272a93b8a97420e4c5e0ed3de71b8c97ad7f7eeb2",
+      "root_motion_baked": true
+    }
+  ],
+  "derivation": {
+    "T_Pose": "Authored horizontal straight arms at native shoulder/elbow pivots.",
+    "Crouch": "Authored crouch/hold/stand with fixed-length leg IK and planted ankles.",
+    "gaits": "Existing processed forward cycles; measured forward travel is baked.",
+    "jump": "Existing jump pose window with a baked 0.8m display arc.",
+    "ukemi": "Existing processed roll poses; authored 2m directional travel and per-frame posed-surface floor support baked."
+  },
+  "limitations": [
+    "Rigid muscles and fixed digits from the source model remain.",
+    "Clips are kinematic showcase demonstrations; no new motion inference or visual Keep decisions.",
+    "Do not apply another controller/root arc or the old rig.pose driver to the animated hierarchy."
+  ]
+}

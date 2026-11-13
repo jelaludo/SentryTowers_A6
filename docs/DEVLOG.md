@@ -1,5 +1,15 @@
 # Devlog
 
+## 13 November 2026 / Red Witness — ten-clip action showcase
+
+Integrated the supplied red-witness-action-showcase-v1 archive into the existing Red Witness viewer. Its default Action showcase plays T_Pose, Crouch, Walk, Jog, Run, Jump and front/left/right/back Ukemi. Added movement selection, play-all, pause/resume, restart, clip scrubbing, playback speed and optional baked travel with camera/light follow. Full-body framing retains the jump height; the helmet camera follows the moving head. Reduced-motion preference starts paused, and hidden pages stop advancing. Original head/arm inspection and all three model tiers remain available through a separate Model inspection mode and the mode=inspect URL.
+
+The supplied adapter shares the existing Three.js 0.180.0 instance and render loop. Separate model instances prevent the original rigid pose driver from overwriting animated joints. The active GLB download follows the selected view, and a new ZIP link delivers the original offline showcase archive. Preserved every supplied payload byte and all existing model GLBs. Gallery copy, readiness notes, integration documentation and shared navigation are updated. The received collaboration contract is unchanged.
+
+Measured animated game model: 21,032 triangles, 17 model draws, 11,795,048 bytes, two materials, 17 rigid-part skins and seven embedded images. Independent validation reports zero glTF errors/warnings, finite animation keys, exact ten-clip names/durations, unique dot-free nodes, preserved original game hash and identical embedded texture bytes. Chromium and native WebKit validate all ten movements, sampled floor clearance/framing, loop and one-shot completion, seeking after completion, pause/speed/travel/sequence, inspection tier switching, manual poses, comparison/cameras, matching GLB/ZIP downloads, PNG capture, mobile layout and reduced-motion behavior.
+
+Completed: local animation integration and independently verified viewer controls, downloads and documentation. Pending: visual acceptance, gameplay locomotion/contact integration, deforming muscles/digits, animated master, damage states, consuming-game release decode and device performance acceptance. No compressed derivative or FPS claim. Handoff: containing commit plus assets/red-witness-action-showcase/ and red-witness/; original inspection assets remain in assets/red-witness/.
+
 ## 13 November 2026 / Published model synchronization and Senzai Pilot discovery
 
 Checked the Workshop against GitHub and the running local model servers. All 166 checked published HTML pages and top-level asset manifests matched the local files byte for byte. Red Witness humanoid and helmet provenance hashes still match their external authoring sources; both viewers and both Senzai viewers are already on main and published. No open SentryTowers pull request, alternate branch or uncommitted model export was waiting to merge.

@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "engine": "chromium",
+  "checks": [
+    {
+      "name": "Decoded animated model costs and textures",
+      "triangles": 21032,
+      "draw_calls": 17,
+      "textures": 17
+    },
+    {
+      "name": "All clips: motion, floor, camera framing, loop and one-shot completion, reverse scrub",
+      "clips": [
+        {
+          "name": "T_Pose",
+          "minFloor": 0.007557839620858431,
+          "maxHead": 1.7453578119166195,
+          "maxScreenX": 0.454405588248162,
+          "maxScreenY": 0.7804119045653443,
+          "movement": false
+        },
+        {
+          "name": "Crouch",
+          "minFloor": 0.0073382456659094875,
+          "maxHead": 1.7453578119166195,
+          "maxScreenX": 0.20593366875564095,
+          "maxScreenY": 0.7805305615454335,
+          "movement": true
+        },
+        {
+          "name": "Walk",
+          "minFloor": 0.017513520739829702,
+          "maxHead": 1.7474110922232164,
+          "maxScreenX": 0.2940530020079717,
+          "maxScreenY": 0.7650984945013255,
+          "movement": true
+        },
+        {
+          "name": "Jog",
+          "minFloor": 0.025741385307665676,
+          "maxHead": 1.7525272003311376,
+          "maxScreenX": 0.20994760969898582,
+          "maxScreenY": 0.7554814438573777,
+          "movement": true
+        },
+        {
+          "name": "Run",
+          "minFloor": 0.03545806222790454,
+          "maxHead": 1.6983213659234404,
+          "maxScreenX": 0.19703980991464365,
+          "maxScreenY": 0.769064313764127,
+          "movement": true
+        },
+        {
+          "name": "Jump",
+          "minFloor": 0.012748524308374004,
+          "maxHead": 2.6176476138561062,
+          "maxScreenX": 0.44449503904294735,
+          "maxScreenY": 0.8452550665603676,
+          "movement": true
+        },
+        {
+          "name": "Ukemi_Front",
+          "minFloor": 0.004466638717956453,
+          "maxHead": 1.7373932686610054,
+          "maxScreenX": 0.47895299777635547,
+          "maxScreenY": 0.7950493829933568,
+          "movement": true
+        },
+        {
+          "name": "Ukemi_Left",
+          "minFloor": 0.0059999975373449255,
+          "maxHead": 1.73746140769911,
+          "maxScreenX": 0.3514767181519865,
+          "maxScreenY": 0.7857603190966201,
+          "movement": true
+        },
+        {
+          "name": "Ukemi_Right",
+          "minFloor": 0.007439417926839831,
+          "maxHead": 1.7464936314345885,
+          "maxScreenX": 0.36464419517096586,
+          "maxScreenY": 0.7840768011786596,
+          "movement": true
+        },
+        {
+          "name": "Ukemi_Back",
+          "minFloor": 0.005332213577194572,
+          "maxHead": 1.848180599574665,
+          "maxScreenX": 0.3907022485463667,
+          "maxScreenY": 0.7951942558027726,
+          "movement": true
+        }
+      ]
+    },
+    {
+      "name": "Playback controls, speed, camera travel and play-all",
+      "visited": [
+        "T_Pose",
+        "Crouch",
+        "Walk",
+        "Jog",
+        "Run",
+        "Jump",
+        "Ukemi_Front",
+        "Ukemi_Left",
+        "Ukemi_Right",
+        "Ukemi_Back"
+      ],
+      "travel": {
+        "distance": 0.8118913955003144,
+        "centered": false,
+        "world": [
+          0,
+          0,
+          0.8457202017307281
+        ],
+        "root": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Original inspection tiers, head/reset, materials, comparison, cameras, exact GLB/ZIP downloads and PNG capture"
+    },
+    {
+      "name": "390px mobile / 844px landscape layout and reduced-motion initial pause"
+    }
+  ],
+  "errors": []
+}

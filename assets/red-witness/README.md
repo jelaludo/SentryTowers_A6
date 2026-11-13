@@ -4,6 +4,10 @@ The original Red Witness humanoid, imported into the Workshop at its authored 2.
 
 Models and adaptations by **Jelaludo**. Reuse requires attribution to Jelaludo. See LICENSE.md and ATTRIBUTIONS.md.
 
+## Action showcase
+
+The viewer now opens with ten baked movements supplied in the separate `../red-witness-action-showcase/` package: T-pose, crouch, walk, jog, run, jump and front/left/right/back ukemi. Select **Model inspection** to use the original tiers and joint controls described below. The existing GLBs and rigid runtime are unchanged. The new derived skin uses the textured game geometry; do not apply this family’s `rig.pose()` driver to that animated hierarchy. Animation controls, downloads, provenance and limitations are documented in `../red-witness-action-showcase/INTEGRATION.md`.
+
 ## Measured exports
 
 | Tier | Triangles | Model draws | Bytes |

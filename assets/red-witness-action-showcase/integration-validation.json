@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "scope": "Independent import checks: archive payload checksums, glTF validation, decoded geometry/skin/clip metadata, finite keys, original game source hash and embedded texture byte preservation. Browser motion and controls are checked separately.",
+  "source_payload_files": 26,
+  "gltf_errors": 0,
+  "gltf_warnings": 0,
+  "triangles": 21032,
+  "draw_calls": 17,
+  "bytes": 11795048,
+  "nodes": 48,
+  "skins": 17,
+  "images": 7,
+  "clips": [
+    {
+      "name": "T_Pose",
+      "duration": 2,
+      "loop": true
+    },
+    {
+      "name": "Crouch",
+      "duration": 2.8,
+      "loop": true
+    },
+    {
+      "name": "Walk",
+      "duration": 2.6,
+      "loop": true
+    },
+    {
+      "name": "Jog",
+      "duration": 2.666668,
+      "loop": true
+    },
+    {
+      "name": "Run",
+      "duration": 2.4,
+      "loop": true
+    },
+    {
+      "name": "Jump",
+      "duration": 1.633333,
+      "loop": false
+    },
+    {
+      "name": "Ukemi_Front",
+      "duration": 3.466667,
+      "loop": false
+    },
+    {
+      "name": "Ukemi_Left",
+      "duration": 4.966667,
+      "loop": false
+    },
+    {
+      "name": "Ukemi_Right",
+      "duration": 4.966667,
+      "loop": false
+    },
+    {
+      "name": "Ukemi_Back",
+      "duration": 3.233333,
+      "loop": false
+    }
+  ],
+  "original_game_sha256": "fc2376b0fb85c91a009eb7c8f4342467376758133579a1c2932e4405009811ee",
+  "source_archive_sha256": "7c44b551bebe84a21a3ed850c2b2afbb17b8674067ed0bda6d86111bf533da32"
+}

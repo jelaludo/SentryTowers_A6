@@ -1,0 +1,215 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Ten named animations validate with original embedded images and attribution",
+      "animations": 10,
+      "images": 7,
+      "skins": 17,
+      "bytes": 11795048,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "name": "Authored T-pose has horizontal arms and all segment lengths remain fixed",
+      "clips": 10,
+      "max_segment_error_m": 9.722459237693215e-8
+    },
+    {
+      "name": "Portable preview uses Sentry Three.js 0.180.0 and loads without external requests",
+      "three_revision": "180",
+      "external_requests": 0
+    },
+    {
+      "name": "Re-imported animated surfaces match independently baked poses",
+      "poses": 29,
+      "surface_vertices": 8149,
+      "max_surface_error_m": 0.0000010500645661636636
+    },
+    {
+      "name": "All animation keys stay above the display floor with finite transforms",
+      "clips": [
+        {
+          "clip": "T_Pose",
+          "minimum_m": 0.007557839620858431,
+          "maximum_radius_m": 2.0827495745172,
+          "max_head_y": 1.7453578119166195,
+          "min_head_y": 1.7453578119166195
+        },
+        {
+          "clip": "Crouch",
+          "minimum_m": 0.0075577864160349395,
+          "maximum_radius_m": 2.0827495745172,
+          "max_head_y": 1.7453578119166195,
+          "min_head_y": 1.2730296240685341
+        },
+        {
+          "clip": "Walk",
+          "minimum_m": 0.013435326000706405,
+          "maximum_radius_m": 4.0866717212161525,
+          "max_head_y": 1.748361050351584,
+          "min_head_y": 1.6992629980976142
+        },
+        {
+          "clip": "Jog",
+          "minimum_m": 0.013055240586050454,
+          "maximum_radius_m": 7.504842509660136,
+          "max_head_y": 1.7670383972603338,
+          "min_head_y": 1.670063991710165
+        },
+        {
+          "clip": "Run",
+          "minimum_m": 0.013846294230867695,
+          "maximum_radius_m": 10.390333503629503,
+          "max_head_y": 1.7637462516264681,
+          "min_head_y": 1.6882008257770218
+        },
+        {
+          "clip": "Jump",
+          "minimum_m": 0.012879261411335441,
+          "maximum_radius_m": 2.968356759247474,
+          "max_head_y": 2.619338868885138,
+          "min_head_y": 1.4800894805701303
+        },
+        {
+          "clip": "Ukemi_Front",
+          "minimum_m": 0.005999988398265793,
+          "maximum_radius_m": 2.9902657626851608,
+          "max_head_y": 1.7379932539561866,
+          "min_head_y": 0.2625629462221738
+        },
+        {
+          "clip": "Ukemi_Left",
+          "minimum_m": 0.005999994479659487,
+          "maximum_radius_m": 2.912348627588376,
+          "max_head_y": 1.7387441350119623,
+          "min_head_y": 0.2260622701719982
+        },
+        {
+          "clip": "Ukemi_Right",
+          "minimum_m": 0.005999997787652311,
+          "maximum_radius_m": 2.9270695497239823,
+          "max_head_y": 1.7497137484775542,
+          "min_head_y": 0.19994415072206106
+        },
+        {
+          "clip": "Ukemi_Back",
+          "minimum_m": 0.005999984669112224,
+          "maximum_radius_m": 2.9572742493044903,
+          "max_head_y": 1.848180599574665,
+          "min_head_y": 0.18952320662690297
+        }
+      ]
+    },
+    {
+      "name": "Selector, sequence, pause and travel controls work",
+      "sequence_clips": [
+        "T_Pose",
+        "Crouch",
+        "Walk",
+        "Jog",
+        "Run",
+        "Jump",
+        "Ukemi_Front",
+        "Ukemi_Left",
+        "Ukemi_Right",
+        "Ukemi_Back"
+      ],
+      "paused": true,
+      "travel_toggle": true
+    },
+    {
+      "name": "Sub-frame playback and the full sequence retain floor clearance",
+      "mid_frame_checks": [
+        {
+          "clip": "T_Pose",
+          "mid_frame_minimum_m": 0.0060000126250088215
+        },
+        {
+          "clip": "Crouch",
+          "mid_frame_minimum_m": 0.00557135325225408
+        },
+        {
+          "clip": "Walk",
+          "mid_frame_minimum_m": 0.007241422411728982
+        },
+        {
+          "clip": "Jog",
+          "mid_frame_minimum_m": 0.0018673683403689634
+        },
+        {
+          "clip": "Run",
+          "mid_frame_minimum_m": 0.006518674362958804
+        },
+        {
+          "clip": "Jump",
+          "mid_frame_minimum_m": 0.002755423509847005
+        },
+        {
+          "clip": "Ukemi_Front",
+          "mid_frame_minimum_m": 0.004125795929313954
+        },
+        {
+          "clip": "Ukemi_Left",
+          "mid_frame_minimum_m": 0.003989541323446921
+        },
+        {
+          "clip": "Ukemi_Right",
+          "mid_frame_minimum_m": 0.0008204385054994823
+        },
+        {
+          "clip": "Ukemi_Back",
+          "mid_frame_minimum_m": 0.0015188835581853577
+        }
+      ],
+      "sequence_seconds": 40,
+      "sequence_minimum_m": 0.0014548725973234644
+    },
+    {
+      "name": "Centered clip screenshots show the actual poses",
+      "screenshots": [
+        "T_Pose.png",
+        "Crouch.png",
+        "Walk.png",
+        "Jog.png",
+        "Run.png",
+        "Jump.png",
+        "Ukemi_Front.png",
+        "Ukemi_Left.png",
+        "Ukemi_Right.png",
+        "Ukemi_Back.png"
+      ]
+    },
+    {
+      "name": "Desktop and mobile layouts fit",
+      "viewports": [
+        {
+          "width": 1400,
+          "height": 950,
+          "overflow": 0,
+          "canvas": 775
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "overflow": 0,
+          "canvas": 545
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "overflow": 0,
+          "canvas": 614
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "overflow": 0,
+          "canvas": 320
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "external_requests": []
+}

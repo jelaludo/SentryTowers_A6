@@ -2,7 +2,7 @@
 
 Current model releases:
 
-- **Red Witness / humanoid:** original 2.08 m figure, three tiers, joint inspection, AUREL comparison and credited downloads.
+- **Red Witness / humanoid:** original 2.08 m figure with ten animated movements, playback/travel controls, three inspection tiers, AUREL comparison and credited downloads.
   https://jelaludo.github.io/SentryTowers_A6/red-witness/
 - **Red Witness / helmet:** three standalone tiers and the AUREL replacement-head fitting.
   https://jelaludo.github.io/SentryTowers_A6/helmet-lab/?helmet=red-witness
