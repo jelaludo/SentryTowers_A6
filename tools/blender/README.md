@@ -1,6 +1,39 @@
 # Installed Blender tooling
 
-Verified on this Mac on 2026-09-06:
+## Current-version audit / 13 November 2026
+
+The installed application and community MCP connection work, but they are **not current and not yet validated on Blender 5.3**. This audit did not upgrade the application, server, add-on or global configuration.
+
+| Component | Installed and verified | Current upstream reference |
+| --- | --- | --- |
+| Blender application and CLI | 5.2.1 LTS, build `9e2066aef7ef` | Blender 5.3.0 stable, released 10 November 2026; Homebrew also lists 5.3.0 |
+| Community MCP server | `blender-mcp` 1.9.1, uv-managed Python 3.12.14 | Renamed package `mcp-for-blender` 2.2.8, released 12 November 2026 |
+| Community Blender add-on | Add-on version 1.6, protocol 5; exact match to the installed 1.9.1 package's bundled add-on | Upstream source advertises add-on 2.0 / protocol 16; server and matching bundled add-on must be upgraded together |
+| Blender skill | No Blender-specific SKILL.md found in the active local skill folders or current session skill catalog | Current upstream supplies bpy, animation, rigging, materials, retopology, scene and level-design guides; these are not a locally installed 5.3 skill |
+
+The initial MCP connection failed because Blender was closed. Opening `/Applications/Blender.app` started the saved add-on automatically. A read-only MCP probe then confirmed Blender 5.2.1 LTS, the expected application path, glTF exporter availability and three default scene objects. `get_addon_status` returned matching protocol 5 with telemetry disabled. Its `up_to_date: true` checks compatibility with the **installed server**, not the newest PyPI release. No model or scene object was changed.
+
+The maintained community integration now includes richer visual inspection, consolidated asset tools, guides and a Codex plugin with an inline viewport and scene mentions. These are upstream capabilities, not claims about the installed 1.9.1 server. Upstream source inspected at commit `578360f8007ce6818b1a3c8b2cfe731f9283ed45`; plugin wrapper metadata and Python package versions have independent numbering.
+
+There is also a separate Blender Lab MCP implementation from the Blender project. Its documentation targets Blender 5.1 or newer and emphasizes Python/API documentation and scene inspection. It is not the `blender-mcp` package installed here. Neither alternative has been benchmarked against this repository, so “SOTA” is not established by its name, tool count or release date.
+
+Recommended migration, pending implementation:
+
+1. Preserve the current application/configuration for rollback, then install the official Blender 5.3.0 stable build and verify both the CLI and live MCP report 5.3.0.
+2. Move to a pinned `mcp-for-blender==2.2.8` server and its bundled add-on in Blender's 5.3 profile. Keep the existing loopback-only connection and disabled telemetry. Reconnect the client and verify the newly advertised tools and matching protocol.
+3. Use versioned Blender 5.3 API references and RNA inspection rather than assuming node socket names, enum values or operator context. New color-space interoperability IDs are useful for texture import; older name-based API remains supported. Preserve the Workshop's axes, sockets, named pivots, tier and attribution contract.
+4. Validate a scratch scene through live inspection, viewport capture, deterministic CLI export, GLB decode and representative material/rig/animation checks. Rebuild comparison assets into a temporary folder and compare geometry, sockets and motion before replacing production outputs. Keep 5.3 compatibility explicitly unverified until those checks pass.
+
+Primary references:
+
+- https://www.blender.org/releases/5-3/
+- https://developer.blender.org/docs/release_notes/5.3/python_api/
+- https://pypi.org/project/mcp-for-blender/2.2.8/
+- https://github.com/ahujasid/mcp-for-blender
+- https://www.blender.org/lab/mcp-server/
+- https://projects.blender.org/lab/blender_mcp
+
+## Existing installation / verified 6 September 2026, rechecked 13 November
 
 - Blender **5.2.1 LTS**, installed with Homebrew at `/Applications/Blender.app`.
 - CLI wrapper: `/opt/homebrew/bin/blender`.

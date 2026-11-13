@@ -1,5 +1,13 @@
 # Devlog
 
+## 13 November 2026 / Blender and MCP version audit
+
+Confirmed that the application, CLI and live MCP still use Blender 5.2.1 LTS, not the current Blender 5.3.0 stable release. The installed community server is blender-mcp 1.9.1 with its matching add-on 1.6 / protocol 5; the maintained package is now named mcp-for-blender and its current release is 2.2.8. The MCP “up to date” flag compares the installed pair, not upstream releases. No Blender-specific skill was found in the active local skill folders or session catalog.
+
+The initial connection failure was caused by Blender being closed. Opening it restored the bridge; a read-only probe confirmed the binary/version, glTF exporter and unchanged three-object default scene. Telemetry remains disabled. Reviewed current upstream guides/visual-inspection capabilities and the separate Blender Lab implementation; neither has been benchmarked here as a replacement. Recorded evidence and a migration checklist in tools/blender/README.md.
+
+Completed: current-versus-upstream audit and live connection verification. Pending: install Blender 5.3.0 and a matching current MCP pair, add version-aware authoring guidance, then validate scratch-scene inspection, representative exports, rig/socket preservation and decoded GLBs before migrating production outputs. This audit did not upgrade software, modify global configuration or regenerate any asset. The received collaboration contract remains unchanged.
+
 ## 11 November 2026 / Red Witness — humanoid and helmet imported into the lineup
 
 Imported the original 2.082 m Red Witness humanoid and separate optical helmet from the local authoring project. Preserved the graphite muscle bundles, ivory frame, red optics, worn PBR finish and existing AUREL-01 hands/AUREL-02 feet at their authored 1.2x scale. Original Blender files, four source LODs and PNG bakes remain unchanged in the external project; 29 input hashes record provenance. Derived Workshop exports normalize dot-free names, ground axes and shared sockets. Wrists and ankles are rebased to their actual joint origins without changing the rest surface.
