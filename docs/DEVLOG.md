@@ -1,5 +1,74 @@
 # Devlog
 
+## 26 November 2026 / TAKAASHI-02 — braided-actuator spider crab variant
+
+Added TAKAASHI-02, a variant of TAKAASHI-01 built from the user's actuator notes. It keeps the same 84-joint skeleton, rest pose, sockets and nine clips, so one controller drives either crab.
+
+- **Actuators:** 88 modelled braided actuators on the master (72 on the game tier). Each sleeve has eight strands per family at ±25°, crossing one over one on a darker core. The sleeves are taut and nearly cylindrical, with no ballooning, and end in machined steel ferrules. Each end finishes in a rod eye on a steel cross pin, or in a crimp and a steel tendon.
+- **Tendons:** every tendon wraps the sheave of the joint it drives:
+  - Each merus carries two pairs in series on a bulkhead: one lifts the leg over the basis sheave and one flexes the knee.
+  - The propodus pair drives the dactyl through long tendons.
+  - Each palm has a 46 mm closer and two openers on the hinge sheave.
+  - Ten body actuators fan from a keel to the coxae, visible through the lattice.
+- **Joints:** sheaves, drums, hub caps and the chela's wrist ball are round about their joints, so rigid skinning cannot open a gap. Forks wrap narrower tongues, so the 109° knee and the 124° elbow fold without the frames meeting.
+- **Frames:** dark carbon box frames with open side faces sit outside the muscles, with Warren lattice across the dorsal and ventral faces.
+- **Claws and mouthparts:** open-truss claws with interleaving steel teeth and a hooked dactyl point. The claws rest 17° open, the maxillipeds are parted 8° and the mandibles 6°.
+- **Optics:** small recessed `#28a8ff` lenses only.
+
+The work ran in two stages. The first was fast shape and braid tests:
+
+- clay and EEVEE review renders, including a new Actuator view;
+- a braid test that replaced mottled vertex shading with real woven strands;
+- a triangle tally per primitive.
+
+The second was the export and its checks. Two new Blender tools:
+
+- `check_takaashi_collisions.py` tests every clip for triangle overlap with BVH trees: between limbs, against the body, and within each limb, leaving out the nesting at each shared joint.
+- `check_takaashi_silhouettes.py` measures LOD silhouette IoU.
+
+The validator now also gates the largest joint rotation per 30 fps frame at 20°, with only the claw snap exempt. It normalizes decoded quaternions before comparing them; before, 16-bit rounding of the Meshopt copies could read as a 0.01 rad seam.
+
+The collision check found that each palm folded up to 4 cm into its own merus at the mouth during Feed_Cycle. That pose lives in the shared `takaashi_motion.py`, so the mouth pose was re-chosen by a clearance search: palm frame at least 1 cm off the merus, fingers in front of the mouthparts, grip within 9 cm of the mouth. The exit was slowed and re-routed so the palm never turns more than 15° per frame and the fingers never sweep the floor. The Feed landmark times are unchanged.
+
+TAKAASHI-01 was rebuilt, re-packed and re-validated on the revised motion. Its game tier is now 2,816,976 bytes. Its remaining self-collisions are recorded in its README, not fixed: the chela wrist bosses, teeth passing through each other at closure, and a lighter palm graze at the mouth.
+
+Measured TAKAASHI-02 files:
+
+| Tier | Triangles | Draws | Bytes |
+| --- | ---: | ---: | ---: |
+| Master | 255,388 | six | 19,297,872 |
+| Game | 23,122 (25k unit budget) | six | 3,590,124 (Meshopt 1,073,148) |
+| Static distance | 1,050 | one | 91,260 |
+
+- **Files:** all six plain and decoded Meshopt files pass with zero glTF errors and warnings.
+- **Motion:** slip ≤0.73 mm, seams ≤0.007 mm, floor ≥1.2 mm and Meshopt drift ≤0.76 mm.
+- **Events:** feed pinch 3.0 cm (grip 7.3 cm from the mouth), with the snap and threat events asserted.
+- **Per-frame rotation:** at most 17.6° outside the snap.
+- **Self-collision:** zero overlapping frames on LOD1 at 30 Hz and LOD0 at 10 Hz.
+- **LOD1 silhouette:** IoU 0.88 against the master. That is below the 0.95 target: the open frames lose half their diagonals, while coverage stays 96%. The verdict is therefore SHIP WITH NOTES.
+- **Viewer:** a Chromium check of `takaashi02/` covers all clips, gaps, travel, six tier/encoding loads, capture, mobile and reduced motion.
+
+No FPS claim.
+
+Completed: the requested variation, editable master, viewer, motion sheet, gallery card, QA verdict and integration notes. Pending:
+
+- visual acceptance;
+- damage states;
+- terrain adaptation;
+- consuming-game r160/gltfpack decode, LOD thresholds and phone profiling.
+
+Handoff: containing commit plus `assets/takaashi02/`, `takaashi02/` and the rebuilt `assets/takaashi01/`.
+
+## 26 November 2026 / TAKAASHI-01 — mechanical spider crab with leg and claw motion
+
+Added TAKAASHI-01 from the user's concept image, an original mechanical Japanese spider crab. Gunmetal openwork frames with rounded windows and brass rivets wrap twisted ivory cable cores, with bolted pulley hubs at every joint. A spined lattice carapace over a dark core carries blue optics on eyestalks, horn rostral spines and fanged mouthparts. The two chelae have long serrated fingers that cross when shut. Span is 2.98 m and body height 0.61 m. Eight walking legs and two chelipeds are six-segment chains on an 84-joint rigid rig. A planar IK holds the knees high (1.13 m on the first pair) and keeps each dactyl point on its target.
+
+Nine clips. Watch_Idle has scanning eyestalks, working mouthparts and two footing resets. Scuttle left/right use an alternating tetrapod (L1 R2 L3 R4 / R1 L2 R3 L4) at 0.30 m/s: leading legs flex to pull and trailing legs extend to push. Forward_Walk is a wave gait at 0.16 m/s. Turn left/right run at ±0.22 rad/s. Feed_Cycle alternates the chelae: each picks just above the floor and passes food across the mouth while the other waits aside. Claw_Snap opens both claws to 0.95 rad, then shuts each in 70 ms. Threat_Display rises 16 cm on six legs, lifts the first pair and pulses the open claws. Gaits carry no root motion; the manifest gives velocity and yaw rate for the engine. SENSOR_YAW is left unkeyed for the engine.
+
+Master: 146,316 triangles / six draws / 9,900,488 bytes. Game: 20,178 / six / 2,813,072 (inside the 25k unit budget). Static distance: 1,050 / one / 99,784. All six plain and decoded Meshopt files pass with zero glTF errors and warnings, identical dot-free names and matching sockets. Across 11,460 joint samples at 120 Hz with engine travel applied, planted-tip slip is ≤0.73 mm, loop seams ≤0.006 mm and rigid stretch ≤0.15 mm. The lowest geometry stays 1.4 mm above the floor and Meshopt drift is ≤0.76 mm. Scuttle pull/push, the feed pinch (2.7 cm above the floor; 7.3 cm from the mouth), the snap timing and the threat rise are asserted on the exported files. A Chromium check of the new `takaashi01/` viewer covers all clips, contact and claw-gap readouts, engine travel, six tier/encoding loads with matching downloads, PNG capture, 390 px layout and reduced motion. No FPS claim.
+
+Completed: requested model and realistic leg/claw animation, three tiers, editable Blender master, viewer, motion sheet, gallery card and integration notes. Pending: visual acceptance, damage states, terrain adaptation/self-collision, consuming-game r160/gltfpack release decode, LOD thresholds and reference-phone profiling. The game tier's 2.8 MB is mostly nine 60 fps clips. Handoff: containing commit plus `assets/takaashi01/` and `takaashi01/`.
+
 ## 13 November 2026 / Red Witness — ten-clip action showcase
 
 Integrated the supplied red-witness-action-showcase-v1 archive into the existing Red Witness viewer. Its default Action showcase plays T_Pose, Crouch, Walk, Jog, Run, Jump and front/left/right/back Ukemi. Added movement selection, play-all, pause/resume, restart, clip scrubbing, playback speed and optional baked travel with camera/light follow. Full-body framing retains the jump height; the helmet camera follows the moving head. Reduced-motion preference starts paused, and hidden pages stop advancing. Original head/arm inspection and all three model tiers remain available through a separate Model inspection mode and the mode=inspect URL.

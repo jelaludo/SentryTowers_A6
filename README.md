@@ -2,6 +2,10 @@
 
 Current model releases:
 
+- **TAKAASHI-02 / braided spider crab:** a TAKAASHI-01 variant whose 88 visible actuators are braided sleeves in steel ferrules, pulling tendons over joint sheaves inside dark carbon frames. It uses the same skeleton and nine animations, with three tiers and credited downloads.
+  https://jelaludo.github.io/SentryTowers_A6/takaashi02/
+- **TAKAASHI-01 / mechanical spider crab:** original openwork crab with eight long legs, serrated claws and nine animations (tetrapod scuttle, wave-gait walk, turns, feeding, claw snap, threat display), three tiers and credited downloads.
+  https://jelaludo.github.io/SentryTowers_A6/takaashi01/
 - **Red Witness / humanoid:** original 2.08 m figure with ten animated movements, playback/travel controls, three inspection tiers, AUREL comparison and credited downloads.
   https://jelaludo.github.io/SentryTowers_A6/red-witness/
 - **Red Witness / helmet:** three standalone tiers and the AUREL replacement-head fitting.
@@ -12,6 +16,18 @@ Current model releases:
   https://jelaludo.github.io/SentryTowers_A6/senzai-kk02/
 - **Senzai-KK02 / Pilot:** the newer standalone flight/capture experience, including touch controls and installable offline play. The Workshop card opens its own published project; its PWA remains scoped to that project. Original models, animation, code and concepts require attribution to Jelaludo.
   https://jelaludo.github.io/senzai-kk02/
+
+**TAKAASHI-02 / Braided spider crab** rebuilds TAKAASHI-01's actuators:
+
+- **Muscles:** taut woven sleeves ending in steel ferrules.
+- **Tendons:** each wraps the sheave of the joint it drives.
+- **Frames:** open dark carbon, with fork-and-tongue joints.
+- **Claws:** open-truss, with interleaving teeth.
+- **Optics:** small #28a8ff lenses.
+
+It shares TAKAASHI-01's skeleton, sockets and clips. A self-collision check (zero overlaps), a 30 fps snap gate and LOD silhouette measurements back its SHIP WITH NOTES verdict. Open `takaashi02/`; QA verdict and runtime contract: `assets/takaashi02/README.md`.
+
+**TAKAASHI-01 / Mechanical spider crab** is an original 2.98 m mechanical Japanese spider crab after a user concept. Gunmetal openwork frames over twisted ivory cables, brass-bolted pulley joints, a spined lattice carapace with blue optics, and chelae with crossing serrated fingers. Nine clips: watch, alternating-tetrapod scuttle left/right (leading legs pull, trailing legs push), wave-gait forward walk, turns, alternating claw feeding, claw snap and a six-legged threat display. Gaits supply velocity/yaw for the engine instead of baked root motion. Open `takaashi01/`; measured hand-off and runtime contract: `assets/takaashi01/README.md`.
 
 **Senzai-KK02 / Living attention** is a separate LATENT evolution with gracefully curving fibers, emerald attention aimed at three signals, swift eased travel and a slowly shifting projected 4D setting. Includes scale references, tracking macro view, 72-second cycle, spatial/camera controls and three GLB tiers. Open `senzai-kk02/`; notes: `assets/senzai-kk02/`. LATENT v1 remains intact.
 

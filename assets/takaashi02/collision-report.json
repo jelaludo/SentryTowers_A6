@@ -1,0 +1,94 @@
+{
+  "method": "BVH triangle overlap (mathutils.bvhtree) on the skinned mesh posed by each clip in Blender. Tested: different limbs against each other; limbs beyond COXA and BASIS against the body, eyestalks, antennae and mouthparts; segments of one limb against each other. Neighbouring segments exclude triangles within joint_exclusion_radius_m of their shared joint, where forks, tongues, sheaves and the wrist ball nest by design. Contact without intersection is not reported; penetration depth is not measured.",
+  "tool": "tools/blender/check_takaashi_collisions.py",
+  "tiers": [
+    {
+      "file": "takaashi02_d0_lod0.glb",
+      "hz": 10,
+      "joint_exclusion_radius_m": 0.075,
+      "total_overlap_frames": 0,
+      "clips": {
+        "Claw_Snap": {
+          "samples": 25,
+          "frames_with_overlap": 0
+        },
+        "Feed_Cycle": {
+          "samples": 41,
+          "frames_with_overlap": 0
+        },
+        "Forward_Walk_Cycle": {
+          "samples": 25,
+          "frames_with_overlap": 0
+        },
+        "Scuttle_Left_Cycle": {
+          "samples": 16,
+          "frames_with_overlap": 0
+        },
+        "Scuttle_Right_Cycle": {
+          "samples": 16,
+          "frames_with_overlap": 0
+        },
+        "Threat_Display": {
+          "samples": 41,
+          "frames_with_overlap": 0
+        },
+        "Turn_Left_Cycle": {
+          "samples": 21,
+          "frames_with_overlap": 0
+        },
+        "Turn_Right_Cycle": {
+          "samples": 21,
+          "frames_with_overlap": 0
+        },
+        "Watch_Idle": {
+          "samples": 41,
+          "frames_with_overlap": 0
+        }
+      }
+    },
+    {
+      "file": "takaashi02_d0_lod1.glb",
+      "hz": 30,
+      "joint_exclusion_radius_m": 0.075,
+      "total_overlap_frames": 0,
+      "clips": {
+        "Claw_Snap": {
+          "samples": 73,
+          "frames_with_overlap": 0
+        },
+        "Feed_Cycle": {
+          "samples": 121,
+          "frames_with_overlap": 0
+        },
+        "Forward_Walk_Cycle": {
+          "samples": 73,
+          "frames_with_overlap": 0
+        },
+        "Scuttle_Left_Cycle": {
+          "samples": 46,
+          "frames_with_overlap": 0
+        },
+        "Scuttle_Right_Cycle": {
+          "samples": 46,
+          "frames_with_overlap": 0
+        },
+        "Threat_Display": {
+          "samples": 121,
+          "frames_with_overlap": 0
+        },
+        "Turn_Left_Cycle": {
+          "samples": 61,
+          "frames_with_overlap": 0
+        },
+        "Turn_Right_Cycle": {
+          "samples": 61,
+          "frames_with_overlap": 0
+        },
+        "Watch_Idle": {
+          "samples": 121,
+          "frames_with_overlap": 0
+        }
+      }
+    }
+  ]
+}

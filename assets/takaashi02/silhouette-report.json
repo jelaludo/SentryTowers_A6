@@ -1,0 +1,18 @@
+{
+  "family": "takaashi02",
+  "pixels_wide": 1000,
+  "metres_per_pixel": 0.0033,
+  "pose": "bind",
+  "iou_vs_lod0": {
+    "lod1_front": 0.8782,
+    "lod1_side": 0.8803,
+    "lod2_front": 0.669,
+    "lod2_side": 0.7333
+  },
+  "coverage_ratio_vs_lod0": {
+    "lod1_front": 0.9572,
+    "lod1_side": 0.9655,
+    "lod2_front": 0.9218,
+    "lod2_side": 0.9417
+  }
+}

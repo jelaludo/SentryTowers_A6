@@ -1,5 +1,15 @@
 # Asset attributions and provenance
 
+## TAKAASHI-02 / Braided Spider Crab / 26 November 2026
+
+Original procedural geometry, braided-actuator design, viewer, QA tools and derived review images by jelaludo, written in this repository. It shares TAKAASHI-01's original rig and motion. The user's design notes for this variant (exo-frames outside taut braided actuators, steel ferrules, minimal #28a8ff optics, rest-open jaws, check-first workflow) shaped it. The TAKAASHI-01 concept image (SHA-256 `258ae7fd7ba6a85904d1ddac5a67ede8fa437fb030387e1dc13f1f0fe3e683bf`) informs the shared body plan and is not redistributed. No geometry, code or textures from other projects are included.
+
+Plain GLBs in `assets/takaashi02/` are authoritative and embed the Jelaludo attribution. These are derived: `derived/meshopt/` copies, `preview.png`, `motion-sheet.png` and the QA reports. `source/blender/a6-takaashi02.blend` is the editable master. Original Workshop reuse terms apply.
+
+## TAKAASHI-01 / Mechanical Spider Crab / 26 November 2026
+
+Original procedural geometry, 84-joint rigid rig, nine authored clips, viewer and derived review images by jelaludo. The user-supplied concept `Mechanical Spider Crab in Studio Light.png` (SHA-256 `258ae7fd7ba6a85904d1ddac5a67ede8fa437fb030387e1dc13f1f0fe3e683bf`) informed the silhouette, openwork riveted frames, twisted cable cores, spined lattice carapace, blue optics and serrated chelae. Its creator and license were not supplied; the image remains at its original local location and is not redistributed or embedded. Motion is original procedural authoring informed by commonly described crab locomotion and feeding; no captured or third-party keys. Plain GLBs in `assets/takaashi01/` are authoritative and embed the Jelaludo attribution. `derived/meshopt/` copies, `preview.png` and `motion-sheet.png` are derived. `source/blender/a6-takaashi01.blend` is the editable master. Original Workshop reuse terms apply.
+
 ## Red Witness / Humanoid and helmet / 11 November 2026
 
 Imported from Jelaludo’s local Red Witness authoring project with the original graphite/ivory body and worn optical helmet. Original Blender files, PNG bakes and four source LODs remain unchanged in that project; provenance hashes are recorded in assets/red-witness/provenance.json. Workshop exports, normalized joint origins/names, JPEG texture encodings and static distance reductions are explicitly derived. Original AUREL-01 hands and AUREL-02 feet by Jelaludo are retained at the source’s 1.2x scale. The AUREL replacement-head adapter trims the joined collar on the loaded copy only. Models and adaptations require attribution to **Jelaludo**. No reference image pixels or third-party meshes are distributed.

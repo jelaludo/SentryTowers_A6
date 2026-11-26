@@ -1,0 +1,357 @@
+{
+  "scope": "Plain GLBs and decoded derived Meshopt copies. Joints sampled at 120 Hz with the documented engine travel/yaw applied; skinned geometry bounds at 30 Hz on plain animated tiers, in instance space for culling. Authored flat-floor kinematics; no physics, terrain or FPS measurement.",
+  "assets": [
+    {
+      "file": "takaashi02_d0_lod0.glb",
+      "triangles": 255388,
+      "draw_calls": 6,
+      "bytes": 19297872,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/takaashi02_d0_lod0.meshopt.glb",
+      "triangles": 255388,
+      "draw_calls": 6,
+      "bytes": 4005560,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "takaashi02_d0_lod1.glb",
+      "triangles": 23122,
+      "draw_calls": 6,
+      "bytes": 3590124,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/takaashi02_d0_lod1.meshopt.glb",
+      "triangles": 23122,
+      "draw_calls": 6,
+      "bytes": 1073148,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "takaashi02_d0_lod2.glb",
+      "triangles": 1050,
+      "draw_calls": 1,
+      "bytes": 91260,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    },
+    {
+      "file": "derived/meshopt/takaashi02_d0_lod2.meshopt.glb",
+      "triangles": 1050,
+      "draw_calls": 1,
+      "bytes": 37180,
+      "gltf_errors": 0,
+      "gltf_warnings": 0
+    }
+  ],
+  "joint_samples": 11460,
+  "geometry_samples": 1446,
+  "minimum_geometry_y_m": 0.0011777425210790782,
+  "maximum_stance_slip_m": 0.0007287267040937402,
+  "maximum_loop_error_m": 0.00000691015771108419,
+  "maximum_loop_rotation_error_rad": 0.000014472456988757538,
+  "maximum_segment_length_error_m": 0.00015398711367331508,
+  "maximum_meshopt_tip_drift_m": 0.0007547679558178569,
+  "minimum_support": {
+    "Watch_Idle": 7,
+    "Scuttle_Left_Cycle": 4,
+    "Scuttle_Right_Cycle": 4,
+    "Forward_Walk_Cycle": 6,
+    "Turn_Left_Cycle": 4,
+    "Turn_Right_Cycle": 4,
+    "Feed_Cycle": 8,
+    "Claw_Snap": 8,
+    "Threat_Display": 6
+  },
+  "clip_envelopes": {
+    "Watch_Idle": {
+      "min": [
+        -1.4901,
+        0.0018,
+        -0.8946
+      ],
+      "max": [
+        1.5194,
+        1.1557,
+        1.3689
+      ]
+    },
+    "Scuttle_Left_Cycle": {
+      "min": [
+        -1.6345,
+        0.002,
+        -0.9032
+      ],
+      "max": [
+        1.6348,
+        1.2104,
+        1.3511
+      ]
+    },
+    "Scuttle_Right_Cycle": {
+      "min": [
+        -1.6351,
+        0.002,
+        -0.9033
+      ],
+      "max": [
+        1.6352,
+        1.2099,
+        1.3512
+      ]
+    },
+    "Forward_Walk_Cycle": {
+      "min": [
+        -1.4901,
+        0.0019,
+        -1.0404
+      ],
+      "max": [
+        1.4901,
+        1.1991,
+        1.3498
+      ]
+    },
+    "Turn_Left_Cycle": {
+      "min": [
+        -1.5151,
+        0.002,
+        -1.0229
+      ],
+      "max": [
+        1.5152,
+        1.2007,
+        1.3537
+      ]
+    },
+    "Turn_Right_Cycle": {
+      "min": [
+        -1.5152,
+        0.002,
+        -1.0229
+      ],
+      "max": [
+        1.5151,
+        1.2007,
+        1.3539
+      ]
+    },
+    "Feed_Cycle": {
+      "min": [
+        -1.4901,
+        0.0012,
+        -0.8946
+      ],
+      "max": [
+        1.4902,
+        1.121,
+        1.3817
+      ]
+    },
+    "Claw_Snap": {
+      "min": [
+        -1.4901,
+        0.002,
+        -0.8946
+      ],
+      "max": [
+        1.4901,
+        1.2394,
+        1.5186
+      ]
+    },
+    "Threat_Display": {
+      "min": [
+        -1.4901,
+        0.002,
+        -0.8945
+      ],
+      "max": [
+        1.4901,
+        1.709,
+        1.4271
+      ]
+    }
+  },
+  "events": {
+    "Scuttle_Left_Cycle": {
+      "L1": {
+        "leading": true,
+        "lateral_change_m": -0.2889
+      },
+      "L2": {
+        "leading": true,
+        "lateral_change_m": -0.2845
+      },
+      "L3": {
+        "leading": true,
+        "lateral_change_m": -0.2868
+      },
+      "L4": {
+        "leading": true,
+        "lateral_change_m": -0.2823
+      },
+      "R1": {
+        "leading": false,
+        "lateral_change_m": 0.2889
+      },
+      "R2": {
+        "leading": false,
+        "lateral_change_m": 0.2844
+      },
+      "R3": {
+        "leading": false,
+        "lateral_change_m": 0.2868
+      },
+      "R4": {
+        "leading": false,
+        "lateral_change_m": 0.2823
+      }
+    },
+    "Scuttle_Right_Cycle": {
+      "L1": {
+        "leading": false,
+        "lateral_change_m": 0.2889
+      },
+      "L2": {
+        "leading": false,
+        "lateral_change_m": 0.2844
+      },
+      "L3": {
+        "leading": false,
+        "lateral_change_m": 0.2868
+      },
+      "L4": {
+        "leading": false,
+        "lateral_change_m": 0.2823
+      },
+      "R1": {
+        "leading": true,
+        "lateral_change_m": -0.2889
+      },
+      "R2": {
+        "leading": true,
+        "lateral_change_m": -0.2845
+      },
+      "R3": {
+        "leading": true,
+        "lateral_change_m": -0.2868
+      },
+      "R4": {
+        "leading": true,
+        "lateral_change_m": -0.2823
+      }
+    },
+    "Feed_Cycle": {
+      "CL_lowest_claw_vertex_at_pinch_m": 0.0304,
+      "CL_grip_to_mouth_m": 0.0725,
+      "CR_grip_to_mouth_m": 0.0725
+    },
+    "Claw_Snap": {
+      "CL": {
+        "open_rad": 0.95,
+        "closed_rad": 0.0013,
+        "close_time_s": 0.07
+      },
+      "CR": {
+        "open_rad": 0.95,
+        "closed_rad": 0.0013,
+        "close_time_s": 0.07
+      }
+    },
+    "Threat_Display": {
+      "body_rise_m": 0.16,
+      "raised_tip_height_m": [
+        0.5096,
+        0.4728
+      ]
+    }
+  },
+  "maximum_joint_step_deg_at_30fps": {
+    "Watch_Idle": {
+      "deg": 3.88,
+      "joint": "EYESTALK_R",
+      "time_s": 1.7
+    },
+    "Scuttle_Left_Cycle": {
+      "deg": 5.7,
+      "joint": "DACTYL_L4",
+      "time_s": 0.333
+    },
+    "Scuttle_Right_Cycle": {
+      "deg": 5.69,
+      "joint": "DACTYL_R4",
+      "time_s": 1.1
+    },
+    "Forward_Walk_Cycle": {
+      "deg": 4.94,
+      "joint": "DACTYL_R4",
+      "time_s": 0.667
+    },
+    "Turn_Left_Cycle": {
+      "deg": 3.97,
+      "joint": "DACTYL_R4",
+      "time_s": 1.433
+    },
+    "Turn_Right_Cycle": {
+      "deg": 3.97,
+      "joint": "DACTYL_L4",
+      "time_s": 0.433
+    },
+    "Feed_Cycle": {
+      "deg": 17.62,
+      "joint": "DACTYL_CR",
+      "time_s": 2.767
+    },
+    "Claw_Snap": {
+      "deg": 35.85,
+      "joint": "DACTYL_CL",
+      "time_s": 1.1
+    },
+    "Threat_Display": {
+      "deg": 4.03,
+      "joint": "DACTYL_CR",
+      "time_s": 1.067
+    }
+  },
+  "self_collision": {
+    "file": "collision-report.json",
+    "method": "BVH triangle overlap (mathutils.bvhtree) on the skinned mesh posed by each clip in Blender. Tested: different limbs against each other; limbs beyond COXA and BASIS against the body, eyestalks, antennae and mouthparts; segments of one limb against each other. Neighbouring segments exclude triangles within joint_exclusion_radius_m of their shared joint, where forks, tongues, sheaves and the wrist ball nest by design. Contact without intersection is not reported; penetration depth is not measured.",
+    "tiers": [
+      {
+        "file": "takaashi02_d0_lod0.glb",
+        "hz": 10,
+        "overlap_frames": 0
+      },
+      {
+        "file": "takaashi02_d0_lod1.glb",
+        "hz": 30,
+        "overlap_frames": 0
+      }
+    ]
+  },
+  "lod_silhouette": {
+    "file": "silhouette-report.json",
+    "pose": "bind",
+    "metres_per_pixel": 0.0033,
+    "iou_vs_lod0": {
+      "lod1_front": 0.8782,
+      "lod1_side": 0.8803,
+      "lod2_front": 0.669,
+      "lod2_side": 0.7333
+    },
+    "coverage_ratio_vs_lod0": {
+      "lod1_front": 0.9572,
+      "lod1_side": 0.9655,
+      "lod2_front": 0.9218,
+      "lod2_side": 0.9417
+    }
+  },
+  "status": "passed"
+}

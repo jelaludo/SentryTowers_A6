@@ -1,4 +1,6 @@
 const collectionImages={
+'takaashi02':'assets/takaashi02/preview.png',
+'takaashi01':'assets/takaashi01/preview.png',
 'red-witness':'assets/red-witness/preview.png',
 'red-witness-helmet':'assets/helmet-lab/red-witness/preview.png',
 'senzai-kk02-pilot':'assets/workshop/senzai-kk02-pilot.png',
@@ -63,6 +65,8 @@ const collectionImages={
 };
 
 export const collections=[
+['takaashi02','TAKAASHI-02 / Braided Spider Crab','Characters','The spider crab rebuilt around its muscles: 88 braided actuators in steel ferrules inside open carbon frames, each tendon wrapping the sheave of the joint it drives. Same skeleton and clips as TAKAASHI-01: scuttling, walking, turning, feeding, a claw snap and a threat display.','9 clips · 88 actuators · 3 LODs','Animated prototype'],
+['takaashi01','TAKAASHI-01 / Mechanical Spider Crab','Characters','Eight long openwork legs over twisted cables, a spined lattice shell and serrated claws. Crab-true sideways scuttling on an alternating tetrapod, a wave-gait walk, turns, alternating claw feeding, a 70 ms claw snap and a threat display.','9 clips · 84 joints · 3 LODs','Animated prototype'],
 ['red-witness','Red Witness / Humanoid','Characters','An ivory frame, graphite muscle bundles and a watchful red optical helmet. Ten movements: walk, jog, run, jump, crouch and ukemi. Original 2.08 m proportions, joint inspection and true-scale comparison.','10 animations · 3 inspection tiers · GLB + ZIP','Humanoid in motion'],
 ['red-witness-helmet','Helmet Lab / Red Witness','Characters','The Red Witness optical helmet: worn steel plates, red lenses, routed cables and an ivory respirator. Also available as an AUREL replacement head.','Authored PBR · AUREL fit · 3 tiers · GLB + ZIP','Helmet studies / 04','helmet-lab/?helmet=red-witness'],
 ['senzai-kk02-pilot','Senzai-KK02 / Pilot','Abstract','Fly the living field through latent space. Sweep for concepts, follow their movement and align two reticles while fifteen tendrils converge to capture a thought. The latest standalone experience, by Jelaludo.','Desktop + touch · 7 concepts · Installable offline app','Interactive standalone release','https://jelaludo.github.io/senzai-kk02/'],

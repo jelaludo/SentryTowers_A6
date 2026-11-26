@@ -106,3 +106,25 @@ Run `node tools/asset-pipeline/sample-missile-flight.mjs`, then `blender --backg
 ## RECKON K9 mechanical canine
 
 `build_reckon_k9.py` creates the 36-joint detailed master, reduced game skin and static distance silhouette with eight canine clips. `pack-reckon-k9.mjs` writes measured hashes and optional derived Meshopt copies; `validate-reckon-k9.mjs` verifies decoded geometry, paw contacts, loops, rigid limb lengths and fetch events. `render_reckon_k9.py` renders eight review poses; `render-reckon-review.mjs` assembles the contact sheet. Source: `source/blender/a6-reckon-k9.blend`; viewer: `reckon-k9/`; integration: `assets/reckon-k9/README.md`.
+
+## TAKAASHI-01 mechanical spider crab
+
+`takaashi_motion.py` holds the joint table, planar leg/cheliped IK and all nine clips in plain Python. `python3 tools/blender/takaashi_motion.py` self-tests reach, authored slip, loop seams and fingertip clearance without Blender. `build_takaashi.py` builds the openwork master/game/distance tiers with one `shape(lod)` function, the 84-joint rigid skin and the NLA clips, then saves `source/blender/a6-takaashi01.blend`. Follow with `node tools/asset-pipeline/pack-takaashi.mjs` and `node tools/asset-pipeline/validate-takaashi.mjs`. `render_takaashi.py` makes optional EEVEE/Cycles studio review renders from any tier and clip; the published preview and motion sheet come from `render-takaashi-sheets.mjs` in the viewer. Notes: `assets/takaashi01/README.md`.
+
+## TAKAASHI-02 braided-actuator variant and TAKAASHI QA tools
+
+`build_takaashi02.py` builds TAKAASHI-02 on the same skeleton and clips. It imports `build_takaashi.py` for the primitives and clip baking, then adds:
+
+- woven braided sleeves (`Crab2.woven`);
+- ferrules, rod eyes, pins and tendons (`actuator`, `act`);
+- sheaves, axles and lugs;
+- open carbon box frames (`cage`).
+
+The builder accepts `--lods`, `--no-anim`, `--no-save` and `--out DIR`. Use `--no-anim --no-save --out <scratch>` for a few-second shape pass, then `render_takaashi.py --engine workbench` for clay views. The `actuator` and `palm` views frame the muscles.
+
+Two checks work on any TAKAASHI tier:
+
+- `check_takaashi_collisions.py -- --glb <tier.glb> --hz 30` poses every clip and reports BVH triangle overlaps. It tests limb against limb, limb against body, and segments within a limb, with a radius around each shared joint left out.
+- `check_takaashi_silhouettes.py -- --family takaashi02` reports front and side silhouette IoU of LOD1 and LOD2 against LOD0.
+
+The pack, validate, viewer-test and sheet scripts take `TAKAASHI_FAMILY=takaashi01|takaashi02`, defaulting to `takaashi01`. Notes and QA verdict: `assets/takaashi02/README.md`.

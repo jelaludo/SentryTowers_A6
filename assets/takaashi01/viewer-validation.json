@@ -1,0 +1,196 @@
+{
+  "status": "passed",
+  "browser": "Chromium headless (SwiftShader WebGL); functional check, not a performance benchmark",
+  "url": "http://127.0.0.1:8788/takaashi01/",
+  "asset_hashes": [
+    {
+      "file": "takaashi01_d0_lod0.glb",
+      "sha256": "1db3c56787474afd3e47723deb22c9d8a85bc8462c3d95f8841a05ffe4a59b4b",
+      "meshopt_sha256": "24c2218c08715490947bf7955be79f110f9bbeac43aab6371c90c1dbdf3149fc"
+    },
+    {
+      "file": "takaashi01_d0_lod1.glb",
+      "sha256": "e768dcb16674f4a1570c42b5244e86c4e06ba47d90b9049389255fdaeed91f9f",
+      "meshopt_sha256": "0886bc05c92d2688de7a37b7303fb9af0081caf7d3ccb63fd006229ff90a0117"
+    },
+    {
+      "file": "takaashi01_d0_lod2.glb",
+      "sha256": "c6d82a5c78bea0cbf465dcf7cfe0a51e2e563b4f75928cb049bcd490bc1d882a",
+      "meshopt_sha256": "7ece6393fa0baac74da308b7611dd6572d4d8a369f047fa78c201b7a9f5da6ad"
+    }
+  ],
+  "clip_checks": [
+    {
+      "clip": "Watch_Idle",
+      "t": 1.5,
+      "view": "hero",
+      "draws": 24,
+      "planted_tips": 8,
+      "readout": "8 of 8 tips planted · Body 60.4 cm · Claw tip gap L 7.5 / R 11.0 cm"
+    },
+    {
+      "clip": "Scuttle_Left_Cycle",
+      "t": 0.45,
+      "view": "front",
+      "draws": 24,
+      "planted_tips": 4,
+      "readout": "4 of 8 tips planted · Body 60.7 cm · Claw tip gap L 5.9 / R 5.9 cm"
+    },
+    {
+      "clip": "Scuttle_Right_Cycle",
+      "t": 0.45,
+      "view": "front",
+      "draws": 24,
+      "planted_tips": 4,
+      "readout": "4 of 8 tips planted · Body 60.7 cm · Claw tip gap L 5.9 / R 5.9 cm"
+    },
+    {
+      "clip": "Forward_Walk_Cycle",
+      "t": 0.6,
+      "view": "side",
+      "draws": 24,
+      "planted_tips": 8,
+      "readout": "8 of 8 tips planted · Body 60.2 cm · Claw tip gap L 6.8 / R 6.8 cm"
+    },
+    {
+      "clip": "Turn_Left_Cycle",
+      "t": 0.5,
+      "view": "hero",
+      "draws": 24,
+      "planted_tips": 4,
+      "readout": "4 of 8 tips planted · Body 61.0 cm · Claw tip gap L 6.8 / R 6.8 cm"
+    },
+    {
+      "clip": "Turn_Right_Cycle",
+      "t": 0.5,
+      "view": "hero",
+      "draws": 24,
+      "planted_tips": 4,
+      "readout": "4 of 8 tips planted · Body 61.0 cm · Claw tip gap L 6.8 / R 6.8 cm"
+    },
+    {
+      "clip": "Feed_Cycle",
+      "t": 0.82,
+      "view": "front",
+      "draws": 24,
+      "planted_tips": 8,
+      "readout": "8 of 8 tips planted · Body 54.8 cm · Claw tip gap L 3.7 / R 6.7 cm"
+    },
+    {
+      "clip": "Claw_Snap",
+      "t": 0.95,
+      "view": "hero",
+      "draws": 24,
+      "planted_tips": 8,
+      "readout": "8 of 8 tips planted · Body 63.8 cm · Claw tip gap L 34.5 / R 34.5 cm"
+    },
+    {
+      "clip": "Threat_Display",
+      "t": 1.6,
+      "view": "front",
+      "draws": 24,
+      "planted_tips": 6,
+      "readout": "6 of 8 tips planted · Body 77.0 cm · Claw tip gap L 33.5 / R 33.5 cm"
+    }
+  ],
+  "claw_tip_gap_m": {
+    "snap_open": [
+      0.345361087081645,
+      0.34536110149919236
+    ],
+    "snap_shut": [
+      0.03841880946905105,
+      0.03841875960298046
+    ],
+    "feed_pinch": [
+      0.036742604701085424,
+      0.06708869055911042
+    ]
+  },
+  "engine_travel": {
+    "Scuttle_Left_Cycle": {
+      "x": 0.15,
+      "z": 0,
+      "yaw": 0
+    },
+    "Scuttle_Right_Cycle": {
+      "x": -0.15,
+      "z": 0,
+      "yaw": 0
+    },
+    "Forward_Walk_Cycle": {
+      "x": 0,
+      "z": 0.16,
+      "yaw": 0
+    },
+    "Turn_Left_Cycle": {
+      "x": 0,
+      "z": 0,
+      "yaw": 0.22
+    },
+    "Turn_Right_Cycle": {
+      "x": 0,
+      "z": 0,
+      "yaw": -0.22
+    }
+  },
+  "tier_encoding_loads": [
+    {
+      "lod": 1,
+      "encoding": "meshopt",
+      "file": "derived/meshopt/takaashi01_d0_lod1.meshopt.glb",
+      "bytes": 946896,
+      "clips": 9
+    },
+    {
+      "lod": 1,
+      "encoding": "plain",
+      "file": "takaashi01_d0_lod1.glb",
+      "bytes": 2816976,
+      "clips": 9
+    },
+    {
+      "lod": 2,
+      "encoding": "meshopt",
+      "file": "derived/meshopt/takaashi01_d0_lod2.meshopt.glb",
+      "bytes": 37464,
+      "clips": 0
+    },
+    {
+      "lod": 2,
+      "encoding": "plain",
+      "file": "takaashi01_d0_lod2.glb",
+      "bytes": 99784,
+      "clips": 0
+    },
+    {
+      "lod": 0,
+      "encoding": "meshopt",
+      "file": "derived/meshopt/takaashi01_d0_lod0.meshopt.glb",
+      "bytes": 2286488,
+      "clips": 9
+    },
+    {
+      "lod": 0,
+      "encoding": "plain",
+      "file": "takaashi01_d0_lod0.glb",
+      "bytes": 9904388,
+      "clips": 9
+    }
+  ],
+  "capture_file": "takaashi01-Scuttle_Left_Cycle-0.00s.png",
+  "checks": [
+    "nine clips selected and scrubbed with framing",
+    "tetrapod 4-of-8 and threat 6-of-8 contact readouts",
+    "claw open/shut/pinch from skinned finger tips",
+    "engine travel and yaw on/off",
+    "play and pause",
+    "skeleton, wireframe, tip markers and six camera views",
+    "all plain and Meshopt tiers with matching download bytes",
+    "static tier disables motion controls",
+    "PNG capture",
+    "390 px layout without overflow",
+    "reduced motion starts paused",
+    "no page or console errors"
+  ]
+}

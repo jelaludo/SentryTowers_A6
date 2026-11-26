@@ -1,0 +1,1183 @@
+{
+  "family": "takaashi01",
+  "label": "TAKAASHI-01 / Mechanical Spider Crab",
+  "plain_glb_source_of_truth": true,
+  "coordinate_system": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "origin": "ground under the carapace centre; crab left is +X"
+  },
+  "damage_states": {
+    "d0": "intact only"
+  },
+  "animation": {
+    "fps": 60,
+    "skeleton_joints": 84,
+    "motion_node": "MOTION",
+    "body_node": "BODY",
+    "engine_driven_excluded": [
+      "SENSOR_YAW"
+    ],
+    "gait_topology": "Lateral: alternating tetrapod L1 R2 L3 R4 / R1 L2 R3 L4. Forward: posterior-to-anterior wave, one leg per side in swing.",
+    "placement_node": "instance wrapper around the complete glTF scene",
+    "skeleton_root": "ROOT"
+  },
+  "lod_selection": {
+    "initial": 2,
+    "approach_distance_m": 30,
+    "hysteresis_m": 8,
+    "lod0": "Detailed recording master",
+    "lod1": "Animated gameplay tier; keep while moving",
+    "lod2": "Static standing distance/loading silhouette; no animation"
+  },
+  "assets": [
+    {
+      "file": "takaashi01_d0_lod0.glb",
+      "lod": 0,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 9904388,
+      "triangles": 146316,
+      "draw_calls": 6,
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 4,
+          "loop": true,
+          "swing_windows_s": {
+            "L2": [
+              0.5,
+              1.1
+            ],
+            "R3": [
+              2.4,
+              3
+            ]
+          },
+          "description": "Planted watch: breathing body, scanning eyestalks, working mouthparts, idle claw flexing and two single-leg resets."
+        },
+        {
+          "name": "Scuttle_Left_Cycle",
+          "duration_s": 1.5,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.13,
+          "velocity_mps": [
+            0.3,
+            0,
+            0
+          ],
+          "speed_mps": 0.3,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Scuttle_Right_Cycle",
+          "duration_s": 1.5,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.13,
+          "velocity_mps": [
+            -0.3,
+            0,
+            0
+          ],
+          "speed_mps": 0.3,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Forward_Walk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "gait": "posterior-to-anterior wave",
+          "duty_factor": 0.75,
+          "touchdown_phase": {
+            "L4": 0,
+            "L3": 0.25,
+            "L2": 0.5,
+            "L1": 0.75,
+            "R4": 0.5,
+            "R3": 0.75,
+            "R2": 0,
+            "R1": 0.25
+          },
+          "swing_lift_m": 0.1,
+          "velocity_mps": [
+            0,
+            0,
+            0.16
+          ],
+          "speed_mps": 0.16,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Turn_Left_Cycle",
+          "duration_s": 2,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.11,
+          "velocity_mps": [
+            0,
+            0,
+            0
+          ],
+          "speed_mps": 0,
+          "yaw_rate_rad_s": 0.22
+        },
+        {
+          "name": "Turn_Right_Cycle",
+          "duration_s": 2,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.11,
+          "velocity_mps": [
+            0,
+            0,
+            0
+          ],
+          "speed_mps": 0,
+          "yaw_rate_rad_s": -0.22
+        },
+        {
+          "name": "Feed_Cycle",
+          "duration_s": 4,
+          "loop": true,
+          "phase_landmarks_s": {
+            "CL_pinch": 0.82,
+            "CL_mouth": 2.1,
+            "CR_pinch": 2.82,
+            "CR_mouth": 0.1
+          },
+          "description": "Lowered body; chelae alternately pick from the floor and pass food to fast-working mouthparts while the other claw waits aside."
+        },
+        {
+          "name": "Claw_Snap",
+          "duration_s": 2.4,
+          "loop": false,
+          "events_s": {
+            "snap_CL": 1.05,
+            "snap_CR": 1.2
+          },
+          "description": "Raise and open both chelae, tremble, then close each in 70 ms and settle."
+        },
+        {
+          "name": "Threat_Display",
+          "duration_s": 4,
+          "loop": false,
+          "phase_landmarks_s": {
+            "raised": 0.95,
+            "release": 2.9,
+            "settled": 3.8
+          },
+          "swing_windows_s": {
+            "L1": [
+              0.3,
+              3.55
+            ],
+            "R1": [
+              0.3,
+              3.55
+            ]
+          },
+          "description": "Rise on six legs, lift the first walking pair, spread and pulse the open chelae, then settle."
+        }
+      ],
+      "credit": "Model and animation by Jelaludo",
+      "review_status": "contract_candidate: repository validation and measured budgets pass; game-camera, LOD threshold and reference-phone acceptance pending",
+      "sha256": "1db3c56787474afd3e47723deb22c9d8a85bc8462c3d95f8841a05ffe4a59b4b",
+      "bounds": {
+        "min": [
+          -1.49,
+          0.002,
+          -0.8945
+        ],
+        "max": [
+          1.49,
+          1.188,
+          1.3461
+        ],
+        "dimensions_m": [
+          2.9801,
+          1.186,
+          2.2406
+        ]
+      },
+      "plot_m": [
+        3,
+        2.25
+      ],
+      "required_nodes": [
+        "ANTENNA_L",
+        "ANTENNA_R",
+        "BASIS_CL",
+        "BASIS_CR",
+        "BASIS_L1",
+        "BASIS_L2",
+        "BASIS_L3",
+        "BASIS_L4",
+        "BASIS_R1",
+        "BASIS_R2",
+        "BASIS_R3",
+        "BASIS_R4",
+        "BODY",
+        "CARPUS_CL",
+        "CARPUS_CR",
+        "CARPUS_L1",
+        "CARPUS_L2",
+        "CARPUS_L3",
+        "CARPUS_L4",
+        "CARPUS_R1",
+        "CARPUS_R2",
+        "CARPUS_R3",
+        "CARPUS_R4",
+        "COXA_CL",
+        "COXA_CR",
+        "COXA_L1",
+        "COXA_L2",
+        "COXA_L3",
+        "COXA_L4",
+        "COXA_R1",
+        "COXA_R2",
+        "COXA_R3",
+        "COXA_R4",
+        "DACTYL_CL",
+        "DACTYL_CR",
+        "DACTYL_L1",
+        "DACTYL_L2",
+        "DACTYL_L3",
+        "DACTYL_L4",
+        "DACTYL_R1",
+        "DACTYL_R2",
+        "DACTYL_R3",
+        "DACTYL_R4",
+        "EYESTALK_L",
+        "EYESTALK_R",
+        "MANDIBLE_L",
+        "MANDIBLE_R",
+        "MAXILLIPED_L",
+        "MAXILLIPED_R",
+        "MERUS_CL",
+        "MERUS_CR",
+        "MERUS_L1",
+        "MERUS_L2",
+        "MERUS_L3",
+        "MERUS_L4",
+        "MERUS_R1",
+        "MERUS_R2",
+        "MERUS_R3",
+        "MERUS_R4",
+        "MOTION",
+        "PROPODUS_CL",
+        "PROPODUS_CR",
+        "PROPODUS_L1",
+        "PROPODUS_L2",
+        "PROPODUS_L3",
+        "PROPODUS_L4",
+        "PROPODUS_R1",
+        "PROPODUS_R2",
+        "PROPODUS_R3",
+        "PROPODUS_R4",
+        "ROOT",
+        "SENSOR_YAW",
+        "SOCKET_GRIP_CL",
+        "SOCKET_GRIP_CR",
+        "SOCKET_MOUTH",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SOCKET_TIP_L1",
+        "SOCKET_TIP_L2",
+        "SOCKET_TIP_L3",
+        "SOCKET_TIP_L4",
+        "SOCKET_TIP_R1",
+        "SOCKET_TIP_R2",
+        "SOCKET_TIP_R3",
+        "SOCKET_TIP_R4",
+        "TK01_RIG",
+        "TK01_SKIN"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_GRIP_CL",
+          "parent": "PROPODUS_CL",
+          "position_m": [
+            0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_GRIP_CR",
+          "parent": "PROPODUS_CR",
+          "position_m": [
+            -0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L1",
+          "parent": "DACTYL_L1",
+          "position_m": [
+            1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L2",
+          "parent": "DACTYL_L2",
+          "position_m": [
+            1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L3",
+          "parent": "DACTYL_L3",
+          "position_m": [
+            1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L4",
+          "parent": "DACTYL_L4",
+          "position_m": [
+            0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R1",
+          "parent": "DACTYL_R1",
+          "position_m": [
+            -1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R2",
+          "parent": "DACTYL_R2",
+          "position_m": [
+            -1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R3",
+          "parent": "DACTYL_R3",
+          "position_m": [
+            -1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R4",
+          "parent": "DACTYL_R4",
+          "position_m": [
+            -0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.772,
+            0.348
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.53,
+            0.398
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.935,
+            -0.04
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/takaashi01_d0_lod0.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 2286488,
+      "meshopt_sha256": "24c2218c08715490947bf7955be79f110f9bbeac43aab6371c90c1dbdf3149fc"
+    },
+    {
+      "file": "takaashi01_d0_lod1.glb",
+      "lod": 1,
+      "damage_level": 0,
+      "static": false,
+      "derived": false,
+      "bytes": 2816976,
+      "triangles": 20178,
+      "draw_calls": 6,
+      "clips": [
+        {
+          "name": "Watch_Idle",
+          "duration_s": 4,
+          "loop": true,
+          "swing_windows_s": {
+            "L2": [
+              0.5,
+              1.1
+            ],
+            "R3": [
+              2.4,
+              3
+            ]
+          },
+          "description": "Planted watch: breathing body, scanning eyestalks, working mouthparts, idle claw flexing and two single-leg resets."
+        },
+        {
+          "name": "Scuttle_Left_Cycle",
+          "duration_s": 1.5,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.13,
+          "velocity_mps": [
+            0.3,
+            0,
+            0
+          ],
+          "speed_mps": 0.3,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Scuttle_Right_Cycle",
+          "duration_s": 1.5,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.13,
+          "velocity_mps": [
+            -0.3,
+            0,
+            0
+          ],
+          "speed_mps": 0.3,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Forward_Walk_Cycle",
+          "duration_s": 2.4,
+          "loop": true,
+          "gait": "posterior-to-anterior wave",
+          "duty_factor": 0.75,
+          "touchdown_phase": {
+            "L4": 0,
+            "L3": 0.25,
+            "L2": 0.5,
+            "L1": 0.75,
+            "R4": 0.5,
+            "R3": 0.75,
+            "R2": 0,
+            "R1": 0.25
+          },
+          "swing_lift_m": 0.1,
+          "velocity_mps": [
+            0,
+            0,
+            0.16
+          ],
+          "speed_mps": 0.16,
+          "yaw_rate_rad_s": 0
+        },
+        {
+          "name": "Turn_Left_Cycle",
+          "duration_s": 2,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.11,
+          "velocity_mps": [
+            0,
+            0,
+            0
+          ],
+          "speed_mps": 0,
+          "yaw_rate_rad_s": 0.22
+        },
+        {
+          "name": "Turn_Right_Cycle",
+          "duration_s": 2,
+          "loop": true,
+          "gait": "alternating tetrapod",
+          "duty_factor": 0.62,
+          "touchdown_phase": {
+            "L1": 0,
+            "R2": 0.03,
+            "L3": 0.015,
+            "R4": 0.045,
+            "R1": 0.5,
+            "L2": 0.53,
+            "R3": 0.515,
+            "L4": 0.545
+          },
+          "swing_lift_m": 0.11,
+          "velocity_mps": [
+            0,
+            0,
+            0
+          ],
+          "speed_mps": 0,
+          "yaw_rate_rad_s": -0.22
+        },
+        {
+          "name": "Feed_Cycle",
+          "duration_s": 4,
+          "loop": true,
+          "phase_landmarks_s": {
+            "CL_pinch": 0.82,
+            "CL_mouth": 2.1,
+            "CR_pinch": 2.82,
+            "CR_mouth": 0.1
+          },
+          "description": "Lowered body; chelae alternately pick from the floor and pass food to fast-working mouthparts while the other claw waits aside."
+        },
+        {
+          "name": "Claw_Snap",
+          "duration_s": 2.4,
+          "loop": false,
+          "events_s": {
+            "snap_CL": 1.05,
+            "snap_CR": 1.2
+          },
+          "description": "Raise and open both chelae, tremble, then close each in 70 ms and settle."
+        },
+        {
+          "name": "Threat_Display",
+          "duration_s": 4,
+          "loop": false,
+          "phase_landmarks_s": {
+            "raised": 0.95,
+            "release": 2.9,
+            "settled": 3.8
+          },
+          "swing_windows_s": {
+            "L1": [
+              0.3,
+              3.55
+            ],
+            "R1": [
+              0.3,
+              3.55
+            ]
+          },
+          "description": "Rise on six legs, lift the first walking pair, spread and pulse the open chelae, then settle."
+        }
+      ],
+      "credit": "Model and animation by Jelaludo",
+      "review_status": "contract_candidate: repository validation and measured budgets pass; game-camera, LOD threshold and reference-phone acceptance pending",
+      "sha256": "e768dcb16674f4a1570c42b5244e86c4e06ba47d90b9049389255fdaeed91f9f",
+      "bounds": {
+        "min": [
+          -1.49,
+          0.002,
+          -0.8945
+        ],
+        "max": [
+          1.49,
+          1.1859,
+          1.3461
+        ],
+        "dimensions_m": [
+          2.9801,
+          1.1839,
+          2.2406
+        ]
+      },
+      "plot_m": [
+        3,
+        2.25
+      ],
+      "required_nodes": [
+        "ANTENNA_L",
+        "ANTENNA_R",
+        "BASIS_CL",
+        "BASIS_CR",
+        "BASIS_L1",
+        "BASIS_L2",
+        "BASIS_L3",
+        "BASIS_L4",
+        "BASIS_R1",
+        "BASIS_R2",
+        "BASIS_R3",
+        "BASIS_R4",
+        "BODY",
+        "CARPUS_CL",
+        "CARPUS_CR",
+        "CARPUS_L1",
+        "CARPUS_L2",
+        "CARPUS_L3",
+        "CARPUS_L4",
+        "CARPUS_R1",
+        "CARPUS_R2",
+        "CARPUS_R3",
+        "CARPUS_R4",
+        "COXA_CL",
+        "COXA_CR",
+        "COXA_L1",
+        "COXA_L2",
+        "COXA_L3",
+        "COXA_L4",
+        "COXA_R1",
+        "COXA_R2",
+        "COXA_R3",
+        "COXA_R4",
+        "DACTYL_CL",
+        "DACTYL_CR",
+        "DACTYL_L1",
+        "DACTYL_L2",
+        "DACTYL_L3",
+        "DACTYL_L4",
+        "DACTYL_R1",
+        "DACTYL_R2",
+        "DACTYL_R3",
+        "DACTYL_R4",
+        "EYESTALK_L",
+        "EYESTALK_R",
+        "MANDIBLE_L",
+        "MANDIBLE_R",
+        "MAXILLIPED_L",
+        "MAXILLIPED_R",
+        "MERUS_CL",
+        "MERUS_CR",
+        "MERUS_L1",
+        "MERUS_L2",
+        "MERUS_L3",
+        "MERUS_L4",
+        "MERUS_R1",
+        "MERUS_R2",
+        "MERUS_R3",
+        "MERUS_R4",
+        "MOTION",
+        "PROPODUS_CL",
+        "PROPODUS_CR",
+        "PROPODUS_L1",
+        "PROPODUS_L2",
+        "PROPODUS_L3",
+        "PROPODUS_L4",
+        "PROPODUS_R1",
+        "PROPODUS_R2",
+        "PROPODUS_R3",
+        "PROPODUS_R4",
+        "ROOT",
+        "SENSOR_YAW",
+        "SOCKET_GRIP_CL",
+        "SOCKET_GRIP_CR",
+        "SOCKET_MOUTH",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SOCKET_TIP_L1",
+        "SOCKET_TIP_L2",
+        "SOCKET_TIP_L3",
+        "SOCKET_TIP_L4",
+        "SOCKET_TIP_R1",
+        "SOCKET_TIP_R2",
+        "SOCKET_TIP_R3",
+        "SOCKET_TIP_R4",
+        "TK01_RIG",
+        "TK01_SKIN"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_GRIP_CL",
+          "parent": "PROPODUS_CL",
+          "position_m": [
+            0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_GRIP_CR",
+          "parent": "PROPODUS_CR",
+          "position_m": [
+            -0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L1",
+          "parent": "DACTYL_L1",
+          "position_m": [
+            1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L2",
+          "parent": "DACTYL_L2",
+          "position_m": [
+            1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L3",
+          "parent": "DACTYL_L3",
+          "position_m": [
+            1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L4",
+          "parent": "DACTYL_L4",
+          "position_m": [
+            0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R1",
+          "parent": "DACTYL_R1",
+          "position_m": [
+            -1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R2",
+          "parent": "DACTYL_R2",
+          "position_m": [
+            -1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R3",
+          "parent": "DACTYL_R3",
+          "position_m": [
+            -1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R4",
+          "parent": "DACTYL_R4",
+          "position_m": [
+            -0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.772,
+            0.348
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.53,
+            0.398
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.935,
+            -0.04
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/takaashi01_d0_lod1.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 946896,
+      "meshopt_sha256": "0886bc05c92d2688de7a37b7303fb9af0081caf7d3ccb63fd006229ff90a0117"
+    },
+    {
+      "file": "takaashi01_d0_lod2.glb",
+      "lod": 2,
+      "damage_level": 0,
+      "static": true,
+      "derived": false,
+      "bytes": 99784,
+      "triangles": 1050,
+      "draw_calls": 1,
+      "clips": [],
+      "credit": "Model and animation by Jelaludo",
+      "review_status": "contract_candidate: repository validation and measured budgets pass; game-camera, LOD threshold and reference-phone acceptance pending",
+      "sha256": "c6d82a5c78bea0cbf465dcf7cfe0a51e2e563b4f75928cb049bcd490bc1d882a",
+      "bounds": {
+        "min": [
+          -1.49,
+          0.002,
+          -0.8945
+        ],
+        "max": [
+          1.49,
+          1.1554,
+          1.3461
+        ],
+        "dimensions_m": [
+          2.9801,
+          1.1534,
+          2.2406
+        ]
+      },
+      "plot_m": [
+        3,
+        2.25
+      ],
+      "required_nodes": [
+        "ANTENNA_L",
+        "ANTENNA_R",
+        "BASIS_CL",
+        "BASIS_CR",
+        "BASIS_L1",
+        "BASIS_L2",
+        "BASIS_L3",
+        "BASIS_L4",
+        "BASIS_R1",
+        "BASIS_R2",
+        "BASIS_R3",
+        "BASIS_R4",
+        "BODY",
+        "CARPUS_CL",
+        "CARPUS_CR",
+        "CARPUS_L1",
+        "CARPUS_L2",
+        "CARPUS_L3",
+        "CARPUS_L4",
+        "CARPUS_R1",
+        "CARPUS_R2",
+        "CARPUS_R3",
+        "CARPUS_R4",
+        "COXA_CL",
+        "COXA_CR",
+        "COXA_L1",
+        "COXA_L2",
+        "COXA_L3",
+        "COXA_L4",
+        "COXA_R1",
+        "COXA_R2",
+        "COXA_R3",
+        "COXA_R4",
+        "DACTYL_CL",
+        "DACTYL_CR",
+        "DACTYL_L1",
+        "DACTYL_L2",
+        "DACTYL_L3",
+        "DACTYL_L4",
+        "DACTYL_R1",
+        "DACTYL_R2",
+        "DACTYL_R3",
+        "DACTYL_R4",
+        "EYESTALK_L",
+        "EYESTALK_R",
+        "MANDIBLE_L",
+        "MANDIBLE_R",
+        "MAXILLIPED_L",
+        "MAXILLIPED_R",
+        "MERUS_CL",
+        "MERUS_CR",
+        "MERUS_L1",
+        "MERUS_L2",
+        "MERUS_L3",
+        "MERUS_L4",
+        "MERUS_R1",
+        "MERUS_R2",
+        "MERUS_R3",
+        "MERUS_R4",
+        "MOTION",
+        "PROPODUS_CL",
+        "PROPODUS_CR",
+        "PROPODUS_L1",
+        "PROPODUS_L2",
+        "PROPODUS_L3",
+        "PROPODUS_L4",
+        "PROPODUS_R1",
+        "PROPODUS_R2",
+        "PROPODUS_R3",
+        "PROPODUS_R4",
+        "ROOT",
+        "SENSOR_YAW",
+        "SOCKET_GRIP_CL",
+        "SOCKET_GRIP_CR",
+        "SOCKET_MOUTH",
+        "SOCKET_PAYLOAD",
+        "SOCKET_SENSOR",
+        "SOCKET_TIP_L1",
+        "SOCKET_TIP_L2",
+        "SOCKET_TIP_L3",
+        "SOCKET_TIP_L4",
+        "SOCKET_TIP_R1",
+        "SOCKET_TIP_R2",
+        "SOCKET_TIP_R3",
+        "SOCKET_TIP_R4",
+        "TK01_RIG",
+        "TK01_SKIN"
+      ],
+      "sockets": [
+        {
+          "node": "SOCKET_GRIP_CL",
+          "parent": "PROPODUS_CL",
+          "position_m": [
+            0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_GRIP_CR",
+          "parent": "PROPODUS_CR",
+          "position_m": [
+            -0.2854,
+            0.1854,
+            1.1452
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L1",
+          "parent": "DACTYL_L1",
+          "position_m": [
+            1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L2",
+          "parent": "DACTYL_L2",
+          "position_m": [
+            1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L3",
+          "parent": "DACTYL_L3",
+          "position_m": [
+            1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_L4",
+          "parent": "DACTYL_L4",
+          "position_m": [
+            0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R1",
+          "parent": "DACTYL_R1",
+          "position_m": [
+            -1.2265,
+            0.002,
+            1.0013
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R2",
+          "parent": "DACTYL_R2",
+          "position_m": [
+            -1.49,
+            0.002,
+            0.2861
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R3",
+          "parent": "DACTYL_R3",
+          "position_m": [
+            -1.3763,
+            0.002,
+            -0.4253
+          ]
+        },
+        {
+          "node": "SOCKET_TIP_R4",
+          "parent": "DACTYL_R4",
+          "position_m": [
+            -0.976,
+            0.002,
+            -0.8945
+          ]
+        },
+        {
+          "node": "SOCKET_SENSOR",
+          "parent": "SENSOR_YAW",
+          "position_m": [
+            0,
+            0.772,
+            0.348
+          ]
+        },
+        {
+          "node": "SOCKET_MOUTH",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.53,
+            0.398
+          ]
+        },
+        {
+          "node": "SOCKET_PAYLOAD",
+          "parent": "BODY",
+          "position_m": [
+            0,
+            0.935,
+            -0.04
+          ]
+        }
+      ],
+      "meshopt_file": "derived/meshopt/takaashi01_d0_lod2.meshopt.glb",
+      "meshopt_derived": true,
+      "meshopt_bytes": 37464,
+      "meshopt_sha256": "7ece6393fa0baac74da308b7611dd6572d4d8a369f047fa78c201b7a9f5da6ad"
+    }
+  ],
+  "budgets": {
+    "category": "Unit (contract: <= 25k triangles with articulated pivots, one tier). Local note: a static distance tier is supplied for map/loading views.",
+    "game_triangles": 25000,
+    "distance_triangles": 3000,
+    "distance_draw_calls": 1,
+    "distance_bytes": 250000
+  },
+  "integration": {
+    "placement": "Place the whole glTF scene in an instance group; clone with SkeletonUtils.clone. ROOT, TK01_RIG and MOTION are unanimated lookups.",
+    "locomotion": "Gait clips have no baked root motion. Each frame translate the instance by clips.velocity_mps (glTF axes, metres per second) and rotate it about +Y by clips.yaw_rate_rad_s, both multiplied by playback rate. Tips then stay planted.",
+    "contacts": "SOCKET_TIP_L1..R4 mark dactyl points 2 mm above the authored floor. Stance follows touchdown_phase/duty_factor for gaits and swing_windows_s elsewhere. The game supplies terrain adaptation.",
+    "chelae": "SOCKET_GRIP_CL/CR sit between the fingers for held props; parent props there. DACTYL_CL/CR rotate about the palm hinge; Claw_Snap events_s give the closing instants.",
+    "sensor": "SENSOR_YAW is excluded from clips and may be aimed by the engine; SOCKET_SENSOR follows it.",
+    "mouth": "SOCKET_MOUTH marks the maxilliped opening used by Feed_Cycle.",
+    "bounds": "Use validation-report.json clip envelopes for animation-aware culling; Threat_Display rises and lifts the first walking pair.",
+    "units": "Authored kinematic gait on a flat floor; not a physics or ground-reaction simulation."
+  },
+  "provenance": {
+    "geometry": "Original procedural model by Jelaludo; no reference geometry, textures or pixels copied or embedded.",
+    "concept_reference": {
+      "file": "Mechanical Spider Crab in Studio Light.png",
+      "sha256": "258ae7fd7ba6a85904d1ddac5a67ede8fa437fb030387e1dc13f1f0fe3e683bf",
+      "pixels": [
+        1672,
+        941
+      ],
+      "usage": "User-supplied concept art informing silhouette, openwork riveted frames, twisted cable cores, spined lattice carapace, blue optics and serrated chelae. Not redistributed."
+    },
+    "motion": "Original procedural authoring (tools/blender/takaashi_motion.py). Gait topology follows published decapod observations: alternating tetrapod lateral walking with leading legs flexing and trailing legs extending, wave-gait forward walking and chela-to-mouth feeding. No captured or third-party keys."
+  },
+  "source": {
+    "file": "../../source/blender/a6-takaashi01.blend",
+    "bytes": 9154970,
+    "sha256": "00f068e253e7b2176637c7845618659d13fe1e39fb7cd6e2df8c8c56629789f7",
+    "role": "Editable LOD0 authoring master with all nine NLA clips; plain GLBs are the runtime source of truth"
+  }
+}
